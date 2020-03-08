@@ -1,0 +1,12 @@
+需要安装java环境
+
+运行cmd，切换到unluac.jar的目录
+
+输入java -jar unluac.jar 源文件路径（如果是和unluac.jar在同一目录可以只输入文件名）>目标文件路径
+
+例如：java -jar unluac.jar d:\testin.lua>d:\testout.lua
+
+源文件和目标文件和unluac.jar在同一目录的话： java -jar unluac.jar testin.lua>testout.lua
+
+
+反编译的文件可以直接用文本编辑器修改
