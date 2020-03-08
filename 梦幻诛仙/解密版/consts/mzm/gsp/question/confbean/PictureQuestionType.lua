@@ -1,0 +1,11 @@
+local PictureQuestionType = {
+  NUMBER = 1,
+  SPECIAL_BIANYI_NUMBER = 2,
+  MOVE_STEPS = 3,
+  BIANYI_MOVE_STEPS = 4,
+  BIANYI_NUMBER = 5,
+  NOT_BIANYI_NUMBER = 6,
+  DECORATE_NUMBER = 7,
+  NOT_DECORATE_NUMBER = 8
+}
+return PictureQuestionType

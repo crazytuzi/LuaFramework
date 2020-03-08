@@ -1,0 +1,17 @@
+local ConType = {
+  NULL = 0,
+  ROLE_LEVEL = 1,
+  PET_LEVEL = 2,
+  TASK_ID = 3,
+  IN_FIGHT = 4,
+  PRE_GUIDEID = 5,
+  FIGHT_END = 6,
+  GAIN_ITEM = 7,
+  JOIN_GANG = 8,
+  FINISH_ACTIVITY = 9,
+  CREATE_HOME = 10,
+  TRANSFER_OCP = 11,
+  SHITU_BAISHI = 12,
+  SHITU_TASK = 13
+}
+return ConType

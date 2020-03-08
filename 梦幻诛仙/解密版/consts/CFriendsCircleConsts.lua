@@ -1,0 +1,19 @@
+constant.CFriendsCircleConsts = {
+  friends_circle_open_role_level = 50,
+  tread_open_role_level = 50,
+  give_gift_open_role_level = 50,
+  look_over_open_role_level = 0,
+  personallized_signature_max_length = 50,
+  new_message_max_num = 99,
+  release_dynamic_max_length = 200,
+  comment_max_length = 200,
+  treasure_box_gold_price = 100,
+  place_treasure_box_max_num = 20,
+  treasure_box_tips_cfg_Id = 701609996,
+  popularity_values_tips_cfg_id = 701609997,
+  gift_tips_cfg_id = 701609998,
+  present_message_character_max_num = 50,
+  max_show_present_history_num = 20,
+  max_show_tread_circle_history_num = 20,
+  max_black_role_num_limit = 100
+}

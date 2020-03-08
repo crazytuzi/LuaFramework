@@ -1,0 +1,10 @@
+local MovePosType = {
+  TARGET_QIAN_FANG = 0,
+  TARGET_QIAN_MIAN = 1,
+  FIHGT_CENTER = 2,
+  RELESER_POS = 3,
+  ENERMY_LOW = 4,
+  ENERMY_TOP = 5,
+  TARGET_SCREEN_QIAN_FANG = 6
+}
+return MovePosType

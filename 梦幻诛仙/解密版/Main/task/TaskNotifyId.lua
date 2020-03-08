@@ -1,0 +1,27 @@
+local NotifyId = {
+  Task_InfoChanged = 1,
+  Task_GotoNPC = 2,
+  Task_AcceptTask = 3,
+  Task_TryDoNPC = 4,
+  Task_RingChanged = 5,
+  Task_FinishRingChanged = 6,
+  Task_ImmediateDoNPC = 7,
+  Task_OnRefreshLibTryDoNPC = 8,
+  Task_TaskFindPath = 10,
+  Task_GiveItem = 11,
+  Task_GivePet = 12,
+  Task_TalkShow = 13,
+  Task_TalkHide = 14,
+  Task_Finishable = 15,
+  Task_FinishTask = 16,
+  Task_CircleTaskSecond = 17,
+  Task_ShowCaptainTaskTalk = 18,
+  Task_DramaStart = 19,
+  Task_DramaOver = 20,
+  Task_QinyunHistoryChanged = 21,
+  Task_Item_Changed = 22,
+  Task_UnAcceptCondChged = 23,
+  Task_TaskTraceNotifyAnother = 24,
+  Task_New_Surprise_Task_Change = 25
+}
+return NotifyId

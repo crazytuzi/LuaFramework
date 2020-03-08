@@ -1,0 +1,1 @@
+constant.CAddictionConsts = {RESET_TIME_CFG_ID = 350299012, HEART_BEAT_SECOND = 60}

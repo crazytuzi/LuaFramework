@@ -1,0 +1,5 @@
+constant.CAvatarFrameConsts = {
+  OPEN_LEVEL = 60,
+  DEFAULT_AVATAR_FRAME_ID = 104100000,
+  INITIAL_DISPLAY_NUM = 12
+}

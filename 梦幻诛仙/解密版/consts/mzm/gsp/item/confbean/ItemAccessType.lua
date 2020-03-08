@@ -1,0 +1,18 @@
+local ItemAccessType = {
+  MAP = 1,
+  ACTIVITY = 2,
+  NPC_SHOP = 3,
+  SHANGHUI_BIGTYPE = 4,
+  BAITANG_BIG = 5,
+  SHANGHUI_SUBTYPE = 6,
+  MALL = 7,
+  JIFEN = 8,
+  LIFESKILL = 9,
+  GAGN_DRUG_SHOP = 10,
+  BAITANG_SUB = 11,
+  BAOTU = 12,
+  VITALITY_EXCHANGE = 13,
+  FURNITURE_SHOP = 14,
+  CHANGE_MODEL_CARD_LOTTERY = 15
+}
+return ItemAccessType

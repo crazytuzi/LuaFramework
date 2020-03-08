@@ -1,0 +1,5 @@
+constant.CShiTuActiveValueConsts = {
+  DAILY_RESET_TIME = 350299000,
+  MASTER_REWARD_ID = 1,
+  APPRENTICE_REWARD_ID = 2
+}

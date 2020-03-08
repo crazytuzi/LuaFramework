@@ -1,0 +1,52 @@
+local SCrossBattleSelectionNormalRes = class("SCrossBattleSelectionNormalRes")
+SCrossBattleSelectionNormalRes.TYPEID = 12616994
+SCrossBattleSelectionNormalRes.PREPARE_ENTER_TIME_EXPIRED = 1
+SCrossBattleSelectionNormalRes.PREPARE_ENTER_MAP_NOT_JOIN_TEAM = 2
+SCrossBattleSelectionNormalRes.MATCH_FAIL = 3
+SCrossBattleSelectionNormalRes.SELECTION_ACTIVITY_DATA_NOT_FOUND = 4
+SCrossBattleSelectionNormalRes.SELECTION_FIGHT_ZONE_DATA_NOT_FOUND = 5
+SCrossBattleSelectionNormalRes.SELECTION_FIGHT_STAGE_DATA_NOT_FOUND = 6
+SCrossBattleSelectionNormalRes.SELECTION_FIGHT_CORPS_INFO_GET_ERROR = 7
+SCrossBattleSelectionNormalRes.SELECTION_FIGHT_GEN_TOKEN_ERROR = 8
+SCrossBattleSelectionNormalRes.SELECTION_FIGHT_ROAM_ROLE_DATA_ERROR = 9
+SCrossBattleSelectionNormalRes.SELECTION_FIGHT_INFO_GET_ERROR = 10
+SCrossBattleSelectionNormalRes.USER_ID_NOT_FOUND = 11
+SCrossBattleSelectionNormalRes.ACTIVITY_CFG_NOT_FOUND = 12
+SCrossBattleSelectionNormalRes.TEAM_NUMBER_NOT_VALID = 13
+SCrossBattleSelectionNormalRes.TEAM_NEED = 14
+SCrossBattleSelectionNormalRes.TEAM_MEMBER_NOT_SAME_WITH_SIGN_UP = 15
+SCrossBattleSelectionNormalRes.WORLD_NOT_EXIST = 16
+SCrossBattleSelectionNormalRes.INTO_WORLD_END_TIME_NOT_EXIST = 17
+SCrossBattleSelectionNormalRes.NOT_IN_CORPS = 18
+SCrossBattleSelectionNormalRes.NOT_IN_FIGHT_ZONE = 19
+SCrossBattleSelectionNormalRes.ROAMED_USER_ID_NOT_FOUND = 20
+SCrossBattleSelectionNormalRes.ROAMED_CONTEXT_NOT_FOUND = 21
+SCrossBattleSelectionNormalRes.OWN_SERVER_LOGIN_NOT_FOUND_OPPONENT = 22
+SCrossBattleSelectionNormalRes.CAL_SELECTION_STAGE_FAIL = 23
+SCrossBattleSelectionNormalRes.QUERY_SIGN_UP_ROLE_LIST_FAIL = 24
+SCrossBattleSelectionNormalRes.SELECTION_FUNCTION_NOT_OPEN = 25
+SCrossBattleSelectionNormalRes.FIGHT_ZONE_ID_NOT_VALID = 26
+SCrossBattleSelectionNormalRes.KNOCK_OUT_CFG_NOT_FOUND = 27
+SCrossBattleSelectionNormalRes.KNOCK_OUT_HANDLER_NOT_FOUND = 28
+SCrossBattleSelectionNormalRes.CAL_FIGHT_TIMES_ERROR = 29
+SCrossBattleSelectionNormalRes.ALEARDY_RANK_UP = 30
+SCrossBattleSelectionNormalRes.ALEARDY_KNOCK_OUT = 31
+SCrossBattleSelectionNormalRes.ROLE_STATUS_ERROR = 32
+SCrossBattleSelectionNormalRes.GET_CORPS_INFO_ERROR = 33
+SCrossBattleSelectionNormalRes.TEAM_MEMBER_CAN_NOT_CLICK = 34
+SCrossBattleSelectionNormalRes.TEAM_CAN_NOT_INTO_GAME = 35
+SCrossBattleSelectionNormalRes.KNOCK_OUT_DATA_NOT_FOUND = 36
+function SCrossBattleSelectionNormalRes:ctor(ret)
+  self.id = 12616994
+  self.ret = ret or nil
+end
+function SCrossBattleSelectionNormalRes:marshal(os)
+  os:marshalInt32(self.ret)
+end
+function SCrossBattleSelectionNormalRes:unmarshal(os)
+  self.ret = os:unmarshalInt32()
+end
+function SCrossBattleSelectionNormalRes:sizepolicy(size)
+  return size <= 65535
+end
+return SCrossBattleSelectionNormalRes

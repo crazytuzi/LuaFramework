@@ -1,0 +1,7 @@
+constant.CEquipmentBlessConsts = {
+  OPEN_LEVEL = 100,
+  MAX_BLESS_LEVEL = 40,
+  SUCCESS_SFX_ID = 702020281,
+  FAIL_SFX_ID = 702020280,
+  HOVER_TIP_ID = 701650034
+}

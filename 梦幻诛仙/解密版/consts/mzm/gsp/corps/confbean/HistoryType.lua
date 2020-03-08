@@ -1,0 +1,12 @@
+local HistoryType = {
+  CREAT_CORPS = 1,
+  JOIN_CORPS = 2,
+  LEAVE_CORPS = 3,
+  FIRE_CORPS = 4,
+  RENAME_CORPS = 5,
+  JOIN_CORPS_WHRN_CREATE = 6,
+  FIGHT_CHU_XIAN = 7,
+  FIGHT_BRANCH_X = 8,
+  FIGHT_FINAL_X = 9
+}
+return HistoryType

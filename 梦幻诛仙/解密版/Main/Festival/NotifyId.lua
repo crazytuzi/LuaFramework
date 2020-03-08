@@ -1,0 +1,18 @@
+local NotifyId = {
+  ChildrensDay = {
+    MEM_DECISION_UPDATE = 1,
+    DRAWER_CHANGE = 2,
+    RCV_LINEDATA = 3,
+    RCV_LINE_APPEND = 4,
+    SYN_LINEDATA_SUCCESS = 5,
+    RCV_ANSWER = 6,
+    STOP_SYN_LINEDATA = 7,
+    CLEAR_CANVAS = 8,
+    SEND_MSG_SUCCESS = 9,
+    SEND_MSG_FAILED = 10,
+    ROUND_FINISH = 11,
+    CLOSE_PANEL = 12,
+    SYN_HISTORY_LINEDATA_DONE = 13
+  }
+}
+return NotifyId

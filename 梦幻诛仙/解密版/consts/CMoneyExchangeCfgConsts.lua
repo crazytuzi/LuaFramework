@@ -1,0 +1,6 @@
+constant.CMoneyExchangeCfgConsts = {
+  YUANBAO_TO_GOLD_NUM = 100,
+  YUANBAO_TO_SILVER_NUM = 10000,
+  GOLD_TO_SILVER_NUM = 100,
+  INGOT_TO_GOLD_NUM = 1
+}

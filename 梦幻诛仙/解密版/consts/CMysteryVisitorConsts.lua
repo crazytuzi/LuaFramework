@@ -1,0 +1,1 @@
+constant.CMysteryVisitorConsts = {ACTIVITY_CFG_ID = 350000437, REMIND_MAIL_CFG_ID = 340001804}

@@ -1,0 +1,13 @@
+local CSelfRankReq = class("CSelfRankReq")
+CSelfRankReq.TYPEID = 12596232
+function CSelfRankReq:ctor()
+  self.id = 12596232
+end
+function CSelfRankReq:marshal(os)
+end
+function CSelfRankReq:unmarshal(os)
+end
+function CSelfRankReq:sizepolicy(size)
+  return size <= 65535
+end
+return CSelfRankReq

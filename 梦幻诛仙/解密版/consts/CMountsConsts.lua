@@ -1,0 +1,19 @@
+constant.CMountsConsts = {
+  mountsOpenLevel = 73,
+  maxMountsRank = 8,
+  maxBattleMounts = 5,
+  propertyDesTips = 701609611,
+  mountsRankUpDesTips = 701609612,
+  starLifeDesTips = 701609613,
+  maxMountsProtectPets = 3,
+  maxMountsNum = 40,
+  rankUpMountsRestoreProb = 10000,
+  mounts_task_id1 = 50000138,
+  mounts_task_id2 = 50000139,
+  mounts_task_id3 = 0,
+  mounts_task_id4 = 0,
+  mounts_task_id5 = 0,
+  mounts_task_id6 = 0,
+  mounts_task_map_id = 50000016,
+  chiefMountsCellId = 1
+}

@@ -1,0 +1,19 @@
+local Lplus = require("Lplus")
+local SkillCfgData = Lplus.Class("SkillCfgData")
+local def = SkillCfgData.define
+local SkillBagCfgData = Lplus.ForwardDeclare("SkillBagCfgData")
+local NUMBER_NOT_SET = -1
+local STRING_NOT_SET = ""
+def.field("number").id = NUMBER_NOT_SET
+def.field("number").iconId = NUMBER_NOT_SET
+def.field("string").name = STRING_NOT_SET
+def.field("string").description = STRING_NOT_SET
+def.field("string").simpleDesc = STRING_NOT_SET
+def.field("number").type = NUMBER_NOT_SET
+def.field("number").conditionId = NUMBER_NOT_SET
+def.field("number").playId = NUMBER_NOT_SET
+def.field("number").costFormulaId = NUMBER_NOT_SET
+def.field("boolean").displayInFight = false
+def.field("boolean").canAuto = false
+def.field("number").specialType = NUMBER_NOT_SET
+return SkillCfgData.Commit()

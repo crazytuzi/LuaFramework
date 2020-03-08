@@ -1,0 +1,1 @@
+constant.CAllLottoConsts = {WARM_UP_AWARD_VAILD_DURATION_IN_SECOND = 40}

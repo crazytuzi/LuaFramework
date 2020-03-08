@@ -1,0 +1,11 @@
+constant.CFabaoArtifactConsts = {
+  OPEN_LEVEL = 80,
+  HOVER_TIP_ID1 = 701609962,
+  HOVER_TIP_ID2 = 701609965,
+  HOVER_TIP_ID3 = 0,
+  HOVER_TIP_ID4 = 0,
+  HOVER_TIP_ID5 = 0,
+  SFX_ID1 = 702020042,
+  SFX_ID2 = 0,
+  SFX_ID3 = 0
+}

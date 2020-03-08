@@ -1,0 +1,8 @@
+constant.CTrumpetConsts = {
+  RECEIVE_MIN_LEVEL = 10,
+  MAX_WORD_NUM = 50,
+  TRUMPET_ICON_NAME = "Img_Broadcast",
+  ROLE_NAME_COLOR_R = 255,
+  ROLE_NAME_COLOR_G = 65,
+  ROLE_NAME_COLOR_B = 107
+}

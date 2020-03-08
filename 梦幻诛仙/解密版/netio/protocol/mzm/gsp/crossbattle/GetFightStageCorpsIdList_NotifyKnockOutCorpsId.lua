@@ -1,0 +1,9 @@
+local OctetsStream = require("netio.OctetsStream")
+local GetFightStageCorpsIdList_NotifyKnockOutCorpsId = class("GetFightStageCorpsIdList_NotifyKnockOutCorpsId")
+function GetFightStageCorpsIdList_NotifyKnockOutCorpsId:ctor()
+end
+function GetFightStageCorpsIdList_NotifyKnockOutCorpsId:marshal(os)
+end
+function GetFightStageCorpsIdList_NotifyKnockOutCorpsId:unmarshal(os)
+end
+return GetFightStageCorpsIdList_NotifyKnockOutCorpsId

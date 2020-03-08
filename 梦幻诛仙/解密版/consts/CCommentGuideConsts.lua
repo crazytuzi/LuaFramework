@@ -1,0 +1,5 @@
+constant.CCommentGuideConsts = {
+  TRIGGER_PROBABILITY = 3500,
+  AGREE_COOLDOWN = 24,
+  REFUSE_COOLDOWN = 12
+}

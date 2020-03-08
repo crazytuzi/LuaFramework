@@ -1,0 +1,6 @@
+_G.MALL_PAYTYPE = {
+  UNBIND_CASH = 1,
+  BIND_CASH = 2,
+  TOKEN = 3,
+  REPUTATION = 4
+}

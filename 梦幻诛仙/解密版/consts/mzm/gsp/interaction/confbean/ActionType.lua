@@ -1,0 +1,20 @@
+local ActionType = {
+  HUG = 0,
+  KISS = 1,
+  DANCE_BATTLE = 2,
+  PROPOSAL = 3,
+  TOUCH_HEAD = 4,
+  SIT_TOGETHER = 5,
+  PRINCESS_HUG = 6,
+  RESERVE1 = 7,
+  RESERVE2 = 8,
+  RESERVE3 = 9,
+  RESERVE4 = 10,
+  RESERVE5 = 11,
+  RESERVE6 = 12,
+  RESERVE7 = 13,
+  RESERVE8 = 14,
+  RESERVE9 = 15,
+  RESERVE10 = 16
+}
+return ActionType

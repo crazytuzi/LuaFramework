@@ -1,0 +1,7 @@
+local NotifyId = {
+  MAGIC_MARK_EXPIRED = 1,
+  MAGIC_MARK_CHANGED = 2,
+  MAGIC_MARK_UNLOCKED = 3,
+  MAGIC_MARK_ENABLE_CHANGE = 4
+}
+return NotifyId

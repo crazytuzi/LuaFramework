@@ -1,0 +1,59 @@
+local OctetsStream = require("netio.OctetsStream")
+local MapEntityExtraInfoType = class("MapEntityExtraInfoType")
+MapEntityExtraInfoType.MET_FURNITURE_DIRECTION = 0
+MapEntityExtraInfoType.MET_SERVANT_NAME = 100
+MapEntityExtraInfoType.MGT_EXPLORE_CAT_NAME = 200
+MapEntityExtraInfoType.MGT_EXPLORE_CAT_OWNER = 201
+MapEntityExtraInfoType.MGT_EXPLORE_CAT_DIRECTION = 202
+MapEntityExtraInfoType.MGT_EXPLORE_CAT_STATE = 203
+MapEntityExtraInfoType.MGT_EXPLORE_CAT_TITLE = 204
+MapEntityExtraInfoType.MGT_HOME_LAND_BASIC_INFO_LEVEL = 300
+MapEntityExtraInfoType.MGT_HOME_LAND_BASIC_INFO_FENG_SHUI = 301
+MapEntityExtraInfoType.MGT_HOME_LAND_BASIC_INFO_CLEANLINESS = 302
+MapEntityExtraInfoType.MGT_HOME_LAND_BASIC_INFO_CREATOR_ROLEID = 303
+MapEntityExtraInfoType.MGT_HOME_LAND_BASIC_INFO_CREATOR_NAME = 304
+MapEntityExtraInfoType.MGT_HOME_LAND_BASIC_INFO_PARTNER_ROLEID = 305
+MapEntityExtraInfoType.MGT_HOME_LAND_BASIC_INFO_PARTNER_NAME = 306
+MapEntityExtraInfoType.MET_HOME_LAND_BASIC_INFO_COURT_YARD_LEVEL = 307
+MapEntityExtraInfoType.MET_HOME_LAND_BASIC_INFO_COURT_YARD_CLEANLINESS = 308
+MapEntityExtraInfoType.MET_HOME_LAND_BASIC_INFO_COURT_YARD_BEAUTIFUL = 309
+MapEntityExtraInfoType.MGT_WORLD_GOAL_INFO_POINT = 400
+MapEntityExtraInfoType.MGT_WORLD_GOAL_INFO_TIMESTAMP = 401
+MapEntityExtraInfoType.MET_CHILDREN_ID = 701
+MapEntityExtraInfoType.MET_CHILDREN_NAME = 702
+MapEntityExtraInfoType.MET_CHILDREN_GENDER = 703
+MapEntityExtraInfoType.MET_CHILDREN_PERIOD = 704
+MapEntityExtraInfoType.MET_CHILDREN_FASHION = 705
+MapEntityExtraInfoType.MET_CHILDREN_MODEL_CFG_ID = 706
+MapEntityExtraInfoType.MET_CHILDREN_WEAPON_ID = 707
+MapEntityExtraInfoType.MET_ANIMAL_ID = 800
+MapEntityExtraInfoType.MET_ANIMAL_STAGE = 801
+MapEntityExtraInfoType.MET_EMBRYO_CFG_ID = 802
+MapEntityExtraInfoType.MET_EMBRYO_HATCH_DAYS = 803
+MapEntityExtraInfoType.MET_ANIMAL_CFG_ID = 804
+MapEntityExtraInfoType.MET_ANIMAL_LAST_MATE_TIME = 805
+MapEntityExtraInfoType.MET_ANIMAL_NAME = 806
+MapEntityExtraInfoType.MET_ANIMAL_AWARD_CFG_ID = 807
+MapEntityExtraInfoType.MET_ANIMAL_OWNER_NAME = 808
+MapEntityExtraInfoType.MET_SINGLE_BATTLE_POSITION_CAMPID = 1300
+MapEntityExtraInfoType.MET_GOLD_STATUE_ROLE_NAME = 1600
+MapEntityExtraInfoType.MET_GOLD_STATUE_CORPS_NAME = 1601
+MapEntityExtraInfoType.MET_GOLD_STATUE_CORPS_ZONEID = 1602
+MapEntityExtraInfoType.MET_GOLD_STATUE_CORPS_BADGEID = 1603
+MapEntityExtraInfoType.MET_GOLD_STATUE_CROSS_BATTLE_NO = 1604
+MapEntityExtraInfoType.MET_FLOAT_PARADE_MALE = 1700
+MapEntityExtraInfoType.MET_FLOAT_PARADE_FEMAIL = 1701
+MapEntityExtraInfoType.MET_FLOAT_PARADE_OCP = 1702
+MapEntityExtraInfoType.MET_FLOAT_PARADE_VELOCITY = 1703
+MapEntityExtraInfoType.MET_CAKE_OVEN_STAGE = 1800
+MapEntityExtraInfoType.MET_CHRISTMAS_STOCKING_POS_START = 1900
+MapEntityExtraInfoType.MET_CHRISTMAS_STOCKING_POS_END = 1919
+MapEntityExtraInfoType.MET_CHRISTMAS_STOCKING_OWNER = 1920
+MapEntityExtraInfoType.MET_CHRISTMAS_STOCKING_OWNER_NAME = 1921
+function MapEntityExtraInfoType:ctor()
+end
+function MapEntityExtraInfoType:marshal(os)
+end
+function MapEntityExtraInfoType:unmarshal(os)
+end
+return MapEntityExtraInfoType

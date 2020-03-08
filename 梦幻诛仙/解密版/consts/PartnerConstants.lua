@@ -1,0 +1,23 @@
+constant.PartnerConstants = {
+  Partner_OPEN_LEVEL = 5,
+  Partner_ITEM_ID = 210101000,
+  Partner_ITEM_TYPE_ID = 39,
+  Partner_FIGHT_NUM = 4,
+  Partner_WASHGOLD_NUM = 3000,
+  LOVE_NUM = 2,
+  NULL_LOVE_ID = 140500000,
+  RECOVERY_MAIL_ID = 340001803,
+  RECOVERY_DISCOUNT = 10000,
+  PARTNER_LV_RET = 10,
+  YUAN_LV_RET = 40,
+  Partner_YUAN_LV_MAX = 50,
+  loveRankHighFontColorR = 0,
+  loveRankHighFontColorG = 102,
+  loveRankHighFontColorB = 255,
+  loveRankNormalFontColorR = 255,
+  loveRankNormalFontColorG = 0,
+  loveRankNormalFontColorB = 255,
+  loveRankLowFontColorR = 255,
+  loveRankLowFontColorG = 50,
+  loveRankLowFontColorB = 0
+}

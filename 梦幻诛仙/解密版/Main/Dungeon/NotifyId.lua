@@ -1,0 +1,8 @@
+local NotifyId = {
+  ENTER_SOLO_DUNGEON = 1,
+  LEAVE_SOLO_DUNGEON = 2,
+  ENTER_TEAM_DUNGEON = 3,
+  LEAVE_TEAM_DUNGEON = 4,
+  SOLO_DUNGEON_SAODANG = 5
+}
+return NotifyId

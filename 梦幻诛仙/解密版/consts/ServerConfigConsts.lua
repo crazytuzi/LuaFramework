@@ -1,0 +1,6 @@
+constant.ServerConfigConsts = {
+  SEVER_GROUP_NUM = 50,
+  OFFLINE_PERSON_IN_TIME_SEC = 120,
+  SERVER_STATE_LOG_LENGTH = 5,
+  SERVER_STARTUP_LEVEL = 0
+}

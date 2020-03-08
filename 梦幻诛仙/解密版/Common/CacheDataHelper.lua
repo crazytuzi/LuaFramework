@@ -1,0 +1,17 @@
+local CacheDataPathList = {
+  CFG_PATH.DATA_ICONRES,
+  CFG_PATH.DATA_MODEL_CONFIG,
+  CFG_PATH.DATA_ITEMCFG,
+  CFG_PATH.DATA_ACTIVITY_CFG,
+  CFG_PATH.DATA_NPC_CONFIG,
+  CFG_PATH.DATA_NPC_SERVICE_CFG,
+  CFG_PATH.DATA_NPC_TO_TASK_CFG,
+  CFG_PATH.DATA_TASK_CFG,
+  CFG_PATH.DATA_PET_CFG,
+  CFG_PATH.DATA_PET_YAO_LI_CFG
+}
+local map = {}
+for i, v in ipairs(CacheDataPathList) do
+  map[v] = true
+end
+CacheDataPathList = nil

@@ -1,0 +1,6 @@
+constant.CircleTaskConsts = {
+  Circle_TASK_GRAPHIC_ID = 30000001,
+  Circle_TASK_ACTIVITY_ID = 350000006,
+  Circle_START_TASK_NEED_SILVER = 100000,
+  Circle_ACCEPT_NPC_ID = 150100367
+}

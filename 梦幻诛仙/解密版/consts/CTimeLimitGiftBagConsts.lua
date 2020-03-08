@@ -1,0 +1,1 @@
+constant.CTimeLimitGiftBagConsts = {GIFT_MAIL_ID = 340010057, GIFT_HOVER_TIP_ID = 701650053}
