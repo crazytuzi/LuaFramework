@@ -1,0 +1,5 @@
+AniName	AniPath	TimeFrame
+die	Player/Horse/Horse01/die.anim	30
+hrun	Player/Horse/Horse01/hrun.anim	10
+hst	Player/Horse/Horse01/hst.anim	30
+hst01	Player/Horse/Horse01/hst01.anim	145

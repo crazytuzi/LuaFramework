@@ -1,0 +1,78 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	AuraSkillId	AuraSkillLevel	BigFaceID	BloodStyle	DefaultDialog	DropType	ForbitMove	StartActEvent	Tag	TitleID	WalkSpeed	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	FixExperience	IsNotShowShadow	SyncFirst	IsNotBYStealLife	Sex
+Character_tianwang	77	天王男主角	0	1			1		10								3000	3000					27																					1
+Character_tianwang_female	3278	天王女主角	0	1			1017		10								3000	3000					27																					2
+Character_emei	78	峨眉主角	0	1			2		10								3000	3000					27																					2
+Character_taohuadao	79	桃花主角	0	1			3		10								3000	3000					27																					2
+Character_xiaoyao	80	逍遥男主角	0	1			4		10								3000	3000					27																					1
+Character_xiaoyao_female	3458	逍遥女主角	0	1			1020		10								3000	3000					27																					2
+Character_wudang	707	武当男主角	0	1			5		10								3000	3000					27																					1
+Character_wudang_female	2884	武当女主角	0	1			1011		10								3000	3000					27																					2
+Character_tianren_male	3784	天忍男主角	0	1			1026		10								3000	3000					27																					2
+Character_tianren	708	天忍女主角	0	1			6		10								3000	3000					27																					2
+Character_shaolin	1787	少林主角	0	1			9		10								3000	3000					27																					1
+Character_cuiyan	1788	翠烟主角	0	1			10		10								3000	3000					27																					2
+Character_tangmen	1959	唐门主角	0	1			1001		10								3000	3000					27																					1
+Character_kunlun_male	2977	昆仑男主角	0	1			1014		10								3000	3000					27																					1
+Character_kunlun	1960	昆仑女主角	0	1			1002		10								3000	3000					27																					2
+Character_gaibang	2157	丐帮男主角	0	1			1003		10								3000	3000					27																					1
+Character_gaibang_female	3722	丐帮女主角	0	1			1023		10								3000	3000					27																					1
+Character_wudu	2158	五毒主角	0	1			1004		10								3000	3000					27																					2
+Character_cj	2337	藏剑主角	0	1			1005		10								3000	3000					27																					1
+Character_cg	2338	长歌主角	0	1			1006		10								3000	3000					27																					2
+Character_ts	2640	天山男主角	0	1			1007		10								3000	3000					27																					1
+Character_ts_female	2682	天山女主角	0	1			1008		10								3000	3000					27																					2
+Character_bd	2876	霸刀男主角	0	1			1009		10								3000	3000					27																					1
+Character_bd_female	2877	霸刀女主角	0	1			1010		10								3000	3000					27																					2
+Character_hs	2951	华山男主角	0	1			1012		10								3000	3000					27																					1
+Character_hs_female	2952	华山女主角	0	1			1013		10								3000	3000					27																					2
+Character_mj	3253	明教男主角	0	1			1015		10								3000	3000					27																					1
+Character_mj_female	3254	明教女主角	0	1			1016		10								3000	3000					27																					2
+Character_ds	3440	段氏男主角	0	1			1018		10								3000	3000					27																					1
+Character_ds_female	3441	段氏女主角	0	1			1019		10								3000	3000					27																					2
+Character_wh	3720	万花男主角	0	1			1021		10								3000	3000					27																					1
+Character_wh_female	3721	万花女主角	0	1			1022		10								3000	3000					27																					2
+Character_ym	3785	杨门男主角	0	1			1024		10								3000	3000					27																					1
+Character_ym_female	3786	杨门女主角	0	1			1025		10								3000	3000					27																					2
+newrole_tw	511	变身天王新手	1	1			1		10	21							3000	3000					27																					1
+newrole_em	512	变身峨眉新手	0	1			2		10	21							3000	3000					27																					2
+newrole_th	513	变身桃花新手	0	1			3		10	21							3000	3000					27																					2
+newrole_xy	514	变身逍遥新手	0	1			4		10	21							3000	3000					27																					1
+newrole_wd	816	变身武当新手	0	1			5		10	21							3000	3000					27																					1
+newrole_tr	817	变身天忍新手	0	1			6		10	21							3000	3000					27																					2
+newrole_sl	1789	变身少林新手	0	1			9		10	21							3000	3000					27																					1
+newrole_cy	1790	变身翠烟新手	0	1			10		10	21							3000	3000					27																					2
+newrole_tm	1961	变身唐门新手	0	1			1001		10	21							3000	3000					27																					1
+newrole_kl	1962	变身昆仑新手	0	1			1002		10	21							3000	3000					27																					2
+newrole_gb	2227	变身丐帮新手	0	1			1003		10	21							3000	3000					27																					1
+newrole_wudu	2228	变身五毒新手	0	1			1004		10	21							3000	3000					27																					2
+newrole_cj	2339	变身藏剑新手	0	1			1005		10	21							3000	3000					27																					1
+newrole_cg	2340	变身长歌新手	0	1			1006		10	21							3000	3000					27																					2
+newrole_ts	2683	变身天山新手	0	1			1007		10	21							3000	3000					27																					2
+newrole_bd	2878	变身霸刀新手	0	1			1009		10	21							3000	3000					27																					2
+newrole_hs	2963	变身华山新手	0	1			1009		10	21							3000	3000					27																					2
+newrole_zc_tw	1084	新手战场天王	1	1			1		10	21							1000	3000					27																					1
+newrole_zc_em	1085	新手战场峨眉	0	1			2		10	21							1000	3000					27																					2
+newrole_zc_th	1086	新手战场桃花	0	1			3		10	21							1000	3000					27																					2
+newrole_zc_xy	1087	新手战场逍遥	0	1			4		10	21							1000	3000					27																					1
+newrole_zc_wd	1088	新手战场武当	0	1			5		10	21							1000	3000					27																					1
+newrole_zc_tr	1089	新手战场天忍	0	1			6		10	21							1000	3000					27																					2
+newrole_zc_sl	1791	新手战场少林	0	1			9		10	21							1000	3000					27																					1
+newrole_zc_cy	1792	新手战场翠烟	0	1			10		10	21							1000	3000					27																					2
+newrole_zc_tm	1963	新手战场唐门	0	1			1001		10	21							1000	3000					27																					1
+newrole_zc_kl	1964	新手战场昆仑	0	1			1002		10	21							1000	3000					27																					2
+newrole_zc_gb	2229	新手战场丐帮	0	1			1003		10	21							1000	3000					27																					1
+newrole_zc_wudu	2230	新手战场五毒	0	1			1004		10	21							1000	3000					27																					2
+newrole_zc_cj	2341	新手战场藏剑	0	1			1005		10	21							1000	3000					27																					1
+newrole_zc_cg	2342	新手战场长歌	0	1			1006		10	21							1000	3000					27																					2
+newrole_zc_ts	2684	新手战场天山	0	1			1007		10	21							1000	3000					27																					2
+newrole_zc_bd	2879	新手战场霸刀	0	1			1009		10	21							1000	3000					27																					2
+newrole_zc_hs	2965	新手战场华山	0	1			1009		10	21							1000	3000					27																					2
+Baby_cuiyan	1827	啵啵	7	1			1139		10	31	832	1	833	1	836	1	1200	1200	Setting/Npc/Ai/faction/xiongmao.ini				27																				1	
+Shadow_tangmen	1965	唐门影子	8	1			1001		10								3000	3000					27																				1	
+Baby_wudu_ls	2190	灵蛇	7	1			585		10	31	4322	1	4323	1	836	1	1200	1200	Setting/Npc/Ai/faction/wudu_lingshe.ini			1	27																				1	
+Baby_wudu_bc	2191	碧蟾	7	1			583		10	31	4324	1	4325	1	836	1	1200	1200	Setting/Npc/Ai/faction/wudu_bichan.ini			1	27																				1	
+Baby_wudu_cx	2192	赤蝎	7	1			581		10	31	4327	1			836	1	1200	1200	Setting/Npc/Ai/faction/wudu_chixie.ini			1	27																				1	
+Baby_wudu_fw	2193	风蜈	7	1			584		10	31	4329	1	4330	1	836	1	1200	1200	Setting/Npc/Ai/faction/wudu_fengwu.ini			1	27																				1	
+Baby_wudu_mz	2194	墨蛛	7	1			582		10	31	4332	1	4333	1	836	1	1200	1200	Setting/Npc/Ai/faction/wudu_mozhu.ini			1	27																				1	
+Baby_shuimohu	3730	水墨虎	7	1			1268		10	31	5817	1			836	1	1200	1200	Setting/Npc/Ai/faction/wanhua_shuimohu.ini			1	40								5816												1	
+Baby_shuimohu_big	3748	巨型水墨虎	7	1			735		10	31	5817	1			836	1	1200	1200	Setting/Npc/Ai/faction/wanhua_shuimohu.ini			1	40								5816												1	

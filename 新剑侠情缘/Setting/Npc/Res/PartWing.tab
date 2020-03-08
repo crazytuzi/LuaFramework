@@ -1,0 +1,37 @@
+ResId	ResFile	ResAttribID	ResSlot	Desc	Desc2	Desc3	Scale	IsOrgColorValue	MinCastValue	SlotName1	SlotGray1	SlotMinCast1	Slot1Color1	Slot1Light1	Slot1Color2	Slot1Light2	Slot1Color3	Slot1Light3	SlotName2	SlotGray2	SlotMinCast2	Slot2Color1	Slot2Light1	Slot2Color2	Slot2Light2	Slot2Color3	Slot2Light3	SlotName3	SlotGray3	SlotMinCast3	Slot3Color1	Slot3Light1	Slot3Color2	Slot3Light2	Slot3Color3	Slot3Light3	DynamicBoneIndex
+1	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	披风标男																																	303
+2	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	披风标女																																	302
+3	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	披风壮男																																	303
+4	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	披风萝莉																																	301
+5	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	标男·偏色1						Cloak01_m1	1		255|231|168|141	1	155|12|27|26	1	255|255|255|11	1.02																			303
+6	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	标男·偏色2						Cloak01_m1	1		255|244|185|121	1	253|184|85|96	1.17	31|29|29|228	1.02																			303
+7	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	标男·偏色3						Cloak01_m1	1		255|252|189|155	1	97|222|255|171	1.25	0|27|106|131	1.02																			303
+8	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	标男·偏色4						Cloak01_m1	1		255|234|164|110	1	255|255|255|42	1	153|2|43|70	1.02																			303
+9	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	标男·偏色5						Cloak01_m1	1		255|237|226|129	1	255|255|255|26	1	255|215|29|21	1.02																			303
+10	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	标男·偏色6						Cloak01_m1	1		255|219|152|255	1	183|44|64|215	1	26|26|31|255	1																			303
+11	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	标男·偏色7						Cloak01_m1	1		255|255|247|255	1	118|251|240|215	1	36|35|56|196	1.02																			303
+12	Player/Doodads/Cloak/Prefabs/Cloak01_m1.prefab		back	标男·偏色8						Cloak01_m1	1		245|221|158|255	1	20|209|217|215	1	255|255|255|7	1.03																			303
+13	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	标女·偏色1						Cloak01	1		65|0|36|48	1	219|219|219|15	1.33	255|255|255|24	1																			301
+14	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	标女·偏色2						Cloak01	1		243|176|75|58	1	221|29|29|120	1	37|33|33|94	1																			301
+15	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	标女·偏色3						Cloak01	1		255|212|136|22	1	97|178|255|29	1.16	255|255|255|42	1																			301
+16	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	标女·偏色4						Cloak01	1		255|255|255|35	1	255|98|141|35	1.16	255|255|255|42	1																			301
+17	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	标女·偏色5						Cloak01	1		35|240|223|26	1	45|34|58|109	1	255|255|255|255	1																			301
+18	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	标女·偏色6						Cloak01	1		255|255|255|51	1	238|35|35|31	1.16	255|255|255|255	1																			301
+19	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	标女·偏色7						Cloak01	1		0|158|172|26	1	255|255|255|8	1.2	255|255|255|141	1																			301
+20	Player/Doodads/Cloak/Prefabs/Cloak01_f1.prefab		back	标女·偏色8						Cloak01	1		255|196|71|39	1	52|40|46|94	1	14|0|0|59	1																			301
+21	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	壮男·偏色1						Cloak01_m1	1		255|231|168|141	1	155|12|27|26	1	255|255|255|11	1.02																			303
+22	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	壮男·偏色2						Cloak01_m1	1		255|244|185|121	1	253|184|85|96	1.17	31|29|29|228	1.02																			303
+23	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	壮男·偏色3						Cloak01_m1	1		255|252|189|155	1	97|222|255|171	1.25	0|27|106|131	1.02																			303
+24	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	壮男·偏色4						Cloak01_m1	1		255|234|164|110	1	255|255|255|42	1	153|2|43|70	1.02																			303
+25	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	壮男·偏色5						Cloak01_m1	1		255|237|226|129	1	255|255|255|26	1	255|215|29|21	1.02																			303
+26	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	壮男·偏色6						Cloak01_m1	1		255|219|152|255	1	183|44|64|215	1	26|26|31|255	1																			303
+27	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	壮男·偏色7						Cloak01_m1	1		255|255|247|255	1	118|251|240|215	1	36|35|56|196	1.02																			303
+28	Player/Doodads/Cloak/Prefabs/Cloak01_m2.prefab		back	壮男·偏色8						Cloak01_m1	1		245|221|158|255	1	20|209|217|215	1	255|255|255|7	1.03																			303
+29	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	萝莉·偏色1						Cloak01	1		65|0|36|48	1	219|219|219|15	1.33	255|255|255|24	1																			301
+30	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	萝莉·偏色2						Cloak01	1		243|176|75|58	1	221|29|29|120	1	37|33|33|94	1																			301
+31	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	萝莉·偏色3						Cloak01	1		255|212|136|22	1	97|178|255|29	1.16	255|255|255|42	1																			301
+32	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	萝莉·偏色4						Cloak01	1		255|255|255|35	1	255|98|141|35	1.16	255|255|255|42	1																			301
+33	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	萝莉·偏色5						Cloak01	1		35|240|223|26	1	45|34|58|109	1	255|255|255|255	1																			301
+34	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	萝莉·偏色6						Cloak01	1		255|255|255|51	1	238|35|35|31	1.16	255|255|255|255	1																			301
+35	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	萝莉·偏色7						Cloak01	1		0|158|172|26	1	255|255|255|8	1.2	255|255|255|141	1																			301
+36	Player/Doodads/Cloak/Prefabs/Cloak01_f2.prefab		back	萝莉·偏色8						Cloak01	1		255|196|71|39	1	52|40|46|94	1	14|0|0|59	1																			301

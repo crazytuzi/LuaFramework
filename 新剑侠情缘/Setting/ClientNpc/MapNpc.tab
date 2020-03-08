@@ -1,0 +1,48 @@
+MapID	NpcID	Series	NpcLevel	PosX	PosY	Dir	FindPathFile	IsActivity	BodyResID	HeadResID	WeaponResID	ActID	ActBQType	IsActLoop	ActionEvent
+10	677		50	11410	18200	1	TestPath.tab								
+10	677		50	11410	18000	1	TestPath.tab								
+10	2304	0	1	13051	18066	16	BeautyPageantPath1.tab	BeautyPageant							
+10	2305	0	1	12851	18066	16	BeautyPageantPath1.tab	BeautyPageant							
+10	2304	0	1	15118	13711	16	BeautyPageantPath2.tab	BeautyPageant							
+10	2305	0	1	14918	13711	16	BeautyPageantPath2.tab	BeautyPageant							
+10	2304	0	1	11513	12117	48	BeautyPageantPath3.tab	BeautyPageant							
+10	2305	0	1	11313	12117	48	BeautyPageantPath3.tab	BeautyPageant							
+10	2638	0	1	13051	18066	16	BeautyPageantPath1.tab	WeddingNpc							
+10	2639	0	1	12851	18066	16	BeautyPageantPath1.tab	WeddingNpc							
+10	2638	0	1	15118	13711	16	BeautyPageantPath2.tab	WeddingNpc							
+10	2639	0	1	14918	13711	16	BeautyPageantPath2.tab	WeddingNpc							
+10	2638	0	1	11513	12117	48	BeautyPageantPath3.tab	WeddingNpc							
+10	2639	0	1	11313	12117	48	BeautyPageantPath3.tab	WeddingNpc							
+1405	1720	0	1	13155	7748	40									
+1405	1720	0	1	13286	12059	34									
+1405	1720	0	1	6885	11257	24									
+1405	1720	0	1	5660	8656	16									
+1406	1720	0	1	5364	8026	16									
+1406	1720	0	1	12331	11487	40									
+1406	1720	0	1	6531	12530	32									
+1406	1720	0	1	12597	6385	56									
+1407	1721	0	1	10136	10259	32									
+1407	1721	0	1	4895	11641	32									
+1407	1721	0	1	4336	4030	8									
+1407	1721	0	1	12075	4145	56									
+1408	1722	0	1	10287	6242	64									
+1408	1722	0	1	6654	12504	32									
+1408	1722	0	1	2558	10023	16									
+1408	1722	0	1	3010	4120	16									
+1409	1721	0	1	4528	4606	8									
+1409	1721	0	1	9736	10051	32									
+1409	1721	0	1	3559	9511	16									
+1409	1721	0	1	11009	5177	48									
+1410	1721	0	1	11222	6807	48									
+1410	1721	0	1	11212	10947	40									
+1410	1721	0	1	4633	11122	32									
+1410	1721	0	1	5109	4242	16									
+1411	1722	0	1	11255	10154	32									
+1411	1722	0	1	4383	11310	24									
+1411	1722	0	1	4779	4408	8									
+1411	1722	0	1	12205	4944	56									
+1412	1720	0	1	8512	12083	32									
+1412	1720	0	1	3498	8621	16									
+1412	1720	0	1	5511	4236	8									
+1412	1720	0	1	12964	6696	64									
+6101	1720	0	1	8043	6974	16									

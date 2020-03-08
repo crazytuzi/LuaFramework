@@ -1,0 +1,6 @@
+nTargetCard	nNeedLevel	nMainNpc	szAward	nShowItem	szName	szIntro	szDetail1	szCheckDetail1	szDetail2	szCheckDetail2	szDetail3	szCheckDetail3	szDetail4	szCheckDetail4	szDetail5	szCheckDetail5	nChildCard1	nChildCard2	nChildCard3	nChildCard4	nChildCard5
+4	3	3361	item|10144|1	10139	鬼谷子·封印之杖	某种原因导致封印，需集和此杖性向相合之士，布阵解封。但会耗费布阵者大量功力。若能解封，鬼谷子愿终身相随！	·门客唐简达1.5星\n	CheckLevel	·门客赵云达1.5星\n	CheckLevel	·门客李广达1.5星\n	CheckLevel	·门客岳飞达1.5星\n	CheckLevel	·以上4位门客没有入住家园	CheckLive	15	19	20	23	
+5	3	3360	item|10145|1	10140	项羽·封印之戟	某种原因导致封印，需集和此戟性向相合之士，布阵解封。但会耗费布阵者大量功力。若能解封，项羽愿终身相随！	·门客独孤剑达1.5星\n	CheckLevel	·门客南宫飞云达1.5星\n	CheckLevel	·门客唐简达1.5星\n	CheckLevel	·门客岳飞达1.5星\n	CheckLevel	·以上4位门客没有入住家园	CheckLive	12	13	15	23	
+6	3	3362	item|10146|1	10141	秦始皇·封印之剑	某种原因导致封印，需集和此剑性向相合之士，布阵解封。但会耗费布阵者大量功力。若能解封，秦始皇愿终身相随！	·门客独孤剑达1.5星\n	CheckLevel	·门客南宫飞云达1.5星\n	CheckLevel	·门客荆轲达1.5星\n	CheckLevel	·门客虞姬达1.5星\n	CheckLevel	·以上4位门客没有入住家园	CheckLive	12	13	21	22	
+7	3	3363	item|10147|1	10142	完颜洪烈·封印之鹰	某种原因导致封印，需集和此鹰性向相合之士，布阵解封。但会耗费布阵者大量功力。若能解封，完颜洪烈愿终身相随！	·门客杨影枫达1.5星\n	CheckLevel	·门客李元霸达1.5星\n	CheckLevel	·门客赵云达1.5星\n	CheckLevel	·门客李广达1.5星\n	CheckLevel	·以上4位门客没有入住家园	CheckLive	14	18	19	20	
+8	3	3364	item|10148|1	10143	武则天·封印之羽	某种原因导致封印，需集和此羽性向相合之士，布阵解封。但会耗费布阵者大量功力。若能解封，武则天愿终身相随！	·门客杨影枫达1.5星\n	CheckLevel	·门客李元霸达1.5星\n	CheckLevel	·门客荆轲达1.5星\n	CheckLevel	·门客虞姬达1.5星\n	CheckLevel	·以上4位门客没有入住家园	CheckLive	14	18	21	22	

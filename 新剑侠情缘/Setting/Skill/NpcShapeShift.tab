@@ -1,0 +1,71 @@
+NpcTemplateID	IconAltlas	SkillIDJump	SkillLevelJump	JumpIconAltlas	BtnIconJump	SkillID0	SkillLevel0	BtnIcon0	SkillID1	SkillLevel1	BtnIcon1	SkillID2	SkillLevel2	BtnIcon2	SkillID3	SkillLevel3	BtnIcon3	SkillID4	SkillLevel4	BtnIcon4	SkillID5	SkillLevel5	BtnIcon5	WeaponType5	SkillID6	SkillLevel6	BtnIcon6	WeaponType6	SkillID7	SkillLevel7	BtnIcon7	WeaponType7	SkillID8	SkillLevel8	BtnIcon8	WeaponType8	SkillID9	SkillLevel9	BtnIcon9	WeaponType9
+28	UI/Atlas/SkillIcon/TH_Skill.prefab					2251	1	TaohuaSkill_01	2252	1	TaohuaSkill_02	2255	1	TaohuaSkill_03							2256	1																		
+511	UI/Atlas/SkillIcon/TW_Skill.prefab					2101	1	TianwangSkill_01	2108	1	TianwangSkill_04	2105	1	TianwangSkill_02	2111	1	TianwangSkill_03	2107	1	TianwangSkill_05																				
+512	UI/Atlas/SkillIcon/EM_Skill.prefab					2112	1	EmeiSkill_01	2121	1	EmeiSkill_05	2119	1	EmeiSkill_04	2116	1	EmeiSkill_02	2118	1	EmeiSkill_03																				
+513	UI/Atlas/SkillIcon/TH_Skill.prefab					2123	1	TaohuaSkill_01	2130	1	TaohuaSkill_04	2128	1	TaohuaSkill_03	2127	1	TaohuaSkill_02	2132	1	TaohuaSkill_05																				
+514	UI/Atlas/SkillIcon/XY_Skill.prefab					2137	1	XiaoyaoSkill_01	2143	1	XiaoyaoSkill_03	2147	1	XiaoyaoSkill_04	2141	1	XiaoyaoSkill_02	2150	1	XiaoyaoSkill_05																				
+816	UI/Atlas/SkillIcon/WD_Skill.prefab					2153	1	WudangSkill_01	2166	1	WudangSkill_05	2161	1	WudangSkill_02	2165	1	WudangSkill_04	2163	1	WudangSkill_03																				
+817	UI/Atlas/SkillIcon/TR_Skill.prefab					2168	1	TianrenSkill_01	2172	1	TianrenSkill_02	2175	1	TianrenSkill_03	2177	1	TianrenSkill_04	2183	1	TianrenSkill_05																				
+1789	UI/Atlas/SkillIcon/SL_Skill.prefab					2186	1	ShaolinSkill_01	2191	1	ShaolinSkill_03	2190	1	ShaolinSkill_02	2192	1	ShaolinSkill_04	2193	1	ShaolinSkill_05																				
+1790	UI/Atlas/SkillIcon/CY_Skill.prefab					2979	1	CuiyanSkill_01	2986	1	CuiyanSkill_03	2983	1	CuiyanSkill_02	2991	1	CuiyanSkill_04	2993	1	CuiyanSkill_05																				
+1961	UI/Atlas/SkillIcon/TM_Skill.prefab					3401	1	TangmenSkill_01	3407	1	TangmenSkill_03	3405	1	TangmenSkill_02	3409	1	Tangmen_bd03	3410	1	TangmenSkill_04																				
+1962	UI/Atlas/SkillIcon/KL_Skill.prefab					3414	1	KunlunSkill_01	3422	1	Kunlun_bd04	3418	1	KunlunSkill_02	3420	1	KunlunSkill_03	3423	1	KunlunSkill_04																				
+2227	UI/Atlas/SkillIcon/GB_Skill.prefab					3477	1	GaibangSkill_01	3483	1	GaibangSkill_04	3482	1	GaibangSkill_02	3485	1	GaibangSkill_05	3486	1	GaibangSkill_03																				
+2228	UI/Atlas/SkillIcon/WDu_Skill.prefab					3601	1	WuduSkill_01	3606	1	WuduSkill_02	3605	1	WuduSkill_05	3617	1	WuduSkill_04	3620	1	WuduSkill_03																				
+2339	UI/Atlas/SkillIcon/CJ_Skill.prefab					4481	1	CangjianSkill_01	4488	1	CangjianSkill_05	4485	1	CangjianSkill_03	4486	1	CangjianSkill_04	4490	1	CangjianSkill_02																				
+2340	UI/Atlas/SkillIcon/CG_Skill.prefab					4581	1	ChanggeSkill_01	4587	1	ChanggeSkill_03	4585	1	ChanggeSkill_04	4589	1	ChanggeSkill_05	4594	1	ChanggeSkill_02																				
+2683	UI/Atlas/SkillIcon/TS_Skill.prefab					4681	1	TianshanSkill_01	4686	1	TianshanSkill_03	4685	1	TianshanSkill_02	4687	1	TianshanSkill_04	4688	1	TianshanSkill_05																				
+2878	UI/Atlas/SkillIcon/BD_Skill.prefab					5071	1	BadaoSkill_01	5077	1	BadaoSkill_03	5075	1	BadaoSkill_02	5080	1	BadaoSkill_04	5083	1	BadaoSkill_05																				
+2963	UI/Atlas/SkillIcon/HS_Skill.prefab					5271	1	HuaShanSkill_01	5277	1	HuaShanSkill_03	5275	1	HuaShanSkill_02	5278	1	HuaShanSkill_04	5280	1	HuaShanSkill_05																				
+3253	UI/Atlas/SkillIcon/MJ_Skill.prefab					5501	1	MingJiaoSkill_01	5508	1	MingJiaoSkill_03	5506	1	MingJiaoSkill_02	5511	1	MingJiaoSkill_04	5515	1	MingJiaoSkill_05																				
+3440	UI/Atlas/SkillIcon/DS_Skill.prefab					5601	1	DuanShiSkill_01	5608	1	DuanShiSkill_03	5606	1	DuanShiSkill_02	5611	1	DuanShiSkill_04	5626	1	DuanShiSkill_05																				
+3720	UI/Atlas/SkillIcon/WHua_Skill.prefab					5801	1	WanHuaSkill_01	5808	1	WanHuaSkill_03	5805	1	WanHuaSkill_02	5810	1	WanHuaSkill_04	5812	1	WanHuaSkill_05																				
+3785	UI/Atlas/SkillIcon/YM_Skill.prefab					5912	1	YangMenSkill_Halberd_01	5918	1	YangMenSkill_Halberd_03	5916	1	YangMenSkill_Halberd_02	5921	1	YangMenSkill_Halberd_04	5922	1	YangMenSkill_Halberd_05	5901	1	YangMenSkill_Arch_01	1	5908	1	YangMenSkill_Arch_03	1	5905	1	YangMenSkill_Arch_02	1	5907	1	YangMenSkill_Arch_04	1	5911	1	YangMenSkill_Arch_05	1
+958	UI/Atlas/SkillIcon/TH_Skill.prefab					1498	1	TaohuaSkill_01	2952	1	TaohuaSkill_04	2955	1	TaohuaSkill_03																										
+1421	UI/Atlas/SkillIcon/TH_Skill.prefab					1498	1	TaohuaSkill_01																																
+1084	UI/Atlas/SkillIcon/TW_Skill.prefab	1051	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	2101	30	TianwangSkill_01	2108	30	TianwangSkill_04	2105	30	TianwangSkill_02	2111	30	TianwangSkill_03	2107	30	TianwangSkill_05																				
+1085	UI/Atlas/SkillIcon/EM_Skill.prefab	1052	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	2112	30	EmeiSkill_01	2121	30	EmeiSkill_05	2119	30	EmeiSkill_04	2116	30	EmeiSkill_02	2118	30	EmeiSkill_03																				
+1086	UI/Atlas/SkillIcon/TH_Skill.prefab	1053	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	2123	30	TaohuaSkill_01	2130	30	TaohuaSkill_04	2128	30	TaohuaSkill_03	2127	30	TaohuaSkill_02	2132	30	TaohuaSkill_05																				
+1087	UI/Atlas/SkillIcon/XY_Skill.prefab	1054	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	2137	30	XiaoyaoSkill_01	2143	30	XiaoyaoSkill_03	2147	30	XiaoyaoSkill_04	2141	30	XiaoyaoSkill_02	2150	30	XiaoyaoSkill_05																				
+1088	UI/Atlas/SkillIcon/WD_Skill.prefab	1055	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	2153	30	WudangSkill_01	2166	30	WudangSkill_05	2161	30	WudangSkill_02	2165	30	WudangSkill_04	2163	30	WudangSkill_03																				
+1089	UI/Atlas/SkillIcon/TR_Skill.prefab	1056	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	2168	1	TianrenSkill_01	2172	1	TianrenSkill_02	2175	1	TianrenSkill_03	2177	1	TianrenSkill_04	2183	1	TianrenSkill_05																				
+1791	UI/Atlas/SkillIcon/SL_Skill.prefab	1074	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	2186	1	ShaolinSkill_01	2191	1	ShaolinSkill_03	2190	1	ShaolinSkill_02	2192	1	ShaolinSkill_04	2193	1	ShaolinSkill_05																				
+1792	UI/Atlas/SkillIcon/CY_Skill.prefab	1082	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	2979	1	CuiyanSkill_01	2986	1	CuiyanSkill_03	2983	1	CuiyanSkill_02	2991	1	CuiyanSkill_04	2993	1	CuiyanSkill_05																				
+1963	UI/Atlas/SkillIcon/TM_Skill.prefab	3434	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	3401	1	TangmenSkill_01	3407	1	TangmenSkill_03	3405	1	TangmenSkill_02	3409	1	Tangmen_bd03	3410	1	TangmenSkill_04																				
+1964	UI/Atlas/SkillIcon/KL_Skill.prefab	3442	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	3414	1	KunlunSkill_01	3422	1	Kunlun_bd04	3418	1	KunlunSkill_02	3420	1	KunlunSkill_03	3423	1	KunlunSkill_04																				
+2229	UI/Atlas/SkillIcon/GB_Skill.prefab	3468	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	3477	30	GaibangSkill_01	3483	30	GaibangSkill_04	3482	30	GaibangSkill_02	3485	30	GaibangSkill_05	3486	30	GaibangSkill_03																				
+2230	UI/Atlas/SkillIcon/WDu_Skill.prefab	3476	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	3601	30	WuduSkill_01	3606	30	WuduSkill_02	3605	30	WuduSkill_05	3617	30	WuduSkill_04	3620	30	WuduSkill_03																				
+2341	UI/Atlas/SkillIcon/CJ_Skill.prefab	3531	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	4481	30	CangjianSkill_01	4488	30	CangjianSkill_05	4485	30	CangjianSkill_03	4486	30	CangjianSkill_04	4490	30	CangjianSkill_02																				
+2342	UI/Atlas/SkillIcon/CG_Skill.prefab	3539	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	4581	30	ChanggeSkill_01	4587	30	ChanggeSkill_03	4585	30	ChanggeSkill_04	4589	30	ChanggeSkill_05	4594	30	ChanggeSkill_02																				
+2684	UI/Atlas/SkillIcon/TS_Skill.prefab	3539	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	4681	30	TianshanSkill_01	4686	30	TianshanSkill_03	4685	30	TianshanSkill_02	4687	30	TianshanSkill_04	4688	30	TianshanSkill_05																				
+2879	UI/Atlas/SkillIcon/BD_Skill.prefab	3539	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	5071	30	BadaoSkill_01	5077	30	BadaoSkill_03	5075	30	BadaoSkill_02	5080	30	BadaoSkill_04	5083	30	BadaoSkill_05																				
+2965	UI/Atlas/SkillIcon/HS_Skill.prefab	3539	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	5271	30	HuaShanSkill_01	5277	30	HuaShanSkill_03	5275	30	HuaShanSkill_02	5278	30	HuaShanSkill_04	5280	30	HuaShanSkill_05																				
+3254	UI/Atlas/SkillIcon/MJ_Skill.prefab	3539	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	5501	30	MingJiaoSkill_01	5508	30	MingJiaoSkill_03	5506	30	MingJiaoSkill_02	5511	30	MingJiaoSkill_04	5515	30	MingJiaoSkill_05																				
+3441	UI/Atlas/SkillIcon/DS_Skill.prefab	3539	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	5601	1	DuanShiSkill_01	5608	1	DuanShiSkill_03	5606	1	DuanShiSkill_02	5611	1	DuanShiSkill_04	5626	1	DuanShiSkill_05																				
+3721	UI/Atlas/SkillIcon/WHua_Skill.prefab	3539	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	5801	30	WanHuaSkill_01	5808	30	WanHuaSkill_03	5805	30	WanHuaSkill_02	5810	30	WanHuaSkill_04	5812	30	WanHuaSkill_05																				
+3786	UI/Atlas/SkillIcon/YM_Skill.prefab	3539	1	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge	5912	1	YangMenSkill_Halberd_01	5918	1	YangMenSkill_Halberd_03	5916	1	YangMenSkill_Halberd_02	5921	1	YangMenSkill_Halberd_04	5922	1	YangMenSkill_Halberd_05	5901	1	YangMenSkill_Arch_01	1	5908	1	YangMenSkill_Arch_03	1	5905	1	YangMenSkill_Arch_02	1	5907	1	YangMenSkill_Arch_04	1	5911	1	YangMenSkill_Arch_05	1
+742	UI/Atlas/SkillIcon/TH_Skill.prefab					2702	1	TaohuaSkill_02	2380	1	TaohuaSkill_03	2705	1	TaohuaSkill_04																										
+1727	UI/Atlas/SkillIcon/TW_Skill.prefab					1718	1	TianwangSkill_01																																
+1728	UI/Atlas/SkillIcon/TH_Skill.prefab					1721	1	TaohuaSkill_01	1723	1	TaohuaSkill_03																													
+1729	UI/Atlas/SkillIcon/TH_Skill.prefab					1725	1	TaohuaSkill_01	1728	1	TaohuaSkill_04																													
+2126																																								
+2127																																								
+2128																																								
+2129																																								
+2174																																								
+2353																																								
+2354																																								
+2355																																								
+2356																																								
+2357																																								
+2358																																								
+2359																																								
+2360																																								
+2361																																								
+2679																																								
+3193	UI/Atlas/SkillIcon/TH_Skill.prefab					5145	1	TaohuaSkill_01	5147	1	TaohuaSkill_03																													
+2135																																								
+3685	UI/Atlas/SkillIcon/TW_Skill.prefab					4908	1	TianwangSkill_01																																
+3719	UI/Atlas/SkillIcon/TH_Skill.prefab											4733	1	TaohuaSkill_03																										
+3706																																								
+3718	UI/Atlas/SkillIcon/Firefighting.prefab											4735	1	Firefighting_water02																										

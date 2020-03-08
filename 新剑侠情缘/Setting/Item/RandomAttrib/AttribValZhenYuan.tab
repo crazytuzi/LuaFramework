@@ -1,0 +1,571 @@
+AttribType	Level	FightPower	AttribValue	Value1	Value2	Value3	SpecialDesc
+vitality_v	1	3000	3000000	175			
+vitality_v	2	4500	4500000	188			
+vitality_v	3	6000	6000000	200			
+vitality_v	4	7500	7500000	213			
+vitality_v	5	9000	9000000	225			
+vitality_v	6	12000	12000000	238			
+vitality_v	7	15000	15000000	250			
+vitality_v	8	18000	18000000	263			
+vitality_v	9	21000	21000000	275			
+vitality_v	10	24000	24000000	288			
+vitality_v	11	27000	27000000	300			
+vitality_v	12	30000	30000000	313			
+vitality_v	13	33000	33000000	325			
+vitality_v	14	36000	36000000	338			
+vitality_v	15	39000	39000000	350			
+vitality_v	16	42000	42000000	363			
+vitality_v	17	45000	45000000	375			
+vitality_v	18	48000	48000000	388			
+vitality_v	19	50350	50350000	415			
+vitality_v	20	52800	52800000	435			
+vitality_v	21	55380	55380000	455			
+vitality_v	22	58080	58080000	480			
+vitality_v	23	60920	60920000	500			
+vitality_v	24	63890	63890000	525			
+vitality_v	25	67010	67010000	550			
+vitality_v	26	70280	70280000	580			
+vitality_v	27	73710	73710000	605			
+vitality_v	28	77310	77310000	635			
+vitality_v	29	81080	81080000	665			
+vitality_v	30	85040	85040000	700			
+energy_v	1	3000	3000000	175			
+energy_v	2	4500	4500000	188			
+energy_v	3	6000	6000000	200			
+energy_v	4	7500	7500000	213			
+energy_v	5	9000	9000000	225			
+energy_v	6	12000	12000000	238			
+energy_v	7	15000	15000000	250			
+energy_v	8	18000	18000000	263			
+energy_v	9	21000	21000000	275			
+energy_v	10	24000	24000000	288			
+energy_v	11	27000	27000000	300			
+energy_v	12	30000	30000000	313			
+energy_v	13	33000	33000000	325			
+energy_v	14	36000	36000000	338			
+energy_v	15	39000	39000000	350			
+energy_v	16	42000	42000000	363			
+energy_v	17	45000	45000000	375			
+energy_v	18	48000	48000000	388			
+energy_v	19	50350	50350000	415			
+energy_v	20	52800	52800000	435			
+energy_v	21	55380	55380000	455			
+energy_v	22	58080	58080000	480			
+energy_v	23	60920	60920000	500			
+energy_v	24	63890	63890000	525			
+energy_v	25	67010	67010000	550			
+energy_v	26	70280	70280000	580			
+energy_v	27	73710	73710000	605			
+energy_v	28	77310	77310000	635			
+energy_v	29	81080	81080000	665			
+energy_v	30	85040	85040000	700			
+strength_v	1	3000	3000000	175			
+strength_v	2	4500	4500000	188			
+strength_v	3	6000	6000000	200			
+strength_v	4	7500	7500000	213			
+strength_v	5	9000	9000000	225			
+strength_v	6	12000	12000000	238			
+strength_v	7	15000	15000000	250			
+strength_v	8	18000	18000000	263			
+strength_v	9	21000	21000000	275			
+strength_v	10	24000	24000000	288			
+strength_v	11	27000	27000000	300			
+strength_v	12	30000	30000000	313			
+strength_v	13	33000	33000000	325			
+strength_v	14	36000	36000000	338			
+strength_v	15	39000	39000000	350			
+strength_v	16	42000	42000000	363			
+strength_v	17	45000	45000000	375			
+strength_v	18	48000	48000000	388			
+strength_v	19	50350	50350000	415			
+strength_v	20	52800	52800000	435			
+strength_v	21	55380	55380000	455			
+strength_v	22	58080	58080000	480			
+strength_v	23	60920	60920000	500			
+strength_v	24	63890	63890000	525			
+strength_v	25	67010	67010000	550			
+strength_v	26	70280	70280000	580			
+strength_v	27	73710	73710000	605			
+strength_v	28	77310	77310000	635			
+strength_v	29	81080	81080000	665			
+strength_v	30	85040	85040000	700			
+dexterity_v	1	3000	3000000	175			
+dexterity_v	2	4500	4500000	188			
+dexterity_v	3	6000	6000000	200			
+dexterity_v	4	7500	7500000	213			
+dexterity_v	5	9000	9000000	225			
+dexterity_v	6	12000	12000000	238			
+dexterity_v	7	15000	15000000	250			
+dexterity_v	8	18000	18000000	263			
+dexterity_v	9	21000	21000000	275			
+dexterity_v	10	24000	24000000	288			
+dexterity_v	11	27000	27000000	300			
+dexterity_v	12	30000	30000000	313			
+dexterity_v	13	33000	33000000	325			
+dexterity_v	14	36000	36000000	338			
+dexterity_v	15	39000	39000000	350			
+dexterity_v	16	42000	42000000	363			
+dexterity_v	17	45000	45000000	375			
+dexterity_v	18	48000	48000000	388			
+dexterity_v	19	50350	50350000	415			
+dexterity_v	20	52800	52800000	435			
+dexterity_v	21	55380	55380000	455			
+dexterity_v	22	58080	58080000	480			
+dexterity_v	23	60920	60920000	500			
+dexterity_v	24	63890	63890000	525			
+dexterity_v	25	67010	67010000	550			
+dexterity_v	26	70280	70280000	580			
+dexterity_v	27	73710	73710000	605			
+dexterity_v	28	77310	77310000	635			
+dexterity_v	29	81080	81080000	665			
+dexterity_v	30	85040	85040000	700			
+basic_damage_v	1	3000	3000000	175		175	
+basic_damage_v	2	4500	4500000	188		188	
+basic_damage_v	3	6000	6000000	200		200	
+basic_damage_v	4	7500	7500000	213		213	
+basic_damage_v	5	9000	9000000	225		225	
+basic_damage_v	6	12000	12000000	238		238	
+basic_damage_v	7	15000	15000000	250		250	
+basic_damage_v	8	18000	18000000	263		263	
+basic_damage_v	9	21000	21000000	275		275	
+basic_damage_v	10	24000	24000000	288		288	
+basic_damage_v	11	27000	27000000	300		300	
+basic_damage_v	12	30000	30000000	313		313	
+basic_damage_v	13	33000	33000000	325		325	
+basic_damage_v	14	36000	36000000	338		338	
+basic_damage_v	15	39000	39000000	350		350	
+basic_damage_v	16	42000	42000000	363		363	
+basic_damage_v	17	45000	45000000	375		375	
+basic_damage_v	18	48000	48000000	388		388	
+basic_damage_v	19	50350	50350000	415		415	
+basic_damage_v	20	52800	52800000	435		435	
+basic_damage_v	21	55380	55380000	455		455	
+basic_damage_v	22	58080	58080000	480		480	
+basic_damage_v	23	60920	60920000	500		500	
+basic_damage_v	24	63890	63890000	525		525	
+basic_damage_v	25	67010	67010000	550		550	
+basic_damage_v	26	70280	70280000	580		580	
+basic_damage_v	27	73710	73710000	605		605	
+basic_damage_v	28	77310	77310000	635		635	
+basic_damage_v	29	81080	81080000	665		665	
+basic_damage_v	30	85040	85040000	700		700	
+physical_damage_v	1	3000	3000000	175		175	
+physical_damage_v	2	4500	4500000	188		188	
+physical_damage_v	3	6000	6000000	200		200	
+physical_damage_v	4	7500	7500000	213		213	
+physical_damage_v	5	9000	9000000	225		225	
+physical_damage_v	6	12000	12000000	238		238	
+physical_damage_v	7	15000	15000000	250		250	
+physical_damage_v	8	18000	18000000	263		263	
+physical_damage_v	9	21000	21000000	275		275	
+physical_damage_v	10	24000	24000000	288		288	
+physical_damage_v	11	27000	27000000	300		300	
+physical_damage_v	12	30000	30000000	313		313	
+physical_damage_v	13	33000	33000000	325		325	
+physical_damage_v	14	36000	36000000	338		338	
+physical_damage_v	15	39000	39000000	350		350	
+physical_damage_v	16	42000	42000000	363		363	
+physical_damage_v	17	45000	45000000	375		375	
+physical_damage_v	18	48000	48000000	388		388	
+physical_damage_v	19	50350	50350000	415		415	
+physical_damage_v	20	52800	52800000	435		435	
+physical_damage_v	21	55380	55380000	455		455	
+physical_damage_v	22	58080	58080000	480		480	
+physical_damage_v	23	60920	60920000	500		500	
+physical_damage_v	24	63890	63890000	525		525	
+physical_damage_v	25	67010	67010000	550		550	
+physical_damage_v	26	70280	70280000	580		580	
+physical_damage_v	27	73710	73710000	605		605	
+physical_damage_v	28	77310	77310000	635		635	
+physical_damage_v	29	81080	81080000	665		665	
+physical_damage_v	30	85040	85040000	700		700	
+all_series_resist_v	1	3000	3000000	88			
+all_series_resist_v	2	4500	4500000	94			
+all_series_resist_v	3	6000	6000000	100			
+all_series_resist_v	4	7500	7500000	106			
+all_series_resist_v	5	9000	9000000	113			
+all_series_resist_v	6	12000	12000000	119			
+all_series_resist_v	7	15000	15000000	125			
+all_series_resist_v	8	18000	18000000	131			
+all_series_resist_v	9	21000	21000000	138			
+all_series_resist_v	10	24000	24000000	144			
+all_series_resist_v	11	27000	27000000	150			
+all_series_resist_v	12	30000	30000000	156			
+all_series_resist_v	13	33000	33000000	163			
+all_series_resist_v	14	36000	36000000	169			
+all_series_resist_v	15	39000	39000000	175			
+all_series_resist_v	16	42000	42000000	181			
+all_series_resist_v	17	45000	45000000	188			
+all_series_resist_v	18	48000	48000000	194			
+all_series_resist_v	19	50350	50350000	210			
+all_series_resist_v	20	52800	52800000	220			
+all_series_resist_v	21	55380	55380000	230			
+all_series_resist_v	22	58080	58080000	240			
+all_series_resist_v	23	60920	60920000	255			
+all_series_resist_v	24	63890	63890000	265			
+all_series_resist_v	25	67010	67010000	280			
+all_series_resist_v	26	70280	70280000	290			
+all_series_resist_v	27	73710	73710000	305			
+all_series_resist_v	28	77310	77310000	320			
+all_series_resist_v	29	81080	81080000	335			
+all_series_resist_v	30	85040	85040000	350			
+defense_v	1	3000	3000000	350			
+defense_v	2	4500	4500000	375			
+defense_v	3	6000	6000000	400			
+defense_v	4	7500	7500000	425			
+defense_v	5	9000	9000000	450			
+defense_v	6	12000	12000000	475			
+defense_v	7	15000	15000000	500			
+defense_v	8	18000	18000000	525			
+defense_v	9	21000	21000000	550			
+defense_v	10	24000	24000000	575			
+defense_v	11	27000	27000000	600			
+defense_v	12	30000	30000000	625			
+defense_v	13	33000	33000000	650			
+defense_v	14	36000	36000000	675			
+defense_v	15	39000	39000000	700			
+defense_v	16	42000	42000000	725			
+defense_v	17	45000	45000000	750			
+defense_v	18	48000	48000000	775			
+defense_v	19	50350	50350000	825			
+defense_v	20	52800	52800000	870			
+defense_v	21	55380	55380000	910			
+defense_v	22	58080	58080000	955			
+defense_v	23	60920	60920000	1000			
+defense_v	24	63890	63890000	1050			
+defense_v	25	67010	67010000	1100			
+defense_v	26	70280	70280000	1155			
+defense_v	27	73710	73710000	1210			
+defense_v	28	77310	77310000	1270			
+defense_v	29	81080	81080000	1330			
+defense_v	30	85040	85040000	1395			
+deadlystrike_v	1	3000	3000000	175			
+deadlystrike_v	2	4500	4500000	188			
+deadlystrike_v	3	6000	6000000	200			
+deadlystrike_v	4	7500	7500000	213			
+deadlystrike_v	5	9000	9000000	225			
+deadlystrike_v	6	12000	12000000	238			
+deadlystrike_v	7	15000	15000000	250			
+deadlystrike_v	8	18000	18000000	263			
+deadlystrike_v	9	21000	21000000	275			
+deadlystrike_v	10	24000	24000000	288			
+deadlystrike_v	11	27000	27000000	300			
+deadlystrike_v	12	30000	30000000	313			
+deadlystrike_v	13	33000	33000000	325			
+deadlystrike_v	14	36000	36000000	338			
+deadlystrike_v	15	39000	39000000	350			
+deadlystrike_v	16	42000	42000000	363			
+deadlystrike_v	17	45000	45000000	375			
+deadlystrike_v	18	48000	48000000	388			
+deadlystrike_v	19	50350	50350000	415			
+deadlystrike_v	20	52800	52800000	435			
+deadlystrike_v	21	55380	55380000	455			
+deadlystrike_v	22	58080	58080000	480			
+deadlystrike_v	23	60920	60920000	500			
+deadlystrike_v	24	63890	63890000	525			
+deadlystrike_v	25	67010	67010000	550			
+deadlystrike_v	26	70280	70280000	580			
+deadlystrike_v	27	73710	73710000	605			
+deadlystrike_v	28	77310	77310000	635			
+deadlystrike_v	29	81080	81080000	665			
+deadlystrike_v	30	85040	85040000	700			
+ignore_defense_v	1	3000	3000000	350			
+ignore_defense_v	2	4500	4500000	375			
+ignore_defense_v	3	6000	6000000	400			
+ignore_defense_v	4	7500	7500000	425			
+ignore_defense_v	5	9000	9000000	450			
+ignore_defense_v	6	12000	12000000	475			
+ignore_defense_v	7	15000	15000000	500			
+ignore_defense_v	8	18000	18000000	525			
+ignore_defense_v	9	21000	21000000	550			
+ignore_defense_v	10	24000	24000000	575			
+ignore_defense_v	11	27000	27000000	600			
+ignore_defense_v	12	30000	30000000	625			
+ignore_defense_v	13	33000	33000000	650			
+ignore_defense_v	14	36000	36000000	675			
+ignore_defense_v	15	39000	39000000	700			
+ignore_defense_v	16	42000	42000000	725			
+ignore_defense_v	17	45000	45000000	750			
+ignore_defense_v	18	48000	48000000	775			
+ignore_defense_v	19	50350	50350000	825			
+ignore_defense_v	20	52800	52800000	870			
+ignore_defense_v	21	55380	55380000	910			
+ignore_defense_v	22	58080	58080000	955			
+ignore_defense_v	23	60920	60920000	1000			
+ignore_defense_v	24	63890	63890000	1050			
+ignore_defense_v	25	67010	67010000	1100			
+ignore_defense_v	26	70280	70280000	1155			
+ignore_defense_v	27	73710	73710000	1210			
+ignore_defense_v	28	77310	77310000	1270			
+ignore_defense_v	29	81080	81080000	1330			
+ignore_defense_v	30	85040	85040000	1395			
+weaken_deadlystrike_v	1	3000	3000000	175			
+weaken_deadlystrike_v	2	4500	4500000	188			
+weaken_deadlystrike_v	3	6000	6000000	200			
+weaken_deadlystrike_v	4	7500	7500000	213			
+weaken_deadlystrike_v	5	9000	9000000	225			
+weaken_deadlystrike_v	6	12000	12000000	238			
+weaken_deadlystrike_v	7	15000	15000000	250			
+weaken_deadlystrike_v	8	18000	18000000	263			
+weaken_deadlystrike_v	9	21000	21000000	275			
+weaken_deadlystrike_v	10	24000	24000000	288			
+weaken_deadlystrike_v	11	27000	27000000	300			
+weaken_deadlystrike_v	12	30000	30000000	313			
+weaken_deadlystrike_v	13	33000	33000000	325			
+weaken_deadlystrike_v	14	36000	36000000	338			
+weaken_deadlystrike_v	15	39000	39000000	350			
+weaken_deadlystrike_v	16	42000	42000000	363			
+weaken_deadlystrike_v	17	45000	45000000	375			
+weaken_deadlystrike_v	18	48000	48000000	388			
+weaken_deadlystrike_v	19	50350	50350000	415			
+weaken_deadlystrike_v	20	52800	52800000	435			
+weaken_deadlystrike_v	21	55380	55380000	455			
+weaken_deadlystrike_v	22	58080	58080000	480			
+weaken_deadlystrike_v	23	60920	60920000	500			
+weaken_deadlystrike_v	24	63890	63890000	525			
+weaken_deadlystrike_v	25	67010	67010000	550			
+weaken_deadlystrike_v	26	70280	70280000	580			
+weaken_deadlystrike_v	27	73710	73710000	605			
+weaken_deadlystrike_v	28	77310	77310000	635			
+weaken_deadlystrike_v	29	81080	81080000	665			
+weaken_deadlystrike_v	30	85040	85040000	700			
+ignore_all_resist_v	1	3000	3000000	100	88		
+ignore_all_resist_v	2	4500	4500000	100	94		
+ignore_all_resist_v	3	6000	6000000	100	100		
+ignore_all_resist_v	4	7500	7500000	100	106		
+ignore_all_resist_v	5	9000	9000000	100	113		
+ignore_all_resist_v	6	12000	12000000	100	119		
+ignore_all_resist_v	7	15000	15000000	100	125		
+ignore_all_resist_v	8	18000	18000000	100	131		
+ignore_all_resist_v	9	21000	21000000	100	138		
+ignore_all_resist_v	10	24000	24000000	100	144		
+ignore_all_resist_v	11	27000	27000000	100	150		
+ignore_all_resist_v	12	30000	30000000	100	156		
+ignore_all_resist_v	13	33000	33000000	100	163		
+ignore_all_resist_v	14	36000	36000000	100	169		
+ignore_all_resist_v	15	39000	39000000	100	175		
+ignore_all_resist_v	16	42000	42000000	100	181		
+ignore_all_resist_v	17	45000	45000000	100	188		
+ignore_all_resist_v	18	48000	48000000	100	194		
+ignore_all_resist_v	19	50350	50350000	100	200		
+ignore_all_resist_v	20	52800	52800000	100	206		
+ignore_all_resist_v	21	55380	55380000	100	212		
+ignore_all_resist_v	22	58080	58080000	100	218		
+ignore_all_resist_v	23	60920	60920000	100	224		
+ignore_all_resist_v	24	63890	63890000	100	230		
+ignore_all_resist_v	25	67010	67010000	100	236		
+ignore_all_resist_v	26	70280	70280000	100	242		
+ignore_all_resist_v	27	73710	73710000	100	248		
+ignore_all_resist_v	28	77310	77310000	100	254		
+ignore_all_resist_v	29	81080	81080000	100	260		
+ignore_all_resist_v	30	85040	85040000	100	266		
+all_series_resist_p	1	3000	3000000	25			
+all_series_resist_p	2	4500	4500000	28			
+all_series_resist_p	3	6000	6000000	31			
+all_series_resist_p	4	7500	7500000	34			
+all_series_resist_p	5	9000	9000000	37			
+all_series_resist_p	6	12000	12000000	40			
+all_series_resist_p	7	15000	15000000	43			
+all_series_resist_p	8	18000	18000000	46			
+all_series_resist_p	9	21000	21000000	49			
+all_series_resist_p	10	24000	24000000	52			
+all_series_resist_p	11	27000	27000000	55			
+all_series_resist_p	12	30000	30000000	58			
+all_series_resist_p	13	33000	33000000	61			
+all_series_resist_p	14	36000	36000000	64			
+all_series_resist_p	15	39000	39000000	67			
+all_series_resist_p	16	42000	42000000	70			
+all_series_resist_p	17	45000	45000000	73			
+all_series_resist_p	18	48000	48000000	76			
+all_series_resist_p	19	50350	50350000	82			
+all_series_resist_p	20	52800	52800000	88			
+all_series_resist_p	21	55380	55380000	94			
+all_series_resist_p	22	58080	58080000	100			
+all_series_resist_p	23	60920	60920000	106			
+all_series_resist_p	24	63890	63890000	112			
+all_series_resist_p	25	67010	67010000	118			
+all_series_resist_p	26	70280	70280000	124			
+all_series_resist_p	27	73710	73710000	130			
+all_series_resist_p	28	77310	77310000	136			
+all_series_resist_p	29	81080	81080000	142			
+all_series_resist_p	30	85040	85040000	148			
+ignore_all_resist_vp	1	3000	3000000	25			
+ignore_all_resist_vp	2	4500	4500000	28			
+ignore_all_resist_vp	3	6000	6000000	31			
+ignore_all_resist_vp	4	7500	7500000	34			
+ignore_all_resist_vp	5	9000	9000000	37			
+ignore_all_resist_vp	6	12000	12000000	40			
+ignore_all_resist_vp	7	15000	15000000	43			
+ignore_all_resist_vp	8	18000	18000000	46			
+ignore_all_resist_vp	9	21000	21000000	49			
+ignore_all_resist_vp	10	24000	24000000	52			
+ignore_all_resist_vp	11	27000	27000000	55			
+ignore_all_resist_vp	12	30000	30000000	58			
+ignore_all_resist_vp	13	33000	33000000	61			
+ignore_all_resist_vp	14	36000	36000000	64			
+ignore_all_resist_vp	15	39000	39000000	67			
+ignore_all_resist_vp	16	42000	42000000	70			
+ignore_all_resist_vp	17	45000	45000000	73			
+ignore_all_resist_vp	18	48000	48000000	76			
+ignore_all_resist_vp	19	50350	50350000	82			
+ignore_all_resist_vp	20	52800	52800000	88			
+ignore_all_resist_vp	21	55380	55380000	94			
+ignore_all_resist_vp	22	58080	58080000	100			
+ignore_all_resist_vp	23	60920	60920000	106			
+ignore_all_resist_vp	24	63890	63890000	112			
+ignore_all_resist_vp	25	67010	67010000	118			
+ignore_all_resist_vp	26	70280	70280000	124			
+ignore_all_resist_vp	27	73710	73710000	130			
+ignore_all_resist_vp	28	77310	77310000	136			
+ignore_all_resist_vp	29	81080	81080000	142			
+ignore_all_resist_vp	30	85040	85040000	148			
+defense_p	1	3000	3000000	100			
+defense_p	2	4500	4500000	112			
+defense_p	3	6000	6000000	124			
+defense_p	4	7500	7500000	136			
+defense_p	5	9000	9000000	148			
+defense_p	6	12000	12000000	160			
+defense_p	7	15000	15000000	172			
+defense_p	8	18000	18000000	184			
+defense_p	9	21000	21000000	196			
+defense_p	10	24000	24000000	208			
+defense_p	11	27000	27000000	220			
+defense_p	12	30000	30000000	232			
+defense_p	13	33000	33000000	244			
+defense_p	14	36000	36000000	256			
+defense_p	15	39000	39000000	268			
+defense_p	16	42000	42000000	280			
+defense_p	17	45000	45000000	292			
+defense_p	18	48000	48000000	304			
+defense_p	19	50350	50350000	310			
+defense_p	20	52800	52800000	316			
+defense_p	21	55380	55380000	322			
+defense_p	22	58080	58080000	328			
+defense_p	23	60920	60920000	334			
+defense_p	24	63890	63890000	340			
+defense_p	25	67010	67010000	346			
+defense_p	26	70280	70280000	352			
+defense_p	27	73710	73710000	358			
+defense_p	28	77310	77310000	364			
+defense_p	29	81080	81080000	370			
+defense_p	30	85040	85040000	376			
+ignore_defense_vp	1	3000	3000000	100			
+ignore_defense_vp	2	4500	4500000	112			
+ignore_defense_vp	3	6000	6000000	124			
+ignore_defense_vp	4	7500	7500000	136			
+ignore_defense_vp	5	9000	9000000	148			
+ignore_defense_vp	6	12000	12000000	160			
+ignore_defense_vp	7	15000	15000000	172			
+ignore_defense_vp	8	18000	18000000	184			
+ignore_defense_vp	9	21000	21000000	196			
+ignore_defense_vp	10	24000	24000000	208			
+ignore_defense_vp	11	27000	27000000	220			
+ignore_defense_vp	12	30000	30000000	232			
+ignore_defense_vp	13	33000	33000000	244			
+ignore_defense_vp	14	36000	36000000	256			
+ignore_defense_vp	15	39000	39000000	268			
+ignore_defense_vp	16	42000	42000000	280			
+ignore_defense_vp	17	45000	45000000	292			
+ignore_defense_vp	18	48000	48000000	304			
+ignore_defense_vp	19	50350	50350000	310			
+ignore_defense_vp	20	52800	52800000	316			
+ignore_defense_vp	21	55380	55380000	322			
+ignore_defense_vp	22	58080	58080000	328			
+ignore_defense_vp	23	60920	60920000	334			
+ignore_defense_vp	24	63890	63890000	340			
+ignore_defense_vp	25	67010	67010000	346			
+ignore_defense_vp	26	70280	70280000	352			
+ignore_defense_vp	27	73710	73710000	358			
+ignore_defense_vp	28	77310	77310000	364			
+ignore_defense_vp	29	81080	81080000	370			
+ignore_defense_vp	30	85040	85040000	376			
+attackrate_p	1	3000	3000000	200			
+attackrate_p	2	4500	4500000	224			
+attackrate_p	3	6000	6000000	248			
+attackrate_p	4	7500	7500000	272			
+attackrate_p	5	9000	9000000	296			
+attackrate_p	6	12000	12000000	320			
+attackrate_p	7	15000	15000000	344			
+attackrate_p	8	18000	18000000	368			
+attackrate_p	9	21000	21000000	392			
+attackrate_p	10	24000	24000000	416			
+attackrate_p	11	27000	27000000	440			
+attackrate_p	12	30000	30000000	464			
+attackrate_p	13	33000	33000000	488			
+attackrate_p	14	36000	36000000	512			
+attackrate_p	15	39000	39000000	536			
+attackrate_p	16	42000	42000000	560			
+attackrate_p	17	45000	45000000	584			
+attackrate_p	18	48000	48000000	608			
+attackrate_p	19	50350	50350000	614			
+attackrate_p	20	52800	52800000	620			
+attackrate_p	21	55380	55380000	626			
+attackrate_p	22	58080	58080000	632			
+attackrate_p	23	60920	60920000	638			
+attackrate_p	24	63890	63890000	644			
+attackrate_p	25	67010	67010000	650			
+attackrate_p	26	70280	70280000	656			
+attackrate_p	27	73710	73710000	662			
+attackrate_p	28	77310	77310000	668			
+attackrate_p	29	81080	81080000	674			
+attackrate_p	30	85040	85040000	680			
+deadlystrike_p	1	3000	3000000	50			
+deadlystrike_p	2	4500	4500000	56			
+deadlystrike_p	3	6000	6000000	62			
+deadlystrike_p	4	7500	7500000	68			
+deadlystrike_p	5	9000	9000000	74			
+deadlystrike_p	6	12000	12000000	80			
+deadlystrike_p	7	15000	15000000	86			
+deadlystrike_p	8	18000	18000000	92			
+deadlystrike_p	9	21000	21000000	98			
+deadlystrike_p	10	24000	24000000	104			
+deadlystrike_p	11	27000	27000000	110			
+deadlystrike_p	12	30000	30000000	116			
+deadlystrike_p	13	33000	33000000	122			
+deadlystrike_p	14	36000	36000000	128			
+deadlystrike_p	15	39000	39000000	134			
+deadlystrike_p	16	42000	42000000	140			
+deadlystrike_p	17	45000	45000000	146			
+deadlystrike_p	18	48000	48000000	152			
+deadlystrike_p	19	50350	50350000	158			
+deadlystrike_p	20	52800	52800000	164			
+deadlystrike_p	21	55380	55380000	170			
+deadlystrike_p	22	58080	58080000	176			
+deadlystrike_p	23	60920	60920000	182			
+deadlystrike_p	24	63890	63890000	188			
+deadlystrike_p	25	67010	67010000	194			
+deadlystrike_p	26	70280	70280000	200			
+deadlystrike_p	27	73710	73710000	206			
+deadlystrike_p	28	77310	77310000	212			
+deadlystrike_p	29	81080	81080000	218			
+deadlystrike_p	30	85040	85040000	224			
+ignore_deadlystrike_vp	1	3000	3000000	50			
+ignore_deadlystrike_vp	2	4500	4500000	56			
+ignore_deadlystrike_vp	3	6000	6000000	62			
+ignore_deadlystrike_vp	4	7500	7500000	68			
+ignore_deadlystrike_vp	5	9000	9000000	74			
+ignore_deadlystrike_vp	6	12000	12000000	80			
+ignore_deadlystrike_vp	7	15000	15000000	86			
+ignore_deadlystrike_vp	8	18000	18000000	92			
+ignore_deadlystrike_vp	9	21000	21000000	98			
+ignore_deadlystrike_vp	10	24000	24000000	104			
+ignore_deadlystrike_vp	11	27000	27000000	110			
+ignore_deadlystrike_vp	12	30000	30000000	116			
+ignore_deadlystrike_vp	13	33000	33000000	122			
+ignore_deadlystrike_vp	14	36000	36000000	128			
+ignore_deadlystrike_vp	15	39000	39000000	134			
+ignore_deadlystrike_vp	16	42000	42000000	140			
+ignore_deadlystrike_vp	17	45000	45000000	146			
+ignore_deadlystrike_vp	18	48000	48000000	152			
+ignore_deadlystrike_vp	19	50350	50350000	158			
+ignore_deadlystrike_vp	20	52800	52800000	164			
+ignore_deadlystrike_vp	21	55380	55380000	170			
+ignore_deadlystrike_vp	22	58080	58080000	176			
+ignore_deadlystrike_vp	23	60920	60920000	182			
+ignore_deadlystrike_vp	24	63890	63890000	188			
+ignore_deadlystrike_vp	25	67010	67010000	194			
+ignore_deadlystrike_vp	26	70280	70280000	200			
+ignore_deadlystrike_vp	27	73710	73710000	206			
+ignore_deadlystrike_vp	28	77310	77310000	212			
+ignore_deadlystrike_vp	29	81080	81080000	218			
+ignore_deadlystrike_vp	30	85040	85040000	224			

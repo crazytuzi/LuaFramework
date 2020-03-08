@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<version id="27" appId="131090147">
+  <gift id="291" name="火箭">
+    <coin id="33" name="元宝" value="5000"/>
+    <score>5000</score>
+  </gift>
+  <gift id="292" name="飞机">
+    <coin id="33" name="元宝" value="1000"/>
+    <score>1000</score>
+  </gift>
+  <gift id="293" name="跑车">
+    <coin id="33" name="元宝" value="660"/>
+    <score>660</score>
+  </gift>
+  <gift id="294" name="女仆装">
+    <coin id="33" name="元宝" value="180"/>
+    <score>180</score>
+  </gift>
+  <gift id="295" name="猫耳朵">
+    <coin id="33" name="元宝" value="160"/>
+    <score>160</score>
+  </gift>
+  <gift id="296" name="粉丝印章">
+    <coin id="33" name="元宝" value="60"/>
+    <score>60</score>
+  </gift>
+  <gift id="297" name="么么哒">
+    <coin id="33" name="元宝" value="10"/>
+    <score>10</score>
+  </gift>
+  <gift id="298" name="666">
+    <coin id="33" name="元宝" value="2"/>
+    <score>2</score>
+  </gift>
+  <gift id="299" name="荧光棒">
+    <coin id="33" name="元宝" value="1"/>
+    <score>1</score>
+  </gift>
+</version>

@@ -1,0 +1,16 @@
+AniName	AniPath	TimeFrame
+at01	Player/Npcs/npc_150/at01.anim	15
+at02	Player/Npcs/npc_150/at02.anim	15
+bat	Player/Npcs/npc_150/bat.anim	6
+die	Player/Npcs/npc_150/die.anim	20
+jf	Player/Npcs/npc_150/jf.anim	30
+jfd	Player/Npcs/npc_150/jfd.anim	16
+angry	Player/Npcs/npc_150/angry.anim	41
+happy	Player/Npcs/npc_150/happy.anim	42
+qg	Player/Npcs/npc_150/qg.anim	18
+think	Player/Npcs/npc_150/think.anim	42
+ts01	Player/Npcs/npc_150/ts01.anim	25
+run	Player/Npcs/npc_150/run.anim	12
+st	Player/Npcs/npc_150/st.anim	20
+sta	Player/Npcs/npc_150/sta.anim	20
+wlk	Player/Npcs/npc_150/wlk.anim	16

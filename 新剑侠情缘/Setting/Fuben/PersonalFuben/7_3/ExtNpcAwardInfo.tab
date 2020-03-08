@@ -1,0 +1,17 @@
+nFubenLevel	szType	SubType	nItemId	nCount	nAwardLevel	nRate	bFirst	nSpecialRate	bStarAward
+1			989	1	2			0.55	
+1			223	1	1	600			
+1			222	1	1	3200			
+1			786	1	1	11600			
+1			785	1	1	5800			
+1	Coin			60	1	352700			
+1			601	1	1	600000			
+1			1256	40		-1			1
+2			880	1	2			0.66	
+2			223	1	1	500			
+2			222	1	1	3200			
+2			786	1	1	11600			
+2			785	1	1	5800			
+2	Coin			65	1	366300			
+2			601	1	1	600000			
+2			880	10		-1			1

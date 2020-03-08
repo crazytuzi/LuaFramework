@@ -1,0 +1,513 @@
+StateEffectId	StateName	EffectResID1	SlotID1	EffectResID2	SlotID2	HeadResID	Alpha	ChangeSize	ChangeSizeSpeed	RunActID	HeadWord	MagicDesc	Icon	IconAtlas	NotShowTime	HideBody	HideHead	ShowSort	HightLightSkill	RequireSuperpose
+114	钢之铠甲	114																		
+195	首领光环	9031																		
+197	精英光环	197																		
+198	篝火	198																		
+199	修炼珠											打怪经验：[00ff00]%s[-]倍\n剩余经验：[00ff00]%s[-]	BUFF_xiulianzhu	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+213	金钟罩	9076										基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]点\n抗属性效果几率 +[00ff00]resist_allseriesstate_rate_v1[-]	TianwangSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+217	初级秘籍：野蛮冲撞											基础会心几率 +[00ff00]deadlystrike_p1%[-]	Tianwang_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+221	初级秘籍：霸王怒吼											近程伤害抗性 +[00ff00]melee_dmg_p1%[-]\n远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	Tianwang_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+219	破釜沉舟	2416										无敌	Tianwang_bd03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+225	一骑当千											基础全系抗性 +[00ff00]all_series_resist_p1%[-]	Tianwang_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+241	惊雷破天											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Tianwang_bd08_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+246	气盖八荒											基础生命上限 +[00ff00]lifemax_p1%[-]	Tianwang_bd09_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+247	气盖八荒											基础生命上限 +[00ff00]lifemax_p1%[-]	Tianwang_bd09_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+270	金刚伏魔	3270						120	5			免疫属性效果\n免疫负面效果\n会心伤害 +[00ff00]deadlystrike_damage_p1%[-]\n会心免伤 +[00ff00]weaken_deadlystrike_damage_p1%[-]	ShaolinSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+273	罗汉阵	273																		
+279	立地成佛											基础全系抗性 +[00ff00]all_series_resist_p1%[-]	Shaolin_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+281	金刚怒目	3281										基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n金刚怒目的基础攻击 +[00ff00]add_usebasedmg_p12%[-]	Shaolin_bd05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+297	高级秘籍：十二擒龙手											基础攻击力 [FF3030]降低physics_potentialdamage_p1%[-]	Sl_mj03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+306	慈航普度	3306										每隔[00ff00]1[-]秒回复[00ff00]dir_recover_life_pp1/100%[-]最大生命	Emei_jx01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+316	秘籍：慈航普度											免疫属性效果	Em_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+318	绵里藏针											每[00ff00]recover_life_p2/15[-]秒回复[00ff00]recover_life_p1%[-]生命	Emei_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+328	秘籍：天舞宝轮											全系抗性 +[00ff00]all_series_resist_v1[-]	Emei_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+329	秘籍：天舞宝轮																			
+330	秘籍：天舞宝轮											清除并免疫属性效果与负面效果	Emei_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+331	秘籍：天舞宝轮											基础移动速度 +[00ff00]runspeed_p1%[-]	Emei_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+377	秘籍：天舞宝轮											基础闪避 [FF3030]降低defense_p1%[-]	Emei_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+341	佛心慈佑											抗属性效果几率 +[00ff00]resist_allseriesstate_rate_v1[-]\n抗属性效果时间 +[00ff00]resist_allseriesstate_time_v1[-]\n抗负面效果几率 +[00ff00]resist_allspecialstate_rate_v1[-]\n抗负面效果时间 +[00ff00]resist_allspecialstate_time_v1[-]	Emei_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+342	佛心慈佑											抗属性效果几率 +[00ff00]resist_allseriesstate_rate_v1[-]\n抗属性效果时间 +[00ff00]resist_allseriesstate_time_v1[-]\n抗负面效果几率 +[00ff00]resist_allspecialstate_rate_v1[-]\n抗负面效果时间 +[00ff00]resist_allspecialstate_time_v1[-]	Emei_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+406	火凤燎原	406										移动速度 +[00ff00]runspeed_v1[-]\n攻速 +[00ff00]attackspeed_v1[-]\n忽略最终抗性 +[00ff00]ignore_all_resist2%[-]\n基础闪避 +[00ff00]defense_p1%[-]	TaohuaSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+414	初级秘籍：火凤燎原											免疫负面效果\n免疫受伤效果	TaohuaSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+426	浴火重生											每[00ff00]recover_life_p2/15[-]秒回复[00ff00]recover_life_p1%[-]生命	Taohua_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+459	高级秘籍：火凤燎原											基础闪避 +[00ff00]defense_p1%[-]	TaohuaSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+466	轻云蔽月											攻击速度 +[00ff00]attackspeed_v1[-]\n桃花箭术 基础攻击 +[00ff00]add_usebasedmg_p12%[-]\n桃花箭术 无视无敌	Taohua_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+518	高级秘籍：七探蛇盘											抗属性效果几率 [FF3030]降低resist_allseriesstate_rate_v1[-]\n抗负面效果几率 [FF3030]降低resist_allspecialstate_rate_v1[-]	Xiaoyao_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+520	初级秘籍：风卷残云											基础全系抗性 [FF3030]降低all_series_resist_p1%[-]	Xiaoyao_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+523	三元归一	523										基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Xiaoyao_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+542	逍遥御风	2888										基础闪避值 +[00ff00]defense_p1%[-]\n基础会心几率 +[00ff00]deadlystrike_p1%[-]\n移动速度 +[00ff00]runspeed_v1[-]\n免疫属性效果\n免疫负面效果	Xiaoyao_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+527	寰宇逍遥游	527																		
+562	悲酥清风											基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Xiaoyao_bd08_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+613	坐忘无我	613										总抵御伤害点数：[00ff00]t_magicshield1[-]\n免疫诅咒几率 +[00ff00]ignore_dmgskill1/100%[-]	WudangSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+616	天地无极											基础全系抗性 [FF3030]降低all_series_resist_p1%[-]\n基础闪避 [FF3030]降低defense_p1%[-]	BUFF_Earth	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+618	太一真气	2849										清除并免疫属性效果	Wudang_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+625	初级秘籍：坐忘无我											[8dccf7]<剑飞惊天>[-]的基础攻击力 +[00ff00]add_usebasedmg_p12%[-]	WudangSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+645	真武七截											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Wudang_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+646	真武七截											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Wudang_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+650	中级秘籍：无我无剑											下一次[8dccf7]<武当剑法>[-]触发[8dccf7]<剑飞惊天>[-]	Changge_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+655	中级秘籍：天地无极											忽略全系抗性 +[00ff00]ignore_all_resist_vp1%[-]\n生命吸取 +[00ff00]steallife_p1%[-]	Tianshan_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+657	中级秘籍：人剑合一											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n攻击速度 +[00ff00]attackspeed_v1[-]点	WudangSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+662	高级秘籍：坐忘无我											近程伤害抗性 +[00ff00]melee_dmg_p1%[-]\n远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	WudangSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+666	七星诀											基础会心几率 [FF3030]降低deadlystrike_p1%[-]\n基础移动速度 [FF3030]降低runspeed_p1%[-]	Wudang_bd08_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+667	七星诀											基础会心几率 +[00ff00]deadlystrike_p1%[-]\n基础移动速度 +[00ff00]runspeed_p1%[-]	Wudang_bd08_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+706	魔焰在天	706										攻击6次后消失	TianrenSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+707	魔焰在天	6707										移动速度 [FF3030]降低runspeed_p1%[-]	TianrenSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+711	血月之影									31		隐身\n移动速度 +[00ff00]runspeed_v1[-]\n攻速 +[00ff00]attackspeed_v1[-]\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	TianrenSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+712	血月之影_破隐									31		移动速度 +[00ff00]runspeed_v1[-]\n攻速 +[00ff00]attackspeed_v1[-]\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	TianrenSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+713	血月之影_破隐									31		天忍刺杀术连招伤害 +[00ff00]50%[-]	TianrenSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+743	魔焰七杀											忽略全系抗性-[00ff00]ignore_all_resist2%[-]	Gb_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+746	破碎虚空											基础闪避 +[00ff00]defense_p1%[-]\n抗负面效果几率 +[00ff00]resist_allspecialstate_rate_v1[-]点	Tianren_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+764	秘籍：魔焰在天											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	TianrenSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+766	秘籍：血月之影											基础闪避 +[00ff00]defense_p1%[-]\n免疫负面效果	TianrenSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+767	秘籍：血月之影											基础闪避 +[00ff00]defense_p1%[-]\n免疫负面效果	TianrenSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+769	秘籍：摄魂乱心											基础闪避 [FF3030]降低defense_p1%[-]\n抗属性效果几率 [FF3030]降低resist_allseriesstate_rate_v1[-]\n抗负面效果几率 [FF3030]降低resist_allspecialstate_rate_v1[-]	Tianren_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+810	召唤啵啵											“啵啵”	CuiyanSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+818	雪影											移动速度 +[00ff00]runspeed_v1[-]\n忽略基础闪避 +[00ff00]ignore_defense_vp1%[-]	Cuiyan_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+819	雪影											移动速度 +[00ff00]runspeed_v1[-]\n忽略基础闪避 +[00ff00]ignore_defense_vp1%[-]	Cuiyan_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+857	秘籍：冰踪无影	973										基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n忽略敌人最终闪避几率 +[00ff00]ignore_defense_p1%[-]	Emei_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+860	秘籍：璇玑罗舞											璇玑罗舞的基础攻击力 +[00ff00]add_usebasedmg_p12%[-]	Cuiyan_bd05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+879	中级：召唤啵啵	2849										普攻伤害[FF3030]缩小 style_skill_damage_p2%[-]	CuiyanSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+927	毒瘴术	927																		
+930	金刚护体	2416																		
+933	不动明王	2416																		
+937	枯木逢春	6306																		
+939	涅槃重生	2849																		
+948	灵犀	948																		
+950	心眼	950																		
+958	涅槃重生	6306																		
+970	明月诀	970																		
+973	清心术	973																		
+995	悲酥清风	927																		
+1001	任务叹号_绿					1001														
+1002	任务叹号_蓝					1002														
+1003	任务问号_灰					1003														
+1004	任务问号_绿					1004														
+1005	任务问号_蓝					1005														
+1006	任务问号_黄					1006														
+1008	任务加速	1008								31										
+1009	自动寻路中										Golden_01|Golden_02|Golden_06|Golden_07|Golden_05									
+1010	自动战斗中										Golden_01|Golden_02|Golden_03|Golden_04|Golden_05									
+1011	跟战中										|Blue_01|Blue_02|Blue_03									
+1012	挖宝中										|Blue_04|Blue_05|Blue_03									
+1057	打怪经验											打怪经验：增加[00ff00]enhance_exp_p1%[-]	BUFF_xiulianzhu	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+1059	切磋胜利					1059														
+1060	切磋失败					1060														
+1062	传功特效	1062																		
+1063	传功特效_全特效	1063																		
+1085	结拜：有福同享											属性伤害 +[00ff00]physical_damage_v1[-]\n生命点数 +[00ff00]lifemax_v1[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]	BUFF_intimacy	UI/Atlas/NewAtlas/Buff/Buff.prefab	1					
+1086	打坐修炼	1086																		
+1087	禁止移动、技能、物品	59																		
+1096	同伴脚底光环_白	9032																		
+1097	同伴脚底光环_绿	9033																		
+1098	同伴脚底光环_蓝	9034																		
+1099	同伴脚底光环_紫	9035																		
+1100	同伴脚底光环_金	9036																		
+1105	金钟罩	9076																		
+1367	狂暴噬血							133	5											
+1457	锁足（禁止轻功）	1457																		
+1500	箭头					1500														
+1501	重伤状态					4501	700													
+1502	气绝状态	1502				4502	700													
+1503	光环_回血	1503																		
+1504	光环_加抗	1504																		
+1505	光环_加抗_子	1505																		
+1506	光环_回血_子	1506																		
+1507	回血					4507														
+1508	攻击力					4508														
+1509	抗性					4509														
+1510	跑速					4510														
+1512	buffball	1512																		
+1513	buffball	1513																		
+1514	宝箱光环	9012																		
+1517	保护状态						400					保护状态期间不会受到任何伤害	BUFF_Protect	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+1519	篝火	9044																		
+1533	光环_攻速	1533																		
+1534	光环_攻速_子	1534																		
+1535	光环_伤害	1535																		
+1536	光环_伤害_子	1536																		
+1537	狂暴	1367	16	7367	15			133	5											
+1676	天王怒气特效	1676																		
+1677	峨眉怒气特效	1677																		
+1678	桃花怒气特效	1678																		
+1679	逍遥怒气特效	1679																		
+1696	代言人光环_男	1696																		
+1697	代言人光环_女	1697																		
+1705	buff_攻击力	1705																		
+1732	鼓舞战吼	197										攻击力 +[00ff00]basic_damage_v1[-]\n生命 +[00ff00]lifemax_v1[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]\n属性效果几率 +[00ff00]add_seriesstate_rate_v1[-]\n属性效果时间 +[00ff00]add_seriesstate_time_v1[-]	Taohua_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+1733	鼓舞战吼											攻击力 +[00ff00]basic_damage_v1[-]\n生命 +[00ff00]lifemax_v1[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]\n属性效果几率 +[00ff00]add_seriesstate_rate_v1[-]\n属性效果时间 +[00ff00]add_seriesstate_time_v1[-]	Taohua_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+1772	忠贯白日	613										总抵御伤害点数：[00ff00]t_magicshield1[-]	WudangSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+1833	狂热					4508														
+1883	视野光环（直径2.8）	1883																		
+1884	视野光环（直径6米）	1453																		
+1885	光环秒杀	1885																		
+1889	全屏中毒光环_子2	1889																		
+2035	致命光环-火	2035																		
+2037	抗性光环-火	1504																		
+2038	抗性光环-火_子	1505																		
+2095	回复光环	2070																		
+2251	狂暴噬血																			
+2301	新服祝福：共战											野外修炼打怪获得的经验增加[00ff00]10%[-]	meigui_02	UI/Atlas/Item/Item/Item2.prefab						
+2302	新服祝福：财运											通过摇钱树、每日目标、随机地宫、野外修炼、商会任务获得的银两增加[00ff00]10%[-]	chongjujianghu	UI/Atlas/Item/Item/Item6.prefab						
+2303	新服祝福：天工											通过家族捐献、武神殿、惩恶任务、家族烤火答题、武林盟主获得的贡献增加[00ff00]10%[-]	BUFF_intimacy	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2304	祝福·火											忽略闪避 +[00ff00]ignore_defense_v1[-]\n会心几率 +[00ff00]deadlystrike_v1[-]	BUFF_Fire	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2305	祝福·土											全系抗性 +[00ff00]all_series_resist_v1[-]	BUFF_Earth	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2306	饮酒状态											  	BUFF_nverhong	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2307	佳节的祝福											属性伤害 +[00ff00]physical_damage_v1[-]\n生命上限 +[00ff00]lifemax_v1[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]	BUFF_zhuxiudan	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2308	亲密度加成											  	BUFF_intimacy	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2310	欠款											  	Gold	UI/Atlas/NewAtlas/Buff/Buff.prefab	1					
+2311	秦始皇陵停留时间											  	Buff_yemingzhu	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2312	PK保护											  	BUFF_Protect	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2313	沧海月明											打怪经验：增加[00ff00]enhance_exp_p1%[-]	Buff_canghaiyueming	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2314	欠款负面状态											打怪经验： [FF3030]降低enhance_exp_p1%[-]\n基础攻击力： [FF3030]降低physics_potentialdamage_p1%[-]\n基础全系抗性： [FF3030]降低all_series_resist_p1%[-]	Gold	UI/Atlas/NewAtlas/Buff/Buff.prefab	1					
+2316	腊八粥											家族烤火可获得[FFFE0D]额外经验加成[-]	labazhou	UI/Atlas/Item/Item/Item5.prefab						
+2317	重聚江湖											亲密度获取 +[00ff00]100%[-]\n打怪经验 +[00ff00]enhance_exp_p1%[-]\n攻击力 +[00ff00]basic_damage_v1[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]\n生命 +[00ff00]lifemax_v1[-]	chongjujianghu	UI/Atlas/Item/Item/Item6.prefab						
+2318	欠款负面状态											战力： [FF3030]降低fightpower_v11[-]	Gold	UI/Atlas/NewAtlas/Buff/Buff.prefab	1					
+2319	女侠的青睐											属性伤害 +[00ff00]physical_damage_v1[-]\n生命上限 +[00ff00]lifemax_v1[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]	meigui_02	UI/Atlas/Item/Item/Item2.prefab						
+2320	神秘灵果											对怪物伤害 +[00ff00]damage4npc_p1%[-]	ArborDay_04	UI/Atlas/Item/Item/Item7.prefab						
+2321	家园隐藏身体															1				
+2322	清明鬼魂状态	1502					700													
+2323	家园隐身躲猫猫															1				
+2324	无敌新颖	2416						150	3			无敌！	Tianwang_bd03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2325	天罚											  	buff_cell	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+2326	香粳白玉粽											打怪经验：增加[00ff00]enhance_exp_p1%[-]	DuanwuZongzi1	UI/Atlas/Item/Item/Item13.prefab						
+2327	蜜枣粽子											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Zongzi01	UI/Atlas/Item/Item/Item20.prefab						
+2328	什锦粽子											基础全系抗性 +[00ff00]all_series_resist_p1%[-]	Zongzi02	UI/Atlas/Item/Item/Item20.prefab						
+2329	紫薯粽子											基础闪避 +[00ff00]defense_p1%[-]	Zongzi03	UI/Atlas/Item/Item/Item20.prefab						
+2330	红豆粽子											基础生命 +[00ff00]lifemax_p1%[-]	Zongzi04	UI/Atlas/Item/Item/Item20.prefab						
+2331	咸肉粽子											基础会心 +[00ff00]deadlystrike_p1%[-]	Zongzi05	UI/Atlas/Item/Item/Item20.prefab						
+2515	哲别光环技能	9044																		
+2522	袁承志光环技能	9044																		
+2527	叶无心光环技能	9044																		
+2563	纳兰真光环技能	9044																		
+2554	劈空掌					9053														
+2398	光环_反弹	2398																		
+2399	光环_反弹_子	2399																		
+2400	光环_反射	2400																		
+2401	光环_反射_子	2401																		
+2402	视野光环（小）	1454																		
+2403	视野光环（大）	95																		
+2404	中毒光环	2404																		
+2405	强力（buff）	2405																		
+2416	无敌-被动	2416																		
+2468	中毒光环	1396																		
+2497	火焰陷阱	2497																		
+2646	白狼入阵	2646																		
+2708	反弹（buff）	2708																		
+2709	荆棘（buff）	2709																		
+2776	定身免拉	59																		
+2784	混乱光环	1883																		
+2844	龙象九重					2844														
+2845	龙象九重_子					2845														
+2849	雪映红尘_特效	2849																		
+2858	诀别					4508														
+2886	羁绊符	2886																		
+2888	风雪步法	2888																		
+2900	沧海月明_特效	2900																		
+2978	精忠报国	1367						130												
+3029	嗜血之意	1367						130												
+3056	变小至80%							80												
+3057	变小至60%							60												
+3058	变小至40%							40												
+3059	变小至20%							20												
+3066	长生不老	2416																		
+3070	站立10秒_无敌	2416					700													
+3077	始皇降临	14																		
+3078	始皇降临					6034														
+3106	旋风陷阱	1887																		
+3109	火焰陷阱	2497																		
+3115	无敌光环	13115		13116																
+3116	无敌光环_子	2416																		
+3166	着手回春					4507						每[00ff00]recover_life_p2/15[-]秒回复[00ff00]recover_life_p1%[-]生命	buff_recover	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3167	不灭剑意					4508						基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	buff_adddamage	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3168	金刚不坏					4509						基础全系抗性 +[00ff00]all_series_resist_p1%[-]	buff_series	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3169	风驰电掣					4510						移动速度 +[00ff00]runspeed_p1%[-]	buff_runspeed	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3191	会心之力	970										会心一击 +[00ff00]deadlystrike_v1[-]\n会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	buff_huixin	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3192	金刚护体	2416										免疫伤害与控制	buff_wudi	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3194	着手回春					4507						每[00ff00]recover_life_p2/15[-]秒回复[00ff00]recover_life_p1%[-]生命	buff_recover	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3195	不动明王	1504										免疫控制状态	ShaolinSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3196	风驰电掣					4510						移动速度 +[00ff00]runspeed_v1[-]	buff_runspeed	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3197	隐身											(使用技能会立刻打破隐身状态)	hd_changecard_gq	UI/Atlas/Item/Item/Item5.prefab						
+3198	药品效果					4507						每[00ff00]recover_life_p2/15[-]秒回复[00ff00]recover_life_p1%[-]生命\n(此效果受到攻击后会被移除)	buff_recover	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3217	激怒					13217		133	5											
+3272	同伴觉醒_大模型	13272						120	120											
+3273	同伴觉醒_常规	13273						120	120											
+3274	同伴觉醒_地面动物1	13274						120	120											
+3275	同伴觉醒_地面动物2	13275						120	120											
+3255	轮回往生	2849																		
+3256	轮回往生	6306																		
+3263	高级金刚	3306																		
+3366	踏冰诀	13366										移动速度 +[00ff00]runspeed_v1[-]	BUFF_Wood	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3367	乘霜式	13367										雪球的飞行速度 +[00ff00]100%[-]	BUFF_Water	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3370	雪影舞	13370										免疫控制状态	BUFF_Gold	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3371	坚冰御	13371										抵御伤害[00ff00]100%[-]	BUFF_Fire	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3399	变雪人隐藏本体															1	1			
+3450	高级秘籍：金钟罩											基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n回复效率 +[00ff00]lifereplenish_p1%[-]	TianwangSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3458	高级秘籍：金刚伏魔											大力金刚指最大攻击目标数 +[00ff00]addms_hittotal_c12[-]	Sl_mj03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3549	隐藏名字																1			
+3550	夫妻同心											属性伤害 +[00ff00]physical_damage_v1[-]\n生命上限 +[00ff00]lifemax_v1[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]\n闪避 +[00ff00]defense_v1[-]	tongxinguo	UI/Atlas/Item/Item/Item9.prefab						
+3551	新人的祝福											属性伤害 +[00ff00]physical_damage_v1[-]\n生命上限 +[00ff00]lifemax_v1[-]\n全系抗性 +[00ff00]all_series_resist_v1[-]	ArborDay_01	UI/Atlas/Item/Item/Item7.prefab						
+3701	测试金											抵挡角色伤害 +[00ff00]playerdmg_npc_p1%[-]	BUFF_Gold	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3702	测试木											完全闪避 +[00ff00]miss_alldmg_v1[-]	BUFF_Wood	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3703	测试水											吸取生命抗性 +[00ff00]steallife_resist_v1[-]	BUFF_Water	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3704	测试火											吸取生命抗性 +[00ff00]steallife_resist_p1%[-]	BUFF_Fire	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3705	测试土											吸取生命 +[00ff00]steallife_p1%[-]	BUFF_Earth	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3716	仇恨对象标识					13716														
+3767	塔防标记					13767														
+3805	免疫状态	13805										免疫属性效果\n免疫负面效果	Wudang_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+3921	女帝之力	13921																		
+3928	合纵连横	2886										最终伤害抵消 [FF3030]降低reduce_final_damage_p1%[-]	mingcaqiuhao	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+3932	纯阳无极功	13932										基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n吸取生命 +[00ff00]steallife_p1%[-]	chunyangwujigong	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+4015	淬毒术											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	Tangmen_bd01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4016	淬毒术											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	Tangmen_bd01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4020	心眼											近程伤害抗性 +[00ff00]melee_dmg_p1%[-]\n远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	Tangmen_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4028	移形换影											隐身\n清除并免疫属性状态\n清除并免疫负面状态	Tangmen_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4046	中级秘籍：迷影纵											基础闪避 +[00ff00]defense_p1%[-]\n免疫负面效果\n免疫属性效果	Tm_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4119	混元乾坤											吸取生命 +[00ff00]steallife_p1%[-]	Kunlun_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4120	混元乾坤											生命回复效率 [FF3030]降低lifereplenish_p1%[-]\n移动速度 [FF3030]降低runspeed_p1%[-]	Kunlun_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4121	御风行	613										总抵御伤害点数：[00ff00]t_magicshield1[-]	WudangSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4131	一气三清	613										总抵御伤害点数：[00ff00]t_magicshield1[-]	WudangSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4134	初级秘籍：仙人指路											基础会心几率 +[00ff00]deadlystrike_p1%[-]\n造成眩晕时间 +[00ff00]state_stun_attacktime1[-]	Kl_mj03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4140	中级秘籍：仙人指路											免疫迟缓效果\n免疫负面效果	Kl_mj03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4143	中级秘籍：混沌剑阵											基础全系抗性 [FF3030]降低all_series_resist_p1%[-]	Kl_mj01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4150	高级秘籍：混沌剑阵											远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	Kl_mj01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4153	天清地浊											攻击速度-[00ff00]attackspeed_v1[-]点\n基础攻击力-[00ff00]physics_potentialdamage_p1%[-]\n基础抗性 +[00ff00]all_series_resist_p1%[-]\n基础闪避 +[00ff00]defense_p1%[-]	Kunlun_bd08_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4155	高级秘籍：啸风三连击	14432										基础闪避 [FF3030]降低defense_p1%[-]\n抗属性效果几率 [FF3030]降低resist_allseriesstate_rate_v1[-]\n抗负面效果几率 [FF3030]降低resist_allspecialstate_rate_v1[-]	Kunlun_bd08_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4156	高级秘籍：雷动九天											清除并免疫属性效果	Kl_mj03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4211	醉蝶狂舞	24211								31		移动速度 +[00ff00]runspeed_v1[-]\n基础闪避 +[00ff00]defense_p1%[-]	GaibangSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4219	霸王卸甲											忽略最终抗性 +[00ff00]ignore_all_resist2%[-]	Gaibang_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4223	游龙决											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Gaibang_bd01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4241	秘籍：醉蝶狂舞											移动速度 +[00ff00]runspeed_v1[-]\n基础闪避 +[00ff00]defense_p1%[-]	Gb_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4250	秘籍：困龙功											基础全系抗性 [FF3030]降低all_series_resist_p1%[-]	Gb_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4301	中毒	14305																		
+4312	召唤灵蛇											灵蛇	WuduSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4314	召唤碧蟾											碧蟾	WuduSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4316	召唤赤蝎											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	WuduSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4318	召唤风蜈											风蜈	WuduSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4320	召唤墨蜘											墨蜘	WuduSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4336	迷心蛊					24336						受到毒攻伤害提升[00ff00]recdot_wood_p1%[-]	WuduSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4341	百毒穿心											基础会心几率 +[00ff00]deadlystrike_p1%[-]	Wudu_bd05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4342	百毒穿心											基础会心几率 +[00ff00]deadlystrike_p1%[-]	Wudu_bd05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4348	回魂秘咒	14348										受到伤害转换成生命回复	Wudu_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4325	碧蟾											木系抗性 [FF3030]降低wood_resist_v1[-]点	WuduSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4330	风蜈											闪避 [FF3030]降低defense_v1[-]点	WuduSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4371	秘籍：阴风蚀骨											攻击速度 +[00ff00]attackspeed_v1[-]	Wdu_mj03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4375	秘籍：碧蟾											木系抗性 [FF3030]降低wood_resist_v1[-]点	Wdu_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4378	秘籍：风蜈											闪避 [FF3030]降低defense_v1[-]点	Wdu_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4381	秘籍：迷心蛊											主动技能冷却时间 +[00ff00]allfactionskill_cd_point1/15[-]秒	Wdu_mj01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4410	心剑	34410										基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n基础会心几率 +[00ff00]deadlystrike_p1%[-]\n对非玩家敌人伤害 +[00ff00]damage4npc_p1%[-]	CangjianSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4418	鹤归孤山											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Cangjian_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4419	鹤归孤山											基础攻击力 [FF3030]降低physics_potentialdamage_p1%[-]\n毒攻伤害 [FF3030]降低add_dottype_wood_p2%[-]	Cangjian_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4423	映波锁澜	2849										基础全系抗性提高[00ff00]all_series_resist_p1%[-]\n免疫致缠效果\n免疫负面效果\n	Cangjian_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4439	中级秘籍：断潮											断潮的基础攻击力增加[00ff00]add_usebasedmg_p12%[-]\n断潮有[00ff00]add_fixed_r2%[-]几率定身[00ff00]add_fixed_t2/15[-]秒	Cj_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4443	高级秘籍：心剑	2849										免疫致缠效果\n免疫负面效果	CangjianSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4451	初级秘籍：玉泉鱼跃	14432										移动速度 [FF3030]降低runspeed_v1[-]	Cj_mj03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4462	高级秘籍：峰插云景											会心伤害 [FF3030]降低deadlystrike_damage_p1%[-]	Cj_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4488	心剑	34410										每次普攻命中提升自身属性：\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	CangjianSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4489	心剑											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	CangjianSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4509	云生结海	1008										基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n反弹近程伤害 +[00ff00]meleedamagereturn_p1%[-]\n反弹远程伤害 +[00ff00]rangedamagereturn_p1%[-]	ChanggeSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4510	云生结海	1008										基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n反弹近程伤害 +[00ff00]meleedamagereturn_p1%[-]\n反弹远程伤害 +[00ff00]rangedamagereturn_p1%[-]	ChanggeSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4519	江逐月天											基础命中 [FF3030]降低attackrate_p1%[-]\n基础会心 [FF3030]降低deadlystrike_p1%[-]	ChanggeSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4520	江逐月天											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n攻击速度 +[00ff00]attackspeed_v1[-]\n移动速度 +[00ff00]runspeed_v1[-]	ChanggeSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4523	夜引风岚											基础闪避 +[00ff00]defense_p1%[-]\n抗属性效果时间 +[00ff00]resist_allseriesstate_time_v1[-]点	Tangmen_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4528	魔音缠绕	14528										基础攻击力 [FF3030]降低physics_potentialdamage_p1%[-]\n基础命中 [FF3030]降低attackrate_p1%[-]\n基础会心 [FF3030]降低deadlystrike_p1%[-]\n基础全系抗性 [FF3030]降低all_series_resist_p1%[-]	Changge_bd05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4542	阳春白雪	14542										回复效果无效	Changge_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4572	平沙雁落											基础攻击力 [FF3030]降低physics_potentialdamage_p1%[-]	Changge_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4610	银瓶玉碎					24610						基础攻击力 [FF3030]降低physics_potentialdamage_p1%[-]\n受到攻击失去1层效果	TianshanSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4620	凤栖梧桐											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Tianshan_bd03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4624	水幕天华											忽略敌人最终闪避几率 +[00ff00]ignore_defense_p1%[-]\n会心免伤 +[00ff00]weaken_deadlystrike_damage_p1%[-]	Tianshan_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4625	水幕天华											会心免伤 +[00ff00]weaken_deadlystrike_damage_p1%[-]	Tianshan_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4627	逆水寒	14627										吸取生命 +[00ff00]steallife_p1%[-]\n基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n清除并免疫属性、负面效果	Tianshan_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4632	空山凝云	24611										基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n攻击速度 +[00ff00]attackspeed_v1[-]\n受到攻击失去1层效果	TianshanSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4650	高级秘籍：飞燕凌波											基础会心几率 +[00ff00]deadlystrike_p1%[-]	TianshanSkill_02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4652	高级秘籍：银瓶玉碎											会心免伤 [FF3030]降低weaken_deadlystrike_damage_p1%[-]	TianshanSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4655	高级秘籍：空山凝云											清除并免疫负面效果	TianshanSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4656	初级秘籍：水龙吟	14656										[00ff00]ignore_dmgskill1/100%[-]几率无法获得部分增益	TianshanSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4706	运营_体型放大							150	3			体型放大50%	BUFF_zhuxiudan	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4707	运营_最终伤害放大											最终伤害放大 +[00ff00]enhance_final_damage_p1%[-]	BUFF_zhuxiudan	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4708	运营_基础血量											基础生命上限 +[00ff00]lifemax_p1%[-]	BUFF_zhuxiudan	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4709	运营_当前血量											当前生命 +[00ff00]lifecurmax_p1%[-]	BUFF_zhuxiudan	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4710	门客解封特效1	4710																		
+4711	门客解封特效2	4711																		
+4712	你是猪吗？							100	10			呼噜呼噜··	PetPig	UI/Atlas/Item/Item/Item19.prefab						
+4713	变大至120%							120	10											
+4714	变大至140%							140	10											
+4715	变大至160%							160	10											
+4716	变大至180%							180	10											
+4717	变大至200%							200	10											
+4718	变大至220%							220	10											
+4719	变大至240%							240	10											
+4720	变大至260%							260	10											
+4721	变大至280%							280	10											
+4722	变大至300%							300	10											
+4723	变大至320%							320	10											
+4724	变大至340%							340	10											
+4725	变大至360%							360	10											
+4726	变大至380%							380	10											
+4727	变大至400%							400	10											
+4728	变大至420%							420	10											
+4729	变大至440%							440	10											
+4730	变大至460%							460	10											
+4731	变大至480%							480	10											
+4732	变大至500%							500	10											
+4743	着手回春					4507						每[00ff00]recover_life_p2/15[-]秒回复[00ff00]recover_life_p1%[-]生命	buff_recover	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4744	不灭剑意					4508						最终伤害放大 +[00ff00]enhance_final_damage_p1%[-]	buff_adddamage	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4745	金刚不坏					4509						最终伤害抵消 +[00ff00]reduce_final_damage_p1%[-]	buff_series	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4751	糖葫芦											酸甜可口，回味无穷	Toys_tanghulu	UI/Atlas/Item/Item/Item17.prefab						
+4752	龙头特效	9298																		
+4753	龙身特效	9299																		
+4754	龙尾特效	9300																		
+4808	冲脉·幽门	2849										免疫属性效果与负面效果	buff_jingmai1	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4812	阴跷脉·公孙	14812										生命回复效率 [FF3030]降低lifereplenish_p1%[-]	jm_skill05	UI/Atlas/SkillIcon/MeridianSkill.prefab						
+4814	阳维脉·金门	7367	1									忽略基础全抗 +[00ff00]ignore_all_resist_vp1%[-]	jm_skill06	UI/Atlas/SkillIcon/MeridianSkill.prefab						
+4902	王座	14902																		
+4903	柱子无敌	14903																		
+4905	心灵之护	14905										伤害抵挡 +[00ff00]100%[-]	BUFF_zhuxiudan	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4906	家族聚餐											在家族聚餐场景中每隔[00ff00]15[-]秒获取一次经验，[00ff00]每猜对一个成语，获取的经验值增加1倍[-]	Head_jh_zhuozi02	UI/Atlas/Home/HomeScreenAtlas2.prefab						
+4951	宠物的祝福											对怪物伤害 +[00ff00]damage4npc_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4952	宠物的祝福											打怪经验 +[00ff00]enhance_exp_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4953	宠物的祝福											打怪经验 +[00ff00]enhance_exp_p1%[-]\n打怪经验共享 +[00ff00]userdesc_1011%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4954	宠物的祝福											银两获得 +[00ff00]exp_coin_contrib2%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4955	宠物的祝福											银两获得 +[00ff00]exp_coin_contrib2%[-]\n贡献获得 +[00ff00]exp_coin_contrib3%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4956	宠物的祝福											五行相克弱化 +[00ff00]series_abate_v1[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4957	宠物的祝福											五行相克弱化 +[00ff00]series_abate_v1[-]\n五行相克强化 +[00ff00]series_enhance_v1[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4958	宠物的祝福											基础全系抗性 +[00ff00]all_series_resist_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4959	宠物的祝福											基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n回复效率 +[00ff00]lifereplenish_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4960	宠物的祝福											基础生命上限 +[00ff00]lifemax_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4961	宠物的祝福											基础生命上限 +[00ff00]lifemax_p1%[-]\n反弹近程伤害 +[00ff00]meleedamagereturn_p1%[-]\n反弹远程伤害 +[00ff00]rangedamagereturn_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4962	宠物的祝福											抗属性效果几率 +[00ff00]resist_allseriesstate_rate_v1[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4963	宠物的祝福											抗属性效果几率 +[00ff00]resist_allseriesstate_rate_v1[-]\n移动速度 +[00ff00]runspeed_v1[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4964	宠物的祝福											忽略基础全抗 +[00ff00]ignore_all_resist_vp1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4965	宠物的祝福											忽略基础全抗 +[00ff00]ignore_all_resist_vp1%[-]\n吸取生命 +[00ff00]steallife_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4966	宠物的祝福											忽略基础闪避 +[00ff00]ignore_defense_vp1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4967	宠物的祝福											忽略基础闪避 +[00ff00]ignore_defense_vp1%[-]\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4968	宠物的祝福											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4969	宠物的祝福											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]\n基础会心几率 +[00ff00]deadlystrike_p1%[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4970	宠物的祝福											攻速 +[00ff00]attackspeed_v1[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+4971	宠物的祝福											攻速 +[00ff00]attackspeed_v1[-]\n属性效果几率 +[00ff00]add_seriesstate_rate_v1[-]	Buff_dog	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5015	浴血蹈锋	25015						120	15			免疫属性效果\n免疫负面效果\n基础生命上限 +[00ff00]lifemax_p1%[-]\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n每[00ff00]2秒[-]减少化血劫光的剩余冷却时间[00ff00]reduce_cd_time_point12/15[-]秒	BadaoSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab					5005	
+5019	否极泰来	25006										濒死时扣除[00ff00]1[-]层免死并回复[00ff00]dir_recover_life_pp1/100%[-]最大生命同时无敌[00ff00]skill_statetime1/15[-]秒	Badao_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5027	避实就虚											基础全系抗性 [FF3030]降低all_series_resist_p1%[-]	Badao_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5033	乘胜逐北											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]\n基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n攻击速度 +[00ff00]attackspeed_v1[-]\n移动速度 +[00ff00]runspeed_v1[-]	Badao_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5035	连环刀.攻击降低											基础攻击力 [FF3030]降低physics_potentialdamage_p1%[-]	Badao_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5036	连环刀.攻击提高											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Badao_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5052	初级秘籍：挟山超海	2849										免疫属性效果	BadaoSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5053	高级秘籍：挟山超海	2849										免疫属性效果\n会心免伤 +[00ff00]weaken_deadlystrike_damage_p1%[-]	BadaoSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5054	初级秘籍：逆血截脉	14432										基础全系抗性 [FF3030]降低all_series_resist_p1%[-]\n移动速度 [FF3030]降低runspeed_v1[-]	Badao_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5056	高级秘籍：浴血蹈锋	2416										[00ff00]无敌[-]	Bd_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5083	浴血蹈锋	25015						120	15											
+5100	抵消伤害											最终伤害抵消 +[00ff00]reduce_final_damage_p1%[-]	Bd_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5102	点名炸弹	1454																		
+5104	五行护体_金	15104																		
+5105	五行护体_木	15105																		
+5106	五行护体_水	15106																		
+5107	五行护体_火	15107																		
+5108	五行护体_土	15108																		
+5109	分					15109														
+5110	合					15110														
+5111	反弹近战	2708																		
+5112	反弹远程	2708																		
+5113	吸魂											最终伤害放大 +[00ff00]enhance_final_damage_p1%[-]	Bd_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5114	狂暴噬血	1367										最终伤害放大 +[00ff00]enhance_final_damage_p1%[-]	Bd_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5135	传送金符	15135																		
+5136	传送银符	15136																		
+5137	伤害抵挡											伤害抵挡 +[00ff00]defuse_damage2%[-]\n(短时间内被多次击为重伤所获得的状态)	BUFF_zhuxiudan	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5138	天龙珠-2颗	25138																		
+5139	天龙珠-4颗	25139																		
+5140	天龙珠-6颗	25140																		
+5144	士气高涨											基础生命上限 +[00ff00]lifemax_p1%[-]\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	BUFF_shiqigaozhang	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5218	剑意											华山剑意	HuashanSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab					5206	7
+5210	天绅倒悬	15210										基础攻击力 [FF3030]降低physics_potentialdamage_p1%[-]	HuashanSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5221	破招	15221										破解一切招式	Huashan_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5234	紫霞剑气											增加风送紫霞的伤害次数	HuashanSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab					5215	5
+5249	中级秘籍：萧史乘龙											免疫属性效果\n免疫负面效果	Hs_mj01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5251	初级秘籍：朝阳一气剑	14432										移动速度 [FF3030]降低runspeed_p1%[-]	Hs_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5252	中级秘籍：朝阳一气剑											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	Hs_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5141	冥想中										|Blue_06|Blue_07|Blue_03									
+5142	入魔										|Red_01|Red_02									
+5359	绝学:火凤燎原											基础闪避值 +[00ff00]defense_p1%[-]	Taohua_jx01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5362	绝学:大力金刚指											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Shaolin_jx01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5365	绝学:五毒笛法											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	Wudu_jx01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5366	绝学:玉泉鱼跃											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]\n会心免伤 +[00ff00]weaken_deadlystrike_damage_p1%[-]	Cangjian_jx01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5367	绝学:余音绕梁											[00ff00]清音长啸[-]的基础攻击力增加[00ff00]add_usebasedmg_p12%[-]	Changge_jx01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab					4511	
+5368	绝学:余音绕梁											[00ff00]平沙雁落[-]的基础攻击力增加[00ff00]add_usebasedmg_p22%[-]	Changge_jx01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab					4506	
+5370	绝学:血战八方											[00ff00]血战八方[-]的基础攻击力增加[00ff00]add_usebasedmg_p12%[-]	Tianwang_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5371	绝学:白露凝霜											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n近程伤害抗性 +[00ff00]melee_dmg_p1%[-]\n远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	Emei_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5372	绝学:桃花箭术											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n闪避 +[00ff00]defense_p1[-]	Taohua_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5374	绝学:坐忘无我											近程伤害抗性 +[00ff00]melee_dmg_p1%[-]\n远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	Wudang_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5377	绝学:冰心雪莲											[8dccf7]<翠烟御伞诀>[-]的基础攻击力 +[00ff00]add_usebasedmg_p12%[-]	Cuiyan_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5378	绝学:九宫飞星											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]\n基础会心几率 +[00ff00]deadlystrike_p1%[-]	Tangmen_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5379	绝学:无我无剑	14542										回复效果无效	Changge_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5382	绝学:映波锁澜											基础生命上限 +[00ff00]lifemax_p1%[-]	Cangjian_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5385	绝学:挟山超海											全系抗性 +[00ff00]all_series_resist_p1%[-]	Badao_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5451	不溃					15451						减少天龙珠掉落的数量	buff_bukui	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5452	复苏					4507						每[00ff00]recover_life_p2/15[-]秒回复[00ff00]recover_life_p1%[-]生命	buff_recover	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5453	潜行											(使用技能会立刻打破隐身状态)	hd_changecard_gq	UI/Atlas/Item/Item/Item5.prefab						
+5454	疾行					4510						移动速度 +[00ff00]runspeed_v1[-]	buff_runspeed	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5455	无敌	2416										免疫伤害与控制	buff_wudi	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5512	火光残影									31		移动速度 +[00ff00]runspeed_v1[-]\n基础闪避 +[00ff00]defense_p1%[-]	MingjiaoSkill_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5517	毁天灭地											腾空而起	MingjiaoSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab					5515	
+5528	引火烧身											忽略最终抗性 +[00ff00]ignore_all_resist2%[-]\n忽略基础全抗 +[00ff00]ignore_all_resist_vp1%[-]	Mingjiao_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5529	引火烧身											忽略基础全抗 +[00ff00]ignore_all_resist_vp1%[-]	Mingjiao_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5531	星火燎原											免疫属性效果\n免疫负面效果	Mingjiao_bd05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5535	火舞凌天											基础闪避 +[00ff00]defense_p1%[-]\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	Mingjiao_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5543	秘籍:电光石火											免疫属性效果\n免疫除冰冻外的负面效果	Mj_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5545	秘籍:火光残影											基础全系抗性 [FF3030]降低all_series_resist_p1%[-]\n移动速度 [FF3030]降低runspeed_v1[-]	Mj_mj03	UI/Atlas/SkillIcon/MJ_Skill.prefab						
+5547	秘籍:火光残影											基础全系抗性 [FF3030]降低all_series_resist_p1%[-]\n移动速度 [FF3030]降低runspeed_v1[-]\n抗属性效果几率 [FF3030]降低resist_allseriesstate_rate_v1[-]\n抗属性效果时间 [FF3030]降低resist_allseriesstate_time_v1[-]\n抗负面效果几率 [FF3030]降低resist_allspecialstate_rate_v1[-]\n抗负面效果几率 [FF3030]降低resist_allspecialstate_time_v1[-]	Mj_mj03	UI/Atlas/SkillIcon/MJ_Skill.prefab						
+5551	秘籍:毁天灭地											免疫属性效果\n免疫负面效果	Mj_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5553	秘籍:毁天灭地											免疫属性效果\n免疫负面效果\n基础生命上限 +[00ff00]lifemax_p1%[-]	Mj_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5560	绝学:火光残影											会心免伤[FF3030]降低weaken_deadlystrike_damage_p1%[-]\n忽略基础闪避[FF3030]降低ignore_defense_vp1%[-]	Mingjiao_jx01	UI/Atlas/SkillIcon/LostKnowledge.prefab						
+5562	绝学:不灭之光											基础会心几率 +[00ff00]deadlystrike_p1%[-]	Mingjiao_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5389	挥袂生风	15389										攻击速度 +[00ff00]attackspeed_v1[-]\n移动速度 +[00ff00]runspeed_v1[-]	Tongyong_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5390	挥袂生风	15389										攻击速度 +[00ff00]attackspeed_v1[-]	Tongyong_jx02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5626	水龙狱	35626										被困与水龙狱之中	DuanShiSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5638	画地为牢											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]\n生命回复效率 +[00ff00]lifereplenish_p1%[-]	DuanShi_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5639	画地为牢											反弹近程伤害 +[00ff00]meleedamagereturn_p1%[-]\n反弹远程伤害 +[00ff00]rangedamagereturn_p1%[-]\n攻击速度 +[00ff00]attackspeed_v1[-]\n移动速度 +[00ff00]runspeed_v1[-]	DuanShi_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5640	画地为牢	1008										攻击速度 +[00ff00]attackspeed_v1[-]\n移动速度 +[00ff00]runspeed_v1[-]	DuanShi_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5647	北冥神功											基础攻击力 [FF3030]降低physics_potentialdamage_p1%[-]	DuanShi_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5648	北冥神功											普攻可触发冰环伤害	DuanShi_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab					5601	
+5657	秘籍:五罗轻烟	1008										攻击速度 +[00ff00]attackspeed_v1[-]\n移动速度 +[00ff00]runspeed_v1[-]	DuanShiSkill_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5666	秘籍:水龙狱											移动速度 [FF3030]降低runspeed_v1[-]\n会心免伤 [FF3030]降低weaken_deadlystrike_damage_p1%[-]	DuanShiSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5667	秘籍:水龙狱											当前生命 +[00ff00]lifecurmax_p1%[-]	DuanShiSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5668	秘籍:水龙狱											移动速度 [FF3030]降低runspeed_v1[-]\n会心免伤 [FF3030]降低weaken_deadlystrike_damage_p1%[-]\n基础闪避 [FF3030]降低defense_p1%[-]	DuanShiSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5675	绝学:五罗轻烟											每1米普攻基础攻击力 +[00ff00]add_adddmgbydist2/10%[-]	DuanShi_jx03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5715	超群金刚											每秒回复生命值[00ff00]体质*vitality_recover_life1%[-]\n基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	chaoqunjingang	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+5717	超群明王	1504										免疫属性效果\n免疫负面效果\n闪避 +[00ff00]defense_v1[-]\n会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	chaoqunmingwang	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+5725	百念俱灭	15725										最终伤害放大 [FF3030]降低enhance_final_damage_p1%[-]	bainianjumie	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+5727	毒泷恶雾	927										回复无效\n护盾效果 [FF3030]降低-50%[-]\n全系抗性 [FF3030]降低all_series_resist_v1[-]点\n最终伤害抵消 [FF3030]降低reduce_final_damage_p1%[-]	dulongewu	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+5728	穿甲破铠					15728						每次攻击有[00ff00]ignore_invincible_rate2%[-]几率无视敌人的金刚护体效果	chuanjiapokai	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+5729	断汲					15729						吸血抗性 +[00ff00]steallife_resist_p1%[-]	duanji	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+5730	断汲					15729						吸血抗性 +[00ff00]steallife_resist_p1%[-]	duanji	UI/Atlas/NewAtlas/CompanionSkill/CompanionSkill_02.prefab						
+5806	舞笔弄墨					35806						舞笔弄墨	WanHuaSkill_01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5813	绘虎点睛											绘虎点睛	WanHuaSkill_05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5832	墨守成规											墨守成规	WanHua_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5833	墨守成规(护盾)	613										总抵御伤害点数：[00ff00]t_magicshield1[-]	WanHua_bd02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5838	与虎添翼											与虎添翼叠加层数	WanHua_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab					5839	5
+5840	与虎添翼											巨型水墨虎持续时间	WanHua_bd04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5847	虎啸山林											免疫属性效果\n免疫负面效果\n吸取生命 +[00ff00]steallife_p1%[-]	WanHua_bd05_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5851	墨染失色											基础攻击力 +[00ff00]physics_potentialdamage_p1%[-]	WanHua_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5852	墨染失色											回复效率 [FF3030]降低lifereplenish_p1%[-]	WanHua_bd07_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5856	秘籍：执颖点墨											基础全系抗性 [FF3030]降低all_series_resist_p1%[-]	Kl_mj01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5875	绝学.墨守成规											近程伤害抗性 +[00ff00]melee_dmg_p1%[-]\n远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	Tangmen_bd06_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5876	秘籍.执颖点墨											会心伤害 +[00ff00]deadlystrike_damage_p1%[-]	WanHuaSkill_01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5908	啸风诀	26007										攻速 +[00ff00]attackspeed_v1[-]\n移动速度 +[00ff00]runspeed_v1[-]\n属性效果几率 +[00ff00]add_seriesstate_rate_v1[-]\n属性效果时间 +[00ff00]add_seriesstate_time_v1[-]\n负面效果几率 +[00ff00]add_allspecialstate_rate_v1[-]\n负面效果时间 +[00ff00]add_allspecialstate_time_v1[-]	YangMenSkill_Arch_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5918	奇门盾	26018		26019								基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n抗属性效果几率 +[00ff00]resist_allseriesstate_rate_v1[-]\n远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	YangMenSkill_Halberd_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5919	奇门盾											基础全系抗性 +[00ff00]all_series_resist_p1%[-]\n抗属性效果几率 +[00ff00]resist_allseriesstate_rate_v1[-]\n远程伤害抗性 +[00ff00]remote_dmg_p1%[-]	YangMenSkill_Halberd_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5928	枪联弓映·枪											最终伤害抵消 +[00ff00]reduce_final_damage_p1%[-]	YangMenSkill_Halberd_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5929	枪联弓映·弓											属性效果几率 +[00ff00]add_seriesstate_rate_v1[-]\n属性效果时间 +[00ff00]add_seriesstate_time_v1[-]\n负面效果几率 +[00ff00]add_allspecialstate_rate_v1[-]\n负面效果时间 +[00ff00]add_allspecialstate_time_v1[-]	YangMenSkill_Arch_04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5937	后发制人	9076										基础全系抗性 +[00ff00]all_series_resist_p1%[-]	YangMenSkill_Halberd_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5938	后发制人	1504										免疫属性效果\n免疫负面效果	YangMenSkill_Halberd_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5940	否极阳回	2416										无敌	Tianwang_bd03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5944	两级反转·弓											攻击速度-[00ff00]attackspeed_v1[-]点\n基础攻击力-[00ff00]physics_potentialdamage_p1%[-]	YangMenSkill_Arch_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5949	两级反转·枪											基础抗性 +[00ff00]all_series_resist_p1%[-]\n吸取生命 +[00ff00]steallife_p1%[-]	YangMenSkill_Halberd_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5946	后发制人	9076										基础全系抗性 +[00ff00]all_series_resist_p1%[-]	YangMenSkill_Halberd_03_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5955	秘籍：流光绝影/奔狼枪	14432										移动速度 [FF3030]降低runspeed_v1[-]	YM_mj01_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5959	秘籍：啸风诀/奇门盾											忽略基础会心 +[00ff00]ignore_deadlystrike_vp1%[-]\n会心免伤 +[00ff00]weaken_deadlystrike_damage_p1%[-]	YM_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5960	秘籍：啸风诀/奇门盾	2416										无敌	YM_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5961	秘籍：啸风诀/奇门盾											在此状态下受到致命一击时有几率免死1次	YM_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5962	秘籍：啸风诀/奇门盾	2416										无敌	YM_mj02_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5972	秘籍：枪联弓映											弓的普攻基础攻击 +[00ff00]add_usebasedmg_p12%[-]	YM_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5973	秘籍：枪联弓映											枪的普攻基础攻击 +[00ff00]add_usebasedmg_p12%[-]	YM_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5974	秘籍：枪联弓映											近程伤害抗性[FF3030]降低melee_dmg_p1%[-]	YM_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5975	秘籍：枪联弓映											远程伤害抗性[FF3030]降低remote_dmg_p1%[-]	YM_mj04_buff	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+10000	打怪经验											打怪经验：增加[00ff00]enhance_exp_p1%[-]	BUFF_xiulianzhu	UI/Atlas/NewAtlas/Buff/Buff.prefab						
+5907	火娃特效	5907																		

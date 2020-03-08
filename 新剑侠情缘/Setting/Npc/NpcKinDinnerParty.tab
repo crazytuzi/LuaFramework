@@ -1,0 +1,10 @@
+Index	TemplateID	Icon	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	Tag	AuraSkillId	AuraSkillLevel	ForbitMove	StartActEvent	TitleID	BigFaceID	DefaultDialog	DropType	NameColor	Experience	FixExperience	GouHuoRate	IsNotBYStealLife	IsNotShowShadow	Sex	SyncFirst	TransBossNpcTID	TransBossRate	WalkSpeed
+JiaZuJucan_Zhuo	3204		家族聚餐	2	1	KinDinnerPartyTable		20011	9035																	NoTurn																			
+JiaZuJucan_tudou	3205	jucan_tudou	马铃薯	2	1	KinDPTaskGather	m|3205|3209|0	333	992																	NoTurn																			
+JiaZuJucan_yecai	3206	jucan_yecai	野菜	2	1	KinDPTaskGather	m|3206|3210|0	440	992																	NoTurn																			
+JiaZuJucan_yu	3207	jucan_yu	鲫鱼	2	1	KinDPTaskGather	m|3207|3211|0	3207	992																	NoTurn																			
+JiaZuJucan_hehua	3208	jucan_lianou	莲藕	2	1	KinDPTaskGather	m|3208|3212|0	3208	992																	NoTurn																			
+JiaZuJucan_tudou_u	3209	jucan_tudou	马铃薯	2	1	KinDPTaskGather	u|3205|3209|0	333	992																	NoTurn					20														
+JiaZuJucan_yecai_u	3210	jucan_yecai	野菜	2	1	KinDPTaskGather	u|3206|3210|0	440	992																	NoTurn					20														
+JiaZuJucan_yu_u	3211	jucan_yu	鲫鱼	2	1	KinDPTaskGather	u|3207|3211|0	3207	992																	NoTurn					22														
+JiaZuJucan_hehua_u	3212	jucan_lianou	莲藕	2	1	KinDPTaskGather	u|3208|3212|0	3208	992																	NoTurn					20														

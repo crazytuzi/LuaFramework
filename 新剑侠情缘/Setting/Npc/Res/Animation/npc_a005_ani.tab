@@ -1,0 +1,6 @@
+AniName	AniPath	TimeFrame
+run	Player/Npcs/npc_a005/run.anim	8
+st	Player/Npcs/npc_a005/st.anim	20
+st01	Player/Npcs/npc_a005/st01.anim	136
+st02	Player/Npcs/npc_a005/st02.anim	84
+wlk	Player/Npcs/npc_a005/wlk.anim	15

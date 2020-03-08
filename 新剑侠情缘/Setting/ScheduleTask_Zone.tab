@@ -1,0 +1,36 @@
+Name	ScriptFunc	WeekFlag	TimeFrame	CloseTimeFrame	Time1	Time2	Time3	Time4	Time5	Time6	Time7	Time8	Time9	Time10	Time11	Time12	Time13	Time14	Time15	Param
+StartBattle	StartBattle	17			16:29															2
+StopBattle	StopBattle	17			16:46															2
+StartBattle5	StartBattle	1			20:29															2
+StopBattle5	StopBattle	1			21:00															2
+StartBattle6	StartBattle	7			20:29															2
+StopBattle6	StopBattle	7			21:00															2
+StartBattle1	StartBattle	35			16:29															2
+StopBattle1	StopBattle	35			16:46															2
+StartBattle2	StartBattle	17			22:29															1
+StopBattle2	StopBattle	17			23:00															1
+StartBattle3	StartBattle	3			20:29	22:29														3
+StopBattle3	StopBattle	3			21:00	23:00														3
+StartBattle4	StartBattle	5			20:29	22:29														4
+StopBattle4	StopBattle	5			21:00	23:00														4
+StartCrossWhiteTiger	StartCrossWhiteTiger	1234567			0:10	11:10	13:10	15:10	17:10	20:10										
+CloseWhiteTiger	CloseWhiteTiger	1234567			0:23	11:23	13:23	15:23	17:23	20:23										
+OpenIndiffer	OpenIndiffer	246			16:25	22:25														Normal
+OpenIndiffer	OpenIndiffer	246			20:26															JueDi
+OpenKeyQuestFuben	OpenKeyQuestFuben	13			19:50															
+CheckStartLeagueTeamBattle	CheckStartLeagueTeamBattle	3			21:00															
+CheckCrossBossTimeFrame	CheckCrossBossTimeFrame	1			21:54															
+PreStartCrossBoss	PreStartCrossBoss	1			21:55															
+StartCrossBoss	StartCrossBoss	1			22:00															
+EndCrossBoss	EndCrossBoss	1			23:00															
+StartZoneBossMaster1	StartZoneBossMaster	5			12:29															
+StartZoneBossMaster2	StartZoneBossMaster	5			19:29															
+EndZoneBossMaster1	EndZoneBossMaster	5			12:42															
+EndZoneBossMaster2	EndZoneBossMaster	5			19:42															
+StartFactionBattle	StartFactionBattle	14			21:00															
+CloseFactionBattle	CloseFactionBattle	14			21:40															
+QYHCrossPreStart	QYHCrossPreStart	4			21:02															
+QYHCrossStart	QYHCrossStart	4			21:03															
+QYHCrossEnd	QYHCrossEnd	4			21:27															
+CrossDomainCreateMap	OnCrossDomainCreateMap	7			20:59															
+CrossDomainStart	OnCrossDomainStart	7			21:00															

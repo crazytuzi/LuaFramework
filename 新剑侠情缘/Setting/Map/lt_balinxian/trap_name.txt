@@ -1,0 +1,15 @@
+trap_tomap_1
+trap_tomap_2
+trap_tomap_3
+trap_tomap_4
+trap_tomap_5
+trap_tomap_6
+trap_tomap_7
+trap_north
+trap_northin
+trap_south
+trap_southin
+trap_west
+trap_westin
+trap_tofight
+trap_tosafe

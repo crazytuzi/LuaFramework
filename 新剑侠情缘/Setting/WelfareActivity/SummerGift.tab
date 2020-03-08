@@ -1,0 +1,15 @@
+szKey	szName	szAltas	szSprite	nDay1	nDay2	nDay3	nDay4	nDay5	nDay6	nDay7
+AdventureFuben	山贼秘窟	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	shanzeimiku	1						
+ExplorationFuben	宝藏探索	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	guanqiatansuo	5						
+TeamFuben	组队秘境	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	zuduimijing		1					
+KinGather	家族烤火	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	jiazujuji		1					
+RandomFuben	凌绝峰	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	lingjuefeng			1				
+KinDonate	进行家族捐献	UI/Atlas/Item/CurrencyIcon/CurrencyIcon.prefab	jianshezijinbig			10				
+Boss	武林盟主	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	wulinmengzhu				1			
+CommerceTask	商会任务	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	shanghuirenwu				1			
+Battle	宋金战场	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	songjinzhanchang					1		
+CangBaoTu	藏宝图	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	cangbaotu					5		
+PunishTask	惩恶任务	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	chengjierenwu						3	
+GoldBox	打开黄金宝箱	UI/Atlas/Item/Item/Item.prefab	GoldChest						3	
+WhiteTigerFuben	白虎堂	UI/Atlas/NewAtlas/Icon/ActivityIcon/ActivityIcon.prefab	baihutang							1
+PartnerRefinement	同伴洗髓	UI/Atlas/Item/Item/Item.prefab	xisuidan							1

@@ -1,0 +1,22 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+WallGuard	营地1_障碍		104	50		1	5124	22629	64	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地1_障碍		104	50		1	5124	23112	64	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地8_障碍		104	50		1	5113	14253	64	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地8_障碍		104	50		1	5113	13809	64	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地7_障碍		104	50		1	13619	5389	16	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地7_障碍		104	50		1	14044	5390	16	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地6_障碍		104	50		1	22417	5393	16	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地6_障碍		104	50		1	22879	5391	16	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地5_障碍		104	50		1	31462	13854	64	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地5_障碍		104	50		1	31458	14254	64	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地4_障碍		104	50		1	31458	23043	64	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地4_障碍		104	50		1	31461	22581	64	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地3_障碍		104	50		1	22824	31569	16	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地3_障碍		104	50		1	22387	31567	16	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地2_障碍		104	50		1	14100	31595	16	-1	0	0		0	0	0	0	0	0	0	0	
+WallGuard	营地2_障碍		104	50		1	13690	31595	16	-1	0	0		0	0	0	0	0	0	0	0	
+wangzuo	王座		8002	50	1	0	17985	18422	27	-1	0	0		0	0	0	0	0	0	0	0	
+shouhubei	「玄武」守护碑		8002	50	1	0	18284	24152	27	-1	0	0		0	0	0	0	0	0	0	0	
+shouhubei	「朱雀」守护碑		8002	50	1	0	18257	12697	27	-1	0	0		0	0	0	0	0	0	0	0	
+shouhubei	「白虎」守护碑		8002	50	1	0	12502	18451	27	-1	0	0		0	0	0	0	0	0	0	0	
+shouhubei	「青龙」守护碑		8002	50	1	0	23955	18422	27	-1	0	0		0	0	0	0	0	0	0	0	

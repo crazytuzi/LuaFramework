@@ -1,0 +1,7 @@
+TrapLock1
+TrapLock2
+TrapLock3
+BuffPoint
+TargetPos1
+TargetPos2
+TrapLock4

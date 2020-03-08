@@ -1,0 +1,16 @@
+szKey	szName	szTimeFrame	szDegree	szTranModeTF	nLevel	nTimes	nPrice	nPrice_Coin	szAward	szAward_Coin	nTimeSaveKey	nSupplementKey	
+KinFire	家族烤火	OpenDay1			11	1	75	3750	BasicExp|114;Contrib|300	BasicExp|72;Contrib|200	30	3	注意，1跟2已被占用
+AdventureFuben	山贼秘窟		AdventureFuben		13	2	55	2750	BasicExp|60;Item|212|6	BasicExp|36;Item|212|4		4	
+TeamFuben	组队秘境		TeamFuben		15	2	80	4000	BasicExp|120;Item|2329|1	BasicExp|72;Item|2435|1		5	
+MapExplorer	宝藏探索		MapExplore		19	1	40	2000	BasicExp|60;Item|2339|1	BasicExp|36;Item|2445|1		6	
+PunishTask	惩恶任务		PunishTask		22	1	50	2500	BasicExp|60;Item|2348|1	BasicExp|36;Item|2456|1		7	
+ActivityQuestion	每日答题		ActivityQuestion		23	1	40	2000	BasicExp|60;Item|787|2	BasicExp|36;Item|787|1		8	
+Battle	宋金战场	OpenDay1A	Battle	OpenDay118	24	1	90	4500	BasicExp|60;BattleHonor|1000	BasicExp|36;BattleHonor|600	35	9	
+CommerceTask	商会任务	OpenDay2	CommerceTask		30	1	55	2750	BasicExp|60;Item|2360|1	BasicExp|36;Item|2465|1		10	
+RandomFuben	凌绝峰	OpenDay2	RandomFuben		30	2	90	4500	BasicExp|120;Item|2366|1	BasicExp|72;Item|2474|1		11	
+HeroChallenge	英雄挑战	OpenDay3	HeroChallenge		30	1	50	2500	BasicExp|60;Item|2374|1	BasicExp|36;Item|2484|1		12	
+KinTrain	家族试炼	OpenDay4			15	1	100	5000	BasicExp|150;Item|1463|80	BasicExp|90;Item|1463|50	31	13	
+FactionBattle	门派竞技	OpenDay4			30	1	160	8000	BasicExp|150;Item|2424|8	BasicExp|90;Item|2424|5	32	14	
+TeamBattle	通天塔	OpenDay4			30	1	120	6000	BasicExp|150;Item|2382|1	BasicExp|90;Item|2493|1	33	15	
+FactionBattle2	门派竞技	OpenDay4			30	1	240	12000	BasicExp|225;Item|2424|12	BasicExp|135;Item|2424|8	34	16	华山论剑比赛期间门派竞技的找回奖励
+InDifferBattle	心魔幻境	OpenDay118			60	1	160	8000	BasicExp|60;IndifferHonor|1600	BasicExp|36;IndifferHonor|1000	36	17	

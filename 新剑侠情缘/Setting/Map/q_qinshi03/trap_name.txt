@@ -1,0 +1,10 @@
+TrapPeace
+TrapFight
+QSHLToBossRoom1
+QSHLToBossRoom2
+QSHLToUpperStory1
+QSHLToUpperStory2
+QSHLToBossRoom3
+QSHLToLeaderRoom7
+QSHLToLeaderRoom8
+QSHLToLeaderRoom9

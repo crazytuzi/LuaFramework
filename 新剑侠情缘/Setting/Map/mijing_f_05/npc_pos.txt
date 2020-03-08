@@ -1,0 +1,6 @@
+wall	5772	5350
+player	5968	5563
+player	6140	5385
+player	6318	5522
+player	6146	5688
+boss	3481	3698

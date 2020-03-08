@@ -1,0 +1,1126 @@
+Type	TitleID	Name	Achievement	ColorDesc	ColorID	GTopColorID	GBottomColorID	OutlineColorID	Timeout	ImgAltlas	ImgPrefix	EffectResID	EffecUitResID	Rank	WorldNotify	Desc	Quality	Icon
+null1	1	未使用							100					1		未使用的称号ID		
+null2	2	未使用							100	UI/Atlas/SkillIcon/SkillIcon.prefab	TianwangSkill_0			1		未使用的称号ID		
+null3	3	未使用							100			17		1		未使用的称号ID		
+null4	4	未使用												1		未使用的称号ID		
+null5	5	未使用												1		未使用的称号ID		
+null6	6	未使用												1		未使用的称号ID		
+null7	7	未使用												1		未使用的称号ID		
+null8	8	未使用												1		未使用的称号ID		
+punish_1	9	惩恶任务·喽啰		白色称号	200									1		惩恶任务	1	
+punish_2	10	惩恶任务·喽啰		绿色称号	200	201	202	203						1		惩恶任务	2	
+punish_3	11	惩恶任务·精英		蓝色称号	200	204	205	206						1		惩恶任务	3	
+punish_4	12	惩恶任务·头目		紫色称号	200	207	208	209						1		惩恶任务	4	
+punish_5	13	惩恶任务·头目		橙色称号	200	213	214	215						1		惩恶任务	6	
+dota	14	大杀特杀		绿色称号	200	201	202	203						1		战场称号	2	
+dota	15	接近暴走		蓝色称号	200	204	205	206						2		战场称号	3	
+dota	16	无人可挡		紫色称号	200	207	208	209						3		战场称号	4	
+dota	17	主宰战场		粉色称号	200	210	211	212						4		战场称号	5	
+dota	18	接近神了		橙色称号	200	213	214	215						5		战场称号	6	
+dota	19	超神		金色称号	200	216	217	218						6		战场称号	7	
+CommerceTask1	20	未成熟		白色称号	200									1		商会采集物	1	
+CommerceTask2	21	药草守卫		白色称号	200									1		商会守卫	1	
+CommerceTask3	22	未装满		白色称号	200									1		聚餐采集物	1	
+CommerceTask4	23																	
+CommerceTask5	24																	
+CommerceTask6	25																	
+QYMJ	26	山贼头目		蓝色称号	200	204	205	206						1		山贼密窟NPC称号	3	
+BHT	27	一层头目		蓝色称号	200	204	205	206						1		白虎堂NPC称号	3	
+BHT	28	二层头目		蓝色称号	200	204	205	206						1		白虎堂NPC称号	3	
+BHT	29	三层头目		蓝色称号	200	204	205	206						1		白虎堂NPC称号	3	
+BHT	30	四层首领		紫色称号	200	207	208	209						1		白虎堂NPC称号	4	
+biaoqing_1	6843	谈笑风生	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在社区活动—表情包设计大赛中，取得第一名获得该称号	5
+biaoqing_2	6844	忍俊不禁	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		在社区活动—表情包设计大赛中，成功入围获得该称号	4
+InDifferShopNpc	31	童叟无欺		粉色称号	200	210	211	212						1		心魔幻境NPC称号	5	
+FactionNpcTitle1	50	天王少帮主		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle2	51	少林首座		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle20	69	万花少谷主		粉色称号	200	210	211	212								门派Npc称号	5
+FactionNpcTitle21	70	杨门少将军		粉色称号	200	210	211	212								门派Npc称号	5
+FactionNpcTitle3	52	藏剑少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle4	53	逍遥少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle5	54	唐门少门主		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle6	55	五毒少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle7	56	峨嵋少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle8	57	翠烟少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle9	58	天山少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle10	59	桃花少岛主		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle11	60	天忍少教主		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle12	61	丐帮传功长老		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle13	62	武当少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle14	63	昆仑少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle15	64	长歌少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle16	65	霸刀少门主		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle17	66	华山少掌门		粉色称号	200	210	211	212								门派Npc称号	5	
+FactionNpcTitle18	67	明教少掌门		粉色称号	200	210	211	212								门派Npc称号	5
+FactionNpcTitle19	68	段氏少主		粉色称号	200	210	211	212								门派Npc称号	5
+citynpc1	100	唐门侠少		蓝色称号	200	204	205	206						1		城市npc称号	3	
+citynpc2	101	江湖女侠		蓝色称号	200	204	205	206						1		城市npc称号	3	
+citynpc3	102	皇城守卫		绿色称号	200	201	202	203						1		城市npc称号	2	
+citynpc4	103	活动接引人		粉色称号	200	210	211	212						1		城市npc称号	5	
+citynpc5	104	清丽佳人		绿色称号	200	201	202	203						1		城市npc称号	2	
+citynpc6	105	战场演练		绿色称号	200	201	202	203						1		城市npc称号	2	
+citynpc7	106	偷偷摸摸		绿色称号	200	201	202	203						1		城市npc称号	2	
+citynpc8	107	铸剑师		蓝色称号	200	204	205	206						1		城市npc称号	3	
+citynpc9	108	武林新秀		蓝色称号	200	204	205	206						1		城市npc称号	3	
+citynpc10	109	商会任务		粉色称号	200	210	211	212						1		城市npc称号	5	
+citynpc11	110	隐香楼老板		蓝色称号	200	204	205	206									3	
+citynpc12	111	藏剑公子		蓝色称号	200	204	205	206									3	
+citynpc13	112	枫叶明珠		蓝色称号	200	204	205	206									3	
+citynpc14	113	悲魔剑圣		紫色称号	200	207	208	209									4	
+citynpc15	114	武林盟主		紫色称号	200	207	208	209									4	
+citynpc16	115	比武场接引人		粉色称号	200	210	211	212									5	
+citynpc17	116	擂台报名人		粉色称号	200	210	211	212									5	
+citynpc18	117	忘忧酒馆掌柜		紫色称号	200	207	208	209									4	
+citynpc19	118	卖船票的小姑娘		粉色称号	200	210	211	212						1		情人节Npc称号	5	
+citynpc20	119	花使		紫色称号	200	207	208	209						1		植树节Npc称号	4	
+citynpc21	120	家园管理员		粉色称号	200	210	211	212								家园管理员NPC	5	
+citynpc22	121	选美大会司仪		粉色称号	200	210	211	212								武林第一美女评选NPC	5	
+citynpc23	122	商会少当家		蓝色称号	200	204	205	206						1			3	
+citynpc24	123	桃花岛主		紫色称号	200	207	208	209								概率展示NPC	4	
+citynpc25	124	婚礼商人		粉色称号	200	210	211	212								凤囍称号	5	
+citynpc26	125	婚礼司仪		粉色称号	200	210	211	212								月老称号	5	
+citynpc27	126	媒人		粉色称号	200	210	211	212								红娘称号	5	
+citynpc28	127	义军统帅		紫色称号	200	207	208	209									4	
+citynpc29	128	诗音大使		紫色称号	200	207	208	209								诗音阁报名npc称号	4	
+citynpc30	129			紫色称号	200	207	208	209									4	
+citynpc31	130			粉色称号	200	210	211	212									5	
+citynpc32	131			粉色称号	200	210	211	212									5	
+citynpc33	132			粉色称号	200	210	211	212									5	
+citynpc34	133			粉色称号	200	210	211	212									5	
+citynpc35	134			粉色称号	200	210	211	212									5	
+citynpc36	135			粉色称号	200	210	211	212									5	
+citynpc37	136			粉色称号	200	210	211	212									5	
+citynpc38	137			粉色称号	200	210	211	212									5	
+citynpc39	138			粉色称号	200	210	211	212									5	
+citynpc40	139			粉色称号	200	210	211	212									5	
+citynpc41	140			橙色称号	200	213	214	215									6	
+citynpc42	141			橙色称号	200	213	214	215									6	
+citynpc43	142			橙色称号	200	213	214	215									6	
+citynpc44	143			橙色称号	200	213	214	215									6	
+citynpc45	144			橙色称号	200	213	214	215									6	
+citynpc46	145			橙色称号	200	213	214	215									6	
+citynpc47	146			橙色称号	200	213	214	215									6	
+citynpc48	147			橙色称号	200	213	214	215									6	
+citynpc49	148			橙色称号	200	213	214	215									6	
+citynpc50	149			橙色称号	200	213	214	215									6	
+birthplacenpc1	150	无忧少女		紫色称号	200	207	208	209								新手村npc	4	
+birthplacenpc2	151	绝世枭雄		粉色称号	200	210	211	212								新手村npc	5	
+birthplacenpc3	152	村民		蓝色称号	200	204	205	206								新手村npc	3	
+birthplacenpc4	153	村民		蓝色称号	200	204	205	206								新手村npc	3	
+birthplacenpc5	154	村民		蓝色称号	200	204	205	206								新手村npc	3	
+birthplacenpc6	155	村民		蓝色称号	200	204	205	206								新手村npc	3	
+birthplacenpc7	156	藏剑庄主		紫色称号	200	207	208	209								新手村npc	4	
+birthplacenpc8	157	村民		绿色称号	200	201	202	203								新手村npc	2	
+birthplacenpc9	158	村民		绿色称号	200	201	202	203								新手村npc	2	
+birthplacenpc10	159	村民		绿色称号	200	201	202	203								新手村npc	2	
+birthplacenpc11	160	师徒管理员		粉色称号	200	210	211	212								新手村npc	5	
+Battle_NPC_1	201	宋军大将		紫色称号	200	207	208	209								战场NPC称号	4	
+Battle_NPC_2	202	宋军元帅		橙色称号	200	213	214	215								战场NPC称号	6	
+Battle_NPC_3	203	金军大将		紫色称号	200	207	208	209								战场NPC称号	4	
+Battle_NPC_4	204	金军元帅		橙色称号	200	213	214	215								战场NPC称号	6	
+Battle_NPC_5	205	攻击		白色称号	200											战场NPC称号	1	
+Battle_NPC_6	206	回血		白色称号	200											战场NPC称号	1	
+Battle_Player_1	210	宋军士兵		白色称号	200											战场玩家称号	1	
+Battle_Player_2	211	宋军校尉		绿色称号	200	201	202	203								战场玩家称号	2	
+Battle_Player_3	212	宋军统领		蓝色称号	200	204	205	206								战场玩家称号	3	
+Battle_Player_4	213	宋军副将		紫色称号	200	207	208	209								战场玩家称号	4	
+Battle_Player_5	214	宋军大将		粉色称号	200	210	211	212								战场玩家称号	5	
+Battle_Player_6	215	宋军元帅		橙色称号	200	213	214	215								战场玩家称号	6	
+Battle_Player_7	216	战场月度赛选手	Title_Normal;	蓝色称号	200	204	205	206						1		获得宋金战场月度赛资格	3	
+Battle_Player_8	217	战场季度赛选手	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		获得宋金战场季度赛资格	4	
+Battle_Player_10	219	金军士兵		白色称号	200											战场玩家称号	1	
+Battle_Player_11	220	金军校尉		绿色称号	200	201	202	203								战场玩家称号	2	
+Battle_Player_12	221	金军统领		蓝色称号	200	204	205	206								战场玩家称号	3	
+Battle_Player_13	222	金军副将		紫色称号	200	207	208	209								战场玩家称号	4	
+Battle_Player_14	223	金军大将		粉色称号	200	210	211	212								战场玩家称号	5	
+Battle_Player_15	224	金军元帅		橙色称号	200	213	214	215								战场玩家称号	6	
+Battle_Player_16	225	所向披靡	Title_Normal;Title_Gold	金色称号	200	216	217	218	31536000					1		在宋金战场年度赛中获得第一名	7	
+KinTaskNpc1	300	武痴		蓝色称号	200	204	205	206						1		家族任务npc	3	
+FactionBattle1	301	天王新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle2	302	逍遥新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle3	303	桃花新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle4	304	峨嵋新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle5	305	武当新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle6	306	天忍新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle7	307	少林新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle8	308	翠烟新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle80	387	万花新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5
+FactionBattle81	388	万花月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5
+FactionBattle82	389	万花季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5
+FactionBattle83	390	万花大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+FactionBattle84	391	万花大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+FactionBattle85	392	丐帮大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+FactionBattle86	393	杨门新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5
+FactionBattle87	394	杨门月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5
+FactionBattle88	395	杨门季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5
+FactionBattle89	396	杨门大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+FactionBattle9	309	唐门新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle90	397	杨门大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+FactionBattle91	398	天忍大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+FactionBattle10	310	昆仑新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle11	311	天王大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle12	312	逍遥大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle13	313	桃花大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle14	314	峨嵋大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle15	315	武当大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle16	316	天忍大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle17	317	少林大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle18	318	翠烟大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle19	319	唐门大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle20	320	昆仑大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle21	321	丐帮新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle22	322	丐帮大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle23	323	五毒新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle24	324	五毒大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle25	325	藏剑新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle26	326	藏剑大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle27	327	长歌新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle28	328	长歌大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle29	329	天山新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle30	330	天山大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle31	331	天山大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle32	332	天王月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle33	333	逍遥月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle34	334	桃花月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle35	335	峨嵋月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle36	336	武当月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle37	337	天忍月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle38	338	少林月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle39	339	翠烟月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle40	340	唐门月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle41	341	昆仑月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle42	342	丐帮月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle43	343	五毒月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle44	344	藏剑月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle45	345	长歌月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle46	346	天山月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle47	347	天王季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle48	348	逍遥季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle49	349	桃花季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle50	350	峨嵋季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle51	351	武当季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle52	352	天忍季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle53	353	少林季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle54	354	翠烟季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle55	355	唐门季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle56	356	昆仑季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle57	357	丐帮季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle58	358	五毒季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle59	359	藏剑季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle60	360	长歌季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle61	361	天山季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle62	362	霸刀新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle63	363	霸刀月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle64	364	霸刀季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle65	365	霸刀大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle66	366	霸刀大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle67	367	武当大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle62	368	华山新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle63	369	华山月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle64	370	华山季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle65	371	华山大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle66	372	华山大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle67	373	昆仑大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+DrinkHouse_1	374	内容征集接引人	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		江湖盛典npc	5	
+DrinkToDream_title1	6727	大醉江湖梦一场	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		大醉江湖梦一场活动中获赞数排行第1名获得此称号	6
+DrinkToDream_title2	6728	诉衷情	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		大醉江湖梦一场活动中获赞数排行第2~3名获得此称号	5
+FactionBattle68	375	明教新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5	
+FactionBattle69	376	明教月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5	
+FactionBattle70	377	明教季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5	
+FactionBattle71	378	明教大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle72	379	明教大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle73	380	天王大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6	
+FactionBattle74	381	段氏新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		门派竞技活动第一名获得此称号	5
+FactionBattle75	382	段氏月度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		门派竞技月度赛活动第一名获得此称号	5
+FactionBattle76	383	段氏季度新人王	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		门派竞技季度赛活动第一名获得此称号	5
+FactionBattle77	384	段氏大师兄	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+FactionBattle78	385	段氏大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+FactionBattle79	386	逍遥大师姐	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		门派大师兄/大师姐评选中第一名获得此称号	6
+Card_collection_1	400	江湖百晓生	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		凌绝峰卡片收集前30名的称号！	4	
+Card_collection_1	401	凌绝笑红尘	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		凌绝峰卡片收集前10名的称号！	5	
+Card_collection_1	402	九天逍遥游	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		凌绝峰卡片收集第1名的称号！	6	
+Card_collection_gq	403	心有丘壑	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		锦绣山河收集前30名的称号！	4	
+Card_collection_gq	404	华夏万事通	Title_Normal;Title_Pink	粉色称号	200	210	211	212						2		锦绣山河收集前10名的称号！	5	
+Card_collection_gq	405	知天晓地	Title_Normal;Title_Orange	橙色称号	200	213	214	215						3		锦绣山河收集第1名的称号！	6	
+hd_putiantongqing1	406	门庭若市	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		普天同庆前30名的称号！	4	
+hd_putiantongqing2	407	高朋满座	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		普天同庆前10名的称号！	5	
+hd_putiantongqing3	408	挚友如云	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		普天同庆第1名的称号！	6	
+QSHL_Leader1	500	非攻		紫色称号	200	207	208	209						2		秦始皇陵称号	4	
+QSHL_Leader2	501	杀神		紫色称号	200	207	208	209						2		秦始皇陵称号	4	
+QSHL_Leader3	502	鬼相		紫色称号	200	207	208	209						2		秦始皇陵称号	4	
+QSHL_Boss	503	千古一帝		橙色称号	200	213	214	215						3		秦始皇陵称号	6	
+QSHL_BossFaker	504	始皇替身		橙色称号	200	213	214	215						3		秦始皇陵称号	6	
+NDYZ_Leader1	505	女帝守护者		紫色称号	200	207	208	209						2		秦始皇陵称号	4	
+NDYZ_Leader2	506	卫队长		紫色称号	200	207	208	209						2		秦始皇陵称号	4	
+NDYZ_Leader3	507	神探		紫色称号	200	207	208	209						2		秦始皇陵称号	4	
+NDYZ_Boss	508	无双女帝		橙色称号	200	213	214	215						3		秦始皇陵称号	6	
+NDYZ_BossFaker	509	伪帝鸾姬		橙色称号	200	213	214	215						3		秦始皇陵称号	6	
+KinTrain_Captain	550	兄弟同心		紫色称号	200	207	208	209						1		新家族试炼称号	4	
+KinTrain_Boss	551	金军大将		橙色称号	200	213	214	215						1		新家族试炼称号	6	
+KinTrain_shibing	552	有话要说		紫色称号	200	207	208	209						1		新家族试炼称号	4	
+XMJD_title	600	超凡		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T1_			1		心魔绝地战力获得称号	4	
+XMJD_title	601	出尘		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T2_			2		心魔绝地战力获得称号	4	
+XMJD_title	602	惊鸿		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T3_			3		心魔绝地战力获得称号	4	
+XMJD_title	603	凌云		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T4_			4		心魔绝地战力获得称号	4	
+XMJD_title	604	御空		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T5_			5		心魔绝地战力获得称号	4	
+XMJD_title	605	潜龙		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T6_			6		心魔绝地战力获得称号	4	
+XMJD_title	606	傲世		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T7_			7		心魔绝地战力获得称号	4	
+XMJD_title	607	倚天		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T8_			8		心魔绝地战力获得称号	4	
+XMJD_title	608	至尊		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T9_			9		心魔绝地战力获得称号	4	
+XMJD_title	609	武圣		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T12_			10		心魔绝地战力获得称号	4	
+XMJD_title	610	无双		紫色称号		207	208	209		UI/Atlas/Title/Title.prefab	T15_			11		心魔绝地战力获得称号	4	
+Achievement1	1000	共览众山小	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		出战满4个甲级及以上的同伴	4	
+Achievement3	1002	情同生死	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		与3个好友的亲密度达到40级	5	
+Achievement6	1005	百炼成钢	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		参与20次家族试炼	4	
+Achievement7	1006	助人为乐	Title_Normal;	蓝色称号	200	204	205	206						1		给其他玩家传功或被传功30次	3	
+Achievement8	1007	助人者人助之	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		给其他玩家传功或被传功100次	4	
+Achievement9	1008	千金散尽还复来	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		完成1000次家族捐献	4	
+Achievement10	1009	强化大师	Title_Normal;	蓝色称号	200	204	205	206						1		全身装备强化+60以上	3	
+Achievement11	1010	强化宗师	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		全身装备强化+80以上	4	
+Achievement12	1011	镶嵌大师	Title_Normal;	蓝色称号	200	204	205	206						1		全身镶嵌满4级以上魂石	3	
+Achievement120	1119	顶级厨师	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		做出品质为珍馐的菜品200次	5
+Achievement121	1120	金牌厨神	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		解锁食谱中所有的菜品	5
+Achievement13	1012	镶嵌宗师	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		全身镶嵌满5级以上魂石	4	
+Achievement18	1017	老江湖	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		累计签到100天	4	
+Achievement21	1020	财源广进	Title_Normal;	蓝色称号	200	204	205	206						1		使用摇钱树200次	3	
+Achievement22	1021	财神降临	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		使用摇钱树1000次	4	
+Achievement25	1024	商行天下	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		完成100轮商会任务	4	
+Achievement26	1025	寻宝者	Title_Normal;	蓝色称号	200	204	205	206						1		成功挖宝200次	3	
+Achievement27	1026	夺宝奇兵	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		成功挖宝1000次	4	
+Achievement28	1027	侠名满江湖	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		完成1000次惩恶任务	4	
+Achievement29	1028	风云乍起	Title_Normal;	蓝色称号	200	204	205	206						1		风云山庄秘境「卓越」评价达成	3	
+Achievement30	1029	武夷惊魂	Title_Normal;	蓝色称号	200	204	205	206						1		武夷禁地秘境「卓越」评价达成	3	
+Achievement31	1030	熔火之心	Title_Normal;	蓝色称号	200	204	205	206						1		熔火霹雳秘境「卓越」评价达成	3	
+Achievement32	1031	勇闯翠竹幽谷	Title_Normal;	蓝色称号	200	204	205	206						1		翠竹幽谷秘境「卓越」评价达成	3	
+Achievement33	1032	绝处逢生	Title_Normal;	蓝色称号	200	204	205	206						1		通关凌绝峰5级房间	3	
+Achievement34	1033	勇攀高峰	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		武神殿排名进入前10名	4	
+Achievement35	1034	会当凌绝顶	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		武神殿排名达到第1名	5	
+Achievement36	1035	常胜之师	Title_Normal;	蓝色称号	200	204	205	206						1		参加战场获胜10场	3	
+Achievement37	1036	醉卧沙场	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		参加100次战场	4	
+Achievement38	1037	一将功成万骨枯	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		参加战场获胜100场	5	
+Achievement39	1038	军功盖世	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		战场个人排名第1累计达到10次	4	
+Achievement40	1039	军神	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		战场个人排名第1累计达到100次	5	
+Achievement41	1040	攻无不克	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		成功通过10轮英雄挑战10次	4	
+Achievement42	1041	百战成魔	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		成功通过10轮英雄挑战100次	5	
+Achievement44	1043	盟主的青睐	Title_Normal;	蓝色称号	200	204	205	206						1		挑战武林盟主个人最终排名进入前10	3	
+Achievement45	1044	盟主的赞赏	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		挑战武林盟主个人最终排名第1	4	
+Achievement46	1045	盟主的惊叹	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		获得100次挑战武林盟主个人最终排名第1	5	
+Achievement47	1046	首领猎人	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		击杀100只野外首领	4	
+Achievement48	1047	野地之王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		击杀500只野外首领	5	
+Achievement49	1048	宝箱爱好者	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		打开300个黄金宝箱	4	
+Achievement50	1049	宝箱的信仰	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		打开1000个黄金宝箱	5	
+Achievement51	1050	练级狂魔	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		开启200次修炼状态	4	
+Achievement52	1051	天涯浪客	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		完成1000次宝藏探索	4	
+Achievement53	1052	遥遥通天路	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		成功踏入通天塔第七层10次	4	
+Achievement54	1053	一步踏天	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		成功踏入通天塔第七层50次	5	
+Achievement56	1055	白虎堂狩猎者	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在白虎堂中击杀500个其他玩家	5	
+Achievement57	1056	名将的青睐	Title_Normal;	蓝色称号	200	204	205	206						1		家族成功击杀10次历代名将	3	
+Achievement58	1057	名将的赞赏	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		家族成功击杀100次历代名将	4	
+Achievement59	1058	名将的惊叹	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		家族成功击杀500次历代名将	5	
+Achievement60	1059	镖行天下	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		成功将100辆镖车护送到目的地	4	
+Achievement61	1060	无情	Title_Normal;	蓝色称号	200	204	205	206						1		在攻城战中击败200名敌对玩家	3	
+Achievement62	1061	罗刹	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		在攻城战中击败500名敌对玩家	4	
+Achievement63	1062	战神	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在攻城战中击败1000名敌对玩家	5	
+Achievement64	1063	为人师表	Title_Normal;	蓝色称号	200	204	205	206						1		有10个弟子出师	3	
+Achievement65	1064	桃李满天下	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		有20个弟子出师	4	
+Achievement66	1065	一代宗师	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		有30个弟子出师	6	
+Achievement67	1066	神工天巧	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		家园等级达到6级	5	
+Achievement68	1067	名门望庭	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		家园舒适度达到25级	5	
+Achievement69	1068	人见人爱	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		魅力值达到100000	5	
+Achievement70	1069	商会密友	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		累计完成400个卷轴任务	4	
+Achievement71	1070	锋芒毕露	Title_Normal;	蓝色称号	200	204	205	206						1		在当天群英会中取得六场连胜	3	
+Achievement72	1071	大显身手	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		在群英会中取得六场连胜累计达到5次	4	
+Achievement73	1072	傲视群英	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在群英会中取得六场连胜累计达到50次	5	
+Achievement74	1073	生存高手	Title_Normal;	蓝色称号	200	204	205	206						1		在心魔幻境中获得一次优胜	3	
+Achievement75	1074	生存大师	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		在心魔幻境中获得优胜累计达到10次	4	
+Achievement76	1075	帝皇随从	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		家族成功击杀20次秦始皇/武则天	4	
+Achievement77	1076	帝皇亲卫	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		家族成功击杀100次秦始皇/武则天	5	
+Achievement78	1077	真正的剑侠	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		累计签到200天	5	
+Achievement79	1078	永远的剑侠	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		累计签到500天	6	
+Achievement80	1079	剑心不老	Title_Normal;Title_Gold	金色称号	200	216	217	218						1		累计签到1000天	7	
+Achievement81	1080	勤耕不辍	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		连续30天活跃值达到100	4	
+Achievement82	1081	五鼎万钟	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		累计5次一个月内完成所有签到领奖	5	
+Achievement83	1082	成就大师	Title_Normal;	蓝色称号	200	204	205	206						1		成就点数突破5000	3	
+Achievement84	1083	成就宗师	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		成就点数突破7500	4	
+Achievement85	1084	大功告成	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		成就点数突破10000	5	
+Achievement86	1085	功成名就	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		成就点数突破12000	6	
+Achievement87	1086	洗练大师	Title_Normal;	蓝色称号	200	204	205	206						1		将身上一件装备洗满6条紫色及以上属性	3	
+Achievement88	1087	洗练宗师	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		身上所有装备洗满6条紫色及以上属性	4	
+Achievement89	1088	大梦谁先觉	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		觉醒任意4个同伴	5	
+Achievement90	1089	冠绝江湖	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		夺得华山论剑冠军10次	6	
+Achievement91	1090	卫冕大师兄	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		连续当选两届门派竞技大师兄	5	
+Achievement92	1091	陷之死地而后生	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在心魔幻境/绝地中获得优胜累计达到50次	5	
+Achievement93	1092	单挑强者	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		在比武场累计胜利50场	4	
+Achievement94	1093	单挑之王	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在比武场累计胜利100场	5	
+Achievement95	1094	无人能挡	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		遗迹寻宝中第三层成功打开巨大宝箱	4	
+Achievement96	1095	上苍眷顾	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		挖宝掉入地宫50次	4	
+Achievement97	1096	圣人无不知	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		凌绝峰卡片收集排名中获得第1名	6	
+Achievement98	1097	呼啸烈风	Title_Normal;	蓝色称号	200	204	205	206						1		呼啸栈道秘境「卓越」评价达成	3	
+Achievement99	1098	雪峰紫日	Title_Normal;	蓝色称号	200	204	205	206						1		雪峰硝烟秘境「卓越」评价达成	3	
+AnniversaryJiYuAct_Title1	6729	江湖共盛筵	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		周年寄语活动中愿力值排行第1名获得此称号	6
+AnniversaryJiYuAct_Title2	6730	三生有幸	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		周年寄语活动中愿力值排行第2~5名获得此称号	5
+Achievement100	1099	始皇之赐	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		在秦始皇陵获得100个和氏璧	4	
+Achievement101	1100	洞里乾坤	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在秦始皇陵中一天之内进入密室20次	5	
+Achievement102	1101	赠人玫瑰	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		累计送出1000次玫瑰花/幸运草	5	
+Achievement103	1102	手留余香	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		累计赠送50次99朵玫瑰花/99棵幸运草	6	
+Achievement104	1103	日积月累	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		成功获取1000个家族礼盒	5	
+Achievement105	1104	财大气粗	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		累计在家族烤火中请大家喝100次酒	5	
+Achievement106	1105	协助达人	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		协助500次家族成员完成商会任务	5	
+Achievement107	1106	谨遵师命	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		完美完成师父布置的任务50次	5	
+Achievement108	1107	厮守终老	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		与伴侣度过成婚1周年纪念日	5	
+Achievement109	1108	虽远必诛	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		完成追影令100次	5	
+Achievement110	1109	丰收的喜悦	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		家园树木成熟收成100次	5	
+Achievement111	1110	终极劳模	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		累计为好友协助养护1000次	5	
+Achievement112	1111	定国柱石	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		在攻城战中获得100连斩	6	
+Achievement113	1112	十项全能	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		夺得过10个不同门派的新人王	6	
+Achievement114	1113	保家卫族	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		参与20次家族保卫战	4
+Achievement115	1114	百战军神	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		在领土战中获得100连斩	6
+Achievement116	1115	傲视群雄	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		跨服武林盟主中所在家族最终排名第1名	6
+Achievement117	1116	首领之宝	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		击杀野外首领时小队获得100次5级魂石	6
+Achievement118	1117	一掷千金	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		单次西域行商活动中花费20000黎饰	6
+Achievement119	1118	食材收集者	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		获得绝品食材200次	5
+TestActivity1	2000	中原大侠	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		武林中身份地位的象征，战力榜排名第1名获得此称号	6	
+TestActivity2	2001	江南名侠	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		武林中身份地位的象征，战力榜排名第2~10名获得此称号	5	
+TestActivity3	2002	武林翘楚	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		武林中身份地位的象征，战力榜排名第11~50名获得此称号	4	
+TestActivity4	2003	江湖新秀	Title_Normal;	蓝色称号	200	204	205	206						1		武林中身份地位的象征，战力榜排名第51~200名获得此称号	3	
+TestActivity5	2004	再续情缘	Title_Normal;	蓝色称号	200	204	205	206						1		剑心未老，情缘未了！公测前参加官网英雄招募活动获得的特殊称号	3	
+Title1	2005	纵横江湖	Title_Normal;	特殊称号（绿色）	200	219	220	221						1		微信游戏中心启动游戏获得此称号	2	
+Title2	2006	红霸天下	Title_Normal;	特殊称号（红色）	200	222	223	224						1		QQ会员登录游戏获得此称号		
+Title3	2007	玉堂人物	Title_Normal;	特殊称号（红色）	200	222	223	224						1		策马江湖，笑看乾坤！		
+Title4	2008	十大家族宝贝	Title_Normal;	特殊称号（红色）	200	222	223	224	5184000					1		家族宝贝评选前十名		
+Title5	2009	王者归来	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		老玩家回归特殊称号	4	
+Title6	2010	开拓者	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		老玩家回归特殊称号	4	
+Title7	2011	不可一世	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服战力排名前500，获得了称号【不可一世】	全区服战力排名前500	6	
+Title8	2012	天王豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服天王战力排名前500，获得了称号【天王豪杰】	全区服天王战力排名前500	6	
+Title9	2013	逍遥豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服逍遥战力排名前500，获得了称号【逍遥豪杰】	全区服逍遥战力排名前500	6	
+Title10	2014	桃花豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服桃花战力排名前500，获得了称号【桃花豪杰】	全区服桃花战力排名前500	6	
+Title11	2015	峨嵋豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服峨嵋战力排名前500，获得了称号【峨嵋豪杰】	全区服峨嵋战力排名前500	6	
+Title12	2016	武当豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服武当战力排名前500，获得了称号【武当豪杰】	全区服武当战力排名前500	6	
+Title13	2017	天忍豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服天忍战力排名前500，获得了称号【天忍豪杰】	全区服天忍战力排名前500	6	
+Title14	2018	少林豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服少林战力排名前500，获得了称号【少林豪杰】	全区服少林战力排名前500	6	
+Title15	2019	翠烟豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服翠烟战力排名前500，获得了称号【翠烟豪杰】	全区服翠烟战力排名前500	6	
+Title16	2020	唐门豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服唐门战力排名前500，获得了称号【唐门豪杰】	全区服唐门战力排名前500	6	
+Title17	2021	昆仑豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服昆仑战力排名前500，获得了称号【昆仑豪杰】	全区服昆仑战力排名前500	6	
+Title18	2022	第一人气家族	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		第一人气家族评选	6	
+Title19	2023	盛典上宾	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		年度盛典发布会门票礼包附赠	6	
+Title20	2024	五毒豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服五毒战力排名前500，获得了称号【五毒豪杰】	全区服五毒战力排名前500	6	
+Title21	2025	丐帮豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服丐帮战力排名前500，获得了称号【丐帮豪杰】	全区服丐帮战力排名前500	6	
+Title22	2026	长白魔女	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1			5	
+Title23	2027	毒步天下	Title_Normal;	特殊称号（红色）	200	222	223	224						1		趣味测试活动专属称号		
+Title24	2028	丐世无双	Title_Normal;	特殊称号（红色）	200	222	223	224						1		趣味测试活动专属称号		
+Title25	2029	侠士的名义	Title_Normal;	特殊称号（红色）	200	222	223	224	7776000					1				
+Title26	2030	武林新秀	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		侠士初入江湖但已可见天赋异禀，新手福利活动获取	5	
+Title27	2031	洪荒之力	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		整个江湖都知道侠士你有多努力，新服中表现突出达成成就获取	5	
+Title28	2032	武林传说	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		不是每个人都配称“传说”二字的，资深老玩家重回江湖专属	5	
+Title29	2033	名动江湖	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		一瞧便知是高手，资深老玩家重回江湖达成成就获取	5	
+Title30	2034	如颖随行	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		钟爱颖宝宝，如影随形	6	
+Title31	2035	铭记于新	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		男神我要把你放在心上，顶在头上，林更新代言剑侠情缘手游	6	
+Title32	2036	颖宝宝	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		在下还是个宝宝	6	
+Title33	2037	小萌新	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		我就是这么萌，比林更新还萌，双代言周年庆活动专属	6	
+Title34	2038	仗剑携手庆周年	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15552000					1		剑侠情缘一周年庆活动专属	5	
+Title35	2039	江湖相逢 感谢有你	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15552000					1		剑侠情缘一周年庆活动专属	5	
+Title36	2040	一呼百应	Title_Normal;	特殊称号（红色）	200	222	223	224	7776000					1		大喊一声，有100个人回我你信吗？指定活动邀请好友达到要求后获取		
+Title37	2041	藏剑豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服藏剑战力排名前500，获得了称号【藏剑豪杰】	全区服藏剑战力排名前500	6	
+Title38	2042	长歌豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服长歌战力排名前500，获得了称号【长歌豪杰】	全区服长歌战力排名前500	6	
+Title39	2043	第一潜龙	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在潜龙头衔冲榜活动中位列[FFFE0D]第1名[-]	5	
+Title40	2044	第一倚天	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在倚天头衔冲榜活动中位列[FFFE0D]第1名[-]	5	
+Title41	2045	十大潜龙	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		在潜龙头衔冲榜活动中位列[FFFE0D]第2-10名[-]	4	
+Title42	2046	十大倚天	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		在倚天头衔冲榜活动中位列[FFFE0D]第2-10名[-]	4	
+Title43	2047	棒打鸳鸯	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在跨服历代名将活动中完成对项羽真身的最后一击	5	
+Title44	2048	唯我独尊	Title_Normal;Title_Orange	橙色称号	200	213	214	215	604800					1	恭喜「$M」在跨服武林盟主活动中个人伤害排名第一，获得了称号【唯我独尊】	跨服武林盟主活动中个人伤害排行榜第1名，荣获此称号	6	
+Title45	2049	不分伯仲	Title_Normal;Title_Pink	粉色称号	200	210	211	212	604800					1		跨服武林盟主活动中个人伤害排行榜第2-3名，荣获此称号	5	
+Title46	2050	出类拔萃	Title_Normal;Title_Purple	紫色称号	200	207	208	209	604800					1		跨服武林盟主活动中个人伤害排行榜第4-10名，荣获此称号	4	
+Title47	2051	良师益友	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		作为师父，在师徒节活动中成功挑战[FFFE0D]6次[-]师徒试炼	4	
+Title48	2052	百世之师	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		作为师父，在师徒节活动中成功挑战[FFFE0D]12次[-]师徒试炼	5	
+Title49	2053	得意门生	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		作为徒弟，在师徒节活动中成功挑战[FFFE0D]6次[-]师徒试炼	4	
+Title50	2054	天山豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服天山战力排名前500，获得了称号【天山豪杰】	全区服天山战力排名前500	6	
+Title51	2055	剑启星途	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜侠士成为企鹅电竞专属人气主播，荣获此称号	恭喜侠士成为企鹅电竞专属人气主播，荣获此称号	6	
+Title52	2056	黄金单身贵族	Title_Normal;Title_Gold	金色称号	200	216	217	218	2592000					1			7	
+Title53	2057	姻缘一线牵	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		“剑侠奔现情缘故事”十佳人气，遇见情缘，奔向幸福！	5	
+Title54	2058	霸刀豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服霸刀战力排名前500，获得了称号【霸刀豪杰】	全区服霸刀战力排名前500	6	
+Title55	2059	华山豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服华山战力排名前500，获得了称号【华山豪杰】	全区服华山战力排名前500	6	
+Title56	2060	明教豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服明教战力排名前500，获得了称号【明教豪杰】	全区服明教战力排名前500	6	
+Title57	2061	段氏豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服段氏战力排名前500，获得了称号【段氏豪杰】	全区服段氏战力排名前500	6
+Title58	2062	万花豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服万花战力排名前500，获得了称号【万花豪杰】	全区服万花战力排名前500	6
+Title59	2063	杨门豪杰	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1	恭喜「$M」全区服杨门战力排名前500，获得了称号【杨门豪杰】	全区服杨门战力排名前500	6
+Prison1	2100	擅越雷池	Title_Normal;	特殊称号（红色）	200	222	223	224						1		行不义之举，取不义之财。		
+HK_Title1	2500	纵贯线第一帮	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title2	2501	南北二路大帮	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title3	2502	海线第一	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title4	2503	揸Fit人	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title5	2504	金牌打手	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title6	2505	古惑仔	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title7	2506	浊水溪霸主	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title8	2507	天下第一帮	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title9	2508	山线无敌	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title10	2509	纵贯江湖	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title11	2510	傲视群雄	Title_Normal;	蓝色称号	200	204	205	206	2592000					1			3	
+HK_Title12	2511	超脱众人	Title_Normal;	蓝色称号	200	204	205	206	2592000					1			3	
+HK_Title13	2512	独孤求败	Title_Normal;	蓝色称号	200	204	205	206	2592000					1			3	
+HK_Title14	2513	盖世无双	Title_Normal;	蓝色称号	200	204	205	206	2592000					1			3	
+HK_Title15	2514	绝顶高手	Title_Normal;	蓝色称号	200	204	205	206	2592000					1			3	
+HK_Title16	2515	难逢敌手	Title_Normal;	蓝色称号	200	204	205	206	2592000					1			3	
+HK_Title17	2516	惊鸿侠影	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1			6	
+HK_Title18	2517	名镇中原 	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1			6	
+HK_Title19	2518	震古铄今 	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1			6	
+HK_Title20	2519	封面潮人	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+HK_Title21	2520	潮流教主	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+HK_Title22	2521	时尚达人	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+HK_Admin_Title23	2522	剑侠小编		橙色称号	200	213	214	215	2592000					1			6	
+HK_Admin_Title24	2523	我是GM		橙色称号	200	213	214	215	2592000					1			6	
+HK_Admin_Title25	2524	活动专员		橙色称号	200	213	214	215	2592000					1			6	
+HK_Admin_Title26	2525	礼品派送专员		特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Admin_Title27	2526	新手指导员		金色称号	200	216	217	218	2592000					1			7	
+HK_Admin_Title28	2527	盖世无双		特殊称号（红色）	200	222	223	224						1				
+HK_Admin_Title29	2528	绝顶高手		特殊称号（红色）	200	222	223	224						1				
+HK_Admin_Title30	2529	难逢敌手		特殊称号（红色）	200	222	223	224						1				
+HK_Admin_Title31	2530	月满乾坤		紫色称号	200	207	208	209	2592000					1			4	
+HK_Admin_Title32	2531	花好月圆		蓝色称号	200	204	205	206	2592000					1			3	
+HK_Title33	2532	威震武林	Title_Normal;Title_Orange	橙色称号	200	213	214	215	259200					1			6	
+HK_Title34	2533	香港第一帮派	Title_Normal;	特殊称号（红色）	200	222	223	224	1296000					1				
+HK_Title35	2534	台湾第一帮派	Title_Normal;	特殊称号（红色）	200	222	223	224	1296000					1				
+HK_Title36	2535	境外第一帮派	Title_Normal;	特殊称号（红色）	200	222	223	224	1296000					1				
+HK_Title37	2536	雄霸一方	Title_Normal;	特殊称号（红色）	200	222	223	224	1296000					1				
+HK_Title38	2537	义薄云天	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title39	2538	仗剑天涯	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title40	2539	猛龙过江	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title41	2540	只手遮天	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title42	2541	战无不胜	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title43	2542	胜者为王	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title44	2543	盖世英雄	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title45	2544	人剑合一	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title46	2545	侠肝义胆	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title47	2546	卧虎藏龙	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title48	2547	乱世英雄	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title49	2548	独孤九剑	Title_Normal;Title_Orange	橙色称号	200	213	214	215	604800					1			6	
+HK_Title50	2549	迷踪仙派	Title_Normal;	特殊称号（绿色）	200	219	220	221	604800					1				
+HK_Title51	2550	才富五车	Title_Normal;	特殊称号（红色）	200	222	223	224	604800					1				
+HK_Title52	2551	武林至尊	Title_Normal;Title_Orange	橙色称号	200	213	214	215	604800					1			6	
+HK_Title53	2552	天下无双	Title_Normal;Title_Orange	橙色称号	200	213	214	215	604800					1			6	
+HK_Title54	2553	金牌打手	Title_Normal;	特殊称号（红色）	200	222	223	224	604800					1				
+HK_Title55	2554	举世无双	Title_Normal;	特殊称号（红色）	200	222	223	224	604800					1				
+HK_Title56	2555	神乎其技	Title_Normal;	特殊称号（红色）	200	222	223	224	604800					1				
+HK_Title57	2556	炉火纯青	Title_Normal;	特殊称号（红色）	200	222	223	224	604800					1				
+HK_Title58	2557	身手了得	Title_Normal;	特殊称号（红色）	200	222	223	224	604800					1				
+HK_Title59	2558	登峰造极	Title_Normal;	特殊称号（红色）	200	222	223	224	604800					1				
+HK_Title60	2559	伯乐	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+HK_Title61	2560	名驹之主	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+HK_Title62	2561	超级巨星	Title_Normal;Title_Orange	橙色称号	200	213	214	215	1728000					1			6	
+HK_Title63	2562	灵魂导师	Title_Normal;Title_Purple	紫色称号	200	207	208	209	1728000					1			4	
+HK_Title64	2563	财神爷	Title_Normal;	特殊称号（红色）	200	222	223	224	1296000					1				
+HK_Title65	2564	一见你就笑	Title_Normal;Title_Purple	紫色称号	200	207	208	209	1296000					1			4	
+HK_Title66	2565	五福临门	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1			6	
+HK_Title67	2566	万事如意	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+HK_Title68	2567	崭露头角	Title_Normal;	蓝色称号	200	204	205	206	2592000					1			3	
+HK_Title69	2568	众星捧月	Title_Normal;Title_Purple	紫色称号	200	207	208	209	5184000					1			4	
+HK_Title70	2569	玉树临风	Title_Normal;Title_Orange	橙色称号	200	213	214	215	5184000					1			6	
+HK_Title71	2570	沉鱼落雁	Title_Normal;Title_Orange	橙色称号	200	213	214	215	5184000					1			6	
+HK_Title72	2571	煮酒论英雄	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+FubenNpc	3000	鼓舞		蓝色称号	200	204	205	206						1		副本NPC称号	3	
+FubenNpc	3001	迅捷		蓝色称号	200	204	205	206						1		副本NPC称号	3	
+FubenNpc	3002	治愈		蓝色称号	200	204	205	206						1		副本NPC称号	3	
+FubenNpc	3003	尸爆		紫色称号	200	207	208	209						1		副本NPC称号	4	
+FubenNpc	3004	反弹		紫色称号	200	207	208	209						1		副本NPC称号	4	
+FubenNpc	3005	秒杀		红色称号	300			301						1		副本NPC称号		
+FubenNpc	3006	剧毒		蓝色称号	200	204	205	206						1		副本NPC称号	3	
+FubenNpc	3007	优先击杀		红色称号	300			301						1		副本NPC称号		
+FubenNpc	3008	强体		蓝色称号	200	204	205	206						1		副本NPC称号	3	
+FubenNpc	3009	免疫击退		蓝色称号	200	204	205	206						1		副本NPC称号	3	
+FubenNpc	3010	昔日的回响		紫色称号	200	207	208	209						1		副本NPC称号	4	
+FubenNpc	3011	尽快开启		红色称号	300			301						1		副本NPC称号		
+FubenNpc	3012	尽快扑灭		红色称号	300			301						1		副本NPC称号		
+FubenNpc	3013	反射		紫色称号	200	207	208	209						1		副本NPC称号	4	
+FubenNpc	3014	天山女侠		紫色称号	200	207	208	209						1		副本NPC称号	4	
+FubenNpc	3015	武林义士		蓝色称号	200	204	205	206						1		副本NPC称号	3	
+FubenNpc	3016	精锐护卫		绿色称号	200	201	202	203						1		副本NPC称号	2	
+VN_Title1	3500	红色称号1	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title2	3501	红色称号2	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title3	3502	红色称号3	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title4	3503	红色称号4	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title5	3504	红色称号5	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title6	3505	红色称号6	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title7	3506	红色称号7	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title8	3507	红色称号8	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title9	3508	红色称号9	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title10	3509	红色称号10	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+VN_Title11	3510	紫色称号1	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title12	3511	紫色称号2	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title13	3512	紫色称号3	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title14	3513	紫色称号4	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title15	3514	紫色称号5	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title16	3515	紫色称号6	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title17	3516	紫色称号7	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title18	3517	紫色称号8	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title19	3518	紫色称号9	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title20	3519	紫色称号10	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title21	3520	橙色称号1	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title22	3521	橙色称号2	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title23	3522	橙色称号3	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title24	3523	橙色称号4	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title25	3524	橙色称号5	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title26	3525	橙色称号6	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title27	3526	橙色称号7	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title28	3527	橙色称号8	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title29	3528	橙色称号9	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title30	3529	橙色称号10	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title31	3530	Fanpagge 翻唱活动第一称号	Title_Normal;Title_Purple	紫色称号	200	207	208	209	5184000					1			4	
+VN_Title32	3531	Fanpagge 翻唱活动第二称号	Title_Normal;Title_Purple	紫色称号	200	207	208	209	5184000					1			4	
+VN_Title33	3532	Fanpagge 翻唱活动第三称号	Title_Normal;Title_Purple	紫色称号	200	207	208	209	5184000					1			4	
+VN_Title34	3533	Fanpagge 活动称号第一称号	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1			5	
+VN_Title35	3534	Fanpagge 活动称号第二称号	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1			5	
+VN_Title36	3535	Fanpagge 活动称号第三称号	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1			6	
+VN_Title37	3536	Fanpagge 活动称号第四称号	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1			5	
+VN_Title38	3537	Fanpagge 活动称号第五称号	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15552000					1			5	
+VN_Title39	3538	Fanpagge 活动称号第六称号	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15552000					1			6	
+VN_Title40	3539	Fanpagge 活动称号第七称号	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15552000					1			6	
+VN_Title41	3540	预备称号1	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title42	3541	预备称号2	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title43	3542	预备称号3	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title44	3543	预备称号4	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title45	3544	预备称号5	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1			4	
+VN_Title46	3545	预备称号6	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1			5	
+VN_Title47	3546	预备称号7	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1			5	
+VN_Title48	3547	预备称号8	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1			5	
+VN_Title49	3548	预备称号9	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1			5	
+VN_Title50	3549	预备称号10	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1			5	
+VN_Title51	3550	预备称号11	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15552000					1			6	
+VN_Title52	3551	预备称号12	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15552000					1			6	
+VN_Title53	3552	预备称号13	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15552000					1			6	
+VN_Title54	3553	预备称号14	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15552000					1			6	
+VN_Title55	3554	预备称号15	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15552000					1			6	
+VN_Title56	3555	天下无双	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000				9272	1		2018年周年冲级称号	6	
+VN_Title57	3556	武林上顶	Title_Normal;Title_Gold	金色称号	200	216	217	218	31536000				9273	1		参与2018年上顶夜宴称号	7	
+VN_Title58	3557	越南胜利	Title_Normal;Title_Orange	橙色称号	200	213	214	215	1296000				9940	1		鼓励越南球队加油	6	
+VN_Title59	3558	越南无敌	Title_Normal;Title_Orange	橙色称号	200	213	214	215	1296000				9941	1		鼓励越南球队加油	6	
+VN_Title60	3559	越土之魂	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000				9939	1		领取越土之魂豪华宝箱	6	
+KinOpenSrvActivity1	4000	第一家族族长	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		百大家族活动中家族排名第一的荣誉	6	
+KinOpenSrvActivity2	4001	第一家族副族长	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		百大家族活动中家族排名第一的荣誉	6	
+KinOpenSrvActivity3	4002	第一家族长老	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		百大家族活动中家族排名第一的荣誉	6	
+KinOpenSrvActivity4	4003	第一家族精英	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		百大家族活动中家族排名第一的荣誉	6	
+KinOpenSrvActivity5	4004	第一家族成员	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		百大家族活动中家族排名第一的荣誉	6	
+KinOpenSrvActivity6	4005	十大家族族长	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		百大家族活动中家族排名前十的荣誉	5	
+KinOpenSrvActivity7	4006	十大家族副族长	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		百大家族活动中家族排名前十的荣誉	5	
+KinOpenSrvActivity8	4007	十大家族长老	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		百大家族活动中家族排名前十的荣誉	5	
+KinOpenSrvActivity9	4008	十大家族精英	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		百大家族活动中家族排名前十的荣誉	5	
+KinOpenSrvActivity10	4009	十大家族成员	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		百大家族活动中家族排名前十的荣誉	5	
+KinOpenSrvActivity11	4010	卓越家族族长	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		百大家族活动中家族排名第11~20名	4	
+KinOpenSrvActivity12	4011	卓越家族副族长	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		百大家族活动中家族排名第11~20名	4	
+KinOpenSrvActivity13	4012	卓越家族长老	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		百大家族活动中家族排名第11~20名	4	
+KinOpenSrvActivity14	4013	卓越家族精英	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		百大家族活动中家族排名第11~20名	4	
+KinOpenSrvActivity15	4014	卓越家族成员	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		百大家族活动中家族排名第11~20名	4	
+KinOpenSrvActivity16	4015	第一家族领袖	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		百大家族活动中家族排名第一的荣誉	6	
+KinOpenSrvActivity17	4016	十大家族领袖	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		百大家族活动中家族排名前十的荣誉	5	
+KinOpenSrvActivity18	4017	卓越家族领袖	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		百大家族活动中家族排名第11~20名	4	
+KinOpenSrvActivity19	4018	第一家族宝贝	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		百大家族活动中家族排名第一的荣誉	6	
+KinOpenSrvActivity20	4019	十大家族宝贝	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		百大家族活动中家族排名前十的荣誉	5	
+KinOpenSrvActivity21	4020	卓越家族宝贝	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		百大家族活动中家族排名第11~20名	4	
+KinOpenSrvActivity22	4045	第一家族指挥	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		百大家族活动中家族排名第一的荣誉	6	
+KinOpenSrvActivity23	4046	十大家族指挥	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		百大家族活动中家族排名前十的荣誉	5	
+KinOpenSrvActivity24	4044	卓越家族指挥	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		百大家族活动中家族排名第11~20名	4	
+KinActivityRankAct1	4021	鼎盛家族领袖	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		家族活跃排行活动中家族在本服排名第一的荣誉	6	
+KinActivityRankAct2	4022	鼎盛家族族长	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		家族活跃排行活动中家族在本服排名第一的荣誉	6	
+KinActivityRankAct3	4023	鼎盛家族副族长	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		家族活跃排行活动中家族在本服排名第一的荣誉	6	
+KinActivityRankAct4	4024	鼎盛家族长老	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		家族活跃排行活动中家族在本服排名第一的荣誉	6	
+KinActivityRankAct5	4025	鼎盛家族宝贝	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		家族活跃排行活动中家族在本服排名第一的荣誉	6	
+KinActivityRankAct6	4026	鼎盛家族精英	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		家族活跃排行活动中家族在本服排名第一的荣誉	6	
+KinActivityRankAct7	4027	鼎盛家族成员	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		家族活跃排行活动中家族在本服排名第一的荣誉	6	
+KinActivityRankAct8	4028	兴旺家族领袖	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		家族活跃排行活动中家族在本服排名第二的荣誉	5	
+KinActivityRankAct9	4029	兴旺家族族长	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		家族活跃排行活动中家族在本服排名第二的荣誉	5	
+KinChaosFightAct_1_1	6918	踏雪定八方	Title_Normal;Title_Gold	金色称号	200	216	217	218	7776000					1		琼花杯大师赛战区冠军家族获得此称号	7
+KinChaosFightAct_1_2	6919	雪战宗师	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		琼花杯大师赛战区亚军家族获得此称号	6
+KinChaosFightAct_1_3	6920	雪战专家	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		琼花杯大师赛战区四强家族获得此称号	5
+KinChaosFightAct_1_4	6921	雪战群豪	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		琼花杯大师赛战区八强家族获得此称号	4
+KinChaosFightAct_1_5	6922	雪战高手	Title_Normal;	蓝色称号	200	204	205	206	7776000					1		琼花杯大师赛战区十六强家族获得此称号	3
+KinActivityRankAct10	4030	兴旺家族副族长	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		家族活跃排行活动中家族在本服排名第二的荣誉	5	
+KinActivityRankAct11	4031	兴旺家族长老	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		家族活跃排行活动中家族在本服排名第二的荣誉	5	
+KinActivityRankAct12	4032	兴旺家族宝贝	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		家族活跃排行活动中家族在本服排名第二的荣誉	5	
+KinActivityRankAct13	4033	兴旺家族精英	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		家族活跃排行活动中家族在本服排名第二的荣誉	5	
+KinActivityRankAct14	4034	兴旺家族成员	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		家族活跃排行活动中家族在本服排名第二的荣誉	5	
+KinActivityRankAct15	4035	活跃家族领袖	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		家族活跃排行活动中家族在本服排名第三的荣誉	4	
+KinActivityRankAct16	4036	活跃家族族长	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		家族活跃排行活动中家族在本服排名第三的荣誉	4	
+KinActivityRankAct17	4037	活跃家族副族长	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		家族活跃排行活动中家族在本服排名第三的荣誉	4	
+KinActivityRankAct18	4038	活跃家族长老	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		家族活跃排行活动中家族在本服排名第三的荣誉	4	
+KinActivityRankAct19	4039	活跃家族宝贝	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		家族活跃排行活动中家族在本服排名第三的荣誉	4	
+KinActivityRankAct20	4040	活跃家族精英	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		家族活跃排行活动中家族在本服排名第三的荣誉	4	
+KinActivityRankAct21	4041	活跃家族成员	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		家族活跃排行活动中家族在本服排名第三的荣誉	4	
+FoolsDayAct1	4042	聪明绝顶	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		愚人节活动中当天问题全部答对获得此称号	5	
+FoolsDayAct2	4043	聪慧如豕	Title_Normal;Title_Purple	紫色称号	200	207	208	209	86400					1		愚人节活动中当天在家族中答错题目最多获得此称号	4	
+XM_Title1	4500	煮酒会英雄	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+XM_Title2	4501	侠义之心	Title_Normal;Title_Purple	紫色称号	200	207	208	209	604800					1			4	
+XM_Title3	4502	天籁之音	Title_Normal;Title_Orange	橙色称号	200	213	214	215	5184000					1			6	
+XM_Title4	4503	灵魂导师	Title_Normal;Title_Purple	紫色称号	200	207	208	209	5184000					1			4	
+XM_Title5	4504	雪利兵残	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+XM_Title6	4505	ToT好痛	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+XM_Title7	4506	还真的郎君	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+XM_Title8	4507	爷只是传说	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+XM_Title9	4508	凛·守护神	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+XM_Admin_Title10	4509	我是GM	Title_Normal;	特殊称号（红色）	200	222	223	224						1				
+XM_Title11	4510	天籁新秀	Title_Normal;Title_Purple	紫色称号	200	207	208	209	5184000					1			4	
+XM_Title12	4511	人气宝贝	Title_Normal;Title_Pink	粉色称号	200	210	211	212	5184000					1			5	
+XM_Title13	4512	天籁见证人	Title_Normal;	特殊称号（红色）	200	222	223	224	5184000					1				
+XM_Title14	4513	新马第一领袖	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1			6	
+XM_Title15	4514	新马第一家族	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1				
+XM_Title16	4515	巅峰至尊	Title_Normal;Title_Orange	橙色称号	200	213	214	215		UI/Atlas/BeautyTitle/BeautyTitle.prefab  	BeautyTitle1_			1			6	
+XM_Title17	4516	襄阳守尉	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		预约新剑侠情缘专属荣誉	5	
+XM_Title18	4517	临安新贵	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		预约新剑侠情缘专属荣誉	5	
+XM_Title19	4518	世界杯预言帝	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		通过参与世界杯活动获得	5	
+XM_Title20	4519	最佳吃瓜球迷	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		通过参与世界杯活动获得	4	
+XM_Title21	4520	剑侠最强	Title_Normal;	特殊称号（红色）	200	222	223	224	2592000					1		通过线下活动获得		
+XM_Title22	4521	新马之巅	Title_Normal;Title_Gold	金色称号	200	216	217	218						1		新服战力排行第一名专属	7	
+XM_Title23	4522	威震新马	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		新服战力排行前十名专属	6	
+NewYearQA_1	4600	挚友		绿色称号	200	201	202	203						1		从新年礼盒的考验活动中获得，证明了你们之间的友谊	2	
+NewYearQA_2	4601	表面兄弟		绿色称号	200	201	202	203						1		从新年礼盒的考验活动中获得，证明了你们之间的友谊	2	
+ZhounianqingQA_1	4602	挚友		绿色称号	200	201	202	203						1		从周年庆礼盒考验活动中获得，证明了你们之间的友谊	2	
+ZhounianqingQA_2	4603	表面兄弟		绿色称号	200	201	202	203						1		从周年庆礼盒考验活动中获得，证明了你们之间的友谊	2	
+CeremonyQA_1	4604	挚友		绿色称号	200	201	202	203						1		从盛典礼盒考验活动中获得，证明了你们之间的友谊	2	
+CeremonyQA_2	4605	表面兄弟		绿色称号	200	201	202	203						1		从盛典礼盒考验活动中获得，证明了你们之间的友谊	2	
+ChangBai_1	6891	白衣仙人常出没	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		在长白之巅活动总排行中，取得第一名获得该称号	6
+ChangBai_2	6892	长白山头皆冰雪	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		在长白之巅活动总排行中，取得第2-5名获得该称号	5
+ChangBai_3	6893	突峰嵌玉半天悬	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		在长白之巅活动总排行中，取得第6-10名获得该称号	4
+ChangBaiZhenYing_1	6880	坤		特殊称号（绿色）	200	219	220	221					9992	1
+ChangBaiZhenYing_2	6881	艮		特殊称号（绿色）	200	219	220	221					9991	1
+ChangBaiZhenYing_3	6882	坎		特殊称号（绿色）	200	219	220	221					9990	1
+ChangBaiZhenYing_4	6883	巽		特殊称号（绿色）	200	219	220	221					9993	1
+ChangBaiZhenYing_5	6884	乾		特殊称号（绿色）	200	219	220	221					9988	1
+ChangBaiZhenYing_6	6885	兑		特殊称号（绿色）	200	219	220	221					9995	1
+ChangBaiZhenYing_7	6886	离		特殊称号（绿色）	200	219	220	221					9994	1
+ChangBaiZhenYing_8	6887	震		特殊称号（绿色）	200	219	220	221					9989	1
+Chongfeng	6823	再续前缘	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		重逢活动中完成所有重逢目标，重逢双方获得的奖励	4
+daiyanren1	5000	武当新秀		粉色称号	200	210	211	212						1		代言人活动	5	
+daiyanren2	5001	峨嵋新秀		粉色称号	200	210	211	212						1		代言人活动	5	
+daiyanren3	5002	寂寞双煞		紫色称号	200	207	208	209						1		代言人活动	4	
+daiyanren4	5003	寂寞双煞		紫色称号	200	207	208	209						1		代言人活动	4	
+LevelOpenSrvActivity1	5004	一骑绝尘	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服等级冲榜活动中排名[FFFE0D]前十[-]，获得此称号	6	
+LevelOpenSrvActivity2	5005	蹑景追风	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		恭喜侠士在开服等级冲榜活动中排名[FFFE0D]第11-100名[-]，获得此称号	5	
+PowerOpenSrvActivity1	5006	天王第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity2	5007	峨嵋第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity3	5008	桃花第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity4	5009	逍遥第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity5	5010	武当第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity6	5011	天忍第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity7	5012	少林第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity8	5013	翠烟第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity9	5014	唐门第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity10	5015	昆仑第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity11	5016	丐帮第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity12	5017	五毒第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity13	5018	藏剑第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity14	5019	长歌第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity15	5020	天山第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity16	5021	霸刀第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity17	5022	华山第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity18	5023	明教第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity19	5024	段氏第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity20	5025	万花第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6	
+PowerOpenSrvActivity21	5026	杨门第一	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服战力冲榜活动中战力排名[FFFE0D]第1[-]，荣获此称号，有效期[FFFE0D]30天[-]	6
+WeekendQuestionTitle1	5030	见多识广	Title_Normal;Title_Purple	紫色称号	200	207	208	209	864000					1		恭喜侠士在乱点鸳鸯谱活动中答对[FFFE0D]10[-]题，荣获此称号，有效期[FFFE0D]10天[-]	4	
+WeekendQuestionTitle2	5031	博古通今	Title_Normal;Title_Pink	粉色称号	200	210	211	212	864000					1		恭喜侠士在乱点鸳鸯谱活动中答对[FFFE0D]16[-]题，荣获此称号，有效期[FFFE0D]10天[-]	5	
+WeekendIdiom	5032	入室升堂	Title_Normal;Title_Pink	粉色称号	200	210	211	212	864000					1		恭喜侠士在有缘一线牵中获得[FFFE0D]40[-]积分，荣获此称号，有效期[FFFE0D]10天[-]	5	
+DefendFubenTitle1	5033	情比金坚	Title_Normal;Title_Pink	粉色称号	200	210	211	212	864000					1		恭喜侠士在缘定长相守中成功防御[FFFE0D]6[-]轮，荣获此称号，有效期[FFFE0D]10天[-]	5	
+DianTaiChengHao_1	6888	酒不醉人人自醉	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000				9324	1		对在忘忧电台留下故事之人的馈赠。忘忧电台，你耳边的剑侠情缘！	5
+DianTaiChengHao_2	6889	酒不醉人人自醉	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000				9324	1		对在忘忧电台留下故事之人的馈赠。忘忧电台，你耳边的剑侠情缘！	5
+DianTaiChengHao_3	6890	酒不醉人人自醉	Title_Normal;Title_Pink	粉色称号	200	210	211	212	604800				9324	1		对在忘忧电台留下故事之人的馈赠。忘忧电台，你耳边的剑侠情缘！	5
+Laba_Messenger1	5034	赏善罚恶使	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		腊八节活动	4	
+Laba_Boss1	5035	伪侠客岛主	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		腊八节活动	4	
+Laba_Boss2	5036	幕后黑手	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		腊八节活动	5	
+LaBa_Wish_1	5037	众星捧月	Title_Normal;Title_Pink	粉色称号	200	210	211	212	864000							许愿树活动中点赞排名获得的称号	5	
+LaBa_Wish_2	5038	一枝独秀	Title_Normal;Title_Purple	紫色称号	200	207	208	209	864000							许愿树活动中点赞排名获得的称号	4	
+LaBa_Wish_3	5039	独领风骚	Title_Normal;	蓝色称号	200	204	205	206	864000							许愿树活动中点赞排名获得的称号	3	
+ValentinesDayTitle1	5040	比翼双飞	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle2	5041	金风玉露	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle3	5042	天作之合	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle4	5043	至死不渝	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle5	5044	心有灵犀	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle6	5045	两情相悦	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle7	5046	郎情妾意	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle8	5047	琴瑟和鸣	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle9	5048	花好月圆	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ValentinesDayTitle10	5049	相濡以沫	Title_Normal;Title_Pink	粉色称号	200	210	211	212								泛舟江湖情人结活动中获得的可选称号	5	
+ArborDay1	5050	空谷幽兰	Title_Normal;Title_Purple	紫色称号	200	207	208	209								情缘节活动中获得的可选称号	4	
+ArborDay2	5051	拈花弄月	Title_Normal;Title_Purple	紫色称号	200	207	208	209								情缘节活动中获得的可选称号	4	
+ArborDay3	5052	闭月羞花	Title_Normal;Title_Purple	紫色称号	200	207	208	209								情缘节活动中获得的可选称号	4	
+ArborDay4	5053	春泥护花	Title_Normal;Title_Purple	紫色称号	200	207	208	209								情缘节活动中获得的可选称号	4	
+ArborDay5	5054	飞燕衔泥	Title_Normal;Title_Purple	紫色称号	200	207	208	209								情缘节活动中获得的可选称号	4	
+ArborDay6	5055	珠联壁合	Title_Normal;Title_Pink	粉色称号	200	210	211	212								情缘节活动中获得的可选称号	5	
+ArborDay7	5056	凤凰于飞 	Title_Normal;Title_Pink	粉色称号	200	210	211	212								情缘节活动中获得的可选称号	5	
+ArborDay8	5057	比翼连理	Title_Normal;Title_Pink	粉色称号	200	210	211	212								情缘节活动中获得的可选称号	5	
+ArborDay9	5058	心心相印	Title_Normal;Title_Pink	粉色称号	200	210	211	212								情缘节活动中获得的可选称号	5	
+ArborDay10	5059	花好月圆	Title_Normal;Title_Pink	粉色称号	200	210	211	212								情缘节活动中获得的可选称号	5	
+LevelOpenSrvActivity3	5060	一骑绝尘	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		恭喜侠士在开服等级冲榜活动中排名[FFFE0D]第一[-]，获得此称号	6	
+LevelOpenSrvActivity4	5061	风驰电掣	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		恭喜侠士在开服等级冲榜活动中排名[FFFE0D]前十[-]，获得此称号	5	
+LevelOpenSrvActivity5	5062	蹑景追风	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		恭喜侠士在开服等级冲榜活动中排名[FFFE0D]前一百[-]，获得此称号	4	
+LingTuZhan_1	6833	王者之师	Title_Normal;Title_Gold	金色称号	200	216	217	218	7776000					1		在领土战赛季结算时占领领土总星级排名第一名获得该称号	6
+LingTuZhan_2	6834	决胜千里	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		在领土战赛季结算时占领领土总星级排名第二、三名获得该称号	6
+LingTuZhan_3	6835	鹰击长空	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在领土战赛季结算时占领领土总星级排名第四、五名获得该称号	6
+LingTuZhan_city	6836	权倾天下	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		在领土战中占领城市获得该称号	6
+Loveday_1	6829	心上人	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		在「情缘节」活动中排行榜排名6-20名获得此称号	4
+Loveday_2	6830	"凤凰于飞 "	Title_Normal;Title_Pink	粉色称号	200	210	211	212					9948	1		在「情缘节」活动中排行榜排名1-5名获得此称号	5
+daiyanren5	5063	江湖名侠	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		代言人活动	5	
+daiyanren6	5064	江湖名侠	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		代言人活动	5	
+daiyanren7	5065	心新相惜	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		通过参与代言人比武招亲获得	5	
+daiyanren8	5066	心心向颖	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		通过参与代言人比武招亲获得	5	
+daiyanren9	5067	林更新的意中人	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		通过参与代言人比武招亲并获得优胜	5	
+daiyanren10	5068	颖宝宝的意中人	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		通过参与代言人比武招亲并获得优胜	5	
+FathersDay1	5069	师徒情深	Title_Normal;Title_Purple	紫色称号	200	207	208	209								一朝桃李遍天下活动中获得的可选称号	4	
+FathersDay2	5070	栉风沐雨	Title_Normal;Title_Purple	紫色称号	200	207	208	209								一朝桃李遍天下活动中获得的可选称号	4	
+FathersDay3	5071	贤师高足	Title_Normal;Title_Purple	紫色称号	200	207	208	209								一朝桃李遍天下活动中获得的可选称号	4	
+FathersDay4	5072	一字之师	Title_Normal;Title_Purple	紫色称号	200	207	208	209								一朝桃李遍天下活动中获得的可选称号	4	
+FathersDay5	5073	衣钵相承	Title_Normal;Title_Purple	紫色称号	200	207	208	209								一朝桃李遍天下活动中获得的可选称号	4	
+FathersDay6	5074	随风潜入夜	Title_Normal;Title_Pink	粉色称号	200	210	211	212								一朝桃李遍天下活动中获得的可选称号	5	
+FathersDay7	5075	润物细无声	Title_Normal;Title_Pink	粉色称号	200	210	211	212								一朝桃李遍天下活动中获得的可选称号	5	
+FathersDay8	5076	名师出高徒	Title_Normal;Title_Pink	粉色称号	200	210	211	212								一朝桃李遍天下活动中获得的可选称号	5	
+FathersDay9	5077	桃李遍天下	Title_Normal;Title_Pink	粉色称号	200	210	211	212								一朝桃李遍天下活动中获得的可选称号	5	
+FathersDay10	5078	一日为师终身父	Title_Normal;Title_Pink	粉色称号	200	210	211	212								一朝桃李遍天下活动中获得的可选称号	5	
+Wish1	5079	天从人愿	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		心想事成活动中许愿排行榜排名获得的称号	6	
+Wish2	5080	如愿以偿	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		心想事成活动中许愿排行榜排名获得的称号	5	
+Wish3	5081	心想事成	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		心想事成活动中许愿排行榜排名获得的称号	4	
+KinsecretFuben1	5100	锐金之力护体	Title_Normal;Title_Gold	金色称号	200	216	217	218									7	
+KinsecretFuben2	5101	巨木之力护体		绿色称号	200	201	202	203									2	
+KinsecretFuben3	5102	洪水之力护体		白色称号	200												1	
+KinsecretFuben4	5103	烈火之力护体		红色称号	200	222	223	224										
+KinsecretFuben5	5104	厚土之力护体	Title_Normal;Title_Orange	橙色称号	200	213	214	215									6	
+KinsecretFuben6	5105	反弹近战伤害		红色称号	200	222	223	224										
+KinsecretFuben7	5106	反弹远程伤害		红色称号	200	222	223	224										
+DomainActivity	6000	襄阳城主	Title_Normal;Title_Gold	金色称号	200	216	217	218						1		在攻城战中夺取襄阳，成为城主的称号！	7	
+CrossDomainActivity	6001	临安城主	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle4.prefab  	LACZTitle	9249		1		在跨服攻城战中夺取临安，成为城主的称号！	7	
+TeacherStudent1	6100	师徒称号	Title_Normal;	特殊称号（绿色）	200	219	220	221						1		结成师徒关系后独有的师徒称号	2	
+TeacherStudent2	6101	师徒称号	Title_Normal;	特殊称号（绿色）	200	219	220	221						1		结成师徒关系后独有的师徒称号	2	
+TeacherStudent3	6102	师徒称号	Title_Normal;	特殊称号（绿色）	200	219	220	221						1		结成师徒关系后独有的师徒称号	2	
+TeacherStudent4	6103	师徒称号	Title_Normal;	特殊称号（绿色）	200	219	220	221						1		结成师徒关系后独有的师徒称号	2	
+TeacherStudent5	6104	师徒称号	Title_Normal;	特殊称号（绿色）	200	219	220	221						1		结成师徒关系后独有的师徒称号	2	
+BiWuZhaoQin	6200	情缘称号	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		结成情缘关系时，自定义的称号！	5	
+jiebai1	6501	结拜称号	Title_Normal;	特殊称号（绿色）	200	219	220	221						1		结拜后获得的金兰称号	2	
+JinXiuShanHe_title1	6736	遍访山川无遗处	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15552000					1		锦绣山河收集第1名获得此称号	6
+JinXiuShanHe_title2	6737	朝碧海而暮苍梧	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15552000					1		锦绣山河收集第2~3名获得此称号	5
+HuaShanLunJian01	7000	江湖精英	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		在华山论剑比赛中，你的武艺获得了大家的肯定！	4	
+HuaShanLunJian01	7001	武林高手	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		在华山论剑比赛中，你的武功高强，大家奔走相告！	4	
+HuaShanLunJian01	7002	武林豪杰	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		在华山论剑比赛中，公认为一流高手才能获得的称号！	5	
+HuaShanLunJian01	7003	名震江湖	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		在华山论剑比赛中，所在战队排名前八获得的称号！	6	
+HuaShanLunJian01	7004	华山之巅	Title_Normal;Title_Gold	金色称号	200	216	217	218	2592000					1		在华山论剑比赛中，所在战队获得冠军奖励的称号！	7	
+HuaShanLunJian	7006	战队成员临时称号1		红色称号	200	222	223	224						1		华山论剑战队比赛临时称号		
+HuaShanLunJian	7007	战队成员临时称号2		蓝色称号	200	204	205	206						1		华山论剑战队比赛临时称号	3	
+WuLinDaHui1	7100	双人赛挑战者	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000					1		具有武林大会双人赛参与资格的江湖高手才能拥有的称号！	4	
+WuLinDaHui1	7101	双人赛高手	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000					1		在武林大会双人赛中，进入百强的高手才能获得的称号！	4	
+WuLinDaHui1	7102	双人赛决赛豪杰	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15768000					1		在武林大会双人赛中，进入十六强的高手将晋级决赛，并获得此称号！	5	
+WuLinDaHui1	7103	武林名侠	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15768000	UI/Atlas/BeautyTitle/BeautyTitle.prefab  	WLMXTitle1_			1		在武林大会双人赛中，进入四强的高手才能获得的称号！	6	
+WuLinDaHui1	7104	武林至尊	Title_Normal;Title_Gold	金色称号	200	216	217	218	15768000	UI/Atlas/BeautyTitle/BeautyTitle2.prefab  	WLZZTitle1_	9191		1		在武林大会双人赛中，获得冠军的高手才能获得的称号！	7	
+WuLinDaHui2	7105	三人赛挑战者	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000					1		具有武林大会三人赛参与资格的江湖高手才能拥有的称号！	4	
+WuLinDaHui2	7106	三人赛高手	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000					1		在武林大会三人赛中，进入百强的高手才能获得的称号！	4	
+WuLinDaHui2	7107	三人赛决赛豪杰	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15768000					1		在武林大会三人赛中，进入十六强的高手将晋级决赛，并获得此称号！	5	
+WuLinDaHui2	7108	武林名侠	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15768000	UI/Atlas/BeautyTitle/BeautyTitle.prefab  	WLMXTitle2_			1		在武林大会三人赛中，进入四强的高手才能获得的称号！	6	
+WuLinDaHui2	7109	武林至尊	Title_Normal;Title_Gold	金色称号	200	216	217	218	15768000	UI/Atlas/BeautyTitle/BeautyTitle2.prefab  	WLZZTitle2_	9191		1		在武林大会三人赛中，获得冠军的高手才能获得的称号！	7	
+WuLinDaHui3	7110	决斗赛挑战者	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000					1		具有武林大会三人决斗赛参与资格的江湖高手才能拥有的称号！	4	
+WuLinDaHui3	7111	决斗赛高手	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000					1		在武林大会三人决斗赛中，进入百强的高手才能获得的称号！	4	
+WuLinDaHui3	7112	决斗赛决赛豪杰	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15768000					1		在武林大会三人决斗赛中，进入十六强的高手将晋级决赛，并获得此称号！	5	
+WuLinDaHui3	7113	武林名侠	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15768000	UI/Atlas/BeautyTitle/BeautyTitle2.prefab  	WLMXTitle3_			1		在武林大会三人决斗赛中，进入四强的高手才能获得的称号！	6	
+WuLinDaHui3	7114	武林至尊	Title_Normal;Title_Gold	金色称号	200	216	217	218	15768000	UI/Atlas/BeautyTitle/BeautyTitle2.prefab  	WLZZTitle3_	9191		1		在武林大会三人决斗赛中，获得冠军的高手才能获得的称号！	7	
+WuLinDaHui4	7115	四人赛挑战者	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000					1		具有武林大会四人赛参与资格的江湖高手才能拥有的称号！	4	
+WuLinDaHui4	7116	四人赛高手	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000					1		在武林大会四人赛中，进入前八十强的高手才能获得的称号！	4	
+WuLinDaHui4	7117	四人赛决赛豪杰	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15768000					1		在武林大会四人赛中，进入十六强的高手将晋级决赛，并获得此称号！	5	
+WuLinDaHui4	7118	武林名侠	Title_Normal;Title_Orange	橙色称号	200	213	214	215	15768000	UI/Atlas/BeautyTitle/BeautyTitle2.prefab  	WLMXTitle4_			1		在武林大会四人赛中，进入四强的高手才能获得的称号！	6	
+WuLinDaHui4	7119	武林至尊	Title_Normal;Title_Gold	金色称号	200	216	217	218	15768000	UI/Atlas/BeautyTitle/BeautyTitle3.prefab  	WLZZTitle4_	9191		1		在武林大会四人赛中，获得冠军的高手才能获得的称号！	7	
+BeautyPageantTitle7	7198	武林第三美女	Title_Normal;Title_Gold	金色称号（图片字）	200	216	217	218	31536000	UI/Atlas/BeautyTitle/BeautyTitle5.prefab  	BeautyTitle5_	9171		1		获得「武林第一美女评选」决赛季军，装备该称号后可以获得「红粉青蛾」角色身体特效	7	
+BeautyPageantTitle8	7199	武林第二美女	Title_Normal;Title_Gold	金色称号（图片字）	200	216	217	218	31536000	UI/Atlas/BeautyTitle/BeautyTitle4.prefab  	BeautyTitle4_	9171		1		获得「武林第一美女评选」决赛亚军，装备该称号后可以获得「红粉青蛾」角色身体特效	7	
+BeautyPageantTitle1	7200	武林第一美女	Title_Normal;Title_Gold	金色称号（图片字）	200	216	217	218	31536000	UI/Atlas/BeautyTitle/BeautyTitle.prefab  	BeautyTitle3_	9171		1		获得「武林第一美女评选」决赛冠军，装备该称号后可以获得「红粉青蛾」角色身体特效	7	
+BeautyPageantTitle2	7201	武林十大美女	Title_Normal;Title_Gold	金色称号（图片字）	200	216	217	218	31536000	UI/Atlas/BeautyTitle/BeautyTitle.prefab  	BeautyTitle2_	9171		1		获得「武林第一美女评选」决赛十强，装备该称号后可以获得「红粉青蛾」角色身体特效	7	
+BeautyPageantTitle3	7202	本服第一美女	Title_Normal;Title_Orange	橙色称号（图片字）	200	213	214	215	31536000	UI/Atlas/BeautyTitle/BeautyTitle.prefab  	BeautyTitle1_	9170		1		获得「武林第一美女评选」海选赛冠军，装备该称号后可以获得「红粉青蛾」角色身体特效	6	
+BeautyPageantTitle4	7203	本服十大美女	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9170		1		获得「武林第一美女评选」海选赛十强，装备该称号后可以获得「红粉青蛾」角色身体特效	6	
+BeautyPageantTitle5	7204	秋水伊人	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		「武林第一美女评选」海选赛中获投199票	5	
+BeautyPageantTitle6	7205	国色天香	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000					1		「武林第一美女评选」决赛中获投8000票	6	
+GoodVoiceTitle1	7206	仙籁之音	Title_Normal;Title_Gold	金色称号（图片字）	200	216	217	218	31536000	UI/Atlas/BeautyTitle/BeautyTitle3.prefab  	GoodVoiceTitle1_	9251		1		获得「剑侠好声音」决赛冠军，装备该称号后可以获得「余音绕梁」角色身体特效	7	
+GoodVoiceTitle2	7207	凤凰之鸣	Title_Normal;Title_Gold	金色称号（图片字）	200	216	217	218	31536000	UI/Atlas/BeautyTitle/BeautyTitle3.prefab  	GoodVoiceTitle2_	9245		1		获得「剑侠好声音」决赛亚军，装备该称号后可以获得「余音绕梁」角色身体特效	7	
+GoodVoiceTitle3	7208	珠玉之声	Title_Normal;Title_Gold	金色称号（图片字）	200	216	217	218	31536000	UI/Atlas/BeautyTitle/BeautyTitle3.prefab  	GoodVoiceTitle3_	9246		1		获得「剑侠好声音」决赛季军，装备该称号后可以获得「余音绕梁」角色身体特效	7	
+GoodVoiceTitle4	7209	声动四海	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000	UI/Atlas/BeautyTitle/BeautyTitle4.prefab  	GoodVoiceTitle4_	9247		1		获得「剑侠好声音」复赛冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle5	7210	声动梁尘	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000	UI/Atlas/BeautyTitle/BeautyTitle4.prefab  	GoodVoiceTitle5_	9248		1		获得「剑侠好声音」海选赛冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle6	7211	空谷传声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9248		1		获得「剑侠好声音」海选赛十强，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle7	7212	声名鹊起	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000					1		「剑侠好声音」海选赛中获投199票	4	
+GoodVoiceTitle8	7213	一曲红绡不知数	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		「剑侠好声音」投票数达到10000票获得的称号	5	
+GoodVoiceTitle9	7214	人间难得是知音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		「剑侠好声音」投票总榜前十获得的称号	5	
+GoodVoiceTitle10	7215	华东最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛华东地区冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle11	7216	华南最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛华南地区冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle12	7217	华中最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛华中地区冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle13	7218	华北最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛华北地区冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle14	7219	西北最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛西北地区冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle15	7220	西南最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛西南地区冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle16	7221	东北最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛东北地区冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle17	7222	港澳台最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛港澳台地区冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle18	7223	华东好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛华东地区前三	5	
+GoodVoiceTitle19	7224	华南好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛华南地区前三	5	
+GoodVoiceTitle20	7225	华中好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛华中地区前三	5	
+GoodVoiceTitle21	7226	华北好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛华北地区前三	5	
+GoodVoiceTitle22	7227	西北好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛西北地区前三	5	
+GoodVoiceTitle23	7228	西南好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛西南地区前三	5	
+GoodVoiceTitle24	7229	东北好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛东北地区前三	5	
+GoodVoiceTitle25	7230	港澳台好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛港澳台地区前三	5	
+GoodVoiceTitle26	7231	天王最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle27	7232	峨嵋最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle28	7233	桃花最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle29	7234	逍遥最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle30	7235	武当最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle31	7236	天忍最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle32	7237	少林最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle33	7238	翠烟最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle34	7239	唐门最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle35	7240	昆仑最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle36	7241	丐帮最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle37	7242	五毒最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle38	7243	藏剑最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle39	7244	长歌最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle40	7245	天山最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle41	7246	霸刀最强声	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9247		1		获得「剑侠好声音」复赛门派冠军，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle42	7247	天王好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle43	7248	峨嵋好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle44	7249	桃花好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle45	7250	逍遥好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle46	7251	武当好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle47	7252	天忍好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle48	7253	少林好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle49	7254	翠烟好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle50	7255	唐门好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle51	7256	昆仑好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle52	7257	丐帮好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle53	7258	五毒好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle54	7259	藏剑好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle55	7260	长歌好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle56	7261	天山好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle57	7262	霸刀好声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							获得「剑侠好声音」复赛门派前三	5	
+GoodVoiceTitle58	7263	金声玉色	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000							「剑侠好声音」复赛中获投8000票	5	
+GoodVoiceTitle59	7264	曼声清扬	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9246		1		获得「剑侠好声音」决赛十强，装备该称号后可以获得「余音绕梁」角色身体特效	6	
+GoodVoiceTitle60	7265	最强天籁助攻	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000							「剑侠好声音」比赛帮帮唱环节排名前十	4	
+GoodVoiceTitle61	7266	声之丽颖	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000							「剑侠好声音」比赛颖宝宝战队获胜	4	
+GoodVoiceTitle62	7267	新星之声	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000							「剑侠好声音」比赛林更新战队获胜	4	
+GoodVoiceTitle63	7268	一诺千金	Title_Normal;Title_Gold	粉色称号	200	210	211	212	31536000	UI/Atlas/BeautyTitle/BeautyTitle4.prefab  	GoodVoiceTitle6_	9250				「剑侠好声音」粉丝榜第一名获得的奖励，装备该称号后可以获得「七彩余音」角色身体特效	5	
+TH_Title1	7500	预测是第一	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000					1			4	
+TH_Title2	7501	东方第一	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+TH_Title3	7502	西方第一	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+TH_Title4	7503	南方第一	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+TH_Title5	7504	北方第一	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1			5	
+TH_Title6	7505	天堂王者	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1			6	
+TH_Title7	7506	武林著名	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1			5	
+TH_Title8	7507	全国有名	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000					1			4	
+TH_Title9	7508	天堂声音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1			5	
+Tianjimizhen	6917	掌乾坤	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		天机迷阵破阵获得该称号	5
+Title_17173_1	6683	跟我17上	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		17173剑侠礼包专属称号	4
+Title_18183_1	6684	18幸运星	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		18183福星礼包专属称号	4
+Title_xian4	6685	初心不负	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		尊贵玩家专属称号	4
+TH_Title10	7509	天空声音	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000					1			4	
+GoSkyTower_1	7700	月度通天塔选手	Title_Normal;	蓝色称号	200	204	205	206	2592000					1		获得月度通天塔参赛资格	3	
+GoSkyTower_2	7701	季度通天塔选手	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		获得季度通天塔参赛资格	4	
+GoSkyTower_3	7702	年度通天塔选手	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		获得年度通天塔参赛资格	5	
+GoSkyTower_4	7707	年度通天登顶豪侠	Title_Normal;Title_Gold	金色称号	200	216	217	218	31536000					1		在通天塔年度赛中登顶八层，冠绝群雄！	7	
+InDifferBattle_1	7703	月度心魔幻境选手	Title_Normal;	蓝色称号	200	204	205	206	2592000					1		获得月度心魔幻境参赛资格	3	
+InDifferBattle_2	7704	季度心魔幻境选手	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		获得季度心魔幻境参赛资格	4	
+InDifferBattle_4	7706	亦真亦幻	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在季度心魔幻境中获得优胜	5	
+NewTitle_OldPlayer1	7801	剑歌红尘	Title_Normal;	蓝色称号	200	204	205	206						1		活动称号	3	
+NewTitle_OldPlayer2	7802	青春做伴	Title_Normal;	蓝色称号	200	204	205	206						1		活动称号	3	
+NewTitle_BookPlayer1	7803	万夫莫敌	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		活动称号	4	
+NewTitle_BookPlayer2	7804	睥睨疆场	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		活动称号	4	
+NewTitle_BookPlayer3	7805	独步天下	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		活动称号	4	
+NewTitle_BookPlayer4	7806	侠客中的侠客	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		活动称号	4	
+VNClosedBateTitle1	8000	黄金再起	Title_Normal;	蓝色称号	200	204	205	206						1		剑心未老，情缘未了！公测前参加官网英雄招募活动获得的特殊称号	3	
+Waiyi_1	8101	浮光若梦	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		金玉锦绣，光彩照人！使用[FFFE0D]浮光若梦豪华宝箱[-]获得的称号	5	
+Waiyi_10	8110	风华绝代	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000				9325	1		使用[FFFE0D]风华绝代豪华宝箱[-]获得的称号	5
+Waiyi_11	8111	故梦星辰	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000				9351	1		参加[FFFE0D]故梦星辰[-]活动获得的称号	5
+Waiyi_2	8102	邪魅狷狂	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		邪魅狷狂，唯我独魔！使用[FFFE0D]邪魅狷狂无敌宝箱[-]获得的称号	5	
+Waiyi_3	8103	邪魅狷狂	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		邪魅狷狂，唯我独魔！使用[FFFE0D]邪魅狷狂豪华宝箱[-]获得的称号	5	
+Waiyi_4	8104	枫华绝代	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		使用[FFFE0D]枫华绝代豪华宝箱[-]获得的称号	5	
+Waiyi_5	8105	起舞弄清影	Title_Normal;Title_Pink	粉色称号	200	210	211	212		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  	DressTitle1			1		使用[FFFE0D]风动萤舞豪华宝箱[-]获得的称号	5	
+Waiyi_6	8106	沧笙踏歌	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000				9265	1		使用[FFFE0D]盛夏风情豪华宝箱[-]获得的称号	5	
+Waiyi_7	8107	鎏金染华年	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000				9938	1		使用[FFFE0D]秋叶流歌豪华宝箱[-]获得的称号	5	
+Waiyi_8	8108	缀芳沐雪	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000				9942	1		使用[FFFE0D]缀芳沐雪豪华宝箱[-]获得的称号	5	
+Waiyi_9	8109	翩燕流云	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000				9323	1		使用[FFFE0D]翩燕流云豪华宝箱[-]获得的称号	5
+WarofIceAndFire_1	6859	御火者	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		灭火大作战活动火娃榜第一名获得	5
+WarofIceAndFire_2	6860	生火专家	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		灭火大作战活动火娃榜第二至第十名获得	4
+WarofIceAndFire_3	6861	弄潮儿	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		灭火大作战活动水娃榜第一名获得	5
+WarofIceAndFire_4	6862	救火队员	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		灭火大作战活动水娃榜第二至第十名获得	4
+WarofIceAndFire_5	6908	掌火人	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		灭火大作战活动火娃榜第一名获得	5
+WarofIceAndFire_6	6909	炽炎焚风	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		灭火大作战活动火娃榜第二至第十名获得	4
+WarofIceAndFire_7	6910	沧浪客	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		灭火大作战活动水娃榜第一名获得	5
+WarofIceAndFire_8	6911	长空踏浪	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		灭火大作战活动水娃榜第二至第十名获得	4
+Marriage1	8200	夫妻称号	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		完成庄园·晚樱连理婚礼后夫妻获得的独有称号	6	
+Marriage2	8201	订婚称号	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		完成求婚后双方获得的称号	5	
+Marriage3	8202	夫妻称号	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		完成海岛·红鸾揽月婚礼后夫妻获得的独有称号	6	
+Marriage4	8203	夫妻称号	Title_Normal;Title_Gold	金色称号	200	216	217	218						1		完成舫舟·乘龙配凤婚礼后夫妻获得的独有称号	7	
+Marriage_Firecracker	8204	花落我家	Title_Normal;Title_Pink	粉色称号	200	210	211	212	864000					1		参加婚礼时，在开心爆竹环节中幸运夺得绣球	5	
+Marriage_Witness	8205	证婚人	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		拜堂阶段礼金榜前4名，一同见证新人成婚	6	
+Official_Title	10000	官方采风官	Title_Normal;	特殊称号（红色）	200	222	223	224						1		官方人员所使用		
+Official_Title	10001	官方小记者	Title_Normal;	特殊称号（红色）	200	210	211	212						1		新剑侠情缘手游-官方小记者		
+Official_Title3	10002	东哥之敌	Title_Normal;	蓝色称号	200	204	205	206	604800					1		官方活动称号	3	
+Official_Title4	10003	东哥迷粉	Title_Normal;	蓝色称号	200	204	205	206	604800					1		官方活动称号	3	
+Official_Title5	10004	给我等着	Title_Normal;	蓝色称号	200	204	205	206	604800					1		官方活动称号	3	
+Official_Title6	10005	剑侠箐英	Title_Normal;	蓝色称号	200	204	205	206	604800					1		官方活动称号	3	
+Official_Title7	10006	拿你没辙	Title_Normal;	蓝色称号	200	204	205	206	604800					1		官方活动称号	3	
+Official_Title8	10007	明日新星	Title_Normal;	蓝色称号	200	204	205	206	604800					1		官方活动称号	3	
+hd_zhongqiu_title1	6450	霞姿月韵	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		中秋祭月榜中位列[FFFE0D]第1-第3名[-]	6	
+hd_zhongqiu_title2	6451	花晨月夕	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		中秋祭月榜中位列[FFFE0D]第4-10名[-]	5	
+New_ShengDian_Male	6666	剑心未老	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		江湖盛典男性贵宾专属称号	6	
+New_ShengDian_Female	6667	情缘未了	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		江湖盛典女性贵宾专属称号	6	
+New_ShengDian_HaoXia	6668	盛典豪侠	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		在江湖盛典帛书收集活动中成功完成收集的优秀豪侠	5	
+New_Ershinian	6669	廿载剑侠情	Title_Normal;Title_Pink	粉色称号	200	210	211	212						1		剑侠情缘品牌二十周年专属称号	5	
+shengdanjie	6670	圣诞快乐	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		使用[FFFE0D]2017圣诞节豪华宝箱[-]获得的称号	5	
+Shengdian_1	6916	盛典使者	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000				10011	1		参加2019年江湖盛典线下品鉴会获得的称号	5
+ShenXian_1	6912	神仙眷侣	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		在“寻找剑侠江湖中的神仙眷侣”活动中获得的称号。	5
+2018Activity_Title1	6671	武林先行客	Title_Normal;	蓝色称号	200	204	205	206	31536000					1		“预约新服，小队集结”活动人气小队成员	3	
+2018Activity_Title2	6672	江湖领航人	Title_Normal;Title_Gold	金色称号	200	216	217	218	31536000					1		“预约新服，小队集结”活动人气小队队长	7	
+2018Activity_Title3	6673	2018新年快乐		红色称号	200	222	223	224	31536000					1		“新年祝福活动”限量称号		
+2018Activity_Title4	6674	威震天下	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		腾讯游戏管家专属用户称号	6	
+2018Activity_Title5	6675	清辉映月阑	Title_Normal;Title_Pink	粉色称号	200	210	211	212	5184000					1		通过“元宵节礼盒”获得的称号	5	
+2018Activity_Title6	6676	全服人气王·武林萌主	Title_Normal	红色称号	200	222	223	224	15552000					1		空间人气大赛总榜人气第一名		
+2018Activity_Title7	6677	全服人气宝贝	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15552000					1		空间人气大赛总榜人气前十	4	
+2018Activity_Title8	6678	全服人气王·萌动江湖	Title_Normal;Title_Purple	紫色称号	200	207	208	209	1296000					1		空间人气大赛周榜人气第一名	4	
+2018Activity_Title9	6679	本周人气宝贝	Title_Normal;	蓝色称号	200	204	205	206	604800					1		空间人气大赛周榜人气前十	3	
+2018Activity_Title10	6680	腾讯游戏管家	Title_Normal;	红色称号	200	222	223	224	7776000							腾讯游戏管家专属用户称号		
+2018Activity_Title11	6681	誉满江湖	Title_Normal;	绿色称号	200	219	220	221	7776000							腾讯游戏管家专属用户称号	2	
+JYFL_1	6682	剑意风流	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		完成华山资料片剑意风流任务线获得	5	
+MonsterNianKiller	6701	年兽终结者	Title_Normal;Title_Orange	橙色称号	200	213	214	215	86400					1		年兽活动中本家族积分最高者获得此称号	6	
+MusicTitle1	6824	江湖音雄	Title_Normal;Title_Gold	金色称号	200	216	217	218	15768000			9251	9943	1		获得「诗音阁」大区赛冠军，装备该称号后可以获得「余音绕梁」角色身体特效	7
+MusicTitle2	6825	江湖菁音	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15768000			9245	9944	1		获得「诗音阁」大区赛2-10名，装备该称号后可以获得「余音绕梁」角色身体特效	5
+MusicTitle3	6826	诗音不歇	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15768000			9245	9945	1		获得「诗音阁」小区赛冠军，装备该称号后可以获得「余音绕梁」角色身体特效	5
+MusicTitle4	6827	江湖泛音	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000			9246	9946	1		获得「诗音阁」大区赛11-100名，装备该称号后可以获得「余音绕梁」角色身体特效	4
+MusicTitle5	6828	诗音小侠	Title_Normal;Title_Purple	紫色称号	200	207	208	209	15768000			9246	9947	1		获得「诗音阁」小区赛2-3名，装备该称号后可以获得「余音绕梁」角色身体特效	4
+Womensday_boy	6702	护花使者	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		通过女侠节活动获得的称号	5	
+Womensday_girl	6703	人比花娇	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		通过女侠节活动获得的称号	5	
+WorkersDay_Title1	6704	劳动模范	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		通过劳动节活动获得的称号	6	
+WorkersDay_Title2	6705	劳动小能手	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		通过劳动节活动获得的称号	5	
+DanceAct_Title1	6706	舞林至尊	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		通过舞动江湖活动获得的称号	6	
+DanceAct_Title2	6707	舞林名侠	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		通过舞动江湖活动获得的称号	5	
+DanceAct_Title3	6708	舞林高手	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		通过舞动江湖活动获得的称号	4	
+DanceAct_Title4	6731	舞动巅峰	Title_Normal;Title_Orange	橙色称号	200	213	214	215	2592000					1		通过舞动江湖活动获得的称号	6
+DanceAct_Title5	6732	舞林翘楚	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		通过舞动江湖活动获得的称号	5
+DanceAct_Title6	6733	舞动江湖	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		通过舞动江湖活动获得的称号	4
+2018WorldCup_1	6709	世界足球先生	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		通过2018世界杯徽章收集活动荣获第一名获得此称号	6	
+2018WorldCup_2	6710	懂球帝	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		通过2018世界杯徽章收集活动荣获第2至第5名获得此称号	5	
+2019Yunying_1	6923	首席体验官	Title_Normal;Title_Gold	金色称号	200	216	217	218					9352	1		荣获年度首席体验官资格获得该称号	7
+2019Yunying_2	6924	超核玩家	Title_Normal;Title_Orange	橙色称号	200	213	214	215					9353	1		剑侠情缘专属管家活动获得该称号	6
+2019Yunying_3	6925	一梦又一载	Title_Normal;Title_Purple	紫色称号	200	207	208	209	5184000					1		回馈陪伴赠送获得该称号	4
+JiazuPK_1_1	6711	雄才伟略	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		在家族遭遇战中作为领袖带领家族成员获胜6、7、8场获得此称号	6	
+JiazuPK_1_2	6712	古之名将不能及	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		在家族遭遇战中作为族长带领家族成员获胜6、7、8场获得此称号	6	
+JiazuPK_2_1	6713	料敌机先	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在家族遭遇战中作为领袖带领家族成员获胜3、4、5场获得此称号	5	
+JiazuPK_2_2	6714	万军从我塞上征	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在家族遭遇战中作为族长带领家族成员获胜3、4、5场获得此称号	5	
+taohuahuanjing_1	6715	可爱深红爱浅红	Title_Normal;Title_Pink	粉色称号	200	210	211	212					9271	1		将自己的桃花幻境培育至6棵桃花树后获得此称号	5	
+Taoxiaoyao	6822	桃之夭夭	Title_Normal;Title_Purple	紫色称号	200	207	208	209	864000					1		酉阳桃花节活动中桃小妖给剑侠玩家的赠礼称号	4
+neirongzhengji_title1	6716	衷情述梦	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15552000				9934	1		盛典内容征集活动中在忘忧酿·故事板块最终结算获得前10名获得此称号	5	
+neirongzhengji_title2	6717	声不负雁	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15552000				9935	1		盛典内容征集活动中在绕梁春·声音板块最终结算获得前10名获得此称号	5	
+neirongzhengji_title3	6718	诗图洒意	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15552000				9936	1		盛典内容征集活动中在珍忆露·照片板块最终结算获得前10名获得此称号	5	
+neirongzhengji_title4	6719	湖心泛影	Title_Normal;Title_Pink	粉色称号	200	210	211	212	15552000				9937	1		盛典内容征集活动中在剑影液·扮演板块最终结算获得前10名获得此称号	5	
+yixingjiqing_title1	6720	一往情深深几许	Title_Normal;Title_Orange	粉色称号	200	210	211	212	7776000				9349	1		银杏寄情活动中获赞数排行第1名获得此称号	6	
+yixingjiqing_title2	6721	情深款款	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		银杏寄情活动中获赞数排行第2~10名获得此称号	5	
+KinDefendFuben_title1	6722	勇冠三军	Title_Normal;Title_Pink	粉色称号	200	210	211	212	1814400					1		家族保卫战活动中成功击杀完颜宗翰的任一分身获得此称号	5	
+KinFoku_1	6502	功能称号	Title_Normal;Title_Purple	紫色称号	200	207	208	209						1		天龙之争的功能称号，用于展示玩家当前持有的舍利子数量	4
+DongrijiFudai_Title1	6723	金牌圣诞老人	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在冬雪祭福袋活动中赠礼排行榜排名第1名获得的称号	5	
+DongrijiFudai_Title2	6724	圣诞使者	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		在冬雪祭福袋活动中赠礼排行榜排名第2-10名获得的称号	4	
+XinchunFudai_Title1	6725	财神下凡	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在新春福袋活动中赠礼排行榜排名第1名获得的称号	5	
+XinchunFudai_Title1	6734	春风化雨	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在师徒礼盒活动中赠礼排行榜排名第1名获得的称号	5
+XinchunFudai_Title2	6726	利是使者	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		在新春福袋活动中赠礼排行榜排名第2-10名获得的称号	4	
+XinchunFudai_Title2	6735	师徒情深	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		在师徒礼盒活动中赠礼排行榜排名第2-10名获得的称号	4
+Xinyueka	6832	贵不可言	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		购买心悦月卡获得该称号	5
+test	9999	测试称号	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000				9999	1		测试称号	5	
+PartnerGuest_1	6801	震古烁今		橙色称号	200	213	214	215								门客头顶称号	6	
+PartnerGuest_2	6802	独孤求败		粉色称号	200	210	211	212								门客头顶称号	5	
+PartnerGuest_3	6803	名动江湖		紫色称号	200	207	208	209								门客头顶称号	4	
+PartnerGuest_4	6804	炉火纯青		蓝色称号	200	204	205	206								门客头顶称号	3	
+PartnerGuest_5	6805	小有所成		绿色称号	200	201	202	203								门客头顶称号	2	
+KeyQuest_1	6806	银符携带者		蓝色称号	200	204	205	206								遗迹寻宝中有传送符的玩家头顶称号	3	
+KeyQuest_2	6807	金符携带者		橙色称号	200	213	214	215								遗迹寻宝中有传送符的玩家头顶称号	6	
+LoveTask_1	6808	情缘任务称号		特殊称号（绿色）	200	219	220	221						1		情缘任务奖励称号	2	
+Jiangniangshouji_title1	6809	酒剑仙	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		通过佳酿收集活动荣获第1名获得此称号	6	
+Jiangniangshouji_title2	6810	酒中君子	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		通过佳酿收集活动荣获第2至第5名获得此称号	5	
+JiazuPingxuan_1	6845	天下风云出我辈	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000				9952	1		在家族评选活动初赛阶段，本服冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_10	6854	对面红名全是肉	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9957	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_11	6855	倾国倾城	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9958	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_11	6857	决赛冠军	Title_Normal;Title_Pink	金色称号	200	216	217	218	31536000			9963	9958	1		在家族评选活动决赛阶段，获得冠军家族的领袖、族长或本家族投票前五可获得该称号	7
+JiazuPingxuan_11	6858	决赛亚军	Title_Normal;Title_Pink	金色称号	200	216	217	218	31536000			9963	9958	1		在家族评选活动决赛阶段，获得亚军家族的领袖、族长或本家族投票前五可获得该称号	6
+JiazuPingxuan_11	6863	决赛季军	Title_Normal;Title_Pink	金色称号	200	216	217	218	31536000			9963	9958	1		在家族评选活动决赛阶段，获得季军家族的领袖、族长或本家族投票前五可获得该称号	6
+JiazuPingxuan_12	6856	别慌都是小场面	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9959	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_12	6864	决赛十强	Title_Normal;Title_Pink	紫色称号	200	207	208	209	31536000			9966	9959	1		在家族评选活动决赛阶段，获得十强家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_13	6857	人生得意须尽欢	Title_Normal;Title_Pink	金色称号	200	216	217	218	31536000			9963	10001	1		在家族评选活动决赛阶段，获得冠军家族的领袖、族长或本家族投票前五获得的自定义称号	7
+JiazuPingxuan_14	6858	清风明月士无双	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9964	10002	1		在家族评选活动决赛阶段，获得亚军家族的领袖、族长或本家族投票前五获得的自定义称号	6
+JiazuPingxuan_15	6863	今朝有酒今朝醉	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9965	10003	1		在家族评选活动决赛阶段，获得季军家族的领袖、族长或本家族投票前五获得的自定义称号	6
+JiazuPingxuan_16	6864	决赛十强	Title_Normal;Title_Pink	紫色称号	200	207	208	209	31536000			9966	9959	1		在家族评选活动决赛阶段，获得十强家族的领袖、族长或本家族投票前五可获得该称号	6
+JiazuPingxuan_17	6867	风云际会	Title_Normal;Title_Orange	粉色称号	200	210	211	212	31536000					1		在家族评选活动初赛阶段，本服冠军家族全体成员可获得该称号	5
+JiazuPingxuan_18	6868	同心协力	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000					1		在家族评选活动初赛阶段，获得复赛资格的家族全体成员可获得该称号	4
+JiazuPingxuan_19	6869	雄图霸业	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000					1		在家族评选活动复赛阶段，获得复赛总冠军的家族全体成员可获得该称号	6
+JiazuPingxuan_2	6846	与尔同销万古愁	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9964	9951	1		在家族评选活动复赛阶段，获得总冠军家族的领袖、族长或本家族投票前五可获得该称号	6
+JiazuPingxuan_20	6870	虎踞龙盘	Title_Normal;Title_Orange	粉色称号	200	210	211	212	31536000					1		在家族评选活动复赛阶段，获得各主题冠军的家族全体成员可获得该称号	5
+JiazuPingxuan_21	6871	名门望族	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000					1		在家族评选活动复赛阶段，获得各主题二、三名的家族全体成员可获得该称号	4
+JiazuPingxuan_22	6872	众志成城	Title_Normal;	蓝色称号	200	204	205	206	31536000					1		在家族评选活动复赛阶段，获投票数达10000的家族全体成员可获得该称号	3
+JiazuPingxuan_23	6873	人生得意须尽欢	Title_Normal;Title_Gold	金色称号	200	216	217	218	31536000					1		在家族评选活动决赛阶段，获得决赛冠军的家族全体成员获得的自定义称号	7
+JiazuPingxuan_24	6874	清风明月士无双	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000					1		在家族评选活动决赛阶段，获得决赛亚军的家族全体成员获得的自定义称号	6
+JiazuPingxuan_25	6875	今朝有酒今朝醉	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000					1		在家族评选活动决赛阶段，获得决赛季军的家族全体成员获得的自定义称号	6
+JiazuPingxuan_26	6876	决赛十强家族	Title_Normal;Title_Orange	粉色称号	200	210	211	212	31536000					1		在家族评选活动决赛阶段，获得决赛十强的家族全体成员可获得该称号	5
+JiazuPingxuan_27	6877	敢与日月争辉	Title_Normal;Title_Purple	紫色称号	200	207	208	209	31536000					1		在家族评选活动决赛阶段，报名成功的家族全体成员可获得该称号	4
+JiazuPingxuan_28	6878	义薄青云济天下	Title_Normal;Title_Orange	橙色称号	200	213	214	215	31536000			9964	9974	1		在家族评选活动中，获得粉丝榜前10名可获得该称号	6
+JiazuPingxuan_29	6879	琴心剑胆势绝伦	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9973	1		在家族评选活动中，投票达10000票可获得该称号	5
+JiazuPingxuan_3	6847	家里有矿	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9953	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_30	6894	青春不散舞江湖	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9966	10004	1		在家族评选活动决赛阶段，排行第四的家族领袖、族长或本家族投票前五获得的自定义称号	5
+JiazuPingxuan_31	6895	有钱有闲又有颜	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9966	10005	1		在家族评选活动决赛阶段，排行第五的家族领袖、族长或本家族投票前五获得的自定义称号	5
+JiazuPingxuan_32	6896	江湖不醉不归	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9966	10006	1		在家族评选活动决赛阶段，排行第六的家族领袖、族长或本家族投票前五获得的自定义称号	5
+JiazuPingxuan_33	6897	我自横刀向天笑	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9966	10007	1		在家族评选活动决赛阶段，排行第七的家族领袖、族长或本家族投票前五获得的自定义称号	5
+JiazuPingxuan_34	6898	爱的魔力转圈圈	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9966	10008	1		在家族评选活动决赛阶段，排行第八的家族领袖、族长或本家族投票前五获得的自定义称号	5
+JiazuPingxuan_35	6899	一剑曾当百万师	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9966	10009	1		在家族评选活动决赛阶段，排行第九的家族领袖、族长或本家族投票前五获得的自定义称号	5
+JiazuPingxuan_36	6900	我们都很坏	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9966	10010	1		在家族评选活动决赛阶段，排行第十的家族领袖、族长或本家族投票前五获得的自定义称号	5
+JiazuPingxuan_37	6901	青春不散舞江湖	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		在家族评选活动决赛阶段，排行第四的家族全体成员获得的自定义称号	5
+JiazuPingxuan_38	6902	有钱有闲又有颜	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		在家族评选活动决赛阶段，排行第五的家族全体成员获得的自定义称号	5
+JiazuPingxuan_39	6903	江湖不醉不归	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		在家族评选活动决赛阶段，排行第六的家族全体成员获得的自定义称号	5
+JiazuPingxuan_4	6848	稳住我们能赢	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9954	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_40	6904	我自横刀向天笑	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		在家族评选活动决赛阶段，排行第七的家族全体成员获得的自定义称号	5
+JiazuPingxuan_41	6905	爱的魔力转圈圈	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		在家族评选活动决赛阶段，排行第八的家族全体成员获得的自定义称号	5
+JiazuPingxuan_42	6906	一剑曾当百万师	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		在家族评选活动决赛阶段，排行第九的家族全体成员获得的自定义称号	5
+JiazuPingxuan_43	6907	我们都很坏	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000					1		在家族评选活动决赛阶段，排行第十的家族全体成员获得的自定义称号	5
+JiazuPingxuan_5	6849	一路推到大本营	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9955	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_6	6850	优雅不开车	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9956	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_7	6851	萌萌甜心小可爱	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9960	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_8	6852	天天欧皇附体	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9961	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+JiazuPingxuan_9	6853	全部活动已完成	Title_Normal;Title_Pink	粉色称号	200	210	211	212	31536000			9965	9962	1		在家族评选活动复赛阶段，获得分主题冠军家族的领袖、族长或本家族投票前五可获得该称号	5
+Daxuezhang_1	6811	雪地王者	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		打雪仗活动荣获第1名获得此称号	5	
+Daxuezhang_2	6812	雪战英豪	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		打雪仗活动荣获第2至第5名获得此称号	4	
+Wulongwushi_1	6813	画龙点睛	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		20人舞龙达成家族领袖/族长获得此称号	5	
+Wulongwushi_2	6814	飞龙乘云	Title_Normal;Title_Orange	橙色称号	200	213	214	215						1		50人舞龙达成家族领袖/族长获得此称号	6	
+Wulongwushi_3	6815	龙行天下	Title_Normal;Title_Gold	金色称号	200	216	217	218						1		100人舞龙达成家族领袖/族长获得此称号	7	
+guoshiwushuang_1	6816	国士无双	Title_Normal;Title_Pink	粉色称号	200	210	211	212					9301	1		心悦特权获得此称号	5	
+Yunying_guanjia	6817	武林萌猪	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		腾讯游戏管家猪年专属称号，猪年注定走运。	6	
+Zhounianqing_3	6831	三生有幸	Title_Normal;Title_Gold	金色称号	200	216	217	218	31536000			9949	9950	1		剑侠情缘三周年活动专属称号，装备该称号后可以获得「三生有幸」角色身体特效	7
+RankBattleRec_1	6818	星移斗转	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		在星移斗转活动，重置武神殿后，第一次达到第一名获得的称号	5	
+RankBattleRec_2	6819	钧天七曜	Title_Normal;Title_Purple	紫色称号	200	207	208	209	2592000					1		在星移斗转活动，重置武神殿后，第一次达到第三名获得的称号	4	
+WomensDayAct_1	6820	侠骨柔情	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		在女侠节活动中，收到10个以上的自定义印象获得该称号	5	
+Chongzhifanli_1	6821	千金一掷	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		购买充值返利礼包第六层获得该称号	5	
+Chongzhifanli_2	6913	堆金积玉	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		购买充值返利礼包获得该称号	5
+Chongzhifanli_3	6914	腰缠万贯	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		购买充值返利礼包获得该称号	5
+Chongzhifanli_4	6915	挥金如土	Title_Normal;Title_Pink	粉色称号	200	210	211	212	2592000					1		购买充值返利礼包获得该称号	5
+Chuangyi_1	6837	霓裳上宾	Title_Normal;Title_Orange	橙色称号	200	213	214	215	7776000					1		在社区活动—玩家外装创意大赛中，取得第一名获得该称号	6
+Chuangyi_2	6838	金织玉线	Title_Normal;Title_Pink	粉色称号	200	210	211	212	7776000					1		在社区活动—玩家外装创意大赛中，取得第二名获得该称号	5
+Chuangyi_3	6839	裁心出意	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		在社区活动—玩家外装创意大赛中，取得第三名获得该称号	4
+Chuangyi_4	6840	大师姐的青睐	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		在社区活动—玩家外装创意大赛中，取得优胜奖获得该称号	4
+Chuangyi_5	6841	大师兄的青睐	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		在社区活动—玩家外装创意大赛中，取得优胜奖获得该称号	4
+Chuangyi_6	6842	小师妹的青睐	Title_Normal;Title_Purple	紫色称号	200	207	208	209	7776000					1		在社区活动—玩家外装创意大赛中，取得优胜奖获得该称号	4
+Reincarnation	995341	一转醉夕阳	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·1转	7	
+Reincarnation	995342	二转剑横空	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·2转	7	
+Reincarnation	995343	三转破苍穹	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·3转	7	
+Reincarnation	995344	四转震四方	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·4转	7	
+Reincarnation	995345	五转乱五行	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·5转	7	
+Reincarnation	995346	六转逆乾坤	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·6转	7	
+Reincarnation	995347	七转斧斩苍穹	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·7转	7	
+Reincarnation	995348	八转弑杀巅峰	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·8转	7	
+Reincarnation	995349	九转独孤求败	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·9转	7	
+Reincarnation	995350	十转唯我独尊	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·10转	7	
+Reincarnation	995351	十一转残云战神	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·11转	7	
+Reincarnation	995352	十二转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·12转	7	
+Reincarnation	995353	十三转冥界王者一星	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·13转	7	
+Reincarnation	995354	十四转冥界王者二星	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·14转	7	
+Reincarnation	995355	十五转冥界王者三星	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·15转	7	
+Reincarnation	995356	16转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·16转	7	
+Reincarnation	995357	17转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·17转	7	
+Reincarnation	995358	18转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·18转	7	
+Reincarnation	995359	19转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·19转	7	
+Reincarnation	995360	20转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·20转	7	
+Reincarnation	995361	21转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·21转	7	
+Reincarnation	995362	22转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·22转	7	
+Reincarnation	995363	23转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·23转	7	
+Reincarnation	995364	24转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·24转	7	
+Reincarnation	995365	25转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·25转	7	
+Reincarnation	995366	26转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·26转	7	
+Reincarnation	995367	27转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·27转	7	
+Reincarnation	995368	28转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·28转	7	
+Reincarnation	995369	29转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·29转	7	
+Reincarnation	995370	30转冥界王者	Title_Normal;Title_Gold	金色称号	200	216	217	218		UI/Atlas/BeautyTitle/BeautyTitle3.prefab  		9191		1		称号·30转	7	
+GoodVoiceTitle995386	995386	全服女王	Title_Normal;Title_Gold	金色称号	200	216	217	218	31536000	UI/Atlas/BeautyTitle/BeautyTitle.prefab  		9171		1		获得「全服女王」，装备该称号后可以获得角色身体特效	7	

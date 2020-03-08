@@ -1,0 +1,5 @@
+SkillId	Desc	SelectorType	SelectorRange	Relation
+306	慈航普度	hurt_maxhp	1000	recover
+307	慈航普度_子	hurt_maxhp	1000	recover
+2116	慈航普度	hurt_maxhp	1000	recover
+2117	慈航普度_子	hurt_maxhp	1000	recover

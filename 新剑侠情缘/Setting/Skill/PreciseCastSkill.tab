@@ -1,0 +1,45 @@
+SkillId	CastType	CastRadius	DamageRadius	desc				
+206	target	750	200					
+310	direction	600						
+407	direction	700						
+410	target	900	200		direction	900		
+510	direction	700						
+609	direction	350	200					
+611	direction	750	200					
+266	direction	700						
+806	direction	700						
+808	target	900	270					
+4006	target	800	200					
+4008	target	800	120					
+4010	direction	550						
+4106	direction	700						
+4206	direction	700						
+4208	target	700	210					
+4213	target	700	270					
+4309	target	1000	200					
+4334	target	700	130					
+4339	target	1000	270					
+4406	direction	900						
+4408	target	750	200					
+4413	target	700	270					
+4506	direction	700						
+4518	target	700	340					
+4606	direction	700						
+4608	target	700	180					
+4613	direction	700						
+722	target	700	180					
+5005	direction	350						
+5008	direction	700						
+5206	direction	700						
+5209	direction	350						
+5212	direction	700						
+5506	direction	900						
+5508	target	750	200					
+5518	target	750	300					
+5608	direction	700						
+5626	target	700	350					
+5808	direction	700						
+5812	target	700	350					
+5839	target	700	350					
+5916	target	750	200	±¼ÀÇÇ¹
+5907	target	700	250	Ëé½ð¼ýÊõ

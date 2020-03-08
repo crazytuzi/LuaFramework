@@ -1,0 +1,6 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Move	Top	10	20	null	{-58,0,0}
+Move	BtnTopFold	1	10	null	{-147,50,0}
+Move	BtnTopFold	10	20	{-147,50,0}	{-147,-40,0}
+Rotation	BtnTopFold	9	10	{0,0,-270}	{0,0,-90}
+Scalc	BtnTopFoldRedmark	8	9	{0.5,0.5,0.5}	{0,0,0}

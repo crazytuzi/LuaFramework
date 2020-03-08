@@ -1,0 +1,7 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+ZY_GateN	北城门		1732	50	1	1	12918	11022	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_GateM	中城门		1732	50	1	1	12922	8273	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_GateS	南城门		1732	50	1	1	12918	5611	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_sun	日耀龙柱		1732	50	1	1	15536	8278	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_moon	月华龙柱		1732	50	1	1	15536	11012	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_star	星辉龙柱		1732	50	1	1	15539	5577	0	-1	0	0		0	0	0	0	0	0	0	0

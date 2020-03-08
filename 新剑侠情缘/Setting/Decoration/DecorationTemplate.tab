@@ -1,0 +1,321 @@
+nTemplateId	szInfo	szType	szSubType	szResPath	nDepth	nWidth	nLength	nHeight	bCanOperation	bHasObstacle	nBarrierType	szLimitRotation	szScale	bShowDir	nAllowRelation	nNpcResAttribID
+1	松木床	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuang01s.prefab	1	13	8	80	1	1		90|180				
+2	桦木床	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuang02s.prefab	1	16	14	80	1	1		90|180				
+3	江枫渔火	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuang03s.prefab	1	16	14	80	1	1		90|180				
+4	红鸾栖枝	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuang04s.prefab	1	16	16	65	1	1		90|180				
+5	金龙戏珠	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuang05s.prefab	1	19	19	75	1	1		90|180				
+6	罗帐飞阁	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuang06.prefab	1	17	15	180	1	1		90|180				
+7	有凤来仪	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuang07.prefab	1	18	17	160	1	1		90|180				
+501	松木橱柜	DoCmd	GuiZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi01_01s.prefab	1	3	6	250	1	1		90|180				
+502	桦木橱柜	DoCmd	GuiZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi02_01s.prefab	1	3	7	250	1	1		90|180				
+503	墨香橱柜	DoCmd	GuiZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi03_01s.prefab	1	3	7	250	1	1		90|180				
+504	幻彩流光橱柜	DoCmd	GuiZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi04_01s.prefab	1	3	7	250	1	1		90|180				
+505	紫檀鎏金橱柜	DoCmd	GuiZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi05_01s.prefab	1	3	7	250	1	1		90|180				
+531	墨绿镶金橱柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi06_01.prefab	1	3	7	280	1	1		90|180				
+532	绛红雕金橱柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi07_01.prefab	1	4	8	280	1	1		90|180				
+506	松木书架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi01_02s.prefab	1	3	6	250		1		90|180				
+507	桦木书架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi02_02s.prefab	1	3	7	250		1		90|180				
+508	墨香书架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi03_02s.prefab	1	3	7	250		1		90|180				
+509	幻彩流光书架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi04_02s.prefab	1	3	7	250		1		90|180				
+510	紫檀鎏金书架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi05_02s.prefab	1	3	7	250		1		90|180				
+533	墨绿镶金书架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi06_02.prefab	1	3	7	280		1		90|180				
+534	绛红雕金书架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi07_02.prefab	1	3	6	280		1		90|180				
+511	松木博古架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi01_03s.prefab	1	3	6	250		1		90|180				
+512	桦木博古架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi02_03s.prefab	1	3	7	250		1		90|180				
+513	墨香博古架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi03_03s.prefab	1	3	7	250		1		90|180				
+514	幻彩流光博古架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi04_03s.prefab	1	3	7	250		1		90|180				
+515	紫檀鎏金博古架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi05_03s.prefab	1	3	7	250		1		90|180				
+535	墨绿镶金博古架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi06_03.prefab	1	3	7	280		1		90|180				
+536	绛红雕金博古架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi07_03.prefab	1	2	7	280		1		90|180				
+516	松木杂物架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi01_04s.prefab	1	7	3	160		1		90|180				
+517	桦木杂物架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi02_04s.prefab	1	8	3	180		1		90|180				
+518	墨香杂物架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi03_04s.prefab	1	7	3	160		1		90|180				
+519	幻彩流光杂物架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi04_04s.prefab	1	8	3	180		1		90|180				
+520	紫檀鎏金杂物架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi05_04s.prefab	1	8	4	250		1		90|180				
+537	墨绿镶金杂物架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi06_04.prefab	1	8	3	230		1		90|180				
+538	绛红雕金杂物架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi07_04.prefab	1	8	3	250		1		90|180				
+521	松木多宝格			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi01_05s.prefab	1	4	3	170		1		90|180				
+522	桦木多宝格			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi02_05s.prefab	1	4	3	200		1		90|180				
+523	墨香多宝格			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi03_05s.prefab	1	5	3	170		1		90|180				
+524	幻彩流光多宝格			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi04_05s.prefab	1	4	3	175		1		90|180				
+525	紫檀鎏金多宝格			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi05_05s.prefab	1	5	3	135		1		90|180				
+539	墨绿镶金多宝格			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi06_05.prefab	1	5	3	150		1		90|180				
+540	绛红雕金多宝格			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi07_05.prefab	1	5	3	160		1		90|180				
+526	松木小方柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi01_06s.prefab	1	4	4	100		1		90|180				
+527	桦木小方柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi02_06s.prefab	1	4	4	120		1		90|180				
+528	墨香小方柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi03_06s.prefab	1	4	4	100		1		90|180				
+529	幻彩流光小方柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi04_06s.prefab	1	4	4	170		1		90|180				
+530	紫檀鎏金小方柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi05_06s.prefab	1	4	4	150		1		90|180				
+541	墨绿镶金小方柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi06_06.prefab	1	4	4	160		1		90|180				
+542	绛红雕金小方柜			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guizi07_06.prefab	1	4	5	150		1		90|180				
+1001	松木方桌			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi01_01s.prefab	1	6	6	90		1		90|180				
+1002	桦木方桌			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi02_01s.prefab	1	6	6	90		1		90|180				
+1003	墨香圆桌			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi03_01s.prefab	1	8	8	90		1		90|180				
+1004	幻彩流光圆桌			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi04_01s.prefab	1	8	8	90		1		90|180				
+1005	紫檀鎏金圆桌			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi05_01s.prefab	1	8	8	90		1		90|180				
+1031	墨绿镶金圆桌			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi06_01.prefab	1	9	9	70		1		90|180				
+1032	绛红雕金圆桌			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi07_01.prefab	1	8	8	65		1		90|180				
+1006	松木案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi01_02s.prefab	1	3	8	30		1		90|180				
+1007	桦木案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi02_02s.prefab	1	3	8	30		1		90|180				
+1008	墨香案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi03_02s.prefab	1	3	8	30		1		90|180				
+1009	幻彩流光案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi04_02s.prefab	1	3	8	35		1		90|180				
+1010	紫檀鎏金案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi05_02s.prefab	1	3	8	30		1		90|180				
+1033	墨绿镶金案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi06_02.prefab	1	3	8	25		1		90|180				
+1034	绛红雕金案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi07_02.prefab	1	3	8	25		1		90|180				
+1011	松木方案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi01_03s.prefab	1	3	6	20		1		90|180				
+1012	桦木方案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi02_03s.prefab	1	3	6	20		1		90|180				
+1013	墨香方案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi03_03s.prefab	1	3	6	20		1		90|180				
+1014	幻彩流光方案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi04_03s.prefab	1	3	6	20		1		90|180				
+1015	紫檀鎏金方案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi05_03s.prefab	1	3	6	20		1		90|180				
+1035	墨绿镶金方案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi06_03.prefab	1	3	6	20		1		90|180				
+1036	绛红雕金方案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi07_03.prefab	1	3	6	20		1		90|180				
+1016	松木翘头案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi01_04s.prefab	1	3	10	90		1		90|180				
+1017	桦木翘头案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi02_04s.prefab	1	3	11	100		1		90|180				
+1018	墨香翘头案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi03_04s.prefab	1	3	11	125		1		90|180				
+1019	幻彩流光翘头案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi04_04s.prefab	1	3	11	120		1		90|180				
+1020	紫檀鎏金翘头案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi05_04s.prefab	1	3	12	125		1		90|180				
+1037	墨绿镶金翘头案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi06_04.prefab	1	3	11	125		1		90|180				
+1038	绛红雕金翘头案			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi07_04.prefab	1	3	11	120		1		90|180				
+1021	松木盆景架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi01_05s.prefab	1	2	2	95		1		90|180				
+1022	桦木盆景架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi02_05s.prefab	1	2	2	125		1		90|180				
+1023	墨香盆景架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi03_05s.prefab	1	2	2	170		1		90|180				
+1024	幻彩流光盆景架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi04_05s.prefab	1	2	2	175		1		90|180				
+1025	紫檀鎏金盆景架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi05_05s.prefab	1	4	4	130		1		90|180				
+1039	墨绿镶金盆景架			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuozi06_05.prefab	1	2	2	135		1		90|180				
+1026	松木棋盘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_weiqi01_01s.prefab	1	5	5	30		1		90|180				
+1027	桦木棋盘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_weiqi02_01s.prefab	1	5	5	45		1		90|180				
+1028	墨香棋盘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_weiqi03_01s.prefab	1	5	5	65		1		90|180				
+1029	幻彩流光棋盘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_weiqi04_01s.prefab	1	7	7	60		1		90|180				
+1030	紫檀鎏金棋盘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_weiqi05_01s.prefab	1	7	7	70		1		90|180				
+1040	墨绿镶金棋盘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_weiqi06_01.prefab	1	7	7	40		1		90|180				
+1041	绛红雕金棋盘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_weiqi07_01.prefab	1	6	6	45		1		90|180				
+1501	稻禾蒲团			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian01_01s.prefab	1	3	3	10		0		90|180				
+1502	笋壳蒲团			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian02_01s.prefab	1	3	3	10		0		90|180				
+1503	紫罗兰			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian03_01s.prefab	1	3	3	10		0		90|180				
+1504	冷玉琅缳			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian04_01s.prefab	1	3	3	15		0		90|180				
+1505	紫玉成烟			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian05_01s.prefab	1	3	3	10		0		90|180				
+1519	交十叠翠			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian06_01.prefab	1	3	3	10		0		90|180				
+1520	金风玉露			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian07_01.prefab	1	3	3	10		0		90|180				
+1506	粗麻方垫			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian01_02s.prefab	1	3	3	10		0		90|180				
+1507	棉质方垫			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian02_02s.prefab	1	3	3	10		0		90|180				
+1508	幽芳			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian03_02s.prefab	1	3	3	10		0		90|180				
+1509	红尘客梦			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian04_02s.prefab	1	3	3	10		0		90|180				
+1510	金兰			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian05_02s.prefab	1	3	3	10		0		90|180				
+1521	红莲揽翠			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian06_02.prefab	1	3	3	20		0		90|180				
+1522	胭脂点雪			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zuodian07_02.prefab	1	3	3	15		0		90|180				
+1511	松木长凳		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_dengzi01_01s.prefab	1	2	5	55	1	1				1		
+1512	桦木长凳		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_dengzi02_01s.prefab	1	2	5	45	1	1				1		
+1513	墨香圆凳		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_dengzi03_01s.prefab	1	2	2	55	1	1				1		
+1514	幻彩流光圆凳		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_dengzi04_01s.prefab	1	2	2	55	1	1				1		
+1515	紫檀鎏金圆凳		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_dengzi05_01s.prefab	1	2	2	55	1	1				1		
+1523	墨绿镶金圆凳		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_dengzi06_01.prefab	1	2	2	50	1	1				1		
+1524	绛红雕金圆凳		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_dengzi07_01.prefab	1	2	2	45	1	1				1		
+1516	松木椅		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yizi01s.prefab	1	3	3	100	1	1				1		
+1517	核桃木扶手椅		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yizi02s.prefab	1	3	3	100	1	1				1		
+1518	朱丹描金椅		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yizi03s.prefab	1	3	4	100	1	1				1		
+1525	墨绿镶金太师椅		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yizi04.prefab	1	3	3	100	1	1				1		
+2001	松木浴盆	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yupen01s.prefab	1	9	10	80	1	1		90|180				
+2002	桦木浴盆	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yupen02s.prefab	1	12	12	100	1	1		90|180				
+2003	墨香浴盆	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yupen03s.prefab	1	10	12	100	1	1		90|180				
+2004	镜花水月	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yupen04s.prefab	1	12	12	130	1	1		90|180				
+2005	琼瑶碧落	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yupen05s.prefab	1	15	15	70	1	1		90|180				
+2006	晴翠扶风	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yupen06.prefab	1	15	15	130	1	1		90|180				
+2007	青龙观月	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yupen07.prefab	1	15	15	140	1	1		90|180				
+2501	虎啸山林			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan02_01s.prefab	0	16	10	5		0		90|180				
+2502	飞熊入梦			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan02_02s.prefab	0	21	12	5		0		90|180				
+2503	星悬长空（中）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan01_04s.prefab	0	12	14	5		0		90|180	100|117;100|115			
+2504	海枯石烂（中）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan01_02s.prefab	0	12	14	5		0		90|180	100|117;100|115			
+2505	火凤金鸾地衣（中）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan01_01s.prefab	0	15	15	5		0		90|180	100|114;100|114			
+2506	金榜提名（中）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan01_03s.prefab	0	14	19	5		0		90|180	100|115;100|111			
+2507	星悬长空（大）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan03_04s.prefab	0	20	24	5		0		90|180	100|110;100|108			
+2508	海枯石烂（大）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan03_02s.prefab	0	20	26	5		0		90|180	100|110;100|108			
+2509	火凤金鸾地衣（大）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan03_01s.prefab	0	22	26	5		0		90|180	100|109;100|108			
+2510	金榜提名（大）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan03_03s.prefab	0	22	28	5		0		90|180	100|109;100|107			
+2511	幻彩流光地衣（中）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan01_05s.prefab	0	12	14	5		0		90|180	100|117;100|115			
+2512	幻彩流光地衣（大）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan03_05s.prefab	0	16	26	5		0		90|180	100|110;100|108			
+3001	松木锦盒			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_baoxiang01s.prefab	1	7	10	75		1		90|180				
+3002	百宝箱			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_baoxiang02s.prefab	1	7	11	75		1		90|180				
+3003	双龙衔珠			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_baoxiang03s.prefab	1	7	11	75		1		90|180				
+3004	金枝玉叶（合）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_pingfeng01_02s.prefab	1	2	8	380		1		90|180				
+3005	寒梅傲雪			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_penjing02s.prefab	1	4	7	145		1		90|180				
+3006	青松迎客			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_penjing01s.prefab	1	4	10	165		1		90|180				
+3021	叶落知秋			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_penjing03.prefab	1	5	8	165		1		90|180				
+3007	粗麻屏风			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_pingfeng04s.prefab	1	2	14	335		1		90|180				
+3008	金枝玉叶（张）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_pingfeng01_01s.prefab	1	2	8	380		1		90|180				
+3009	太岳入云			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_pingfeng03s.prefab	1	2	14	380		1		90|180				
+3010	三生连理			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_pingfeng02s.prefab	1	2	14	335		1		90|180				
+3022	风帘翠幕			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_pingfeng05.prefab	1	1	13	340		1		90|180				
+3011	星悬长空（小）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan04_04s.prefab	0	6	12	5		0		90|180	100|134;100|117			
+3012	海枯石烂（小）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan04_02s.prefab	0	6	12	5		0		90|180	100|134;100|117			
+3013	火凤金鸾地衣（小）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan04_01s.prefab	0	6	12	5		0		90|180	100|134;100|117			
+3014	金榜提名（小）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan04_03s.prefab	0	6	12	5		0		90|180	100|134;100|117			
+3015	铜雀香炉	DoCmd	XiangLu	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_xianglu04s.prefab	1	4	2	135	1	1		90|180				
+3016	玉莲香炉	DoCmd	XiangLu	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_xianglu02s.prefab	1	4	4	100	1	1		90|180				
+3017	熟铜香炉	DoCmd	XiangLu	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_xianglu01s.prefab	1	4	6	120	1	1		90|180				
+3018	七绣云香	DoCmd	XiangLu	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_xianglu03s.prefab	1	4	5	135	1	1		90|180				
+3019	翠玉炉衬紫金葫芦	DoCmd	XiangLu	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_xianglu05s.prefab	1	4	2	170	1	1		90|180				
+3020	幻彩流光地衣（小）			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_ditan04_05s.prefab	0	6	12	5		0		90|180	100|134;100|117			
+3501	松木灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_deng01_01s.prefab	1	2	2	200	1	1		90|180|270				
+3502	桦木灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_deng02_01s.prefab	1	3	3	220	1	1		90|180|270				
+3503	墨香灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_deng03_01s.prefab	1	2	2	240	1	1		90|180|270				
+3504	幻彩流光灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_deng04_01s.prefab	1	3	3	280	1	1		90|180|270				
+3505	紫檀鎏金灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_deng05_01s.prefab	1	2	2	260	1	1		90|180|270				
+3516	墨绿环首灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_deng06_01.prefab	1	3	3	245	1	1		90|180|270				
+3517	青翠双翼灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_deng07_01.prefab	1	3	3	225	1	1		90|180|270				
+3506	绛桃春			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping02s.prefab	1	3	3	110		1		90|180				
+3507	郁金香			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping01s.prefab	1	2	2	125		1		90|180				
+3508	青玉瓷瓶			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping04s.prefab	1	3	3	300		1		90|180				
+3509	一剪梅			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping03s.prefab	1	3	3	300		1		90|180				
+3510	七菱冰玄花			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping05s.prefab	1	2	2	150		1		90|180				
+3518	点绛唇			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping12.prefab	1	2	2	120		1		90|180				
+3519	暖黄木玉瓶			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping10.prefab	1	2	2	110		1		90|180				
+3511	檀香木盒			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zawu01s.prefab	1	2	3	40		1		90|180				
+3512	画筒			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_shujuan01s.prefab	1	2	2	130		1		90|180				
+3513	金狮揽玉瓶			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping07s.prefab	1	3	3	120		1		90|180				
+3514	瑞鹤仙			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_diaoxiang01s.prefab	1	3	3	185		1		90|180				
+3515	青花孔雀花卉纹瓶			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huaping06s.prefab	1	4	4	140		1		90|180				
+3520	青龙盘珠			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_diaoxiang03.prefab	1	4	4	140		1		90|180				
+3521	攒蹄回首金角鹿			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_diaoxiang02.prefab	1	2	2	125		1		90|180				
+4001	轻竹帘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuanglian01_01s.prefab	1	2	12	380		1	200	90|180				
+4002	苏幕遮			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuanglian02_01s.prefab	1	2	12	380		1	200	90|180				
+4003	一帘幽梦			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuanglian02_02s.prefab	1	2	12	380		1	200	90|180				
+4004	珥金拖紫			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuanglian02_03s.prefab	1	2	12	380		1	200	90|180				
+4005	金玉满堂	长歌大师姐		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuanglian01_02s.prefab	1	2	8	380		1	200	90|180				
+4018	掩卷红灯			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuanglian01_04.prefab	1	2	12	380		1	200	90|180				
+4006	半透纱帘			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chuanglian01_03s.prefab	1	2	8	380		1	200	90|180				
+4007	落霞映山图			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guahua01s.prefab	1	2	8	350		1	200	90|180				
+4019	落日余晖图			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guahua05.prefab	1	2	8	350		1	200	90|180				
+4020	秋叶黄山图			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guahua06.prefab	1	2	8	350		1	200	90|180				
+4008	翠笛			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_hulu01s.prefab	1	2	3	290		1	200	90|180				
+4009	满月阮			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_qin02s.prefab	1	2	4	290		1	200	90|180				
+4010	浣花琵琶			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_qin03s.prefab	1	2	4	290		1	200	90|180				
+4011	独幽			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_qin01s.prefab	1	2	3	320		1	200	90|180				
+4012	大圣遗音			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_qin04s.prefab	1	2	4	320		1	200	90|180				
+4013	红鸾星动			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_xiangbao01s.prefab	1	2	3	290		1	200	90|180				
+4014	祥云纸鸢			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_fengzheng01s.prefab	1	2	7	320		1	200	90|180				
+4015	紫珠号角			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_haojiao01s.prefab	1	2	4	290		1	200	90|180				
+4016	山水绘卷			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guahua02s.prefab	1	2	4	350		1	200	90|180				
+4017	银翎柘木弓			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_gong01s.prefab	1	2	4	320		1	200	90|180				
+4021	丹桂飘香			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guahua03.prefab	1	2	4	350		1	200	90|180				
+4022	紫日东升			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_guahua04.prefab	1	2	4	350		1	200	90|180				
+4501	孩童秋千	DoCmd	QiuQian	Scenes/Meshes/sn_jiayuan/Prefabs/sy_qiuqian01.prefab	1	8	14	270	1	1		90|180				
+4502	铜木兵器架			Scenes/Meshes/sn_jiayuan/Prefabs/sy_wuqijia01.prefab	1	5	10	230		1		90|180				
+4503	百花缭乱			Scenes/Meshes/sn_jiayuan/Prefabs/sy_huatan03.prefab	1	6	8	90		1		90|180				
+4504	万紫千红			Scenes/Meshes/sn_jiayuan/Prefabs/sy_huatan01.prefab	1	3	3	190		1		90|180				
+4505	月明花影	DoCmd	QiuQian	Scenes/Meshes/sn_jiayuan/Prefabs/sy_qiuqian02.prefab	1	8	14	320	1	1		90|180				
+4506	青石圆桌			Scenes/Meshes/sn_jiayuan/Prefabs/sy_shizhuo02.prefab	1	5	5	100		1		90|180				
+4507	三人行			Scenes/Meshes/sn_jiayuan/Prefabs/sy_shizhuo01.prefab	1	12	7	63		1		90|180				
+4508	海角奇石			Scenes/Meshes/sn_jiayuan/Prefabs/sy_jiashan02.prefab	1	11	15	340		1		90|180				
+4509	群峰耸翠			Scenes/Meshes/sn_jiayuan/Prefabs/sy_jiashan01.prefab	1	11	15	340		1		90|180				
+4510	三生三世			Scenes/Meshes/sn_jiayuan/Prefabs/sy_pengzhai01.prefab	1	7	10	270		1		90|180				
+4511	青石古井			Scenes/Meshes/sn_jiayuan/Prefabs/sy_shuijing01.prefab	1	7	7	150		1		90|180				
+4512	桦木鼓架	DoCmd		Scenes/Meshes/sn_jiayuan/Prefabs/sy_yueqi04.prefab	1	3	7	240	1	1		90|180				
+4513	燕语	DoCmd		Scenes/Meshes/sn_jiayuan/Prefabs/sy_yueqi01.prefab	1	3	7	240	1	1		90|180				
+4514	编钟	DoCmd		Scenes/Meshes/sn_jiayuan/Prefabs/sy_yueqi02.prefab	1	3	7	240	1	1		90|180				
+4515	遏云	DoCmd		Scenes/Meshes/sn_jiayuan/Prefabs/sy_yueqi03.prefab	1	3	7	240	1	1		90|180				
+4516	朝颜花栏			Scenes/Meshes/sn_jiayuan/Prefabs/sy_mumen02.prefab	1	5	8	100		1		90|180				
+4517	小绿阴			Scenes/Meshes/sn_jiayuan/Prefabs/sy_lvshu01.prefab	1	13	13	530		0		90|180				
+4518	十里桃花			Scenes/Meshes/sn_jiayuan/Prefabs/sy_yinghuashu01.prefab	1	13	13	530		0		90|180				
+4519	朝颜花棚架			Scenes/Meshes/sn_jiayuan/Prefabs/sy_mumen01.prefab	1	6	16	390		0		90|180				
+4520	银石双人椅		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sy_shuangrenyi01.prefab	1	5	9	140	1	1				1		
+4521	鎏金双人椅		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sy_shuangrenyi02.prefab	1	3	11	140	1	1				1		
+4522	浮雕照壁			Scenes/Meshes/sn_jiayuan/Prefabs/sy_zhaobi01.prefab	1	4	22	480		1		90|180				
+4523	荷花小池			Scenes/Meshes/sn_jiayuan/Prefabs/sy_jiashan03.prefab	1	13	13	220		1		90|180|270				
+5001	青石圆凳		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sy_shideng01.prefab	1	2	2	60	1	1				1		
+5002	陈年老酒坛			Scenes/Meshes/sn_jiayuan/Prefabs/sy_tanzi01.prefab	1	2	2	75		1		90|180				
+5003	赤铜壶			Scenes/Meshes/sn_jiayuan/Prefabs/sy_tanzi02.prefab	1	2	2	75		1		90|180				
+5004	湛蓝纹金象耳罐			Scenes/Meshes/sn_jiayuan/Prefabs/sy_tanzi03.prefab	1	3	3	90		1		90|180				
+5005	海纳百川			Scenes/Meshes/sn_jiayuan/Prefabs/sy_tanzi04.prefab	1	4	4	100		1		90|180				
+5006	青石护栏			Scenes/Meshes/sn_jiayuan/Prefabs/sy_langan01.prefab	1	1	9	110		1		90|180				
+5007	稻草人			Scenes/Meshes/sn_jiayuan/Prefabs/sy_caoren01.prefab	1	2	2	230		1		90|180				
+5008	百花盏			Scenes/Meshes/sn_jiayuan/Prefabs/sy_huatan04.prefab	1	3	3	60		1		90|180				
+5009	姹紫嫣红			Scenes/Meshes/sn_jiayuan/Prefabs/sy_huatan02.prefab	1	3	3	190		1		90|180				
+5010	月上柳梢头	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sy_ludeng01.prefab	1	5	1	360	1	1						
+5011	石狮子			Scenes/Meshes/sn_jiayuan/Prefabs/sy_shizi01.prefab	1	6	4	230		1		90|180				
+5012	花岗石灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sy_ludeng03.prefab	1	3	3	140	1	1		90|180|270				
+5013	云纹镶金石灯	DoCmd	Deng	Scenes/Meshes/sn_jiayuan/Prefabs/sy_ludeng02.prefab	1	3	3	140	1	1		90|180|270				
+5014	金碧貔貅			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yulong01s.prefab	1	4	2	55		1		90|180				
+5015	翠玉雕龙			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_yulong02s.prefab	1	6	3	90		1		90|180				
+5016	蓝朝颜			Scenes/Meshes/sn_jiayuan/Prefabs/sy_guanmu02.prefab	1	7	7	160		0						
+5017	午时花			Scenes/Meshes/sn_jiayuan/Prefabs/sy_huaduo01.prefab	1	3	3	60		0						
+5018	紫蝴蝶			Scenes/Meshes/sn_jiayuan/Prefabs/sy_guanmu01.prefab	1	7	7	190		0						
+5019	帝女花			Scenes/Meshes/sn_jiayuan/Prefabs/sy_huaduo02.prefab	1	3	3	80		0						
+10000	首席弟子	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_mpjj01s.prefab	1	3	3	250	1	1		90|180				
+10001	独孤求败	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_hslj01s.prefab	1	3	3	250	1	1		90|180				
+10002	武极天下	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_wsd01s.prefab	1	3	3	250	1	1		90|180				
+10003	神兵利器	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_qh01s.prefab	1	3	3	250	1	1		90|180				
+10004	技压群雄	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_wlmz01s.prefab	1	3	3	250	1	1		90|180				
+10005	如虎添翼	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_xq01s.prefab	1	3	3	250	1	1		90|180				
+10006	富可敌国	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_jzjx01s.prefab	1	3	3	250	1	1		90|180				
+10007	登峰造极	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_ttt01s.prefab	1	3	3	250	1	1		90|180				
+10008	吉光凤羽	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_fenghuang01.prefab	1	6	13	260	1	1						
+10009	火凤金鸾地衣（心形）	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jiehunditan01.prefab	0	23	26	5	1	0						
+10010	武林至尊	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sy_hslj01.prefab	1	4	7	400	1	1		90|180				
+10011	金童	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_jiehunnan.prefab	1	4	4	180	1	1						
+10012	玉女	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_jiehunnv.prefab	1	4	4	180	1	1						
+10013	婚床·晚樱连理	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jiehunchuang01.prefab	1	13	13	120	1	1		90|180			1	
+10014	婚床·红鸾揽月	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jiehunchuang02.prefab	1	15	14	150	1	1		90|180			1	
+10015	婚床·乘龙配凤	NormalAddRes	Chuang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jiehunchuang03.prefab	1	15	15	160	1	1		90|180			1	
+10016	浴盆·晚樱连理	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jiehunyugang01.prefab	1	10	12	170	1	1		90|180			1	
+10017	浴盆·红鸾揽月	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jiehunyugang02.prefab	1	10	15	220	1	1		90|180			1	
+10018	浴盆·乘龙配凤	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jiehunyugang03.prefab	1	11	16	220	1	1		90|180			1	
+10019	永结同心			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_xizi01.prefab	1	2	4	350		1	200	90|180				
+10020	新颖图屏风	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jiehunpinfeng01.prefab	1	4	19	300	1	1		90|180				
+10021	结婚-普通椅子		DengZi	Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_dengzi01.prefab	1	2	5	50	1	1						
+10022	结婚-普通空桌			Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_zhuozi01_01.prefab	1	7	7	85	1	1						
+10023	结婚-普通满桌			Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_zhuozi01_02.prefab	1	7	7	85	1	1						
+10024	结婚-隆重椅子		DengZi	Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_dengzi02.prefab	1	2	2	40	1	1						
+10025	结婚-隆重空桌			Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_zhuozi02_01.prefab	1	8	8	85	1	1						
+10026	结婚-隆重满桌			Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_zhuozi02_02.prefab	1	8	8	85	1	1						
+10027	结婚-豪华椅子		DengZi	Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_dengzi03.prefab	1	3	3	95	1	1						
+10028	结婚-豪华空桌			Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_zhuozi03_01.prefab	1	8	8	85	1	1						
+10029	结婚-豪华满桌			Scenes/Meshes/fb_jiehun/prefab/sn_jiehun_zhuozi03_02.prefab	1	8	8	85	1	1						
+10030	跨服攻城战-王座		DengZi	Player/critter/prefab/zc_wangzuo01.prefab 	1	7	12	360	1	1						
+10031	音乐盒	DoCmd		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_haoshengyin01.prefab	1	3	3	250	1	1		90|180				
+10032	琵琶	DoCmd		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_haoshengyin03.prefab	1	3	3	250	1	1		90|180				
+10033	助威造势	DoCmd		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_haoshengyin02.prefab	1	3	3	250	1	1		90|180				
+10034	天音鸣凤	DoCmd		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_haoshengyin04.prefab	1	4	12	360	1	1		90|180				
+10035	普通长凳		DengZi	Scenes/Meshes/sn_jiuguan01/Prefabs/sn_jiuguan01_dengzi01.prefab	1	2	5	55	1	1				1		
+10036	阴阳无极			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_taiji01.prefab	0	16	10	5		0		90|180				
+10037	侠骨柔情			Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_38ditan01.prefab	0	16	10	5		0		90|180				
+10038	华清池	NormalAddRes	YuGang	Scenes/Meshes/sn_jiayuan/Prefabs/sy_wenquan01.prefab	1	25	25	350	1	1		90|180				
+10039	鹦鹉		YingWu	Player/Npcs/Prefabs/npc_270.prefab	1	2	4	280	1	1		90|180				
+10040	义博青云	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_jzpx1 .prefab	1	4	7	400	1	1		90|180				
+10041	琼花金杯	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_qhb01.prefab	1	3	3	250	1	1		90|180				
+10042	琼花银杯	BlackBoardMsg		Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_chengjiu_qhb02.prefab	1	3	3	250	1	1		90|180				
+20000	苗圃	Land		Scenes/Meshes/sn_jiayuan/Prefabs/sy_huatan05.prefab	1	21	16	13	1	0		90|180				
+20001	桃花树苗圃	Peach		Scenes/Meshes/sn_jiayuan/Prefabs/taoshu04_a.prefab	1	8	8	13	1	0		90|180				
+20002	灶台		ZaoTai	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zaotai.prefab	1	12	18	170	1	1		90|180				
+30000	主座		DengZi	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_zhuzuoweizhi01.prefab	1	3	9	140	1	0	255			1		
+11001	1级聚宝盆		JuBaoPen	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huopen03s.prefab	1	3	3	250	1	1		90|180				
+11002	2级聚宝盆		JuBaoPen	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huopen03s.prefab	1	3	3	250	1	1		90|180				
+11003	3级聚宝盆		JuBaoPen	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huopen03s.prefab	1	3	3	250	1	1		90|180				
+11004	4级聚宝盆		JuBaoPen	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huopen03s.prefab	1	3	3	250	1	1		90|180				
+11005	5级聚宝盆		JuBaoPen	Scenes/Meshes/sn_jiayuan/Prefabs/sn_jiayuan_huopen03s.prefab	1	3	3	250	1	1		90|180				
+12001	星芒·云魅灵鹿			Player/Horse/Prefabs/Horse16_a.prefab	0	3	8	360		1						
+12002	粉黛掠影			Player/Horse/Prefabs/Wolf02_c.prefab	0	3	12	125		1						
+12003	凛冬咆哮			Player/Horse/Prefabs/Bear01.prefab	0	5	12	200		1						
+12004	踢金毛犀			Player/Horse/Prefabs/Cattle01.prefab	0	5	12	200		1						
+12005	汉月碎银			Player/Horse/Prefabs/elephant01.prefab	0	5	12	250		1						
+12006	寒霜			Player/Horse/Prefabs/Horse09.prefab	0	3	8	360		1						
+12007	寒霜倩影			Player/Horse/Prefabs/Horse09_a.prefab	0	3	8	360		1						
+12008	炽影			Player/Horse/Prefabs/Horse09.prefab	0	3	8	360		1						807
+12009	小黑			Player/Horse/Prefabs/Horse07.prefab	0	3	8	360		1						
+12010	紫幽灵鹿			Player/Horse/Prefabs/Horse15.prefab	0	3	8	360		1						
+12011	云魅灵鹿			Player/Horse/Prefabs/Horse16.prefab	0	3	8	360		1						
+12012	福瑞灵鹿			Player/Horse/Prefabs/Horse18.prefab	0	3	8	360		1						
+12013	踢金·蓝湛灵鹿			Player/Horse/Prefabs/Horse16_b.prefab	0	3	8	360		1						
+12014	螭魅雪狐			Player/Horse/Prefabs/Wolf02.prefab	0	3	12	125		1						
+12015	幽炎·螭魅雪狐			Player/Horse/Prefabs/Wolf02_a.prefab	0	3	12	125		1						
+12016	血瞳·月绝			Player/Horse/Prefabs/Wolf01.prefab	0	3	12	125		1						812
+12017	血瞳·啸霜			Player/Horse/Prefabs/Wolf01.prefab	0	3	12	125		1						808
+12018	血瞳·荒尘			Player/Horse/Prefabs/Wolf01.prefab	0	3	12	125		1						809
+12019	血瞳·清穹			Player/Horse/Prefabs/Wolf01.prefab	0	3	12	125		1						810
+12020	炽羽灼心			Player/Horse/Prefabs/Wolf03.prefab	0	3	12	125		1						
+12021	雷霆怒吼			Player/Horse/Prefabs/Bear01_b.prefab	0	5	12	200		1						
+12022	冰魂雪魄			Player/Horse/Prefabs/elephant01_a.prefab	0	5	12	250		1						
+12023	追风			Player/Horse/Prefabs/Alpaca01.prefab	0	3	12	200		1						
+12024	追风			Player/Horse/Prefabs/Alpaca01_b.prefab	0	3	12	200		1						
+12025	昆仑玄影			Player/Horse/Prefabs/Crane01.prefab	0	3	12	250		1						
+12026	昆仑玄影			Player/Horse/Prefabs/Crane01_b.prefab	0	3	12	250		1						
+12027	幽魂·踏霜			Player/Horse/Prefabs/Wolf04_b.prefab	0	3	12	250		1						

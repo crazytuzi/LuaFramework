@@ -1,0 +1,8 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	DefaultDialog	WalkSpeed	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate
+YB_Carriage_1	947	镖车（白）	0	1			438				911	21	1	91	1					Setting/Npc/Ai/KeepMoving.ini			0	15	1										1				
+YB_Carriage_2	948	镖车（绿）	0	1			438				911	21	1	91	1					Setting/Npc/Ai/KeepMoving.ini			0	14	1										2				
+YB_Carriage_3	949	镖车（蓝）	0	1			438				911	21	1	91	1					Setting/Npc/Ai/KeepMoving.ini			0	13	1										3				
+YB_Carriage_4	950	镖车（紫）	0	1			438				911	21	1	91	1					Setting/Npc/Ai/KeepMoving.ini			0	12	1										4				
+YB_Carriage_5	951	镖车（橙）	0	1			438				911	21	1	91	1					Setting/Npc/Ai/KeepMoving.ini			0	11	1										6				
+YB_Client	952	委托人	2	1	KinEscortNpc		146	206	306		1	21	1	91	1					Setting/Npc/Ai/CommonActive.ini			0	15	1														
+YB_Enemy	953	劫匪	0	1			143				301	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1														

@@ -1,0 +1,15 @@
+nLevel	szName	OpenTimeFrame	nItemXY	nItemCC	nItemPT	szMoneyType	nPrice	SkillMaxLevel
+1	1阶真元	OpenLevel69	4282	4289	4275	Energy	10000	2
+2	2阶真元	OpenLevel79	4283	4290	4276	Energy	16000	3
+3	3阶真元	OpenLevel89	4284	4291	4277	Energy	24000	4
+4	4阶真元	OpenLevel99	4285	4292	4278	Energy	36000	5
+5	5阶真元	OpenLevel109	4286	4293	4279	Energy	48000	6
+6	6阶真元	OpenLevel119	4287	4294	4280	Energy	60000	7
+7	7阶真元	OpenLevel129	4288	4295	4281	Energy	72000	8
+8	8阶真元	OpenLevel139	7108	7109	7107	Energy	84000	9
+9	9阶真元	OpenLevel149	7573	7580	7566	Energy	90000	10
+10	10阶真元	OpenLevel159	7574	7581	7567	Energy	100000	11
+11	11阶真元	OpenLevel169	7575	7582	7568	Energy	110000	12
+12	12阶真元	OpenLevel179	7576	7583	7569	Energy	121000	13
+13	13阶真元	OpenLevel189	7577	7584	7570	Energy	133000	14
+14	14阶真元	OpenLevel199	7578	7585	7571	Energy	146000	15

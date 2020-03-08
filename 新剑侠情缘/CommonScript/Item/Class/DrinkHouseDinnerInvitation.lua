@@ -1,0 +1,1 @@
+local tbItem = Item:GetClass("DrinkHouseDinnerInvitation")

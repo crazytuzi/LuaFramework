@@ -1,0 +1,528 @@
+GoodsId	TemplateId	Name	Price	MoneyType	ShopType	SubType	Sort	Discount	LimitType	LimitNum	HotTip	TimeFrame	CloseTimeFrame	MinLevel	ShowLevel	ShowVipLevel	OpenTime	CloseTime	ForbidStall	version_tx	version_vn	version_hk	version_xm	version_en	version_kor	version_th
+1	212	白水晶	12	Gold	Treasure		1													1	1	1	1	1	1	1
+2	222	绿水晶	50	Gold	Treasure		2													1	1	1	1	1	1	1
+3	213	破损的神秘矿石	50	Gold	Treasure		3													1	1	1	1	1	1	1
+4	214	普通的神秘矿石	200	Gold	Treasure		4													1	1	1	1	1	1	1
+5	223	蓝水晶	200	Gold	Treasure		5													1	1	1	1	1	1	1
+6	224	紫水晶	800	Gold	Treasure		6					OpenLevel69								1	1	1	1	1	1	1
+7	215	无暇的神秘矿石	800	Gold	Treasure		7					OpenLevel69								1	1	1	1	1	1	1
+8	785	黄金钥匙	20	Gold	Treasure		8													1	1	1	1	1	1	1
+9	1412	喇叭·世界频道	50	Gold	Treasure		9													1	1	1	1	1	1	1
+10	1413	千里传音	100	Gold	Treasure		10													1	1	1	1	1	1	1
+11	1927	陈年女儿红	1	Gold	Treasure		11													1	1	1	1	1	1	1
+12	1929	白驹丸	48	Gold	Treasure		12					OpenDay2D								1	1	1	1	1	1	1
+13	1930	特效白驹丸	240	Gold	Treasure		13					OpenDay2D				6				1	1	1	1	1	1	1
+14	2301	修炼丹	180	Gold	Treasure		14													1	1	1	1	1	1	1
+15	1016	强效同伴经验药水	5	Gold	Treasure		15													1	1	1	1	1	1	1
+16	2569	染色剂	298	Gold	Treasure		16													1	1	1	1	1	1	1
+17	1342	特效同伴经验药水	50	Gold	Treasure		17					OpenLevel49								1	1	1	1	1	1	1
+18	1234	玫瑰花	20	Gold	Treasure		18							999	999	25				1	1	1	1	1	1	1
+19	1235	幸运草	20	Gold	Treasure		19							999	999	25				1	1	1	1	1	1	1
+20	2682	转门派令牌	5000	Gold	Treasure		20													1	1	1	1	1	1	1
+21	2759	传功丹	180	Gold	Treasure		21													1	1	1	1	1	1	1
+22	3368	金兰谱	1200	Gold	Treasure		22					OpenLevel59								1	1	1	1	1	1	1
+23	2180	99朵玫瑰花	388	Gold	Treasure		23							999	999	25				1	1	1	1	1	1	1
+24	2181	99棵幸运草	388	Gold	Treasure		24							999	999	25				1	1	1	1	1	1	1
+25	3571	喇叭·主播频道	50	Gold	Treasure		25					OpenDay720								1						
+26	6151	真气丹（1000点）	250	Gold	Treasure		26					OpenLevel79		999	999	12				1	1	1	1	1	1	1
+27	6152	真气丹（5000点）	1250	Gold	Treasure		27					OpenLevel99		999	999	12				1	1	1	1	1	1	1
+28	6155	缘定今生	3999	Gold	Treasure		28					OpenLevel69		999	999	25				1	1	1	1	1	1	1
+29	6231	三生石	2999	Gold	Treasure		29					OpenLevel69		999	999	25				1	1	1	1	1	1	1
+30	7284	精致修裱材料	50	Gold	Treasure		30					OpenLevel89								1	1	1	1	1	1	1
+31	7285	传世修裱材料	240	Gold	Treasure		31					OpenLevel89								1	1	1	1	1	1	1
+32	2162	1级魂石箱	140	Gold	Treasure		32													1	1	1	1	1	1	1
+33	2163	2级魂石箱	700	Gold	Treasure		33							69	69					1	1	1	1	1	1	1
+34	2164	3级魂石箱	4500	Gold	Treasure		34							79	79					1	1	1	1	1	1	1
+35	2165	4级魂石箱	20000	Gold	Treasure		35							89	89					1	1	1	1	1	1	1
+36	786	黄金宝箱	1000	Gold	Treasure		36													1	1	1	1	1	1	1
+37	1968	洗髓丹	150	Gold	Treasure		37													1	1	1	1	1	1	1
+38	4816	元气瓶（中）	4000	Gold	Treasure		38							999	999	12				1	1	1	1	1	1	1
+39	995307	兑换卡-逐鹿令	50	Gold	Treasure		39							79	79					1	1	1	1	1	1	1
+40	995308	兑换卡-名将令	50	Gold	Treasure		40							69	69					1	1	1	1	1	1	1
+41	995309	兑换卡-盟主令	50	Gold	Treasure		41							39	39					1	1	1	1	1	1	1
+42	995371	兑换卡-山贼信物	50	Gold	Treasure		42							39	39					1	1	1	1	1	1	1
+43	995372	兑换卡-战场信物	50	Gold	Treasure		43							39	39					1	1	1	1	1	1	1
+44	995373	兑换卡-杀手信物	50	Gold	Treasure		44							39	39					1	1	1	1	1	1	1
+45	995374	兑换卡-家族信物	50	Gold	Treasure		45							39	39					1	1	1	1	1	1	1
+46	995375	兑换卡-惩恶信物	50	Gold	Treasure		46							39	39					1	1	1	1	1	1	1
+47	1969	资质丹	150	Gold	Treasure		47													1	1	1	1	1	1	1
+48	995318	兑换卡-转生果	50	Gold	Treasure		48							39	39					1	1	1	1	1	1	1
+49	995304	转生卡	1000	Gold	Treasure		49							39	39					1	1	1	1	1	1	1
+50	998166	物品销毁	1000	Gold	Treasure		50							39	39					1	1	1	1	1	1	1
+1000	212	白水晶	8	Gold	Treasure		1	6	7	100			OpenLevel69							1	1	1	1	1	1	1
+1001	222	绿水晶	40	Gold	Treasure		2	8	7	100			OpenLevel69							1	1	1	1	1	1	1
+1002	223	蓝水晶	160	Gold	Treasure		3	8	7	30		OpenLevel69	OpenLevel89							1	1	1	1	1	1	1
+1003	224	紫水晶	640	Gold	Treasure		4	8	7	15		OpenLevel89	OpenLevel109							1	1	1	1	1	1	1
+1004	213	破损的神秘矿石	30	Gold	Treasure		5	6	7	10			OpenLevel69							1	1	1	1	1	1	1
+1005	214	普通的神秘矿石	160	Gold	Treasure		6	8	7	10			OpenLevel69							1	1	1	1	1	1	1
+1006	215	无暇的神秘矿石	640	Gold	Treasure		7	8	7	3		OpenLevel69	OpenLevel89							1	1	1	1	1	1	1
+1007	1234	玫瑰花	6	Gold	Treasure		8	3	7	100				999	999	25				1	1	1	1	1	1	1
+1008	1235	幸运草	6	Gold	Treasure		9	3	7	100				999	999	25				1	1	1	1	1	1	1
+1009	212	白水晶	6	Gold	Treasure		10	5	7	100		OpenLevel69	OpenLevel89							1	1	1	1	1	1	1
+1010	222	绿水晶	35	Gold	Treasure		11	7	7	100		OpenLevel69	OpenLevel89							1	1	1	1	1	1	1
+1011	213	破损的神秘矿石	25	Gold	Treasure		12	5	7	10		OpenLevel69	OpenLevel89							1	1	1	1	1	1	1
+1012	214	普通的神秘矿石	140	Gold	Treasure		13	7	7	10		OpenLevel69	OpenLevel89							1	1	1	1	1	1	1
+1013	212	白水晶	5	Gold	Treasure		14	4	7	300		OpenLevel89	OpenLevel99							1	1	1	1	1	1	1
+1014	222	绿水晶	30	Gold	Treasure		15	6	7	150		OpenLevel89	OpenLevel99							1	1	1	1	1	1	1
+1015	223	蓝水晶	140	Gold	Treasure		16	7	7	50		OpenLevel89	OpenLevel109							1	1	1	1	1	1	1
+1016	213	破损的神秘矿石	20	Gold	Treasure		17	4	7	10		OpenLevel89	OpenLevel109							1	1	1	1	1	1	1
+1017	214	普通的神秘矿石	120	Gold	Treasure		18	6	7	10		OpenLevel89	OpenLevel109							1	1	1	1	1	1	1
+1018	215	无暇的神秘矿石	560	Gold	Treasure		19	7	7	6		OpenLevel89	OpenLevel109							1	1	1	1	1	1	1
+1019	222	绿水晶	25	Gold	Treasure		20	5	7	300		OpenLevel109	OpenLevel119							1	1	1	1	1	1	1
+1020	223	蓝水晶	120	Gold	Treasure		21	6	7	50		OpenLevel109	OpenLevel119							1	1	1	1	1	1	1
+1021	224	紫水晶	560	Gold	Treasure		22	7	7	20		OpenLevel109	OpenLevel119							1	1	1	1	1	1	1
+1022	213	破损的神秘矿石	20	Gold	Treasure		23	4	7	20		OpenLevel109	OpenLevel119							1	1	1	1	1	1	1
+1023	214	普通的神秘矿石	100	Gold	Treasure		24	5	7	20		OpenLevel109	OpenLevel119							1	1	1	1	1	1	1
+1024	215	无暇的神秘矿石	480	Gold	Treasure		25	6	7	10		OpenLevel109	OpenLevel119							1	1	1	1	1	1	1
+1025	223	蓝水晶	100	Gold	Treasure		26	5	7	60		OpenLevel119	OpenLevel129							1	1	1	1	1	1	1
+1026	224	紫水晶	480	Gold	Treasure		27	6	7	30		OpenLevel119	OpenLevel129							1	1	1	1	1	1	1
+1027	213	破损的神秘矿石	15	Gold	Treasure		28	3	7	20		OpenLevel119	OpenLevel129							1	1	1	1	1	1	1
+1028	214	普通的神秘矿石	80	Gold	Treasure		29	4	7	20		OpenLevel119	OpenLevel129							1	1	1	1	1	1	1
+1029	215	无暇的神秘矿石	400	Gold	Treasure		30	5	7	10		OpenLevel119	OpenLevel129							1	1	1	1	1	1	1
+1030	212	白水晶	5	Gold	Treasure		31	4	7	200		OpenLevel99	OpenLevel109							1	1	1	1	1	1	1
+1031	222	绿水晶	30	Gold	Treasure		32	6	7	200		OpenLevel99	OpenLevel109							1	1	1	1	1	1	1
+1032	212	白水晶	5	Gold	Treasure		33	4	7	400		OpenLevel109	OpenLevel119							1	1	1	1	1	1	1
+1035	213	破损的神秘矿石	15	Gold	Treasure		36	3	7	40		OpenLevel129	OpenLevel139							1	1	1	1	1	1	1
+1036	214	普通的神秘矿石	80	Gold	Treasure		37	4	7	30		OpenLevel129	OpenLevel139							1	1	1	1	1	1	1
+1037	215	无暇的神秘矿石	400	Gold	Treasure		38	5	7	20		OpenLevel129	OpenLevel139							1	1	1	1	1	1	1
+1038	213	破损的神秘矿石	15	Gold	Treasure		39	3	7	60		OpenLevel139								1	1	1	1	1	1	1
+1039	214	普通的神秘矿石	80	Gold	Treasure		40	4	7	40		OpenLevel139								1	1	1	1	1	1	1
+1040	215	无暇的神秘矿石	400	Gold	Treasure		41	5	7	30		OpenLevel139								1	1	1	1	1	1	1
+1041	7289	阵法修炼精要	100	Gold	Treasure		42	7	7	10		OpenLevel89								1	1	1	1	1	1	1
+1042	222	绿水晶	20	Gold	Treasure		43	4	7	300		OpenLevel119	OpenLevel129							1	1	1	1	1	1	1
+1043	222	绿水晶	20	Gold	Treasure		44	4	7	300		OpenLevel129								1	1	1	1	1	1	1
+1044	223	蓝水晶	100	Gold	Treasure		45	5	7	60		OpenLevel129								1	1	1	1	1	1	1
+1045	224	紫水晶	480	Gold	Treasure		46	6	7	30		OpenLevel129								1	1	1	1	1	1	1
+1046	225	橙水晶	1920	Gold	Treasure		47	6	7	10		OpenLevel129								1	1	1	1	1	1	1
+1047	7394	元气瓶（精）	465	Gold	Treasure		48	7	7	5		OpenLevel69		999	999	25				1	1	1	1	1	1	1
+1048	9404	绝学断篇宝箱（普通）	360000	Gold	Treasure		49	5	7	5				999	999	25				1	1	1	1	1	1	1
+1049	6151	真气丹（1000点）	175	Gold	Treasure		50	7	7	50		OpenLevel79								1	1	1	1	1	1	1
+1050	6152	真气丹（5000点）	875	Gold	Treasure		51	7	7	10		OpenLevel99		999	999					1	1	1	1	1	1	1
+1051	2162	1级魂石箱	98	Gold	Treasure		52	7	7	100										1	1	1	1	1	1	1
+1052	2163	2级魂石箱	500	Gold	Treasure		53	7	7	100				59	59					1	1	1	1	1	1	1
+1053	2164	3级魂石箱	3000	Gold	Treasure		54	7	7	100				69	69					1	1	1	1	1	1	1
+1054	2165	4级魂石箱	15000	Gold	Treasure		55	7	7	100				79	79					1	1	1	1	1	1	1
+1055	787	藏宝图	28	Gold	Treasure		56	7	7	100										1	1	1	1	1	1	1
+1056	786	黄金宝箱	500	Gold	Treasure		57	5	7	100										1	1	1	1	1	1	1
+1057	4816	元气瓶（中）	3000	Gold	Treasure		58	7	7	100				69	69					1	1	1	1	1	1	1
+1058	4687	黎饰宝箱	5000	Gold	Treasure		59	7	7	100										1	1	1	1	1	1	1
+1059	995304	转生卡	1000	Gold	Treasure		60	7	7	5				999	999	25				1	1	1	1	1	1	1
+1060	4731	2级家具材料24选礼盒	50000	Gold	Treasure		61	7	7	50				69	69					1	1	1	1	1	1	1
+1061	4732	3级家具材料12选礼盒	50000	Gold	Treasure		62	7	7	50				79	79					1	1	1	1	1	1	1
+1062	4733	4级家具材料6选礼盒	50000	Gold	Treasure		63	7	7	50				89	89					1	1	1	1	1	1	1
+1063	4734	5级家具材料3选礼盒	50000	Gold	Treasure		64	7	7	50				99	99					1	1	1	1	1	1	1
+1064	995399	兑换卡-神之墓地门票	9999999	Gold	Treasure		65	7	7	7				999	999	25				1	1	1	1	1	1	1
+1065	993072	如意卡任选礼盒	1000	Gold	Treasure		66	7	7	10										1	1	1	1	1	1	1
+20310	7026	T6时装（自然）过度道具	8705	SilverBoard	Dress	tabDressHeadShop	999													1	1	1	1	1	1	1
+20311	6998	T1时装（斗笠）过度道具	8706	SilverBoard	Dress	tabDressHeadShop	998													1	1	1	1	1	1	1
+20312	7003	T2时装（花）过度道具	8707	SilverBoard	Dress	tabDressHeadShop	997													1	1	1	1	1	1	1
+20313	7011	T3时装（新年大衣）过度道具	8708	SilverBoard	Dress	tabDressHeadShop	996													1	1	1	1	1	1	1
+20332	7016	T4时装（八家将）过度道具	7719	SilverBoard	Dress	tabDressHeadShop	977													1	1	1	1	1	1	1
+20337	7021	T5时装（黑帮）过度道具	7724	SilverBoard	Dress	tabDressHeadShop	972													1	1	1	1	1	1	1
+20347	7031	T7时装（浮光）过度道具	7734	SilverBoard	Dress	tabDressHeadShop	962													1	1	1	1	1	1	1
+20352	7036	T8时装（轻纱）过度道具	7739	SilverBoard	Dress	tabDressHeadShop	957													1	1	1	1	1	1	1
+20357	6995	T1校服头·颜色1过度道具	7744	SilverBoard	Dress	tabDressHeadShop	952													1	1	1	1	1	1	1
+20358	6996	T2校服头·颜色1过度道具	7745	SilverBoard	Dress	tabDressHeadShop	951													1	1	1	1	1	1	1
+20359	6997	T3校服头·颜色1过度道具	7746	SilverBoard	Dress	tabDressHeadShop	950													1	1	1	1	1	1	1
+20360	7295	云梦之犄	19001	SilverBoard	Dress	tabDressHeadShop	949													1	1	1	1	1	1	1
+20361	7310	新年头	19002	SilverBoard	Dress	tabDressHeadShop	948													1	1	1	1	1	1	1
+20362	7311	狗头	19003	SilverBoard	Dress	tabDressHeadShop	947													1	1	1	1	1	1	1
+20363	7026	T6时装（自然）过度道具	490	SilverBoard	Dress	tabDressHeadShop	946													1	1	1	1	1	1	1
+20367	7508	T4校服头·颜色1过度道具	14014	SilverBoard	Dress	tabDressHeadShop	942													1	1	1	1	1	1	1
+20368	8202	T13时装（兔子）头部·30天	10101	SilverBoard	Dress	tabDressHeadShop	941							999	999	25				1	1	1	1	1	1	1
+20369	6962	T16头盔	70007	SilverBoard	Dress	tabDressHeadShop	940													1	1	1	1	1	1	1
+20370	8214	T13时装（兔子）头部·1年	70008	SilverBoard	Dress	tabDressHeadShop	939													1	1	1	1	1	1	1
+20371	7678	【苍澜花间】头饰外观	20000	SilverBoard	Dress	tabDressHeadShop	938													1	1	1	1	1	1	1
+20372	7676	【风动萤舞】头饰外观	20000	SilverBoard	Dress	tabDressHeadShop	937													1	1	1	1	1	1	1
+20373	8524	【盛夏风情】头饰外观	20000	SilverBoard	Dress	tabDressHeadShop	936													1	1	1	1	1	1	1
+20374	9816	缀芳沐雪头饰	70018	SilverBoard	Dress	tabDressHeadShop	935													1	1	1	1	1	1	1
+20375	10516	愚人节头饰	70019	SilverBoard	Dress	tabDressHeadShop	934													1	1	1	1	1	1	1
+20376	9810	秋叶流歌头饰	70014	SilverBoard	Dress	tabDressHeadShop	933													1	1	1	1	1	1	1
+20377	11005	云霞芳冠	20030	SilverBoard	Dress	tabDressHeadShop	932													1	1	1	1	1	1	1
+20378	11110	【玉面灵狐】头饰外观·30天	20033	SilverBoard	Dress	tabDressHeadShop	931							999	999	25				1	1	1	1	1	1	1
+20379	10604	【翩燕流云】头饰外观	20023	SilverBoard	Dress	tabDressHeadShop	930													1	1	1	1	1	1	1
+20380	11094	青风·30天	20032	SilverBoard	Dress	tabDressHeadShop	929													1	1	1	1	1	1	1
+20381	11357	风华绝代头饰外观	70100	SilverBoard	Dress	tabDressHeadShop	928													1	1	1	1	1	1	1
+20382	11946	万圣节头饰·5天	60054	SilverBoard	Dress	tabDressHeadShop	927													1	1	1	1	1	1	1
+20383	11998	【故梦星辰】头饰外观	160072	SilverBoard	Dress	tabDressHeadShop	926													1	1	1	1	1	1	1
+2001	6036	【天王】浮光·梦羽(全配色)	15801	SilverBoard	Dress	tabDressWaiyiShop	5													1	1	1	1	1	1	1
+2002	6037	【峨眉】浮光·梦蝶(全配色)	15802	SilverBoard	Dress	tabDressWaiyiShop	6													1	1	1	1	1	1	1
+2003	6038	【桃花】浮光·梦蝶(全配色)	15803	SilverBoard	Dress	tabDressWaiyiShop	7													1	1	1	1	1	1	1
+2004	6039	【逍遥】浮光·梦羽(全配色)	15804	SilverBoard	Dress	tabDressWaiyiShop	8													1	1	1	1	1	1	1
+2005	6040	【武当】浮光·梦羽(全配色)	15805	SilverBoard	Dress	tabDressWaiyiShop	9													1	1	1	1	1	1	1
+2006	6041	【天忍】浮光·梦蝶(全配色)	15806	SilverBoard	Dress	tabDressWaiyiShop	10													1	1	1	1	1	1	1
+2007	6042	【少林】浮光·梦羽(全配色)	15807	SilverBoard	Dress	tabDressWaiyiShop	11													1	1	1	1	1	1	1
+2008	6043	【翠烟】浮光·梦蝶(全配色)	15808	SilverBoard	Dress	tabDressWaiyiShop	12													1	1	1	1	1	1	1
+2009	6044	【唐门】浮光·梦羽(全配色)	15809	SilverBoard	Dress	tabDressWaiyiShop	13													1	1	1	1	1	1	1
+2010	6045	【昆仑】浮光·梦蝶(全配色)	15810	SilverBoard	Dress	tabDressWaiyiShop	14													1	1	1	1	1	1	1
+2011	6046	【丐帮】浮光·梦羽(全配色)	15811	SilverBoard	Dress	tabDressWaiyiShop	15													1	1	1	1	1	1	1
+2012	6047	【五毒】浮光·梦蝶(全配色)	15812	SilverBoard	Dress	tabDressWaiyiShop	16													1	1	1	1	1	1	1
+2013	6048	【藏剑】浮光·梦羽(全配色)	15813	SilverBoard	Dress	tabDressWaiyiShop	17													1	1	1	1	1	1	1
+2014	6049	【长歌】浮光·梦蝶(全配色)	15814	SilverBoard	Dress	tabDressWaiyiShop	18													1	1	1	1	1	1	1
+2015	4508	【天王】佳期·鸿影	15815	SilverBoard	Dress	tabDressWaiyiShop	19													1	1	1	1	1	1	1
+2016	4509	【峨眉】佳期·花恋	15816	SilverBoard	Dress	tabDressWaiyiShop	20													1	1	1	1	1	1	1
+2017	4510	【桃花】佳期·琼华	15817	SilverBoard	Dress	tabDressWaiyiShop	21													1	1	1	1	1	1	1
+2018	4511	【逍遥】佳期·墨语	15818	SilverBoard	Dress	tabDressWaiyiShop	22													1	1	1	1	1	1	1
+2019	4512	【武当】佳期·墨语	15819	SilverBoard	Dress	tabDressWaiyiShop	23													1	1	1	1	1	1	1
+2020	4513	【天忍】佳期·花恋	15820	SilverBoard	Dress	tabDressWaiyiShop	24													1	1	1	1	1	1	1
+2021	4514	【少林】佳期·鸿影	15821	SilverBoard	Dress	tabDressWaiyiShop	25													1	1	1	1	1	1	1
+2022	4515	【翠烟】佳期·花恋	15822	SilverBoard	Dress	tabDressWaiyiShop	26													1	1	1	1	1	1	1
+2023	4516	【唐门】佳期·墨语	15823	SilverBoard	Dress	tabDressWaiyiShop	27													1	1	1	1	1	1	1
+2024	4517	【昆仑】佳期·花恋	15824	SilverBoard	Dress	tabDressWaiyiShop	28													1	1	1	1	1	1	1
+2025	4518	【丐帮】佳期·鸿影	15825	SilverBoard	Dress	tabDressWaiyiShop	29													1	1	1	1	1	1	1
+2026	4519	【五毒】佳期·琼华	15826	SilverBoard	Dress	tabDressWaiyiShop	30													1	1	1	1	1	1	1
+2027	6344	【天王】狂客	15827	SilverBoard	Dress	tabDressWaiyiShop	31													1	1	1	1	1	1	1
+2028	6345	【峨眉】狷者	15828	SilverBoard	Dress	tabDressWaiyiShop	32													1	1	1	1	1	1	1
+2029	6346	【桃花】魅灵	15829	SilverBoard	Dress	tabDressWaiyiShop	33													1	1	1	1	1	1	1
+2030	6347	【逍遥】邪侠	15830	SilverBoard	Dress	tabDressWaiyiShop	34													1	1	1	1	1	1	1
+2031	6348	【武当】邪侠	15831	SilverBoard	Dress	tabDressWaiyiShop	35													1	1	1	1	1	1	1
+2032	6349	【天忍】狷者	15832	SilverBoard	Dress	tabDressWaiyiShop	36													1	1	1	1	1	1	1
+2033	6350	【少林】狂客	15833	SilverBoard	Dress	tabDressWaiyiShop	37													1	1	1	1	1	1	1
+2034	6351	【翠烟】魅灵	15834	SilverBoard	Dress	tabDressWaiyiShop	38													1	1	1	1	1	1	1
+2035	6352	【唐门】邪侠	15835	SilverBoard	Dress	tabDressWaiyiShop	39													1	1	1	1	1	1	1
+2036	6353	【昆仑】狷者	15836	SilverBoard	Dress	tabDressWaiyiShop	40													1	1	1	1	1	1	1
+2037	6354	【丐帮】狂客	15837	SilverBoard	Dress	tabDressWaiyiShop	41													1	1	1	1	1	1	1
+2038	6355	【五毒】魅灵	15838	SilverBoard	Dress	tabDressWaiyiShop	42													1	1	1	1	1	1	1
+2039	6356	【藏剑】邪侠	15839	SilverBoard	Dress	tabDressWaiyiShop	43													1	1	1	1	1	1	1
+2040	6357	【长歌】魅灵	15840	SilverBoard	Dress	tabDressWaiyiShop	44													1	1	1	1	1	1	1
+2041	4448	【天王】青竹觅影	9301	SilverBoard	Dress	tabDressWaiyiShop	45													1	1	1	1	1	1	1
+2042	4449	【峨眉】落花映雪	9302	SilverBoard	Dress	tabDressWaiyiShop	46													1	1	1	1	1	1	1
+2043	4450	【桃花】落花映雪	9303	SilverBoard	Dress	tabDressWaiyiShop	47													1	1	1	1	1	1	1
+2044	4451	【逍遥】青竹觅影	9304	SilverBoard	Dress	tabDressWaiyiShop	48													1	1	1	1	1	1	1
+2045	4452	【武当】青竹觅影	9305	SilverBoard	Dress	tabDressWaiyiShop	49													1	1	1	1	1	1	1
+2046	4453	【天忍】落花映雪	9306	SilverBoard	Dress	tabDressWaiyiShop	50													1	1	1	1	1	1	1
+2047	4454	【少林】青竹觅影	9307	SilverBoard	Dress	tabDressWaiyiShop	51													1	1	1	1	1	1	1
+2048	4455	【翠烟】落花映雪	9308	SilverBoard	Dress	tabDressWaiyiShop	52													1	1	1	1	1	1	1
+2049	4456	【唐门】青竹觅影	9309	SilverBoard	Dress	tabDressWaiyiShop	53													1	1	1	1	1	1	1
+2050	4457	【昆仑】落花映雪	9310	SilverBoard	Dress	tabDressWaiyiShop	54													1	1	1	1	1	1	1
+2051	4458	【丐帮】青竹觅影	9311	SilverBoard	Dress	tabDressWaiyiShop	55													1	1	1	1	1	1	1
+2052	4459	【五毒】落花映雪	9312	SilverBoard	Dress	tabDressWaiyiShop	56													1	1	1	1	1	1	1
+2053	6204	【藏剑】青竹觅影	9313	SilverBoard	Dress	tabDressWaiyiShop	57													1	1	1	1	1	1	1
+2054	6205	【长歌】落花映雪	9314	SilverBoard	Dress	tabDressWaiyiShop	58													1	1	1	1	1	1	1
+2055	2667	外观过度道具_1	9315	SilverBoard	Dress	tabDressWaiyiShop	59													1	1	1	1	1	1	1
+2056	2706	外观2过度道具	9316	SilverBoard	Dress	tabDressWaiyiShop	60													1	1	1	1	1	1	1
+2057	3310	外观3过度道具	9317	SilverBoard	Dress	tabDressWaiyiShop	61													1	1	1	1	1	1	1
+2058	3864	外观5过度道具	9318	SilverBoard	Dress	tabDressWaiyiShop	62													1	1	1	1	1	1	1
+2059	3311	艺趣·盛典华服	9319	SilverBoard	Dress	tabDressWaiyiShop	63													1	1	1	1	1	1	1
+2060	4891	周年庆典华服	9320	SilverBoard	Dress	tabDressWaiyiShop	64													1	1	1	1	1	1	1
+2061	2700	江湖侠少装	9321	SilverBoard	Dress	tabDressWaiyiShop	65													1	1	1	1	1	1	1
+2062	4495	<斗笠系列>时装·30天	9322	SilverBoard	Dress	tabDressWaiyiShop	66													1	1	1	1	1	1	1
+2063	4498	<学院系列>时装·30天	9323	SilverBoard	Dress	tabDressWaiyiShop	67													1	1	1	1	1	1	1
+2064	4501	<冬季系列>时装·30天	9324	SilverBoard	Dress	tabDressWaiyiShop	68													1	1	1	1	1	1	1
+2065	4504	<艺趣系列>时装·30天	9325	SilverBoard	Dress	tabDressWaiyiShop	69													1	1	1	1	1	1	1
+2066	4507	<黑色系列>时装·30天	9326	SilverBoard	Dress	tabDressWaiyiShop	70													1	1	1	1	1	1	1
+2067	6884	T1校服·颜色1过度道具	9327	SilverBoard	Dress	tabDressWaiyiShop	71													1	1	1	1	1	1	1
+2068	6885	T2校服·颜色1过度道具	9328	SilverBoard	Dress	tabDressWaiyiShop	72													1	1	1	1	1	1	1
+2069	6886	T3校服·颜色1过度道具	9329	SilverBoard	Dress	tabDressWaiyiShop	73													1	1	1	1	1	1	1
+2070	5969	【天王】浮光	12601	SilverBoard	Dress	tabDressWaiyiShop	74													1	1	1	1	1	1	1
+2071	5970	峨嵋武器外装T1	12602	SilverBoard	Dress	tabDressWaiyiShop	75													1	1	1	1	1	1	1
+2072	5971	桃花武器外装T1	12603	SilverBoard	Dress	tabDressWaiyiShop	76													1	1	1	1	1	1	1
+2073	5972	逍遥武器外装T1	12604	SilverBoard	Dress	tabDressWaiyiShop	77													1	1	1	1	1	1	1
+2074	5973	武当武器外装T1	12605	SilverBoard	Dress	tabDressWaiyiShop	78													1	1	1	1	1	1	1
+2075	5974	天忍武器外装T1	12606	SilverBoard	Dress	tabDressWaiyiShop	79													1	1	1	1	1	1	1
+2076	5975	少林武器外装T1	12607	SilverBoard	Dress	tabDressWaiyiShop	80													1	1	1	1	1	1	1
+2077	5976	翠烟武器外装T1	12608	SilverBoard	Dress	tabDressWaiyiShop	81													1	1	1	1	1	1	1
+2078	5977	唐门武器外装T1	12609	SilverBoard	Dress	tabDressWaiyiShop	82													1	1	1	1	1	1	1
+2079	5978	昆仑武器外装T1	12610	SilverBoard	Dress	tabDressWaiyiShop	83													1	1	1	1	1	1	1
+2080	5979	丐帮武器外装T1	12611	SilverBoard	Dress	tabDressWaiyiShop	84													1	1	1	1	1	1	1
+2081	5980	五毒武器外装T1	12612	SilverBoard	Dress	tabDressWaiyiShop	85													1	1	1	1	1	1	1
+2082	5981	藏剑武器外装T1	12613	SilverBoard	Dress	tabDressWaiyiShop	86													1	1	1	1	1	1	1
+2083	5982	长歌武器外装T1	12614	SilverBoard	Dress	tabDressWaiyiShop	87													1	1	1	1	1	1	1
+2084	6873	【邪魅狷狂】衣服外观	12615	SilverBoard	Dress	tabDressWaiyiShop	88													1	1	1	1	1	1	1
+2085	7318	<新年装>时装	12616	SilverBoard	Dress	tabDressWaiyiShop	89													1	1	1	1	1	1	1
+2086	6872	【浮光若梦】衣服外观	12617	SilverBoard	Dress	tabDressWaiyiShop	90													1	1	1	1	1	1	1
+2087	7507	T4校服·颜色1过度道具	14013	SilverBoard	Dress	tabDressWaiyiShop	91													1	1	1	1	1	1	1
+2088	5289	T16衣服	70004	SilverBoard	Dress	tabDressWaiyiShop	92													1	1	1	1	1	1	1
+2089	7677	【苍澜花间】衣服外观	50000	SilverBoard	Dress	tabDressWaiyiShop	93													1	1	1	1	1	1	1
+2090	7675	【风动萤舞】衣服外观	50000	SilverBoard	Dress	tabDressWaiyiShop	94													1	1	1	1	1	1	1
+2091	8523	【盛夏风情】衣服外观	50000	SilverBoard	Dress	tabDressWaiyiShop	95													1	1	1	1	1	1	1
+2092	9798	秋叶流歌衣服	70013	SilverBoard	Dress	tabDressWaiyiShop	96													1	1	1	1	1	1	1
+2093	9804	缀芳沐雪衣服	70017	SilverBoard	Dress	tabDressWaiyiShop	97													1	1	1	1	1	1	1
+2094	10603	【翩燕流云】衣服外观	40000	SilverBoard	Dress	tabDressWaiyiShop	98													1	1	1	1	1	1	1
+2095	11353	风华绝代衣服外观	70000	SilverBoard	Dress	tabDressWaiyiShop	99													1	1	1	1	1	1	1
+2096	11994	【故梦星辰】衣服外观	130068	SilverBoard	Dress	tabDressWaiyiShop	100													1	1	1	1	1	1	1
+2097	12025	艺趣·盛典华服	130087	SilverBoard	Dress	tabDressWaiyiShop	101													1	1	1	1	1	1	1
+2098	11844	T18时装（2019冬季锦鲤）·颜色1	130106	SilverBoard	Dress	tabDressWaiyiShop	102													1	1	1	1	1	1	1
+2099	11851	T19时装（2019秋季盛典）·颜色1	130125	SilverBoard	Dress	tabDressWaiyiShop	103													1	1	1	1	1	1	1
+2100	11920	T8时装(轻纱)·颜色7（图谱）	130144	SilverBoard	Dress	tabDressWaiyiShop	104													1	1	1	1	1	1	1
+2101	11921	T17时装（2019夏季风华绝代）·颜色7（未用）	130163	SilverBoard	Dress	tabDressWaiyiShop	105													1	1	1	1	1	1	1
+2102	11830	T9独立头饰（狮子帽）·颜色1	130182	SilverBoard	Dress	tabDressWaiyiShop	106													1	1	1	1	1	1	1
+2103	11860	T18时装（2019冬季锦鲤）·颜色1	130201	SilverBoard	Dress	tabDressWaiyiShop	107													1	1	1	1	1	1	1
+2104	11867	T19时装（2019秋季盛典）·颜色1	130220	SilverBoard	Dress	tabDressWaiyiShop	108													1	1	1	1	1	1	1
+2105	11922	T8时装(轻纱)·颜色7（图谱）	130239	SilverBoard	Dress	tabDressWaiyiShop	109													1	1	1	1	1	1	1
+2106	11923	T17时装（2019夏季风华绝代）·颜色7（未用）	130258	SilverBoard	Dress	tabDressWaiyiShop	110													1	1	1	1	1	1	1
+3001	10137	明教武器外装T1	50002	SilverBoard	Dress	tabDressWeaponShop	1													1	1	1	1	1	1	1
+3002	5331	T16武器	70005	SilverBoard	Dress	tabDressWeaponShop	2													1	1	1	1	1	1	1
+3003	9719	【明教】梅盛繁星环	70006	SilverBoard	Dress	tabDressWeaponShop	3													1	1	1	1	1	1	1
+3004	10600	【段氏】羞玉芙蓉莲	40000	SilverBoard	Dress	tabDressWeaponShop	4													1	1	1	1	1	1	1
+3005	4746	天王武器外装T1	8709	SilverBoard	Dress	tabDressWeaponShop	5													1	1	1	1	1	1	1
+3006	4747	峨嵋武器外装T1	8710	SilverBoard	Dress	tabDressWeaponShop	6													1	1	1	1	1	1	1
+3007	4748	桃花武器外装T1	8711	SilverBoard	Dress	tabDressWeaponShop	7													1	1	1	1	1	1	1
+3008	4749	逍遥武器外装T1	8712	SilverBoard	Dress	tabDressWeaponShop	8													1	1	1	1	1	1	1
+3009	4750	武当武器外装T1	8713	SilverBoard	Dress	tabDressWeaponShop	9													1	1	1	1	1	1	1
+3010	4751	天忍武器外装T1	8714	SilverBoard	Dress	tabDressWeaponShop	10													1	1	1	1	1	1	1
+3011	4752	少林武器外装T1	8715	SilverBoard	Dress	tabDressWeaponShop	11													1	1	1	1	1	1	1
+3012	4753	翠烟武器外装T1	8716	SilverBoard	Dress	tabDressWeaponShop	12													1	1	1	1	1	1	1
+3013	4754	唐门武器外装T1	8717	SilverBoard	Dress	tabDressWeaponShop	13													1	1	1	1	1	1	1
+3014	4755	昆仑武器外装T1	8718	SilverBoard	Dress	tabDressWeaponShop	14													1	1	1	1	1	1	1
+3015	4756	丐帮武器外装T1	8719	SilverBoard	Dress	tabDressWeaponShop	15													1	1	1	1	1	1	1
+3016	4757	五毒武器外装T1	8720	SilverBoard	Dress	tabDressWeaponShop	16													1	1	1	1	1	1	1
+3017	7679	霸刀武器外装T1	8724	SilverBoard	Dress	tabDressWeaponShop	17													1	1	1	1	1	1	1
+3018	8527	华山武器外装T1	8725	SilverBoard	Dress	tabDressWeaponShop	18													1	1	1	1	1	1	1
+3019	6206	【藏剑】冷杉翠芽枝	8813	SilverBoard	Dress	tabDressWeaponShop	19													1	1	1	1	1	1	1
+3020	6207	【长歌】摇曳百合束	8814	SilverBoard	Dress	tabDressWeaponShop	20													1	1	1	1	1	1	1
+3021	6987	【天山】玉音海棠枝	8815	SilverBoard	Dress	tabDressWeaponShop	21													1	1	1	1	1	1	1
+3022	5410	【武器外观】园艺系列	8816	SilverBoard	Dress	tabDressWeaponShop	22													1	1	1	1	1	1	1
+3023	7278	T2武器外装过度道具	19004	SilverBoard	Dress	tabDressWeaponShop	23													1	1	1	1	1	1	1
+3024	6203	江湖侠少武器	2000	SilverBoard	Dress	tabDressWeaponShop	24													1	1	1	1	1	1	1
+3025	10250	T3武器外装·20天	70015	SilverBoard	Dress	tabDressWeaponShop	25													1	1	1	1	1	1	1
+3026	10448	T3B仙羽特效武器外装	170016	SilverBoard	Dress	tabDressWeaponShop	26													1	1	1	1	1	1	1
+3027	11729	T4武器外装过度道具	70012	SilverBoard	Dress	tabDressWeaponShop	27													1	1	1	1	1	1	1
+3028	11731	T4B武器外装过度道具	170013	SilverBoard	Dress	tabDressWeaponShop	28													1	1	1	1	1	1	1
+3029	11751	T3武器外装	70016	SilverBoard	Dress	tabDressWeaponShop	29													1	1	1	1	1	1	1
+3030	11365	【万花】风骨黄槿玉	70000	SilverBoard	Dress	tabDressWeaponShop	30													1	1	1	1	1	1	1
+3031	12009	【杨门】傲阳葡萄藤	160124	SilverBoard	Dress	tabDressWeaponShop	31													1	1	1	1	1	1	1
+3032	11838	杨门武器外装T1·颜色1	160136	SilverBoard	Dress	tabDressWeaponShop	32							999	999	25				1	1	1	1	1	1	1
+6001	4049	小黑（外装）	1000	SilverBoard	Dress	tabDressHorseShop	999													1	1	1	1	1	1	1
+6002	4738	<寒霜>坐骑时装·30天	1000	SilverBoard	Dress	tabDressHorseShop	998													1	1	1	1	1	1	1
+6003	4865	紫幽灵鹿（外装1年）	2000	SilverBoard	Dress	tabDressHorseShop	997													1	1	1	1	1	1	1
+6004	4866	云魅灵鹿（外装1年）	4000	SilverBoard	Dress	tabDressHorseShop	996													1	1	1	1	1	1	1
+6005	7291	<炽影>坐骑时装	6000	SilverBoard	Dress	tabDressHorseShop	995													1	1	1	1	1	1	1
+6006	4048	寒霜倩影（外装）	8000	SilverBoard	Dress	tabDressHorseShop	994													1	1	1	1	1	1	1
+6007	4868	星芒·云魅灵鹿（外装1年）	10000	SilverBoard	Dress	tabDressHorseShop	993													1	1	1	1	1	1	1
+6008	7296	福瑞灵鹿	30005	SilverBoard	Dress	tabDressHorseShop	992													1	1	1	1	1	1	1
+6009	7712	螭魅雪狐	50000	SilverBoard	Dress	tabDressHorseShop	991													1	1	1	1	1	1	1
+6010	7713	幽炎·螭魅雪狐	60000	SilverBoard	Dress	tabDressHorseShop	990													1	1	1	1	1	1	1
+6011	8282	血瞳·月绝	60000	SilverBoard	Dress	tabDressHorseShop	989													1	1	1	1	1	1	1
+6012	8252	血瞳·啸霜	60000	SilverBoard	Dress	tabDressHorseShop	988													1	1	1	1	1	1	1
+6013	8253	血瞳·荒尘	60000	SilverBoard	Dress	tabDressHorseShop	987													1	1	1	1	1	1	1
+6014	8273	蓝狼	50000	SilverBoard	Dress	tabDressHorseShop	986													1	1	1	1	1	1	1
+6015	10258	炽羽灼心	170001	SilverBoard	Dress	tabDressHorseShop	985													1	1	1	1	1	1	1
+6016	10153	踢金·蓝湛灵鹿（外装半年）	70002	SilverBoard	Dress	tabDressHorseShop	984													1	1	1	1	1	1	1
+6017	10197	汉月碎银	70003	SilverBoard	Dress	tabDressHorseShop	983													1	1	1	1	1	1	1
+6018	10533	<凛冬咆哮>坐骑时装	70020	SilverBoard	Dress	tabDressHorseShop	982													1	1	1	1	1	1	1
+6019	10639	<粉黛掠影>坐骑时装	50026	SilverBoard	Dress	tabDressHorseShop	981													1	1	1	1	1	1	1
+6020	10950	<雷霆怒吼>坐骑时装	60028	SilverBoard	Dress	tabDressHorseShop	980													1	1	1	1	1	1	1
+6021	10952	<冰魂雪魄>坐骑时装	60029	SilverBoard	Dress	tabDressHorseShop	979													1	1	1	1	1	1	1
+6022	11909	<幽魂·踏霜>坐骑时装	160026	SilverBoard	Dress	tabDressHorseShop	978													1	1	1	1	1	1	1
+6023	11797	<追风>坐骑时装	60006	SilverBoard	Dress	tabDressHorseShop	977													1	1	1	1	1	1	1
+6024	11798	<追风>坐骑时装（特效）	160007	SilverBoard	Dress	tabDressHorseShop	976													1	1	1	1	1	1	1
+6025	11799	<昆仑玄影>坐骑时装	60008	SilverBoard	Dress	tabDressHorseShop	975													1	1	1	1	1	1	1
+6026	11800	<昆仑玄影>坐骑时装（特效）	160009	SilverBoard	Dress	tabDressHorseShop	974													1	1	1	1	1	1	1
+6027	7933	灵犬行箧	20001	SilverBoard	Dress	tabDressHorseShop	973													1	1	1	1	1	1	1
+6028	9488	玉兔行箧	20002	SilverBoard	Dress	tabDressHorseShop	972													1	1	1	1	1	1	1
+6029	9825	圣诞袜子A	30001	SilverBoard	Dress	tabDressHorseShop	971													1	1	1	1	1	1	1
+6030	9829	圣诞袜子B	40001	SilverBoard	Dress	tabDressHorseShop	970													1	1	1	1	1	1	1
+6031	10241	珠光宝气	50001	SilverBoard	Dress	tabDressHorseShop	969							999	999					1	1	1	1	1	1	1
+6032	11091	T4背部挂件（新年金猪）·30天	30031	SilverBoard	Dress	tabDressHorseShop	968													1	1	1	1	1	1	1
+6033	10840	T5背部挂件（赤麟纸鸢）	30027	SilverBoard	Dress	tabDressHorseShop	967													1	1	1	1	1	1	1
+6034	11724	T6背部挂件（燕鸣枝头）	70011	SilverBoard	Dress	tabDressHorseShop	966													1	1	1	1	1	1	1
+6045	11247	莺鸣枝头	10000	SilverBoard	Dress	tabDressHorseShop	955							999	999	25				1	1	1	1	1	1	1
+6035	11759	T7背部挂件（翩跹汝梦）	170017	SilverBoard	Dress	tabDressHorseShop	965													1	1	1	1	1	1	1
+6036	11943	限时背挂随机箱	160051	SilverBoard	Dress	tabDressHorseShop	964													1	1	1	1	1	1	1
+6037	6990	主题·春意闹	5000	SilverBoard	Dress	tabDressHorseShop	963													1	1	1	1	1	1	1
+6038	6991	主题·枫林晚	10000	SilverBoard	Dress	tabDressHorseShop	962													1	1	1	1	1	1	1
+6039	6992	主题·花未稀	15000	SilverBoard	Dress	tabDressHorseShop	961													1	1	1	1	1	1	1
+6040	9571	主题·共婵娟	30000	SilverBoard	Dress	tabDressHorseShop	960													1	1	1	1	1	1	1
+6041	11775	主题·寒江雪	160004	SilverBoard	Dress	tabDressHorseShop	959													1	1	1	1	1	1	1
+6042	11880	主题·夏日醺	160011	SilverBoard	Dress	tabDressHorseShop	958													1	1	1	1	1	1	1
+6043	11192	鹦鹉	50000	SilverBoard	Dress	tabDressHorseShop	957													1	1	1	1	1	1	1
+6044	11066	华清池	10000	SilverBoard	Dress	tabDressHorseShop	956													1	1	1	1	1	1	1
+6046	11738	鸾凤和鸣	160001	SilverBoard	Dress	tabDressHorseShop	954							999	999	25				1	1	1	1	1	1	1
+6047	11974	神谕令	660060	SilverBoard	Dress	tabDressHorseShop	953							999	999	25				1	1	1	1	1	1	1
+6048	11877	银杏叶	160010	SilverBoard	Dress	tabDressHorseShop	952							999	999	25				1	1	1	1	1	1	1
+6049	11906	入微镜	160023	SilverBoard	Dress	tabDressHorseShop	951							999	999	25				1	1	1	1	1	1	1
+6050	11907	金蚕丝	160024	SilverBoard	Dress	tabDressHorseShop	950							999	999	25				1	1	1	1	1	1	1
+6051	11908	离云丝	160025	SilverBoard	Dress	tabDressHorseShop	949							999	999	25				1	1	1	1	1	1	1
+6052	11914	武勋令牌	160028	SilverBoard	Dress	tabDressHorseShop	948							999	999	25				1	1	1	1	1	1	1
+6053	11950	立夏福禄宝箱	160058	SilverBoard	Dress	tabDressHorseShop	947							999	999	25				1	1	1	1	1	1	1
+6054	11951	奇趣百宝箱	160059	SilverBoard	Dress	tabDressHorseShop	946													1	1	1	1	1	1	1
+6055	11993	故梦星辰豪华宝箱	160067	SilverBoard	Dress	tabDressHorseShop	945													1	1	1	1	1	1	1
+6056	11942	奇趣百宝箱	160050	SilverBoard	Dress	tabDressHorseShop	944							999	999	25				1	1	1	1	1	1	1
+6057	12024	虎头枪魂石碎片箱	160086	SilverBoard	Dress	tabDressHorseShop	943							999	999	25				1	1	1	1	1	1	1
+6058	11805	翅膀	460093	SilverBoard	Dress	tabDressHorseShop	942													1	1	1	1	1	1	1
+6059	11896	披风原胚（1阶）	860127	SilverBoard	Dress	tabDressHorseShop	941													1	1	1	1	1	1	1
+5000	6155	缘定今生	666666	Gold	WeddingShop		1													1	1	1	1	1	1	1
+5001	5247	烟花·百年好合	6666	Gold	WeddingShop		3													1	1	1	1	1	1	1
+5002	5248	烟花·吉祥如意	6666	Gold	WeddingShop		4													1	1	1	1	1	1	1
+5003	5249	烟花·嫁给我吧	6666	Gold	WeddingShop		5													1	1	1	1	1	1	1
+5004	5250	烟花·双喜临门	6666	Gold	WeddingShop		6													1	1	1	1	1	1	1
+5005	5251	烟花·心心相印	6666	Gold	WeddingShop		7													1	1	1	1	1	1	1
+5006	6231	三生石	6666	Gold	WeddingShop		2													1	1	1	1	1	1	1
+7001	4587	背包拓展道具1	5000	SilverBoard	Dress	tabDressOtherShop	1													1	1	1	1	1	1	1
+7002	4588	背包拓展道具2	8000	SilverBoard	Dress	tabDressOtherShop	2													1	1	1	1	1	1	1
+7003	4589	背包拓展道具3	10000	SilverBoard	Dress	tabDressOtherShop	3													1	1	1	1	1	1	1
+7004	4590	背包拓展道具4	15000	SilverBoard	Dress	tabDressOtherShop	4													1	1	1	1	1	1	1
+7005	7455	小白犬	5000	SilverBoard	Dress	tabDressOtherShop	5													1	1	1	1	1	1	1
+7006	9509	情缘猫	10000	SilverBoard	Dress	tabDressOtherShop	6													1	1	1	1	1	1	1
+7007	11774	小松鼠	160003	SilverBoard	Dress	tabDressOtherShop	7													1	1	1	1	1	1	1
+7008	10257	小捌	20000	SilverBoard	Dress	tabDressOtherShop	8													1	1	1	1	1	1	1
+7009	11272	小白兔	30000	SilverBoard	Dress	tabDressOtherShop	9													1	1	1	1	1	1	1
+7010	11932	小捌	60040	SilverBoard	Dress	tabDressOtherShop	10							999	999	25				1	1	1	1	1	1	1
+7011	11933	小白兔	60041	SilverBoard	Dress	tabDressOtherShop	11							999	999	25				1	1	1	1	1	1	1
+7012	11778	小黑猫	30000	SilverBoard	Dress	tabDressOtherShop	12							999	999	25				1	1	1	1	1	1	1
+7013	11779	家园宠物任选箱	30000	SilverBoard	Dress	tabDressOtherShop	13							999	999	25				1	1	1	1	1	1	1
+7014	3564	双倍重置令	10000	SilverBoard	Dress	tabDressOtherShop	14							999	999	25				1	1	1	1	1	1	1
+7015	2640	家族更名令	10000	SilverBoard	Dress	tabDressOtherShop	15							999	999	25				1	1	1	1	1	1	1
+7016	3564	双倍重置令	10000	SilverBoard	Dress	tabDressOtherShop	16							999	999	25				1	1	1	1	1	1	1
+7017	2878	沧海月明	5000	SilverBoard	Dress	tabDressOtherShop	17													1	1	1	1	1	1	1
+7018	3931	女神礼盒    限购100	500	SilverBoard	Dress	tabDressOtherShop	18							999	999	25				1	1	1	1	1	1	1
+7019	4890	名师礼盒    限购100	500	SilverBoard	Dress	tabDressOtherShop	19							999	999	25				1	1	1	1	1	1	1
+7020	3692	人物绘卷	10000	SilverBoard	Dress	tabDressOtherShop	20							999	999	25				1	1	1	1	1	1	1
+7021	4824	佳人绘卷	10000	SilverBoard	Dress	tabDressOtherShop	21							999	999	25				1	1	1	1	1	1	1
+7022	4814	枫哥绘卷	20000	SilverBoard	Dress	tabDressOtherShop	22							999	999	25				1	1	1	1	1	1	1
+7023	4818	新心向颖绘卷	198000	SilverBoard	Dress	tabDressOtherShop	23							999	999	25				1	1	1	1	1	1	1
+7024	4815	真妹绘卷	20000	SilverBoard	Dress	tabDressOtherShop	24							999	999	25				1	1	1	1	1	1	1
+7025	11881	故梦人物绘卷	160012	SilverBoard	Dress	tabDressOtherShop	25							999	999	25				1	1	1	1	1	1	1
+7026	11882	佳人绘卷	160013	SilverBoard	Dress	tabDressOtherShop	26							999	999	25				1	1	1	1	1	1	1
+7027	11883	元宵人物绘卷	160014	SilverBoard	Dress	tabDressOtherShop	27							999	999	25				1	1	1	1	1	1	1
+7028	11884	元宵人物绘卷	160015	SilverBoard	Dress	tabDressOtherShop	28							999	999	25				1	1	1	1	1	1	1
+7029	11885	女神绘卷	160016	SilverBoard	Dress	tabDressOtherShop	29							999	999	25				1	1	1	1	1	1	1
+7030	11736	人物绘卷	170015	SilverBoard	Dress	tabDressOtherShop	30							999	999	25				1	1	1	1	1	1	1
+7031	11886	情人节人物绘卷	160017	SilverBoard	Dress	tabDressOtherShop	31							999	999	25				1	1	1	1	1	1	1
+7032	11887	水龙吟人物绘卷	160018	SilverBoard	Dress	tabDressOtherShop	32							999	999	25				1	1	1	1	1	1	1
+7033	11888	七夕人物绘卷	160019	SilverBoard	Dress	tabDressOtherShop	33							999	999	25				1	1	1	1	1	1	1
+7034	11889	翩燕人物绘卷	160020	SilverBoard	Dress	tabDressOtherShop	34							999	999	25				1	1	1	1	1	1	1
+7035	11938	情人节人物绘卷	160046	SilverBoard	Dress	tabDressOtherShop	35							999	999	25				1	1	1	1	1	1	1
+7036	11939	水龙吟人物绘卷	160047	SilverBoard	Dress	tabDressOtherShop	36							999	999	25				1	1	1	1	1	1	1
+7037	11940	七夕人物绘卷	160048	SilverBoard	Dress	tabDressOtherShop	37							999	999	25				1	1	1	1	1	1	1
+7038	11941	翩燕人物绘卷	160049	SilverBoard	Dress	tabDressOtherShop	38							999	999	25				1	1	1	1	1	1	1
+7039	11890	人物绘卷任选箱	160021	SilverBoard	Dress	tabDressOtherShop	39													1	1	1	1	1	1	1
+7040	3905	三灵丹	5000	SilverBoard	Dress	tabDressOtherShop	40					OpenLevel59	OpenLevel69							1	1	1	1	1	1	1
+7041	3906	四玄丹	5000	SilverBoard	Dress	tabDressOtherShop	41					OpenLevel69	OpenLevel79							1	1	1	1	1	1	1
+7042	3907	五行丹	5000	SilverBoard	Dress	tabDressOtherShop	42					OpenLevel79	OpenLevel89							1	1	1	1	1	1	1
+7043	3559	五灵炼肌丹	5000	SilverBoard	Dress	tabDressOtherShop	43					OpenLevel89	OpenLevel99							1	1	1	1	1	1	1
+7044	3560	六合锻骨丹	5000	SilverBoard	Dress	tabDressOtherShop	44					OpenLevel99	OpenLevel109							1	1	1	1	1	1	1
+7045	3561	七星玄龙丹	5000	SilverBoard	Dress	tabDressOtherShop	45					OpenLevel109	OpenLevel119							1	1	1	1	1	1	1
+7046	3562	八荒渡厄丹	5000	SilverBoard	Dress	tabDressOtherShop	46					OpenLevel119	OpenLevel129							1	1	1	1	1	1	1
+7047	3563	九转造化丹	5000	SilverBoard	Dress	tabDressOtherShop	47					OpenLevel129								1	1	1	1	1	1	1
+7048	995121	大夜明珠	9999999	SilverBoard	Dress	tabDressOtherShop	48							999	999	25				1	1	1	1	1	1	1
+7049	7364	称号·武林先行客	10000	SilverBoard	Dress	tabDressOtherShop	49							999	999	25				1	1	1	1	1	1	1
+7050	6373	称号·邪魅狷狂	10000	SilverBoard	Dress	tabDressOtherShop	50							999	999	25				1	1	1	1	1	1	1
+7051	2709	称号·开拓者	10000	SilverBoard	Dress	tabDressOtherShop	51							999	999	25				1	1	1	1	1	1	1
+7052	2708	称号·王者归来	20000	SilverBoard	Dress	tabDressOtherShop	52							999	999	25				1	1	1	1	1	1	1
+7053	2809	称号·金牌打手（30天）	8000	SilverBoard	Dress	tabDressOtherShop	53							999	999	25				1	1	1	1	1	1	1
+7054	2810	称号·古惑仔（30天）	8000	SilverBoard	Dress	tabDressOtherShop	54							999	999	25				1	1	1	1	1	1	1
+7055	2812	称号·天下第一帮（30天）	8000	SilverBoard	Dress	tabDressOtherShop	55							999	999	25				1	1	1	1	1	1	1
+7056	2814	称号·纵贯江湖（30天）	8000	SilverBoard	Dress	tabDressOtherShop	56							999	999	25				1	1	1	1	1	1	1
+7057	2815	称号·傲视群雄（30天）	8000	SilverBoard	Dress	tabDressOtherShop	57							999	999	25				1	1	1	1	1	1	1
+7058	2817	称号·独孤求败（30天）	8000	SilverBoard	Dress	tabDressOtherShop	58							999	999	25				1	1	1	1	1	1	1
+7059	7159	称号·枫华绝代（30天）	8000	SilverBoard	Dress	tabDressOtherShop	59							999	999	25				1	1	1	1	1	1	1
+7060	6050	称号·浮光若梦（30天）	8000	SilverBoard	Dress	tabDressOtherShop	60							999	999	25				1	1	1	1	1	1	1
+7061	2864	称号·惊鸿侠影	10000	SilverBoard	Dress	tabDressOtherShop	61							999	999	25				1	1	1	1	1	1	1
+7062	2865	称号·名镇中原 	10000	SilverBoard	Dress	tabDressOtherShop	62							999	999	25				1	1	1	1	1	1	1
+7063	2866	称号·震古铄今 	10000	SilverBoard	Dress	tabDressOtherShop	63							999	999	25				1	1	1	1	1	1	1
+7064	7365	称号·江湖领航人	10000	SilverBoard	Dress	tabDressOtherShop	64							999	999	25				1	1	1	1	1	1	1
+7065	3297	称号·卧虎藏龙	10000	SilverBoard	Dress	tabDressOtherShop	65							999	999	25				1	1	1	1	1	1	1
+7066	3298	称号·乱世英雄	10000	SilverBoard	Dress	tabDressOtherShop	66							999	999	25				1	1	1	1	1	1	1
+7067	7372	称号·襄阳守尉	10000	SilverBoard	Dress	tabDressOtherShop	67							999	999	25				1	1	1	1	1	1	1
+7068	7373	称号·临安新贵	10000	SilverBoard	Dress	tabDressOtherShop	68							999	999	25				1	1	1	1	1	1	1
+7069	2892	称号·盖世无双	10000	SilverBoard	Dress	tabDressOtherShop	69							999	999	25				1	1	1	1	1	1	1
+7070	2893	称号·绝顶高手	10000	SilverBoard	Dress	tabDressOtherShop	70							999	999	25				1	1	1	1	1	1	1
+7071	2894	称号·难逢敌手	10000	SilverBoard	Dress	tabDressOtherShop	71							999	999	25				1	1	1	1	1	1	1
+7072	2895	称号·月满乾坤	10000	SilverBoard	Dress	tabDressOtherShop	72							999	999	25				1	1	1	1	1	1	1
+7073	2896	称号·花好月圆	10000	SilverBoard	Dress	tabDressOtherShop	73							999	999	25				1	1	1	1	1	1	1
+7074	3288	称号·义薄云天	10000	SilverBoard	Dress	tabDressOtherShop	74							999	999	25				1	1	1	1	1	1	1
+7075	3289	称号·仗剑天涯	10000	SilverBoard	Dress	tabDressOtherShop	75							999	999	25				1	1	1	1	1	1	1
+7076	3290	称号·猛龙过江	10000	SilverBoard	Dress	tabDressOtherShop	76							999	999	25				1	1	1	1	1	1	1
+7077	3291	称号·只手遮天	10000	SilverBoard	Dress	tabDressOtherShop	77							999	999	25				1	1	1	1	1	1	1
+7078	3292	称号·战无不胜	10000	SilverBoard	Dress	tabDressOtherShop	78							999	999	25				1	1	1	1	1	1	1
+7079	3293	称号·胜者为王	10000	SilverBoard	Dress	tabDressOtherShop	79							999	999	25				1	1	1	1	1	1	1
+7080	3294	称号·盖世英雄	10000	SilverBoard	Dress	tabDressOtherShop	80							999	999	25				1	1	1	1	1	1	1
+7081	3295	称号·人剑合一	10000	SilverBoard	Dress	tabDressOtherShop	81							999	999	25				1	1	1	1	1	1	1
+7082	3296	称号·侠肝义胆	10000	SilverBoard	Dress	tabDressOtherShop	82							999	999	25				1	1	1	1	1	1	1
+7083	3903	称号·沉鱼落雁（60天）	10000	SilverBoard	Dress	tabDressOtherShop	83							999	999	25				1	1	1	1	1	1	1
+7084	3901	称号·众星捧月（60天）	10000	SilverBoard	Dress	tabDressOtherShop	84							999	999	25				1	1	1	1	1	1	1
+7085	3902	称号·玉树临风（60天）	10000	SilverBoard	Dress	tabDressOtherShop	85							999	999	25				1	1	1	1	1	1	1
+7086	6007	称号·武林至尊（1年）	10000	SilverBoard	Dress	tabDressOtherShop	86							999	999	25				1	1	1	1	1	1	1
+7087	7674	称号·起舞弄清影	15000	SilverBoard	Dress	tabDressOtherShop	87							999	999	25				1	1	1	1	1	1	1
+7088	8522	称号·沧笙踏歌	15000	SilverBoard	Dress	tabDressOtherShop	88							999	999	25				1	1	1	1	1	1	1
+7089	10605	称号·翩燕流云	30024	SilverBoard	Dress	tabDressOtherShop	89							999	999	25				1	1	1	1	1	1	1
+7090	10831	称号·三生有幸有特效	30033	SilverBoard	Dress	tabDressOtherShop	90							999	999	25				1	1	1	1	1	1	1
+7091	4844	称号·武林第一美女（1年）	20000	SilverBoard	Dress	tabDressOtherShop	91							999	999	25				1	1	1	1	1	1	1
+7092	11747	称号·杨门第一（30天）	160002	SilverBoard	Dress	tabDressOtherShop	92							999	999	25				1	1	1	1	1	1	1
+7093	11895	称号·神仙眷侣（一年）	160022	SilverBoard	Dress	tabDressOtherShop	93							999	999	25				1	1	1	1	1	1	1
+7094	11924	称号·堆金积玉（30天）	160033	SilverBoard	Dress	tabDressOtherShop	94							999	999	25				1	1	1	1	1	1	1
+7095	11925	称号·腰缠万贯（30天）	160034	SilverBoard	Dress	tabDressOtherShop	95							999	999	25				1	1	1	1	1	1	1
+7096	11926	称号·挥金如土（30天）	160035	SilverBoard	Dress	tabDressOtherShop	96							999	999	25				1	1	1	1	1	1	1
+7097	12026	称号·首席体验官（一年）	160088	SilverBoard	Dress	tabDressOtherShop	97							999	999	25				1	1	1	1	1	1	1
+7098	12027	称号·超核玩家	160089	SilverBoard	Dress	tabDressOtherShop	98							999	999	25				1	1	1	1	1	1	1
+7099	12029	称号·超核玩家（30天）	160091	SilverBoard	Dress	tabDressOtherShop	99							999	999	25				1	1	1	1	1	1	1
+7100	12030	称号·一梦又一载（60天）	160092	SilverBoard	Dress	tabDressOtherShop	100							999	999	25				1	1	1	1	1	1	1
+7101	11975	称号·盛典使者（一年）	160061	SilverBoard	Dress	tabDressOtherShop	101							999	999	25				1	1	1	1	1	1	1
+7102	11990	称号·掌乾坤（90天）	160064	SilverBoard	Dress	tabDressOtherShop	102							999	999	25				1	1	1	1	1	1	1
+7103	12002	称号·故梦星辰（30天）	160076	SilverBoard	Dress	tabDressOtherShop	103							999	999	25				1	1	1	1	1	1	1
+7104	12014	称号·踏雪定八方（90天）	160079	SilverBoard	Dress	tabDressOtherShop	104							999	999	25				1	1	1	1	1	1	1
+7105	12015	称号·雪战宗师（90天）	160080	SilverBoard	Dress	tabDressOtherShop	105							999	999	25				1	1	1	1	1	1	1
+7106	12016	称号·雪战专家（90天）	160081	SilverBoard	Dress	tabDressOtherShop	106							999	999	25				1	1	1	1	1	1	1
+7107	12017	称号·雪战群豪（90天）	160082	SilverBoard	Dress	tabDressOtherShop	107							999	999	25				1	1	1	1	1	1	1
+7108	12018	称号·雪战高手（90天）	160083	SilverBoard	Dress	tabDressOtherShop	108							999	999	25				1	1	1	1	1	1	1
+7109	11781	头像框·夏树苍翠	30000	SilverBoard	Dress	tabDressOtherShop	109							999	999	25				1	1	1	1	1	1	1
+7110	11782	头像框·荷塘月色	30000	SilverBoard	Dress	tabDressOtherShop	110							999	999	25				1	1	1	1	1	1	1
+7111	11783	头像框·泛舟江湖情人结	30000	SilverBoard	Dress	tabDressOtherShop	111							999	999	25				1	1	1	1	1	1	1
+7112	11784	头像框·金风玉露一相逢	30000	SilverBoard	Dress	tabDressOtherShop	112							999	999	25				1	1	1	1	1	1	1
+7113	11785	头像框·镶金连叶摘	30000	SilverBoard	Dress	tabDressOtherShop	113							999	999	25				1	1	1	1	1	1	1
+7114	11786	头像框·冬日寄情	30000	SilverBoard	Dress	tabDressOtherShop	114							999	999	25				1	1	1	1	1	1	1
+7115	11787	头像框·繁荣兴旺	30000	SilverBoard	Dress	tabDressOtherShop	115							999	999	25				1	1	1	1	1	1	1
+7116	11788	头像框·叠翠流金	30000	SilverBoard	Dress	tabDressOtherShop	116							999	999	25				1	1	1	1	1	1	1
+7117	11734	头像框·宠物宝宝	170014	SilverBoard	Dress	tabDressOtherShop	117							999	999	25				1	1	1	1	1	1	1
+7118	11776	头像框·银装素裹	160005	SilverBoard	Dress	tabDressOtherShop	118							999	999	25				1	1	1	1	1	1	1
+7119	6005	头像框·夏树苍翠	8000	SilverBoard	Dress	tabDressOtherShop	119							999	999	25				1	1	1	1	1	1	1
+7120	6010	头像框·武林至尊（1年）	8000	SilverBoard	Dress	tabDressOtherShop	120							999	999	25				1	1	1	1	1	1	1
+7121	6011	头像框·武林大会亚军（1年）	8000	SilverBoard	Dress	tabDressOtherShop	121							999	999	25				1	1	1	1	1	1	1
+7122	4831	头像框·武林十大美女（1年）	8000	SilverBoard	Dress	tabDressOtherShop	122							999	999	25				1	1	1	1	1	1	1
+7123	4832	头像框·本服十大美女（1年）	8000	SilverBoard	Dress	tabDressOtherShop	123							999	999	25				1	1	1	1	1	1	1
+7124	6445	头像框·荷塘月色	8000	SilverBoard	Dress	tabDressOtherShop	124							999	999	25				1	1	1	1	1	1	1
+7125	6804	头像框·新剑侠情缘庆典	8000	SilverBoard	Dress	tabDressOtherShop	125							999	999	25				1	1	1	1	1	1	1
+7126	7054	头像框·丝路流沙	8000	SilverBoard	Dress	tabDressOtherShop	126							999	999	25				1	1	1	1	1	1	1
+7127	7343	头像框·圣诞快乐	8000	SilverBoard	Dress	tabDressOtherShop	127							999	999	25				1	1	1	1	1	1	1
+7128	3586	头像框·盛典上宾（60天）	8000	SilverBoard	Dress	tabDressOtherShop	128							999	999	25				1	1	1	1	1	1	1
+7129	3699	头像框·如意吉祥	8000	SilverBoard	Dress	tabDressOtherShop	129							999	999	25				1	1	1	1	1	1	1
+7130	3357	头像框·华山论剑（30天）	8000	SilverBoard	Dress	tabDressOtherShop	130							999	999	25				1	1	1	1	1	1	1
+7131	3358	头像框·门派评选（30天）	8000	SilverBoard	Dress	tabDressOtherShop	131							999	999	25				1	1	1	1	1	1	1
+7132	3359	头像框·暂无使用	8000	SilverBoard	Dress	tabDressOtherShop	132							999	999	25				1	1	1	1	1	1	1
+7133	3360	头像框·家族宝贝	8000	SilverBoard	Dress	tabDressOtherShop	133							999	999	25				1	1	1	1	1	1	1
+7134	3361	头像框·剑侠V13	8000	SilverBoard	Dress	tabDressOtherShop	134							999	999	25				1	1	1	1	1	1	1
+7135	3362	头像框·剑侠V15	8000	SilverBoard	Dress	tabDressOtherShop	135							999	999	25				1	1	1	1	1	1	1
+7136	3363	头像框·剑侠V18	8000	SilverBoard	Dress	tabDressOtherShop	136							999	999	25				1	1	1	1	1	1	1
+7137	7728	头像框·本服十大声音	14019	SilverBoard	Dress	tabDressOtherShop	137							999	999	25				1	1	1	1	1	1	1
+7138	7729	头像框·本服最佳声音	14020	SilverBoard	Dress	tabDressOtherShop	138							999	999	25				1	1	1	1	1	1	1
+7139	7320	头像框·年度通天塔登顶豪侠（1年）	14009	SilverBoard	Dress	tabDressOtherShop	139							999	999	25				1	1	1	1	1	1	1
+7140	11934	头像框·夏树苍翠	160042	SilverBoard	Dress	tabDressOtherShop	140							999	999	25				1	1	1	1	1	1	1
+7141	11935	头像框·荷塘月色	160043	SilverBoard	Dress	tabDressOtherShop	141							999	999	25				1	1	1	1	1	1	1
+7142	11936	头像框·繁荣兴旺	160044	SilverBoard	Dress	tabDressOtherShop	142							999	999	25				1	1	1	1	1	1	1
+7143	11937	头像框·冬日寄情	160045	SilverBoard	Dress	tabDressOtherShop	143							999	999	25				1	1	1	1	1	1	1
+7144	12028	头像框·超核玩家	160090	SilverBoard	Dress	tabDressOtherShop	144							999	999	25				1	1	1	1	1	1	1
+7145	11780	头像框任选箱	30000	SilverBoard	Dress	tabDressOtherShop	145							999	999	25				1	1	1	1	1	1	1
+7146	11916	丝路流纱衣服染色谱	160029	SilverBoard	Dress	tabDressOtherShop	146							999	999	25				1	1	1	1	1	1	1
+7147	11917	丝路流纱头饰染色谱	160030	SilverBoard	Dress	tabDressOtherShop	147							999	999	25				1	1	1	1	1	1	1
+7148	11918	风华绝代衣服染色谱	160031	SilverBoard	Dress	tabDressOtherShop	148							999	999	25				1	1	1	1	1	1	1
+7149	11919	风华绝代头饰染色谱	160032	SilverBoard	Dress	tabDressOtherShop	149							999	999	25				1	1	1	1	1	1	1
+7150	7384	丝路流纱衣服染色谱	14010	SilverBoard	Dress	tabDressOtherShop	150							999	999	25				1	1	1	1	1	1	1
+7151	7385	丝路流纱头饰染色谱	14011	SilverBoard	Dress	tabDressOtherShop	151							999	999	25				1	1	1	1	1	1	1
+7152	11944	<风华绝代>限定偏色宝箱	160052	SilverBoard	Dress	tabDressOtherShop	152													1	1	1	1	1	1	1
+7153	11945	<丝路流纱>限定偏色宝箱	160053	SilverBoard	Dress	tabDressOtherShop	153													1	1	1	1	1	1	1
+7154	7724	前缀·声名鹊起	14015	SilverBoard	Dress	tabDressOtherShop	154							999	999	25				1	1	1	1	1	1	1
+7155	7725	前缀·空谷传声	14016	SilverBoard	Dress	tabDressOtherShop	155							999	999	25				1	1	1	1	1	1	1
+7156	7726	前缀·声动梁尘	14017	SilverBoard	Dress	tabDressOtherShop	156							999	999	25				1	1	1	1	1	1	1
+7157	4828	前缀·武林第一美女（1年）	30000	SilverBoard	Dress	tabDressOtherShop	157							999	999	25				1	1	1	1	1	1	1
+7158	7732	前缀·头号知音	14023	SilverBoard	Dress	tabDressOtherShop	158							999	999	25				1	1	1	1	1	1	1
+7159	3585	前缀·盛典上宾（60天）	15000	SilverBoard	Dress	tabDressOtherShop	159							999	999	25				1	1	1	1	1	1	1
+7160	5252	前缀·国色天香（1年）	15000	SilverBoard	Dress	tabDressOtherShop	160							999	999	25				1	1	1	1	1	1	1
+7161	6008	前缀·武林至尊（1年）	15000	SilverBoard	Dress	tabDressOtherShop	161							999	999	25				1	1	1	1	1	1	1
+7162	6358	邪魅狷狂无敌宝箱	20000	SilverBoard	Dress	tabDressOtherShop	162													1	1	1	1	1	1	1
+7163	6020	浮光若梦盛典箱	20000	SilverBoard	Dress	tabDressOtherShop	163													1	1	1	1	1	1	1
+7164	6021	浮光若梦豪华箱	25000	SilverBoard	Dress	tabDressOtherShop	164													1	1	1	1	1	1	1
+7165	6867	浮光若梦豪华宝箱	30000	SilverBoard	Dress	tabDressOtherShop	165													1	1	1	1	1	1	1
+7166	6868	邪魅狷狂豪华宝箱	30000	SilverBoard	Dress	tabDressOtherShop	166													1	1	1	1	1	1	1
+7167	7068	丝路流沙豪华宝箱	30000	SilverBoard	Dress	tabDressOtherShop	167													1	1	1	1	1	1	1
+7168	7160	<枫华绝代>豪华宝箱	30000	SilverBoard	Dress	tabDressOtherShop	168													1	1	1	1	1	1	1
+7169	10602	翩燕流云豪华宝箱	70025	SilverBoard	Dress	tabDressOtherShop	169													1	1	1	1	1	1	1
+7170	10490	江湖绝学·风虎云龙·原本	100000	SilverBoard	Dress	tabDressOtherShop	170							119	119	11				1	1	1	1	1	1	1
+7171	10491	江湖绝学·挥袂生风·原本	100000	SilverBoard	Dress	tabDressOtherShop	171							119	119	11				1	1	1	1	1	1	1
+7172	9404	绝学断篇宝箱（普通）	500	SilverBoard	Dress	tabDressOtherShop	172							999	999	25				1	1	1	1	1	1	1
+7173	9405	绝学断篇宝箱（高级）	1000	SilverBoard	Dress	tabDressOtherShop	173							49	49	11				1	1	1	1	1	1	1
+7174	9406	绝学秘本宝箱（普通）	500	SilverBoard	Dress	tabDressOtherShop	174							999	999	25				1	1	1	1	1	1	1
+7175	9407	绝学秘本宝箱（高级）	1000	SilverBoard	Dress	tabDressOtherShop	175							49	49	11				1	1	1	1	1	1	1
+7176	11792	【稀有】套装绝学断篇随机箱	170029	SilverBoard	Dress	tabDressOtherShop	176							999	999	25				1	1	1	1	1	1	1
+7177	993001	头像称号随机箱	10000	SilverBoard	Dress	tabDressOtherShop	177							39	39	5				1	1	1	1	1	1	1

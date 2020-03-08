@@ -1,0 +1,10 @@
+nId	nIndex	szOnStart	szOnFinish	szOperation1	szOperation2	szOperation3	szOperation4	szOperation5	szOperation6	szOperation7	szOperation8	szOperation9	szOperation10
+1	1			TryPlaySitutionalDialog|6054									
+1	2		1	HideAllRepresentObj	AddTempPlayerNpc|0|2451|8453|0								
+1	3	2|0.2		PlayCameraAnimation|Scenes/camera/xinshoucun02/xsc02_logo_cam1.controller	PlayEffect|9218|0|0|0|1|								
+1	4		3|1	TryPlaySitutionalDialog|54									
+1	5		4	DeleteTempPlayerNpc	ShowAllRepresentObj								
+2	1			HideAllRepresentObj	PlayCameraAnimation|Scenes/camera/luoyang/luoyang_cam1.controller	PlayCameraEffect|9138	PlayEffect|9139|0|0|0|1|	OpenUi|QYHLeavePanel|CityCameraAni					
+2	2		1	ShowAllRepresentObj									
+3	1			HideAllRepresentObj	PlayCameraAnimation|Scenes/camera/cj_linan01/linan_cam1.controller	PlayCameraEffect|9211	PlayEffect|9212|0|0|0|1|	OpenUi|QYHLeavePanel|CityCameraAni					
+3	2		1	ShowAllRepresentObj									

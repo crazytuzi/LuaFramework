@@ -1,0 +1,15 @@
+A_born	3552	9365
+B_born	23666	8711
+A_wall_N	5275	10797
+A_wall_S	4807	7691
+B_wall_N	21954	9963
+B_wall_S	22574	6770
+A_liangcang	6504	4781
+B_liangcang	20228	12991
+shenmu_N	9684	14331
+shenmu_S	17527	2268
+longzhu	14110	9397
+A_chuansong	4657	7970
+A_chuansong	5054	10679
+B_chuansong	22720	7041
+B_chuansong	22201	9786

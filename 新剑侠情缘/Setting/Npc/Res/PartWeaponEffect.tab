@@ -1,0 +1,126 @@
+ResId	ResFile	ResFile2	ResSlot	ResSlot2	Desc
+101	Effect/Prefabs/JueSe/FM/TW_WQ_01.prefab	Effect/Prefabs/JueSe/FM/TW_WQ_01.prefab	B_LH	B_RH	天王男武器发光1级
+102	Effect/Prefabs/JueSe/FM/TW_WQ_02.prefab	Effect/Prefabs/JueSe/FM/TW_WQ_02.prefab	B_LH	B_RH	天王男武器发光2级
+103	Effect/Prefabs/JueSe/FM/TW_WQ_03.prefab	Effect/Prefabs/JueSe/FM/TW_WQ_03.prefab	B_LH	B_RH	天王男武器发光3级
+104	Effect/Prefabs/JueSe/FM/TW_WQ_04.prefab	Effect/Prefabs/JueSe/FM/TW_WQ_04.prefab	B_LH	B_RH	天王男武器发光4级
+105	Effect/Prefabs/JueSe/FM/TW_WQ_05.prefab	Effect/Prefabs/JueSe/FM/TW_WQ_05.prefab	B_LH	B_RH	天王男武器发光5级
+151	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_01.prefab	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_01.prefab	B_LH	B_RH	天王女武器发光1级
+152	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_02.prefab	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_02.prefab	B_LH	B_RH	天王女武器发光2级
+153	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_03.prefab	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_03.prefab	B_LH	B_RH	天王女武器发光3级
+154	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_04.prefab	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_04.prefab	B_LH	B_RH	天王女武器发光4级
+155	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_05.prefab	Effect/Prefabs/JueSe/FM/TW_Nv_WQ_05.prefab	B_LH	B_RH	天王女武器发光5级
+201		Effect/Prefabs/JueSe/FM/EM_WQ_01.prefab	B_LH	B_RH	峨眉武器发光1级
+202		Effect/Prefabs/JueSe/FM/EM_WQ_02.prefab	B_LH	B_RH	峨眉武器发光2级
+203		Effect/Prefabs/JueSe/FM/EM_WQ_03.prefab	B_LH	B_RH	峨眉武器发光3级
+204		Effect/Prefabs/JueSe/FM/EM_WQ_04.prefab	B_LH	B_RH	峨眉武器发光4级
+205		Effect/Prefabs/JueSe/FM/EM_WQ_05.prefab	B_LH	B_RH	峨眉武器发光5级
+301	Effect/Prefabs/JueSe/FM/TH_WQ_01.prefab		B_LH	B_RH	桃花武器发光1级
+302	Effect/Prefabs/JueSe/FM/TH_WQ_02.prefab		B_LH	B_RH	桃花武器发光2级
+303	Effect/Prefabs/JueSe/FM/TH_WQ_03.prefab		B_LH	B_RH	桃花武器发光3级
+304	Effect/Prefabs/JueSe/FM/TH_WQ_04.prefab		B_LH	B_RH	桃花武器发光4级
+305	Effect/Prefabs/JueSe/FM/TH_WQ_05.prefab		B_LH	B_RH	桃花武器发光5级
+401		Effect/Prefabs/JueSe/FM/XY_WQ_01.prefab	B_LH	B_RH	逍遥武器发光1级
+402		Effect/Prefabs/JueSe/FM/XY_WQ_02.prefab	B_LH	B_RH	逍遥武器发光2级
+403		Effect/Prefabs/JueSe/FM/XY_WQ_03.prefab	B_LH	B_RH	逍遥武器发光3级
+404		Effect/Prefabs/JueSe/FM/XY_WQ_04.prefab	B_LH	B_RH	逍遥武器发光4级
+405		Effect/Prefabs/JueSe/FM/XY_WQ_05.prefab	B_LH	B_RH	逍遥武器发光5级
+501	Effect/Prefabs/JueSe/FM/WD_WQ_01.prefab		B_LH	B_RH	武当武器发光1级
+502	Effect/Prefabs/JueSe/FM/WD_WQ_02.prefab		B_LH	B_RH	武当武器发光2级
+503	Effect/Prefabs/JueSe/FM/WD_WQ_03.prefab		B_LH	B_RH	武当武器发光3级
+504	Effect/Prefabs/JueSe/FM/WD_WQ_04.prefab		B_LH	B_RH	武当武器发光4级
+505	Effect/Prefabs/JueSe/FM/WD_WQ_04.prefab	Effect/Prefabs/JueSe/FM/WD_WQ_05_R.prefab	B_LH	B_RH	武当武器发光5级
+601	Effect/Prefabs/JueSe/FM/TR_WQ_01.prefab	Effect/Prefabs/JueSe/FM/TR_WQ_01.prefab	B_LH	B_RH	天忍武器发光1级
+602	Effect/Prefabs/JueSe/FM/TR_WQ_02.prefab	Effect/Prefabs/JueSe/FM/TR_WQ_02.prefab	B_LH	B_RH	天忍武器发光2级
+603	Effect/Prefabs/JueSe/FM/TR_WQ_03.prefab	Effect/Prefabs/JueSe/FM/TR_WQ_03.prefab	B_LH	B_RH	天忍武器发光3级
+604	Effect/Prefabs/JueSe/FM/TR_WQ_04.prefab	Effect/Prefabs/JueSe/FM/TR_WQ_04.prefab	B_LH	B_RH	天忍武器发光4级
+605	Effect/Prefabs/JueSe/FM/TR_WQ_05.prefab	Effect/Prefabs/JueSe/FM/TR_WQ_05.prefab	B_LH	B_RH	天忍武器发光5级
+701		Effect/Prefabs/JueSe/FM/SL_WQ_01.prefab	B_LH	B_RH	少林武器发光1级
+702		Effect/Prefabs/JueSe/FM/SL_WQ_02.prefab	B_LH	B_RH	少林武器发光2级
+703		Effect/Prefabs/JueSe/FM/SL_WQ_03.prefab	B_LH	B_RH	少林武器发光3级
+704		Effect/Prefabs/JueSe/FM/SL_WQ_04.prefab	B_LH	B_RH	少林武器发光4级
+705		Effect/Prefabs/JueSe/FM/SL_WQ_05.prefab	B_LH	B_RH	少林武器发光5级
+801		Effect/Prefabs/JueSe/FM/CY_WQ_01.prefab	B_LH	B_RH	翠烟武器发光1级
+802		Effect/Prefabs/JueSe/FM/CY_WQ_02.prefab	B_LH	B_RH	翠烟武器发光2级
+803		Effect/Prefabs/JueSe/FM/CY_WQ_03.prefab	B_LH	B_RH	翠烟武器发光3级
+804		Effect/Prefabs/JueSe/FM/CY_WQ_04.prefab	B_LH	B_RH	翠烟武器发光4级
+805		Effect/Prefabs/JueSe/FM/CY_WQ_05.prefab	B_LH	B_RH	翠烟武器发光5级
+901		Effect/Prefabs/JueSe/FM/TM_WQ_01.prefab	B_LH	B_RH	唐门武器发光1级
+902		Effect/Prefabs/JueSe/FM/TM_WQ_02.prefab	B_LH	B_RH	唐门武器发光2级
+903		Effect/Prefabs/JueSe/FM/TM_WQ_03.prefab	B_LH	B_RH	唐门武器发光3级
+904		Effect/Prefabs/JueSe/FM/TM_WQ_04.prefab	B_LH	B_RH	唐门武器发光4级
+905		Effect/Prefabs/JueSe/FM/TM_WQ_05.prefab	B_LH	B_RH	唐门武器发光5级
+1001		Effect/Prefabs/JueSe/FM/KL_WQ_01.prefab	B_LH	B_RH	昆仑武器发光1级
+1002		Effect/Prefabs/JueSe/FM/KL_WQ_02.prefab	B_LH	B_RH	昆仑武器发光2级
+1003		Effect/Prefabs/JueSe/FM/KL_WQ_03.prefab	B_LH	B_RH	昆仑武器发光3级
+1004		Effect/Prefabs/JueSe/FM/KL_WQ_04.prefab	B_LH	B_RH	昆仑武器发光4级
+1005		Effect/Prefabs/JueSe/FM/KL_WQ_05.prefab	B_LH	B_RH	昆仑武器发光5级
+1101		Effect/Prefabs/JueSe/FM/GB_WQ_01.prefab	B_LH	B_RH	丐帮男武器发光1级
+1102		Effect/Prefabs/JueSe/FM/GB_WQ_02.prefab	B_LH	B_RH	丐帮男武器发光2级
+1103		Effect/Prefabs/JueSe/FM/GB_WQ_03.prefab	B_LH	B_RH	丐帮男武器发光3级
+1104		Effect/Prefabs/JueSe/FM/GB_WQ_04.prefab	B_LH	B_RH	丐帮男武器发光4级
+1105		Effect/Prefabs/JueSe/FM/GB_WQ_05.prefab	B_LH	B_RH	丐帮男武器发光5级
+1151		Effect/Prefabs/JueSe/FM/GB_Nv_WQ_01.prefab	B_LH	B_RH	丐帮女武器发光1级
+1152		Effect/Prefabs/JueSe/FM/GB_Nv_WQ_02.prefab	B_LH	B_RH	丐帮女武器发光2级
+1153		Effect/Prefabs/JueSe/FM/GB_Nv_WQ_03.prefab	B_LH	B_RH	丐帮女武器发光3级
+1154		Effect/Prefabs/JueSe/FM/GB_Nv_WQ_04.prefab	B_LH	B_RH	丐帮女武器发光4级
+1155		Effect/Prefabs/JueSe/FM/GB_Nv_WQ_05.prefab	B_LH	B_RH	丐帮女武器发光5级
+1201		Effect/Prefabs/JueSe/FM/WuDU_WQ_01.prefab	B_LH	B_RH	五毒武器发光1级
+1202		Effect/Prefabs/JueSe/FM/WuDU_WQ_02.prefab	B_LH	B_RH	五毒武器发光2级
+1203		Effect/Prefabs/JueSe/FM/WuDU_WQ_03.prefab	B_LH	B_RH	五毒武器发光3级
+1204		Effect/Prefabs/JueSe/FM/WuDU_WQ_04.prefab	B_LH	B_RH	五毒武器发光4级
+1205		Effect/Prefabs/JueSe/FM/WuDU_WQ_05.prefab	B_LH	B_RH	五毒武器发光5级
+1301	Effect/Prefabs/JueSe/FM/CJ_WQ_01.prefab	Effect/Prefabs/JueSe/FM/CJ_WQ_01.prefab	B_LH	B_RH	藏剑武器发光1级
+1302	Effect/Prefabs/JueSe/FM/CJ_WQ_02.prefab	Effect/Prefabs/JueSe/FM/CJ_WQ_02.prefab	B_LH	B_RH	藏剑武器发光2级
+1303	Effect/Prefabs/JueSe/FM/CJ_WQ_03.prefab	Effect/Prefabs/JueSe/FM/CJ_WQ_03.prefab	B_LH	B_RH	藏剑武器发光3级
+1304	Effect/Prefabs/JueSe/FM/CJ_WQ_04.prefab	Effect/Prefabs/JueSe/FM/CJ_WQ_04.prefab	B_LH	B_RH	藏剑武器发光4级
+1305	Effect/Prefabs/JueSe/FM/CJ_WQ_05.prefab	Effect/Prefabs/JueSe/FM/CJ_WQ_05.prefab	B_LH	B_RH	藏剑武器发光5级
+1401		Effect/Prefabs/JueSe/FM/CG_WQ_01.prefab	B_LH	B_RH	长歌武器发光1级
+1402		Effect/Prefabs/JueSe/FM/CG_WQ_02.prefab	B_LH	B_RH	长歌武器发光2级
+1403		Effect/Prefabs/JueSe/FM/CG_WQ_03.prefab	B_LH	B_RH	长歌武器发光3级
+1404		Effect/Prefabs/JueSe/FM/CG_WQ_04.prefab	B_LH	B_RH	长歌武器发光4级
+1405		Effect/Prefabs/JueSe/FM/CG_WQ_05.prefab	B_LH	B_RH	长歌武器发光5级
+1501	Effect/Prefabs/JueSe/FM/TianShan_WQ_01.prefab		B_LH	B_RH	天山武器发光1级
+1502	Effect/Prefabs/JueSe/FM/TianShan_WQ_02.prefab		B_LH	B_RH	天山武器发光2级
+1503	Effect/Prefabs/JueSe/FM/TianShan_WQ_03.prefab		B_LH	B_RH	天山武器发光3级
+1504	Effect/Prefabs/JueSe/FM/TianShan_WQ_04.prefab		B_LH	B_RH	天山武器发光4级
+1505	Effect/Prefabs/JueSe/FM/TianShan_WQ_05.prefab		B_LH	B_RH	天山武器发光5级
+1601		Effect/Prefabs/JueSe/FM/BD_WQ_01.prefab	B_LH	B_RH	霸刀男武器发光1级
+1602		Effect/Prefabs/JueSe/FM/BD_WQ_02.prefab	B_LH	B_RH	霸刀男武器发光2级
+1603		Effect/Prefabs/JueSe/FM/BD_WQ_03.prefab	B_LH	B_RH	霸刀男武器发光3级
+1604		Effect/Prefabs/JueSe/FM/BD_WQ_04.prefab	B_LH	B_RH	霸刀男武器发光4级
+1605		Effect/Prefabs/JueSe/FM/BD_WQ_05.prefab	B_LH	B_RH	霸刀男武器发光5级
+1651		Effect/Prefabs/JueSe/FM/BD_N_WQ_01.prefab	B_LH	B_RH	霸刀女武器发光1级
+1652		Effect/Prefabs/JueSe/FM/BD_N_WQ_02.prefab	B_LH	B_RH	霸刀女武器发光2级
+1653		Effect/Prefabs/JueSe/FM/BD_N_WQ_03.prefab	B_LH	B_RH	霸刀女武器发光3级
+1654		Effect/Prefabs/JueSe/FM/BD_N_WQ_04.prefab	B_LH	B_RH	霸刀女武器发光4级
+1655		Effect/Prefabs/JueSe/FM/BD_N_WQ_05.prefab	B_LH	B_RH	霸刀女武器发光5级
+1701		Effect/Prefabs/JueSe/FM/HS_WQ_01.prefab	B_LH	B_RH	华山武器发光1级
+1702		Effect/Prefabs/JueSe/FM/HS_WQ_02.prefab	B_LH	B_RH	华山武器发光2级
+1703		Effect/Prefabs/JueSe/FM/HS_WQ_03.prefab	B_LH	B_RH	华山武器发光3级
+1704		Effect/Prefabs/JueSe/FM/HS_WQ_04.prefab	B_LH	B_RH	华山武器发光4级
+1705		Effect/Prefabs/JueSe/FM/HS_WQ_05.prefab	B_LH	B_RH	华山武器发光5级
+1801	Effect/Prefabs/JueSe/FM/MingJiao_WQ_01.prefab	Effect/Prefabs/JueSe/FM/MingJiao_WQ_01.prefab	B_LH	B_RH	明教武器发光1级
+1802	Effect/Prefabs/JueSe/FM/MingJiao_WQ_02.prefab	Effect/Prefabs/JueSe/FM/MingJiao_WQ_02.prefab	B_LH	B_RH	明教武器发光2级
+1803	Effect/Prefabs/JueSe/FM/MingJiao_WQ_03.prefab	Effect/Prefabs/JueSe/FM/MingJiao_WQ_03.prefab	B_LH	B_RH	明教武器发光3级
+1804	Effect/Prefabs/JueSe/FM/MingJiao_WQ_04.prefab	Effect/Prefabs/JueSe/FM/MingJiao_WQ_04.prefab	B_LH	B_RH	明教武器发光4级
+1805	Effect/Prefabs/JueSe/FM/MingJiao_WQ_05.prefab	Effect/Prefabs/JueSe/FM/MingJiao_WQ_05.prefab	B_LH	B_RH	明教武器发光5级
+1901		Effect/Prefabs/JueSe/FM/DuanShi_WQ_01.prefab	B_LH	B_RH	段氏男武器发光1级
+1902		Effect/Prefabs/JueSe/FM/DuanShi_WQ_02.prefab	B_LH	B_RH	段氏男武器发光2级
+1903		Effect/Prefabs/JueSe/FM/DuanShi_WQ_03.prefab	B_LH	B_RH	段氏男武器发光3级
+1904		Effect/Prefabs/JueSe/FM/DuanShi_WQ_04.prefab	B_LH	B_RH	段氏男武器发光4级
+1905		Effect/Prefabs/JueSe/FM/DuanShi_WQ_05.prefab	B_LH	B_RH	段氏男武器发光5级
+1951		Effect/Prefabs/JueSe/FM/DuanShi_Nv_WQ_01.prefab	B_LH	B_RH	段氏女武器发光1级
+1952		Effect/Prefabs/JueSe/FM/DuanShi_Nv_WQ_02.prefab	B_LH	B_RH	段氏女武器发光2级
+1953		Effect/Prefabs/JueSe/FM/DuanShi_Nv_WQ_03.prefab	B_LH	B_RH	段氏女武器发光3级
+1954		Effect/Prefabs/JueSe/FM/DuanShi_Nv_WQ_04.prefab	B_LH	B_RH	段氏女武器发光4级
+1955		Effect/Prefabs/JueSe/FM/DuanShi_Nv_WQ_05.prefab	B_LH	B_RH	段氏女武器发光5级
+2001		Effect/Prefabs/JueSe/FM/WanHua_WQ_01.prefab	B_LH	B_RH	万花武器发光1级
+2002		Effect/Prefabs/JueSe/FM/WanHua_WQ_02.prefab	B_LH	B_RH	万花武器发光2级
+2003		Effect/Prefabs/JueSe/FM/WanHua_WQ_03.prefab	B_LH	B_RH	万花武器发光3级
+2004		Effect/Prefabs/JueSe/FM/WanHua_WQ_04.prefab	B_LH	B_RH	万花武器发光4级
+2005		Effect/Prefabs/JueSe/FM/WanHua_WQ_05.prefab	B_LH	B_RH	万花武器发光5级
+2101	Effect/Prefabs/JueSe/FM/YangMen_WQ_L_01.prefab	Effect/Prefabs/JueSe/FM/YangMen_WQ_R_01.prefab	B_LH	B_RH	杨门武器发光1级
+2102	Effect/Prefabs/JueSe/FM/YangMen_WQ_L_02.prefab	Effect/Prefabs/JueSe/FM/YangMen_WQ_R_02.prefab	B_LH	B_RH	杨门武器发光2级
+2103	Effect/Prefabs/JueSe/FM/YangMen_WQ_L_03.prefab	Effect/Prefabs/JueSe/FM/YangMen_WQ_R_03.prefab	B_LH	B_RH	杨门武器发光3级
+2104	Effect/Prefabs/JueSe/FM/YangMen_WQ_L_04.prefab	Effect/Prefabs/JueSe/FM/YangMen_WQ_R_04.prefab	B_LH	B_RH	杨门武器发光4级
+2105	Effect/Prefabs/JueSe/FM/YangMen_WQ_L_05.prefab	Effect/Prefabs/JueSe/FM/YangMen_WQ_R_05.prefab	B_LH	B_RH	杨门武器发光5级

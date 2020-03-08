@@ -1,0 +1,40 @@
+NpcTemplate	TimeFrame	Award1	Award2	Award3	Award4	Award5	Award6	Award7	Award8	Award9	Award10	Desc
+1838	OpenDay89	item|1396|0	item|2795|0	item|2800|0	item|2796|0	item|2797|0	item|2827|0	item|2828|0	item|2804|0			秦始皇
+1875	OpenDay89	item|1396|0	item|2796|0	item|2824|0	item|2804|0							玄天武机
+1876	OpenDay89	item|1396|0	item|2797|0	item|2825|0	item|2804|0							白起
+1877	OpenDay89	item|1396|0	item|2800|0	item|2826|0	item|2804|0							李斯
+1838	OpenDay153	item|1396|0	item|2795|0	item|2802|0	item|2827|0	item|2828|0	item|2804|0					秦始皇
+1875	OpenDay153	item|1396|0	item|2796|0	item|2802|0	item|2824|0	item|2804|0						玄天武机
+1876	OpenDay153	item|1396|0	item|2797|0	item|2802|0	item|2825|0	item|2804|0						白起
+1877	OpenDay153	item|1396|0	item|2800|0	item|2794|0	item|2826|0	item|2804|0						李斯
+1838	OpenLevel99	item|1396|0	item|2795|0	item|2802|0	item|2827|0	item|2828|0	item|2804|0					秦始皇
+1875	OpenLevel99	item|1396|0	item|2796|0	item|2802|0	item|2824|0	item|2804|0						玄天武机
+1876	OpenLevel99	item|1396|0	item|2797|0	item|2802|0	item|2825|0	item|2804|0						白起
+1877	OpenLevel99	item|1396|0	item|2800|0	item|2802|0	item|2826|0	item|2804|0						李斯
+1875	OpenLevel119	item|1396|0	item|2796|0	item|2802|0	item|2824|0	item|2804|0	item|10010|0	item|10014|0				玄天武机
+1876	OpenLevel119	item|1396|0	item|2797|0	item|2802|0	item|2825|0	item|2804|0	item|10010|0	item|10014|0				白起
+1877	OpenLevel119	item|1396|0	item|2800|0	item|2802|0	item|2826|0	item|2804|0	item|10010|0	item|10014|0				李斯
+1875	OpenLevel139	item|1396|0	item|2796|0	item|2802|0	item|2824|0	item|2804|0	item|10006|0	item|10007|0	item|10014|0			玄天武机
+1876	OpenLevel139	item|1396|0	item|2797|0	item|2802|0	item|2825|0	item|2804|0	item|10006|0	item|10010|0	item|10014|0			白起
+1877	OpenLevel139	item|1396|0	item|2800|0	item|2802|0	item|2826|0	item|2804|0	item|10006|0	item|10010|0	item|10014|0			李斯
+1876	OpenLevel169	item|1396|0	item|2797|0	item|2802|0	item|11897|0	item|2825|0	item|2804|0	item|10006|0	item|10010|0	item|10014|0		白起
+1877	OpenLevel179	item|1396|0	item|2800|0	item|2802|0	item|11898|0	item|2826|0	item|2804|0	item|10006|0	item|10010|0	item|10014|0		李斯
+1838	OpenDay204	item|3554|0	item|1396|0	item|2795|0	item|2802|0	item|2827|0	item|2828|0	item|2804|0				秦始皇
+1838	OpenDay234	item|3544|0	item|3554|0	item|1396|0	item|2795|0	item|2827|0	item|2828|0	item|2804|0				秦始皇
+1838	OpenLevel119	item|3544|0	item|3554|0	item|2794|0	item|2795|0	item|2827|0	item|2828|0	item|10007|0	item|10014|0	item|2804|0		秦始皇
+1838	OpenLevel129	item|3544|0	item|3554|0	item|10007|0	item|10010|0	item|10014|0	item|2794|0	item|2795|0	item|10141|0	item|2827|0	item|2828|0	秦始皇
+1838	OpenLevel139	item|3544|0	item|3554|0	item|10005|0	item|10006|0	item|10014|0	item|2794|0	item|2795|0	item|10141|0	item|2827|0	item|2828|0	秦始皇
+2509	OpenLevel129	item|3555|0	item|2795|0	item|2794|0	item|6126|0	item|6127|0	item|2804|0	item|10007|0	item|10014|0			武则天
+2510	OpenLevel129	item|2796|0	item|2802|0	item|6130|0	item|1396|0	item|2804|0	item|10010|0	item|10014|0				无字碑
+2511	OpenLevel129	item|2797|0	item|2802|0	item|6129|0	item|1396|0	item|2804|0	item|10010|0	item|10014|0				元芳
+2512	OpenLevel129	item|2800|0	item|2802|0	item|6128|0	item|1396|0	item|2804|0	item|10010|0	item|10014|0				狄仁杰
+2509	OpenLevel129Add30	item|3555|0	item|2801|0	item|2798|0	item|6126|0	item|6127|0	item|2804|0	item|10007|0				武则天
+2510	OpenLevel129Add30	item|2796|0	item|2798|0	item|6130|0	item|1396|0	item|2804|0	item|10010|0	item|10014|0				无字碑
+2511	OpenLevel129Add30	item|2797|0	item|2798|0	item|6129|0	item|1396|0	item|2804|0	item|10010|0	item|10014|0				元芳
+2512	OpenLevel129Add30	item|2800|0	item|2798|0	item|6128|0	item|1396|0	item|2804|0	item|10010|0	item|10014|0				狄仁杰
+2509	OpenLevel139Add30	item|3545|0	item|3555|0	item|2803|0	item|6126|0	item|6127|0	item|2804|0	item|10005|0	item|10006|0	item|10014|0		武则天
+2510	OpenLevel139Add30	item|2801|0	item|2799|0	item|6130|0	item|1396|0	item|2804|0	item|10006|0	item|10007|0	item|10014|0			无字碑
+2511	OpenLevel139Add30	item|2801|0	item|2799|0	item|6129|0	item|1396|0	item|2804|0	item|10006|0	item|10010|0	item|10014|0			元芳
+2512	OpenLevel139Add30	item|2798|0	item|2803|0	item|6128|0	item|1396|0	item|2804|0	item|10006|0	item|10010|0	item|10014|0			狄仁杰
+2509	OpenLevel159	item|3545|0	item|3555|0	item|2803|0	item|6126|0	item|6127|0	item|2804|0	item|10005|0	item|10006|0	item|10014|0	item|10143|0	武则天
+2512	OpenLevel189	item|2798|0	item|2803|0	item|11899|0	item|6128|0	item|1396|0	item|2804|0	item|10006|0	item|10010|0	item|10014|0		狄仁杰

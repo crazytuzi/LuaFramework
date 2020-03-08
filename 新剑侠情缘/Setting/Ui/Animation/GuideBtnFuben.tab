@@ -1,0 +1,6 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Move	BtnFuben	1	45	{-518,215,0}	{-518,215,0}
+Scalc	BtnFuben	1	15	{0,0,0}	{1,1,1}
+Move	BtnFuben	45	60	{-518,215,0}	{0,86,0}
+Scalc	BtnFuben	65	75	{1,1,1}	{1.2,1.2,1.2}
+Scalc	BtnFuben	75	85	{1.2,1.2,1.2}	{0.87,0.87,0.87}

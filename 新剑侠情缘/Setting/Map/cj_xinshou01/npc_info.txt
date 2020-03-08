@@ -1,0 +1,5 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+chuansong	恶人谷	1	73	20	1	99	4029	7982	0	-1	0	0		0	0	0	0	0	0	0	0
+chuansong	洛阳	2	73	20	1	99	4557	8700	0	-1	0	0		0	0	0	0	0	0	0	0
+juqing	纳兰真	3	75	200	1	99	4823	4946	0	-1	0	0		0	0	0	0	0	0	0	0
+gongneng	纳兰潜凛	4	76	200	1	99	4453	4924	0	-1	0	0		0	0	0	0	0	0	0	0

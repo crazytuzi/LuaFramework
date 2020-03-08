@@ -1,0 +1,11 @@
+boss	3689	6769
+jinshinei	5678	17658
+qushiwai	3146	6534
+denglong	2699	18094
+denglong	2686	17554
+denglong	4482	18808
+denglong	4912	18674
+denglong	5655	17792
+denglong	5706	17386
+denglong	3559	16860
+denglong	3953	16547

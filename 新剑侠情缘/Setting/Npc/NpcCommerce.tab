@@ -1,0 +1,25 @@
+Index	TemplateID	Icon	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	Tag	AuraSkillId	AuraSkillLevel	ForbitMove	StartActEvent	TitleID	BigFaceID	DefaultDialog	DropType	NameColor
+shanghui_xuemudan	148	shanghui_xuemudan	血牡丹	2	1	CommerceGather	m|148|601|0	323	992																	NoTurn									
+shanghui_shuerguo	149	yeshangzhu	叶上珠	2	1	CommerceGather	m|149|602|0	324	992																	NoTurn									
+shanghui_yinxiancao	150	shanghui_yinxiancao	银线草	2	1	CommerceGather	m|150|603|0	325	992																	NoTurn									
+shanghui_ziqiangwei	151	shanghui_ziqiangwei	紫蔷薇	2	1	CommerceGather	m|151|604|0	326	992																	NoTurn									
+shanghui_dilinggen	152	shanghui_dilinggen	地灵根	2	1	CommerceGather	m|152|605|0	327	992																	NoTurn									
+shanghui_tianxiangguo	153	shanghui_tianxiangguo	天香果	2	1	CommerceGather	m|153|606|0	328	992																	NoTurn									
+shanghui_xuefengteng	154	shanghui_xuefengteng	血风藤	2	1	CommerceGather	m|154|607|0	329	992																	NoTurn									
+shanghui_yumeiren	155	shanghui_yumeiren	虞美人	2	1	CommerceGather	m|155|608|0	330	992																	NoTurn									
+shanghui_manzhushahua	156	shanghui_manzhushahua	曼珠沙华	2	1	CommerceGather	m|156|609|0	331	992																	NoTurn									
+shanghui_mantuoluo	157	shanghui_mantuoluo	曼陀罗	2	1	CommerceGather	m|157|610|0	332	992																	NoTurn									
+shanghui_jinsangye	158	shanghui_jinsangye	金桑叶	2	1	CommerceGather	m|158|611|0	333	992																	NoTurn									
+shanghui_bainianzhuguo	159	shanghui_bainianzhuguo	百年朱果	2	1	CommerceGather	m|159|612|0	334	992																	NoTurn									
+shanghui_xuemudan_u	601	shanghui_xuemudan	血牡丹	2	1	CommerceGather	u|148|601|0	323	992																	NoTurn					20				
+shanghui_shuerguo_u	602	yeshangzhu	叶上珠	2	1	CommerceGather	u|149|602|0	324	992																	NoTurn					20				
+shanghui_yinxiancao_u	603	shanghui_yinxiancao	银线草	2	1	CommerceGather	u|150|603|0	325	992																	NoTurn					20				
+shanghui_ziqiangwei_u	604	shanghui_ziqiangwei	紫蔷薇	2	1	CommerceGather	u|151|604|0	326	992																	NoTurn					20				
+shanghui_dilinggen_u	605	shanghui_dilinggen	地灵根	2	1	CommerceGather	u|152|605|0	327	992																	NoTurn					20				
+shanghui_tianxiangguo_u	606	shanghui_tianxiangguo	天香果	2	1	CommerceGather	u|153|606|0	328	992																	NoTurn					20				
+shanghui_xuefengteng_u	607	shanghui_xuefengteng	血风藤	2	1	CommerceGather	u|154|607|0	329	992																	NoTurn					20				
+shanghui_yumeiren_u	608	shanghui_yumeiren	虞美人	2	1	CommerceGather	u|155|608|0	330	992																	NoTurn					20				
+shanghui_manzhushahua_u	609	shanghui_manzhushahua	曼珠沙华	2	1	CommerceGather	u|156|609|0	331	992																	NoTurn					20				
+shanghui_mantuoluo_u	610	shanghui_mantuoluo	曼陀罗	2	1	CommerceGather	u|157|610|0	332	992																	NoTurn					20				
+shanghui_jinsangye_u	611	shanghui_jinsangye	金桑叶	2	1	CommerceGather	u|158|611|0	333	992																	NoTurn					20				
+shanghui_bainianzhuguo_u	612	shanghui_bainianzhuguo	百年朱果	2	1	CommerceGather	u|159|612|0	334	992																	NoTurn					20				

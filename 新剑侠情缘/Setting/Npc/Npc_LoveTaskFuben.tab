@@ -1,0 +1,12 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	DefaultDialog	WalkSpeed	NameColor	Experience	FixExperience	GouHuoRate	IsNotBYStealLife	IsNotShowShadow	Sex	SyncFirst	TransBossNpcTID	TransBossRate
+Love_Enemy_1	3247	金国武士	0	1	FubenDeath		136	200	300		314	22	1					800	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1																			
+Love_Enemy_2	3248	金军弓箭手	0	1	FubenDeath		152	200	300		1115	182	1	91	1			800	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1																			
+Love_Enemy_3	3259	金国高手	0	1	FubenDeath		431	200	300		314	22	1					1000	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1																			
+Love_Enemy_4	3260	神秘刺客	0	1	FubenDeath		143	200	300		321	22	1					1000	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1																			
+Love_nangong	3249	南宫飞云	0	0	FubenDeath		5027	207	307		1116	1893	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1																			
+Love_ruoxue	3250	燕若雪	0	0	FubenDeath		1129	727	727		1117	1893	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1																			
+Love_wanyan	3251	完颜洪烈	0	0	FubenDeath		5031	653	999		801	1759	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1																			
+Love_nangong1	3255	南宫飞云	0	0	FubenDeath		5027	207	307		801	1759	1	2304	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1																			
+Love_ruoxue1	3256	燕若雪	0	0	FubenDeath		1129	727	727		801	1759	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1																			
+Love_wanyan1	3257	完颜洪烈	0	0	FubenDeath		5031	653	999		801	1759	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1																			
+Love_shenmiren	3258	神秘人	0	0	FubenDeath		24	653	999		801	1759	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1																			

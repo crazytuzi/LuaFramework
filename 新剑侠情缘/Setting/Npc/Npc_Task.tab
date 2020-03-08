@@ -1,0 +1,256 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	DefaultDialog	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	WalkSpeed	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	IsNotShowShadow	FixExperience	IsNotBYStealLife	SyncFirst	Sex
+Birthplace_npc1	413	纳兰真	2	1	ClientTaskNpc		177	13	113	今日你到访，我才惊觉在这岛上已过了十多个年头。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc2	414	小殷方	2	1	ClientTaskNpc		125	208	308	总有一日，我要成为顶天立地的大侠！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc3	415	杨影枫	2	1	ClientTaskNpc		1101	225	325	为求天下第一，便是没了这条命，又算得什么？		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc4	416	纳兰潜凛	2	1	ClientTaskNpc		187	212	312	心若不静，则万物皆躁，行事需三思。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc5	417	胡神医	2	1			5022	223	323	忘忧岛可真是个宝库啊，真儿也是个学医的好胚子，也不知道怎么就看上了那个臭小子！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc6	418	纳兰真	2	1			177	13	113	希望杨大哥的身体能够快些好起来。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc7	578	小殷方	2	1			125	208	308	要名扬天下，自然是要学剑！呃，杨大哥你别误会，我不是说你……		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc8	419	杨影枫	2	1			1101	225	325	江湖险恶，人心难测，唉，		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc9	954	纳兰潜凛	2	1			187	212	312	真儿性格外柔内刚，常言道嫁出去的女儿，泼出去的水，这都尚未……唉！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc11	956	猎鹰	5	1			147					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Birthplace_npc12	1080	纳兰真	0	1			177	13	113	今日你到访，我才惊觉在这岛上已过了十多个年头。		1	21	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	40	3																		
+Birthplace_npc13	1081	杨影枫	0	1			1101	225	325	为求天下第一，便是没了这条命，又算得什么？		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Birthplace_npc14	1277	重伤的杨影枫	4	1			457	225	325			1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Birthplace_npc15	1278	恶徒	2	1			123		993	大哥！您真是勇猛英俊！天下罕见！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Birthplace_npc10	955	赤心花	2	1	TaskNpc	14|3|采集中...	323					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_syy_caiji_caoyao	1276	紫澜草	2	1	TaskNpc	45|3|采集中...	448					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+House_caiji_caoyao	2213	紫澜草	2	1	TaskNpc	3104|3|采集中...	448					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_qicaixiaohua	2732	七彩小花	2	1	TaskNpc	3258|3|采集中...	448					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_syy_caiji_xiangzi1	1284	货物箱	2	1	TaskNpc	25|3|采集中...	446					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_syy_caiji_xiangzi2	1285	货物箱	2	1	TaskNpc	24|3|采集中...	446					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_xsd_caiji_guozi	1252	果子	2	1	TaskNpc	312|3|采集中...	328					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_wys_caiji_guozi	1349	果子	2	1	TaskNpc	76|3|采集中...	328					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_jiangguo	2733	浆果	2	1	TaskNpc	3276|3|采集中...	328					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_caiji_muchai	1273	木柴	2	1	TaskNpc	74|3|采集中...	445					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+House_caiji_muchai	2214	木头堆	2	1	TaskNpc	3102|3|采集中...	445					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_hsmd_caiji_muchai	1274	木柴	2	1	TaskNpc	264|3|采集中...	445					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_hsmd_caiji_guozi	1275	果子	2	1	TaskNpc	283|3|采集中...	440					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_Syy_npc4	722	紫澜花	2	1	TaskNpc	45|3|采集中...	323					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_dth_caiji_xianjing	1280	虚掩的帽子	4	1			450					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												
+Task_scene_guozi	1262	果堆	4	1			447					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_scene_luoye	1264	落叶堆	4	1			444					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_scene_yifu	1266	散落的衣服	4	1			449					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_scene_zuji	1272	足迹	4	1			441					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_scene_biaoji1	1267	路标	4	1			442					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_scene_biaoji2	1268	路标	4	1			443					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_lq	1160	卢青	2	1	ClientTaskNpc		1121		993	不知掌门师兄如今怎么样了……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_qiaofu	1163	樵夫	2	1	ClientTaskNpc		173		993	要问路来找我就对了！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_wydz	1165	武夷派弟子	2	1	ClientTaskNpc		169		993	有朝一日，我要光复武夷剑派！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_zhanglin	1166	张林	2	1	ClientTaskNpc		135		993	兴衰一时，如今时过境迁，唉，竟有唏嘘之感。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_zhaoqiniang	1169	赵七娘	2	1	ClientTaskNpc		184		993	幸亏老娘当年有眼光，选了我家老周！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_zhoumujiang	1170	周木匠	2	1	ClientTaskNpc		142		993	唉，但愿有情人终成眷属吧！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_zhouxiaofu	1173	周小富	2	1	ClientTaskNpc		134		993	筱蔷，你放心，就算其他人都反对我们！我也一定会娶你回家的！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_hexiaoqiang	1176	何筱蔷	2	1	ClientTaskNpc		176		993	小富，我的心里只有你，你可千万莫要让我失望……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_jianyun	1178	剑云	2	1	ClientTaskNpc		165		993	就算成不了独孤剑那样的大侠，我也要成为一个小侠！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_qiuyu	1181	秋雨	2	1	ClientTaskNpc		105		993	儿，你的名字取自独孤剑之剑，刘云之云，便是期盼你像他们一样，心怀救国之念，更加勤奋啊……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_laowang	1183	老王	2	1	ClientTaskNpc		170		993	嗯？我是谁？你不认得我了？我是隔壁老王啊。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_jialaoshi	1185	贾老实	2	1	ClientTaskNpc		146		993	不知道南宫姑娘在大漠之中过得好不好……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_wanjincai	1379	万金财	2	1	ClientTaskNpc		146		993	不知道南宫姑娘在大漠之中过得好不好……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_shangren	1957	商人	2	1	ClientTaskNpc		146		993	不知道南宫姑娘在大漠之中过得好不好……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_weibing	1202	卫兵	2	1	ClientTaskNpc		150		993	如今战火纷乱，唉，可怜了这城中的老百姓啊！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_hemei	1205	何梅	2	1	ClientTaskNpc		183		993	若是昔日独孤剑答应了我爹，不知会是如何呢……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_duanfurong	1208	段芙蓉	2	1	ClientTaskNpc		178		993	今生能够打造出「独孤剑」，已经是我最大的满足了！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_jiangbo	1210	铁云	2	1	ClientTaskNpc		150		993			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_cunmin	1233	村民	2	1	ClientTaskNpc		170		993	咳咳咳，近年来身子不行了…感觉身体被掏空了…		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_hushandizi	1235	华山弟子	2	1	ClientTaskNpc		1120		993	唉，掌门……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_shaolindizi	1239	少林弟子	2	1	ClientTaskNpc		163		993	出家人理应行善积德，阿弥陀佛……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_haitong	1241	孩童	2	1	ClientTaskNpc		191		993	哈哈哈，这小和尚真是太老实了！真好玩！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_wuzhi	1243	无智大师	2	1	ClientTaskNpc		163		993	阿弥陀佛，善哉善哉。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_yintong	1340	小殷童	2	1	ClientTaskNpc		192		993	你要记得常来这里玩哦！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_tianxing	1391	天星道长	2	1	ClientTaskNpc		13	215	315	无忧教再度兴起，一场武林浩劫在所难免……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_huashanzhanglao	1434	华山派长老	2	1	ClientTaskNpc		13	215	315	无忧教再度兴起，一场武林浩劫在所难免……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_yanjiangjun	1440	严将军	2	1	ClientTaskNpc		1113	215	315	哼，我大宋疆土，自有我大宋军士守护，岂容这些蛮夷放肆！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_maoshandaozhang	1443	茅山道长	2	1	ClientTaskNpc		169	215	315	你放心，只消我为你算上一挂，保证此后路途无忧！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_shenmishaonv1	1626	神秘少女	2	1	ClientTaskNpc		1102			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_shenmishaonv2	1629	神秘少女	2	1	ClientTaskNpc		103			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_baiyishaonv	1646	白衣少女	2	1	ClientTaskNpc		105			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_guqingxue	1648	顾清雪	2	1	ClientTaskNpc		105			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_yunxiaofeng	1650	云笑风	2	1	ClientTaskNpc		5012			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_acao	1652	阿邦	2	1	ClientTaskNpc		1126			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_yangying	1654	杨瑛	2	1	ClientTaskNpc		141			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_dugujian	1656	独孤剑	2	1	ClientTaskNpc		5032			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_nangongfeiyun	1934	南宫飞云	2	1	ClientTaskNpc		5027			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_yanruoxue	1935	燕若雪	2	1	ClientTaskNpc		1129			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_chaisong	1936	柴嵩	2	1	ClientTaskNpc		132			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_chaisong1	1943	白衣秀士	2	1	ClientTaskNpc		132			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_cunzhang	1944	村长	2	1	ClientTaskNpc		173			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_shouwei	1946	村民守卫	2	1	ClientTaskNpc		173			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_zhaoshengquan	1949	赵升权	2	1	ClientTaskNpc		1109			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_zhaowushuang	1951	赵无双	2	1	ClientTaskNpc		127			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_longwu	2745	龙五	2	1	ClientTaskNpc		658			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Client_shuanger	2747	霜儿	2	1	ClientTaskNpc		661			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_lq	1161	卢青	2	1			1121		993	不知掌门师兄如今怎么样了……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_qiaofu	1164	樵夫	2	1			173		993	要问路来找我就对了！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_wydz	1167	武夷派弟子	2	1			169		993	有朝一日，我要光复武夷剑派！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_zhanglin	1168	张林	2	1			135		993	兴衰一时，如今时过境迁，唉，竟有唏嘘之感。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_zhaoqiniang	1171	赵七娘	2	1			184		993	幸亏老娘当年有眼光，选了我家老周！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_zhoumujiang	1175	周木匠	2	1			101		993	唉，但愿有情人终成眷属吧！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_zhouxiaofu	1174	周小富	2	1			134		993	筱蔷，你放心，就算其他人都反对我们！我也一定会娶你回家的！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_hexiaoqiang	1177	何筱蔷	2	1			176		993	小富，我的心里只有你，你可千万莫要让我失望……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_jianyun	1179	剑云	2	1			165		993	就算成不了独孤剑那样的大侠，我也要成为一个小侠！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_qiuyu	1182	秋雨	2	1			105		993	儿，你的名字取自独孤剑之剑，刘云之云，便是期盼你像他们一样，心怀救国之念，更加勤奋啊……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_laowang	1184	老王	2	1			170		993	嗯？我是谁？你不认得我了？我是隔壁老王啊。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_jialaoshi	1186	贾老实	2	1			146		993	不知道南宫姑娘在大漠之中过得好不好……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_wanjincai	1380	万金财	2	1			146		993	不知道南宫姑娘在大漠之中过得好不好……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_shangren	1958	商人	2	1			146		993	不知道南宫姑娘在大漠之中过得好不好……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_weibing	1204	卫兵	2	1			150		993	如今战火纷乱，唉，可怜了这城中的老百姓啊！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_hemei	1206	何梅	2	1			183		993	若是昔日独孤剑答应了我爹，不知会是如何呢……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_duanfurong	1209	段芙蓉	2	1			178		993	今生能够打造出「独孤剑」，已经是我最大的满足了！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_jiangbo	1211	铁云	2	1			150		993			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_cunmin	1234	村民	2	1			170		993	咳咳咳，近年来身子不行了…感觉身体被掏空了…		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_huashandizi	1236	华山弟子	2	1			1120		993	唉，掌门……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_shaolindizi	1240	少林弟子	2	1			163		993	出家人理应行善积德，阿弥陀佛……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_haitong	1242	孩童	2	1			191		993	哈哈哈，这小和尚真是太老实了！真好玩！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_wuzhi	1244	无智大师	2	1			163		993	阿弥陀佛，善哉善哉。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_yintong	1341	小殷童	2	1			192		993	你要记得常来这里玩哦！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_tianxing	1392	天星道长	2	1			13	215	315	无忧教再度兴起，一场武林浩劫在所难免……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_huashanzhanglao	1435	华山长老	2	1			13	215	315	无忧教再度兴起，一场武林浩劫在所难免……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_houzi	1437	顽猴	2	1			117			吱吱		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_yanjiangjun	1441	严将军	2	1			1113			哼，我大宋疆土，自有我大宋军士守护，岂容这些蛮夷放肆！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_maoshandaozhang	1444	茅山道长	2	1			169			你放心，只消我为你算上一挂，保证此后路途无忧！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_shenmishaonv1	1627	神秘少女	2	1			1102			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_shenmishaonv2	1630	神秘少女	2	1			103			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_baiyishaonv	1647	神秘少女	2	1			105			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_guqingxue	1649	顾清雪	2	1			105			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_yunxiaofeng	1651	云笑风	2	1			5012			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_acao	1653	阿邦	2	1			1126			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_yangying	1655	杨瑛	2	1			141			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_dugujian	1657	独孤剑	2	1			5032			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_nangongfeiyun	1937	南宫飞云	2	1			5027			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_yanruoxue	1938	燕若雪	2	1			1129			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_chaisong	1939	柴嵩	2	1			132			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_chaisong1	1942	白衣秀士	2	1			132			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_cunzhang	1945	村长	2	1			173			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_shouwei	1947	村民守卫	2	1			173			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_zhaoshengquan	1950	赵升权	2	1			1109			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_zhaowushuang	1952	赵无双	2	1			127			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_longwu	2746	龙五	2	1			658			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Npc_shuanger	2748	霜儿	2	1			661			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Follow_lq	1162	卢青	0	1			1121		993	若有朝一日我能成为独孤大侠和南宫大侠那样的剑客，此生便无憾了。		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_jianyun	1180	剑云	0	1			165		993			1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_duanfurong	1214	段芙蓉	0	1			178		993			1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_qiaofu	1250	樵夫	0	1			173		993			1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_shaolindizi	1261	少林弟子	0	1			163		993			1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_yinfang	1382	小殷方	0	1			125	208	308	我就是要成为大侠！然后再把那些大侠都杀个干净！		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_maoshandaozhang	1452	茅山道长	0	1			169		208	308		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_shibing	1457	严家军亲卫	0	1			150					1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_shenmishaonv2	1632	神秘少女	0	1			103					1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_yunxiaofeng	1658	云笑风	0	1			5012					1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_acao	1659	阿邦	0	1			1126					1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_yangying	1661	杨瑛	0	1			141					1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_dugujian	1662	独孤剑	0	1			5032					1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Follow_shuanger	2749	霜儿	0	1			661					1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	50	3																		
+Task_Move_zhouxiaofu	1215	周小富	0	1			134		993			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Move_wuyidizi	1310	武夷派弟子	0	1			169		993			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Move_zhanglin	1311	张林	0	1			135		993			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Move_nalanqianlin	1342	纳兰潜凛	0	1			187	212	312	哈哈哈哈，我才是天下第一！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_yangyingfeng	1343	杨影枫	0	1			1101	225	325	天下第一……我所做的究竟是对是错？		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_wanjincai	1381	万金财	0	1			146			嘿嘿，财源滚滚来……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_luzhaohao	1384	卢肇颢	0	1			101			飞龙堡成立数十载，什么风雨没见过，谁人胆敢来犯？！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_huashandizi	1433	华山弟子	0	1			1120			飞龙堡成立数十载，什么风雨没见过，谁人胆敢来犯？！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_qiaofu	1432	樵夫	0	1			173			嘿嘿，这条路就只有我知道！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_duanfurong	1436	段芙蓉	0	1			178			嘿嘿，这条路就只有我知道！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_houzi	1438	顽猴	0	1			117			吱吱吱		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_yanjiangjun	1442	严将军	0	1			1113			哼，我大宋疆土，自有我大宋军士守护，岂容这些蛮夷放肆！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_maoshandaozhang	1445	茅山道长	0	1			169			你放心，只消我为你算上一挂，保证此后路途无忧！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_shibing	1453	严家军亲卫	0	1			150			保护严将军！捍卫我大宋王朝！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_shenmiren	1454	神秘人	0	1			24			有意思……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_yinfang	1612	小殷方	0	1			125	208	308	我就是要成为大侠！然后再把那些大侠都杀个干净！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_shenmishaonv1	1628	神秘少女	0	1			1102			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_shenmishaonv2	1631	神秘少女	0	1			103			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_yangying	1660	杨瑛	0	1			141			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_dugujian	1764	独孤剑	0	1			5032			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Move_longwu	2750	龙五	0	1			658			……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Syy_yyf1	730	杨影枫	2	1	ClientTaskNpc		1101	225	325	若有朝一日我能成为独孤大侠和南宫大侠那样的剑客，此生便无憾了。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Syy_yyf2	731	杨影枫	2	1			1101	225	325	若有朝一日我能成为独孤大侠和南宫大侠那样的剑客，此生便无憾了。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Syy_yyf3	732	杨影枫	0	1			1101	225	325	若有朝一日我能成为独孤大侠和南宫大侠那样的剑客，此生便无憾了。		1	21	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Task_Syy_yyf4	733	杨影枫	2	1			1101	225	325	若有朝一日我能成为独孤大侠和南宫大侠那样的剑客，此生便无憾了。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Syy_npc1	719		2	1					993			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Syy_npc2	720	纳兰真	2	1	ClientTaskNpc		177	13	113	杨大哥定可以成为名动江湖的大人物！我…我只要跟在你身旁便足够了…		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Syy_npc3	721	纳兰真	2	1			177	13	113	杨大哥定可以成为名动江湖的大人物！我…我只要跟在你身旁便足够了…		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Syy_npc6	724	纳兰真	0	1			177	13	113	杨大哥定可以成为名动江湖的大人物！我…我只要跟在你身旁便足够了…		1	21	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Task_Syy_npc7	725	纳兰真	0	1			177	13	113	杨大哥定可以成为名动江湖的大人物！我…我只要跟在你身旁便足够了…		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	25	3																		
+Task_Syy_npc5	723	马贼	0	1	FixExpNpc		173		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Syy_npc8	726	地痞	0	1	FixExpNpc		170				150	611	21	1					500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Wys_yyf1	1003	杨影枫	2	1	ClientTaskNpc		1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/CommonActive.ini			1	15	3																		
+Task_Wys_yyf2	1004	杨影枫	2	1			1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Wys_yyf3	1082	杨影枫	0	1			1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Task_Wys_zx1	1156	紫轩	0	1			131	20	120	唉，我该如何是好呢……		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Task_Wys_yme1	1005	月眉儿	2	1	ClientTaskNpc		1102	22	122	哼，不过是几个不知天高地厚的小贼，岂能奈何得了我？真正的麻烦还在后头呢…		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Wys_yme2	1006	月眉儿	2	1			1102	22	122	哼，不过是几个不知天高地厚的小贼，岂能奈何得了我？真正的麻烦还在后头呢…		1	56	1										0	15	3																		
+Task_Wys_yme3	1083	月眉儿	0	1			1102	22	122	哼，不过是几个不知天高地厚的小贼，岂能奈何得了我？真正的麻烦还在后头呢…		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Task_Wys_npc2	1046	喽啰	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Wys_npc3	1047	恶霸	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Wys_npc1	1009	贾少	0	1	FixExpNpc		170		993		36	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Wys_npc4	1048	杀手	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Wys_npc5	1058	小火堆	4	1			380																			3																		
+Task_Wys_npc6	1059	女村民	2	1			105		993	你看看人家杨影枫！年纪轻轻就有这么大的成就！再看看你！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Wys_npc7	1060	男村民	2	1			173		993	哼！有什么了不起的！还不是一个小白脸！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Wys_npc8	1068	男村民	2	1	ClientTaskNpc		173		993	哼！有什么了不起的！还不是一个小白脸！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Wys_npc11	1090	男村民	0	1			173		993	哼！有什么了不起的！还不是一个小白脸！		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	40	3																		
+Task_Wys_npc9	1077	绿林头领	2	1	ClientTaskNpc		173		993			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Wys_npc10	1078	绿林头领	2	1			173		993			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Yds_yyf1	1049	杨影枫	2	1	ClientTaskNpc		1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	30	3																		
+Task_Yds_yyf2	1050	杨影枫	2	1			1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Yds_yyf3	1079	杨影枫	0	1			1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Task_Yds_npc1	1067	卓非凡	2	1	ClientTaskNpc		194	218	318	「武道德经」出世，只怕武林又要掀起一场腥风血雨了……只望莫要波及到无辜百姓。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Yds_npc2	1069	卓非凡	2	1			194	218	318	「武道德经」出世，只怕武林又要掀起一场腥风血雨了……只望莫要波及到无辜百姓。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Yds_npc3	1070	紫轩	2	1	ClientTaskNpc		131	20	120	恩义两难全……即便不愿，又能如何呢……		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Yds_npc4	1071	紫轩	2	1			131	20	120	恩义两难全……即便不愿，又能如何呢……		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Yds_npc5	1074	李大牛	2	1			173	20	120	哼哼，我的力气不是天生的，都是老爹教我的医术练出来的！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Yds_npc6	1075	贼匪	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Yds_npc7	1076	藏剑家丁	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Dth_yyf1	1093	杨影枫	2	1	ClientTaskNpc		1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_yyf2	1095	杨影枫	2	1			1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_yyf3	1094	杨影枫	0	1			1101	225	325	这红衣少女的武功看不出深浅，罢了，路见不平，拔刀相助，便帮她一帮吧。		1	56	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Task_Dth_npc1	1091	紫轩	2	1	ClientTaskNpc		131	20	120	恩义两难全……即便不愿，又能如何呢……		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc2	1092	紫轩	2	1			131	20	120	恩义两难全……即便不愿，又能如何呢……		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc3	1096	月眉儿	2	1	ClientTaskNpc		1102	22	122	哼，不过是几个不知天高地厚的小贼，岂能奈何得了我？真正的麻烦还在后头呢…		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc4	1097	月眉儿	2	1			1102	22	122	哼，不过是几个不知天高地厚的小贼，岂能奈何得了我？真正的麻烦还在后头呢…		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc5	1098	蔷薇	2	1	ClientTaskNpc		103	18	118	爹爹真是老糊涂了！卓非凡那家伙有什么好的？哼！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc6	1099	蔷薇	2	1			103	18	118	爹爹真是老糊涂了！卓非凡那家伙有什么好的？哼！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc7	1100	纳兰真	2	1	ClientTaskNpc		177	13	113	杨大哥定可以成为名动江湖的大人物！我…我只要跟在你身旁便足够了…		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc8	1101	纳兰真	2	1			177	13	113	杨大哥定可以成为名动江湖的大人物！我…我只要跟在你身旁便足够了…		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc9	1102	孟知秋	2	1	ClientTaskNpc		156	203	303	手中无剑，心中有剑，人即是剑，无坚不摧！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc10	1103	孟知秋	2	1			156	203	303	手中无剑，心中有剑，人即是剑，无坚不摧！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc11	1106	紫轩	0	1			131	20	120	恩义两难全……即便不愿，又能如何呢……		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Dth_npc12	1107	月眉儿	0	1			1102	22	122	哼，不过是几个不知天高地厚的小贼，岂能奈何得了我？真正的麻烦还在后头呢…		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Dth_npc20	1281	蔷薇	0	1			103	18	118	哼，不过是几个不知天高地厚的小贼，岂能奈何得了我？真正的麻烦还在后头呢…		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Task_Dth_npc13	1108	蔷薇	0	1			103	18	118	爹爹真是老糊涂了！卓非凡那家伙有什么好的？哼！		1	21	1							Setting/Npc/Ai/partner/FellowCommon.ini			0	30	3																		
+Task_Dth_npc14	1109	苍鹰	0	1			147					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc15	1110	李总管	2	1			106		993			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc16	1111	严家军亲卫	2	1			150	215	315			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc17	1112	可含	2	1			191		993			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc18	1113	卢肇颢	2	1			101		993			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_npc19	1130	纳兰真	0	1			177	13	113	杨大哥定可以成为名动江湖的大人物！我…我只要跟在你身旁便足够了…		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+Task_Dth_enemy1	1146	无忧教徒	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Flb_enemy1	1245	飞龙堡弟子	0	1	FixExpNpc		151		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Flb_friend1	1247	飞龙堡精锐	0	0	FixExpNpc		150		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonActive.ini			1	18	1										1								
+Task_Flb_enemy2	1246	无忧教弟子	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonActive.ini			1	18	1										1								
+Task_Flb_enemy3	1248	无忧教精锐	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Ml_enemy1	1187	贼匪	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Ml_enemy2	1188	贼匪头目	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Ml_enemy3	1216	五色教长老	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Hsmd_enemy1	1251	黑熊	0	1	FixExpNpc		116				150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Xsd_enemy1	1237	猛虎	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Xsd_enemy2	1238	神秘杀手	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Dth_enemy2	1147	无忧教护法	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Dth_enemy3	1148	无忧教死士	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Dth_enemy4	1149	无忧教死士	0	1	FixExpNpc		170		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Jhd_enemy	1424	猴子	0	1	FixExpNpc		117		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Jhd_enemy2	1427	五色教密探	0	1	FixExpNpc		174		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Wyp_enemy1	1429	红衣杀手	0	1	FixExpNpc		101		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Wyjd_enemy1	1428	红衣杀手	0	1	FixExpNpc		101		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_HuaShan_enemy1	1425	五色教探子	0	1	FixExpNpc		174		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_HuaShan_enemy2	1426	顽猴	0	1	FixExpNpc		117		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_LinAnYiDao_enemy1	1431	黑衣女刺客	0	1	FixExpNpc		164		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_LinAnXiaoDao_enemy1	2751	精锐士兵	0	1	FixExpNpc		150		993		150	611	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Gzc_enemy1	1451	金国死士	0	1	FixExpNpc		164		993		150	611	21	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+Task_Lgf_Gold	1374	天机制式傀儡-金	0	1	FixExpNpc		190		993		15	111	166	1	200	1			500	500				1	18	1										1								
+Task_Lgf_Wood	1375	天机制式傀儡-木	0	1	FixExpNpc		190		993		15	112	166	1	200	1			500	500				1	18	1										1								
+Task_Lgf_Water	1376	天机制式傀儡-水	0	1	FixExpNpc		190		993		15	113	166	1	200	1			500	500				1	18	1										1								
+Task_Lgf_Fire	1377	天机制式傀儡-火	0	1	FixExpNpc		190		993		15	114	166	1	200	1			500	500				1	18	1										1								
+Task_Lgf_Earth	1378	天机制式傀儡-土	0	1	FixExpNpc		190		993		15	115	166	1	200	1			500	500				1	18	1										1								
+Task_Fxsz_enemy1	1948	家丁	0	1	FixExpNpc		101		993		30	115	166	1	200	1			500	500				1	18	1										1								
+Jiu_maicang	3705	被埋藏的酒	5	1			3705					1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3						NoTurn												

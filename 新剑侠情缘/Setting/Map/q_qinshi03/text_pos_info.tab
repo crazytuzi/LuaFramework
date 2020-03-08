@@ -1,0 +1,11 @@
+Index	XPos	YPos	Text	Color	FontSize	NotShow
+SafeArea	5070	6260	安全区	Green	16	
+BossRoom1	1500	3270	三层玄天武机	Green	16	1
+BossRoom2	6090	1570	三层白起	Green	16	1
+BossRoom3	6340	4950	三层李斯	Green	16	1
+EmperorRoom1	8600	6640	秦始皇入口一	Green	16	1
+EmperorRoom2	9000	2300	秦始皇入口二	Green	16	1
+EmperorRoom3	2150	8450	秦始皇入口三	Green	16	1
+EmperorMark1				White	16	1
+EmperorMark2				White	16	1
+EmperorMark3				White	16	1

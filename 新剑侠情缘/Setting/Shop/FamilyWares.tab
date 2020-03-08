@@ -1,0 +1,40 @@
+TemplateId	Name	Price	MoneyType	ShopType	Sort	Level	Pool	Count	Discount	TimeFrame	HotTip	MinLevel	NotVersion_tx	NotVersion_vn	NotVersion_hk	NotVersion_xm	NotVersion_kor	NotVersion_th
+212	白水晶	100	Contrib	DrugShop	11	1	1											
+2162	随机1级魂石	1000	Contrib	DrugShop	15	1	2											
+736	碧玉扳指（普通）	240	Contrib	DrugShop	27	1	3											
+737	翡翠手镯（普通）	240	Contrib	DrugShop	26	1	3											
+738	青花瓷瓶（普通）	240	Contrib	DrugShop	25	1	3											
+739	鎏金银盘（普通）	240	Contrib	DrugShop	24	1	3											
+740	铜编钟（普通）	240	Contrib	DrugShop	23	1	3											
+741	白玉钗（普通）	240	Contrib	DrugShop	22	1	3											
+742	墨玉砚（普通）	240	Contrib	DrugShop	21	1	3											
+743	青竹简（普通）	240	Contrib	DrugShop	20	1	3											
+9479	镇尺（稀有）	300	Contrib	DrugShop	28	1	4							1				
+9480	沉香木（稀有）	300	Contrib	DrugShop	29	1	4							1				
+9481	竹钉（稀有）	300	Contrib	DrugShop	30	1	4							1				
+9482	琉璃杯（稀有）	300	Contrib	DrugShop	31	1	4							1				
+9483	琉璃盏（稀有）	300	Contrib	DrugShop	32	1	4							1				
+222	绿水晶	400	Contrib	DrugShop	10	2	1											
+2163	随机2级魂石	3000	Contrib	DrugShop	14	2	2											
+1342	特效同伴经验药水	1000	Contrib	DrugShop	2	2	3											
+744	七弦古琴（珍贵）	480	Contrib	DrugShop	19	2	4											
+745	千手观影（珍贵）	480	Contrib	DrugShop	18	2	4											
+746	长明宫灯（珍贵）	480	Contrib	DrugShop	17	2	4											
+747	青铜大鼎（稀有）	1200	Contrib	DrugShop	16	2	4											
+786	黄金宝箱	400	Contrib	DrugShop	1	3	1											
+764	初级修为书	400	Contrib	DrugShop	4	3	2											
+223	蓝水晶	1600	Contrib	DrugShop	9	3	3											
+2164	随机3级魂石	9000	Contrib	DrugShop	13	4	1											
+224	紫水晶	6400	Contrib	DrugShop	8	5	1											
+2395	中级修为书	2000	Contrib	DrugShop	3	5	2											
+2165	随机4级魂石	27000	Contrib	DrugShop	12	6	1											
+225	橙水晶	25600	Contrib	DrugShop	7	7	1											
+6151	真气丹（1000）	3500	Contrib	DrugShop	5	7	2											
+6152	真气丹（5000）	17500	Contrib	DrugShop	6	7	3											
+224	紫水晶	6400	Contrib	DrugShop	8	8	1											
+225	橙水晶	25600	Contrib	DrugShop	7	8	2											
+2502	攻城车	500000	Found	WarShop	1	1												
+2506	鼓舞旗	500000	Found	WarShop	5	1												
+2504	铁炮车	350000	Found	WarShop	3	1												
+2503	劲弩车	200000	Found	WarShop	2	1												
+2505	神射手	100000000	Found	WarShop	4	1												

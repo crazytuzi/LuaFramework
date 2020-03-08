@@ -1,0 +1,6 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+Out_ty	庭院		73	50		1	1205	6519	0	-1	0	0		0	0	0	0	0	0	0	0
+Out_sn	室内		73	50		1	6171	18080	0	-1	0	0		0	0	0	0	0	0	0	0
+Go_Out	出口		73	50		1	1967	18145	0	-1	0	0		0	0	0	0	0	0	0	0
+GoTo_sn	前往室内			50	1	1	1520	6495	0	-1	0	0		0	0	0	0	0	0	0	0
+GoTo_sn	前往出口			50	1	1	1967	18145	0	-1	0	0		0	0	0	0	0	0	0	0

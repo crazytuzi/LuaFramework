@@ -1,0 +1,4 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+taoshu	桃树		2198	50	1	70	5040	5300		0	-1	0	0	-1	0	0	0	0	0	0	0
+npc1	林更新		2307	50	1	70	4817	5374	38	0	-1	0	0	-1	0	0	0	0	0	0	0
+npc2	颖宝宝		2308	50	1	70	5080	5030	41	0	-1	0	0	-1	0	0	0	0	0	0	0

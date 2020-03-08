@@ -1,0 +1,10 @@
+trap1
+trap2
+trap3
+trap4
+trap5
+trap6
+jump1
+jump2
+jump3
+jump4

@@ -1,0 +1,23 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Scalc	Level1	1	7	{2,2,2}	{1,1,1}
+Commander		10	10	self.pPanel:SetActive("plane01", true)	
+Commander		1	1	self.pPanel:SetActive("dian_jiansu01", true)	
+Commander		60	60	self.pPanel:SetActive("dian_jiansu01", false)	
+Scalc	Level3	1	15	{0,0,0}	{0,0,0}
+Scalc	Level3	15	22	{2,2,2}	{1,1,1}
+Commander		25	25	self.pPanel:SetActive("plane03", true)	
+Commander		20	20	self.pPanel:SetActive("dian_jiansu03", true)	
+Commander		60	60	self.pPanel:SetActive("dian_jiansu03", false)	
+Scalc	Level2	1	25	{0,0,0}	{0,0,0}
+Scalc	Level2	25	32	{2,2,2}	{1,1,1}
+Commander		35	35	self.pPanel:SetActive("plane02", true)	
+Commander		30	30	self.pPanel:SetActive("dian_jiansu02", true)	
+Commander		60	60	self.pPanel:SetActive("dian_jiansu02", false)	
+Scalc	Level	1	7	{2,2,2}	{1,1,1}
+Commander		10	10	self.pPanel:SetActive("plane", true)	
+Commander		1	1	self.pPanel:SetActive("dian_jiansu", true)	
+Commander		60	60	self.pPanel:SetActive("dian_jiansu", false)	
+Scalc	Level	1	7	{2,2,2}	{1,1,1}
+Commander		10	10	self.pPanel:SetActive("plane", true)	
+Commander		1	1	self.pPanel:SetActive("dian_jiansu", true)	
+Commander		60	60	self.pPanel:SetActive("dian_jiansu", false)	

@@ -1,0 +1,8 @@
+TrapPeace
+TrapFight
+trap_attmsg_in1
+trap_attmsg_out1
+trap_attmsg_in2
+trap_attmsg_out2
+trap_attmsg_in3
+trap_attmsg_out3

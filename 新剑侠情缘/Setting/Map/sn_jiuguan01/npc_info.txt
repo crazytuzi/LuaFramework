@@ -1,0 +1,8 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+laoban	老板娘	117	3198	200	1	99	3689	6769	32	-1	0	0		0	0	0	0	0	0	0	0	
+shenmiren	神秘人		3197	200	1	99	4936	8155	48	-1	0	0		0	0	0	0	0	0	0	0	
+jinshinei	室内		73	200		99	5696	17629	0	-1	0	0		0	0	0	0	0	0	0	0	
+qushiwai	庭院		73	200		99	3096	6525	0	-1	0	0		0	0	0	0	0	0	0	0	
+lingengxin	林更新		3244	200		99	6518	8997	40	-1	0	0		0	0	0	0	0	0	0	0	
+zhaoliying	颖宝宝		3243	200		99	6483	7790	48	-1	0	0		0	0	0	0	0	0	0	0	
+linqingyu	林青羽	66	3245	200		99	5227	5364	48	-1	0	0		0	0	0	0	0	0	0	0	

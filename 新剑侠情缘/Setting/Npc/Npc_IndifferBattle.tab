@@ -1,0 +1,54 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	NormalSkill4	NormalSkillLevel4	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	DefaultDialog	WalkSpeed	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	IsNotShowShadow	FixExperience	SyncFirst	IsNotBYStealLife	Sex
+InDifferShopNpc	1987	神秘商人	2	1	InDifferShopNpc		146	206	306																				31																	
+InDifferBox_Item1	1994	宝箱	2	1	IndifferBox	5	352	995																									NoTurn													
+InDifferBox_Money1	1995	宝箱(废弃)	2	1	IndifferBox		352																										NoTurn													
+InDifferBox_Skill1	1996	宝箱(废弃)	2	1	IndifferBox		352																										NoTurn													
+InDifferSuperBox_1	2101	心魔幻象	2	1	IndifferBox	10	410	995																									NoTurn													
+IndifferBattleNpc_1	2096	心魔·恶	0	1	IndifferBattleNpc		123			450	751	166	1	200	1					400	400	Setting/Npc/Ai/CommonPassive.ini			1	18	1																			
+IndifferBattleNpc_2	2097	心魔·贪	0	1	IndifferBattleNpc		101			450	751	166	1	200	1					400	400	Setting/Npc/Ai/CommonPassive.ini			1	18	1																			
+IndifferBattleNpc_3	2098	心魔·妄	0	1	IndifferBattleNpc		134			450	751	166	1	200	1					400	400	Setting/Npc/Ai/CommonPassive.ini			1	18	1																			
+IndifferBattleNpc_4	2099	心魔·怨	0	1	IndifferBattleNpc		143			450	751	166	1	200	1					400	400	Setting/Npc/Ai/CommonPassive.ini			1	18	1																			
+IndifferBattleNpc_5	2100	心魔·悲	0	1	IndifferBattleNpc		170			450	751	166	1	200	1					400	400	Setting/Npc/Ai/CommonPassive.ini			1	18	1																			
+IndifferBattleLeader_1	2102	幻兽精英·寒玉鹿王	0	1			28				752	153	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_luwang.ini			1	25	2																	1		
+IndifferBattleLeader_2	2103	幻兽精英·大地狼王	0	1			29				752	146	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																	1		
+IndifferBattleLeader_3	2104	幻兽精英·白眉猴王	0	1			35				752	153	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																	1		
+IndifferBattleLeader_4	2105	幻兽精英·奔焰豹王	0	1			30				752	157	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																	1		
+IndifferBattleLeader_5	2106	幻兽精英·九尾狐王	0	1			26				752	160	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																	1		
+IndifferBattleLeader_6	2107	幻兽精英·双首异兽	0	1			34				752	160	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																	1		
+IndifferBattleLeader_7	2108	幻兽精英·定海金刚	0	1			40				752	153	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																	1		
+IndifferBattleLeader_8	2109	幻兽精英·金翅鹏皇	0	1			36				752	160	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																	1		
+IndifferBattleLeader_9	2110	幻兽精英·银角犀皇	0	1			38				752	153	1	91	1	195	1					Setting/Npc/Ai/fieldboss/20leader_luwang.ini			1	25	2																	1		
+IndifferBattleBoss_1	2111	幻兽首领·紫背鳄皇	0	1			41				753	3356	1	91	1	195	1					Setting/Npc/Ai/fieldboss/80leader_ehuang.ini			1	25	2																	1		
+IndifferBattleBoss_2	2112	幻兽首领·撼天熊皇	0	1			37	9023			753	3353	1	91	1	195	1					Setting/Npc/Ai/fieldboss/80leader_xionghuang.ini			1	25	2																	1		
+IndifferSkillNpc_1	2113	幻境机关	6	1			469				754																															1				
+IndifferSkillNpc_2	2953	幻境机关	6	1			469				754			5117	1																											1				
+IndifferRunStone	2117	滚石烈焰	6	1			375				754									1000	1500	Setting/Npc/Ai/AlwaysRunning.ini				28	3			3180	4															
+XMJD_cj_menpai01	2885	门派之力	2	0	IndifferChangeFaction	1	670	995																									NoTurn													
+XMJD_cj_qianghua01	2886	初级装备强化	2	0	IndifferEnhance	1	671	995																									NoTurn													
+XMJD_cj_qianghua02	2887	中级装备强化	2	0	IndifferEnhance	1	672	995																									NoTurn													
+XMJD_cj_qianghua03	2888	高级装备强化	2	0	IndifferEnhance	1	673	995																									NoTurn													
+XMJD_cj_miji01	2889	初级秘籍	2	0	IndifferGatherBook	1	674	995																									NoTurn													
+XMJD_cj_miji02	2890	中级秘籍	2	0	IndifferGatherBook	1	675	995																									NoTurn													
+XMJD_cj_miji03	2891	高级秘籍	2	0	IndifferGatherBook	1	676	995																									NoTurn													
+XMJD_cj_yao01	2892	金创药	2	0	IndiffeGatherItem	1	677	995																									NoTurn													
+XMJD_cj_yao02	2893	回天丹	2	0	IndiffeGatherItem	1	678	995																									NoTurn													
+XMJD_cj_fumo01	2894	附魔·初级攻击	2	0	IndiffeGatherItem	1	679	995																									NoTurn													
+XMJD_cj_fumo02	2895	附魔·中级攻击	2	0	IndiffeGatherItem	1	680	995																									NoTurn													
+XMJD_cj_fumo03	2896	附魔·高级攻击	2	0	IndiffeGatherItem	1	681	995																									NoTurn													
+XMJD_cj_fumo04	2916	附魔·初级防御	2	0	IndiffeGatherItem	1	679	995																									NoTurn													
+XMJD_cj_fumo05	2917	附魔·中级防御	2	0	IndiffeGatherItem	1	680	995																									NoTurn													
+XMJD_cj_fumo06	2918	附魔·高级防御	2	0	IndiffeGatherItem	1	681	995																									NoTurn													
+XMJD_cj_fumo07	2934	附魔·初级控制	2	0	IndiffeGatherItem	1	679	995																									NoTurn													
+XMJD_cj_fumo08	2935	附魔·中级控制	2	0	IndiffeGatherItem	1	680	995																									NoTurn													
+XMJD_cj_fumo09	2936	附魔·高级控制	2	0	IndiffeGatherItem	1	681	995																									NoTurn													
+XMJD_cj_xingnang01	2897	初级行囊	2	0	IndiffeItemBag	1	682	995																									NoTurn													
+XMJD_cj_xingnang02	2898	高级行囊	2	0	IndiffeItemBag	1	683	995																									NoTurn													
+XMJD_cj_zuoqi01	2899	坐骑	2	0	IndifferHorse	1	684	995																									NoTurn													
+XMJD_cj_men01	2900	光墙中毒	5	0			685																										NoTurn											1		
+XMJD_cj_men02	2901	光墙无毒	5	0			686																										NoTurn											1		
+XMJD_cj_skill01	2902	隐身技能	2	0	IndiffeGatherItem	1	687	995																									NoTurn													
+XMJD_cj_skill02	2903	陷阱技能	2	0	IndiffeGatherItem	1	688	995																									NoTurn													
+XMJD_xiongshou	2908	上古凶兽	0	1			576	200	994		753	91	1	3523	1					560	980	Setting/Npc/Ai/Stay.ini				17	3	3					NoTurn				7					1				
+XMJD_fuhuoshi	2937	复活石	2	0	IndiffeGatherItem	1	697	995																									NoTurn													
+XMJD_xianjing01	2938	金创药	2	0	IndifferBox	1	677	995																									NoTurn													
+XMJD_zhanlipin	2942	战利品	2	0	IndifferDeathDropBox	2	933	995																									NoTurn													

@@ -1,0 +1,6 @@
+CallEventID	Type	Param1	Param2	Param3	Param4
+1	CalcDmg	2497			
+1	DeathRemoveBuff	2497	3851		
+1	DeathAddBuff	2497	3852	1	108000
+1	DeathAddBuff	2497	3855	1	14
+1	CallNpcHP	2497	16		

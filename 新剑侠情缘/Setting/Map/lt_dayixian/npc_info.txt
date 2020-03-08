@@ -1,0 +1,6 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+ChuanSong1	风陵渡		73	50	1	1	6848	13496	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong2	剑门关		73	50	1	1	3867	12230	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong3	夜郎废墟		73	50	1	1	2065	10042	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong4	灵泉村		73	50	1	1	1035	6732	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong5	响水洞		73	50	1	1	1327	3733	0	-1	0	0		0	0	0	0	0	0	0	0	

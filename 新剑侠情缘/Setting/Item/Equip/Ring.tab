@@ -1,0 +1,119 @@
+TemplateId	Name	Kind	ShowType	ItemType	DetailType	Level	RequireLevel	RealLevel	Icon	BigIcon	ObjID	Intro	Price	Quality	ItemValue	Sellable	ClassName	ResEffect	FightPower	Attrib1Type	Attrib1Value1	Attrib1Value2	Attrib1Value3	Attrib2Type	Attrib2Value1	Attrib2Value2	Attrib2Value3	Attrib3Type	Attrib3Value1	Attrib3Value2	Attrib3Value3	Attrib4Type	Attrib4Value1	Attrib4Value2	Attrib4Value3	Attrib5Type	Attrib5Value1	Attrib5Value2	Attrib5Value3	Attrib6Type	Attrib6Value1	Attrib6Value2	Attrib6Value3	Attrib7Type	Attrib7Value1	Attrib7Value2	Attrib7Value3	Attrib8Type	Attrib8Value1	Attrib8Value2	Attrib8Value3	Attrib9Type	Attrib9Value1	Attrib9Value2	Attrib9Value3	Attrib10Type	Attrib10Value1	Attrib10Value2	Attrib10Value3	HoleCount	InsetLevel
+21	侠少之戒	T1_Ring_Q1		3	1	1	1	1	21	21			10000	1	10000	1	equip		0	lifemax_v	600			wood_resist_v	45																																				
+22	分水之戒	T2_Ring_Q1		3	1	2	28	3	22	22			20000	2	20000	1	equip		0	lifemax_v	800			wood_resist_v	60																																			1	2
+23	伏断之戒	T3_Ring_Q1		3	1	3	44	6	23	23			40000	3	40000	1	equip		0	lifemax_v	1000			wood_resist_v	75																																			2	3
+24	破军之戒	T4_Ring_Q1		3	1	4	54	9	24	24			80000	4	80000	1	equip		0	lifemax_v	1500			wood_resist_v	90																																			3	4
+25	荒芜之戒	T5_Ring_Q1		3	1	5	64	12	25	25			160000	5	160000	1	equip		0	lifemax_v	2000			wood_resist_v	113																																			4	4
+26	火府之戒	T6_Ring_Q1		3	1	6	74	15	26	26			320000	6	320000	1	equip		0	lifemax_v	2500			wood_resist_v	135																																			4	5
+27	苍穹之戒	T7_Ring_Q1		3	1	7	84	18	27	27			640000	7	640000	1	equip		0	lifemax_v	3000			wood_resist_v	158																																			4	5
+28	邢天之戒	T8_Ring_Q1		3	1	8	94	21	28	28			900000	7	900000	1	equip		0	lifemax_v	3500			wood_resist_v	180																																			5	5
+29	应龙之戒	T9_Ring_Q1		3	1	9	104	24	29	29			1200000	7	1200000	1	equip		0	lifemax_v	4000			wood_resist_v	200																																			6	6
+30	瑞祥之戒	T10_Ring_Q1		3	1	10	114	27	30	30			1600000	7	1600000	1	equip		0	lifemax_v	4500			wood_resist_v	220																																			7	6
+4921	白泽之戒	T11_Ring_Q1		3	1	11	124	30	4921	4921			2000000	7	2000000	1	equip		0	lifemax_v	5000			wood_resist_v	240																																			7	7
+4922	麒麟之戒	T12_Ring_Q1		3	1	12	134	33	4922	4922			2400000	7	2400000	1	equip		0	lifemax_v	5500			wood_resist_v	275																																			7	7
+4923	凤羽之戒	T13_Ring_Q1		3	1	13	144	36	4923	4923			2700000	7	2700000	1	equip		0	lifemax_v	6050			wood_resist_v	302																																			7	7
+4924	羡鱼之戒	T14_Ring_Q1		3	1	14	154	39	4924	4924			2960000	7	2960000	1	equip		0	lifemax_v	6655			wood_resist_v	333																																			7	7
+4925	纤羽之戒	T15_Ring_Q1		3	1	15	164	42	4925	4925			3272000	7	3272000	1	equip		0	lifemax_v	7321			wood_resist_v	366																																			7	7
+4926	衍花之戒	T16_Ring_Q1		3	1	16	174	45	4926	4926			3600000	7	3600000	1	equip		0	lifemax_v	8053			wood_resist_v	403																																			7	7
+4927	跃龙之戒	T17_Ring_Q1		3	1	17	184	48	4927	4927			3960000	7	3960000	1	equip		0	lifemax_v	8858			wood_resist_v	443																																			7	7
+4928	灿羽之戒	T18_Ring_Q1		3	1	18	194	51	4928	4928			4360000	7	4360000	1	equip		0	lifemax_v	9744			wood_resist_v	487																																			7	7
+4929	戒指T19	T19_Ring_Q1		3	1	19	204	54	4929	4929			1600000	7	1600000	1	equip		0	lifemax_v	10718			wood_resist_v	536																																			7	7
+4930	戒指T20	T20_Ring_Q1		3	1	20	214	57	4930	4930			1600000	7	1600000	1	equip		0	lifemax_v	11790			wood_resist_v	589																																			7	7
+1546	【传承】侠少之戒	T1_Ring_Q3		3	3	1	1	2	21	21			40000	1	40000	1	equip		0	lifemax_v	700			wood_resist_v	52																																				
+1547	【传承】分水之戒	T2_Ring_Q3		3	3	2	28	5	22	22			80000	2	80000	1	equip		0	lifemax_v	900			wood_resist_v	67																																			2	2
+1548	【传承】伏断之戒	T3_Ring_Q3		3	3	3	44	8	23	23			160000	3	160000	1	equip		0	lifemax_v	1250			wood_resist_v	82																																			3	3
+1549	【传承】破军之戒	T4_Ring_Q3		3	3	4	54	11	24	24			400000	4	400000	1	equip		0	lifemax_v	1750			wood_resist_v	101																																			3	4
+1550	【传承】荒芜之戒	T5_Ring_Q3		3	3	5	64	14	25	25			900000	5	900000	1	equip		0	lifemax_v	2250			wood_resist_v	124																																			4	4
+1551	【传承】火府之戒	T6_Ring_Q3		3	3	6	74	17	26	26			1200000	6	1200000	1	equip		0	lifemax_v	2750			wood_resist_v	146																																			4	5
+1552	【传承】苍穹之戒	T7_Ring_Q3		3	3	7	84	20	27	27			1600000	7	1600000	1	equip		0	lifemax_v	3250			wood_resist_v	169																																			5	5
+1553	【传承】邢天之戒	T8_Ring_Q3		3	3	8	94	23	28	28			2400000	7	2400000	1	equip		0	lifemax_v	4000			wood_resist_v	207																																			5	6
+3603	【传承】应龙之戒	T9_Ring_Q3		3	3	9	104	26	29	29			3240000	7	3600000	1	equip		0	lifemax_v	4500			wood_resist_v	220																																			6	6
+3604	【传承】瑞祥之戒	T10_Ring_Q3		3	3	10	114	29	30	30			4320000	7	4800000	1	equip		0	lifemax_v	5000			wood_resist_v	257																																			7	6
+5121	【传承】白泽之戒	T11_Ring_Q3		3	3	11	124	32	4921	4921			5760000	7	6400000	1	equip		0	lifemax_v	5500			wood_resist_v	270																																			7	7
+5122	【传承】麒麟之戒	T12_Ring_Q3		3	3	12	134	35	4922	4922			6900000	7	7680000	1	equip		0	lifemax_v	6000			wood_resist_v	300																																			7	7
+5123	【传承】凤羽之戒	T13_Ring_Q3		3	3	13	144	38	4923	4923			7920000	7	8448000	1	equip		0	lifemax_v	6600			wood_resist_v	330																																			7	7
+5124	【传承】羡鱼之戒	T14_Ring_Q3		3	3	14	154	41	4924	4924			8720000	7	8700000	1	equip		0	lifemax_v	7260			wood_resist_v	363																																			7	7
+5125	【传承】纤羽之戒	T15_Ring_Q3		3	3	15	164	44	4925	4925			9600000	7	9618000	1	equip		0	lifemax_v	7986			wood_resist_v	399																																			7	7
+5126	【传承】衍花之戒	T16_Ring_Q3		3	3	16	174	47	4926	4926			10600000	7	10600000	1	equip		0	lifemax_v	8785			wood_resist_v	439																																			7	7
+5127	【传承】跃龙之戒	T17_Ring_Q3		3	3	17	184	50	4927	4927			11600000	7	11600000	1	equip		0	lifemax_v	9663			wood_resist_v	483																																			7	7
+5128	【传承】灿羽之戒	T18_Ring_Q3		3	3	18	194	53	4928	4928			12760000	7	12760000	1	equip		0	lifemax_v	10629			wood_resist_v	531																																			7	7
+5129	【传承】戒指T19	T19_Ring_Q3		3	3	19	204	56	4929	4929			4800000	7	4800000	1	equip		0	lifemax_v	11692			wood_resist_v	585																																			7	7
+5130	【传承】戒指T20	T20_Ring_Q3		3	3	20	214	59	4930	4930			4800000	7	4800000	1	equip		0	lifemax_v	12862			wood_resist_v	643																																			7	7
+121	【稀有】侠少之戒	T1_Ring_Q2		3	2	1	1	4	21	21			100000	1	100000	1	equip		0	lifemax_v	860			wood_resist_v	64																																				
+122	【稀有】分水之戒	T2_Ring_Q2		3	2	2	28	7	22	22			200000	2	200000	1	equip		0	lifemax_v	1150			wood_resist_v	79																																			3	3
+123	【稀有】伏断之戒	T3_Ring_Q2		3	2	3	44	10	23	23			500000	3	500000	1	equip		0	lifemax_v	1650			wood_resist_v	96																																			3	4
+124	【稀有】破军之戒	T4_Ring_Q2		3	2	4	54	13	24	24			1200000	4	1200000	1	equip		0	lifemax_v	2150			wood_resist_v	119																																			4	4
+125	【稀有】荒芜之戒	T5_Ring_Q2		3	2	5	64	16	25	25			2500000	5	2500000	1	equip		0	lifemax_v	2650			wood_resist_v	141																																			4	5
+126	【稀有】火府之戒	T6_Ring_Q2		3	2	6	74	19	26	26			3000000	6	3000000	1	equip		0	lifemax_v	3150			wood_resist_v	164																																			5	5
+127	【稀有】苍穹之戒	T7_Ring_Q2		3	2	7	84	22	27	27			4000000	7	4000000	1	equip		0	lifemax_v	3850			wood_resist_v	198																																			5	6
+128	【稀有】邢天之戒	T8_Ring_Q2		3	2	8	94	25	28	28			5400000	7	5400000	1	equip		0	lifemax_v	4200			wood_resist_v	217																																			6	6
+129	【稀有】应龙之戒	T9_Ring_Q2		3	2	9	104	28	29	29			7200000	7	8000000	1	equip		0	lifemax_v	5000			wood_resist_v	257																																			7	6
+130	【稀有】瑞祥之戒	T10_Ring_Q2		3	2	10	114	31	30	30			9000000	7	10000000	1	equip		0	lifemax_v	5500			wood_resist_v	282																																			7	7
+5021	【稀有】白泽之戒	T11_Ring_Q2		3	2	11	124	34	4921	4921			11400000	7	12500000	1	equip		0	lifemax_v	6000			wood_resist_v	290																																			7	7
+5022	【稀有】麒麟之戒	T12_Ring_Q2		3	2	12	134	37	4922	4922			13680000	7	15000000	1	equip		0	lifemax_v	6600			wood_resist_v	330																																			7	7
+5023	【稀有】凤羽之戒	T13_Ring_Q2		3	2	13	144	40	4923	4923			14240000	7	16500000	1	equip		0	lifemax_v	7260			wood_resist_v	363																																			7	7
+5024	【稀有】羡鱼之戒	T14_Ring_Q2		3	2	14	154	43	4924	4924			15670000	7	15660000	1	equip		0	lifemax_v	7986			wood_resist_v	399																																			7	7
+5025	【稀有】纤羽之戒	T15_Ring_Q2		3	2	15	164	46	4925	4925			17260000	7	17256000	1	equip		0	lifemax_v	8785			wood_resist_v	439																																			7	7
+5026	【稀有】衍花之戒	T16_Ring_Q2		3	2	16	174	49	4926	4926			19000000	7	19000000	1	equip		0	lifemax_v	9663			wood_resist_v	483																																			7	7
+5027	【稀有】跃龙之戒	T17_Ring_Q2		3	2	17	184	52	4927	4927			20900000	7	20900000	1	equip		0	lifemax_v	10629			wood_resist_v	531																																			7	7
+5028	【稀有】灿羽之戒	T18_Ring_Q2		3	2	18	194	55	4928	4928			23000000	7	23000000	1	equip		0	lifemax_v	11692			wood_resist_v	585																																			7	7
+5029	【稀有】戒指T19	T19_Ring_Q2		3	2	19	204	58	4929	4929			10000000	7	10000000	1	equip		0	lifemax_v	12862			wood_resist_v	643																																			7	7
+5030	【稀有】戒指T20	T20_Ring_Q2		3	2	20	214	61	4930	4930			10000000	7	10000000	1	equip		0	lifemax_v	14148			wood_resist_v	707																																			7	7
+2770	【黄金】火府之戒	T6_Ring_Q4	1011	3	4	6	74	101	12004	12004			39000000	7	39000000	1	equip		36000	lifemax_v	4100			wood_resist_v	215																																			5	6
+2771	【黄金】苍穹之戒	T7_Ring_Q4	1012	3	4	7	84	102	12005	12005			61600000	7	61600000	1	equip		57600	lifemax_v	5000			wood_resist_v	257																																			6	6
+2772	【黄金】邢天之戒	T8_Ring_Q4	1013	3	4	8	94	103	12006	12006			91800000	7	91800000	1	equip		86400	lifemax_v	5500			wood_resist_v	282																																			7	6
+3623	【黄金】应龙之戒	T9_Ring_Q4	1014	3	4	9	104	104	12713	12713			123200000	7	123200000	1	equip		115200	lifemax_v	6000			wood_resist_v	300																																			7	7
+3624	【黄金】瑞祥之戒	T10_Ring_Q4	1015	3	4	10	114	105	12714	12714			154000000	7	154000000	1	equip		144000	lifemax_v	7000			wood_resist_v	350																																			7	7
+5370	【黄金】白泽之戒	T11_Ring_Q4	1016	3	4	11	124	106	18686	18686			185300000	7	185300000	1	equip		172800	lifemax_v	7500			wood_resist_v	400																																			7	7
+5371	【黄金】麒麟之戒	T12_Ring_Q4	1017	3	4	12	134	107	18687	18687			216600000	7	216600000	1	equip		216600	lifemax_v	9000			wood_resist_v	450																																			7	7
+5372	【黄金】凤羽之戒	T13_Ring_Q4	1018	3	4	13	144	108	18688	18688			245400000	7	245400000	1	equip		245400	lifemax_v	9900			wood_resist_v	495																																			7	7
+5373	【黄金】羡鱼之戒	T14_Ring_Q4	1019	3	4	14	154	109	18689	18689			274200000	7	274200000	1	equip		274200	lifemax_v	10890			wood_resist_v	545																																			7	7
+5374	【黄金】纤羽之戒	T15_Ring_Q4	1020	3	4	15	164	110	18690	18690			303000000	7	303000000	1	equip		303000	lifemax_v	11979			wood_resist_v	599																																			7	7
+9739	【黄金】衍花之戒	T16_Ring_Q4	1051	3	4	16	174	111	19226	19226			331800000	7	331800000	1	equip		331800	lifemax_v	13177			wood_resist_v	659																																			7	7
+9740	【黄金】跃龙之戒	T17_Ring_Q4	1052	3	4	17	184	112	19227	19227			360600000	7	360600000	1	equip		360600	lifemax_v	14495			wood_resist_v	725																																			7	7
+9741	【黄金】灿羽之戒	T18_Ring_Q4	1053	3	4	18	194	113	19228	19228			389400000	7	389400000	1	equip		389400	lifemax_v	15944			wood_resist_v	797																																			7	7
+9742	【黄金】羡鱼之戒	T19_Ring_Q4	1054	3	4	19	204	114	19229	19229			303000000	7	303000000	1	equip		303000	lifemax_v	17538			wood_resist_v	877																																			7	7
+9743	【黄金】纤羽之戒	T20_Ring_Q4	1055	3	4	20	214	115	19230	19230			303000000	7	303000000	1	equip		303000	lifemax_v	19292			wood_resist_v	965																																			7	7
+10027	【白金】瑞祥之戒	T10_Ring_Q5	2110	3	5	10	114	105	12714	12714			161200000	7	161200000	1	equip		158400	lifemax_v	8000			wood_resist_v	400																																			7	7
+10028	【白金】白泽之戒	T11_Ring_Q5	2111	3	5	11	124	106	18686	18686			196100000	7	196100000	1	equip		194400	lifemax_v	9000			wood_resist_v	450																																			7	7
+10029	【白金】麒麟之戒	T12_Ring_Q5	2112	3	5	12	134	107	18687	18687			231000000	7	231000000	1	equip		245400	lifemax_v	10000			wood_resist_v	500																																			7	7
+10030	【白金】凤羽之戒	T13_Ring_Q5	2113	3	5	13	144	108	18688	18688			263400000	7	263400000	1	equip		281400	lifemax_v	11000			wood_resist_v	550																																			7	7
+10031	【白金】羡鱼之戒	T14_Ring_Q5	2114	3	5	14	154	109	18689	18689			295800000	7	295800000	1	equip		317400	lifemax_v	12000			wood_resist_v	600																																			7	7
+10032	【白金】纤羽之戒	T15_Ring_Q5	2115	3	5	15	164	110	18690	18690			328200000	7	328200000	1	equip		353400	lifemax_v	13500			wood_resist_v	675																																			7	7
+10033	【白金】衍花之戒	T16_Ring_Q5	2116	3	5	16	174	111	18686	18686			360600000	7	360600000	1	equip		389400	lifemax_v	14641			wood_resist_v	732																																			7	7
+10034	【白金】跃龙之戒	T17_Ring_Q5	2117	3	5	17	184	112	18687	18687			393000000	7	393000000	1	equip		425400	lifemax_v	16105			wood_resist_v	805																																			7	7
+10035	【白金】灿羽之戒	T18_Ring_Q5	2118	3	5	18	194	113	18688	18688			425400000	7	425400000	1	equip		461400	lifemax_v	17716			wood_resist_v	886																																			7	7
+10036	【白金】羡鱼之戒	T19_Ring_Q5	2119	3	5	19	204	114	18689	18689			328200000	7	328200000	1	equip		338400	lifemax_v	19487			wood_resist_v	974																																			7	7
+10037	【白金】纤羽之戒	T20_Ring_Q5	2120	3	5	20	214	115	18690	18690			328200000	7	328200000	1	equip		338400	lifemax_v	21436			wood_resist_v	1072																																			7	7
+531	T1戒指（低）	T1_Ring_Test_Q1		3	1	1	1	1	21	21			20000	1	3000	1	equip		0	lifemax_v	600			wood_resist_v	45																																				
+532	T2戒指（低）	T2_Ring_Test_Q1		3	1	2	1	3	22	22			40000	2	3000	1	equip		0	lifemax_v	800			wood_resist_v	60																																			3	1
+533	T3戒指（低）	T3_Ring_Test_Q1		3	1	3	1	6	23	23			80000	3	3000	1	equip		0	lifemax_v	1000			wood_resist_v	75																																			3	2
+534	T4戒指（低）	T4_Ring_Test_Q1		3	1	4	1	9	24	24			200000	4	3000	1	equip		0	lifemax_v	1200			wood_resist_v	90																																			3	3
+535	T5戒指（低）	T5_Ring_Test_Q1		3	1	5	1	12	25	25			500000	5	3000	1	equip		0	lifemax_v	1500			wood_resist_v	113																																			3	3
+536	T6戒指（低）	T6_Ring_Test_Q1		3	1	6	74	15	26	26			1200000	6	3000	1	equip		0	lifemax_v	2500			wood_resist_v	135																																			4	5
+537	T7戒指（低）	T7_Ring_Test_Q1		3	1	7	84	18	27	27			3200000	7	3000	1	equip		0	lifemax_v	3000			wood_resist_v	158																																			4	5
+538	T8戒指（低）	T8_Ring_Test_Q1		3	1	8	94	21	28	28			7000000	7	3000	1	equip		0	lifemax_v	3500			wood_resist_v	180																																			5	5
+3806	T9戒指（低）	T9_Ring_Test_Q1		3	1	9	104	24	29	29			7000000	7	3000	1	equip		0	lifemax_v	4000			wood_resist_v	200																																			6	6
+3807	T10戒指（低）	T10_Ring_Test_Q1		3	1	10	114	27	30	30			7000000	7	3000	1	equip		0	lifemax_v	4500			wood_resist_v	220																																			7	6
+539	T1戒指（中）	T1_Ring_Test_Q2		3	2	1	1	1	21	21			20000	1	3000	1	equip		0	lifemax_v	600			wood_resist_v	45																																				
+540	T2戒指（中）	T2_Ring_Test_Q2		3	2	2	20	3	22	22			40000	2	3000	1	equip		0	lifemax_v	800			wood_resist_v	60																																			3	1
+541	T3戒指（中）	T3_Ring_Test_Q2		3	2	3	45	6	23	23			80000	3	3000	1	equip		0	lifemax_v	1000			wood_resist_v	75																																			3	2
+542	T4戒指（中）	T4_Ring_Test_Q2		3	2	4	55	9	24	24			200000	4	3000	1	equip		0	lifemax_v	1200			wood_resist_v	90																																			3	3
+543	T5戒指（中）	T5_Ring_Test_Q2		3	2	5	65	12	25	25			500000	5	3000	1	equip		0	lifemax_v	1500			wood_resist_v	113																																			3	3
+544	【传承】火府之戒	T6_Ring_Test_Q2		3	2	6	74	15	26	26			1200000	6	3000	1	equip		0	lifemax_v	2750			wood_resist_v	146																																			4	5
+545	T7戒指（中）	T7_Ring_Test_Q2		3	2	7	84	18	27	27			3200000	7	3000	1	equip		0	lifemax_v	3250			wood_resist_v	169																																			5	5
+546	T8戒指（中）	T8_Ring_Test_Q2		3	2	8	94	21	28	28			7000000	7	3000	1	equip		0	lifemax_v	4000			wood_resist_v	207																																			5	6
+3808	T9戒指（中）	T9_Ring_Test_Q2		3	2	9	104	24	29	29			7000000	7	3000	1	equip		0	lifemax_v	4500			wood_resist_v	220																																			6	6
+3809	T10戒指（中）	T10_Ring_Test_Q2		3	2	10	114	27	30	30			7000000	7	3000	1	equip		0	lifemax_v	5000			wood_resist_v	257																																			7	6
+547	【稀有】侠少之戒	T1_Ring_Test_Q3		3	3	1	1	1	21	21			20000	1	3000	1	equip		0	lifemax_v	600			wood_resist_v	45																																				
+548	【稀有】分水之戒	T2_Ring_Test_Q3		3	3	2	28	3	22	22			40000	2	3000	1	equip		0	lifemax_v	800			wood_resist_v	60																																			3	3
+549	【稀有】伏断之戒	T3_Ring_Test_Q3		3	3	3	44	6	23	23			80000	3	3000	1	equip		0	lifemax_v	1000			wood_resist_v	75																																			3	4
+550	【稀有】破军之戒	T4_Ring_Test_Q3		3	3	4	54	9	24	24			200000	4	3000	1	equip		0	lifemax_v	1200			wood_resist_v	90																																			4	4
+551	【稀有】荒芜之戒	T5_Ring_Test_Q3		3	3	5	64	12	25	25			500000	5	3000	1	equip		0	lifemax_v	1500			wood_resist_v	113																																			4	5
+552	【稀有】火府之戒	T6_Ring_Test_Q3		3	3	6	74	15	26	26			1200000	6	3000	1	equip		0	lifemax_v	3150			wood_resist_v	164																																			5	5
+553	【稀有】苍穹之戒	T7_Ring_Test_Q3		3	3	7	84	18	27	27			3200000	7	3000	1	equip		0	lifemax_v	2100			wood_resist_v	158																																			5	6
+554	【稀有】邢天之戒	T8_Ring_Test_Q3		3	3	8	94	21	28	28			7000000	7	3000	1	equip		0	lifemax_v	2400			wood_resist_v	180																																			6	6
+3810	【稀有】应龙之戒	T9_Ring_Test_Q3		3	3	9	104	24	29	29			7000000	7	3000	1	equip		0	lifemax_v	5000			wood_resist_v	257																																			7	6
+3811	【稀有】瑞祥之戒	T10_Ring_Test_Q3		3	3	10	114	27	30	30			7000000	7	3000	1	equip		0	lifemax_v	5500			wood_resist_v	282																																			7	7
+1248	侠少之戒	Cus_T1_Ring_Q1		3	1	1	1	1	21	21			10000	1	10000	1	equip		0	lifemax_v	600			wood_resist_v	45																																				
+6080	【定制稀有】代言人之戒	Cus_T3_Ring_Q2	21	3	2	3	44	10					500000	6	500000	1	equip		0	lifemax_v	1650			wood_resist_v	96																																			3	4

@@ -1,0 +1,8 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Alpha	Rooster	0	10	0	1
+Alpha	Rooster	10	36	1	1
+Alpha	Rooster	36	39	1	0
+Alpha	RoosterTxt	0	36	0	0
+Alpha	RoosterTxt	36	39	0	1
+Alpha	RoosterTxt	39	75	1	1
+Alpha	RoosterTxt	75	90	1	0

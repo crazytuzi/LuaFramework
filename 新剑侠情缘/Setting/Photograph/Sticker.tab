@@ -1,0 +1,17 @@
+nId	szName	szAtlas	szIcon	szTexture
+1	胡子	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnxiaohuzi	UI/Textures/Photograph/xiaohuzi.png
+2	礼貌	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnlimao	UI/Textures/Photograph/limao.png
+3	二哈	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnhashiqi	UI/Textures/Photograph/hashiqi.png
+4	草丛	UI/Atlas/Item/Item/PhotoItem01.prefab	Btncaocong	UI/Textures/Photograph/caocong.png
+5	金箍	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnjingu	UI/Textures/Photograph/jingu.png
+6	侦探	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnfuermosi	UI/Textures/Photograph/fuermosi.png
+7	领带	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnshenshi	UI/Textures/Photograph/shenshi.png
+8	皇冠	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnhuangguan	UI/Textures/Photograph/huangguan.png
+9	兔子	UI/Atlas/Item/Item/PhotoItem02.prefab	Btntuer	UI/Textures/Photograph/tuer.png
+10	护士	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnhushi	UI/Textures/Photograph/hushi.png
+11	胜利	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnrexue	UI/Textures/Photograph/rexue.png
+12	皮鞋	UI/Atlas/Item/Item/PhotoItem01.prefab	Btndatoupixie	UI/Textures/Photograph/datoupixie.png
+13	墨镜	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnmojing	UI/Textures/Photograph/mojing.png
+14	领结	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnlingjie	UI/Textures/Photograph/lingjie.png
+15	喵喵	UI/Atlas/Item/Item/PhotoItem02.prefab	Btnmiaomiao	UI/Textures/Photograph/miaomiao.png
+16	美人赋	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnmeirenfu	UI/Textures/Photograph/meirenfu.png

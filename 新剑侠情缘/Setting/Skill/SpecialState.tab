@@ -1,0 +1,27 @@
+StateName	MaxFrame	HeadWord	Desc	HeadResId	BodyResId	PosResId	ColorId	IsCanAdd	IsUIGray	IsAlpha
+fixed	75	定	定身		59					
+zhican	900	缠	致缠		60					
+stun	75	晕	眩晕	68						
+slowall	90	缓	迟缓		58					
+palsy	75	麻	麻痹		61					
+burn	150	灼	灼伤		63		3	1		
+weak	900	弱	虚弱		66		4			
+selffreeze	900		冰封							
+silence	900	默	沉默	64						
+slowrun	75	慢	缓慢							
+hurt	75	伤	受伤							
+confuse	75	乱	混乱	65						
+knock	75		击退					1		
+drag	75		拉回		3507					
+float	900		浮空			62				
+freeze	900	冻	冻结		9001					
+sleep	900		睡眠	67						
+hide	0	隐	隐身							1
+shield	0	盾	坐忘无我							
+knock2	900		后退							
+nojump	900	锁	轻功		1457					
+forceatk	900	嘲	嘲讽	296						
+dragfloat	75		拉下浮空							
+npchurt	30		受伤					1		
+npcknock	75		击退					1		
+fixshield	0		游龙剑意		2867					

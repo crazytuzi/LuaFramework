@@ -1,0 +1,8 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Alpha	Gog	0	10	0	1
+Alpha	Gog	10	36	1	1
+Alpha	Gog	36	39	1	0
+Alpha	GogTxt	0	36	0	0
+Alpha	GogTxt	36	39	0	1
+Alpha	GogTxt	39	75	1	1
+Alpha	GogTxt	75	90	1	0

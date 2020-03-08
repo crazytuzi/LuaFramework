@@ -1,0 +1,100 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	AuraSkillId	AuraSkillLevel	TitleID	BigFaceID	DefaultDialog	DropType	ForbitMove	StartActEvent	Tag	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	WalkSpeed	IsNotShowShadow	FixExperience	SyncFirst	IsNotBYStealLife	Sex
+Field_Header_1_1	115	寒玉鹿王	0	1	BossLeader		28	9009	10	602	153	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_luwang.ini			1	25	2																		1		
+Field_Header_1_2	116	大地狼王	0	1	BossLeader		29	9010	10	602	146	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																		1		
+Field_Header_lv20_3	1455	白眉猴王	0	1	BossLeader		35	9012	10	602	153	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																		1		
+Field_Header_1_3	117	奔焰豹王	0	1	BossLeader		30	9011	10	602	157	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																		1		
+Field_Header_1_4	118	九尾狐王	0	1	BossLeader		26	9008	10	602	160	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																		1		
+Field_Header_1_40_3	1456	双首异兽	0	1	BossLeader		34	9013	10	602	160	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																		1		
+Field_Header_2_1	119	定海金刚	0	1	BossLeader		40	9020	10	602	153	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																		1		
+Field_Header_2_2	120	金翅鹏皇	0	1	BossLeader		36	9021	10	602	160	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																		1		
+Field_Header_2_3	121	银角犀皇	0	1	BossLeader		38	9022	10	602	153	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_luwang.ini			1	25	2																		1		
+Field_Header_lv80_1	1997	赤睛虎皇	0	1	BossLeader		39	9024	10	602	3346	1	82	1	195	1			Setting/Npc/Ai/fieldboss/80leader_huhuang.ini			1	25	2																		1		
+Field_Header_lv80_2	1998	撼天熊皇	0	1	BossLeader		37	9023	10	602	3353	1	82	1	195	1			Setting/Npc/Ai/fieldboss/80leader_xionghuang.ini			1	25	2																		1		
+Field_Header_lv80_3	1999	紫背鳄皇	0	1	BossLeader		41	9025	10	602	3356	1	82	1	195	1			Setting/Npc/Ai/fieldboss/80leader_ehuang.ini			1	25	2																		1		
+Field_Header_lv100_1	2217	冰鳞蜥皇	0	1	BossLeader		42	9026	10	602	3681	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xihuang.ini			1	25	2																		1		
+Field_Header_lv100_2	2218	银钩蝎皇	0	1	BossLeader		43	9027	10	602	3687	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xiehuang.ini			1	25	2																		1		
+Field_Header_lv100_3	2219	狂鬃獒皇	0	1	BossLeader		44	9028	10	602	3691	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_aohuang.ini			1	25	2																		1		
+Field_Header_lv120_1	2805	巨螯蜂后	0	1	BossLeader		45	9043	10	602	3687	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xiehuang.ini			1	25	2																		1		
+Field_Header_lv120_2	2806	龙纹狮王	0	1	BossLeader		46	9042	10	602	3691	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_aohuang.ini			1	25	2																		1		
+Field_Header_lv140_1	3318	万毒棘皇	0	1	BossLeader		714	9048	10	602	3687	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xiehuang.ini			1	25	2																		1		
+Field_Header_lv140_2	3319	玄冰貂皇	0	1	BossLeader		713	9049	10	602	3691	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xihuang.ini			1	25	2																		1		
+Field_Header_lv160_1	3754	磐石牛王	0	1	BossLeader		734	9050	10	602	153	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																		1		
+Field_Header_lv160_2	3755	炙炎牛后	0	1	BossLeader		733	9051	10	602	2957	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																		1		
+Field_Header_lv180_1	3822	蛇	0	1	BossLeader		744	9050	10	602	3681	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xihuang.ini			1	25	2																		1		
+Field_Header_lv180_2	3823	蜘蛛	0	1	BossLeader		745	9051	10	602	3687	1	82	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xiehuang.ini			1	25	2																		1		
+Field_Header_lv200_1	3824	猛犸	0	1	BossLeader		746	9051	10	602	2957	1	82	1	195	1			Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																		1		
+Field_Boss_1_1	123	高长恭	0	1	BossLeader		473	9001	10	701	1335	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/30boss_gaochanggong.ini			1	25	2																		1		
+Field_Boss_1_1_false	1480	高长恭	0	1	BossLeader		473	9001	10	701	1335	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/30boss_gaochanggong.ini			1	25	2																		1		
+Field_Boss_1_2	124	哲别	0	1	BossLeader		15	9002	10	701	129	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/20boss_zhebie.ini			1	25	2			历代名将															1		
+Field_Boss_1_2_false	1481	哲别	0	1	BossLeader		15	9002	10	701	129	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/20boss_zhebie.ini			1	25	2			历代名将															1		
+Field_Boss_1_3	125	袁承志	0	1	BossLeader		19	9003	10	701	117	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/20boss_yuanchengzhi.ini			1	25	2																		1		
+Field_Boss_1_3_false	1482	袁承志	0	1	BossLeader		19	9003	10	701	117	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/20boss_yuanchengzhi.ini			1	25	2																		1		
+Field_Boss_1_4	126	鳌拜	0	1	BossLeader		25	9004	10	701	110	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/20boss_aobai.ini			1	25	2																		1		
+Field_Boss_1_4_false	1483	鳌拜	0	1	BossLeader		25	9004	10	701	110	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/20boss_aobai.ini			1	25	2																		1		
+Field_Boss_1_5	1478	韩世忠	0	1	BossLeader		471	9006	10	701	110	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/20boss_aobai.ini			1	25	2																		1		
+Field_Boss_1_5_false	1484	韩世忠	0	1	BossLeader		471	9006	10	701	110	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/20boss_aobai.ini			1	25	2																		1		
+Field_Boss_1_6	1479	秦良玉	0	1	BossLeader		472	9007	10	701	110	1	91	1	1065	2			Setting/Npc/Ai/fuben/Boss6.ini			1	25	2																		1		
+Field_Boss_1_6_false	1485	秦良玉	0	1	BossLeader		472	9007	10	701	110	1	91	1	1065	2			Setting/Npc/Ai/fuben/Boss6.ini			1	25	2																		1		
+Field_Boss_2_1	127	荆轲	0	1	BossLeader		492	9014	10	702	2957	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/60boss_jingke.ini			1	25	2																		1		
+Field_Boss_2_1_false	1707	荆轲	0	1	BossLeader		492	9014	10	702	2957	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/60boss_jingke.ini			1	25	2																		1		
+Field_Boss_2_2	128	虞姬	0	1	BossLeader		493	9015	10	702	2965	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/60boss_yuji.ini			1	25	2																		1		
+Field_Boss_2_2_false	1708	虞姬	0	1	BossLeader		493	9015	10	702	2965	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/60boss_yuji.ini			1	25	2																		1		
+Field_Boss_2_2_kuafu	2497	虞姬	0	1	BossLeaderCallNpc		493	9015	10	704	2965	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/110boss_kuafuyuji.ini			1	25	2																		1		
+Field_Boss_2_2_kuafuF	2500	虞姬	0	1	BossLeaderCallNpc		493	9015	10	704	2965	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/110boss_kuafuyuji.ini			1	25	2																		1		
+Field_Boss_2_3	129	岳飞	0	1	BossLeader		494	9016	10	702	2973	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/60boss_yuefei.ini			1	25	2																		1		
+Field_Boss_2_3_false	1709	岳飞	0	1	BossLeader		494	9016	10	702	2973	1	91	1	1065	2			Setting/Npc/Ai/fieldboss/60boss_yuefei.ini			1	25	2																		1		
+Field_Boss_2_4	130	李广	0	1	BossLeader		495	9017	10	703	3317	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/80boss_liguang.ini			1	25	2																		1		
+Field_Boss_2_4_false	1710	李广	0	1	BossLeader		495	9017	10	703	3317	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/80boss_liguang.ini			1	25	2																		1		
+Field_Boss_2_5	1705	赵云	0	1	BossLeader		496	9018	10	703	3307	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/80boss_zhaoyun.ini			1	25	2																		1		
+Field_Boss_2_5_false	1711	赵云	0	1	BossLeader		496	9018	10	703	3307	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/80boss_zhaoyun.ini			1	25	2																		1		
+Field_Boss_2_6	1706	李元霸	0	1	BossLeader		497	9019	10	703	3301	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/80boss_liyuanba.ini			1	25	2																		1		
+Field_Boss_2_6_false	1712	李元霸	0	1	BossLeader		497	9019	10	703	3301	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/80boss_liyuanba.ini			1	25	2																		1		
+Field_Boss_3_1	2235	项羽	0	1	BossLeader		1173	9029	10	703	3671	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/110boss_xiangyu.ini			1	25	2																		1		
+Field_Boss_3_1_false	2236	项羽	0	1	BossLeader		1173	9029	10	703	3671	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/110boss_xiangyu.ini			1	25	2																		1		
+Field_Boss_3_1_kuafu	2498	项羽	0	1	BossLeader		1173	9029	10	703	3671	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/110boss_kuafuxiangyu.ini			1	25	2																		1		
+Field_Boss_3_1_kuafuF	2499	项羽	0	1	BossLeader		1173	9029	10	703	3671	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/110boss_kuafuxiangyu.ini			1	25	2																		1		
+Field_Boss_3_2	2237	张三丰	0	1	BossLeader		1172	9018	10	703	2801	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/100boss_zhangsanfeng.ini			1	25	2																		1		
+Field_Boss_3_2_false	2238	张三丰	0	1	BossLeader		1172	9018	10	703	2801	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/100boss_zhangsanfeng.ini			1	25	2																		1		
+Field_Boss_3_3	2239	鬼谷子	0	1	BossLeader		1171	9019	10	703	3001	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2																		1		
+Field_Boss_3_3_false	2240	鬼谷子	0	1	BossLeader		1171	9019	10	703	3001	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2																		1		
+Field_Boss_4_1	2377	武则天	0	1	BossLeader		1205	9019	10	703	3001	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2																		1		
+Field_Boss_4_1_false	2378	武则天	0	1	BossLeader		1205	9019	10	703	3001	1	91	1	1065	2	1000	1000	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2																		1		
+Damo_Boss_1	3813	达摩	0	1	DaMoCaveNpc	Boss	3762	9019	10	1122	3001	1	91	1	1065	1	500	500	Setting/Npc/Ai/damodong/damo.ini			1	25	2										6								1		
+Damo_Boss_2	3814	护洞卫士	0	1	DaMoCaveNpc	Boss	3761	9019	10	659	3001	1	91	1	1065	1	500	500	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2										4								1		
+Damo_Boss_3	3815	达摩	0	1	DaMoCaveNpc	Boss	3762	9019	10	1122	3001	1	91	1	1065	1	500	500	Setting/Npc/Ai/damodong/damo.ini			1	25	2										6								1		
+Damo_Boss_3_zhaohuan	3829	达摩分身	0	1	DaMoCaveNpc	AttachNpc	3762	9019	10	703	3001	1	91	1	1065	1	500	500	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2										5								1		
+Damo_chuansong_1	3816	传送使者	0	1	DaMoCaveNpc	TransferNpc	3763	9019	10	654	3001	1	91	1	1065	2	500	500	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2										3								1		
+Damo_chuansong_2	3817	传送使者	0	1	DaMoCaveNpc	TransferNpc	3764	9019	10	654	3001	1	91	1	1065	2	500	500	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2										3								1		
+Damo_huwei	3818	达摩护卫	0	1	DaMoCaveNpc	Boss	3765	9019	10	659	3001	1	91	1	1065	2	500	500	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2										4								1		
+Damo_huwei_2	3819	达摩守将	0	1	DaMoCaveNpc	Boss	3766	9019	10	659	3001	1	91	1	1065	2	500	500	Setting/Npc/Ai/fieldboss/100boss_guiguzi.ini			1	25	2										5								1		
+Damo_fuhuo_2	3828	复活旗帜	0	1	DaMoCaveNpc	ReviveFlag	505	200	10	654			91	1	105	1	1000	1000	Setting/Npc/Ai/Stay.ini			1	25	2							1		NOTurn	6								1		
+Dungeon_Header_1_1	193	寒玉鹿王	0	1	BossLeaderDung		28	9009	10	601	153	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_luwang.ini			1	25	2																				
+Dungeon_Header_1_2	194	大地狼王	0	1	BossLeaderDung		29	9010	10	601	146	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																				
+Dungeon_Header_1_3	195	白眉猴王	0	1	BossLeaderDung		35	9012	10	601	153	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																				
+Dungeon_Header_2_1	197	奔焰豹王	0	1	BossLeaderDung		30	9011	10	601	157	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																				
+Dungeon_Header_2_2	198	九尾狐王	0	1	BossLeaderDung		26	9008	10	601	160	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																				
+Dungeon_Header_2_3	199	双首异兽	0	1	BossLeaderDung		34	9013	10	601	160	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																				
+Dungeon_Header_3_1	1768	定海金刚	0	1	BossLeaderDung		40	9020	10	601	153	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																				
+Dungeon_Header_3_2	1769	金翅鹏皇	0	1	BossLeaderDung		36	9021	10	601	160	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																				
+Dungeon_Header_3_3	1770	银角犀皇	0	1	BossLeaderDung		38	9022	10	601	153	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_luwang.ini			1	25	2																				
+Dungeon_Header_4_1	2186	赤睛虎皇	0	1	BossLeaderDung		39	9024	10	601	3346	1	91	1	195	1			Setting/Npc/Ai/fieldboss/80leader_huhuang.ini			1	25	2																		1		
+Dungeon_Header_4_2	2187	撼天熊皇	0	1	BossLeaderDung		37	9023	10	601	3353	1	91	1	195	1			Setting/Npc/Ai/fieldboss/80leader_xionghuang.ini			1	25	2																		1		
+Dungeon_Header_4_3	2188	紫背鳄皇	0	1	BossLeaderDung		41	9025	10	601	3356	1	91	1	195	1			Setting/Npc/Ai/fieldboss/80leader_ehuang.ini			1	25	2																		1		
+Dungeon_Header_5_1	2445	冰鳞蜥皇	0	1	BossLeaderDung		42	9026	10	602	3681	1	91	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xihuang.ini			1	25	2																		1		
+Dungeon_Header_5_2	2446	银钩蝎皇	0	1	BossLeaderDung		43	9027	10	602	3687	1	91	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xiehuang.ini			1	25	2																		1		
+Dungeon_Header_5_3	2447	狂鬃獒皇	0	1	BossLeaderDung		44	9028	10	602	3691	1	91	1	195	1			Setting/Npc/Ai/fieldboss/100leader_aohuang.ini			1	25	2																		1		
+CangbaoTu_Header_lv20_1	1602	寒玉鹿王	0	1	RandomBoss		28	9009	10	602	153	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_luwang.ini			1	25	2																				
+CangbaoTu_Header_lv20_2	1603	大地狼王	0	1	RandomBoss		29	9010	10	602	146	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																				
+CangbaoTu_Header_lv20_3	1604	白眉猴王	0	1	RandomBoss		35	9012	10	602	153	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_langwang.ini			1	25	2																				
+CangbaoTu_Header_lv40_1	1605	奔焰豹王	0	1	RandomBoss		30	9011	10	602	157	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																				
+CangbaoTu_Header_lv40_2	1606	九尾狐王	0	1	RandomBoss		26	9008	10	602	160	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																				
+CangbaoTu_Header_lv40_3	1607	双首异兽	0	1	RandomBoss		475	9012	10	602	160	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																				
+CangbaoTu_Header_lv60_1	1765	定海金刚	0	1	RandomBoss		40	9020	10	602	153	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_baowang.ini			1	25	2																				
+CangbaoTu_Header_lv60_2	1766	金翅鹏皇	0	1	RandomBoss		36	9021	10	602	160	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_huwang.ini			1	25	2																				
+CangbaoTu_Header_lv60_3	1767	银角犀皇	0	1	RandomBoss		38	9022	10	602	153	1	91	1	195	1			Setting/Npc/Ai/fieldboss/20leader_luwang.ini			1	25	2																				
+CangbaoTu_Header_lv80_1	2195	赤睛虎皇	0	1	RandomBoss		39	9024	10	602	3346	1	91	1	195	1			Setting/Npc/Ai/fieldboss/80leader_huhuang.ini			1	25	2																		1		
+CangbaoTu_Header_lv80_2	2196	撼天熊皇	0	1	RandomBoss		37	9023	10	602	3353	1	91	1	195	1			Setting/Npc/Ai/fieldboss/80leader_xionghuang.ini			1	25	2																		1		
+CangbaoTu_Header_lv80_3	2197	紫背鳄皇	0	1	RandomBoss		41	9025	10	602	3356	1	91	1	195	1			Setting/Npc/Ai/fieldboss/80leader_ehuang.ini			1	25	2																		1		
+CangbaoTu_Header_lv100_1	2297	冰鳞蜥皇	0	1	RandomBoss		42	9026	10	602	3681	1	91	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xihuang.ini			1	25	2																		1		
+CangbaoTu_Header_lv100_2	2298	银钩蝎皇	0	1	RandomBoss		43	9027	10	602	3687	1	91	1	195	1			Setting/Npc/Ai/fieldboss/100leader_xiehuang.ini			1	25	2																		1		
+CangbaoTu_Header_lv100_3	2299	狂鬃獒皇	0	1	RandomBoss		44	9028	10	602	3691	1	91	1	195	1			Setting/Npc/Ai/fieldboss/100leader_aohuang.ini			1	25	2																		1		

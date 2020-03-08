@@ -1,0 +1,140 @@
+Id	FaceID	BigFaceID	Faction	Sex	FactionDefault	Name	Level	OpenUi	Icon	IconAtlas	Basic	SaveIdx	Desc
+1	1001	1121	1	1	1	天王	默认		TianWangHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		天王乃「霸王」项羽后人所创建的门派，武学源于战场；其疾如风，其徐如林；侵掠如火，不动如山；难知如阴，动如雷震。
+2	1002	1122	2		1	峨嵋	默认		EmeiHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		峨嵋派自创立之初，便只招收六根清净的女子，欲学峨嵋武学，需内心纯净善良，峨嵋武学绵里藏针，可攻可守，妙用无方。
+3	1003	1123	3		1	桃花	默认		TaoHuaHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		桃花落尽千帆过，火凤燎原几度闻。万里追魂叹弦惊。罗裙渐隐不留痕。\n——《记桃花一现》
+4	1004	1124	4	1	1	逍遥	默认		XiaoYaoHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		逍遥门下尽皆容貌俊美，才智聪慧，除武学外，多有一技旁身，故而逍遥武学，精妙绝伦，静若处子 动若脱兔；如同舞蹈，煞是好看，举手投足，杀人无形。
+5	1005	1125	5	1	1	武当	默认		WuDangHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		武当剑法，讲求刚柔并济，进可剑破云霄，以凌厉刚猛的剑势制敌；退可化剑为圈，将对方的攻势化解于无形之中。
+6	1006	1126	6	2	1	天忍	默认		TianRenHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		天忍门训，以血记之。隐若蛇蛛，不出则以，出则雷火，一击毙敌。\n千里杀一人，十步不留行。
+7	1007	1127	7		1	少林	默认		ShaoLinHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		少林乃武林中历史最为悠久的门派之一，七十二绝技名闻天下，得其一者已是武林高手，门下弟子严守清规。
+8	1008	1128	8		1	翠烟	默认		CuiYanHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		翠烟一门，历来只收女子，且大多年纪较轻，以防受尘世烦扰太多，破坏门规，若要迎娶翠烟门女子，需以一门绝学或一柄神兵为聘礼。
+9	1009	1129	9		1	唐门	默认		TangMenHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		唐门久居巴蜀，规章森严，门下弟子大多深居简出，以暗器、毒药，机关术闻名于世，只有直系子弟方可一窥其中精要，乃武林中屹立数百年的大家族。
+10	1010	1130	10	2	1	昆仑	默认		KunLunHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		昆仑亦是武林中的大门派，以剑法多变闻名于世，立于雪山之巅，故行走中原者甚寡，多在昆仑山附近行动。
+11	1011	1131	11	1	1	丐帮	默认		GaiBangHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		自各门各派创立以来，丐帮便是天下第一大帮，数百年来未曾更改，独门绝学「打狗棒法」及「降龙十八掌」亦为冠绝天下的武功，丐帮弟子生性洒脱，以行乞为生，游戏风尘，故而消息极为灵通。
+12	1012	1132	12		1	五毒	默认		WuDuHead	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		五毒极为神秘，相传五毒教弟子善于御蛊及种毒，若得罪其门下弟子，往往受尽折磨，死无全尸，故五毒之名广为流传，五毒门人内部却自称「五仙教」，尊五毒为「五圣」，近日在江湖中行走的五毒弟子渐多，这个诡秘的门派也渐渐揭开了神秘的面纱
+13	1013	1133	13		1	藏剑	默认		CangJianHead	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		藏剑始于唐朝，就在若干年前，掌门乃卓非凡，此人剑术极高，野心也大，只可惜行事过于狠辣，一世声明毁于一旦，后藏剑直系子弟叶无心重新执掌藏剑，如今藏剑再度崛起，在江湖上颇有势不可挡之势。
+14	1014	1134	14		1	长歌	默认		ChangGeHead	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		长歌始于唐朝，传至今日掌门为柴嵩，以风雅名动江湖，非但门下弟子均乃琴棋书画样样擅长的风雅之人，武功招式亦是优美异常。欲入长歌之门，必有一技之长。
+15	1015	1135	15	1	1	天山	默认		TianShanHead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		天山派极具渊源，自创立之初便固守天山，门下弟子鲜有步入中原，因精于琴技，周边诸国之民欣羡不已，常相互授艺，故两者交好，因而天山弟子异域风情浓厚。
+16	1016	1136	15	2	1	天山	默认		TianShanHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		天山派极具渊源，自创立之初便固守天山，门下弟子鲜有步入中原，因精于琴技，周边诸国之民欣羡不已，常相互授艺，故两者交好，因而天山弟子异域风情浓厚。
+17	1017	1137	16	1	1	霸刀	默认		BaDaoHead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		霸刀门系出王氏望族，盘桓于雍州，渐有狂蛮门风。豪气干云，一掷千金，刀法狂野，悍不畏死。
+18	1018	1138	16	2	1	霸刀	默认		BaDaoHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		霸刀门系出王氏望族，盘桓于雍州，渐有狂蛮门风。豪气干云，一掷千金，刀法狂野，悍不畏死。
+19	1019	1139	5	2	1	武当	默认		WuDangHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		武当剑法，讲求刚柔并济，进可剑破云霄，以凌厉刚猛的剑势制敌；退可化剑为圈，将对方的攻势化解于无形之中。
+20	1020	1140	17	1	1	华山	默认		HuaShanHead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		华山派是武林中声名显赫的名门正派，而华山派的武功尤其是剑术经过百多年的发展，已经形成一整套完善的剑术体系，后又经华山派历代高手的千锤百炼，华山派剑术越发精妙，声震武林，因此华山派又被称为华山剑派。
+21	1021	1141	17	2	1	华山	默认		HuaShanHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		华山派是武林中声名显赫的名门正派，而华山派的武功尤其是剑术经过百多年的发展，已经形成一整套完善的剑术体系，后又经华山派历代高手的千锤百炼，华山派剑术越发精妙，声震武林，因此华山派又被称为华山剑派。
+22	1022	1142	10	1	1	昆仑	默认		KunLunHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		昆仑亦是武林中的大门派，以剑法多变闻名于世，立于雪山之巅，故行走中原者甚寡，多在昆仑山附近行动。
+23	1023	1143	18	1	1	明教	默认		MingJiaoHead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		明教教众行事颇为神秘，与江湖上其他门派交流无多。教众均双持利环，环法繁复，使将起来滴水不漏
+24	1024	1144	18	2	1	明教	默认		MingJiaoHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		明教教众行事颇为神秘，与江湖上其他门派交流无多。教众均双持利环，环法繁复，使将起来滴水不漏
+25	1025	1145	1	2	1	天王	默认		TianWangHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		天王乃「霸王」项羽后人所创建的门派，武学源于战场；其疾如风，其徐如林；侵掠如火，不动如山；难知如阴，动如雷震。
+26	1026	1146	19	1	1	段氏	默认		DuanShiHead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		段氏深受佛学沉浸，大都以行侠仗义，惩奸除恶为己任，江湖上好评颇多，段氏亦名列名门正派之中
+27	1027	1147	19	2	1	段氏	默认		DuanShiHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		段氏深受佛学沉浸，大都以行侠仗义，惩奸除恶为己任，江湖上好评颇多，段氏亦名列名门正派之中
+28	1028	1148	4	2	1	逍遥	默认		XiaoYaoHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		逍遥门下尽皆容貌俊美，才智聪慧，除武学外，多有一技旁身，故而逍遥武学，精妙绝伦，静若处子 动若脱兔；如同舞蹈，煞是好看，举手投足，杀人无形。
+29	1029	1149	20	1	1	万花	默认		Wanhuahead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		万花谷远离朝堂，谷中不问世事，只论风雅
+30	1030	1150	20	2	1	万花	默认		Wanhuahead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		万花谷远离朝堂，谷中不问世事，只论风雅
+31	1031	1151	11	2	1	丐帮	默认		Gaibanghead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		自各门各派创立以来，丐帮便是天下第一大帮，数百年来未曾更改，独门绝学「打狗棒法」及「降龙十八掌」亦为冠绝天下的武功，丐帮弟子生性洒脱，以行乞为生，游戏风尘，故而消息极为灵通。
+32	1032	1152	21	1	1	杨门	默认		YangMenHead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		杨门世为宋将，人人以保大宋江山为己任，国事重于一切。金盔银甲，手持长枪，背悬强弓，体型健硕，龙行虎步。
+33	1033	1153	21	2	1	杨门	默认		YangMenHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		杨门世为宋将，人人以保大宋江山为己任，国事重于一切。金盔银甲，手持长枪，背悬强弓，体型健硕，龙行虎步。
+34	1034	1154	6	1	1	天忍	默认		TianRenHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab	1		天忍门训，以血记之。隐若蛇蛛，不出则以，出则雷火，一击毙敌。\n千里杀一人，十步不留行。
+50	814	101		2		-	紫衣妹子		FemaleHead01	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+51	813	102		2		-	丝巾妹子		FemaleHead02	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+52	821	103		2		-	B		FemaleHead03	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+53	707	104		2		赵无双	A		FemaleHead04	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		赵氏千金，风雪山庄庄主赵升权之女。
+54	705	105		2		月明瑶	A		FemaleHead05	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		纳兰真、月眉儿的母亲，样貌妩媚，与上官飞龙相互喜欢，却迫于家父之命嫁给纳兰潜凛。
+55	720	106		2		无想	A		FemaleHead06	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		峨嵋派杰出弟子，出身贫苦家庭，性格温婉贤淑，希望能够为世间疾苦自己的一份力量。衣着较为朴素干净。
+56	819	107		2		-	白发杨瑛		FemaleHead07	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+57	719	108		2		李恬儿	?		FemaleHead08	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+58	815	109		2		-	蓝色桃花		FemaleHead09	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+59	702	110		2		秦沐白	A		FemaleHead10	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+60	820	111		2		-	家园管理员		FemaleHead11	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+61	817	112		2		曲霞	蓝衣马尾		FemaleHead12	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+62	712	113		2		纳兰真	A		FemaleHead13	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		无忧教教主纳兰潜凛之女，月眉儿的孪生妹妹，从小居于忘忧岛。本是天真烂漫的少女，无忧无虑，却因杨影枫的出现而卷入了风波。
+63	816	114		2		-	秦良玉		FemaleHead14	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		1	来历神秘的女子，无人知晓她的来历……
+64	851	115		2		何暮雪	旧月眉儿		FemaleHead15	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		来历神秘的女子，无人知晓她的来历……
+65	718	116		2		黄暮云	S		FemaleHead16	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		2	桃花岛主，其父取桃花岛两套武学各一字而成的名字，希望桃花岛能够在黄暮云的带领下发扬光大，黄暮云也并未让人失望，江湖盛传，黄暮云已是天下间武功最高的几名女子之一，更是天下第一才女，博学多才，奇门八卦、天文地理均有所涉猎。
+66	710	117		2		杨瑛	S		FemaleHead17	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		3	英气逼人的巾帼女侠，性格冷傲，昔日年轻气盛，曾以一己之力攻破守卫森严的禁卫大牢，如今已有多年未曾出现在江湖上，只怕武功更是高深莫测！
+67	703	118		2		蔷薇	S		FemaleHead18	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		武林盟主孟知秋的掌上明珠，性情刁蛮。在遇到杨影枫后，被其打动和拯救，深深的爱上了他。
+68	709	119		2		苏墨芸	A		FemaleHead19	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		落叶谷谷主收养的明珠，自小娇生惯养，故而性格自我霸道，武功颇高，只在乎自己而不在意他人。
+69	708	120		2		紫轩	B		FemaleHead20	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		身世迷离，传言其幼时被拐卖，后被卓非凡赎下，成为其妾。仪态动人，面容清秀，性格柔顺，对卓非凡有倾慕之意，但更多的是报恩之心，对他说的话言听计从。卓非凡指使其引诱杨影枫以套出「武道德经」所在，不料反因杨影枫处处关怀，对其动心。
+70	711	121		2		秋依水	S		FemaleHead21	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		翠烟门门主，性格刚烈，敢爱敢恨，和恋人唐影（唐门大公子）之间的爱情历经坎坷，在南宫飞云帮助下二人终成眷属。后被天忍教护教使邵骑风用计擒住，被南宫飞云救下。
+71	716	122		2		月眉儿	S		FemaleHead22	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		4	飞龙堡少堡主，纳兰真的孪生姐姐，个性倔强。幼年时目睹父亲被迫与杨熙烈比武身亡，母亲自尽，不得不在小小的年龄即独自撑起飞龙堡，深恨杨影枫，一心杀死杨影枫为父母报仇，却在不知情的情况下被杨影枫出手相救两次，心里对杨影枫爱恨交加。
+72	30	130		2		江湖新秀·女	S		FemaleHead32	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		27	通过特定途径产出，作为对某些出类拔萃的江湖新秀的奖励
+73	32	131		2		元宵	S		FemaleHead34	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		31	元宵节活动中获得的奖励
+74	33	132		2		女神	S		FemaleHead35	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		33	女侠节期间武林知己印象签活动获得的奖励，象征着自己在好友心中的女神印象。
+75	41	140		2		元宵	S		FemaleHead43	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		53	元宵节活动中获得的奖励
+76	42	141		2		玉女	S		FemaleHead44	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		55	泛舟江湖情人结活动中获得的奖励
+77	43			2		婚礼-女	S		HunShanHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		59	来历神秘的女子，无人知晓她的来历……
+78	44			2		军装-女	S		Junzhuanghead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		60	家族评选活动中，决赛十强家族全体成员获得的奖励。
+79	45			2		燕子-女	S		Yanzihead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		61	购买「充值返利礼包」最后一层后所绘的画像
+100	611	301		1		唐影	S		MaleHead01	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		四川唐门门主唐离之子，唐门少门主。武功高强，性格温良，与翠烟门主秋依水互相爱慕，后被天忍教护教使邵骑风用计擒住，被南宫飞云救下。
+101	644	302		1		杨铁心	S		MaleHead02	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		天王帮前任左使、「八臂猿」古柏之子，后被天王帮帮主杨瑛收为义子，之后更被杨瑛任命为天王帮新一任的帮主。为人谦恭有礼，心存忠义，极有才干，但有时却因过于渴望建功立业而显得冲动鲁莽。武功高强，枪、锤法尤为精湛。
+102	622	303		1		孟知秋	S		MaleHead03	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		武林盟主，藏剑山庄第一任的外姓庄主，蔷薇之父。武功极高，江湖上已无多少人能与之比剑，为人沉稳，相信只要心怀大志，无论是否姓叶，均可将藏剑山庄武学、名剑发扬光大，错信卓非凡，几乎导致藏剑山庄一蹶不振。
+103	818	304		1		-	?		MaleHead04	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		神秘的青年，无人知晓其来历……
+104	617	305		1		-	锦衣卫		MaleHead05	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		衣冠华丽，英俊潇洒，武功不凡，然而一身装扮却不像是江湖中人，他究竟是……
+105	649	306		1		商会老板	?		MaleHead06	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		天下第一富商，富可敌国，眼光毒辣，有不少人都在打他的主意，却从未有人能够伤他分毫，这个看上去精明狡诈的胖子，总有一种让人摸不透的感觉。
+106	610	307		1		南宫飞云	SS		MaleHead07	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		5	神秘的青年，无人知晓其来历……
+107	613	308		1		小殷方	B		MaleHead08	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		殷童之兄，几岁时父母为救好友，为正派中的「大侠」所杀，自此对大侠二字极为反感，立誓不为任何侠客医治伤病。
+108	635	309		1		赵云	SS		MaleHead09	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		6	神秘的青年，无人知晓其来历……
+109	607	310		1		上官飞龙	S		MaleHead10	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		月眉儿之父，飞龙堡前堡主，江湖人称「北上官，南熙烈」的武林两大使剑高手之一，为人成熟稳重，不喜争斗，剑法也是走的沉稳一路，招式环环相扣，使敌人不知不觉陷入绝地。在凌绝峰被迫接受杨熙烈的挑战，两人全力相斗，双双殒命。
+110	647	311		1		-	B		MaleHead11	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		神秘的青年，无人知晓其来历……
+111	626	312		1		纳兰潜凛	SS		MaleHead12	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		无忧教当代教主，纳兰真及月眉儿的父亲，是个彻头彻尾的野心家，为了自己的目的而不择手段，罔顾亲情爱情，弑师害兄，最终独霸无忧教，其境界高深武功更是出神入化，一直觊觎「武道德经」。
+112	648	313		1		刘云	?		MaleHead13	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		朝廷官员，身怀一颗安定天下之心，然而却没有找到能够让自己施展抱负的途径。
+113	627	314		1		张如梦	?		MaleHead14	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		南宫彩虹的恋人，“飞剑客”张风之子，张琳心兄长。一心拯救家国，却与仇人爱恨纠葛，只能以酒买醉。剑门关与南宫彩虹一战后，放下一切包袱，与其隐居大漠。育有一子，取名南宫飞云。
+114	601	315		1		天星道长	A		MaleHead15	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		居于落叶谷的武林名宿，孟知秋的好友，年岁渐长却一直膝下无人，后偶然拾到苏墨芸，故对其极为疼爱，一直视为掌上明珠。
+115	642	316		1		祝子虚	S		MaleHead16	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		7	逍遥派掌门，性格放荡不羁，不喜拘束，喜欢四处闯荡，与武林中不少青年高手均有交手记录，又因颇为英俊，故在江湖中名气和人气均极高。
+116	643	317		1		柳潇庭	A		MaleHead17	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		逍遥派新晋弟子，年少轻狂，性格洒脱，天赋极佳，逍遥派上下均认为，假以时日，此子必将成为逍遥派，乃至江湖中的顶尖人物。
+117	628	318		1		卓非凡	A		MaleHead18	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		藏剑山庄当代庄主，交游广阔，武林中少见的人物，年纪轻轻，非但武功卓绝，年轻一辈中剑法已是数一数二，且心怀大略，希望藏剑山庄能够一统武林！
+118	620	319		1		高长恭	S		MaleHead19	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		8	兰陵王，文武双全，有「战神」之称，高长恭认为自己相貌过于柔美，不足以威摄敌人，因此每每佩戴一个狰狞的面具上战场。
+119	603	320		1		哲别	S		MaleHead20	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		9	神射手，弓术惊人，本身便已是弓术宗师，后来习得弩技让自己的技艺更上一层楼，已无弓弩之分，飞花摘叶均可为矢。
+120	606	321		1		袁承志	S		MaleHead21	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		10	名将袁崇焕之子，心怀天下然而性格，阅历均有所不足，最后离开前往海外小岛隐居。
+121	609	322		1		鳌拜	S		MaleHead22	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		11	大清勇士，擅长摔跤，近身搏斗之术，能够以一人之力轻易对付皇帝手下数十名摔跤高手。
+122	608	323		1		胡神医	SS		MaleHead23	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		隐居药王谷的盖世神医，性情古怪，一心专研医术，手上武功平常，但下毒用毒的功夫一流。
+123	645	324		1		封玉书	A		MaleHead24	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		神秘的青年，无人知晓其来历……
+124	630	325		1		杨影枫	SS		MaleHead25	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		12	悲魔山庄庄主，人称「悲魔剑圣」，「北上官，南熙烈」中杨熙烈之子，天资卓越。遵父亲遗命立志成为天下第一，后被卓非凡算计打下山崖，被纳兰真救起后两人互生情愫，后习得「武道德经」，肩负平息武林纷争的重担。
+125	604	326		1		玄天道人	?		MaleHead26	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		13	神秘人物，不知从何处得到「武道德经」，为了平息江湖纷争， 玄天道人以神秘莫测的武功击败众人， 而据受其指点的天星道长透露，玄天道人的武功则是出自这「武道德经」之中。
+126	612	327		1		耶律辟离	A		MaleHead27	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		天忍教右护法，金国人，为人狂妄自负，卑鄙阴险，武功颇高。耶律辟离忠心耿耿，加之行事缜密，几乎从未失手，因此深受完颜洪烈的赏识，天忍教需要隐秘完成的事务多由他出马，甚至完颜洪烈的一些家事都是交由他去办，是完颜洪烈的得力助手。
+127	605	328		1		黑面郎君	S		MaleHead28	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		14	神秘的青年，无人知晓其来历……
+128	602	329		1		萧动尘	B		MaleHead29	UI/Atlas/Head/HomeScreenHeadAtlas.prefab	1		守护无忧教禁地的精英教徒，常年幽居，性格大变，对无忧教及纳兰潜凛有近乎狂热的信仰。
+129	237	337		1		江湖新秀·男	SS		MaleHead50	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		28	通过特定途径产出，作为对某些出类拔萃的江湖新秀的奖励
+130	239	338		1		东方朔	SS		MaleHead52	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		32	元宵节活动中获得的奖励
+131	240	339		1		万金财	?		MaleHead53	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		35	
+133	242	341		1		天星道长	S		MaleHead55	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		37	
+134	243	342		1		胡神医	B		MaleHead56	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		38	
+135	250	349		1		东方朔	S		MaleHead63	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		54	元宵节活动中获得的奖励
+136	251	350		1		金童	S		MaleHead64	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		56	泛舟江湖情人结活动中获得的奖励
+137	254			1		婚礼-男	S		HunShanHead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		62	神秘的青年，无人知晓其来历……
+138	255			1		军装-男	S		Junzhuanghead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		63	家族评选活动中，决赛十强家族全体成员获得的奖励。
+139	256			1		燕子-男	S		Yanzihead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		64	购买「充值返利礼包」最后一层后所绘的画像
+200	232	332		1		武林十大美人（？）	新天王		MaleHead41	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		15	参加「武林第一美女评选」活动成为全区全服十大美人后所绘的画像。\n\n嗯？似乎有一点不对劲？
+201	23	123		2		国色天香	新峨嵋		FemaleHead25	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		16	参加「武林第一美女评选」全区全服竞选活动成得到众多侠士支持后所绘的画像
+202	26	126		2		本服第一美人	新桃花		FemaleHead28	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		17	参加「武林第一美女评选」活动成为本服第一美人后所绘的画像
+203	234	334		1		国色天香	新逍遥		MaleHead43	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		18	参加「武林第一美女评选」全区全服竞选活动成得到众多侠士支持后所绘的画像\n\n此人只应天上有，人间哪得几回闻！咳咳。
+204	233	333		1		本服第一美人（？）	新武当		MaleHead42	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		19	参加「武林第一美女评选」活动成为本服第一美人后所绘的画像。\n\n相信自己，你是最美的！
+205	27	127		2		武林十大美人	新天忍		FemaleHead29	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		20	参加「武林第一美女评选」活动成为全区全服十大美人后所绘的画像
+206	230	330		1		本服十大美人（？）	新少林		MaleHead44	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		21	参加「武林第一美女评选」活动成为本服十大美人后所绘的画像。\n\n常言道的好！自古巾帼不让须眉！
+207	24	124		2		秋水伊人	新翠烟		FemaleHead26	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		22	参加「武林第一美女评选」本服竞选活动得到众多江湖侠士支持后所绘的画像
+208	231	331		1		秋水伊人（？）	新唐门		MaleHead40	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		23	参加「武林第一美女评选」本服竞选活动得到众多江湖侠士支持后所绘的画像\n\n所谓伊人，在水一方！我也方了！
+209	25	125		2		本服十大美人	新昆仑		FemaleHead27	UI/Atlas/Head/HomeScreenHeadAtlas.prefab		24	参加「武林第一美女评选」活动成为本服十大美人后所绘的画像
+210	28	128		2		颖宝宝绘像			FemaleHead30	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		25	女侠颖宝宝的绘像，通过参加「颖宝宝/林更新比武招亲」、开启「新颖小筑夺回战」获得
+211	235	335		1		林更新绘像			MaleHead46	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		26	少侠林更新的绘像，通过参加「颖宝宝/林更新比武招亲」、开启「新颖小筑夺回战」获得
+212	31	128		2		颖宝宝明星头像			Head_npc_213	UI/Atlas/Head/Partner/Partner_Female_02.prefab		29	
+213	238	335		1		林更新明星头像			Head_npc_212	UI/Atlas/Head/Partner/Partner_Male_04.prefab		30	
+214	34	133		2		娓娓动听			FemaleHead36	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		34	参加「剑侠好声音」本服竞选活动得到众多江湖侠士支持后所绘的画像
+215	35	134		2		好声音本服十强			FemaleHead37	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		41	参加「剑侠好声音」活动成为本服十强后所绘的画像
+216	36	135		2		好声音复赛前三			FemaleHead38	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		42	参加「剑侠好声音」活动成为复赛各赛区前三后所绘的画像
+217	37	136		2		好声音全服十强			FemaleHead39	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		43	参加「剑侠好声音」活动成为全区全服十强后所绘的画像
+218	38	137		2		好声音全服冠军			FemaleHead40	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		44	参加「剑侠好声音」活动成为全区全服冠军后所绘的画像
+219	245	344		1		余音袅袅			MaleHead58	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		40	参加「剑侠好声音」本服竞选活动得到众多江湖侠士支持后所绘的画像
+220	244	343		1		好声音本服十强			MaleHead57	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		39	参加「剑侠好声音」活动成为本服十强后所绘的画像
+221	241	340		1		好声音复赛前三			MaleHead54	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		36	参加「剑侠好声音」活动成为复赛各赛区前三后所绘的画像
+222	246	345		1		好声音全服十强			MaleHead59	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		45	参加「剑侠好声音」活动成为全区全服十强后所绘的画像
+223	247	346		1		好声音全服冠军			MaleHead60	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		46	参加「剑侠好声音」活动成为全区全服冠军后所绘的画像
+224	28	128		2		颖宝宝签名海报			FemaleHead30	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		47	线下奖励-颖宝宝的签名海报
+225	235	335		1		林更新签名海报			MaleHead46	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		48	线下奖励-林更新的签名海报
+226	39	138		2		越土之魂萝莉			FemaleHead41	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		49	「越土之魂」特有的画像萝莉
+227	40	139		2		越土之魂标女			FemaleHead42	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		50	「越土之魂」特有的画像标女
+228	248	347		1		越土之魂壮男			MaleHead61	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		51	「越土之魂」特有的画像壮男
+229	249	348		1		越土之魂标男			MaleHead62	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		52	「越土之魂」特有的画像标男
+230	252			1		水龙吟绘像			MaleHead65	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		57	开启「游龙福禄宝箱」最后一层后所绘的画像
+231	253			2		水龙吟绘像			FemaleHead45	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		58	开启「游龙福禄宝箱」最后一层后所绘的画像
+232	257	351		1		越南宠物活动头像			UtcungHead	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		65	「宠物活动」特有的画像
+233	257	351		2		越南宠物活动头像			UtcungHead	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		66	「宠物活动」特有的画像
+234	258			1		故梦绘像			TeXiaoHead1	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		67	参与「武勋密令」获得的画像
+235	259			2		故梦绘像			TeXiaoHead2	UI/Atlas/Head/HomeScreenHeadAtlas02.prefab		68	参与「武勋密令」获得的画像

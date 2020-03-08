@@ -1,0 +1,22 @@
+ProductId	szDesc	szServiceCode	nLastingDay	nMoney	szMoneyType	nNeedVipLevel	szAward	szFirstAward	szThirdAward	szFourthAward	szFifthAward	szGroup	nGroupIndex	szVersion	nEndTimeKey	nBuyDayKey	szSprite	szFirstDesc	szNoromalDesc	Plat
+se.jq.10rmb	10000元宝			1000	RMB		Gold|10000	Gold|20000				BuyGold	1	version_xm			Recharge_00	首冲双倍	10000元宝	
+se.jq.50rmb	50000元宝			5000	RMB		Gold|50000	Gold|100000				BuyGold	2	version_xm			Recharge_02	首冲双倍	50000元宝	
+se.jq.100rmb	100000元宝			10000	RMB		Gold|100000	Gold|200000				BuyGold	3	version_xm			Recharge_03	首冲双倍	100000元宝	
+se.jq.200rmb	200000元宝			20000	RMB		Gold|200000	Gold|400000				BuyGold	4	version_xm			Recharge_04	首冲双倍	200000元宝	
+se.jq.300rmb	300000元宝			30000	RMB		Gold|300000	Gold|600000				BuyGold	5	version_xm			Recharge_05	首冲双倍	300000元宝	
+se.jq.500rmb	500000元宝			50000	RMB		Gold|500000	Gold|1000000				BuyGold	6	version_xm			Recharge_06	首冲双倍	500000元宝	
+se.jq.1000rmb	1000000元宝			100000	RMB		Gold|1000000	Gold|2000000				BuyGold	7	version_xm			Recharge_06	首冲双倍	1000000元宝	
+se.jq.1500rmb	1500000元宝			150000	RMB		Gold|1500000	Gold|3000000				BuyGold	8	version_xm			Recharge_06	首冲双倍	1500000元宝	
+se.jq.2000rmb	2000000元宝			200000	RMB		Gold|2000000	Gold|4000000				BuyGold	9	version_xm			Recharge_06	首冲双倍	2000000元宝	
+com.jdjxqy.DaysCard7	周卡		7	1800	RMB		Gold|5000					DaysCard	1	version_tw	7		Recharge_09	每日领3000元宝立得5000元宝	周卡	
+com.jdjxqy.DaysCard30	月卡		30	3000	RMB		Gold|2000					DaysCard	2	version_tw	2		Recharge_10	每日领1800元宝立得2000元宝	月卡	
+com.jdjxqy.gift10	十元礼包	daycard	1	1000	RMB		item|1242|1;Gold|1000					DayGift	1	version_xm	11	13		十元礼包	十元礼包	
+com.jdjxqy.gift30	三十元礼包	daycard3	1	3000	RMB		item|2518|1;Gold|3000					DayGift	2	version_xm	16	14		三十元礼包	三十元礼包	
+com.jdjxqy.gift60	六十元礼包	daycard6	1	6000	RMB		item|2519|1;Gold|6000					DayGift	3	version_xm	17	15		六十元礼包	六十元礼包	
+se.jq.100rmb.ls	40000黎饰			10000	RMB		SilverBoard|40000					DressMoney	1	version_xm						
+se.jq.500rmb.ls	200000黎饰			50000	RMB		SilverBoard|200000					DressMoney	2	version_xm						
+se.jq.1000rmb.ls	400000黎饰			100000	RMB		SilverBoard|400000					DressMoney	3	version_xm						
+hk.jxqy.38rmb.YearGiftg	价值38元礼包		30	3800	RMB		item|998137|1					YearGift	1	version_xm	40	41			价值38元礼包	
+hk.jxqy.68rmb.YearGiftg	价值68元礼包		30	6800	RMB		item|998138|1					YearGift	2	version_xm	42	43			价值68元礼包	
+hk.jxqy.128rmb.YearGiftg	价值128元礼包		30	12800	RMB		item|998139|1					YearGift	3	version_xm	44	45			价值128元礼包	
+hk.jxqy.168rmb.YearGiftg	价值168元礼包		30	16800	RMB		item|998140|1					YearGift	4	version_xm	46	47			价值168元礼包	

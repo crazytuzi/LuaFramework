@@ -1,0 +1,15 @@
+taoshu	4504	2670
+taoshu	4375	2312
+taoshu	4330	2001
+taoshu	4974	1384
+taoshu	5521	1604
+huchi	4452	2608
+huchi	4587	2678
+huchi	4322	2244
+huchi	4425	2384
+huchi	4348	2084
+huchi	4326	1947
+huchi	4897	1389
+huchi	5068	1386
+huchi	5598	1647
+huchi	5477	1551

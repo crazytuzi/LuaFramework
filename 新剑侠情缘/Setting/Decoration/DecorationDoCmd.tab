@@ -1,0 +1,51 @@
+nDecorationId	Desc	nTypeId	bSaveType	szCmd1	szCmd2	szCmd3	szCmd4	szCmd5
+5010	月上柳梢头：点灯	0	1	SetActive|0|light|1	ChangeShader|10|cj_luoyang_dengzhu02|FTGame/CommonNpc			
+5010	月上柳梢头：灭灯	-1	0	SetActive|0|light|0	ChangeShader|0|cj_luoyang_dengzhu02|FTGame/ObjRep			
+5012	花岗石灯	0	1	SetActive|0|light|1	ChangeShader|10|sy_ludeng03_d|FTGame/CommonNpc			
+5012	花岗石灯	-1	0	SetActive|0|light|0	ChangeShader|0|sy_ludeng03_d|FTGame/ObjRep			
+5013	云纹镶金石灯	0	1	SetActive|0|light|1	ChangeShader|10|sy_ludeng02_d|FTGame/CommonNpc			
+5013	云纹镶金石灯	-1	0	SetActive|0|light|0	ChangeShader|0|sy_ludeng02_d|FTGame/ObjRep			
+3501	松木灯	0	1	SetActive|0|light|1	ChangeShader|10|sn_jiayuan_deng01_01_d|FTGame/CommonNpc			
+3501	松木灯	-1	0	SetActive|0|light|0	ChangeShader|0|sn_jiayuan_deng01_01_d|FTGame/ObjRep			
+3502	桦木灯	0	1	SetActive|0|light|1	ChangeShader|10|sn_jiayuan_deng02_01_d|FTGame/CommonNpc			
+3502	桦木灯	-1	0	SetActive|0|light|0	ChangeShader|0|sn_jiayuan_deng02_01_d|FTGame/ObjRep			
+3503	墨香灯	0	1	SetActive|0|light|1	ChangeShader|10|sn_jiayuan_deng03_01_d|FTGame/CommonNpc			
+3503	墨香灯	-1	0	SetActive|0|light|0	ChangeShader|0|sn_jiayuan_deng03_01_d|FTGame/ObjRep			
+3504	幻彩流光灯	0	1	SetActive|0|light|1	ChangeShader|10|sn_jiayuan_deng04_01_d|FTGame/CommonNpc			
+3504	幻彩流光灯	-1	0	SetActive|0|light|0	ChangeShader|0|sn_jiayuan_deng04_01_d|FTGame/ObjRep			
+3505	紫檀鎏金灯	0	1	SetActive|0|light|1	ChangeShader|10|sn_jiayuan_deng05_01_d|FTGame/CommonNpc			
+3505	紫檀鎏金灯	-1	0	SetActive|0|light|0	ChangeShader|0|sn_jiayuan_deng05_01_d|FTGame/ObjRep			
+3516	墨绿环首灯	0	1	SetActive|0|light|1	ChangeShader|10|sn_jiayuan_deng06_01_d|FTGame/CommonNpc			
+3516	墨绿环首灯	-1	0	SetActive|0|light|0	ChangeShader|0|sn_jiayuan_deng06_01_d|FTGame/ObjRep			
+3517	青翠双翼灯	0	1	SetActive|0|light|1	ChangeShader|10|sn_jiayuan_deng07_01_d|FTGame/CommonNpc			
+3517	青翠双翼灯	-1	0	SetActive|0|light|0	ChangeShader|0|sn_jiayuan_deng07_01_d|FTGame/ObjRep			
+4501	孩童秋千：秋千摇摆幅度	0	0	PlayAnimation|0|a02|4|1|1				
+4505	月明花影	0	0	PlayAnimation|0|a02|4|1|1				
+501	松木橱柜：开柜	0	1	SetActive|0|sn_jiayuan_guizi01_01_k|1	SetActive|0|sn_jiayuan_guizi01_01|0			
+501	松木橱柜：关柜	-1	0	SetActive|0|sn_jiayuan_guizi01_01_k|0	SetActive|0|sn_jiayuan_guizi01_01|1			
+502	桦木橱柜	0	1	SetActive|0|sn_jiayuan_guizi02_01_k|1	SetActive|0|sn_jiayuan_guizi02_01|0			
+502	桦木橱柜	-1	0	SetActive|0|sn_jiayuan_guizi02_01_k|0	SetActive|0|sn_jiayuan_guizi02_01|1			
+503	墨香橱柜	0	1	SetActive|0|sn_jiayuan_guizi03_01_k|1	SetActive|0|sn_jiayuan_guizi03_01|0			
+503	墨香橱柜	-1	0	SetActive|0|sn_jiayuan_guizi03_01_k|0	SetActive|0|sn_jiayuan_guizi03_01|1			
+504	幻彩流光橱柜	0	1	SetActive|0|sn_jiayuan_guizi04_01_k|1	SetActive|0|sn_jiayuan_guizi04_01|0			
+504	幻彩流光橱柜	-1	0	SetActive|0|sn_jiayuan_guizi04_01_k|0	SetActive|0|sn_jiayuan_guizi04_01|1			
+505	紫檀鎏金橱柜	0	1	SetActive|0|sn_jiayuan_guizi05_01_k|1	SetActive|0|sn_jiayuan_guizi05_01|0			
+505	紫檀鎏金橱柜	-1	0	SetActive|0|sn_jiayuan_guizi05_01_k|0	SetActive|0|sn_jiayuan_guizi05_01|1			
+4512	桦木鼓架	0	0	PlaySound|0|1005|2600	SetActive|0|sy_yueqi04_dianji|0	SetActive|0|sy_yueqi04_dianji|1		
+4513	燕语	0	0	PlaySound|0|1006|2600	PlayAnimation|0|a02|4|1|1	SetActive|0|sy_yueqi01_dianji|0	SetActive|0|sy_yueqi01_dianji|1	
+4514	编钟	0	0	PlaySound|0|1007|2600	PlayAnimation|0|a02|4|1|1	SetActive|0|sy_yueqi02_dianji|0	SetActive|0|sy_yueqi02_dianji|1	
+4515	遏云	0	0	PlaySound|0|1004|2600	PlayAnimation|0|a02|4|1|1	SetActive|0|sy_yueqi03_dianji|0	SetActive|0|sy_yueqi03_dianji|1	
+3015	铜雀香炉	0	1	SetActive|0|sn_jiayuan_xianglu04s_yanwu|1				
+3015	铜雀香炉	-1	0	SetActive|0|sn_jiayuan_xianglu04s_yanwu|0				
+3016	玉莲香炉	0	1	SetActive|0|sn_jiayuan_xianglu02s_yanwu|1				
+3016	玉莲香炉	-1	0	SetActive|0|sn_jiayuan_xianglu02s_yanwu|0				
+3017	熟铜香炉	0	1	SetActive|0|sn_jiayuan_xianglu01s_yanwu|1				
+3017	熟铜香炉	-1	0	SetActive|0|sn_jiayuan_xianglu01s_yanwu|0				
+3018	七绣云香	0	1	SetActive|0|sn_jiayuan_xianglu03s_yanwu|1				
+3018	七绣云香	-1	0	SetActive|0|sn_jiayuan_xianglu03s_yanwu|0				
+3019	翠玉炉衬紫金葫芦	0	1	SetActive|0|sn_jiayuan_xianglu05s_yanwu|1				
+3019	翠玉炉衬紫金葫芦	-1	0	SetActive|0|sn_jiayuan_xianglu05s_yanwu|0				
+10031	音乐盒	0	0	PlayHelpVoice|0|Setting/NpcVoice/Furniture/MusicBox06.voice|2600	BlackMsg|0|优美柔和，清声婉转。[FFFE0D]获得途径：「剑侠好声音」复赛中获得名次[-]			
+10032	琵琶	0	0	PlayHelpVoice|0|Setting/NpcVoice/Furniture/PiPa05.voice|2600	BlackMsg|0|[FF69B4]「剑侠好声音」[-]青睐队员前十			
+10033	助威造势	0	0	PlayHelpVoice|0|Setting/NpcVoice/Furniture/DaTangGu03.voice|2600	BlackMsg|0|气势磅礴，响彻云霄。[FF69B4]获得途径：「剑侠好声音」投票榜前十[-]			
+10034	天音鸣凤	0	0	PlayHelpVoice|0|Setting/NpcVoice/Furniture/KongHou02.voice|2600	BlackMsg|0|天籁之音，声如鸣凤。[FF69B4]获得途径：「剑侠好声音」决赛前三[-]			

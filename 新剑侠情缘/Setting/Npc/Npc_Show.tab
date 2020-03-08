@@ -1,0 +1,23 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	DefaultDialog	WalkSpeed	NameColor	Experience	FixExperience	GouHuoRate	IsNotBYStealLife	IsNotShowShadow	SyncFirst	TransBossNpcTID	TransBossRate	Sex
+Show_Guard	677	卫兵	0	1			150	200	300		901	22	1					1500	1500	Setting/Npc/Ai/KeepMoving.ini				18	3									12										
+House_Spokesperson_Lgx	2328	林更新	2	0	ProlocutorNpcInHouse		1179	200	300		901	22	1	1696	1			1500	1500					18	3								我有酒，你有故事吗？	12										
+House_Spokesperson_Zly	2329	颖宝宝	2	0	ProlocutorNpcInHouse		1178	200	300		901	22	1	1697	1			1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+DrinkHouse_fuzi	3432	福字	5	0			3432	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+DrinkHouse_fuzi1	3433	福字	5	0			3433	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+DrinkHouse_bianpao1	3434	鞭炮	5	0			3434	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+DrinkHouse_bianpao2	3435	鞭炮	5	0			3435	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+DrinkHouse_denglong	3436	灯笼	5	0			3436	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+DrinkHouse_nianyefan	3437	桌子	5	0			3437	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+DrinkHouse_yuanbao	3438	元宝	5	0			3438	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_lihe1	3689	礼盒	5	0			3689	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_lihe2	3690	礼盒	5	0			3690	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_lihe3	3691	礼盒	5	0			3691	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_lihe4	3692	礼盒	5	0			3692	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_lihe5	3693	礼盒	5	0			3693	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_lihe6	3694	礼盒	5	0			3694	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_jiutan1	3695	酒坛	5	0			3695	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_jiutan2	3696	酒坛	5	0			3696	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_jiutan3	3697	酒坛	5	0			3697	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_jiutan4	3698	酒坛	5	0			3698	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_jiutan5	3699	酒坛	5	0			3699	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										
+Zhounianqing_huadeng	3700	花灯	5	0			3700	200	300		901							1500	1500					18	3								原本都是一粒沙，被人宠爱，所以才变得珍贵，岁月打磨，终成珍珠	12										

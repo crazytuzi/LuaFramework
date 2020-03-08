@@ -1,0 +1,4 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+daiyanren_1	寂	5002	1668		1	30	4700	4000	0	-1	0	0		0	0	0	0	0	0	0	0
+daiyanren_2	寞	5003	1669		1	30	4200	3960	0	-1	0	0		0	0	0	0	0	0	0	0
+daiyanren_3			104		1	30	2770	5340	3	-1	0	0		0	0	0	0	0	0	0	0

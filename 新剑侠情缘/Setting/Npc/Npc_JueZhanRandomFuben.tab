@@ -1,0 +1,204 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	AuraSkillId	AuraSkillLevel	StartActEvent	TitleID	BigFaceID	Tag	DropType	DefaultDialog	WalkSpeed	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	IsNotShowShadow	FixExperience	SyncFirst	IsNotBYStealLife	Sex
+JZ_A_1_enemy_1	3467	蒙面刺客	0	1	FubenDeath		174	200		314	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_A_1_enemy_2	3468	泼皮	0	1	FubenDeath		173	200		314	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_A_1_enemy_3	3469	刺客	0	1	FubenDeath		124	200		314	40	1	91	1			550	850	Setting/Npc/Ai/RangeActive.ini			1	18	1											1								1	
+JZ_A_1_enemy_fanshegh	3470	旗帜	0	1	FubenDeath		466	200		345	22	1	91	1	2398	1						1	18	2	1				3004		NoTurn				3								1	
+JZ_A_1_npc_1	3471	紫轩	0	0	FubenDeath		131	200		331	40	1	52	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	20	1											4								1	
+JZ_A_2_enemy_1	3472	疯和尚	0	1	FubenDeath		163	200		314	1874	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_A_2_enemy_2	3473	降头术士	0	1	FubenDeath		137	200		314	40	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss22.ini			1	18	1											3								1	
+JZ_A_2_Leader_1	3474	无相	0	1	FubenDeath		451	200		331	2925	1	2439	1	91	1	1500	1500	Setting/Npc/Ai/random/wuxiang.ini	3		1	20	2								1			5								1	
+JZ_A_2_npc_1	3475	陆文龙	0	1	FubenDeath		617	200		332	2924	1	2486	1	91	1	1000	1000	Setting/Npc/Ai/CommonSkill.ini	3		1	18	2								1			4								1	
+JZ_A_3_enemy_1	3476	猛虎	0	1	FubenDeath		114	200		313	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_A_3_enemy_2	3477	猛虎·精英	0	1	FubenDeath		114	200		322	22	1	2443	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2		1535	1		3000						3								1	
+JZ_A_3_enemy_3	3478	火狐	0	1	FubenDeath		110	200		312	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1											1								1	
+JZ_A_3_enemy_gongjigh	3479	火狐·精英	0	1	FubenDeath		110	200		314	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	20	2		1503	4		3002						3								1	
+JZ_A_3_enemy_huifugh	3480	蝎子	0	1	FubenDeath		109	200		312	22	1	91	1	2418	3	1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1					3003						1								1	
+JZ_A_3_enemy_shibao	3481	蝎子·精英	0	1	FubenDeath		109	200		321	22	1	2418	3	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2					3003						3								1	
+JZ_A_3_npc_1	3482	赵无双	0	0	FubenDeath		127	200		323	39	1	44	1			1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	1											4								1	
+JZ_A_3_npc_gouhuo	3483	篝火	6	0	FubenDeath		380	200															0																				1	
+JZ_A_4_Elite_1	3484	无忧教头目	0	1	FubenDeath		365	200		332	1811	3	91	1			15000	15000	Setting/Npc/Ai/fuben/Boss18.ini			1	18	2											5								1	
+JZ_A_4_enemy_1	3485	飞龙堡叛徒	0	1	FubenDeath		174	200		314	21	1	91	1			15000	15000	Setting/Npc/Ai/CommonActive.ini			1	11	1											1								1	
+JZ_A_4_enemy_2	3486	无忧教精英	0	1	FubenDeath		124	200		323	21	1	2383	1	91	1	15000	15000	Setting/Npc/Ai/CommonSkill.ini			1	11	2											3								1	
+JZ_A_4_Xiyou_1	3487	何暮雪	0	0	FubenDeath		105	200		331	55	1	2391	1	43	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	30	1											2								1	
+JZ_A_5_Elite_1	3488	刺客头目	0	1	FubenDeath		365	200		332	1811	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss18.ini			1	18	2											5								1	
+JZ_A_5_enemy_1	3489	蒙面刺客	0	1	FubenDeath		174	200		314	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_A_5_enemy_2	3490	刺客精英	0	1	FubenDeath		124	200		323	21	1	2383	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2											3								1	
+JZ_A_5_npc_1	3491	纳兰真	0	0	FubenDeath		616	200		341	39	1	2391	1	2382	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	30	1											2								1	
+JZ_A_6_enemy_1	3492	金兵	0	1	FubenDeath		180	200		355	21	1	91	1			800	800	Setting/Npc/Ai/CommonActive.ini			1	20	1										20	1								1	
+JZ_A_6_enemy_2	3493	十夫长	0	1	FubenDeath		181	200		356	167	1	2360	1	91	1	800	800	Setting/Npc/Ai/CommonSkill.ini			1	20	1										20	3								1	
+JZ_A_6_enemy_3	3494	放技能	6	1	FubenDeath		469	200		341							1000	1000	Setting/Npc/Ai/random/D2_Yunshi.ini			1	0	1											1					1			1	
+JZ_A_6_huopao	3495	炮车	0	1	FubenDeath		378	200		355	91	1					1000	1000	Setting/Npc/Ai/random/D2_Yunshi.ini			1	0	1							NoTurn				1								1	
+JZ_A_6_jiutan	3496	酒坛	0	1	FubenDeath		468	200		345												1	0	1	1						NoTurn				1								1	
+JZ_A_6_Leader_1	3497	邵骑风	0	1	FubenDeath		460	200		331	2929	1	2382	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini	4		1	18	2								1			5								1	
+JZ_B_1_Leader_1	3498	南宫彩虹	0	1	FubenDeath		455	200		360	2920	1	91	1			1500	1500	Setting/Npc/Ai/random/nangongcaihong.ini	3		1	20	2								1			5								1	
+JZ_B_1_wuyoujiaotu_gw	3499	五色教弟子	0	1	FubenDeath		134	200		314	168	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1											1								1	
+JZ_B_1_wuyouss_jy	3500	五色教刺客	0	1	FubenDeath		134	200		322	35	1	2487	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	20	2											3								1	
+JZ_B_1_wuyoutm_sl	3501	放技能	6	1	FubenDeath		469	200		343							1000	1000	Setting/Npc/Ai/CommonActive.ini			1	0	1											1					1			1	
+JZ_B_1_wuyouyh_jy	3502	机关	0	1	FubenDeath		377	200		355	91	1										1	20	2	1	2776	1				NoTurn				3								1	
+JZ_B_2_enemy_1	3503	弩车	6	1	FubenDeath		480	200		323	182	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	0	1											1								1	
+JZ_B_2_enemy_2	3504	天机工匠	0	1	FubenDeath		142	200		313	1807	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss17.ini			1	12	1											3								1	
+JZ_B_2_nalanzhen_hs	3505	弩车	6	1	FubenDeath		480	200		343	1498	1	91	1			2000	2000	Setting/Npc/Ai/CommonActive.ini			1	0	1											1								1	
+JZ_B_3_enmey_1	3506	宋兵	0	1	FubenDeath		151	200		314	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1											1								1	
+JZ_B_3_enmey_2	3507	机关人控制器	0	1	FubenDeath		416	200		314	91	1										1	0	1	1						NoTurn				3								1	
+JZ_B_3_enmey_3	3508	刀盾兵	0	1	FubenDeath		150	200		314	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1											1								1	
+JZ_B_3_Leader_1	3509	赵节	0	1	FubenDeath		402	200		331	2928	1	2393	1	91	1	1000	1000	Setting/Npc/Ai/CommonSkill.ini	4		1	18	2								1			4								1	
+JZ_B_3_xunluo_1	3510	巡逻机关人	0	1	FubenDeath		465	200		331	1887	1	91	1			280	1000	Setting/Npc/Ai/random/D6_Xunluo.ini			1	15	1					3005						6								1	
+JZ_B_4_enemy_1	3511	江湖流寇	0	1	FubenDeath		123	200		314	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_B_4_enemy_2	3512	流寇头领	0	1	FubenDeath		373	200		332	21	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss20.ini			1	18	2											4								1	
+JZ_B_4_enemy_BOSS	3513	东瀛武士	0	1	FubenDeath		365	200		332	1811	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss18.ini			1	18	2											5								1	
+JZ_B_4_jiguan1	3514	邪火	0	1	FubenDeath		544			314							1000	1000				1	0	2	1				3012						3								1	
+JZ_B_4_jiguan2	3515	邪火	0	1	FubenDeath		545			314							1000	1000				1	0	2	1				3012						3								1	
+JZ_B_4_jiguan3	3516	邪火	0	1	FubenDeath		546			314							1000	1000				1	0	2	1				3012						3								1	
+JZ_B_4_SkillNpc	3517	死士	0	1	FubenDeath		368	200		331	91	1					1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	7	2											4								1	
+JZ_B_4_Xiyou_1	3518	清晓师太	0	0	FubenDeath		185	200		332	55	1	2382	1	2488	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	30	2											2								1	
+JZ_B_5_Elite_1	3519	无忧教高手	0	1	FubenDeath		367	200		332	1386	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss14.ini			1	18	2											4								1	
+JZ_B_5_Elite_2	3520	刺客头目	0	1	FubenDeath		365	200		332	1811	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss18.ini			1	18	2											5								1	
+JZ_B_5_enemy_1	3521	无忧教弟子	0	1	FubenDeath		143	200		314	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_B_5_enemy_2	3522	无忧教精英	0	1	FubenDeath		364	200		323	21	1	2380	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2											3								1	
+JZ_B_5_enemy_3	3523	妖道	0	1	FubenDeath		169	200		321	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	12	2					3007						5								1	
+JZ_B_5_qizi	3524	招魂幡	6	0	FubenDeath		505	200		343													0																				1	
+JZ_B_5_Xiyou_1	3525	清晓师太	0	0	FubenDeath		185	200		332	55	1	2382	1	2488	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	30	2											2								1	
+JZ_B_6_Elite_1	3526	神秘剑客	0	1	FubenDeath		367	200		331	1386	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss14.ini			1	18	2											4								1	
+JZ_B_6_enemy_2	3527	劲弩手	0	1	FubenDeath		165	200		314	182	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_B_6_enmey_1	3528	流浪剑客	0	1	FubenDeath		135	200		314	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_B_6_Xiyou_1	3529	何暮雪	0	0	FubenDeath		105	200		331	55	1	2391	1	43	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	30	1											2								1	
+JZ_C_1_enemy_1	3530	五色教弟子	0	1	FubenDeath		174	200		314	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_C_1_enemy_2	3531	刺客	0	1	FubenDeath		124	200		314	40	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_C_1_enemy_3	3532	滚石控制者	0	1	FubenDeath		106	200		321	1843	1	91	1	1058	1	1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											3								1	
+JZ_C_1_Gunshi	3533	滚石烈焰	6	1	FubenDeath		375	200		343							1500	1500	Setting/Npc/Ai/AlwaysRunning.ini			1	20	1		2700	3								1								1	
+JZ_C_1_Leader_1	3534	张风	0	1	FubenDeath		452	200		363	2923	1	91	1			1500	1500	Setting/Npc/Ai/random/zhangfeng.ini	3		1	20	2								1			5								1	
+JZ_C_2_enemy_1	3535	引雷剑	0	1	FubenDeath		362	200		322	91	1										1	0	1	1				3007		NoTurn				3								1	
+JZ_C_2_Leader_1	3536	天星道长	0	1	FubenDeath		13	200		349	21	1	91	1			1500	1500	Setting/Npc/Ai/random/tianxingdaozhang.ini	4		1	20	2								1			5								1	
+JZ_C_2_zhangfeng_bs	3537	放技能	6	1	FubenDeath		469	200		343							1000	1000	Setting/Npc/Ai/CommonActive.ini			1	0	1											1					1			1	
+JZ_C_3_Elite_1	3538	冰冻	6	0	FubenDeath		500	200		323	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	0	1											3								1	
+JZ_C_3_enemy_1	3539	杨影枫	0	0	FubenDeath		1101	200		341	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1		1535	3								2								1	
+JZ_C_3_Hide_1	3540	被冰冻的杨影枫	0	1	FubenDeath		469	200		314							1000	1000	Setting/Npc/Ai/CommonActive.ini			1	0	1	1						NoTurn				1					1			1	
+JZ_C_3_Leader_1	3541	月眉儿	0	1	FubenDeath		430	200		349	41	1	91	1			1500	1500	Setting/Npc/Ai/random/yuemeier.ini	3		1	20	2								1			5								1	
+JZ_C_4_BOSS_1	3542	纳兰潜凛	0	1	FubenDeath		459	200		363	2951	1	91	1			1500	1500	Setting/Npc/Ai/random/nalanqianling.ini	4		1	20	2								1			6								1	
+JZ_C_4_enemy_1	3543	无忧教精英	0	1	FubenDeath		134	200		355	57	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1		1504	1		3008						1								1	
+JZ_C_4_enemy_2	3544	无忧教精英	0	1	FubenDeath		134	200		354	57	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1		2398	1		3004						1								1	
+JZ_C_4_enemy_3	3545	无忧教精英	0	1	FubenDeath		134	200		355	57	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1		1503	1		3002						1								1	
+JZ_C_5_enemy_1	3546	女舞侍	0	1	FubenDeath		102	200		321	37	1	91	1	2384	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	1		1535	1								3								1	
+JZ_C_5_enemy_2	3547	翠烟弟子	0	1	FubenDeath		178	200		321	37	1	91	1	2488	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	1											3								1	
+JZ_C_5_enemy_3	3548	苗疆蛊师	0	1	FubenDeath		137	200		321	40	1	91	1	2489	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	1											3								1	
+JZ_C_5_enemy_BOSS	3549	秋依水	0	1	FubenDeath		516	200		349	33	1	91	1			700	700	Setting/Npc/Ai/random/qiuyishui.ini	4		1	20	2								1			6								1	
+JZ_C_6_Elite_1	3550	红衣剑客	0	1	FubenDeath		367	200		321	1386	1	91	1			3000	3000	Setting/Npc/Ai/random/D9_Jianke.ini			1	18	2											3								1	
+JZ_C_6_Elite_2	3551	苗疆蛊师	0	1	FubenDeath		386	200		321	55	1	91	1			3000	3000	Setting/Npc/Ai/random/D9_Gushi.ini			1	18	2											3								1	
+JZ_C_6_Elite_3	3552	天机工匠	0	1	FubenDeath		368	200		321	1848	1	91	1			3000	3000	Setting/Npc/Ai/fuben/Boss24.ini			1	18	2											3								1	
+JZ_C_6_enmey_1	3553	蝎子	0	1	FubenDeath		109	200		354	22	1	91	1	1691	11	3000	3000	Setting/Npc/Ai/CommonActive.ini			1	18	1					3003						1								1	
+JZ_C_6_enmey_2	3554	流浪剑客	0	1	FubenDeath		135	200		354	21	1	91	1			3000	3000	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_C_6_enmey_3	3555	神射手	0	1	FubenDeath		159	200		354	182	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_C_6_Leader_1	3556	张如梦	0	1	FubenDeath		409	200		352	2919	1	91	1	2466	1	3000	3000	Setting/Npc/Ai/random/zhangrumeng.ini			1	30	2											5								1	
+JZ_D_1_enemy_1	3557	灵魂守卫	6	1	FubenDeath		486	200		343	181	1	91	1			150	1500	Setting/Npc/Ai/CommonActive.ini			1	10	1											1								1	
+JZ_D_1_Leader_1	3558	林海	0	1	FubenDeath		453	200		350	2926	1	91	1			1500	1500	Setting/Npc/Ai/random/linhai.ini	3		1	18	2								1			5								1	
+JZ_D_2_enemy_1	3559	庄丁	0	1	FubenDeath		101	200		313	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_D_2_enemy_2	3560	庄丁头目	0	1	FubenDeath		142	200		321	21	1	2387	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	1											3								1	
+JZ_D_2_enemy_3	3561	五色教弟子	0	1	FubenDeath		174	200		313	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_D_2_enemy_BOSS	3562	方勉	0	1	FubenDeath		464	200		350	2922	1	91	1			1500	1500	Setting/Npc/Ai/random/fangmian.ini	4		1	20	2								1			6								1	
+JZ_D_2_SkillNpc	3563	火池	6	1	FubenDeath		469	200		343	2402	1			2497	6						1	0	1											1					1			1	
+JZ_D_3_enemy_1	3564	机关守卫	0	1	FubenDeath		173	200		314	166	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1											1								1	
+JZ_D_3_enemy_2	3565	机关守卫	0	1	FubenDeath		151	200		314	166	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1											1								1	
+JZ_D_3_jiguan_1	3566	秒杀陷阱	6	1	FubenDeath		456	200		323	2468	30										1																					1	
+JZ_D_3_jiguan_2	3567	毒水机关	0	1	FubenDeath		416	200		314			91	1								1	18	1	1						NoTurn				3								1	
+JZ_D_3_Leader_1	3568	蔷薇	0	1	FubenDeath		454	200		363	1570	1	91	1			1500	1500	Setting/Npc/Ai/random/qiangwei.ini	4		1	20	2								1			5								1	
+JZ_D_4_enmey_1	3569	藏剑弟子	0	1	FubenDeath		135	200		314	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1											1								1	
+JZ_D_4_enmey_2	3570	藏剑精英	0	1	FubenDeath		135	200		323	37	1	2488	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2											3								1	
+JZ_D_4_jiguan_1	3571	喷射机关	6	1	FubenDeath		467	200		343							1500	1500	Setting/Npc/Ai/random/D7_Penhuo.ini			1	0	1											1								1	
+JZ_D_4_jiguan_2	3572	火焰	0	1	FubenDeath		456	200		313	21	1	91	1								1	0	1											1								1	
+JZ_D_4_Leader_1	3573	卓非凡	0	1	FubenDeath		425	200		363	2916	1	91	1			1000	1000	Setting/Npc/Ai/teamfb/zhuofeifan.ini	4		1	18	2								1			5								1	
+JZ_D_5_enemy_1	3574	石头	6	1	FubenDeath		518	200		314												1	0	1											1								1	
+JZ_D_5_enemy_BOSS	3575	孟知秋	0	1	FubenDeath		458	200		349	2918	1	91	1			1500	1500	Setting/Npc/Ai/random/mengzhiqiu.ini	4		1	20	2								1			6								1	
+JZ_D_5_SkillNpc	3576	放技能	6	1	FubenDeath		469	200		343												1	0	1											1					1			1	
+JZ_D_6_Gunshi	3577	滚石	6	1	FubenDeath		375	200		343							1500	1500	Setting/Npc/Ai/AlwaysRunning.ini			1	20	1		2700	3								1								1	
+JZ_D_6_mb	3578	受伤的月眉儿	0	0	FubenDeath		1102	200		321	91	1					1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	0	2											3								1	
+JZ_D_6_Xiyou_1	3579	无想	0	0	FubenDeath		5212	200		332	55	1	2382	1	2488	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	30	2											2								1	
+JZ_E_1_enemy_1	3580	苗疆女子	0	1	FubenDeath		137	200		312	21	1	91	1			50	50	Setting/Npc/Ai/CommonActive.ini			1	0	1					3007						3								1	
+JZ_E_1_enmey_2	3581	放技能	6	1	FubenDeath		469	200		343							1000	1000	Setting/Npc/Ai/CommonActive.ini			1	0	1											1					1			1	
+JZ_E_1_zhanglinxin_sl	3582	张琳心	0	1	FubenDeath		461	200		347	2921	1	91	1			1500	1500	Setting/Npc/Ai/random/zhanglinxin.ini	4		1	20	2								1			5								1	
+JZ_E_2_enmey_1	3583	柱子	6	1	FubenDeath		491	200		314												1	0	1											1								1	
+JZ_E_2_Leader_1	3584	燕若雪	0	1	FubenDeath		618	200		352	39	1	91	1			1500	1500	Setting/Npc/Ai/random/yangying.ini	4		1	20	2								1			5								1	
+JZ_E_2_mengzhiqiu_bs	3585	隐藏NPC	0	0	FubenDeath		469	200		343	91	1	2783	1	2455	1						1	0	1											1								1	
+JZ_E_3_huopao1	3586	炮车	0	1	FubenDeath		378	995		353	182	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	0	1											5								1	
+JZ_E_3_huopao2	3587	炮车	2	0	AddBuffer	1,开启中,2217,1,180	378	995		341	182	1	91	1	1500	1	1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	0	1											5								1	
+JZ_E_3_nangongmie_bs	3588	南宫灭	0	1	FubenDeath		129	200		347	22	1	91	1			1500	1500	Setting/Npc/Ai/random/nangongmie.ini	4		1	20	2								1		20	6								1	
+JZ_E_3_xunluo1	3589	机关人	0	1	FubenDeath		157	200		312	91	1					800	800	Setting/Npc/Ai/random/E5_miaosha.ini			1	5	1											1								1	
+JZ_E_3_xunluo2	3590	放技能	6	1	FubenDeath		469	200		343												1	0	1											1					1			1	
+JZ_E_4_enemy_gw	3591	刺客	0	1	FubenDeath		124	200		354	2722	1					1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											1								1	
+JZ_E_4_enemy_jg	3592	追魂	6	1	FubenDeath		465	200		343	1887	1	91	1			280	1000	Setting/Npc/Ai/random/D6_Xunluo.ini			1	16	3					3005						6								1	
+JZ_E_4_enemy_jy	3593	凶狠武者	0	1	FubenDeath		106	200		357	182	1	2389	1	91	1	1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											3								1	
+JZ_E_4_enemy_sl	3594	无命	0	1	FubenDeath		24	200		361	196	1	91	1			1000	1000	Setting/Npc/Ai/fuben/Boss4.ini			1	20	2											4								1	
+JZ_E_5_Xiyou_1	3595	无想	0	0	FubenDeath		5212	200		332	55	1	2382	1	2488	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	30	2											2								1	
+JZ_E_5_yangxilie_bs	3596	杨熙烈	0	1	FubenDeath		463	200		347	2915	1	91	1			1500	1500	Setting/Npc/Ai/random/yangxilie.ini	4		1	20	2								1		20	6								1	
+JZ_E_6_enemy_1	3597	指引圈	6	1	FubenDeath		383	200		314							150	150	Setting/Npc/Ai/CommonActive.ini			1	0	1											1								1	
+JZ_E_6_npc_1	3598	柴嵩	0	1	FubenDeath		366	200		347	2711	1	91	1			1500	1500	Setting/Npc/Ai/random/chaisong.ini	4		1	20	2								1			5								1	
+JZ_F_1_shangguanfl_bs	3599	上官飞龙	0	1	FubenDeath		21	200		351	1893	1	91	1			1500	1500	Setting/Npc/Ai/random/shangguanfeilong.ini	4		1	20	2								1		20	6								1	
+JZ_F_2_enemy_1	3600	滚石烈焰	6	1	FubenDeath		375	200		343							1500	1500	Setting/Npc/Ai/AlwaysRunning.ini			1	15	1		2700	5								1								1	
+JZ_F_2_enemy_2	3601	机关	6	1	FubenDeath		377	200		321	91	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	0	1							NoTurn				1								1	
+JZ_F_2_enemy_BOSS	3602	封玉书	0	1	FubenDeath		478	200		351	2951	1	91	1			700	700	Setting/Npc/Ai/random/fengyushu.ini	4		1	20	2								1			6								1	
+JZ_F_3_enemy_gw	3603	浪客	0	1	FubenDeath		151	200		355	169	1					1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											1								1	
+JZ_F_3_enemy_hf	3604	护法弟子	0	1	FubenDeath		169	200		356	169	1					1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	2											3								1	
+JZ_F_3_enemy_jy	3605	蒙面人	0	1	FubenDeath		174	200		358	39	1	2382	1	91	1	1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											3								1	
+JZ_F_3_enemy_sl	3606	李天目	0	1	FubenDeath		626	200		341	3130	1	91	1			1000	1000	Setting/Npc/Ai/random/daoyizhenren.ini	4		1	20	2								1			5								1	
+JZ_F_3_npc_gouhuo	3607	邪火	2	0	FubenDialog	4,扑灭中...	544	995		1							560	980				1	0		1				3012		NoTurn												1	
+JZ_F_3_npc_jiguan	3608	机关	2	0	FubenDialog	4,关闭中...	377	995		1							560	980				1	0		1				3011		NoTurn												1	
+JZ_F_3_xunluo	3609	巡逻机关人	0	1	FubenDeath		157	200		331	3109	7	91	1			280	1000	Setting/Npc/Ai/random/G7_Xunluo.ini			1	15	1											5								1	
+JZ_F_4_enemy_BOSS	3610	尹含烟	0	1	FubenDeath		1161	200		351	3144	1	91	1			1000	300	Setting/Npc/Ai/random/F4_yinhanyan.ini	4		1	20	2								1			6								1	
+JZ_F_4_enemy_guaiwu	3611	复苏之魂	0	1	FubenDeath		489	200		355	91	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	10	1											3								1	
+JZ_F_4_npc_fazhen	3612	极反法阵	6	0	FubenDeath		383	200		323							1000	1000	Setting/Npc/Ai/CommonActive.ini			1	0	3		3115	1								2								1	
+JZ_F_6_enemy_BOSS	3613	端木睿	0	1	FubenDeath		623	200		351	3137	1	91	1			750	750	Setting/Npc/Ai/random/duanmurui.ini	4		1	20	2								1			6								1	
+JZ_F_6_enemy_xianjing	3614	诡异火焰	6	1	FubenDeath		469	200		343							1000	1000	Setting/Npc/Ai/AlwaysRunning.ini			1	18	3		3109	3								1								1	
+JZ_G_1_enemy_1	3615	喷火NPC	6	0	FubenDeath		467	200		343																																	1	
+JZ_G_1_enemy_2	3616	黑衣刺客	0	1	FubenDeath		121	200		343	91	1	1058	1			1500	1500	Setting/Npc/Ai/random/F8_Laren.ini			1	18	1											3								1	
+JZ_G_1_enemy_3	3617	放技能	6	1	FubenDeath		469	200		343												1	0	1											1					1			1	
+JZ_G_1_enemy_BOSS	3618	曲霞	0	1	FubenDeath		517	200		352	56	1	91	1			1500	300	Setting/Npc/Ai/random/pilihuo.ini	4		1	20	2								1			6								1	
+JZ_G_2_enemy_BOSS	3619	道一真人	0	1	FubenDeath		622	200		351	3130	1	91	1			1000	400	Setting/Npc/Ai/random/daoyizhenren.ini	4		1	20	2								1			6								1	
+JZ_G_2_enemy_jiguan	3620	阵眼	0	1	FubenDeath		377			313							1000	1000				1	0	2	1										3								1	
+JZ_G_2_enemy_xianjing	3621	巡逻陷阱	6	1	FubenDeath		469	200		343							1000	1000	Setting/Npc/Ai/AlwaysRunning.ini			1	50	3		3106	20								1								1	
+JZ_G_3_enemy_BOSS	3622	古嫣然	0	1	FubenDeath		619	200		351	3718	1	91	1			15000	15000	Setting/Npc/Ai/random/G3_guyanranzc.ini	4		1	20	2											6								1	
+JZ_G_4_enemy_BOSS	3623	黄暮云	0	1	FubenDeath		624	200		348	3120	1	91	1			1000	1000	Setting/Npc/Ai/random/huangmuyun.ini	4		1	20	2								1			6								1	
+JZ_G_4_enemy_gw	3624	阴沉刀客	0	1	FubenDeath		123	200		353	169	1					1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											1								1	
+JZ_G_4_enemy_gw_s1	3625	毒娘子	0	1	FubenDeath		164	200		354	169	1	91	1	2486	1	1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											3								1	
+JZ_G_4_enemy_gw_s2	3626	狂怒冲锋	6	1	FubenDeath		486	200		365	1874	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	15	1											1								1	
+JZ_G_4_enemy_jy	3627	罪道人	0	1	FubenDeath		169	200		354	166	1	91	1			1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											3								1	
+JZ_G_5_enemy_1	3628	灵魂球	0	1	FubenDeath		485	200		321	91	1							Setting/Npc/Ai/CommonActive.ini			1	8	1					3007						3								1	
+JZ_G_5_enemy_2	3629	灵魂球	0	1	FubenDeath		486	200		321	91	1							Setting/Npc/Ai/CommonActive.ini			1	8	1					3007						3								1	
+JZ_G_5_enemy_BOSS	3630	宋秋石	0	1	FubenDeath		620	200		351	3150	1	91	1			2000	2000	Setting/Npc/Ai/random/songqiushi.ini	4		1	20	2								1			6								1	
+JZ_G_5_jiguan_1	3631	秒杀陷阱	6	1	FubenDeath		456	200		323	2468	30										1																					1	
+JZ_G_6_enemy_gw	3632	流寇	0	1	FubenDeath		170	200		314	2716	1					1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											1								1	
+JZ_G_6_enemy_jy	3633	快刀客	0	1	FubenDeath		171	200		322	2721	1	2447	1	91	1	1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	20	1											3								1	
+JZ_G_6_enemy_sl1	3634	中原一点红	0	1	FubenDeath		627	200		331	2712	1	91	1			1000	1000	Setting/Npc/Ai/fuben/Boss11.ini			1	20	2											4								1	
+JZ_G_6_enemy_sl2	3635	中原二点红	0	1	FubenDeath		627	200		331	2712	1	91	1			1000	1000	Setting/Npc/Ai/fuben/Boss11.ini			1	20	2											4								1	
+JZ_G_6_enemy_sl3	3636	中原三点红	0	1	FubenDeath		627	200		331	2712	1	91	1			1000	1000	Setting/Npc/Ai/fuben/Boss11.ini			1	20	2											4								1	
+JZ_G_6_enemy_sl4	3637	中原四点红	0	1	FubenDeath		627	200		331	2712	1	91	1			1000	1000	Setting/Npc/Ai/fuben/Boss11.ini			1	20	2											4								1	
+JZ_G_6_enmey_ex	3638	蝎子	0	1	FubenDeath		109	200		314	22	1	91	1	2418	6	3000	3000	Setting/Npc/Ai/CommonActive.ini			1	10	1					3003						1								1	
+JZ_G_6_jiguan	3639	机关	2	0	FubenDialog	2,开启中...	377	995		1							560	980				1	0		1				3011		NoTurn												1	
+JZ_G_6_npc_xy	3640	玄天道人	0	0	FubenDeath		5016	200		347							1000	1000	Setting/Npc/Ai/Stay.ini			1	20	3											2								1	
+JZ_G_6_SkillNpc1	3641	技能	6	1	FubenDeath		469	200		343												1	0	1		2095	4								1					1			1	
+JZ_G_6_SkillNpc2	3642	技能	6	0	FubenDeath		469	200		343												1	0	1											1					1			1	
+JZ_G_6_zy	3643	指引圈	6	1	FubenDeath		383	200		314							150	150	Setting/Npc/Ai/CommonActive.ini			1	0	1											1								1	
+JZ_jiguan2	3644	剑	2	0	FubenDialog	4,开启中…	362	995		1							560	980				1	15		1						NoTurn												1	
+JZ_shanzei_1	3645	山贼	0	1	FubenDeath		136	200		314	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1											1								1	
+JZ_shanzei_2	3646	山贼头目	0	1	FubenDeath		369	200		322	21	1	24	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	20	2											3								1	
+JZ_xinmo1	3647	天王主角	0	1	FubenDeath		421	200		366	2001	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_tianwang.ini			1	25	1																			1	
+JZ_xinmo10	3648	昆仑主角	0	1	FubenDeath		562	200		366	3096	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_kunlun.ini			1	25	1																			1	
+JZ_xinmo11	3649	丐帮主角	0	1	FubenDeath		588	200		366	3622	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_gaibang.ini			1	25	1																			1	
+JZ_xinmo12	3650	五毒主角	0	1	FubenDeath		589	200		366	3628	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_wudu.ini			1	25	1																			1	
+JZ_xinmo13	3651	藏剑主角	0	1	FubenDeath		610	200		366	3951	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_cangjian.ini			1	25	1																			1	
+JZ_xinmo14	3652	长歌主角	0	1	FubenDeath		611	200		366	3957	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_changge.ini			1	25	1																			1	
+JZ_xinmo15	3653	天山主角	0	1	FubenDeath		611	200		366	4869	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_tianshan.ini			1	25	1																			1	
+JZ_xinmo16	3654	霸刀主角	0	1	FubenDeath		611	200		366	5088	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_badao.ini			1	25	1																			1	
+JZ_xinmo17	3655	华山主角	0	1	FubenDeath		611	200		366	5282	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_huashan.ini			1	25	1																			1	
+JZ_xinmo18	3656	明教主角	0	1	FubenDeath		611	200		366	5591	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_mingjiao.ini			1	25	1																			1	
+JZ_xinmo19	3657	段氏主角	0	1	FubenDeath		611	200		366	5691	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_duanshi.ini			1	25	1																			1	
+JZ_xinmo2	3658	峨眉主角	0	1	FubenDeath		422	200		366	2008	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_emei.ini			1	25	1																			1	
+JZ_xinmo3	3659	桃花主角	0	1	FubenDeath		423	200		366	2014	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_taohua.ini			1	25	1																			1	
+JZ_xinmo4	3660	逍遥主角	0	1	FubenDeath		424	200		366	2024	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_xiaoyao.ini			1	25	1																			1	
+JZ_xinmo5	3661	武当主角	0	1	FubenDeath		434	200		366	2901	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_wudang.ini			1	25	1																			1	
+JZ_xinmo6	3662	天忍主角	0	1	FubenDeath		435	200		366	2908	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_tianren.ini			1	25	1																			1	
+JZ_xinmo7	3663	少林主角	0	1	FubenDeath		525	200		366	2084	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_shaolin.ini			1	25	1																			1	
+JZ_xinmo8	3664	翠烟主角	0	1	FubenDeath		526	200		366	2088	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_cuiyan.ini			1	25	1																			1	
+JZ_xinmo9	3665	唐门主角	0	1	FubenDeath		561	200		366	3085	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_tangmen.ini			1	25	1																			1	
+JZ_xinmo20	3834	万花主角	0	1	FubenDeath		611	200		366	5891	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_wanhua.ini			1	25	1																				
+JZ_xinmo21	3835	杨门主角	0	1	FubenDeath		611	200		366	6091	1	91	1			3000	3000	Setting/Npc/Ai/random/jx_yangmen.ini			1	25	1																				
+JZ_zhuofeifan	3666	卓非凡	0	0	FubenDeath		194	200		323	37	1	2363	1			1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2											5								1	
+JZ_G_7_BOSS	3820	张承素	0	1	FubenDeath		1266	200		351	6104	1	91	1			1000	400	Setting/Npc/Ai/random/zhangchengsu.ini	4		1	20	2								1			6								1	

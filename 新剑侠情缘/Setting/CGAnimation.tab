@@ -1,0 +1,24 @@
+CGID	Des	Event	Param1	Param2	Param3	Param4	Param5	Param6
+1	隐藏UI	SetAllUiVisable	0					
+1	镜头动画	PlayCameraAnimation	Scenes/camera/xsc_cam1.controller					
+1	关闭ui	CloseWindow	BgBlackAll					
+1	屏蔽玩家	ShowAllRepresentObj	0					
+1	显示玩家	ShowPlayer	1					
+1	播放特效	PlayEffect	9110	0	0	0	1	
+1	禁止操作	ForbiddenOperation	1					
+1	特效动画	PlayCameraEffect	9109					
+1	显示其他玩家	ShowAllRepresentObj	1	149				
+1		End	147					
+2	隐藏UI	SetAllUiVisable	0					
+2	镜头动画	PlayCameraAnimation	Scenes/camera/xinshoucun02/xsc02_cam1.controller					
+2	关闭ui	CloseWindow	BgBlackAll					
+2	屏蔽玩家	ShowAllRepresentObj	0					
+2	显示玩家	ShowPlayer	1					
+2	播放特效	PlayEffect	9213	0	0	0	1	
+2	禁止操作	ForbiddenOperation	1					
+2	特效动画	PlayCameraEffect	9214					
+2	显示其他玩家	ShowAllRepresentObj	1	203				
+2	延迟播放新动画	Play	3	150				
+2		End	202					
+3	打开ui	OpenWindow	BossReferral	纳	兰真	忘忧岛少女		
+3	关闭ui	CloseWindowTimer	BossReferral	30				

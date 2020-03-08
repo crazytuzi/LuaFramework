@@ -1,0 +1,1019 @@
+SkillId		MagicDesc
+201	天王锤法	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+206	野蛮冲撞	对砸中的目标，造成 [00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，附带[00ff00]state_hurt_attack2/15[-]秒的受伤效果和[00ff00]state_fixed_attack2/15[-]秒的定身效果
+213	金钟罩	增加自身[00ff00]all_series_resist_p1%[-] + [00ff00]all_series_resist_v1[-]全系抗性、抗属性效果几率+[00ff00]resist_allseriesstate_rate_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒
+210	血战八方	每次造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+209	天王战意	永久提升[00ff00]lifemax_p1%[-]基础生命、[00ff00]physics_potentialdamage_p1%[-]基础攻击力与[00ff00]state_zhican_resistrate1[-]点抗致缠几率
+208	霸王怒吼	对周围命中的目标，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_hurt_attack1%[-]几率造成[00ff00]state_hurt_attack2/15[-]秒受伤效果
+224	一骑当千	周围每多一个敌人，自动提升[00ff00]all_series_resist_p1%[-]基础全系抗性，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+229	锤法进阶	提升[天王锤法][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+240	惊雷破天	每次获得[00ff00]physics_potentialdamage_p1%[-]基础攻击力加成，持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]倍
+218	破釜沉舟	有[00ff00]userdesc_1011%[-]几率触发回复生命[00ff00]dir_recover_life_pp1/100%[-]并且无敌[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+242	天王本生	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_hurt_attackrate1[-]点受伤几率与[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+216	初级·野蛮冲撞	提高[00ff00]deadlystrike_p1%[-]基础会心几率，持续[00ff00]skill_statetime1/15[-]秒
+222	初级·血战八方	提高[00ff00]add_usebasedmg_p12%[-]基础攻击
+220	初级·霸王怒吼	远程和近程伤害抗性提高[00ff00]melee_dmg_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒，最高叠加[00ff00]superposemagic1[-]层
+243	中级·血战八方	提高[00ff00]add_usebasedmg_p12%[-]基础攻击；[00ff00]add_hurt_r2%[-]几率造成[00ff00]add_hurt_t2/15[-]秒受伤
+244	中级·霸王怒吼	远程和近程伤害抗性提高[00ff00]melee_dmg_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]层；提高[00ff00]add_usebasedmg_p12[-]%基础攻击与[00ff00]add_hurt_t2/15[-]秒受伤时间
+246	气盖八荒	增加[00ff00]lifecurmax_p1%[-]当前生命，有[00ff00]userdesc_1011%[-]几率造成[00ff00]自身生命上限 * damage_maxlife_p1/100%[-]伤害
+253	初级·金钟罩	回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+255	中级·金钟罩	回复[00ff00]dir_recover_life_pp1/100%[-]最大生命；冷却时间缩短[00ff00]deccdtime2/15[-]秒，持续时间延长[00ff00]add_state_time12/15[-]秒
+257	中级·野蛮冲撞	提高[00ff00]deadlystrike_p1%[-]基础会心几率，持续[00ff00]skill_statetime1/15[-]秒；提高[00ff00]add_usebasedmg_p12%[-]基础攻击
+261	少林棍法	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+266	降龙棍	对身前直线范围目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，同时有[00ff00]state_hurt_attack1%[-]几率附带[00ff00]state_hurt_attack2/15[-]秒受伤
+268	大力金刚指	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_hurt_attack1%[-]几率造成[00ff00]state_hurt_attack2/15[-]秒受伤
+270	金刚伏魔	免疫属性和负面效果并提高会心伤害和会心免伤[00ff00]deadlystrike_damage_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+271	达摩武经	永久提升[00ff00]lifemax_p1%[-]基础生命、[00ff00]resist_allseriesstate_rate_v1[-]点抗属性效果几率与[00ff00]state_zhican_resistrate1[-]点抗致缠几率
+272	十二擒龙手	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，附带[00ff00]state_fixed_attack2/15[-]秒的定身效果
+273	罗汉阵	攻击为[00ff00]自身生命上限 * damage_maxlife_p1/100%[-]+ [00ff00]attack_metaldamage_v1[-]点
+276	棍法进阶	提升[少林棍法][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+278	立地成佛	每次获得[00ff00]all_series_resist_p1%[-]基础全系抗性，最多叠加[00ff00]superposemagic1[-]层，持续[00ff00]skill_statetime1/15[-]秒
+280	金刚怒目	有[00ff00]userdesc_1011%[-]几率触发，提高自身[00ff00]all_series_resist_p1%[-]基础全系抗性，提高[罗汉阵][00ff00]add_usebasedmg_p12%[-]基础攻击，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+282	易筋经	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_hurt_attackrate1[-]点受伤几率与[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+292	初级·降龙棍	基础攻击增加[00ff00]add_usebasedmg_p12%[-]
+293	初级·大力金刚指	基础攻击增加[00ff00]add_usebasedmg_p12%[-]
+294	初级·金刚伏魔	每次减少金刚伏魔冷却时间[00ff00]reduce_cd_time12/15[-]秒
+296	初级·十二擒龙手	[00ff00]state_forceatk_attack1%[-]几率嘲讽敌人[00ff00]state_forceatk_attack2/15[-]秒。
+298	罗汉金身	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力，受到攻击时有[00ff00]state_fixed_attack1%[-]几率对攻击者造成[00ff00]state_fixed_attack2/15[-]秒定身效果，触发间隔[00ff00]userdesc_1011/15[-]秒
+301	峨嵋剑法	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+310	江海凝波	每次攻击造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时有[00ff00]state_slowall_attack1%[-]几率附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+308	白露凝霜	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，有[00ff00]state_slowall_attack1%[-]几率附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+306	慈航普度	每隔[00ff00]1[-]秒，回复[00ff00]dir_recover_life_pp1/100%[-]最大生命，持续[00ff00]5[-]秒
+309	剑心通明	永久提升[00ff00]lifemax_p1%[-]基础生命、[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]state_palsy_resistrate1[-]点抗麻痹几率与[00ff00]runspeed_v1[-]移动速度
+312	天舞宝轮	对阵内敌人每[00ff00]0.5[-]秒造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，并对阵内的友方每[00ff00]1[-]秒回复[00ff00]dir_recover_life_pp1/100%[-]最大生命。阵法持续[00ff00]6[-]秒
+317	绵里藏针	[00ff00]userdesc_1011%[-]几率触发击退效果并每[00ff00]recover_life_p2/15[-]秒回复自己[00ff00]recover_life_p1%[-]生命，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+323	剑法进阶	提升[峨嵋剑法][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+341	佛心慈佑	提升自己与队友[00ff00]resist_allseriesstate_rate_v1[-]点抗属性效果几率、[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间、[00ff00]resist_allspecialstate_rate_v1[-]点抗负面效果几率与[00ff00]resist_allspecialstate_time_v1[-]点抗负面效果时间
+343	佛法无边	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_slowall_attackrate1[-]点迟缓几率与[00ff00]state_palsy_resisttime1[-]点抗麻痹时间
+345	冰心云裳	永久提升自己[00ff00]ignore_deadlystrike_vp1%[-]忽略基础会心几率和[00ff00]weaken_deadlystrike_damage_p1%[-]会心免伤
+325	初级·天舞宝轮	[00ff00]userdesc_1011%[-]几率造成虚弱、混乱、沉默、迟缓或冰冻，持续[00ff00]userdesc_1012/15[-]秒。
+314	慈航普度	清除与免疫属性效果，持续[00ff00]skill_statetime1/15[-]秒。
+320	白露凝霜	[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时有[00ff00]state_slowall_attack1%[-]几率附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+357	清心普善	提升自身[00ff00]lifereplenish_p1%[-]生命回复效率。天舞宝轮额外回复[00ff00]dir_recover_life_pp1/100%[-]最大生命，慈航普度额外回复[00ff00]userdesc_1011/100%[-]最大生命
+365	初级·江海凝波	提高[00ff00]add_usebasedmg_p12%[-]基础攻击
+366	中级·江海凝波	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，提高[00ff00]add_slowall_r2%[-]造成迟缓的几率
+367	中级·天舞宝轮	减少天舞宝轮冷却时间[00ff00]deccdtime2/15[-]秒。[00ff00]userdesc_1011%[-]几率造成虚弱、混乱、沉默、迟缓或冰冻，持续[00ff00]userdesc_1012/15[-]秒
+369	中级·慈航普度	减少慈航普度冷却时间[00ff00]deccdtime2/15[-]秒。清除与免疫属性效果，持续[00ff00]skill_statetime1/15[-]秒
+372	中级·白露凝霜	提高白露凝霜[00ff00]add_usebasedmg_p12%[-]基础攻击。对命中目标范围造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时有[00ff00]state_slowall_attack1%[-]几率附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+374	高级·江海凝波	提高[00ff00]add_usebasedmg_p12%[-]基础攻击、[00ff00]add_slowall_r2%[-]造成迟缓的几率、[00ff00]add_igdefense_p12%[-]最终忽闪几率与[00ff00]add_deadlystrike_p12%[-]最终会心几率
+376	高级·天舞宝轮	减少天舞宝轮冷却时间[00ff00]deccdtime2/15[-]秒。降低[00ff00]defense_p1%[-]基础闪避值，持续[00ff00]skill_statetime1/15[-]秒。[00ff00]userdesc_1011%[-]几率造成虚弱、混乱、沉默、迟缓或冰冻，持续[00ff00]userdesc_1012/15[-]秒
+378	高级·慈航普度	减少慈航普度冷却时间[00ff00]deccdtime2/15[-]秒；清除与免疫属性效果，持续[00ff00]skill_statetime1/15[-]秒；立刻回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+381	高级·白露凝霜	提高白露凝霜[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_deadlystrike_p12%[-]最终会心几率。对击中目标范围造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时有[00ff00]state_slowall_attack1%[-]几率附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+401	桃花箭术	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+407	飞火流星	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，[00ff00]state_palsy_attack1%[-]几率麻痹[00ff00]state_palsy_attack2/15[-]秒
+406	火凤燎原	提升[00ff00]ignore_all_resist2%[-]的忽略最终抗性、 [00ff00]attackspeed_v1[-]点攻速、[00ff00]runspeed_v1[-]点移动速度和[00ff00]defense_p1%[-]基础闪避，持续[00ff00]skill_statetime1/15[-]秒
+410	九曜连珠	初始造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，[00ff00]state_palsy_attack1%[-]几率麻痹[00ff00]state_palsy_attack2/15[-]秒；持续伤害每次造成[00ff00]userdesc_1011%[-]基础攻击 + [00ff00]userdesc_1021[-]点火系伤害，[00ff00]userdesc_1031%[-]几率麻痹[00ff00]userdesc_1032/15[-]秒
+409	流风回雪	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]defense_p1%[-]基础闪避与[00ff00]state_hurt_resistrate1[-]点抗受伤几率
+412	穿云破月	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+443	逆转九阴	近程伤害抗性增加[00ff00]melee_dmg_p1%[-]；每[00ff00]userdesc_1011/15[-]秒第一次受到攻击时若敌人距离自身较近，则击退周身敌人并使其[00ff00]skill_statetime1/15[-]秒内基础攻击力减少[00ff00]physics_potentialdamage_p1%[-]
+420	百步穿杨	提升[桃花箭术][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+441	轻云蔽月	攻击速度增加[00ff00]attackspeed_v1[-]点，[桃花箭术]基础攻击增加[00ff00]add_usebasedmg_p12%[-]并且无视无敌，每次持续时间延长[00ff00]skill_statetime1/15[-]秒
+425	浴火重生	有[00ff00]userdesc_1011%[-]几率触发[火凤燎原]与每[00ff00]recover_life_p2/15[-]秒回复自己[00ff00]recover_life_p1%[-]生命，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+442	凤羽霓裳	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]defense_p1%[-]基础闪避、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_palsy_attackrate1[-]点麻痹几率与[00ff00]state_hurt_resisttime1[-]点抗受伤时间
+417	初级·飞火流星	[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益，并有[00ff00]state_burn_attack1%[-]几率灼烧[00ff00]state_burn_attack2/15[-]秒
+413	初级·火凤燎原	清除并免疫负面和受伤效果，持续[00ff00]skill_statetime1/15[-]秒
+423	初级·穿云破月	基础攻击提高[00ff00]add_usebasedmg_p12%[-]
+446	初级·九曜连珠	[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身
+447	中级·九曜连珠	[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身；[00ff00]userdesc_1011%[-]几率刷新冷却
+448	中级·飞火流星	[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益，并有[00ff00]state_burn_attack1%[-]几率灼烧[00ff00]state_burn_attack2/15[-]秒；基础攻击增加[00ff00]add_usebasedmg_p12%[-]
+450	中级·火凤燎原	增加火凤燎原持续时间[00ff00]add_state_time12/15[-]秒；清除并免疫负面和受伤效果，持续[00ff00]skill_statetime1/15[-]秒
+452	中级·穿云破月	冷却时间减少[00ff00]deccdtime2/15[-]秒，基础攻击提高[00ff00]add_usebasedmg_p12%[-]
+454	高级·九曜连珠	[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身；[00ff00]userdesc_1011%[-]几率刷新冷却；提高[00ff00]add_usebasedmg_p12%[-]基础攻击
+456	高级·飞火流星	[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益，并有[00ff00]state_burn_attack1%[-]几率灼烧[00ff00]state_burn_attack2/15[-]秒；基础攻击增加[00ff00]add_usebasedmg_p12%[-]；每远离[00ff00]1[-]米伤害提高[00ff00]add_adddmgbydist2/10%[-]
+458	高级·火凤燎原	增加火凤燎原持续时间[00ff00]add_state_time12/15[-]秒。清除并免疫负面和受伤效果并增加[00ff00]defense_p1%[-]基础闪避，持续[00ff00]skill_statetime1/15[-]秒
+460	高级·穿云破月	冷却时间减少[00ff00]deccdtime2/15[-]秒，基础攻击提高[00ff00]add_usebasedmg_p12%[-]；每次击中所有技能剩余冷却时间缩短[00ff00]reduce_cd_time12/15[-]秒（同时最多触发missile_hitcount3次）
+462	月落星沉	[00ff00]userdesc_1021%[-]几率触发：攻击力为目标生命上限的[00ff00]damage_maxlife_p1%[-]，目标生命上限最多视为自身生命上限的[00ff00]damage_maxlife_p2%[-]
+501	逍遥枪法	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+510	白虹贯日	对冲刺到的目标，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，同时有[00ff00]state_zhican_attack1%[-]几率附带[00ff00]state_zhican_attack2/15[-]秒的致缠效果
+507	七探蛇盘	[近程攻击]  在多名敌人间穿梭攻击，每次攻击造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，同一目标最多受2次伤害，过程中自身免疫控制效果
+506	斗转星移	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，有[00ff00]state_zhican_attack1%[-]几率致缠[00ff00]state_zhican_attack2/15[-]秒；同时将敌人拉回到自己身边
+509	小无相功	永久提升[00ff00]deadlystrike_p1%[-]基础会心、[00ff00]runspeed_v1[-]点移动速度、[00ff00]attackspeed_v1[-]点攻速与[00ff00]state_stun_resistrate1[-]点抗眩晕几率
+513	风卷残云	每隔[00ff00]0.33[-]秒造成[00ff00]dotdamage_wood1%[-]基础攻击 + [00ff00]dotdamage_wood2[-]点木系伤害，持续[00ff00]skill_statetime1/15[-]秒；同时对附近的敌人造成浮空，持续[00ff00]state_float_attack2/15[-]秒
+522	三元归一	每隔1秒，获得[00ff00]physics_potentialdamage_p1%[-]基础攻击力加成，最多叠加[00ff00]superposemagic1[-]倍；技能攻击命中敌人后，当前已获得的加成可保持[00ff00]skill_statetime1/15[-]秒
+532	枪法进阶	提升[逍遥枪法][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+516	凌波微步	每隔[00ff00]ignoreattackontime1/15[-]秒忽略[00ff00]ignoreattackontime2/15[-]秒攻击
+541	逍遥御风	清除并免疫属性和负面效果，同时提升[00ff00]defense_p1%[-]基础闪避值、[00ff00]deadlystrike_p1%[-]基础会心几率和[00ff00]runspeed_v1[-]点移动速度，持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]层
+543	唯我独尊	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_zhican_attackrate1[-]点致缠几率与[00ff00]state_stun_resisttime1[-]点抗眩晕时间
+517	初级·七探蛇盘	额外造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+514	初级·斗转星移	伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复
+519	初级·风卷残云	造成[00ff00]state_zhican_attack2/15[-]秒致缠，全系抗性降低[00ff00]all_series_resist_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+544	初级·白虹贯日	致缠几率增加[00ff00]add_zhican_r2%[-]，并有[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身
+545	中级·白虹贯日	增加[00ff00]add_usebasedmg_p12%[-]基础攻击，致缠几率增加[00ff00]add_zhican_r2%[-]，并有[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身
+546	中级·七探蛇盘	冷却时间缩短[00ff00]deccdtime2/15[-]秒；额外造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+548	中级·斗转星移	提高斗转星移[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_zhican_t2/15[-]秒致缠时间；伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复
+549	中级·风卷残云	风卷残云冷却时间减少[00ff00]deccdtime2/15[-]秒。造成[00ff00]state_zhican_attack2/15[-]秒致缠，全系抗性降低[00ff00]all_series_resist_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+552	高级·白虹贯日	增加[00ff00]add_usebasedmg_p12%[-]基础攻击，会心伤害增加[00ff00]add_deadlydmg_p12%[-]，致缠几率增加[00ff00]add_zhican_r2%[-]，并有[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身
+554	高级·七探蛇盘	冷却时间缩短[00ff00]deccdtime2/15[-]秒；额外[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害；抗属性和负面几率降低[00ff00]resist_allseriesstate_rate_v1[-]点，持续[00ff00]deccdtime2/15[-]秒
+556	高级·斗转星移	提高斗转星移[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_zhican_t2/15[-]秒致缠时间；伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复；冷却时间减少[00ff00]deccdtime2/15[-]秒
+558	高级·风卷残云	每次伤害提高[00ff00]add_dotdamage_wood2%[-]基础攻击；风卷残云冷却时间减少[00ff00]deccdtime2/15[-]秒；造成致缠[00ff00]state_zhican_attack2/15[-]秒；全系抗性降低[00ff00]all_series_resist_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+561	悲酥清风	周围每多一个敌人，自动提升[00ff00]all_series_resist_p1%[-]基础全系抗性与[00ff00]physics_potentialdamage_p1%[-]基础攻击力，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+601	武当剑法	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+609	无我无剑	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，追加[00ff00]damage_curlife_p1%*目标当前生命百分比*目标最大生命[-]的攻击力，目标最大生命最多视为自身最大生命的[00ff00]damage_curlife_p2%[-]，[00ff00]state_stun_attack1%[-]几率眩晕[00ff00]state_stun_attack2/15[-]秒；使用次数最多累计[00ff00]skill_point1/100[-]次
+611	人剑合一	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，[00ff00]state_stun_attack1%[-]几率造成[00ff00]state_stun_attack2/15[-]秒眩晕；施展后重置其他技能冷却；受到技能攻击有[00ff00]userdesc_1011%[-]几率发动[8dccf7]<剑飞惊天>[-]反击，造成[00ff00]userdesc_1021%[-]基础攻击 + [00ff00]userdesc_1031[-]点土系伤害
+613	坐忘无我	每点敏捷抵御[00ff00]magicshield1/100[-]点伤害，护盾持续期间有[00ff00]ignore_dmgskill1/100%[-]几率免疫诅咒 ；持续[00ff00]magicshield2/15[-]秒或护盾被击破
+614	迷踪幻影	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]state_slowall_resistrate1[-]点抗迟缓几率和[00ff00]runspeed_v1[-]点移动速度
+615	天地无极	每次攻击造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，[00ff00]state_stun_attack1%[-]几率眩晕[00ff00]state_stun_attack2/15[-]秒
+617	太一真气	永久免疫冰冻，吸取生命增加[00ff00]steallife_p1%[-]；被攻击命中时[00ff00]skill_statetime1/15[-]秒内清除并免疫自身受到的属性效果，触发间隔[00ff00]userdesc_1011/15[-]秒
+619	高级剑法	提升[8dccf7]<武当剑法>[-][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+621	初级·无我无剑	永久提高自身会心伤害[00ff00]deadlystrike_damage_p1%[-]
+624	初级·坐忘无我	[8dccf7]<剑飞惊天>[-]的基础攻击力提高[00ff00]add_usebasedmg_p12%[-]，持续[00ff00]5[-]秒
+626	初级·天地无极	攻击力为[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+630	玄天心法	触发几率[00ff00]userdesc_1011%[-]，触发间隔[00ff00]userdesc_1021/15[-]秒
+645	真武七截	提升自己[00ff00]physics_potentialdamage_p1%[-]基础攻击力，提升附近队友[00ff00]userdesc_1061%[-]基础攻击力
+644	太极无意	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命上限、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]defense_p1%[-]基础闪避、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_stun_attackrate1[-]点眩晕几率与[00ff00]state_slowall_resisttime1[-]点抗迟缓时间
+647	初级·人剑合一	每次穿透后伤害提高[00ff00]addpowerwhencol2%[-]，最多提高[00ff00]addpowerwhencol3%[-]
+648	中级·人剑合一	每次穿透后伤害提高[00ff00]addpowerwhencol2%[-]，最多提高[00ff00]addpowerwhencol3%[-]；基础攻击力提高[00ff00]physics_potentialdamage_p1%[-]，攻击速度提高[00ff00]attackspeed_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒
+649	中级·无我无剑	永久提高自身会心伤害[00ff00]deadlystrike_damage_p1%[-]；[00ff00]skill_statetime1/15[-]秒内下一次[8dccf7]<武当剑法>[-]会触发[8dccf7]<剑飞惊天>[-]
+652	中级·坐忘无我	[8dccf7]<剑飞惊天>[-]的基础攻击力提高[00ff00]add_usebasedmg_p12%[-]，持续[00ff00]5[-]秒；每点敏捷增加[00ff00]add_shield2/100[-]点抵御伤害
+654	中级·天地无极	额外的范围攻击攻击力为[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害；发招后[00ff00]skill_statetime1/15[-]秒内忽略全系抗性增加[00ff00]ignore_all_resist_vp1%[-]，生命吸取增加[00ff00]steallife_p1%[-]
+656	高级·人剑合一	每次穿透后伤害提高[00ff00]addpowerwhencol2%[-]，最多提高[00ff00]addpowerwhencol3%[-]；基础攻击力提高[00ff00]physics_potentialdamage_p1%[-]，攻击速度提高[00ff00]attackspeed_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒；所有直接攻击技能伤害提高[00ff00]style_skill_damage_p2%[-]
+658	高级·无我无剑	永久提高自身会心伤害[00ff00]deadlystrike_damage_p1%[-]；[00ff00]skill_statetime1/15[-]秒内下一次[8dccf7]<武当剑法>[-]会触发[8dccf7]<剑飞惊天>[-]；施展间隔缩短[00ff00]deccdtime2/15[-]秒
+661	高级·坐忘无我	[8dccf7]<剑飞惊天>[-]的基础攻击力提高[00ff00]add_usebasedmg_p12%[-]，持续[00ff00]5[-]秒；每点敏捷额外增加[00ff00]add_shield2/100[-]点抵御伤害；[00ff00]skill_statetime1/15[-]秒内远近程伤害抗性增加[00ff00]melee_dmg_p1%[-]
+663	高级·天地无极	最终会心几率增加[00ff00]add_deadlystrike_p12%[-]，[00ff00]add_fixed_r2%[-]几率定身[00ff00]add_fixed_t2/15[-]秒；额外的范围攻击攻击力为[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害；发招后[00ff00]skill_statetime1/15[-]秒内忽略全系抗性增加[00ff00]ignore_all_resist_vp1%[-]，生命吸取增加[00ff00]steallife_p1%[-]
+665	七星诀	提高自身[00ff00]deadlystrike_p1%[-]基础会心几率和[00ff00]runspeed_p1%[-]移动速度，持续[00ff00]skill_statetime1/15[-]秒，对敌人造成等量的降低会心几率和移动速度效果
+701	天忍刺杀术	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+705	魔焰在天	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害并[00ff00]减少runspeed_p1%[-]基础移动速度，同时有[00ff00]state_burn_attack1%[-]几率造成[00ff00]state_burn_attack2/15[-]秒灼烧效果，每层灼烧使其受到火系伤害增加[00ff00]state_burn_attack3%[-]，最高叠加[00ff00]5[-]层
+708	死亡回旋	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+711	血月之影	使自身隐身[00ff00]skill_statetime1/15[-]秒，隐身及现形后[00ff00]userdesc_1011/15[-]秒内移动速度+[00ff00]runspeed_v1[-]、攻击速度+[00ff00]attackspeed_v1[-]、基础攻击力+[00ff00]physics_potentialdamage_p1%[-]；并且现形后[00ff00]4[-]秒内普攻连招伤害提升[00ff00]50%[-]
+721	幻影飞狐	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力和[00ff00]state_hurt_resistrate1[-]抗受伤几率；额外增加[00ff00]npc_ext_miss1[-]点对非玩家的闪避值
+722	摄魂乱心	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，并有[00ff00]state_confuse_attack1%[-]的几率造成[00ff00]state_confuse_attack2/15[-]秒的混乱效果
+728	高级刺杀术	提升[天忍刺杀术][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+730	初级·魔焰在天	[00ff00]add_palsy_r2%[-]几率麻痹[00ff00]add_palsy_t2/15[-]秒
+732	初级·血月之影	提升[00ff00]defense_p1%[-]基础闪避值，免疫负面和受伤效果
+734	初级·摄魂乱心	基础闪避减少[00ff00]defense_p1%[-]、抗属性和负面效果几率减少[00ff00]resist_allseriesstate_rate_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒
+736	圣火焚心	触发几率[00ff00]userdesc_1011%[-]，触发间隔[00ff00]userdesc_1012/15[-]秒
+742	魔焰七杀	被动提高[00ff00]ignore_all_resist2%[-]忽略最终全系抗性；每次攻击减少自身忽略最终全系抗性[00ff00]userdesc_1011%[-]，持续[00ff00]userdesc_1013/15[-]秒，最高叠加[00ff00]userdesc_1012[-]次
+745	破碎虚空	永久提升自身移动速度[00ff00]runspeed_v1[-]；并且当自身被击中时，基础闪避+[00ff00]defense_p1%[-]，抗负面效果几率+[00ff00]resist_allspecialstate_rate_v1[-]，持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]次
+748	天魔解体	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]defense_p1%[-]基础闪避、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_palsy_attackrate1[-]点麻痹几率与[00ff00]state_hurt_resisttime1[-]点抗受伤时间
+749	初级·死亡回旋	提高死亡回旋[00ff00]add_usebasedmg_p12%[-]基础攻击，[00ff00]add_palsy_r2%[-]几率造成麻痹[00ff00]add_palsy_t2/15[-]秒
+750	中级·死亡回旋	提高死亡回旋[00ff00]add_usebasedmg_p12%[-]基础攻击，[00ff00]add_palsy_r2%[-]几率造成麻痹[00ff00]add_palsy_t2/15[-]秒；最大充能次数增加[00ff00]add_skill_point12/100[-]次
+751	中级·魔焰在天	[00ff00]add_palsy_r2%[-]几率麻痹[00ff00]add_palsy_t2/15[-]秒；击中后自身基础攻击力增加[00ff00]physics_potentialdamage_p1%[-]，每次击中持续时间延长[00ff00]skill_statetime1/15[-]秒
+756	中级·血月之影	提升[00ff00]defense_p1%[-]基础闪避值，免疫负面和受伤效果；冷却时间减少[00ff00]deccdtime2/15[-]秒
+759	中级·摄魂乱心	基础攻击力增加[00ff00]add_usebasedmg_p12%[-]；基础闪避减少[00ff00]defense_p1%[-]、抗属性和负面效果几率减少[00ff00]resist_allseriesstate_rate_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒
+761	高级·死亡回旋	提高死亡回旋[00ff00]add_usebasedmg_p12%[-]基础攻击，[00ff00]add_palsy_r2%[-]几率造成麻痹[00ff00]add_palsy_t2/15[-]秒；最大可用次数增加[00ff00]add_skill_point12/100[-]；目标当前生命每降低[00ff00]1%[-]，技能伤害增加[00ff00]add_loselife_dmg_p2/100%[-]；会心伤害增加[00ff00]add_deadlydmg_p12%[-]，重置自身魔焰七杀为最高效果
+763	高级·魔焰在天	[00ff00]add_palsy_r2%[-]几率麻痹[00ff00]add_palsy_t2/15[-]秒；击中后[00ff00]skill_statetime1/15[-]秒内自身基础攻击力增加[00ff00]physics_potentialdamage_p1%[-]，每次击中持续时间延长[00ff00]skill_statetime1/15[-]秒；魔焰在天基础攻击增加[00ff00]add_usebasedmg_p12%[-]
+765	高级·血月之影	提升[00ff00]defense_p1%[-]基础闪避值，免疫负面和受伤效果；冷却时间减少[00ff00]deccdtime2/15[-]秒；追加目标生命上限[00ff00]damage_maxlife_p1%[-]的攻击力，目标生命上限最多视为自身生命上限的[00ff00]damage_maxlife_p2%[-]
+768	高级·摄魂乱心	基础攻击力增加[00ff00]add_usebasedmg_p12%[-]；冷却时间减少[00ff00]deccdtime2/15[-]秒；基础闪避减少[00ff00]defense_p1%[-]、抗属性和负面效果几率减少[00ff00]resist_allseriesstate_rate_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒
+770	飞鸿无迹	[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益，附加[00ff00]目标最大生命*damage_maxlife_p1%[-]的攻击，目标生命最多视为自身生命上限的[00ff00]damage_maxlife_p2%[-]，触发间隔[00ff00]userdesc_1011/15[-]秒
+801	翠烟御伞诀	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+806	璇玑罗舞	[00ff00]8[-]秒内每[00ff00]0.66[-]秒造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时有[00ff00]state_slowall_attack1%[-]几率附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+808	雨打梨花	[00ff00]5[-]秒内每[00ff00]0.33[-]秒对目标所在范围攻击，每次攻击造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时有[00ff00]state_slowall_attack1%[-]几率附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+810	召唤啵啵	啵啵的攻击力为主角攻击力*[00ff00]callnpc_damage2%[-]，持续[00ff00]skill_statetime1/15[-]秒
+815	冰心倩影	永久提升[00ff00]lifemax_p1%[-]基础生命、[00ff00]physics_potentialdamage_p1%[-]基础攻击力与[00ff00]state_palsy_resistrate1[-]点抗麻痹几率
+816	冰踪无影	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，[00ff00]state_freeze_attack1%[-]造成[00ff00]state_freeze_attack2/15[-]秒冰冻
+818	雪影	提升自己[00ff00]runspeed_v1[-]点移动速度与[00ff00]ignore_defense_vp1%[-]忽略基础闪避，队友获得的效果减半
+820	高级御伞诀	提升[翠烟御伞诀][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+822	护体寒冰	提高远程伤害抗性[00ff00]remote_dmg_p1%[-]，反弹近程伤害[00ff00]meleedamagereturn_p1%[-]
+824	冰肌玉骨	[00ff00]userdesc_1011%[-]几率触发：每秒回复[00ff00]recover_life_p1%[-]生命，持续[00ff00]skill_statetime1/15[-]秒，并使自身周围敌人冻结[00ff00]state_freeze_attack2/15[-]秒。触发间隔[00ff00]userdesc_1021/15[-]秒
+827	冰骨雪心	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_slowall_attackrate1[-]点迟缓几率与[00ff00]state_palsy_resisttime1[-]点抗麻痹时间
+841	浮云散雪	生命回复效率增加[00ff00]lifereplenish_p1%[-]，造成的伤害增加[00ff00]当前生命比例*lowhp_damage_att_p1%[-]
+861	初级·璇玑罗舞	[00ff00]skill_statetime1/15[-]秒内提高璇玑罗舞[00ff00]add_usebasedmg_p12%[-]基础攻击，最多叠加[00ff00]superposemagic1[-]次
+862	初级·雨打梨花	会心几率提高[00ff00]add_deadlystrike_p12%[-]，忽略最终闪避几率增加[00ff00]add_igdefense_p12%[-]
+863	初级·召唤啵啵	啵啵的攻击力提高[00ff00]addcall_npcdmg2%[-]
+864	初级·冰踪无影	[00ff00]stealstate_type1%[-]几率偷取对方一个增益，最多持续[00ff00]skill_stealstate_time1/15[-]秒
+865	中级·璇玑罗舞	[00ff00]skill_statetime1/15[-]秒内提高璇玑罗舞[00ff00]add_usebasedmg_p12%[-]基础攻击，最多叠加[00ff00]superposemagic1[-]次；每次击中回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+866	中级·雨打梨花	会心几率提高[00ff00]add_deadlystrike_p12%[-]，忽略最终闪避几率增加[00ff00]add_igdefense_p12%[-]；冷却时间缩短[00ff00]deccdtime2/15[-]秒
+867	中级·召唤啵啵	啵啵的攻击力提高[00ff00]addcall_npcdmg2%[-]；使啵啵周围敌人的普攻伤害缩小[00ff00]style_skill_damage_p2%[-]
+868	中级·冰踪无影	[00ff00]stealstate_type1%[-]几率偷取对方一个增益，最多持续[00ff00]skill_stealstate_time1/15[-]秒；发招时追加一次[00ff00]璇玑罗舞[-]，伤害范围增加[00ff00]addms_dmg_range12/3.57[-]米，基础攻击增加[00ff00]add_usebasedmg_p12%[-]
+872	高级·璇玑罗舞	[00ff00]skill_statetime1/15[-]秒内提高璇玑罗舞[00ff00]add_usebasedmg_p12%[-]基础攻击，最多叠加[00ff00]superposemagic1[-]次；每次击中回复[00ff00]dir_recover_life_pp1/100%[-]最大生命；持续时间延长[00ff00]addms_life12/15[-]秒，造成迟缓的几率增加[00ff00]add_slowall_r2%[-]
+874	高级·雨打梨花	会心几率提高[00ff00]add_deadlystrike_p12%[-]，忽略最终闪避几率增加[00ff00]add_igdefense_p12%[-]；冷却时间缩短[00ff00]deccdtime2/15[-]秒；每次击中基础攻击增加[00ff00]add_usebasedmg_p12%[-]，最多叠加[00ff00]superposemagic1[-]层
+876	高级·召唤啵啵	啵啵的攻击力提高[00ff00]addcall_npcdmg2%[-]；使啵啵周围敌人的普攻伤害缩小[00ff00]style_skill_damage_p2%[-]；冷却时间减少[00ff00]deccdtime2/15[-]秒
+878	高级·冰踪无影	[00ff00]stealstate_type1%[-]几率偷取对方一个增益，最多持续[00ff00]skill_stealstate_time1/15[-]秒；发招时追加一次[00ff00]璇玑罗舞[-]，伤害范围增加[00ff00]addms_dmg_range12/3.57[-]米，基础攻击增加[00ff00]add_usebasedmg_p12%[-]；释放后[00ff00]skill_statetime1/15[-]秒内基础攻击力增加[00ff00]physics_potentialdamage_p1%[-]，忽略最终闪避增加[00ff00]ignore_defense_p1%[-]
+901	挥砍术	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+902	冰锥术	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+903	飞镖术	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+904	火球术	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+905	雷光术	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+906	破天斩	[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_hurt_attack2/15[-]秒受伤
+907	冰封指	[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_slowall_attack2/15[-]秒迟缓
+908	袖里箭	[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_zhican_attack2/15[-]秒致缠
+909	烈焰指	[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_palsy_attack2/15[-]秒麻痹
+910	怒雷指	[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_stun_attack2/15[-]秒眩晕
+911	半月斩	[00ff00]attack_usebasedamage_p1%[-]基础伤害，造成伤害的[00ff00]attack_steallife_p1%[-]转换成生命回复
+912	惊涛骇浪	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+914	穿心刺	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+916	推山填海	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+917	九天狂雷	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+921	治愈术	每[00ff00]vitality_recover_life2/15[-]秒回复[00ff00]体质*vitality_recover_life1%[-]点生命，持续[00ff00]skill_statetime1/15[-]秒
+923	群体治愈术	每[00ff00]vitality_recover_life2/15[-]秒回复[00ff00]体质*vitality_recover_life1%[-]点生命，持续[00ff00]skill_statetime1/15[-]秒
+925	百草仙露	每[00ff00]vitality_recover_life2/15[-]秒回复[00ff00]体质*vitality_recover_life1%[-]生命，并清除所有属性效果和负面效果，持续[00ff00]skill_statetime1/15[-]秒
+927	毒瘴术	造成中毒与减少[00ff00]shield_attrib1[-]%护盾抵御伤害，持续[00ff00]skill_statetime1/15[-]秒
+928	群体毒瘴	造成中毒与减少[00ff00]shield_attrib1[-]%护盾抵御伤害，持续[00ff00]skill_statetime1/15[-]秒
+930	金刚护体	[00ff00]skill_statetime1/15[-]秒内免疫伤害
+931	群体金刚	[00ff00]skill_statetime1/15[-]秒内免疫伤害
+933	不动明王	[00ff00]skill_statetime1/15[-]秒免疫任何属性效果和负面效果
+934	群体明王	[00ff00]skill_statetime1/15[-]秒免疫任何属性效果和负面效果
+936	枯木逢春	重伤时有[00ff00]userdesc_1071%[-]几率回复[00ff00]recover_life_p1%[-]生命
+938	涅槃重生	重伤时有[00ff00]userdesc_1071%[-]几率回复[00ff00]userdesc_1072%[-]生命，并清除所有属性效果和负面效果，持续[00ff00]userdesc_1081/15[-]秒
+940	蓄力箭	[00ff00]attack_usebasedamage_p1%[-]基础伤害
+942	巨石	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_stun_attack2/15[-]秒眩晕
+946	振翅	对浮空状态下的目标每隔半秒造成[00ff00]dotdamage_wood1%[-]基础伤害，持续[00ff00]3[-]秒
+948	灵犀	增加[00ff00]lifemax_v1[-]点生命上限，并且每[00ff00]recover_life_v2/15[-]秒回复[00ff00]recover_life_v1[-]点生命
+950	心眼	提升[00ff00]attackspeed_v1[-]点攻速、[00ff00]attackrate_v1[-]命中和[00ff00]deadlystrike_v1点[-]会心几率，持续[00ff00]skill_statetime1/15[-]秒
+953	呼风术	对浮空状态下的目标每隔半秒造成[00ff00]dotdamage_wood1%[-]基础伤害，持续[00ff00]skill_statetime1/15[-]秒
+955	影袭	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害的会心一击，并造成[00ff00]state_palsy_attack2/15[-]秒麻痹
+960	阴风蚀骨	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+963	明察秋毫	提升[00ff00]deadlystrike_v1[-]点会心几率
+965	落樱漫天	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_palsy_attack2/15[-]秒麻痹
+967	风来吴山	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+970	明月诀	提升[00ff00]attackspeed_v1[-]点攻速，持续[00ff00]skill_statetime1/15[-]秒
+971	寻觅彩虹	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+973	清心术	清除负面效果，并提升[00ff00]basic_damage_v1[-]点攻击力，持续[00ff00]skill_statetime1/15[-]秒
+975	斗转星移	对拉中的目标，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击
+978	风雪冰天	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_slowall_attack2/15[-]秒迟缓
+980	魔焰在天	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+984	牧野流星	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_slowall_attack2/15[-]秒迟缓
+988	云海梦蝶	增加[00ff00]basic_damage_v1[-]点攻击力
+992	落石	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+995	悲酥清风	降低敌方[00ff00]basic_damage_v1[-]点攻击力，持续[00ff00]skill_statetime1/15[-]秒
+998	人剑合一	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+999	治疗术	每隔[00ff00]vitality_recover_life2/15[-]秒，回复[00ff00]体质*vitality_recover_life1%[-]点当前生命，持续[00ff00]skill_statetime1/15[-]秒
+1101		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1105	金钟罩	增加[00ff00]all_series_resist_v1[-]点全系抗性与抗属性效果几率[00ff00]resist_allseriesstate_rate_v1[-]点，同时每隔[00ff00]recover_life_v2/15[-]秒，回复[00ff00]recover_life_v1[-]点当前生命，持续[00ff00]skill_statetime1/15[-]秒
+1109		永久提升[00ff00]lifemax_p1%[-]生命上限，[00ff00]physics_potentialdamage_p1%[-]基础攻击力
+1111	回风落雁	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1115	断魂刺	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_fixed_attack2/15[-]秒定身
+1131		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1136		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1139		永久提升 [00ff00]lifemax_p1%[-]基础生命，[00ff00]physics_potentialdamage_p1%[-]基础攻击力
+1140	峨嵋剑法	基础攻击，对目标造成 [00ff00]attack_usebasedamage_p1%[-] 基础攻击
+1144	天舞宝轮	对阵内敌人，每[00ff00]0.5[-]秒，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击；对阵内的友方，每[00ff00]1[-]秒，回复[00ff00]体质*vitality_recover_life1%[-]点生命。阵法持续[00ff00]10[-]秒
+1181		[00ff00]attack_usebasedamage_p1%[-] 基础攻击
+1188	飞火流星	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1190		永久提升[00ff00]runspeed_v1[-]点移动速度，[00ff00]physics_potentialdamage_p1%[-]基础攻击力
+1191	桃花箭术	[00ff00]attack_usebasedamage_p1%[-]基础攻击
+1195	火凤燎原	提升[00ff00]runspeed_v1[-]点移动速度、 [00ff00]attackspeed_v1[-]点攻速，和[00ff00]defense_v1[-]的闪避值，持续[00ff00]skill_statetime1/15[-]秒
+1221		[00ff00]attack_usebasedamage_p1%[-] 基础攻击
+1232		对目标造成[00ff00]attack_usebasedamage_p1%[-] 基础伤害
+1234		[00ff00]attack_usebasedamage_p1%[-] 基础攻击
+1238		对目标造成[00ff00]attack_usebasedamage_p1%[-] 基础伤害，并造成[00ff00]state_zhican_attack2/15[-]秒致缠
+1261		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1262		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1270		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1271		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1274		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1276		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1278		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1280		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1281		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1282		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1283		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1284		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1286		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1287		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1289		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1289		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1290		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1293		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1295		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1296		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，伤害的[00ff00]attack_steallife_p1%[-]转换成生命回复
+1300		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1772	忠贯白日	每1点敏捷抵御伤害[00ff00]magicshield1/100[-]点，持续[00ff00]magicshield2/15[-]秒。破盾后每次伤害造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_stun_attack2/15[-]秒眩晕
+1780	暗影刺	使自己隐身，持续[00ff00]userdesc_1041/15[-]秒，在隐身时提升[00ff00]runspeed_v1[-]点移动速度，并对下一次普攻连招添加[00ff00]attackspeed_v1[-]点攻速、[00ff00]ignore_defense_v1[-]点忽略闪避，和[00ff00]deadlystrike_v1[-]点会心一击
+1901	【初级】命中	提升[00ff00]attackrate_v1[-]点命中
+1902	【中级】命中	提升[00ff00]attackrate_v1[-]点命中
+1903	【高级】命中	提升[00ff00]attackrate_v1[-]点命中
+1904	【初级】闪避	提升[00ff00]defense_v1[-]点闪避
+1905	【中级】闪避	提升[00ff00]defense_v1[-]点闪避
+1906	【高级】闪避	提升[00ff00]defense_v1[-]点闪避
+1907	【初级】忽略闪避	提升[00ff00]ignore_defense_v1[-]点忽略闪避
+1908	【中级】忽略闪避	提升[00ff00]ignore_defense_v1[-]点忽略闪避
+1909	【高级】忽略闪避	提升[00ff00]ignore_defense_v1[-]点忽略闪避
+1910	【初级】抗会心几率	提升[00ff00]weaken_deadlystrike_v1[-]点抗会心几率
+1911	【中级】抗会心几率	提升[00ff00]weaken_deadlystrike_v1[-]点抗会心几率
+1912	【高级】抗会心几率	提升[00ff00]weaken_deadlystrike_v1[-]点抗会心几率
+1913	【初级】生命回复	提升[00ff00]recover_life_v1[-]点生命回复
+1914	【中级】生命回复	提升[00ff00]recover_life_v1[-]点生命回复
+1915	【高级】生命回复	提升[00ff00]recover_life_v1[-]点生命回复
+1916	【初级】抗受伤效果	提升[00ff00]state_hurt_resistrate1[-]点抗受伤几率，[00ff00]state_hurt_resisttime1[-]点抗受伤时间
+1917	【中级】抗受伤效果	提升[00ff00]state_hurt_resistrate1[-]点抗受伤几率，[00ff00]state_hurt_resisttime1[-]点抗受伤时间
+1918	【高级】抗受伤效果	提升[00ff00]state_hurt_resistrate1[-]点抗受伤几率，[00ff00]state_hurt_resisttime1[-]点抗受伤时间
+1919	【初级】抗迟缓效果	提升[00ff00]state_slowall_resistrate1[-]点抗迟缓几率，[00ff00]state_slowall_resisttime1[-]点抗迟缓时间
+1920	【中级】抗迟缓效果	提升[00ff00]state_slowall_resistrate1[-]点抗迟缓几率，[00ff00]state_slowall_resisttime1[-]点抗迟缓时间
+1921	【高级】抗迟缓效果	提升[00ff00]state_slowall_resistrate1[-]点抗迟缓几率，[00ff00]state_slowall_resisttime1[-]点抗迟缓时间
+1922	【初级】抗致缠效果	提升[00ff00]state_zhican_resistrate1[-]点抗致缠几率，[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+1923	【中级】抗致缠效果	提升[00ff00]state_zhican_resistrate1[-]点抗致缠几率，[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+1924	【高级】抗致缠效果	提升[00ff00]state_zhican_resistrate1[-]点抗致缠几率，[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+1925	【初级】抗麻痹效果	提升[00ff00]state_palsy_resistrate1[-]点抗麻痹几率，[00ff00]state_palsy_resisttime1[-]点抗麻痹时间
+1926	【中级】抗麻痹效果	提升[00ff00]state_palsy_resistrate1[-]点抗麻痹几率，[00ff00]state_palsy_resisttime1[-]点抗麻痹时间
+1927	【高级】抗麻痹效果	提升[00ff00]state_palsy_resistrate1[-]点抗麻痹几率，[00ff00]state_palsy_resisttime1[-]点抗麻痹时间
+1928	【初级】抗眩晕效果	提升[00ff00]state_stun_resistrate1[-]点抗眩晕几率，[00ff00]state_stun_resisttime1[-]点抗眩晕时间
+1929	【中级】抗眩晕效果	提升[00ff00]state_stun_resistrate1[-]点抗眩晕几率，[00ff00]state_stun_resisttime1[-]点抗眩晕时间
+1930	【高级】抗眩晕效果	提升[00ff00]state_stun_resistrate1[-]点抗眩晕几率，[00ff00]state_stun_resisttime1[-]点抗眩晕时间
+1931	【初级】会心几率	提升[00ff00]deadlystrike_v1[-]点会心几率
+1932	【中级】会心几率	提升[00ff00]deadlystrike_v1[-]点会心几率
+1933	【高级】会心几率	提升[00ff00]deadlystrike_v1[-]点会心几率
+1934	【初级】攻击力	提升[00ff00]basic_damage_v1[-]点攻击力
+1935	【中级】攻击力	提升[00ff00]basic_damage_v1[-]点攻击力
+1936	【高级】攻击力	提升[00ff00]basic_damage_v1[-]点攻击力
+1937	【初级】生命	提升[00ff00]lifemax_v1[-]点生命
+1938	【中级】生命	提升[00ff00]lifemax_v1[-]点生命
+1939	【高级】生命	提升[00ff00]lifemax_v1[-]点生命
+1940	【初级】移动速度	提升[00ff00]runspeed_v1[-]点移动速度
+1941	【中级】移动速度	提升[00ff00]runspeed_v1[-]点移动速度
+1942	【高级】移动速度	提升[00ff00]runspeed_v1[-]点移动速度
+1943	【初级】金系抗性	提升[00ff00]metal_resist_v1[-]点金系抗性
+1944	【中级】金系抗性	提升[00ff00]metal_resist_v1[-]点金系抗性
+1945	【高级】金系抗性	提升[00ff00]metal_resist_v1[-]点金系抗性
+1946	【初级】木系抗性	提升[00ff00]wood_resist_v1[-]点木系抗性
+1947	【中级】木系抗性	提升[00ff00]wood_resist_v1[-]点木系抗性
+1948	【高级】木系抗性	提升[00ff00]wood_resist_v1[-]点木系抗性
+1949	【初级】水系抗性	提升[00ff00]water_resist_v1[-]点水系抗性
+1950	【中级】水系抗性	提升[00ff00]water_resist_v1[-]点水系抗性
+1951	【高级】水系抗性	提升[00ff00]water_resist_v1[-]点水系抗性
+1952	【初级】火系抗性	提升[00ff00]fire_resist_v1[-]点火系抗性
+1953	【中级】火系抗性	提升[00ff00]fire_resist_v1[-]点火系抗性
+1954	【高级】火系抗性	提升[00ff00]fire_resist_v1[-]点火系抗性
+1955	【初级】土系抗性	提升[00ff00]earth_resist_v1[-]点土系抗性
+1956	【中级】土系抗性	提升[00ff00]earth_resist_v1[-]点土系抗性
+1957	【高级】土系抗性	提升[00ff00]earth_resist_v1[-]点土系抗性
+1958	【初级】抗属性效果	提升[00ff00]resist_allseriesstate_rate_v1[-]点抗属性效果几率，[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间
+1959	【中级】抗属性效果	提升[00ff00]resist_allseriesstate_rate_v1[-]点抗属性效果几率，[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间
+1960	【高级】抗属性效果	提升[00ff00]resist_allseriesstate_rate_v1[-]点抗属性效果几率，[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间
+1961	【初级】吸取生命	提升[00ff00]steallife_p1%[-]吸取生命
+1962	【中级】吸取生命	提升[00ff00]steallife_p1%[-]吸取生命
+1963	【高级】吸取生命	提升[00ff00]steallife_p1%[-]吸取生命
+1964	【初级】受伤效果	普攻造成[00ff00]state_hurt_normalattack1%[-]受伤几率，持续[00ff00]state_hurt_normalattack2/15[-]秒
+1965	【中级】受伤效果	普攻造成[00ff00]state_hurt_normalattack1%[-]受伤几率，持续[00ff00]state_hurt_normalattack2/15[-]秒
+1966	【高级】受伤效果	普攻造成[00ff00]state_hurt_normalattack1%[-]受伤几率，持续[00ff00]state_hurt_normalattack2/15[-]秒
+1967	【初级】迟缓效果	普攻造成[00ff00]state_slowall_normalattack1%[-]迟缓几率，持续[00ff00]state_slowall_normalattack2/15[-]秒
+1968	【中级】迟缓效果	普攻造成[00ff00]state_slowall_normalattack1%[-]迟缓几率，持续[00ff00]state_slowall_normalattack2/15[-]秒
+1969	【高级】迟缓效果	普攻造成[00ff00]state_slowall_normalattack1%[-]迟缓几率，持续[00ff00]state_slowall_normalattack2/15[-]秒
+1970	【初级】致缠效果	普攻造成[00ff00]state_zhican_normalattack1%[-]致缠几率，持续[00ff00]state_zhican_normalattack2/15[-]秒
+1971	【中级】致缠效果	普攻造成[00ff00]state_zhican_normalattack1%[-]致缠几率，持续[00ff00]state_zhican_normalattack2/15[-]秒
+1972	【高级】致缠效果	普攻造成[00ff00]state_zhican_normalattack1%[-]致缠几率，持续[00ff00]state_zhican_normalattack2/15[-]秒
+1973	【初级】麻痹效果	普攻造成[00ff00]state_palsy_normalattack1%[-]麻痹几率，持续[00ff00]state_palsy_normalattack2/15[-]秒
+1974	【中级】麻痹效果	普攻造成[00ff00]state_palsy_normalattack1%[-]麻痹几率，持续[00ff00]state_palsy_normalattack2/15[-]秒
+1975	【高级】麻痹效果	普攻造成[00ff00]state_palsy_normalattack1%[-]麻痹几率，持续[00ff00]state_palsy_normalattack2/15[-]秒
+1976	【初级】眩晕效果	普攻造成[00ff00]state_stun_normalattack1%[-]眩晕几率，持续[00ff00]state_stun_normalattack2/15[-]秒
+1977	【中级】眩晕效果	普攻造成[00ff00]state_stun_normalattack1%[-]眩晕几率，持续[00ff00]state_stun_normalattack2/15[-]秒
+1978	【高级】眩晕效果	普攻造成[00ff00]state_stun_normalattack1%[-]眩晕几率，持续[00ff00]state_stun_normalattack2/15[-]秒
+1979	【初级】全系抗性	提升[00ff00]all_series_resist_v1[-]点全系抗性
+1980	【中级】全系抗性	提升[00ff00]all_series_resist_v1[-]点全系抗性
+1981	【高级】全系抗性	提升[00ff00]all_series_resist_v1[-]点全系抗性
+1982	【初级】忽略全系抗性	提升[00ff00]ignore_all_resist_v2[-]点忽略全系抗性
+1983	【中级】忽略全系抗性	提升[00ff00]ignore_all_resist_v2[-]点忽略全系抗性
+1984	【高级】忽略全系抗性	提升[00ff00]ignore_all_resist_v2[-]点忽略全系抗性
+1985	【初级】反击	[00ff00]userdesc_1071%[-]的几率对目标反击造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1988	【中级】反击	[00ff00]userdesc_1071%[-]的几率对目标反击造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1991	【高级】反击	[00ff00]userdesc_1071%[-]的几率对目标反击造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+1994	【初级】攻击速度	提升[00ff00]attackspeed_v1[-]点攻击速度
+1995	【中级】攻击速度	提升[00ff00]attackspeed_v1[-]点攻击速度
+1996	【高级】攻击速度	提升[00ff00]attackspeed_v1[-]点攻击速度
+2291	中级·降龙棍	基础攻击增加[00ff00]add_usebasedmg_p12%[-]，造成的伤害的[00ff00]add_steallife_p2/100%[-]转化为生命回复
+2292	中级·大力金刚指	基础攻击增加[00ff00]add_usebasedmg_p12%[-]；[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身
+2293	中级·金刚伏魔	每次减少金刚伏魔冷却时间[00ff00]reduce_cd_time12/15[-]秒；金刚伏魔持续时间增加[00ff00]add_state_time12/15[-]秒
+2295	中级·十二擒龙手	基础攻击增加[00ff00]add_usebasedmg_p12%[-]，[00ff00]state_forceatk_attack1%[-]几率嘲讽敌人[00ff00]state_forceatk_attack2/15[-]秒，敌方[00ff00]skill_statetime1/15[-]秒内基础攻击力降低[00ff00]physics_potentialdamage_p1%[-]
+2501		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2502		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2504		同伴增加[00ff00]physics_potentialdamage_p1%[-]基础攻击力
+2505		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2508		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2509	横扫千军	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2511		同伴增加[00ff00]attackspeed_v1[-]点攻速
+2512		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2513		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2513		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2514		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2516	万箭齐发	对直线上的目标每次造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2518		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2518		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2519	金蛇剑诀	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_stun_attack2/15[-]秒眩晕
+2522		增加[00ff00]physics_potentialdamage_p1%[-]基础攻击力，并共享给周围友方
+2523		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2524		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2525		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_palsy_attack2/15[-]秒麻痹
+2527		增加[00ff00]deadlystrike_v1[-]点会心值，[00ff00]deadlystrike_damage_p1%[-]会心效果，并共享给周围友方
+2528		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2529		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并降低[00ff00]all_series_resist_v1[-]点全抗，持续[00ff00]skill_statetime1/15[-]秒
+2530		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2532		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2533		提升[00ff00]basic_damage_v1[-]攻击力，最高叠加[00ff00]add_mult_proc_sate12[-]层，持续[00ff00]skill_statetime1/15[-]秒
+2535		同伴增加[00ff00]attackrate_v1[-]点命中值，[00ff00]deadlystrike_v1[-]点会心值
+2536		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2539		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2541		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2540	猛力撕咬	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，敌方每损失1%生命时，基础伤害 + [00ff00]loselife_dmg_p1/100%[-]
+2544	风舞刃	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2545	黄沙步法	闪避近身攻击时，有[00ff00]userdesc_1011%[-]几率对周围造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，触发间隔[00ff00]userdesc_1012/15[-]秒
+2547		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2549		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2551		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2552		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2553		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2554		同伴增加[00ff00]deadlystrike_v1[-]点会心值，[00ff00]defense_v1[-]点闪避值，[00ff00]lifemax_p1%[-]基础生命
+2555		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2558		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2560		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2561		每隔[00ff00]vitality_recover_life2/15[-]秒，回复[00ff00]体质*vitality_recover_life1%[-]点生命，持续[00ff00]skill_statetime1/15[-]秒
+2564		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2565		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2568		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2569		每次对目标造成[00ff00]dotdamage_wood1%[-]基础伤害，并浮空[00ff00]state_float_attack2/15[-]秒
+2572		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2574		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2575		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2578		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2581		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2582		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2587		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2591		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2593		增加[00ff00]lifemax_v1[-]点生命值
+2594		增加[00ff00]physical_damage_v1[-]攻击力
+2595		增加[00ff00]attackrate_v1[-]点命中值，[00ff00]deadlystrike_v1[-]点会心几率值
+2596		增加[00ff00]all_series_resist_v1[-]点全抗值，[00ff00]defense_v1[-]点闪避值
+2597		增加[00ff00]all_series_resist_v1[-]点全系抗性，[00ff00]defense_v1[-]点闪避值，[00ff00]attackrate_v1[-]点命中值，[00ff00]deadlystrike_v1[-]点会心几率值
+2598		增加[00ff00]lifemax_v1[-]点生命值，[00ff00]physical_damage_v1[-]点攻击力
+2603		增加[00ff00]lifemax_v1[-]点生命值
+2604		增加[00ff00]physical_damage_v1[-]攻击力
+2605		增加[00ff00]attackrate_v1[-]点命中值，[00ff00]deadlystrike_v1[-]点会心几率值
+2606		增加[00ff00]all_series_resist_v1[-]点全抗值，[00ff00]defense_v1[-]点闪避值
+2607		增加[00ff00]all_series_resist_v1[-]点全抗值，[00ff00]defense_v1[-]点闪避值，[00ff00]attackrate_v1[-]点命中值，[00ff00]deadlystrike_v1[-]点会心几率值
+2608		增加[00ff00]lifemax_v1[-]点生命值，[00ff00]physical_damage_v1[-]点攻击力
+2609		增加[00ff00]physical_damage_v1[-]点攻击力，[00ff00]attackrate_v1[-]点命中值，[00ff00]deadlystrike_v1[-]点会心几率值
+2613	不动如山阵	同伴上阵时，增加主角[00ff00]strength_v1[-]点力量，[00ff00]wood_resist_v1[-]点木系抗性与[00ff00]all_series_resist_v1[-]点全系抗性
+2614	傲寒不灭体	同伴上阵时，增加主角[00ff00]ignore_all_resist_v2[-]点忽略全系抗性，[00ff00]fire_resist_v1[-]点火系抗性与[00ff00]state_palsy_resisttime1[-]点抗麻痹时间
+2615	踏星摘月步	同伴上阵时，增加主角[00ff00]strength_v1[-]点力量，[00ff00]earth_resist_v1[-]点土系抗性与[00ff00]defense_v1[-]点闪避
+2616	红鸾牵丝手	同伴上阵时，增加主角[00ff00]ignore_all_resist_v2[-]点忽略全系抗性，[00ff00]metal_resist_v1[-]点金系抗性与[00ff00]state_hurt_resisttime1[-]点抗受伤时间
+2617	一川镇海诀	同伴上阵时，增加主角[00ff00]basic_damage_v1[-]点攻击力，[00ff00]water_resist_v1[-]点水系抗性与[00ff00]defense_v1[-]点闪避
+2618	天火琉璃步	同伴上阵时，增加主角[00ff00]deadlystrike_damage_p1%[-]会心伤害，[00ff00]energy_v1[-]点灵巧与[00ff00]attackrate_v1[-]点命中
+2619	混元金刚体	同伴上阵时，增加主角[00ff00]physical_metaldamage_v1[-]点金系伤害，[00ff00]vitality_v1[-]点体质与[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+2620	流风回雪舞	同伴上阵时，增加主角[00ff00]physical_waterdamage_v1[-]点水系伤害，[00ff00]vitality_v1[-]点体质与[00ff00]weaken_deadlystrike_v1[-]点抗会心几率
+2621	七巧玲珑步	同伴上阵时，增加主角[00ff00]physical_wooddamage_v1[-]点木系伤害，[00ff00]dexterity_v1[-]点敏捷与[00ff00]lifemax_p1%[-]基础生命
+2622	搬山填海劲	同伴上阵时，增加主角[00ff00]physical_earthdamage_v1[-]点土系伤害，[00ff00]weaken_deadlystrike_damage_p1%[-]会心免伤与[00ff00]state_slowall_resisttime1[-]点抗迟缓时间
+2623	天罗千机步	同伴上阵时，增加主角[00ff00]deadlystrike_v1[-]点会心几率值，[00ff00]energy_v1[-]点灵巧与[00ff00]state_stun_resisttime1[-]点抗眩晕时间
+2624	八荒炎龙劲	同伴上阵时，增加主角[00ff00]physical_firedamage_v1[-]点火系伤害，[00ff00]dexterity_v1[-]点敏捷与[00ff00]ignore_defense_v1[-]点忽略闪避
+2625		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2626		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2629		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2630		每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2629		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2634		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2635	困龙功	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_palsy_attack2/15[-]秒麻痹
+2637		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2638	霸刀	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成短暂的受伤
+2639		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2640		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2641		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2642	冰心仙子	[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_slowall_attack2/15[-]秒迟缓
+2645		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2646	白狼入阵	周围每多一个敌人，自动提升[00ff00]all_series_resist_v1[-]点全系抗性，[00ff00]defense_v1[-]点闪避，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+2648		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2649		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2650		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2651		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2652		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2653		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2655		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2657		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2660		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2662		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2663		每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2664		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2665		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2666		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2668		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2670		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2671		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2672	满江红	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，冲刺两次。每击中一个目标提升[00ff00]userdesc_1011[-]点全系抗性
+2674		增加[00ff00]physical_damage_v1[-]点攻击力，[00ff00]all_series_resist_v1[-]点全抗值，[00ff00]defense_v1[-]点闪避值
+2677	风霜碎影	每两秒有[00ff00]state_slowall_attack1%[-]几率对自身[00ff00]半径3米[-]内的敌人造成[00ff00]state_slowall_attack2/15[-]秒迟缓
+2684	叶落穿影	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_zhican_attack2/15[-]秒致缠
+2687		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2688		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_palsy_attack2/15[-]秒麻痹
+2690		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2691		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_zhican_attack2/15[-]秒致缠
+2692		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2693		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2694		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2696		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2697		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2698		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2801		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2803	坐忘无我	每1点敏捷抵御伤害[00ff00]magicshield1/100[-]点，持续[00ff00]magicshield2/15[-]秒
+2813	天地无极	对目标范围造成[00ff00]attack_usebasedamage_p1%[-]基础攻击，附带[00ff00]state_stun_attack2/15[-]秒的眩晕效果
+2819	血月之影	使自己隐身，持续[00ff00]userdesc_1041/15[-]秒，在隐身时提升[00ff00]runspeed_v1[-]点移动速度，并对下一次普攻连招添加 [00ff00]attackspeed_v1[-]点攻速、 [00ff00]ignore_defense_v1[-]点忽略闪避，和[00ff00]deadlystrike_v1[-]点会心一击
+2829	摄魂乱心	对目标每次伤害造成[00ff00]attack_usebasedamage_p1%[-]基础攻击，并有[00ff00]state_confuse_attack1%[-]的几率造成[00ff00]state_confuse_attack2/15[-]秒的混乱效果
+2832		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2836		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2837		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2841	怒焰冲天	每次对目标范围造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共3次
+2842		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2843		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2844	龙象九重	减少敌方[00ff00]defense_v1[-]闪避，增加自身[00ff00]defense_v1[-]闪避，持续[00ff00]skill_statetime1/15[-]秒
+2848	雪映红尘	增加[00ff00]resist_allseriesstate_rate_v1[-]抗属性效果几率，[00ff00]resist_allseriesstate_time_v1[-]抗属性效果时间，每[00ff00]recover_life_v2/15[-]秒回复[00ff00]recover_life_v1[-]点生命
+2850		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2851		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_zhican_attack2/15[-]秒致缠
+2853		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2854		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_stun_attack2/15[-]秒眩晕
+2856		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2857	诀别	战斗时提升主角[00ff00]physics_potentialdamage_p1%[-]基础攻击力。死亡时为主角每秒回复[00ff00]体质*userdesc_1021%[-]点生命值，持续[00ff00]userdesc_1011/15[-]秒
+2859		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2860		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并造成[00ff00]state_stun_attack2/15[-]秒眩晕
+2862		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2863		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2865		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2866		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2867	游龙剑意	抵御伤害[00ff00]magic_fixshield1[-]点，持续[00ff00]magic_fixshield2/15[-]秒。破盾后对周围敌人造成[00ff00]state_stun_attack2/15[-]秒眩晕
+2869		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2870		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2871	镇狱破天劲	提升[00ff00]defense_v1[-]点闪避值，持续[00ff00]userdesc_1011/15[-]秒。闪避敌人普攻时，增加[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]deadlystrike_v1[-]点会心几率值，最高叠加[00ff00]superposemagic1[-]层，持续[00ff00]userdesc_1021/15[-]秒。破天劲消失时造成[00ff00]userdesc_1031%[-]基础伤害。
+2873		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2875		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2876		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2877		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2878		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2879		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2880	幻音玄剑	剑阵内，每半秒对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，持续10秒
+2881		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2882	九溪弥烟	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2884		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2885		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2886	羁绊符	降低目标[00ff00]attackspeed_v1[-]点攻速与[00ff00]runspeed_v1[-]点移速，持续[00ff00]skill_statetime1/15[-]秒
+2888	风雪步法	提升自己[00ff00]basic_damage_v1[-]点攻击力、[00ff00]runspeed_v1[-]移动速度、[00ff00]attackspeed_v1[-]攻击速度、[00ff00]deadlystrike_v1[-]会心几率与[00ff00]attackrate_v1[-]点命中，持续[00ff00]skill_statetime1/15[-]秒
+2891		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2892		基础攻击，对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2893		对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+2898	沧海月明	提升[00ff00]all_series_resist_v1[-]点抗性，降低敌方[00ff00]attackrate_p1%[-]命中
+2930	稳重	同伴出战时，优先攻击最近的目标，并提升全系抗性[00ff00]30%[-]
+2931	冷静	同伴出战时，优先攻击对自身造成伤害的目标，并提升抗属性效果几率[00ff00]45%[-]
+2932	争胜	同伴出战时，优先攻击敌方玩家
+2933	重义	同伴出战时，优先攻击对角色造成伤害的敌人，并对优先目标伤害提升[00ff00]10%[-]
+2934	护主	同伴出战时，优先攻击对角色造成伤害的敌人，并降低其攻击力[00ff00]10%[-]
+2935	狡诈	同伴出战时，优先攻击血最少的目标，并提高自身攻击力[00ff00]5%[-]
+2936	果敢	同伴出战时，优先攻击血最少的目标，并提高自身全抗值[00ff00]10%[-]
+2937	精明	同伴出战时，与角色攻击的目标一致
+2938	谨慎	同伴出战时，被近战攻击时会边跑边打且提高回复效率[00ff00]10%[-]
+2939	勇猛	同伴出战时，血量低于[00ff00]30%时攻击力提升[00ff00]45%[-]
+2940	不屈	同伴出战时，血量低于[00ff00]30%[-]时全系抗性提升[00ff00]75%[-]
+2941	威严	同伴出战时，视野范围内战力低于你的敌人攻击力降低[00ff00]10%[-]
+2942	温婉	同伴出战时，提升抗会心几率[00ff00]400[-]点
+2943	嗜血	同伴出战时，优先攻击血量低于[00ff00]30%[-]的目标，血量低于[00ff00]30%[-]时攻击力提升[00ff00]30%[-]
+3202	山崩地裂	对自身周围的目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并附带[00ff00]state_hurt_attack2/15[-]秒受伤
+3205	七探蛇盘	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+3209	射石搏虎	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并附带[00ff00]state_palsy_attack2/15[-]秒的麻痹效果
+3213	猛扑	对单个目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害的会心一击
+3216	激怒	提升[00ff00]attackspeed_v1[-]点攻速与[00ff00]attackrate_v1[-]命中，持续[00ff00]skill_statetime1/15[-]秒
+3219	毒液	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共6次
+3225	护驾	每次瞬移落地与攻击均造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+3232	青龙分海爪	提升[00ff00]basic_damage_v1[-]点攻击力、[00ff00]ignore_defense_v1[-]点忽略闪避与[00ff00]deadlystrike_v1[-]点会心几率
+3233	玄武大荒钟	提升[00ff00]lifemax_v1[-]点生命上限、[00ff00]defense_v1[-]点闪避值与[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间
+3235	金矢	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并附带[00ff00]state_hurt_attack2/15[-]秒的受伤效果
+3238	密林斗繁星	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并附带[00ff00]state_zhican_attack2/15[-]秒的致缠效果
+3241	逆流	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+3244	三昧离火狱	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并附带[00ff00]state_palsy_attack2/15[-]秒的麻痹效果
+3247	八方星雷恸	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并附带[00ff00]state_stun_attack2/15[-]秒的眩晕效果
+3250	高级群体金刚	[00ff00]userdesc_1011/15[-]秒内免疫伤害。每隔[00ff00]vitality_recover_life2/15[-]秒，回复[00ff00]体质*vitality_recover_life1%[-]点当前生命，持续[00ff00]userdesc_1021/15[-]秒
+3252	高级群体明王	[00ff00]skill_statetime1/15[-]秒免疫任何属性效果、负面效果并增加[00ff00]defense_v1[-]点闪避值
+3254	轮回往生	重伤时有[00ff00]userdesc_1071%[-]几率回复[00ff00]userdesc_1072%[-]生命，清除所有属性效果和负面效果并增加[00ff00]basic_damage_v1[-]点攻击力，持续[00ff00]userdesc_1081/15[-]秒
+3257	破天一击	使目标减少[00ff00]dotdamage_maxlife_p1%[-]生命值，最多不超过[00ff00]dotdamage_maxlife_p3[-]点生命值，并造成击退、定身[00ff00]state_fixed_attack2/15[-]秒
+3259	十方俱静	[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益
+3261	高级群体毒瘴	造成中毒、减少[00ff00]shield_attrib1[-]%护盾抵御伤害与减少[00ff00]all_series_resist_v1[-]点全系抗性，持续[00ff00]skill_statetime1/15[-]秒
+3266	浮屠鎏金体	同伴上阵时，增加主角[00ff00]reduce_final_damage_p1[-]%最终伤害抵消、[00ff00]all_series_resist_p1%[-]基础全系抗性与[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间
+3267	森罗万象步	同伴上阵时，增加主角[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]defense_p1[-]%基础闪避与[00ff00]add_seriesstate_rate_v1[-]点属性效果几率
+3268	瀚海无涯诀	同伴上阵时，增加主角[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]lifecurmax_p1[-]%当前生命与[00ff00]weaken_deadlystrike_damage_p1[-]%会心免伤
+3269	修罗焚狱劲	同伴上阵时，增加主角[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]deadlystrike_p1[-]%基础会心几率值与[00ff00]ignore_all_resist_v2[-]点忽略全系抗性
+3270	至尊囚天手	同伴上阵时，增加主角[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]basic_damage_v1[-]点攻击力与[00ff00]ignore_defense_v1[-]点忽略闪避
+3278	九宫飞星	每枚暗器造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，并有[00ff00]state_zhican_attack1%[-]几率附带[00ff00]state_zhican_attack2/15[-]秒的致缠效果
+3283	风卷尘沙	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共6次
+3289	阴风蚀骨	每次毒攻造成[00ff00]dotdamage_wood1%[-]基础攻击，共[00ff00]userdesc_1091[-]次
+3292	亢龙有悔	每条龙对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击
+3295	暴雨梨花	每枚飞镖对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击
+3445	高级·血战八方	提高[00ff00]add_usebasedmg_p12%[-]基础攻击；[00ff00]add_hurt_r2%[-]几率造成[00ff00]add_hurt_t2/15[-]秒受伤；技能施展中提高自身[00ff00]remote_dmg_p1%[-]远程伤害抗性
+3447	高级·霸王怒吼	远程和近程伤害抗性提高[00ff00]melee_dmg_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]层；提高[00ff00]add_usebasedmg_p12[-]%基础攻击与[00ff00]add_hurt_t2/15[-]秒受伤时间；剩余冷却时间每次缩短[00ff00]reduce_cd_time12/15[-]秒
+3449	高级·金钟罩	回复[00ff00]dir_recover_life_pp1/100%[-]最大生命；冷却时间缩短[00ff00]deccdtime2/15[-]秒，持续时间延长[00ff00]add_state_time12/15[-]秒；额外提高[00ff00]all_series_resist_p1%[-]基础全系抗性和[00ff00]lifereplenish_p1%[-]生命回复效率
+3451	高级·野蛮冲撞	提高[00ff00]deadlystrike_p1%[-]基础会心几率，持续[00ff00]skill_statetime1/15[-]秒；提高[00ff00]add_usebasedmg_p12%[-]基础攻击；伤害的[00ff00]add_steallife_p2/100%[-]转为生命回复
+3453	高级·降龙棍	基础攻击增加[00ff00]add_usebasedmg_p12%[-]，造成的伤害的[00ff00]add_steallife_p2/100%[-]转化为生命回复，提高[00ff00]add_hurt_r2%[-]造成受伤的几率与[00ff00]add_hurt_t2/15[-]秒造成受伤的时间。
+3455	高级·大力金刚指	基础攻击增加[00ff00]add_usebasedmg_p12%[-]，最终会心几率增加[00ff00]add_deadlystrike_p12%[-]；[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身
+3457	高级·金刚伏魔	每次减少金刚伏魔冷却时间[00ff00]reduce_cd_time12/15[-]秒；金刚伏魔持续时间增加[00ff00]add_state_time12/15[-]秒；大力金刚指可攻击目标数量提高[00ff00]addms_hittotal_c12[-]个
+3459	高级·十二擒龙手	基础攻击增加[00ff00]add_usebasedmg_p12%[-]，[00ff00]state_forceatk_attack1%[-]几率嘲讽敌人[00ff00]state_forceatk_attack2/15[-]秒，敌方[00ff00]skill_statetime1/15[-]秒内基础攻击力降低[00ff00]physics_potentialdamage_p1%[-]；每击中一个目标剩余冷却缩短[00ff00]reduce_cd_time12/15[-]秒
+3801	冰清玉润	增加[00ff00]lifecurmax_p1%[-]当前生命，每隔[00ff00]userdesc_1011/15[-]秒清除所有技能冷却时间
+3803	穆如清风	增加[00ff00]enhance_final_damage_p1[-]%最终伤害放大，每隔[00ff00]ignoreattackontime1/15[-]秒忽略[00ff00]ignoreattackontime2/15[-]秒攻击
+3804	逆水行舟	增加[00ff00]enhance_final_damage_p1[-]%最终伤害放大，每隔[00ff00]userdesc_1011/15[-]秒清除并免疫自身受到的所有属性与负面效果，持续[00ff00]skill_statetime1/15[-]秒
+3806	天地归心	增加[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]attackrate_p1%[-]基础命中、[00ff00]deadlystrike_p1%[-]基础会心几率、[00ff00]defense_p1%[-]基础闪避与[00ff00]all_series_resist_p1%[-]基础全系抗性
+3807	铜肤铁骨	增加[00ff00]lifecurmax_p1%[-]当前生命与[00ff00]reduce_final_damage_p1[-]%最终伤害抵消
+3902	鸿门摆宴	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，附带[00ff00]state_palsy_attack2/15[-]秒的麻痹效果
+3906	寒冰尖刺	每枚尖刺对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+3909	蝎皇蛊	每次毒攻造成[00ff00]dotdamage_wood1%[-]基础攻击同时有[00ff00]state_zhican_attack1%[-]几率造成[00ff00]state_zhican_attack2/15[-]秒致缠，共[00ff00]userdesc_1091[-]次
+3914	狱火天焰	每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共3次
+3918	青山我意	每枚火球对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+3921	女帝之力	增加[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]all_series_resist_p1%[-]基础全系抗性与[00ff00]attackspeed_v1[-]点攻击速度，持续[00ff00]skill_statetime1/15[-]秒；被攻击时有[00ff00]userdesc_1011%[-]几率对攻击者造成[00ff00]state_freeze_attack2/15[-]秒的冰冻效果，触发间隔[00ff00]userdesc_1021/15[-]秒
+3924	飞燕凌波	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+3925	银瓶玉碎	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害
+3928	合纵连横	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，降低[00ff00]reduce_final_damage_p1[-]%最终伤害抵消，持续[00ff00]skill_statetime1/15[-]秒
+3932	纯阳无极功	增加[00ff00]physics_potentialdamage_p1%[-]基础攻击力与[00ff00]steallife_p1%[-]生命吸取，持续[00ff00]skill_statetime1/15[-]秒
+3933	神·浮屠鎏金体	同伴上阵时，增加主角[00ff00]reduce_final_damage_p1[-]%最终伤害抵消、[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]all_series_resist_p1%[-]基础全系抗性与[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间
+3934	神·森罗万象步	同伴上阵时，增加主角[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]reduce_final_damage_p1[-]%最终伤害抵消、[00ff00]defense_p1[-]%基础闪避与[00ff00]add_seriesstate_rate_v1[-]点属性效果几率
+3935	神·瀚海无涯诀	同伴上阵时，增加主角[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]reduce_final_damage_p1[-]%最终伤害抵消、[00ff00]lifecurmax_p1[-]%当前生命与[00ff00]weaken_deadlystrike_damage_p1[-]%会心免伤
+3936	神·修罗焚狱劲	同伴上阵时，增加主角[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]reduce_final_damage_p1[-]%最终伤害抵消、[00ff00]deadlystrike_p1[-]%基础会心几率值与[00ff00]ignore_all_resist_v2[-]点忽略全系抗性
+3937	神·至尊囚天手	同伴上阵时，增加主角[00ff00]enhance_final_damage_p1[-]%最终伤害放大、[00ff00]reduce_final_damage_p1[-]%最终伤害抵消、[00ff00]basic_damage_v1[-]点攻击力与[00ff00]ignore_defense_vp1%[-]忽略基础闪避
+4001	唐门暗器	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+4006	缠身刺	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，同时[00ff00]state_zhican_attack1%[-]造成[00ff00]state_zhican_attack2/15[-]秒致缠与定身，最多同时布置[00ff00]skill_maxmissile1[-]个。使用次数最多累计[00ff00]skill_point1/100[-]次
+4008	暴雨梨花	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害。使用次数最多累计[00ff00]skill_point1/100[-]次
+4010	迷影纵	向目标方向快速移动，技能等级越高冷却时间越短；含沙射影造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+4011	心魄	永久提升[00ff00]miss_remote_rate1/100[-]%闪避远程攻击几率与[00ff00]state_stun_resistrate1[-]点抗眩晕几率
+4012	九宫飞星	每枚飞镖造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，同时有[00ff00]state_zhican_attack1%[-]几率附带[00ff00]state_zhican_attack2/15[-]秒的致缠效果
+4015	淬毒术	提升自己[00ff00]physics_potentialdamage_p1%[-]基础攻击力与[00ff00]deadlystrike_damage_p1%[-]会心伤害。提升队友[00ff00]userdesc_1021%[-]会心伤害
+4017	高级暗器	提升[唐门暗器][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+4019	心眼	技能命中提高远程和近程伤害抗性[00ff00]melee_dmg_p1%[-]，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒
+4024	心魔	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_zhican_attackrate1[-]点致缠几率与[00ff00]state_stun_resisttime1[-]点抗眩晕时间
+4027	移形换影	有[00ff00]userdesc_1011%[-]几率触发，清除[迷影纵]冷却时间，减少[缠身刺][00ff00]reduce_cd_time22/15[-]秒、减少[暴雨梨花][00ff00]reduce_cd_time32/15[-]秒、减少[九宫飞星][00ff00]reduce_cd_time42/15[-]秒冷却时间，触发间隔[00ff00]userdesc_1021/15[-]秒
+4037	初级·缠身刺	[00ff00]userdesc_1011/15[-]秒触发间隔
+4038	初级·暴雨梨花	提高暴雨梨花[00ff00]add_usebasedmg_p12%[-]基础攻击
+4039	初级·迷影纵	永久提高自身基础闪避[00ff00]userdesc_1011%[-]
+4041	初级·九宫飞星	受击者每远离你1米，伤害放大[00ff00]add_adddmgbydist2/10%[-]，最多放大[00ff00]50%[-]
+4042	中级·缠身刺	[00ff00]userdesc_1011/15[-]秒触发间隔；最大布置数增加[00ff00]add_skill_max_ms12[-]，致缠和定身时间延长[00ff00]add_zhican_t2/15[-]秒
+4043	中级·暴雨梨花	提高暴雨梨花[00ff00]add_usebasedmg_p12%[-]基础攻击，增加[00ff00]add_att_speed12[-]攻击速度，最大累计使用次数增加[00ff00]add_skill_point12/100[-]次，冷却时间减少[00ff00]deccdtime2/15[-]秒
+4044	中级·迷影纵	永久提高自身基础闪避[00ff00]userdesc_1011%[-]；有[00ff00]userdesc_1021%[-]几率获得增益：基础闪避提高[00ff00]defense_p1%[-]、免疫负面和眩晕效果，持续[00ff00]skill_statetime1/15[-]秒
+4047	中级·九宫飞星	减少九宫飞星冷却时间[00ff00]deccdtime2/15[-]秒；受击者每远离你1米，伤害放大[00ff00]add_adddmgbydist2/10%[-]，最多放大[00ff00]50%[-]
+4052	高级·缠身刺	[00ff00]userdesc_1011/15[-]秒触发间隔；最大布置数增加[00ff00]add_skill_max_ms12[-]，致缠和定身时间延长[00ff00]add_zhican_t2/15[-]秒；[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益
+4054	高级·暴雨梨花	提高暴雨梨花[00ff00]add_usebasedmg_p12%[-]基础攻击和[00ff00]add_deadlydmg_p12%[-]会心伤害。增加[00ff00]add_att_speed12[-]攻击速度，最大累计使用次数增加[00ff00]add_skill_point12/100[-]次，冷却时间减少[00ff00]deccdtime2/15[-]秒
+4056	高级·迷影纵	永久提高自身基础闪避[00ff00]userdesc_1011%[-]；有[00ff00]userdesc_1021%[-]几率获得增益：基础闪避提高[00ff00]userdesc_1041%[-]、免疫负面和眩晕效果，持续[00ff00]skill_statetime1/15[-]秒；[00ff00]userdesc_1031%[-]几率触发
+4059	高级·九宫飞星	提高基础攻击[00ff00]add_usebasedmg_p12%[-]，冷却时间[00ff00]deccdtime2/15[-]秒；受击者每远离你1米，伤害放大[00ff00]add_adddmgbydist2/10%[-]，最多放大[00ff00]50%[-]
+4060	追星逐电	[00ff00]userdesc_1011%[-]几率造成定身且基础全系抗性降低[00ff00]all_series_resist_p1%[-]，持续[00ff00]state_fixed_attack2/15[-]秒。触发间隔[00ff00]userdesc_1012/15[-]秒
+4101	昆仑剑法	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+4106	仙人指路	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，附带[00ff00]state_stun_attack2/15[-]秒的眩晕和[00ff00]state_fixed_attack2/15[-]秒的定身；使用次数最多累计[00ff00]skill_point1/100[-]次
+4108	混沌剑阵	每[00ff00]0.33[-]秒对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，持续8秒
+4110	啸风三连击	每道风对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，并有[00ff00]state_stun_attack1%[-]几率造成眩晕，持续[00ff00]state_stun_attack2/15[-]秒
+4111	醉仙错骨	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]attackspeed_v1[-]攻击速度、[00ff00]runspeed_v1[-]移动速度与[00ff00]state_slowall_resistrate1[-]点抗迟缓几率
+4112	雷动九天	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，每次伤害增加[00ff00]ms_powerwhencol1[-]%，[00ff00]state_stun_attack1%[-]几率眩晕[00ff00]state_stun_attack2/15[-]秒
+4115	御风行	受到攻击时有[00ff00]userdesc_1011%[-]几率为自身生成护盾吸收[00ff00]敏捷*magicshield1/100[-]点伤害，持续[00ff00]magicshield2/15[-]秒；每隔[00ff00]userdesc_1012/15[-]秒的受到攻击[00ff00]100%[-]生成该护盾
+4116	高级剑法	永久提升造成眩晕的时间[00ff00]state_stun_attacktime1[-]点，提升[昆仑剑法][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+4118	混元乾坤	攻击命中提高自身[00ff00]steallife_p1%[-]生命吸取，降低敌人生命回复效率[00ff00]lifereplenish_p1%[-]，移动速度[00ff00]runspeed_p1%[-]，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒
+4124	霜傲昆仑	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_stun_attackrate1[-]点眩晕几率与[00ff00]state_slowall_resisttime1[-]点抗迟缓时间
+4130	一气三清	[00ff00]userdesc_1011%[-]几率触发：吸收最多[00ff00]敏捷*magicshield1/100[-]点伤害，最多可叠加[00ff00]superposemagic1[-]次，持续[00ff00]magicshield2/15[-]秒，吸收伤害达到上限后效果消失。触发间隔[00ff00]userdesc_1021/15[-]秒
+4133	初级·仙人指路	增加[00ff00]deadlystrike_p1%[-]基础会心几率与[00ff00]state_stun_attacktime1[-]造成眩晕时间，持续[00ff00]skill_statetime1/15[-]秒
+4135	啸风三连击	造成伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复，有[00ff00]state_drag_attack1%[-]几率拉回
+4136	初级·混沌剑阵	延长混沌剑阵[00ff00]addms_life12/15[-]秒
+4138	初级·雷动九天	基础攻击提高[00ff00]add_usebasedmg_p12%[-]
+4139	中级·仙人指路	增加[00ff00]deadlystrike_p1%[-]基础会心几率与[00ff00]state_stun_attacktime1[-]造成眩晕时间，持续[00ff00]skill_statetime1/15[-]秒；增加[00ff00]add_usebasedmg_p12%[-]基础攻击力，[00ff00]2.5[-]秒内清除并免疫迟缓和负面效果，持续时间可叠加
+4141	中级·啸风三连击	基础攻击增加[00ff00]add_usebasedmg_p12%[-]，造成伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复；有[00ff00]state_drag_attack1%[-]几率拉回敌人
+4142	中级·混沌剑阵	延长混沌剑阵[00ff00]addms_life12/15[-]秒；基础全系抗性降低[00ff00]all_series_resist_p1%[-]
+4144	中级·雷动九天	基础攻击提高[00ff00]add_usebasedmg_p12%[-]；冷却时间减少[00ff00]deccdtime2/15[-]秒
+4145	高级·仙人指路	增加[00ff00]deadlystrike_p1%[-]基础会心几率与[00ff00]state_stun_attacktime1[-]造成眩晕时间，持续[00ff00]skill_statetime1/15[-]秒；增加[00ff00]add_usebasedmg_p12%[-]基础攻击力，[00ff00]2.5[-]秒内清除并免疫迟缓和负面效果，持续时间可叠加；啸风三连击剩余冷却时间缩短持续[00ff00]reduce_cd_time12/15[-]秒
+4147	高级·啸风三连击	基础攻击增加[00ff00]add_usebasedmg_p12%[-]，造成伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复；有[00ff00]state_drag_attack1%[-]几率拉回敌人；基础闪避降低[00ff00]defense_p1%[-]，抗属性和负面几率降低[00ff00]resist_allseriesstate_rate_v1[-]，持续[00ff00]skill_statetime1/15[-]秒
+4149	高级·混沌剑阵	延长混沌剑阵[00ff00]addms_life12/15[-]秒；基础全系抗性降低[00ff00]all_series_resist_p1%[-]；远程伤害抗性提高[00ff00]remote_dmg_p1%[-]
+4151	高级·雷动九天	基础攻击提高[00ff00]add_usebasedmg_p12%[-]，冷却时间减少[00ff00]deccdtime2/15[-]秒；每次击中剩余冷却时间缩短[00ff00]reduce_cd_time12/15[-]秒，[00ff00]skill_statetime1/15[-]秒内清除免疫属性效果
+4152	天清地浊	提高[00ff00]userdesc_1011[-]攻击速度和[00ff00]userdesc_1012%[-]基础攻击力；周围每多一个敌人，降低[00ff00]attackspeed_v1[-]攻击速度和[00ff00]physics_potentialdamage_p1%[-]基础攻击力，提升[00ff00]defense_p1%[-]基础闪避和[00ff00]all_series_resist_p1%[-]基础抗性，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+4201	丐帮掌法	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+4206	亢龙有悔	每条龙对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，同时有[00ff00]state_palsy_attack1%[-]几率造成[00ff00]state_palsy_attack2/15[-]秒麻痹。使用次数最多累计[00ff00]skill_point1/100[-]次
+4208	困龙功	每次攻击对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，同时有[00ff00]state_palsy_attack1%[-]几率分别造成[00ff00]state_palsy_attack2/15[-]秒麻痹与定身
+4211	醉蝶狂舞	提升[00ff00]runspeed_v1[-]点移动速度和[00ff00]defense_p1%[-]基础闪避，持续[00ff00]skill_statetime1/15[-]秒
+4212	化险为夷	永久提升[00ff00]lifemax_p1%[-]基础生命、[00ff00]runspeed_v1[-]点移动速度、[00ff00]defense_p1%[-]基础闪避与[00ff00]state_hurt_resistrate1[-]点抗受伤几率
+4213	龙战于野	每次攻击对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，同时有[00ff00]state_palsy_attack1%[-]几率造成[00ff00]state_palsy_attack2/15[-]秒麻痹
+4218	霸王卸甲	周围每多一个敌人，自动提升[00ff00]ignore_all_resist2%[-]忽略最终抗性，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+4220	高级掌法	提升[丐帮掌法][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害与[00ff00]add_att_speed12[-]点攻击速度
+4222	游龙决	每次回复[00ff00]dir_recover_life_pp1/100%[-]生命。提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+4225	金蝉脱壳	有[00ff00]userdesc_1011%[-]几率清除属性效果、负面效果并触发技能[醉蝶狂舞]，触发间隔[00ff00]userdesc_1021/15[-]秒
+4228	天下无狗	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_palsy_attackrate1[-]点麻痹几率与[00ff00]state_hurt_resisttime1[-]点抗受伤时间
+4229	偷天换日	有[00ff00]userdesc_1021%[-]几率偷取[00ff00]stealstate_type2[-]个增益，持续[00ff00]skill_stealstate_time1/15[-]秒，触发间隔[00ff00]userdesc_1011/15[-]秒。有[00ff00]userdesc_1021%[-]几率减少[8dccf7]<亢龙有悔>[-]、[8dccf7]<困龙功>[-]与[8dccf7]<龙战于野>[-][00ff00]reduce_cd_time_point12/15[-]秒冷却时间，触发间隔[00ff00]userdesc_1031/15[-]秒
+4238	亢龙有悔	提高亢龙有悔[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_attackrating_v12[-]点命中
+4239	困龙功	增加困龙功造成定身[00ff00]add_fixed_t2/15[-]秒
+4240	醉蝶狂舞	提升醉蝶狂舞[00ff00]defense_p1%[-]基础闪避值与[00ff00]runspeed_v1[-]点移动速度
+4242	龙战于野	提高[00ff00]add_usebasedmg_p12%[-]基础攻击
+4243	中级·亢龙有悔	提高亢龙有悔[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_attackrating_v12[-]点命中，增加[00ff00]add_skill_point12/100[-]次累计使用次数
+4244	中级·困龙功	增加困龙功造成定身[00ff00]add_fixed_t2/15[-]秒，减少冷却时间[00ff00]deccdtime2/15[-]秒
+4245	中级·醉蝶狂舞	提升醉蝶狂舞[00ff00]defense_p1%[-]基础闪避值与[00ff00]runspeed_v1[-]点移动速度，延长醉蝶狂舞持续时间[00ff00]add_state_time12/15[-]秒
+4247	中级·龙战于野	提高[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_deadlystrike_p12%[-]最终会心几率
+4248	高级·亢龙有悔	提高亢龙有悔[00ff00]add_usebasedmg_p12%[-]基础攻击、[00ff00]add_attackrating_v12[-]点命中、[00ff00]add_palsy_r2%[-]麻痹几率与[00ff00]add_deadlydmg_p12%[-]会心伤害，增加[00ff00]add_skill_point12/100[-]次累计使用次数
+4249	高级·困龙功	增加困龙功造成定身[00ff00]add_fixed_t2/15[-]秒，减少冷却时间[00ff00]deccdtime2/15[-]秒；减少敌人[00ff00]all_series_resist_p1%[-]基础全系抗性，持续[00ff00]userdesc_1011/15[-]秒
+4251	高级·醉蝶狂舞	提升醉蝶狂舞[00ff00]defense_p1%[-]基础闪避值与[00ff00]runspeed_v1[-]点移动速度，延长醉蝶狂舞持续时间[00ff00]add_state_time12/15[-]秒，同时回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+4253	高级·龙战于野	提高[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_deadlystrike_p12%[-]最终会心几率，有[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益
+4301	五毒笛咒	每次毒攻造成[00ff00]dotdamage_wood1%[-]基础攻击 + [00ff00]dotdamage_wood2[-]点木系伤害，共[00ff00]userdesc_1091[-]次
+4309	阴风蚀骨	有[00ff00]state_zhican_attack1%[-]几率造成[00ff00]state_zhican_attack2/15[-]秒致缠；每次毒攻造成[00ff00]dotdamage_wood1%[-]基础攻击 + [00ff00]dotdamage_wood2[-]点木系伤害，共[00ff00]userdesc_1091[-]次
+4311	召唤毒虫	毒虫的攻击力=主角攻击力*[00ff00]callnpc_damage2%[-]。灵蛇[00ff00]userdesc_1011%[-]几率造成[00ff00]userdesc_1012/15[-]秒致缠，碧蟾降目标[00ff00]userdesc_1021[-]点木抗，赤蝎增加主角[00ff00]userdesc_1031%[-]会心伤害，风蜈降目标[00ff00]userdesc_1041[-]点闪避，墨蛛造成[00ff00]userdesc_1051[-]次毒攻
+4312	召唤灵蛇	毒虫的攻击力=主角攻击力*[00ff00]callnpc_damage2%[-]。灵蛇[00ff00]userdesc_1011%[-]几率造成[00ff00]userdesc_1012/15[-]秒致缠，碧蟾降目标[00ff00]userdesc_1021[-]点木抗，赤蝎增加主角[00ff00]userdesc_1031%[-]会心伤害，风蜈降目标[00ff00]userdesc_1041[-]点闪避，墨蛛造成[00ff00]userdesc_1051[-]次毒攻
+4314	召唤碧蟾	毒虫的攻击力=主角攻击力*[00ff00]callnpc_damage2%[-]。灵蛇[00ff00]userdesc_1011%[-]几率造成[00ff00]userdesc_1012/15[-]秒致缠，碧蟾降目标[00ff00]userdesc_1021[-]点木抗，赤蝎增加主角[00ff00]userdesc_1031%[-]会心伤害，风蜈降目标[00ff00]userdesc_1041[-]点闪避，墨蛛造成[00ff00]userdesc_1051[-]次毒攻
+4316	召唤赤蝎	毒虫的攻击力=主角攻击力*[00ff00]callnpc_damage2%[-]。灵蛇[00ff00]userdesc_1011%[-]几率造成[00ff00]userdesc_1012/15[-]秒致缠，碧蟾降目标[00ff00]userdesc_1021[-]点木抗，赤蝎增加主角[00ff00]userdesc_1031%[-]会心伤害，风蜈降目标[00ff00]userdesc_1041[-]点闪避，墨蛛造成[00ff00]userdesc_1051[-]次毒攻
+4318	召唤风蜈	毒虫的攻击力=主角攻击力*[00ff00]callnpc_damage2%[-]。灵蛇[00ff00]userdesc_1011%[-]几率造成[00ff00]userdesc_1012/15[-]秒致缠，碧蟾降目标[00ff00]userdesc_1021[-]点木抗，赤蝎增加主角[00ff00]userdesc_1031%[-]会心伤害，风蜈降目标[00ff00]userdesc_1041[-]点闪避，墨蛛造成[00ff00]userdesc_1051[-]次毒攻
+4320	召唤墨蜘	毒虫的攻击力=主角攻击力*[00ff00]callnpc_damage2%[-]。灵蛇[00ff00]userdesc_1011%[-]几率造成[00ff00]userdesc_1012/15[-]秒致缠，碧蟾降目标[00ff00]userdesc_1021[-]点木抗，赤蝎增加主角[00ff00]userdesc_1031%[-]会心伤害，风蜈降目标[00ff00]userdesc_1041[-]点闪避，墨蛛造成[00ff00]userdesc_1051[-]次毒攻
+4334	迷心蛊	每次毒攻造成[00ff00]dotdamage_wood1%[-]基础攻击 + [00ff00]dotdamage_wood2[-]点木系伤害，共[00ff00]userdesc_1091[-]次；受到毒攻伤害提升[00ff00]recdot_wood_p1%[-]并且每半秒有[00ff00]state_zhican_attack1%[-]几率造成[00ff00]state_zhican_attack2/15[-]秒致缠，持续[00ff00]skill_statetime1/15[-]秒
+4338	驭毒术	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、毒攻对护盾的伤害提高[00ff00]add_dotdshield_p2%[-]与[00ff00]state_stun_resistrate1[-]点抗眩晕几率
+4339	万蛊蚀心	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，并以[00ff00]receive_dot_alldmg1%[-]的伤害比例引爆敌人身上[00ff00]receive_dot_alldmg3%[-]的毒伤，同时有[00ff00]state_zhican_attack1%[-]几率造成[00ff00]state_zhican_attack2/15[-]秒致缠
+4341	百毒穿心	提升自己[00ff00]deadlystrike_p1%[-]基础会心几率；造成会心减少召唤毒虫的冷却时间[00ff00]reduce_cd_time_point12/15[-]秒，间隔[00ff00]userdesc_1011/15[-]秒
+4343	高级笛咒	提升[五毒笛咒]每次毒攻[00ff00]userdesc_1011/10%[-]基础攻击 + [00ff00]userdesc_1012[-]点木系伤害
+4345	无形蛊	有[00ff00]userdesc_1011%[-]几率触发，对目标毒攻造成[00ff00]dotdamage_wood1%[-]基础攻击 + [00ff00]dotdamage_wood2[-]点木系伤害，共[00ff00]userdesc_1091[-]次，触发间隔[00ff00]userdesc_1021/15[-]秒
+4347	回魂秘咒	有[00ff00]userdesc_1011%[-]几率触发，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+4349	万毒心法	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_zhican_attackrate1[-]点致缠几率与[00ff00]state_stun_resisttime1[-]点抗眩晕时间
+4350	五毒奇经	有[00ff00]userdesc_1011%[-]几率传染[00ff00]infect_dot_dmg1%[-]毒伤于附近[00ff00]infect_dot_dmg3[-]人，触发间隔[00ff00]userdesc_1021/15[-]秒
+4362	阴风蚀骨	增加阴风蚀骨[00ff00]add_igdefense_p12%[-]忽略最终闪避
+4363	召唤毒虫	提高毒虫攻击力[00ff00]addcall_npcdmg2%[-]
+4364	迷心蛊	迷心蛊使目标受到毒攻伤害提升[00ff00]add_recdot_type_p2%[-]
+4365	万蛊蚀心	提高毒攻[00ff00]add_usebasedmg_p12%[-]基础攻击
+4366	中级·阴风蚀骨	增加阴风蚀骨[00ff00]add_igdefense_p12%[-]忽略最终闪避与[00ff00]add_dotdamage_wood2%[-]基础毒攻
+4367	中级·召唤毒虫	提高毒虫攻击力[00ff00]addcall_npcdmg2%[-]，减少冷却时间[00ff00]deccdtime2/15[-]秒
+4368	中级·迷心蛊	迷心蛊使目标受到毒攻伤害提升[00ff00]add_recdot_type_p2%[-]，延长迷心蛊[00ff00]add_state_time12/15[-]秒，增加[00ff00]userdesc_1091[-]次毒攻
+4369	中级·万蛊蚀心	提高毒攻[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_recdot_alldmg12%[-]引爆比例
+4370	高级·阴风蚀骨	增加阴风蚀骨[00ff00]add_igdefense_p12%[-]忽略最终闪避与[00ff00]add_dotdamage_wood2%[-]基础毒攻，使用阴风蚀骨时有[00ff00]userdesc_1011%[-]几率获得[00ff00]attackspeed_v1[-]点攻击速度，持续[00ff00]skill_statetime1/15[-]秒
+4372	高级·召唤毒虫	提高毒虫攻击力[00ff00]addcall_npcdmg2%[-]，减少冷却时间[00ff00]deccdtime2/15[-]秒；提高灵蛇技能[00ff00]add_zhican_r2%[-]致缠几率与[00ff00]add_zhican_t2/15[-]秒致缠时间，提高碧蟾技能减敌人[00ff00]wood_resist_v1[-]点木抗，提高赤蝎加成主角[00ff00]userdesc_1031%[-]会心伤害，提高风蜈技能减敌人[00ff00]userdesc_1011[-]点闪避，提高墨蛛技能[00ff00]userdesc_1022%[-]基础毒攻
+4380	高级·迷心蛊	迷心蛊使目标受到毒攻伤害提升[00ff00]add_recdot_type_p2%[-]，延长迷心蛊持续时间[00ff00]add_state_time12/15[-]秒，增加[00ff00]userdesc_1091[-]次毒攻，迷心蛊使目标技能冷却时间增加[00ff00]allfactionskill_cd_point1/15[-]秒
+4382	高级·万蛊蚀心	提高毒攻[00ff00]add_usebasedmg_p12%[-]基础攻击与[00ff00]add_recdot_alldmg12%[-]引爆毒攻比例，万蛊蚀心造成伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复
+4401	藏剑剑法	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+4406	断潮	对身前矩形范围目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_hurt_attack1%[-]几率造成受伤[00ff00]state_hurt_attack2/15[-]秒，使用次数最多累计[00ff00]skill_point1/100[-]次
+4410	心剑	增加自身[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]deadlystrike_p1%[-]基础会心几率和[00ff00]damage4npc_p1%[-]对非玩家伤害，持续[00ff00]skill_statetime1/15[-]秒
+4408	玉泉鱼跃	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_hurt_attack1%[-]几率造成受伤[00ff00]state_hurt_attack2/15[-]秒
+4412	惊涛	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]runspeed_v1[-]点移动速度与[00ff00]state_zhican_resistrate1[-]点抗致缠几率
+4413	峰插云景	每次造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_hurt_attack1%[-]几率造成[00ff00]state_hurt_attack2/15[-]秒受伤
+4417	鹤归孤山	降低敌人[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]add_dottype_wood_p2%[-]毒攻伤害；每一个敌人提升自己[00ff00]userdesc_1011%[-]基础攻击力，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+4420	高级剑法	提升[藏剑剑法][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+4422	映波锁澜	基础全系抗性提高[00ff00]all_series_resist_p1%[-]，清除并免疫致缠和负面效果，持续[00ff00]skill_statetime1/15[-]秒
+4424	云栖松	有[00ff00]userdesc_1011%[-]几率触发：回复[00ff00]recover_life_p1%[-]最大生命，每次击中造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，伤害的[00ff00]attack_steallife_p1%[-]转化为生命回复，触发间隔[00ff00]userdesc_1021/15[-]秒
+4427	风来吴山	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_hurt_attackrate1[-]点受伤几率与[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+4428	黄龙吐翠	有[00ff00]userdesc_1011%[-]几率触发，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+4441	初级·断潮	会心伤害提高[00ff00]add_deadlydmg_p12%[-]
+4442	初级·心剑	清除并免疫致缠和负面效果，持续[00ff00]skill_statetime1/15[-]秒
+4444	初级·玉泉鱼跃	减少敌人[00ff00]runspeed_v1[-]移动速度，持续[00ff00]skill_statetime1/15[-]秒
+4445	初级·峰插云景	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_nojump_attack1%[-]几率造成[00ff00]state_nojump_attack2/15[-]秒锁足
+4447	中级·断潮	会心伤害提高[00ff00]add_deadlydmg_p12%[-]；[00ff00]skill_statetime1/15[-]秒内断潮基础攻击力增加[00ff00]add_usebasedmg_p12%[-]并且有[00ff00]add_fixed_r2%[-]几率定身[00ff00]add_fixed_t2/15[-]秒
+4448	中级·心剑	重置[00ff00]玉泉鱼跃[-]的冷却时间，清除并免疫致缠和负面效果，持续[00ff00]skill_statetime1/15[-]秒；回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+4450	中级·玉泉鱼跃	减少敌人[00ff00]runspeed_v1[-]移动速度，持续[00ff00]skill_statetime1/15[-]秒；有[00ff00]userdesc_1011%[-]的几率击中敌人两次
+4452	中级·峰插云景	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_nojump_attack1%[-]几率造成[00ff00]state_nojump_attack2/15[-]秒锁足；冷却时间减少[00ff00]deccdtime2/15[-]秒
+4454	高级·断潮	会心伤害提高[00ff00]add_deadlydmg_p12%[-]；[00ff00]skill_statetime1/15[-]秒内断潮基础攻击力增加[00ff00]add_usebasedmg_p12%[-]并且有[00ff00]add_fixed_r2%[-]几率定身[00ff00]add_fixed_t2/15[-]秒；[00ff00]userdesc_1011%[-]几率不会进入冷却
+4455	高级·心剑	重置[00ff00]玉泉鱼跃[-]的冷却时间，清除并免疫致缠和负面效果，持续[00ff00]skill_statetime1/15[-]秒；回复[00ff00]dir_recover_life_pp1/100%[-]最大生命；剩余冷却时间每次缩短[00ff00]reduce_cd_time12/15[-]秒
+4457	高级·玉泉鱼跃	减少敌人[00ff00]runspeed_v1[-]移动速度，持续[00ff00]skill_statetime1/15[-]秒；有[00ff00]userdesc_1011%[-]的几率击中敌人两次；伤害的[00ff00]add_steallife_p2/100%[-]转为生命回复
+4460	高级·峰插云景	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_nojump_attack1%[-]几率造成[00ff00]state_nojump_attack2/15[-]秒锁足；冷却时间减少[00ff00]deccdtime2/15[-]秒；会心伤害降低[00ff00]deadlystrike_damage_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]倍
+4501	长歌扇诀	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+4506	平沙雁落	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+4508	云生结海	提升自己[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]meleedamagereturn_p1%[-]反弹近程伤害与[00ff00]rangedamagereturn_p1%[-]反弹远程伤害，提升队友[00ff00]userdesc_1011%[-]基础攻击力、[00ff00]userdesc_1021%[-]基础全系抗性、[00ff00]userdesc_1031%[-]反弹近程伤害与[00ff00]userdesc_1041%[-]反弹远程伤害，音域持续[00ff00]skill_statetime1/15[-]秒
+4512	清音长啸	每道音波对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，并有[00ff00]state_hurt_attack1%[-]几率造成眩晕、受伤、致缠、迟缓或麻痹，持续[00ff00]state_hurt_attack2/15[-]秒
+4517	天音知脉	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命与[00ff00]state_slowall_resistrate1[-]点抗迟缓几率
+4518	江逐月天	每半秒对敌方造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，[00ff00]state_stun_attack1%[-]几率造成眩晕[00ff00]state_stun_attack2/15[-]秒并减少[00ff00]attackrate_p1%[-]基础命中与[00ff00]deadlystrike_p1%[-]基础会心，持续[00ff00]skill_statetime1/15[-]秒；增加友方[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]attackspeed_v1[-]点攻击速度与[00ff00]runspeed_v1[-]点移动速度
+4522	夜引风岚	周围每多一个友方，自动提升[00ff00]defense_p1%[-]基础闪避和[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+4525	高级扇诀	提升[长歌扇诀][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+4527	魔音缠绕	有[00ff00]userdesc_1011%[-]几率减少敌人[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]attackrate_p1%[-]基础命中、[00ff00]deadlystrike_p1%[-]基础会心与[00ff00]all_series_resist_p1%[-]基础全系抗性，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+4529	回梦逐光	有[00ff00]userdesc_1021%[-]几率触发，对敌人造成[00ff00]state_hurt_attack2/15[-]秒的受伤、致缠、迟缓、麻痹或眩晕效果并每[00ff00]recover_life_p2/15[-]秒回复自身[00ff00]recover_life_p1%[-]生命，持续[00ff00]userdesc_1011/15[-]秒，触发间隔[00ff00]userdesc_1031/15[-]秒
+4538	银烛清韵	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_stun_attackrate1[-]点眩晕几率与[00ff00]state_slowall_resisttime1[-]点抗迟缓时间
+4539	阳春白雪	<长歌扇诀>能使目标暂时无法回复生命，触发几率[00ff00]userdesc_1021%[-]，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1011/15[-]秒
+4551	初级·平沙雁落	提高[00ff00]add_usebasedmg_p12%[-]基础攻击
+4552	初级·云生结海	每秒回复[00ff00]recover_life_v1[-]点生命
+4554	清音长啸	造成的伤害的[00ff00]add_steallife_p2/100%[-]转化为生命回复
+4556	江逐月天	提高[00ff00]add_usebasedmg_p12%[-]基础攻击
+4557	中级·平沙雁落	提高[00ff00]add_usebasedmg_p12%[-]基础攻击；有[00ff00]add_stun_r2%[-]几率造成[00ff00]add_stun_t2/15[-]秒眩晕
+4558	中级·云生结海	延长[00ff00]addms_life12/15[-]秒，每秒回复[00ff00]recover_life_v1[-]点生命
+4560	清音长啸	造成的伤害的[00ff00]add_steallife_p2/100%[-]转化为生命回复，最终会心几率提高[00ff00]add_deadlystrike_p12%[-]
+4562	江逐月天	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，减少[00ff00]deccdtime2/15[-]秒冷却时间
+4563	高级·平沙雁落	提高[00ff00]add_usebasedmg_p12%[-]基础攻击；有[00ff00]add_stun_r2%[-]几率造成[00ff00]add_stun_t2/15[-]秒眩晕；降低目标[00ff00]physics_potentialdamage_p1%[-]基础攻击力，持续[00ff00]skill_statetime1/15[-]秒
+4564	高级·云生结海	延长[00ff00]addms_life12/15[-]秒，每秒回复[00ff00]recover_life_v1[-]点生命，结束时对周围敌人造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+4567	清音长啸	造成的伤害的[00ff00]add_steallife_p2/100%[-]转化为生命回复，最终会心几率提高[00ff00]add_deadlystrike_p12%[-]；释放时[00ff00]rand_ignoreskill1%[-]清除附近友方玩家的[00ff00]rand_ignoreskill2[-]个诅咒
+4569	江逐月天	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，减少[00ff00]deccdtime2/15[-]秒冷却时间，在造成伤害时有[00ff00]state_drag_attack1%[-]几率将敌人拉至中心
+4601	天山琴曲	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+4606	飞燕凌波	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，敌方每损失1%生命时，伤害 + [00ff00]loselife_dmg_p1/100%[-]，[00ff00]state_slowall_attack1%[-]几率造成迟缓[00ff00]state_slowall_attack2/15[-]秒；使用次数最多累计[00ff00]skill_point1/100[-]次
+4608	银瓶玉碎	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时使目标受到[00ff00]mult_skill_state3层[-]诅咒效果，每层诅咒降低[00ff00]physics_potentialdamage_p1%[-]基础攻击力，持续[00ff00]skill_statetime1/15[-]秒；对方受到攻击则失去一层诅咒
+4611	空山凝云	为自身添加[00ff00]mult_skill_state3层[-]气劲，每层增加[00ff00]physics_potentialdamage_p1%[-]基础攻击力和[00ff00]attackspeed_v1[-]攻击速度，持续[00ff00]skill_statetime1/15[-]秒；受到攻击时失去一层效果，每[00ff00]2[-]秒最多失去1层
+4612	双弹如一	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]attackspeed_v1[-]点攻击速度与[00ff00]state_palsy_resistrate1[-]点抗麻痹几率
+4613	水龙吟	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，[00ff00]state_slowall_attack1%[-]几率造成迟缓[00ff00]state_slowall_attack2/15[-]秒；同时有[00ff00]rand_ignoreskill1%[-]几率移除敌人[00ff00]rand_ignoreskill2[-]个增益或气劲
+4619	凤栖梧桐	每隔[00ff00]userdesc_1011/15[-]秒，在自身位置自动释放一个持续[00ff00]5[-]秒的气场，每[00ff00]0.66[-]秒回复[00ff00]dir_recover_life_pp1/100%[-]最大生命并叠加提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力，最多叠加[00ff00]superposemagic1[-]层；每2秒自动失去1层效果
+4622	吹云劲	提升[天山琴曲][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+4624	水幕天华	提升[00ff00]ignore_defense_p1%[-]忽略最终闪避几率、[00ff00]weaken_deadlystrike_damage_p1%[-]会心免伤，提升队友[00ff00]userdesc_1011%[-]会心免伤
+4626	逆水寒	[00ff00]userdesc_1011%[-]几率触发：增加[00ff00]steallife_p1%[-]吸取生命，[00ff00]all_series_resist_p1%[-]基础全系抗性，清除并免疫属性、负面效果，持续[00ff00]skill_statetime1/15[-]秒。触发间隔[00ff00]userdesc_1021/15[-]秒
+4629	剑胆琴心	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_slowall_attackrate1[-]点迟缓几率与[00ff00]state_palsy_resisttime1[-]点抗麻痹时间
+4634	琴瑟和鸣	有[00ff00]userdesc_1011%[-]几率触发，[00ff00]state_slowall_attack1%[-]几率对敌人造成迟缓[00ff00]state_slowall_attack2/15[-]秒，同时为自身回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+4637	初级·飞燕凌波	冷却时间每次缩短[00ff00]reduce_cd_time12/15[-]秒
+4638	中级·飞燕凌波	冷却时间每次缩短[00ff00]reduce_cd_time12/15[-]秒；发挥基础攻击力增加[00ff00]add_usebasedmg_p12%[-]
+4639	高级·飞燕凌波	冷却时间每次缩短[00ff00]reduce_cd_time12/15[-]秒；发挥基础攻击力增加[00ff00]add_usebasedmg_p12%[-]；提高基础会心[00ff00]deadlystrike_p1%[-]持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]次
+4640	初级·银瓶玉碎	忽略[00ff00]add_igdefense_p12%[-]最终闪避几率
+4641	中级·银瓶玉碎	忽略[00ff00]add_igdefense_p12%[-]最终闪避几率；基础攻击提升[00ff00]add_usebasedmg_p12%[-]，有[00ff00]state_freeze_attack1%[-]几率冰冻[00ff00]state_freeze_attack2/15[-]秒；
+4642	高级·银瓶玉碎	忽略[00ff00]add_igdefense_p12%[-]最终闪避几率；基础攻击提升[00ff00]add_usebasedmg_p12%[-]，有[00ff00]state_freeze_attack1%[-]几率冰冻[00ff00]state_freeze_attack2/15[-]秒；受到会心伤害提高[00ff00]weaken_deadlystrike_damage_p1%[-]
+4643	初级·空山凝云	回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+4644	中级·空山凝云	回复[00ff00]dir_recover_life_pp1/100%[-]最大生命；反击造成[00ff00]add_usebasedmg_p12%[-]基础攻击，[00ff00]add_slowall_r2%[-]几率迟缓[00ff00]add_slowall_t2/15[-]秒
+4645	高级·空山凝云	回复[00ff00]dir_recover_life_pp1/100%[-]最大生命；反击造成[00ff00]add_usebasedmg_p12%[-]基础攻击，[00ff00]add_slowall_r2%[-]几率迟缓[00ff00]add_slowall_t2/15[-]秒；清除并免疫负面和麻痹效果，持续[00ff00]skill_statetime1/15[-]秒
+4646	初级·水龙吟	[00ff00]ignore_dmgskill1/100%[-]几率无法获得增益或气劲，持续[00ff00]skill_statetime1/15[-]秒；
+4647	中级·水龙吟	[00ff00]ignore_dmgskill1/100%[-]几率无法获得增益或气劲，持续[00ff00]skill_statetime1/15[-]秒；发挥基础攻击力增加[00ff00]add_usebasedmg_p12%[-]；
+4648	高级·水龙吟	[00ff00]ignore_dmgskill1/100%[-]几率无法获得增益或气劲，持续[00ff00]skill_statetime1/15[-]秒；发挥基础攻击力增加[00ff00]add_usebasedmg_p12%[-]；冷却时间减少[00ff00]deccdtime2/15[-]秒
+4801	任脉·曲骨	普攻命中目标时，有[00ff00]userdesc_1011%[-]几率额外对目标及其周围目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，触发间隔[00ff00]userdesc_1021/15[-]秒
+4804	督脉·曲骨	受到攻击时有[00ff00]userdesc_1011%[-]几率对目标进行反击，造成[00ff00]attack_usebasedamage_p1%[-]基础伤害与[00ff00]state_confuse_attack2/15[-]秒的混乱效果，触发间隔[00ff00]userdesc_1021/15[-]秒
+4807	冲脉·幽门	受到攻击时有[00ff00]userdesc_1011%[-]几率清除并免疫属性和负面效果，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+4809	阳跷脉·睛明	重伤敌对玩家时回复[00ff00]dir_recover_life_pp1/100%[-]生命，触发间隔[00ff00]userdesc_1021/15[-]秒
+4811	阴跷脉·公孙	技能命中目标时，降低目标[00ff00]lifereplenish_p1%[-]生命回复效率，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+4813	阳维脉·金门	造成会心后增加自身忽略基础全抗[00ff00]ignore_all_resist_vp1%[-]，持续[00ff00]userdesc_1011/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+5001	霸刀刀诀	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+5005	化血劫光	第一刀造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，第二刀攻击为[00ff00]自身生命上限 * damage_maxlife_p1/100%[-]；每一刀都有[00ff00]state_hurt_attack1%[-]几率造成[00ff00]state_hurt_attack2/15[-]秒受伤；使用次数最多累计[00ff00]skill_point1/100[-]次
+5008	挟山超海	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+5011	逆血截脉	[00ff00]7[-]秒内每[00ff00]0.66[-]秒造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害；每次伤害都有[00ff00]state_hurt_attack1%[-]几率造成[00ff00]state_hurt_attack2/15[-]秒受伤
+5015	浴血蹈锋	大多数受控状态下均可施展，消耗[FF3030]make_npc_lose_lifeP1%[-]当前生命清除并免疫负面和属性效果、提升[00ff00]lifemax_p1%[-]基础生命、[00ff00]physics_potentialdamage_p1%[-]基础攻击力，每[00ff00]2秒[-]减少化血劫光的剩余冷却时间[00ff00]reduce_cd_time_point12/15[-]秒，持续[00ff00]skill_statetime1/15[-]秒
+5023	铁索横江	永久提升[00ff00]lifemax_p1%[-]基础生命、[00ff00]physics_potentialdamage_p1%[-]基础攻击力与[00ff00]state_zhican_resistrate1[-]点抗致缠几率
+5024	残阳映血	造成的伤害增加[00ff00]当前损失生命比例*lowhp_damage_att_p1%[-]；当自身生命值低于[00ff00]hitfilter_hp2%[-]时，每秒回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5025	刀法进阶	提升[霸刀刀诀][00ff00]userdesc_1011%[-]基础攻击 + [00ff00]userdesc_1012[-]点金系伤害
+5026	避实就虚	被动提高[00ff00]userdesc_1011%[-]基础全系抗性；每次受击减少自身基础全系抗性[00ff00]all_series_resist_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]层
+5028	否极泰来	[00ff00]userdesc_1012/15[-]秒触发间隔，[00ff00]userdesc_1011%[-]几率触发：下[00ff00]userdesc_1022[-]次受到濒死伤害时免疫该伤害并且回复[00ff00]dir_recover_life_pp1/100%[-]最大生命同时无敌[00ff00]skill_statetime1/15[-]秒
+5031	霸刀镇派	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_hurt_attackrate1[-]点受伤几率与[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+5032	乘胜逐北	触发后提高[00ff00]deadlystrike_damage_p1%[-]会心伤害、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]runspeed_v1[-]点移动速度
+5034	连环刀	击中时偷取敌人[00ff00]physics_potentialdamage_p1%[-]基础攻击，最多叠加[00ff00]superposemagic1%[-]层
+5037	初级·化血劫光	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+5038	中级·化血劫光	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害；每次减少逆血截脉的剩余冷却时间[00ff00]reduce_cd_time_point12/15[-]秒
+5039	高级·化血劫光	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害；每次减少逆血截脉的剩余冷却时间[00ff00]reduce_cd_time_point12/15[-]秒；化血劫光的最终会心几率增加[00ff00]add_deadlystrike_p12%[-]
+5040	初级·挟山超海	清除与免疫属性效果，持续[00ff00]skill_statetime1/15[-]秒
+5041	中级·挟山超海	清除与免疫属性效果，持续[00ff00]skill_statetime1/15[-]秒；施展间隔缩短[00ff00]deccdtime2/15[-]秒
+5042	高级·挟山超海	清除与免疫属性效果，会心免伤增加[00ff00]weaken_deadlystrike_damage_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒；施展间隔缩短[00ff00]deccdtime2/15[-]秒
+5043	初级·逆血截脉	基础全系抗性降低[00ff00]all_series_resist_p1%[-]、移动速度降低[00ff00]runspeed_v1[-]
+5044	中级·逆血截脉	基础全系抗性降低[00ff00]all_series_resist_p1%[-]、移动速度降低[00ff00]runspeed_v1[-]；逆血截脉持续时间增加[00ff00]addms_life12/15[-]秒
+5045	高级·逆血截脉	基础全系抗性降低[00ff00]all_series_resist_p1%[-]、移动速度降低[00ff00]runspeed_v1[-]；逆血截脉持续时间增加[00ff00]addms_life12/15[-]秒；持续伤害范围扩大且可额外影响[00ff00]addms_hittotal_c12[-]个敌人
+5046	初级·浴血蹈锋	攻击力为[00ff00]自身生命上限 * damage_maxlife_p1/100%[-]
+5047	中级·浴血蹈锋	攻击力为[00ff00]自身生命上限 * damage_maxlife_p1/100%[-]；永久提高[00ff00]lifemax_p1%[-]基础生命和[00ff00]lifereplenish_p1%[-]生命回复效率
+5048	高级·浴血蹈锋	攻击力为[00ff00]自身生命上限 * damage_maxlife_p1/100%[-]；永久提高[00ff00]lifemax_p1%[-]基础生命和[00ff00]lifereplenish_p1%[-]生命回复效率；无敌[00ff00]skill_statetime1/15[-]秒
+5201	华山剑法	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+5206	萧史乘龙	消耗[00ff00]check_buff_superpose2[-]点剑意方能释放，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，[00ff00]state_zhican_attack1%[-]几率致缠[00ff00]state_zhican_attack2/15[-]秒；每[00ff00]userdesc_1011/15秒[-]自动获得[00ff00]1点[-]剑意
+5209	天绅倒悬	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，被击中的敌人基础攻击降低[00ff00]physics_potentialdamage_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+5212	朝阳一气剑	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，[00ff00]state_zhican_attack1%[-]几率致缠[00ff00]state_zhican_attack2/15[-]秒；施展后获得[00ff00]mult_skill_state3[-]点剑意
+5215	风送紫霞	消耗[00ff00]check_buff_superpose2[-]点剑意方能释放，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，[00ff00]state_zhican_attack1%[-]几率致缠[00ff00]state_zhican_attack2/15[-]秒；施展时会消耗最多5道[00ff00]紫霞剑气[-]来增加相应的攻击次数；习得此技能后，施展[8dccf7]<萧史乘龙>[-]会获得1道[00ff00]紫霞剑气[-]
+5219	抱元劲	永久提升自身[00ff00]deadlystrike_p1%[-]基础会心几率、[00ff00]runspeed_v1[-]点移动速度、[00ff00]attackspeed_v1[-]点攻速与[00ff00]state_stun_resistrate1[-]点抗眩晕几率
+5220	破招	[8dccf7]<天绅倒悬>[-]的最终会心几率提高[00ff00]add_deadlystrike_p12%[-]，施展后[00ff00]userdesc_1011/15[-]秒内不受伤害，期间第一次被击中会减少[8dccf7]<天绅倒悬>[-]的冷却时间[00ff00]reduce_cd_time_point12/15秒[-]，同时回复[00ff00]mult_skill_state3[-]点剑意和[00ff00]dir_recover_life_pp1/100% + userdesc_1021/100% * 周围敌人数（最多5）[-]最大生命
+5223	高级剑法	提升[8dccf7]<华山剑法>[-][00ff00]userdesc_1011%[-]基础攻击 + [00ff00]userdesc_1021[-]点木系伤害
+5224	紫霞神功	吸血抗性提高[00ff00]steallife_resist_p1%[-]，所有伤害抗性提高[00ff00]已损失生命比例 * lowhp_damage_beatt_p1%[-]
+5225	云天弧光	[00ff00]userdesc_1011%[-]几率发动，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害，该攻击拥有额外[00ff00]add_steallife_p2/100%[-]生命吸取
+5227	混元功	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_zhican_attackrate1[-]点致缠几率与[00ff00]state_stun_resisttime1[-]点抗眩晕时间
+5228	天光云影	[8dccf7]<云天弧光>[-]的最终会心几率提高[00ff00]add_deadlystrike_p12%[-]；技能攻击有[00ff00]userdesc_1011%[-]几率发动，造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_wooddamage_v1[-]点木系伤害
+5237	初级·萧史乘龙	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]
+5238	中级·萧史乘龙	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]；成功施展后清除并免疫属性和负面效果，持续[00ff00]skill_statetime1/15[-]秒
+5239	中级·萧史乘龙	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]、基础攻击力增加[00ff00]add_usebasedmg_p12%[-]；成功施展后清除并免疫属性和负面效果，持续[00ff00]skill_statetime1/15[-]秒
+5240	初级·天绅倒悬	[00ff00]state_zhican_attack1%[-]几率造成[00ff00]state_zhican_attack2/15[-]秒致缠
+5241	中级·天绅倒悬	[00ff00]state_zhican_attack1%[-]几率造成[00ff00]state_zhican_attack2/15[-]秒致缠；伤害额外增加[00ff00]add_steallife_p2/100%[-]的生命吸取
+5242	高级·天绅倒悬	[00ff00]state_zhican_attack1%[-]几率造成[00ff00]state_zhican_attack2/15[-]秒致缠、[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益；伤害额外增加[00ff00]add_steallife_p2/100%[-]的生命吸取
+5243	初级·朝阳一气剑	基础攻击力增加[00ff00]add_usebasedmg_p12%[-]，使敌人移动速度降低[00ff00]runspeed_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+5244	中级·朝阳一气剑	基础攻击力增加[00ff00]add_usebasedmg_p12%[-]，使敌人移动速度降低[00ff00]runspeed_p1%[-]，使自身会心伤害增加[00ff00]deadlystrike_damage_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+5245	高级·朝阳一气剑	基础攻击力增加[00ff00]add_usebasedmg_p12%[-]，使敌人移动速度降低[00ff00]runspeed_p1%[-]，使自身会心伤害增加[00ff00]deadlystrike_damage_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒；被技能攻击命中有[00ff00]userdesc_1011%[-]几率重置冷却
+5246	初级·风送紫霞	每消耗一道[00ff00]紫霞剑气[-]有[00ff00]userdesc_1011%[-]几率回复1点剑意
+5247	中级·风送紫霞	基础攻击力增加[00ff00]add_usebasedmg_p12%[-]，每消耗一道[00ff00]紫霞剑气[-]有[00ff00]userdesc_1011%[-]几率回复1点剑意
+5248	高级·风送紫霞	基础攻击力增加[00ff00]add_usebasedmg_p12%[-]，每消耗一道[00ff00]紫霞剑气[-]有[00ff00]userdesc_1011%[-]几率回复1点剑意；每[00ff00]userdesc_1021/15[-]秒自动获得1道[00ff00]紫霞剑气[-]
+5301	绝学·风虎云龙	会心伤害增加[00ff00]deadlystrike_damage_p1%[-]，生命值低于30%后被攻击则该效果短时间内转为增加自身会心免伤
+5302	绝学·挥袂生风	增加反弹免伤[00ff00]return_resist_p1%[-]，每使用两次技能增加[00ff00]attackspeed_v1[-]点攻击速度，近程职业额外增加[00ff00]runspeed_v1[-]点移动速度，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1011/15[-]秒
+5306	绝学·金钟罩	受击时有[00ff00]userdesc_1011%[-]几率触发，解除属性和负面效果并回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5307	绝学·血战八方	[8dccf7]<血战八方>[-]每次命中增加基础攻击[00ff00]add_usebasedmg_p12%[-]，最多叠加[00ff00]superposemagic1[-]倍
+5309	绝学·慈航普度	远程和近战伤害反弹增加[00ff00]userdesc_1011%[-]
+5310	绝学·白露凝霜	基础攻击力增加[00ff00]physics_potentialdamage_p1%[-]，远程和近程伤害抗性增加[00ff00]remote_dmg_p1%[-]，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒
+5312	绝学·火凤燎原	基础闪避增加[00ff00]defense_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+5313	绝学·桃花箭术	基础攻击力增加[00ff00]physics_potentialdamage_p1%[-]，基础闪避增加[00ff00]defense_p1%[-]，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒
+5315	绝学·白虹贯日	[00ff00]userdesc_1011%[-]几率重置施展间隔
+5316	绝学·七探蛇盘	释放[8dccf7]<白虹贯日>[-]减少[8dccf7]<七探蛇盘>[-][00ff00]reduce_cd_time_point12/15秒[-]冷却时间
+5318	绝学·无我无剑	[8dccf7]<无我无剑>[-]的基础攻击力增加[00ff00]add_usebasedmg_p12%[-]，[00ff00]skill_statetime1/15[-]秒内回复效果无效，持续时间可叠加
+5319	绝学·坐忘无我	[8dccf7]<坐忘无我>[-]附带远程和近程伤害抗性[00ff00]remote_dmg_p1%[-]，最多叠加[00ff00]userdesc_1011[-]倍
+5321	绝学·死亡回旋	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，该伤害会享受死亡回旋秘籍的会心伤害加成
+5322	绝学·血月之影	低于[00ff00]hitfilter_hp2%[-]血量时每秒回复[00ff00]dir_recover_life_pp1/100%[-]最大生命，每秒额外减少死亡回旋[00ff00]reduce_cd_time_point12/15[-]秒、魔焰在天[00ff00]reduce_cd_time_point22/15[-]秒与摄魂乱心[00ff00]reduce_cd_time_point32/15[-]秒的冷却时间
+5324	绝学·大力金刚指	基础攻击力增加[00ff00]physics_potentialdamage_p1%[-]，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒
+5325	绝学·罗汉阵	每击中一个目标回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5327	绝学·召唤啵啵	回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5328	绝学·冰心雪莲	[00ff00]skill_statetime1/15[-]秒内[8dccf7]<翠烟御伞诀>[-]的基础攻击增加[00ff00]add_usebasedmg_p12%[-]，最多叠加[00ff00]superposemagic1[-]倍
+5330	绝学·暴雨梨花	[00ff00]userdesc_1011%[-]几率减少[00ff00]reduce_cd_time_point12/15[-]秒暴雨梨花的冷却时间
+5331	绝学·九宫飞星	会心伤害增加[00ff00]deadlystrike_damage_p1%[-]，基础会心几率值增加[00ff00]deadlystrike_p1%[-]，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒
+5333	绝学·混沌剑阵	冷却时间缩短[00ff00]deccdtime2/15[-]秒
+5334	绝学·啸风三连击	最终会心几率增加[00ff00]add_deadlystrike_p12%[-]，会心伤害增加[00ff00]add_deadlydmg_p12%[-]
+5336	绝学·亢龙有悔	冷却时间缩短[00ff00]deccdtime2/15[-]秒，增加[00ff00]add_usebasedmg_p12%[-]基础攻击
+5337	绝学·龙战于野	[8dccf7]<龙战于野>[-]的火球造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，并有[00ff00]state_drag_attack1%[-]几率拉回
+5339	绝学·五毒笛法	会心伤害增加[00ff00]deadlystrike_damage_p1%[-]，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒
+5340	绝学·驭蛊心经	每次普攻命中后减少[00ff00]reduce_cd_time_point12/15[-]秒迷心蛊与万蛊蚀心的冷却时间
+5342	绝学·玉泉鱼跃	会心伤害增加[00ff00]deadlystrike_damage_p1%[-]，会心免伤增加[00ff00]weaken_deadlystrike_damage_p1%[-]，持续[00ff00]skill_statetime1/15[-]秒
+5343	绝学·映波锁澜	每次叠加[00ff00]lifemax_p1%[-]基础生命持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]倍，并回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5345	绝学·余音绕梁	[00ff00]skill_statetime1/15[-]秒内[8dccf7]<清音长啸>[-]的基础攻击增加[00ff00]add_usebasedmg_p12%[-]，或[8dccf7]<平沙雁落>[-]的基础攻击增加[00ff00]add_usebasedmg_p22%[-]
+5346	绝学·云生结海	吸取生命增加[00ff00]userdesc_1011%[-]，会心几率值增加[00ff00]userdesc_1021[-]
+5348	绝学·琴瑟和鸣	[8dccf7]<琴瑟和鸣>[-]的基础攻击增加[00ff00]add_usebasedmg_p12%[-]
+5349	绝学·梅花三弄	银瓶玉碎冷却时间缩短[00ff00]deccdtime2/15[-]秒，空山凝云冷却时间缩短[00ff00]userdesc_1012/15[-]秒，水龙吟冷却时间缩短[00ff00]userdesc_1022/15[-]秒
+5351	绝学·浴血蹈锋	回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5352	绝学·挟山超海	提高[00ff00]all_series_resist_p1%[-]全系抗性
+5354	绝学·风送紫霞	总伤害伤害增加[00ff00]敌方已损失生命比例 * add_loselife_dmg_p2%[-]
+5355	绝学·萧史乘龙	[8dccf7]<萧史乘龙>[-]的基础攻击增加[00ff00]add_usebasedmg_p12%[-]
+5151	不动如山阵2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5152	傲寒不灭体2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5153	踏星摘月步2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5154	红鸾牵丝手2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5155	一川镇海诀2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5156	天火琉璃步2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5157	混元金刚体2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5158	流风回雪舞2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5159	七巧玲珑步2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5160	搬山填海劲2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5161	天罗千机步2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5162	八荒炎龙劲2	[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5163	浮屠鎏金体2	[00ff00]energy_v1[-]点灵巧、[00ff00]add_seriesstate_time_v1[-]点属性效果时间与[00ff00]lifemax_v1[-]点生命
+5164	森罗万象步2	[00ff00]strength_v1[-]点力量、[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间与[00ff00]basic_damage_v1[-]点攻击力
+5165	瀚海无涯诀2	[00ff00]vitality_v1[-]点体质、[00ff00]resist_allseriesstate_rate_v1[-]点抗属性效果几率与[00ff00]all_series_resist_v1[-]点全系抗性
+5166	修罗焚狱劲2	[00ff00]energy_v1[-]点灵巧、[00ff00]add_seriesstate_time_v1[-]点属性效果时间与[00ff00]lifemax_v1[-]点生命
+5167	至尊囚天手2	[00ff00]dexterity_v1[-]点敏捷、[00ff00]add_seriesstate_rate_v1[-]点属性效果几率与[00ff00]deadlystrike_v1[-]点会心几率
+5168	不动如山阵3	[00ff00]defense_p1[-]%基础闪避
+5169	傲寒不灭体3	[00ff00]weaken_deadlystrike_damage_p1%[-]会心免伤
+5170	踏星摘月步3	[00ff00]deadlystrike_p1[-]%基础会心几率值
+5171	红鸾牵丝手3	[00ff00]ignore_defense_v1[-]点忽略闪避
+5501	明教御环诀	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+5506	焚山噬川	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+5508	电光石火	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，[00ff00]state_palsy_attack1%[-]几率麻痹[00ff00]state_palsy_attack2/15[-]秒
+5511	火光残影	提升[00ff00]runspeed_v1[-]点移动速度和[00ff00]defense_p1%[-]基础闪避并对自身周围目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害，[00ff00]state_palsy_attack1%[-]几率麻痹[00ff00]state_palsy_attack2/15[-]秒，持续[00ff00]skill_statetime1/15[-]秒
+5514	光明引	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]runspeed_v1[-]点移动速度、[00ff00]defense_p1%[-]基础闪避与[00ff00]state_hurt_resistrate1[-]点抗受伤几率
+5515	毁天灭地	大多数受控状态下均可施展，腾空时每次攻击有[00ff00]state_palsy_attack1%[-]几率麻痹[00ff00]state_palsy_attack2/15[-]秒，降临时对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+5518	毁天灭地_第二段	降临时对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_firedamage_v1[-]点火系伤害
+5524	圣火滔天	[00ff00]目标最大生命*damage_maxlife_p1%[-]的攻击，目标生命最多视为自身生命上限的[00ff00]damage_maxlife_p2%[-]
+5526	高级御环诀	提升[8dccf7]<明教御环诀>[-][00ff00]userdesc_1011%[-]基础攻击 + [00ff00]userdesc_1021[-]点火系伤害
+5527	引火烧身	提高自身忽略最终抗性[00ff00]ignore_all_resist2%[-]
+5530	星火燎原	有[00ff00]userdesc_1011%[-]几率触发回复生命[00ff00]dir_recover_life_pp1/100%[-]，清除与免疫控制效果持续[00ff00]skill_statetime1/15[-]秒，清除一次[8dccf7]<毁天灭地>[-]冷却时间，触发间隔[00ff00]userdesc_1021/15[-]秒
+5533	明尊圣体	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]defense_p1%[-]基础闪避、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_palsy_attackrate1[-]点麻痹几率与[00ff00]state_hurt_resisttime1[-]点抗受伤时间
+5534	火舞凌天	周围每多一个敌人，自动提升[00ff00]defense_p1%[-]基础闪避与[00ff00]physics_potentialdamage_p1%[-]基础攻击力，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+5537	初级·焚山噬川	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]
+5538	中级·焚山噬川	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]，伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复
+5539	高级·焚山噬川	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]，伤害的[00ff00]add_steallife_p2/100%[-]转换成生命回复，冷却时间减少[00ff00]deccdtime2/15[-]秒
+5540	初级·电光石火	提高[00ff00]add_usebasedmg_p12%[-]基础攻击
+5541	中级·电光石火	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，提高麻痹时间[00ff00]add_palsy_t2/15[-]秒，增加[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身
+5542	高级·电光石火	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，提高麻痹时间[00ff00]add_palsy_t2/15[-]秒，增加[00ff00]add_fixed_r2%[-]几率造成[00ff00]add_fixed_t2/15[-]秒定身，成功施展后清除并免疫属性和除冰冻外的负面效果，持续[00ff00]skill_statetime1/15[-]秒
+5544	初级·火光残影	基础全系抗性降低[00ff00]all_series_resist_p1%[-]、移动速度降低[00ff00]runspeed_v1[-]，持续[00ff00]skill_statetime1/15[-]秒
+5546	中级·火光残影	基础全系抗性降低[00ff00]all_series_resist_p1%[-]、移动速度降低[00ff00]runspeed_v1[-]点；抗属性效果几率与时间降低[00ff00]resist_allseriesstate_rate_v1[-]点、抗负面效果几率与时间降低[00ff00]resist_allspecialstate_rate_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒
+5548	高级·火光残影	基础全系抗性降低[00ff00]all_series_resist_p1%[-]、移动速度降低[00ff00]runspeed_v1[-]点；抗属性效果几率与时间降低[00ff00]resist_allseriesstate_rate_v1[-]点、抗负面效果几率与时间降低[00ff00]resist_allspecialstate_rate_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒；[火光残影]每次击中可缩短[焚山噬川]冷却时间[00ff00]userdesc_1012/15[-]秒
+5550	初级·毁天灭地	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，免疫控制[00ff00]userdesc_1011/15[-]秒
+5552	中级·毁天灭地	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，免疫控制、提高[00ff00]lifemax_p1%[-]基础生命[00ff00]userdesc_1011/15[-]秒，并回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5555	高级·毁天灭地	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，免疫控制、提高[00ff00]lifemax_p1%[-]基础生命[00ff00]userdesc_1011/15[-]秒，并回复[00ff00]dir_recover_life_pp1/100%[-]最大生命；闪避后减少毁天灭地的冷却时间[00ff00]reduce_cd_time_point12/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+5559	绝学·火光残影	降低[00ff00]weaken_deadlystrike_damage_p1%[-]会心免伤和[00ff00]ignore_defense_vp1%[-]忽略基础闪避，持续[00ff00]skill_statetime1/15[-]秒
+5561	绝学·不灭之光	每次闪避回复[00ff00]dir_recover_life_pp1/100%[-]最大生命并提高[00ff00]deadlystrike_p1%[-]基础会心，持续[00ff00]skill_statetime1/15[-]秒，最多叠加[00ff00]superposemagic1[-]倍，触发间隔[00ff00]userdesc_1011/15[-]秒
+5601	段氏扇诀	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+5606	一阳指	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时有[00ff00]state_slowall_attack1%[-]几率附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+5608	五罗轻烟	对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，同时将其击退并有[00ff00]state_slowall_attack1%[-]几率造成[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+5611	六脉神剑	最高叠加[00ff00]skill_point1/100[-]脉。每一脉神剑对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，每叠加3脉时对每一脉神剑增加[00ff00]add_usebasedmg_p12%[-]基础攻击
+5625	段氏心法	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]state_palsy_resistrate1[-]点抗麻痹几率与[00ff00]runspeed_v1[-]移动速度
+5626	水龙狱	将指定目标锁于区域内[00ff00]skill_statetime1/15[-]秒，对所有目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，对碰到水龙狱边的敌人额外造成一次伤害并有[00ff00]state_freeze_attack1%[-]几率造成[00ff00]state_freeze_attack2/15[-]秒冰冻
+5633	妙谛指	提升[00ff00]ignore_defense_p1%[-]忽略最终闪避几率，每次普攻命中有[00ff00]userdesc_1011%[-]几率减少一阳指冷却时间[00ff00]reduce_cd_time_point12/15[-]秒
+5635	高级扇诀	提升[段氏扇诀][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+5637	画地为牢	水龙狱区域内增加自身[00ff00]meleedamagereturn_p1%[-]反弹近程与远程伤害；区域内增加自身与队友[00ff00]attackspeed_v1[-]点攻击速度和[00ff00]runspeed_v1[-]移动速度；区域外增加自身[00ff00]physics_potentialdamage_p1%[-]基础攻击力与[00ff00]lifereplenish_p1%[-]生命回复效率
+5642	枯荣禅功	有[00ff00]userdesc_1011%[-]几率触发每秒回复[00ff00]recover_life_p1%[-]生命，持续[00ff00]skill_statetime1/15[-]秒，清除一次[8dccf7]<水龙狱>[-]冷却时间，触发间隔[00ff00]userdesc_1021/15[-]秒
+5645	天龙神功	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_slowall_attackrate1[-]点迟缓几率与[00ff00]state_palsy_resisttime1[-]点抗麻痹时间
+5646	北冥神功	减少敌方[00ff00]physics_potentialdamage_p1%[-]基础攻击力，持续[00ff00]userdesc_1011/15[-]秒，最多叠加[00ff00]superposemagic1[-]倍。普攻触发冰环对目标造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害，触发间隔[00ff00]userdesc_1021/15[-]秒
+5650	初级·一阳指	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]
+5651	中级·一阳指	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]。冷却时间减少[00ff00]deccdtime2/15[-]秒
+5652	高级·一阳指	最终会心几率提高[00ff00]add_deadlystrike_p12%[-]。冷却时间减少[00ff00]deccdtime2/15[-]秒。每次回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5654	初级·五罗轻烟	增加攻击速度[00ff00]attackspeed_v1[-]点和移动速度[00ff00]runspeed_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒
+5655	中级·五罗轻烟	增加攻击速度[00ff00]attackspeed_v1[-]点和移动速度[00ff00]runspeed_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒。提高造成迟缓几率[00ff00]add_slowall_r2%[-]与造成迟缓时间[00ff00]add_slowall_t2/15[-]秒
+5656	高级·五罗轻烟	增加攻击速度[00ff00]attackspeed_v1[-]点和移动速度[00ff00]runspeed_v1[-]点，持续[00ff00]skill_statetime1/15[-]秒。提高造成迟缓几率[00ff00]add_slowall_r2%[-]与造成迟缓时间[00ff00]add_slowall_t2/15[-]秒。冷却时间减少[00ff00]deccdtime2/15[-]秒
+5658	初级·六脉神剑	提高六脉神剑[00ff00]add_usebasedmg_p12%[-]基础攻击
+5659	中级·六脉神剑	提高六脉神剑[00ff00]add_usebasedmg_p12%[-]基础攻击，每次弹射造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+5660	高级·六脉神剑	提高六脉神剑[00ff00]add_usebasedmg_p12%[-]基础攻击和[00ff00]add_deadlydmg_p12%[-]会心伤害，每次弹射造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_waterdamage_v1[-]点水系伤害
+5663	初级·水龙狱	基础攻击增加[00ff00]add_usebasedmg_p12%[-]
+5664	中级·水龙狱	基础攻击增加[00ff00]add_usebasedmg_p12%[-]；降低敌人会心免伤[00ff00]weaken_deadlystrike_damage_p1%[-]与移动速度[00ff00]runspeed_v1[-]点，持续[00ff00]userdesc_1011/15[-]秒
+5665	高级·水龙狱	基础攻击增加[00ff00]add_usebasedmg_p12%[-]；降低敌人会心免伤[00ff00]weaken_deadlystrike_damage_p1%[-]、移动速度[00ff00]runspeed_v1[-]点与基础闪避[00ff00]defense_p1%[-]，持续[00ff00]userdesc_1011/15[-]秒；每次命中敌方后回复[00ff00]dir_recover_life_pp1/100%[-]最大生命，并在[00ff00]userdesc_1021/15[-]秒内增加[00ff00]lifecurmax_p1%[-]当前生命上限，触发间隔[00ff00]1[-]秒
+5672	绝学·一阳指	提高一阳指[00ff00]add_usebasedmg_p12%[-]基础攻击，[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益
+5674	绝学·五罗轻烟	每远离受击目标[00ff00]1[-]米伤害提高[00ff00]add_adddmgbydist2/10%[-]，最多放大[00ff00]80%[-]，持续[00ff00]skill_statetime1/15[-]秒
+5701	青龙遮天体	提升[00ff00]basic_damage_v1[-]点攻击力、[00ff00]ignore_defense_v1[-]点忽略闪避、[00ff00]deadlystrike_v1[-]点会心几率与[00ff00]deadlystrike_damage_p1%[-]会心伤害
+5702	玄武御阳甲	提升[00ff00]lifemax_v1[-]点生命上限、[00ff00]defense_v1[-]点闪避值、[00ff00]resist_allseriesstate_time_v1[-]点抗属性效果时间与[00ff00]steallife_resist_p1%[-]吸血抗性
+5703	启明之怒	提升[00ff00]state_hurt_attackrate1[-]点受伤几率与[00ff00]state_hurt_attacktime1[-]点受伤时间，每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共3次，并附带[00ff00]state_hurt_attack2/15[-]秒的受伤效果
+5705	句芒唤荆	提升[00ff00]state_zhican_attackrate1[-]点致缠几率与[00ff00]state_zhican_attacktime1[-]点致缠时间，每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共3次，并附带[00ff00]state_zhican_attack2/15[-]秒的致缠效果
+5707	怒霜狂滔	提升[00ff00]state_slowall_attackrate1[-]点迟缓几率与[00ff00]state_slowall_attacktime1[-]点迟缓时间，每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共3次，并附带[00ff00]state_slowall_attack2/15[-]秒的迟缓效果
+5709	焚天火祭	提升[00ff00]state_palsy_attackrate1[-]点麻痹几率与[00ff00]state_palsy_attacktime1[-]点麻痹时间，每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共3次，并附带[00ff00]state_palsy_attack2/15[-]秒的麻痹效果
+5711	大地蟒动	提升[00ff00]state_stun_attackrate1[-]点眩晕几率与[00ff00]state_stun_attacktime1[-]点眩晕时间，每次对目标造成[00ff00]attack_usebasedamage_p1%[-]基础伤害，共3次，并附带[00ff00]state_stun_attack2/15[-]秒的眩晕效果
+5713	超群金刚	[00ff00]userdesc_1011/15[-]秒内免疫伤害。每隔[00ff00]vitality_recover_life2/15[-]秒，回复[00ff00]体质*vitality_recover_life1%[-]点当前生命与增加[00ff00]physics_potentialdamage_p1%[-]基础攻击力，持续[00ff00]userdesc_1021/15[-]秒
+5716	超群明王	[00ff00]skill_statetime1/15[-]秒免疫任何属性效果、负面效果并增加[00ff00]defense_v1[-]点闪避值与[00ff00]deadlystrike_damage_p1%[-]会心伤害
+5718	六道轮回	重伤时有[00ff00]100%[-]几率回复[00ff00]userdesc_1072%[-]生命，清除所有属性效果、负面效果，清除天赋技能冷却时间，增加[00ff00]basic_damage_v1[-]点攻击力，持续[00ff00]userdesc_1081/15[-]秒
+5721	破天惊月	提升[00ff00]state_confuse_attackrate1[-]点混乱几率与[00ff00]state_confuse_attacktime1[-]点混乱时间，使目标减少[00ff00]dotdamage_maxlife_p1%[-]生命值，最多不超过[00ff00]dotdamage_maxlife_p3[-]点生命值，共2次，并造成混乱[00ff00]state_confuse_attack2/15[-]秒
+5724	百念惧灭	[00ff00]rand_ignoreskill1%[-]几率移除[00ff00]rand_ignoreskill2[-]个增益与降低[00ff00]enhance_final_damage_p1[-]%最终伤害放大
+5726	毒泷恶雾	造成中毒使回复无效，减少[00ff00]shield_attrib1[-]%护盾抵御伤害，降低[00ff00]all_series_resist_v1[-]点全系抗性与[00ff00]reduce_final_damage_p1[-]%最终伤害抵消，持续[00ff00]skill_statetime1/15[-]秒
+5728	穿甲破铠	每次攻击有[00ff00]ignore_invincible_rate2%[-]几率无视敌人的金刚护体效果，持续[00ff00]skill_statetime1/15[-]秒
+5729	断汲	增加同伴[00ff00]userdesc_1011%[-]吸血抗性，增加主角[00ff00]userdesc_1021%[-]吸血抗性，持续[00ff00]skill_statetime1/15[-]秒
+5801	万花笔法	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+5805	执颖点墨	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害。对命中的目标添加[00ff00]mult_skill_state3[-]层[舞笔弄墨]效果，持续[00ff00]skill_statetime1/15[-]秒
+5808	兰摧玉折	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害。命中带有[舞笔弄墨]的目标时，消耗其一层[舞笔弄墨]效果并对其及周围敌人造成[00ff00]userdesc_1011%[-]基础攻击 + [00ff00]userdesc_1021[-]点土系伤害；使用次数最多累计[00ff00]skill_point1/100[-]次
+5810	墨虎如生	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，[00ff00]state_stun_attack1%[-]几率眩晕[00ff00]state_stun_attack2/15[-]秒；对命中的目标添加[00ff00]mult_skill_state3[-]层[舞笔弄墨]效果，持续[00ff00]skill_statetime1/15[-]秒
+5812	绘虎点睛	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害。水墨虎的攻击力为主角攻击力*[00ff00]callnpc_damage2%[-]，持续[00ff00]skill_statetime1/15[-]秒
+5824	万花心法	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命与[00ff00]state_slowall_resistrate1[-]点抗迟缓几率
+5831	墨守成规	每层[墨守成规]增加敏捷*[00ff00]add_shield2/100[-]点抵御伤害，最多叠加[00ff00]superposemagic1[-]层，[墨守成规]效果与护盾均持续[00ff00]userdesc_1011/15[-]秒，护盾的触发间隔[00ff00]userdesc_1021/15[-]秒
+5835	高级普攻	提升[万花笔法][00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害
+5837	与虎添翼	[与虎添翼]造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害，触发间隔[00ff00]skill_mintimepercast_v1/15[-]秒。巨型水墨虎的攻击力为主角攻击力*[00ff00]callnpc_damage2%[-]，持续[00ff00]userdesc_1011/15[-]秒
+5839	与虎添翼	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_earthdamage_v1[-]点土系伤害。巨型水墨虎的攻击力为主角攻击力*[00ff00]userdesc_1042%[-]，持续[00ff00]userdesc_1051/15[-]秒
+5844	虎啸山林	有[00ff00]userdesc_1021%[-]几率添加满层[8dccf7]<墨守成规>[-]效果，清除一次[8dccf7]<兰摧玉折>[-]冷却时间，清除与免疫控制效果、增加吸取生命[00ff00]steallife_p1%[-]持续[00ff00]userdesc_1011/15[-]秒，触发间隔[00ff00]userdesc_1031/15[-]秒
+5849	清心静气	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_stun_attackrate1[-]点眩晕几率与[00ff00]state_slowall_resisttime1[-]点抗迟缓时间
+5850	墨染失色	降低每个敌人[00ff00]lifereplenish_p1%[-]回复效率，并叠加自己提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力，最多叠加[00ff00]add_mult_proc_sate12[-]倍
+5853	初级·执颖点墨	降低目标[00ff00]all_series_resist_p1%[-]基础全系抗性，持续[00ff00]userdesc_1011/15[-]秒
+5854	中级·执颖点墨	降低目标[00ff00]all_series_resist_p1%[-]基础全系抗性，持续[00ff00]userdesc_1011/15[-]秒，每间隔2秒有[00ff00]state_fixed_attack1%[-]几率造成[00ff00]state_fixed_attack2/15[-]秒定身
+5855	高级·执颖点墨	降低目标[00ff00]all_series_resist_p1%[-]基础全系抗性，持续[00ff00]userdesc_1011/15[-]秒，每间隔2秒有[00ff00]state_fixed_attack1%[-]几率造成[00ff00]state_fixed_attack2/15[-]秒定身。执颖点墨增加[00ff00]add_stun_r2%[-]几率造成[00ff00]add_stun_t2/15[-]秒眩晕，提高主角自身[00ff00]deadlystrike_damage_p1%[-]的会心伤害持续[00ff00]userdesc_1011/15[-]秒
+5859	初级·兰摧玉折	提高[00ff00]add_deadlystrike_p12%[-]最终会心几率与[00ff00]add_deadlydmg_p12%[-]会心伤害
+5860	中级·兰摧玉折	提高[00ff00]add_deadlystrike_p12%[-]最终会心几率与[00ff00]add_deadlydmg_p12%[-]会心伤害；[00ff00]userdesc_1011%[-]几率不会进入冷却
+5861	高级·兰摧玉折	提高[00ff00]add_deadlystrike_p12%[-]最终会心几率与[00ff00]add_deadlydmg_p12%[-]会心伤害；[00ff00]userdesc_1011%[-]几率不会进入冷却；提高[兰摧玉折]与[舞笔弄墨][00ff00]add_usebasedmg_p12%[-]基础攻击
+5863	初级·墨虎如生	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，增加[00ff00]userdesc_1011个[-]攻击目标数量
+5864	中级·墨虎如生	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，增加[00ff00]userdesc_1011个[-]攻击目标数量；冷却时间缩短[00ff00]deccdtime2/15[-]秒
+5865	高级·墨虎如生	提高[00ff00]add_usebasedmg_p12%[-]基础攻击，增加[00ff00]userdesc_1011个[-]攻击目标数量；冷却时间缩短[00ff00]deccdtime2/15[-]秒；每次穿透后伤害提高[00ff00]addpowerwhencol12%[-]，最多提高[00ff00]addpowerwhencol13%[-]
+5868	初级·绘虎点睛	提高[00ff00]userdesc_1011%[-]基础全系抗性
+5869	中级·绘虎点睛	提高[00ff00]userdesc_1011%[-]基础全系抗性；冷却时间缩短[00ff00]deccdtime2/15[-]秒
+5870	高级·绘虎点睛	提高[00ff00]userdesc_1011%[-]基础全系抗性与[00ff00]userdesc_1021%[-]生命吸取；冷却时间缩短[00ff00]deccdtime2/15[-]秒
+5872	绝学·万花笔法	首次命中有[00ff00]userdesc_1011%[-]的几率减少主动技能冷却时间[00ff00]reduce_cd_time_point12/15[-]秒
+5874	绝学·墨守成规	获得[8dccf7]<墨守成规>[-]时额外增加近远程伤害抗性[00ff00]userdesc_1011/10%[-]，最多叠加[00ff00]superposemagic1[-]倍，持续[00ff00]skill_statetime1/15[-]秒
+5901	杨门箭术	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+5905	流光绝影	造成 [00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_hurt_attack1%[-]几率附带[00ff00]state_hurt_attack2/15[-]秒的受伤效果
+5907	碎金箭术	造成 [00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，[00ff00]state_fixed_attack1%[-]几率附带[00ff00]state_fixed_attack2/15[-]秒的定身效果
+5908	啸风诀	提升[00ff00]attackspeed_v1[-]点攻速、[00ff00]runspeed_v1[-]点移动速度、[00ff00]add_seriesstate_rate_v1[-]点属性效果几率与时间、[00ff00]add_allspecialstate_rate_v1[-]点负面效果几率与时间，持续[00ff00]skill_statetime1/15[-]秒
+5912	杨门枪法	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+5916	奔狼枪	造成 [00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，附带[00ff00]state_hurt_attack2/15[-]秒的受伤效果
+5918	奇门盾	增加自身[00ff00]all_series_resist_p1%[-]全系抗性、[00ff00]resist_allseriesstate_rate_v1[-]点抗属性效果几率和[00ff00]remote_dmg_p1%[-]远程伤害抗性，队友获得效果减半，持续[00ff00]skill_statetime1/15[-]秒
+5921	横扫千军	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害，附带[00ff00]state_hurt_attack2/15[-]秒的受伤效果
+5927	铁血心法	永久提升[00ff00]lifemax_p1%[-]基础生命、[00ff00]runspeed_v1[-]点移动速度、[00ff00]physics_potentialdamage_p1%[-]基础攻击力与[00ff00]state_zhican_resistrate1[-]点抗致缠几率
+5928	枪联弓映	弓状态：提升[00ff00]add_seriesstate_rate_v1[-]点属性效果几率与时间、[00ff00]add_allspecialstate_rate_v1[-]点负面效果几率与时间。枪状态：提升[00ff00]all_series_resist_p1%[-]全系抗性与[00ff00]reduce_final_damage_p1%[-]最终伤害抵消
+5931	万夫不当	[流光绝影][碎金箭术]增加[00ff00]add_damage_curlife_p2% * 目标当前生命百分比 * 目标最大生命[-]的攻击力，目标最大生命最多视为自身最大生命的[00ff00]add_damage_curlife_p3%[-]。[奔狼枪][横扫千军]增加[00ff00]add_loselife_dmg_p2% * 目标已损失生命比例[-]
+5933	普攻进阶	提升普攻[00ff00]attack_usebasedamage_p1%[-]基础攻击 + [00ff00]attack_metaldamage_v1[-]点金系伤害
+5936	后发制人	队友有[00ff00]userdesc_1011%[-]几率提升[00ff00]userdesc_1021%[-]基础全系抗性，持续[00ff00]userdesc_1031/15[-]秒，触发间隔[00ff00]userdesc_1041/15[-]秒。自身[00ff00]100%[-]几率提升[00ff00]all_series_resist_p1%[-]基础全系抗性，持续[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1041/15[-]秒，结束后清除免疫属性与负面效果[00ff00]userdesc_1051/15[-]秒
+5939	否极阳回	[00ff00]userdesc_1011%[-]几率触发[奇门盾]并无敌[00ff00]skill_statetime1/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒
+5942	杨门本生	永久提升[00ff00]physics_potentialdamage_p1%[-]基础攻击力、[00ff00]lifemax_p1%[-]基础生命、[00ff00]all_series_resist_p1%[-]基础全系抗性、[00ff00]attackspeed_v1[-]点攻击速度、[00ff00]state_hurt_attackrate1[-]点受伤几率与[00ff00]state_zhican_resisttime1[-]点抗致缠时间
+5943	两级反转	弓状态：提高[00ff00]userdesc_1011[-]攻击速度和[00ff00]userdesc_1012%[-]基础攻击力，周围每多一个敌人，降低[00ff00]attackspeed_v1[-]攻击速度和[00ff00]physics_potentialdamage_p1%[-]基础攻击力。枪状态：周围每多一个敌人，提高[00ff00]all_series_resist_p1%[-]基础全系抗性和[00ff00]steallife_p1%[-]吸取生命。最多叠加[00ff00]add_mult_proc_sate12[-]倍
+5951	初级·流光绝影/奔狼枪	提升[流光绝影][00ff00]add_usebasedmg_p12%[-]基础攻击力，[00ff00]add_hurt_r2%[-]几率与[00ff00]add_hurt_t2/15[-]秒受伤
+5952	中级·流光绝影/奔狼枪	提升[流光绝影][00ff00]add_usebasedmg_p12%[-]基础攻击力，[00ff00]add_hurt_r2%[-]几率与[00ff00]add_hurt_t2/15[-]秒受伤；提升[奔狼枪][00ff00]add_usebasedmg_p12%[-]基础攻击力并有[00ff00]userdesc_1011%[-]几率不会进入冷却
+5953	高级·流光绝影/奔狼枪	提升[流光绝影][00ff00]add_usebasedmg_p12%[-]基础攻击力，[00ff00]add_hurt_r2%[-]几率与[00ff00]add_hurt_t2/15[-]秒受伤；提升[奔狼枪][00ff00]add_usebasedmg_p12%[-]基础攻击力并有[00ff00]userdesc_1011%[-]几率不会进入冷却；提升[流光绝影][奔狼枪][00ff00]add_deadlydmg_p12%[-]会心伤害，减少敌对目标[00ff00]runspeed_v1[-]点移动速度
+5956	初级·啸风诀/奇门盾	增加[00ff00]ignore_deadlystrike_vp1%[-]忽略基础会心几率和[00ff00]weaken_deadlystrike_damage_p1%[-]会心免伤，持续[00ff00]userdesc_1041/15[-]秒
+5957	中级·啸风诀/奇门盾	增加[00ff00]ignore_deadlystrike_vp1%[-]忽略基础会心几率和[00ff00]weaken_deadlystrike_damage_p1%[-]会心免伤，持续[00ff00]userdesc_1041/15[-]秒。有[00ff00]userdesc_1021%[-]几率为自身与队友免疫致死打击[00ff00]1次[-]并无敌[00ff00]userdesc_1031/15[-]秒
+5958	高级·啸风诀/奇门盾	增加[00ff00]ignore_deadlystrike_vp1%[-]忽略基础会心几率和[00ff00]weaken_deadlystrike_damage_p1%[-]会心免伤，持续[00ff00]userdesc_1041/15[-]秒。有[00ff00]userdesc_1021%[-]几率为自身与队友免疫致死打击[00ff00]1次[-]并无敌[00ff00]userdesc_1031/15[-]秒。造成[00ff00]attack_usebasedamage_p1%[-]基础攻击并有[00ff00]state_forceatk_attack1%[-]几率嘲讽敌人[00ff00]state_forceatk_attack2/15[-]秒，回复[00ff00]dir_recover_life_pp1/100%[-]最大生命
+5964	初级·碎金箭术/横扫千军	提升[碎金箭术][00ff00]add_fixed_r2%[-]几率与[00ff00]add_fixed_t2/15[-]秒定身，提升[00ff00]add_usebasedmg_p12%[-]基础攻击力
+5965	中级·碎金箭术/横扫千军	提升[碎金箭术][00ff00]add_fixed_r2%[-]几率与[00ff00]add_fixed_t2/15[-]秒定身，提升[00ff00]add_usebasedmg_p12%[-]基础攻击力。提升[横扫千军][00ff00]add_usebasedmg_p12%[-]基础攻击力与[00ff00]add_deadlydmg_p12%[-]会心伤害
+5966	高级·碎金箭术/横扫千军	提升[碎金箭术][00ff00]add_fixed_r2%[-]几率与[00ff00]add_fixed_t2/15[-]秒定身，提升[00ff00]add_usebasedmg_p12%[-]基础攻击力。提升[横扫千军][00ff00]add_usebasedmg_p12%[-]基础攻击力与[00ff00]add_deadlydmg_p12%[-]会心伤害。每次击中所有弓技能剩余冷却时间缩短[00ff00]reduce_cd_time12/15[-]秒（同时最多触发missile_hitcount1次）
+5969	初级·枪联弓映	使用攻击技能后提升普攻[00ff00]add_usebasedmg_p12%[-]基础攻击力，持续[00ff00]userdesc_1011/15[-]秒
+5970	中级·枪联弓映	使用攻击技能后提升普攻[00ff00]add_usebasedmg_p12%[-]基础攻击力，持续[00ff00]userdesc_1011/15[-]秒；减少目标远程和近程伤害抗性[00ff00]melee_dmg_p1%[-]，持续[00ff00]userdesc_1021/15[-]秒，最高叠加[00ff00]superposemagic1[-]层
+5971	高级·枪联弓映	使用攻击技能后提升普攻[00ff00]add_usebasedmg_p12%[-]基础攻击力，持续[00ff00]userdesc_1011/15[-]秒；减少目标远程和近程伤害抗性[00ff00]melee_dmg_p1%[-]，持续[00ff00]userdesc_1021/15[-]秒，最高叠加[00ff00]superposemagic1[-]层；永久提高[00ff00]lifemax_p1%[-]基础生命和[00ff00]lifereplenish_p1%[-]生命回复效率，回复[00ff00]dir_recover_life_pp1/100%[-]最大生命，间隔[00ff00]userdesc_1031/15[-]秒
+5981	绝学·奇门盾	造成[00ff00]attack_usebasedamage_p1%[-]基础攻击，[00ff00]state_fixed_attack1%[-]几率附带[00ff00]state_fixed_attack2/15[-]秒的定身效果，共5次。降低目标[00ff00]lifereplenish_p1%[-]生命回复效率与[00ff00]physics_potentialdamage_p1%[-]基础攻击力
+5984	绝学·横枪跃马	受到攻击时有[00ff00]userdesc_1011%[-]几率减少[奔狼枪]冷却时间[00ff00]reduce_cd_time12/15[-]秒、[奇门盾]冷却时间[00ff00]reduce_cd_time22/15[-]秒、[横扫千军]冷却时间[00ff00]reduce_cd_time32/15[-]秒，触发间隔[00ff00]userdesc_1021/15[-]秒

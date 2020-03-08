@@ -1,0 +1,21 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+enemy1	五色教探子		1425			20	7573	4803	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7069	4531	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	6797	4120	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7128	3688	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7401	4027	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7560	4372	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7659	3635	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7407	3370	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7912	3901	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7985	4445	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	8064	4763	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	8462	4511	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	8356	4133	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	8197	3622	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7885	3410	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	8376	4783	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7785	4133	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	6730	3688	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	6710	4485	0	-1	0	0		-1	0	0	0	0	0	0	0
+enemy1	五色教探子		1425			20	7115	4060	0	-1	0	0		-1	0	0	0	0	0	0	0

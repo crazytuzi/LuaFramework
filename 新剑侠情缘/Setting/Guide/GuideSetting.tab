@@ -1,0 +1,24 @@
+GuideId	SaveId	CheckAchievement	FightLimit	StartCheck	Param	FinishTask	Desc	Level
+1	1			CheckLevel	4		主界面技能	4级
+2	2			CheckLevel	5		主界面登录领奖	5级
+4	4			CheckLevel	8		主界面福利	8级-签到
+3	3			CheckLevel	9		主界面同伴	9级
+5	5			CheckLevel	10		主界面好友	10级
+6	6			CheckLevel	11		主界面家族	11级
+7	7			CheckGuide	6		主界面拍卖	11级
+8	8			CheckLevel	13		主界面活动	13级-家族烤火
+9	9			CheckLevel	14		主界面商城	14级
+10	10			CheckLevel	15		主界面变强	15级
+11	11			CheckLevel	19		主界面排行榜	17级
+12	12			CheckLevel	18		主界面头衔	18级
+13	13			CheckLevel	20		主界面摆摊	20级
+42	42			EnterMap	SkillGuide|1		技能引导	
+43	43			EnterMap	SkillGuide|2		技能引导	
+44	44			EnterMap	SkillGuide|3		技能引导	
+45	45			EnterMap	SkillGuide|4		技能引导	
+46	46						门客引导图鉴界面	
+47	47						门客引导门客界面	
+48	48						外装背包使用引导	
+49	49						打开外装收藏柜引导	
+50	50						外装选择颜色引导	
+51	51						玩具箱界面引导	

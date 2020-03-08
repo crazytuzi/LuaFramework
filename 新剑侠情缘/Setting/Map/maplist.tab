@@ -1,0 +1,482 @@
+MapName	TemplateId	ResName	InfoFilePath	MiniMap	MapType	MaxPlayerCount	Class	FightState	UiState	MapLevel	NearbyRange	CameraName	DelayLogout	DefaultPosX	DefaultPosY	CameraDirAngle	CamDistance	CamLookDownAngle	CamFOV	IsAddAnger	SoundID	IsWeakSync	TeamForbidden	TransForbidden	DelayDelete	IsRunSpeed	EnvironmentID	SoundID1	Desc	PKDmgRate	NearbyChat	ForcePkMode	ForbidRide	SynAllPos	IsPerformance	EffectSoundVolume	LoadingTexture	Excercise	PreloadCount	FocusAllPet	ForbidTransEnter	TransBossCount	SeriesConquar	ForbidPeeking	UiTopButtonType
+新手关卡	1	cj_xinshouguan01	cj_xinshouguan01	baihutang02	2		fuben	1	9|show	1	1	Main Camera		6514	11207	135					10050		1	1				10052									UI/Textures/Loading/Loading_xuedi.jpg								
+新手关卡	2	cj_xinshouguan02	cj_xinshouguan02		2		fuben	1	9|show	1	1	Main Camera		21818	39358	135					10050		1	1				10052									UI/Textures/Loading/Loading_xuedi.jpg								
+襄阳	10	cj_luoyang01	cj_luoyang01		1		city	0		1	1	Main Camera	300	11623	14513	135					10010					1																			
+襄阳	10001	zc_lingtuzhan06	lt_xiangyang		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+襄阳(跨区)	11	cj_luoyang01	cj_luoyang01		4		city	0		1	1	Main Camera		11623	14513	135					10010					1																			
+临安	15	cj_linan01	cj_linan01		1		city	0		1	1	Main Camera	300	11070	11238	45					10011					1																			
+临安	900	cj_linan01	cj_linan01		1		city	0		1	1	Main Camera	70	15000	10000	45					10010					1
+临安	10002	zc_lingtuzhan06	lt_linan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+雪山古道	20	fb_xuedi07	fb_xuedi07		2		fuben	1	9|show	1	1	Main Camera		200	200	45				1	10030		1	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+离忧山	21	fb_luoyegu01	fb_luoyegu01		2		fuben	1	9|show	1	1	Main Camera		200	200	-45				1	10090		1	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+无忧禁地	22	fb_digong07	fb_digong07		2		fuben	1	9|show	1	1	Main Camera		200	1840	45				1	10180		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+离忧山洞	23	fb_erengu	fb_erengu		2		fuben	1	9|show	1	1	Main Camera		271	2772	45				1	10280		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+呼啸栈道	24	fb_zhandao01	fb_zhandao01		2		fuben	1	9|show	1	1	Main Camera		4027	7060	45				1	10100		1	1							1						UI/Textures/Loading/Loading_zhulin.jpg								
+藏剑山庄	25	fb_shanzhuang05	fb_shanzhuang05		2		fuben	1	9|show	1	1	Main Camera		2766	4386	45				1	10110		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+忘忧旅道	26	yw_canghai2	yw_canghai2		2		fuben	1	9|show	1	1	Main Camera		1692	5397	-45				1	10120		1	1							1						UI/Textures/Loading/Loading_canghai.jpg								
+心魔阵	27	fb_rongyan01	fb_rongyan01		2		fuben	1	9|show	1	1	Main Camera		5473	4882	45				1	10130		1	1							1						UI/Textures/Loading/Loading_rongyan.jpg								
+藏剑幽谷	28	fb_luoyegu05	fb_luoyegu05		2		fuben	1	9|show	1	1	Main Camera		2976	3333	45				1	10140		1	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+剑气峰	29	fb_xuedi06	fb_xuedi06		2		fuben	1	9|show	1	1	Main Camera		1439	3450	45				1	10190		1	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+天山古道	30	fb_xuedi03	fb_xuedi03		2		fuben	1	9|show	1	1	Main Camera		3832	1257	45				1	10200		1	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+红叶谷	31	fb_luoyegu02	fb_luoyegu02		2		fuben	1	9|show	1	1	Main Camera		1563	3299	45				1	10210		1	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+凌绝峰	32	fb_xuedi01	fb_xuedi01		2		fuben	1	9|show	1	1	Main Camera		3259	1065	45				1	10220		1	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+无忧禁地	33	fb_digong04	fb_digong04		2		fuben	1	9|show	1	1	Main Camera		1976	5743	45				1	10230		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+摘星地牢	34	fb_digong03	fb_digong03		2		fuben	1	9|show	1	1	Main Camera		1916	1837	45				1	10240		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+通天塔	35	fb_digong02	fb_digong02		2		fuben	1	9|show	1	1	Main Camera		5251	2787	45				1	10290		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+悲魔山庄	36	fb_shanzhuang06	fb_shanzhuang06		2		fuben	1	9|show	1	1	Main Camera		2412	6050	45				1	10300		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+衡山脚下	37	fb_zhulin05	fb_zhulin05		2		fuben	1	9|show	1	1	Main Camera		1170	4961	45				1	10310		1	1							1						UI/Textures/Loading/Loading_zhulin.jpg								
+九猴洞	38	fb_digong01	fb_digong01		2		fuben	1	9|show	1	1	Main Camera		2323	6627	45				1	10320		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+福缘庄	39	fb_shanzhuang02	fb_shanzhuang02		2		fuben	1	9|show	1	1	Main Camera		1361	1565	45				1	10330		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+碧霞岛	40	fb_canghai05	fb_canghai05		2		fuben	1	9|show	1	1	Main Camera		5854	1716	45				1	10340		1	1							1						UI/Textures/Loading/Loading_canghai.jpg								
+临安城东	41	fb_erengu07	fb_erengu07		2		fuben	1	9|show	1	1	Main Camera		2374	1900	45				1	10380		1	1				10382			1						UI/Textures/Loading/Loading_erengu.jpg								
+武夷派	42	fb_shanzhuang04	fb_shanzhuang04		2		fuben	1	9|show	1	1	Main Camera		1575	1436	45				1	10390		1	1				10392			1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+武夷禁地	43	fb_digong06	fb_digong06		2		fuben	1	9|show	1	1	Main Camera		1593	1454	45				1	10400		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+临安驿道	44	fb_erengu06	fb_erengu06		2		fuben	1	9|show	1	1	Main Camera		2142	1467	45				1	10410		1	1				10412			1						UI/Textures/Loading/Loading_erengu.jpg								
+暗影竹林	45	fb_zhulin02	fb_zhulin02		2		fuben	1	9|show	1	1	Main Camera		2189	3424	45				1	10420		1	1				10422			1						UI/Textures/Loading/Loading_zhulin.jpg								
+幽暗地牢	46	fb_digong05	fb_digong05		2		fuben	1	9|show	1	1	Main Camera		1725	1111	45				1	10430		1	1				10432			1						UI/Textures/Loading/Loading_digong.jpg								
+长安郊外	47	fb_erengu02	fb_erengu02		2		fuben	1	9|show	1	1	Main Camera		1226	2147	45				1	10440		1	1				10442			1						UI/Textures/Loading/Loading_erengu.jpg								
+华山派	48	fb_shanzhuang07	fb_shanzhuang07		2		fuben	1	9|show	1	1	Main Camera		5147	9902	45				1	10480		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+少林幽谷	49	fb_luoyegu06	fb_luoyegu06		2		fuben	1	9|show	1	1	Main Camera		1268	5508	45				1	10490		1	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+古战场	50	fb_erengu05	fb_erengu05		2		fuben	1	9|show	1	1	Main Camera		7844	1619	45				1	10500		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+萧瑟战场	51	fb_luoyegu04	fb_luoyegu04		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10510		1	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+萧瑟战场	478	fb_luoyegu04	fb_luoyegu04		1		fight	1		1	1	Main Camera	30	5866	3012	45					10510										1						UI/Textures/Loading/Loading_luoyegu.jpg
+修武密地	52	fb_canghai06	fb_canghai06		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10510		1	1							1						UI/Textures/Loading/Loading_canghai.jpg								
+天山凄道	53	fb_xuedi01	fb1_xuedi01		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10200		1	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+洞庭迷宫	54	fb_erengu06	fb1_erengu06		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10380		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+天王校场	55	fb_shanzhuang02	fb1_shanzhuang02		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10390		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+天兴村	10043	zc_lingtuzhan04	lt_tianxingcun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+五色老巢	56	fb_shanzhuang05	fb1_shanzhuang05		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10300		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+三魔绝地	57	fb_digong07	fb1_digong07		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10230		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+悲泣荒谷	58	fb_luoyegu05	fb1_luoyegu05		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10140		1	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+北海村	10047	zc_lingtuzhan04	lt_beihaicun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+凤凰山	59	fb_canghai04	fb_canghai04		2		fuben	1	9|show	1	1	Main Camera		5866	3012	45				1	10280		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+狂风谷	60	fb_luoyegu02	fb1_luoyegu02		2		fuben	1	9|show	1	1	Main Camera		1563	3299	45				1	10210		1	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+狂风谷	476	fb_luoyegu02	rw_kuangfenggu		1		fight	0		1	1	Main Camera	30	4500	5000	45					10210										1						UI/Textures/Loading/Loading_luoyegu.jpg
+葬马岗	61	fb_erengu05	fb1_erengu05		2		fuben	1	9|show	1	1	Main Camera		7844	1619	45				1	10500		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+葬马岗	477	fb_erengu05	rw_zangmagang		1		fight	0		1	1	Main Camera	30	2050	5450	45					10500
+府衙密室	62	fb_digong06	fb1_digong06		2		fuben	1	9|show	1	1	Main Camera		1593	1454	45				1	10400		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+风雪山庄	63	fb_shanzhuang01	fb_shanzhuang01		2		fuben	1	9|show	1	1	Main Camera		2670	3890	45				1	14000		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+风雪山庄	474	fb_shanzhuang01	rw_fengxueshanzhuang01		1		fight	0		1	1	Main Camera	30	2670	1600	45					14000										1						UI/Textures/Loading/Loading_shanzhuang.jpg
+风雨村	10039	zc_lingtuzhan04	lt_fengyucun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+唐门幽径	64	fb_zhulin02	fb1_zhulin02		2		fuben	1	9|show	1	1	Main Camera		1170	4961	45				1	10310		1	1							1						UI/Textures/Loading/Loading_zhulin.jpg								
+湖心迷宫	65	fb_erengu02	fb1_erengu02		2		fuben	1	9|show	1	1	Main Camera		4735	2214	45				1	10380		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+霹雳堂	66	fb_shanzhuang07	fb1_shanzhuang07		2		fuben	1	9|show	1	1	Main Camera		3830	3756	45				1	10300		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+平顶村	10035	zc_lingtuzhan04	lt_pingdingcun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+凤池黑牢	67	fb_digong05	fb1_digong05		2		fuben	1	9|show	1	1	Main Camera		3774	3778	45				1	10430		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+凤凰村	10030	zc_lingtuzhan04	lt_fenghuangcun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+阴暗密室	68	fb_erengu03	fb1_erengu03		2		fuben	1	9|show	1	1	Main Camera		4105	5126	135				1	10440		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+天忍迷宫	69	fb_rongyan07	fb1_rongyan07		2		fuben	1	9|show	1	1	Main Camera		7834	6984	45				1	10400		1	1							1						UI/Textures/Loading/Loading_rongyan.jpg								
+天忍主殿	70	fb_digong03	fb1_digong03		2		fuben	1	9|show	1	1	Main Camera		2611	3727	45				1	10240		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+白水之围	150	fb_baishuisi01	fb_baishuisi01		2		fuben	1	9|show	1	1	Main Camera		1686	11015	45				1	10160		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+忠义之魂	151	fb_canghai02	fb_canghai02		2		fuben	1	9|show	1	1	Main Camera		1686	11015	45				1	12180		1	1							1						UI/Textures/Loading/Loading_canghai.jpg								
+守卫襄阳	152	zc_lingtuzhan02	wlds_cisha		2		fuben	1	9|show	1	1	Main Camera		7049	9168	0					20		1	1							1						UI/Textures/Loading/Loading_canghai.jpg								
+龙潭虎穴	153	mijing_d_08	wlds_Team01		2		fuben	1	8|show	1	1	Main Camera		1948	1516	45				1	12230		2	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+楼兰古国	432	yw_loulanguguo	yw_loulanguguo		1		fight	0		20	1	Main Camera	-1	10742	10274	45					14000										1						UI/Textures/Loading/Loading_zhulin.jpg	1
+后山小道	201	mijing_a_01	mijing_a_01		2		fuben	1	8|show	1	1	Main Camera	300	3926	1430	44.89654				1	12000		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+竹林小道	202	mijing_a_03	mijing_a_02		2		fuben	1	8|show	1	1	Main Camera	300	5112	1460	45				1	12090		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+竹林小道	203	mijing_a_03	mijing_a_03		2		fuben	1	8|show	1	1	Main Camera	300	5112	1460	45				1	12090		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+竹林小道	204	mijing_a_04	mijing_a_04		2		fuben	1	8|show	1	1	Main Camera	300	1686	534	45				1	12100		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+竹林小道	205	mijing_a_09	mijing_a_05		2		fuben	1	8|show	1	1	Main Camera	300	1030	968	45				1	12130		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+竹林小道	206	mijing_a_03	mijing_a_06		2		fuben	1	8|show	1	1	Main Camera	300	5112	1460	45				1	12090		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+竹林小道	207	mijing_a_07	mijing_a_07		2		fuben	1	8|show	1	1	Main Camera	300	1084	1844	45				1	12120		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+竹林小道	208	mijing_a_08	mijing_a_08		2		fuben	1	8|show	1	1	Main Camera	300	1084	1844	45				1	12120		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+竹林小道	209	mijing_a_09	mijing_a_09		2		fuben	1	8|show	1	1	Main Camera	300	1030	968	45				1	12130		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+竹林小道	210	mijing_a_10	mijing_a_10		2		fuben	1	8|show	1	1	Main Camera	300	1030	968	45				1	12130		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+后山小道	211	mijing_b_01	mijing_b_01		2		fuben	1	8|show	1	1	Main Camera	300	4871	1433	45				1	12010		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+后山小道	212	mijing_b_02	mijing_b_02		2		fuben	1	8|show	1	1	Main Camera	300	2455	1345	45				1	30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+后山小道	213	mijing_b_03	mijing_b_03		2		fuben	1	8|show	1	1	Main Camera	300	710	611	45				1	30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+后山小道	214	mijing_b_04	mijing_b_04		2		fuben	1	8|show	1	1	Main Camera	300	1468	4085	45				1	12030		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+后山小道	215	mijing_b_05	mijing_b_05		2		fuben	1	8|show	1	1	Main Camera	300	1757	1255	45				1	30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+竹林小道	216	mijing_a_08	mijing_b_06		2		fuben	1	8|show	1	1	Main Camera	300	1084	1844	45				1	12120		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+后山纳凉亭	217	mijing_b_05	mijing_b_07		2		fuben	1	8|show	1	1	Main Camera	300	1757	1255	45				1	30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+后山小道	218	mijing_b_08	mijing_b_08		2		fuben	1	8|show	1	1	Main Camera	300	3054	2796	45				1	12040		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+后山小道	219	mijing_b_02	mijing_B_09		2		fuben	1	8|show	1	1	Main Camera	300	2455	1345	45				1	30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+后山小道	220	mijing_b_10	mijing_b_10		2		fuben	1	8|show	1	1	Main Camera	300	4162	2573	45				1	30		3	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+熔岩密洞	221	mijing_c_01	mijing_c_01		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	135				1	30		3	1							1						UI/Textures/Loading/Loading_rongyan.jpg								1
+峰顶峭崖	222	mijing_D_03	mijing_D_03		2		fuben	1	8|show	1	1	Main Camera	300	1995	1826	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+石壁小道	223	mijing_c_06	mijing_c_03		2		fuben	1	8|show	1	1	Main Camera	300	1907	795	45				1	12030		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+石壁平台	224	mijing_c_04	mijing_c_04		2		fuben	1	8|show	1	1	Main Camera	300	2400	1897	45					30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+石壁悬崖	225	mijing_c_05	mijing_c_05		2		fuben	1	8|show	1	1	Main Camera	300	2400	1897	45				1	30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+山腰小路	226	mijing_c_06	mijing_c_06		2		fuben	1	8|show	1	1	Main Camera	300	1907	795	45				1	12030		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+山腰小路	227	mijing_d_08	mijing_c_07		2		fuben	1	8|show	1	1	Main Camera	300	1948	1516	45				1	12230		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+山腰小路	228	mijing_c_08	mijing_c_08		2		fuben	1	8|show	1	1	Main Camera	300	772	3251	45				1	12170		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+山腰小路	229	mijing_c_09	mijing_c_09		2		fuben	1	8|show	1	1	Main Camera	300	4075	1838	45				1	12030		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+山腰小路	230	mijing_c_10	mijing_c_10		2		fuben	1	8|show	1	1	Main Camera	300	5226	3905	45				1	12030		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+峰顶山门	231	mijing_d_01	mijing_d_01		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+峰顶山路	232	mijing_d_02	mijing_d_02		2		fuben	1	8|show	1	1	Main Camera	300	1292	2745	45				1	12210		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+石窟密洞	233	mijing_c_02	mijing_c_02		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	12150		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+千壑雪岭	234	mijing_d_04	mijing_d_04		2		fuben	1	8|show	1	1	Main Camera	300	1995	1826	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+峰顶天池	235	mijing_d_05	mijing_d_05		2		fuben	1	8|show	1	1	Main Camera	300	1716	2201	45				1	12230		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+机关密室	236	mijing_d_06	mijing_d_06		2		fuben	1	8|show	1	1	Main Camera	300	4969	2408	45				1	30		3	1							1						UI/Textures/Loading/Loading_digong.jpg								1
+熔岩密洞	237	mijing_d_07	mijing_d_07		2		fuben	1	8|show	1	1	Main Camera	300	2385	3056	45				1	30		3	1							1						UI/Textures/Loading/Loading_rongyan.jpg								1
+峰顶幻境	238	mijing_d_08	mijing_d_08		2		fuben	1	8|show	1	1	Main Camera	300	1948	1516	45				1	12230		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+峰顶雪松岭	239	mijing_d_09	mijing_d_09		2		fuben	1	8|show	1	1	Main Camera	300	1034	1054	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+熔岩密洞	240	fb_rongyan03	mijing_d_10		2		fuben	1	8|show	1	1	Main Camera	300	7682	2751	45				1	10500		3	1							1						UI/Textures/Loading/Loading_rongyan.jpg								1
+凌绝峰峰顶	241	mijing_e_01	mijing_e_01		2		fuben	1	8|show	1	1	Main Camera	300	200	200	45				1	30		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+隐窟密洞	242	mijing_e_02	mijing_e_02		2		fuben	1	8|show	1	1	Main Camera	300	1463	1075	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+映雪村	10042	zc_lingtuzhan04	lt_yingxuecun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+寒梅山庄	243	mijing_e_03	mijing_e_03		2		fuben	1	8|show	1	1	Main Camera	300	4765	1792	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+雪山之巅	244	mijing_e_04	mijing_e_04		2		fuben	1	8|show	1	1	Main Camera	300	4765	1792	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+天机工坊	245	mijing_E_10	mijing_E_10		2		fuben	1	8|show	1	1	Main Camera	300	656	3848	45				1	12280		3	1							1						UI/Textures/Loading/Loading_digong.jpg								1
+尖啸雪崖	246	mijing_e_06	mijing_e_06		2		fuben	1	8|show	1	1	Main Camera	300	1064	4127	45				1	12190		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+雪山之巅	247	mijing_e_07	mijing_e_07		2		fuben	1	8|show	1	1	Main Camera	300	1105	1014	45				1	12200		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+雪山之巅	248	mijing_e_08	mijing_e_08		2		fuben	1	8|show	1	1	Main Camera	300	5130	4553	45				1	12200		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+天玄之巅	249	mijing_E_09	mijing_E_09		2		fuben	1	8|show	1	1	Main Camera	300	1597	195	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+天阴村	10037	zc_lingtuzhan04	lt_tianyincun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+诡影密林	250	mijing_e_05	mijing_e_05		2		fuben	1	8|show	1	1	Main Camera	300	686	724	45				1	12190		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+石壁悬崖	251	mijing_c_05	mijing_f_01		2		fuben	1	8|show	1	1	Main Camera	300	2400	1897	45				1	30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+雪山之巅	252	mijing_e_04	mijing_f_02		2		fuben	1	8|show	1	1	Main Camera	300	4765	1792	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+峰顶山门	253	mijing_d_01	mijing_f_03		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+雪山之巅	254	mijing_e_09	mijing_f_04		2		fuben	1	8|show	1	1	Main Camera	300	4367	4401	135				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+怒梅雪园	255	mijing_d_05	mijing_f_05		2		fuben	1	8|show	1	1	Main Camera	300	3617	3583					1	12230		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+千壑雪岭	256	mijing_d_04	mijing_f_06		2		fuben	1	8|show	1	1	Main Camera	300	1995	1826	45				1	30		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+石窟密洞	257	mijing_c_02	mijing_f_07		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	12150		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+熔岩密洞	258	mijing_c_01	mijing_f_08		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	135				1	30		3	1							1						UI/Textures/Loading/Loading_rongyan.jpg								1
+石壁悬崖	259	mijing_c_10	mijing_f_09		2		fuben	1	8|show	1	1	Main Camera	300	5226	3905	45				1	12030		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+桃源小径	260	mijing_c_09	mijing_f_10		2		fuben	1	8|show	1	1	Main Camera	300	4075	1838	45				1	12030		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+哀号危崖	261	mijing_g_01	mijing_g_01		2		fuben	1	8|show	1	1	Main Camera	300	2400	1897	45				1	10170		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+冰寒地窟	262	mijing_g_02	mijing_g_02		2		fuben	1	8|show	1	1	Main Camera	300	4765	1792	45				1	10230		3	1							1						UI/Textures/Loading/Loading_digong.jpg								1
+低语秘洞	263	mijing_g_03	mijing_g_03		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	10250		3	1							1						UI/Textures/Loading/Loading_digong.jpg								1
+阴风岩窟	264	mijing_g_03	mijing_g_04		2		fuben	1	8|show	1	1	Main Camera	300	1995	1826	45				1	10270		3	1							1						UI/Textures/Loading/Loading_digong.jpg								1
+恸哭城墙	265	mijing_g_05	mijing_g_05		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	10160		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+颤栗之地	266	mijing_g_01	mijing_g_06		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	10180		3	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								1
+荒城之外	267	mijing_g_05	mijing_g_07		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	10280		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+无人雪宫	268	mijing_g_08	mijing_g_08		2		fuben	1	8|show	1	1	Main Camera	300	1995	1826	45				1	12210		3	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+诡异废庄	269	mijing_g_10	mijing_g_09		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	10310		3	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								1
+噩运神社	270	mijing_g_10	mijing_g_10		2		fuben	1	8|show	1	1	Main Camera	300	4033	4758	45				1	10320		3	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+藏剑山庄	300	fb_jiuyoushanzhuang	fb_jiuyoushanzhuang		2		fuben	1	9|show	1	1	Main Camera	600	8320	1958	45				1	13010		2	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								1
+武夷禁地	301	fb_tianjifang	fb_tianjifang		2		fuben	1	9|show	1	1	Main Camera	600	4968	5618	45				1	13010		2	1							1						UI/Textures/Loading/Loading_digong.jpg								1
+熔火霹雳	302	fb_cangjian	fb_cangjian		2		fuben	1	9|show	1	1	Main Camera	600	4176	7471	135				1	13000		2	1							1						UI/Textures/Loading/Loading_rongyan.jpg								1
+翠竹幽谷	303	fb_zhulin05	fb_zhulin05_team		2		fuben	1	9|show	1	1	Main Camera	600	1170	4961	45				1	10310		2	1							1						UI/Textures/Loading/Loading_zhulin.jpg								1
+达摩洞·内	8021	hd_damodong	hd_damodong		2		battle	1	32|show	30	1	Main Camera	180	3272	3203	45					12190				3900						1				1		UI/Textures/Loading/Loading_erengu.jpg
+达摩洞·外	8020	hd_damodong01	hd_damodong01		2		battle	1	32|show	30	1	Main Camera	180	3272	3203	45					12190				3900						1				1		UI/Textures/Loading/Loading_erengu.jpg
+呼啸栈道	304	fb_huxiaozhandao01	fb_huxiaozhandao01		2		fuben	1	9|show	1	1	Main Camera	600	3974	2453	45				1	10100		2	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+雪峰硝烟	305	fb_xuefengxiaoyan01	fb_xuefengxiaoyan01		2		fuben	1	9|show	1	1	Main Camera	600	1438	2623	45				1	12210		2	1							1						UI/Textures/Loading/Loading_xuedi.jpg								1
+锁云渊	400	yw_zhulin01	yw_zhulin01		1		fight	0		1	1	Main Camera	-1	8148	7225	45					14000										1						UI/Textures/Loading/Loading_zhulin.jpg	1							
+锁云渊	10022	yw_zhulin01	lt_suoyunyuan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+武夷山	401	yw_wuyishan01	yw_wuyishan01		1		fight	0		1	1	Main Camera	-1	8997	7608	45					14000										1						UI/Textures/Loading/Loading_canghai.jpg	1							
+武夷山	10021	yw_wuyishan01	lt_wuyishan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+雁荡山	402	yw_luoyegu	yw_luoyegu		1		fight	0		1	1	Main Camera	-1	7387	5476	-45					14030										1						UI/Textures/Loading/Loading_luoyegu.jpg	1							
+雁荡山	10023	yw_luoyegu	lt_yandangshan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	-45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+洞庭湖畔	403	yewai_01	yewai_01		1		fight	0		20	1	Main Camera	-1	10659	7546	45					14000										1						UI/Textures/Loading/Loading_canghai.jpg	1							
+苗岭	404	yw_zhulin02	yw_zhulin02		1		fight	0		20	1	Main Camera	-1	8690	8380	45					14040										1						UI/Textures/Loading/Loading_zhulin.jpg	1							
+点苍山	405	yw_xuedi02	yw_xuedi02		1		fight	0		20	1	Main Camera	-1	8005	8253	45					14060										1						UI/Textures/Loading/Loading_xuedi.jpg	1							
+响水洞	406	yw_xiangshuidong	yw_xiangshuidong		1		fight	0		20	1	Main Camera	-1	6706	7349	45					14060										1						UI/Textures/Loading/Loading_erengu.jpg	1							
+见性峰	407	yw_xuedi01	yw_xuedi01		1		fight	0		20	1	Main Camera	-1	6820	6255	45					14050										1						UI/Textures/Loading/Loading_xuedi.jpg	1							
+剑门关	408	yw_jianmenguan2	yw_jianmenguan2		1		fight	0		20	1	Main Camera	-1	7903	7668	45					14000										1						UI/Textures/Loading/Loading_shanzhuang.jpg	1							
+夜郎废墟	409	yw_yelangfeixu01	yw_yelangfeixu01		1		fight	0		20	1	Main Camera	-1	6462	6445	45					14000										1	1					UI/Textures/Loading/Loading_shanzhuang.jpg	1							
+夜郎废墟	10020	yw_yelangfeixu01	lt_yelangfeixu		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+荐菊洞	410	yw_jianjudong	yw_jianjudong		1		fight	0		20	1	Main Camera	-1	8416	8324	45					13010										1						UI/Textures/Loading/Loading_digong.jpg	1							
+伏牛山	411	yw_jianmenguan	yw_jianmenguan		1		fight	0		20	1	Main Camera	-1	8310	8582	45					14000										1						UI/Textures/Loading/Loading_shanzhuang.jpg	1							
+古战场	412	yewai_02	yewai_02		1		fight	0		20	1	Main Camera	-1	8218	8851	45					14030										1						UI/Textures/Loading/Loading_luoyegu.jpg	1							
+祁连山	413	yw_qilianshan	yw_qilianshan		1		fight	0		20	1	Main Camera	-1	7700	7735	45					14000										1						UI/Textures/Loading/Loading_xuedi.jpg	1							
+祁连山	10014	yw_qilianshan	lt_qilianshan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+沙漠遗迹	414	yw_shamomigong	yw_shamomigong		1		fight	0		20	1	Main Camera	-1	7381	7111	45					14000										1						UI/Textures/Loading/Loading_luoyegu.jpg	1							
+沙漠遗迹	10013	yw_shamomigong	lt_shamoyiji		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+敦煌古城	415	yw_dunhuanggucheng01	yw_dunhuanggucheng01		1		fight	0		20	1	Main Camera	-1	9100	9000	45					14040										1						UI/Textures/Loading/Loading_luoyegu.jpg	1							
+敦煌古城	10015	yw_dunhuanggucheng01	lt_dunhuanggucheng		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+药王谷	416	yw_yaowanggu	yw_yaowanggu		1		fight	0		20	1	Main Camera	-1	7900	7900	45					14000										1						UI/Textures/Loading/Loading_canghai.jpg	1							
+药王谷	10026	yw_yaowanggu	lt_yaowanggu		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+漠北草原	417	yw_mobeicaoyuan	yw_mobeicaoyuan		1		fight	0		20	1	Main Camera	-1	9750	11630	45					14000										1						UI/Textures/Loading/Loading_canghai.jpg	1							
+漠北草原	10016	yw_mobeicaoyuan	lt_mobeicaoyuan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+长白山	418	yw_changbaishan	yw_changbaishan		1		fight	0		20	1	Main Camera	-1	8200	9500	45					14000										1						UI/Textures/Loading/Loading_xuedi.jpg	1							
+长白山	10027	yw_changbaishan	lt_changbaishan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+长白之巅	8018	hd_changbaizhidian01	hd_changbaizhidian01		2		battle	1	32|show	1	1	Main Camera	2100	6725	6990	45					12190		2
+长白之巅准备场	8019	zc_zhunbei01	zc_zhunbei02	baihutang02	2		fuben	0	22|show	1	1	Main Camera	300	1280	1800	45					21		2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg
+风陵渡	419	yw_fenglingdu	yw_fenglingdu		1		fight	0		20	1	Main Camera	-1	9605	10397	45					14030										1	1					UI/Textures/Loading/Loading_luoyegu.jpg	1							
+风陵渡	10011	yw_fenglingdu	lt_fenglingdu		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+风雪前庭	475	zc_zhunbei01	rw_fengxueshanzhuang		1		fight	1		1	1	Main Camera	30	1500	5600	45					14000										1						UI/Textures/Loading/Loading_wuxing.jpg
+太行古径	420	yw_taihanggujing01	yw_taihanggujing01		1		fight	0		20	1	Main Camera	-1	6968	7405	45					14000										1	1					UI/Textures/Loading/Loading_zhulin.jpg	1							
+太行古径	10025	yw_taihanggujing01	lt_taihanggujing		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+昆虚脉藏	421	yw_shunanzhuhai	yw_shunanzhuhai		1		fight	0		20	1	Main Camera	-1	8930	9400	45					14000										1	1					UI/Textures/Loading/Loading_zhulin.jpg	1							
+昆虚脉藏	10012	yw_shunanzhuhai	lt_kunxumaizang		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+残桓铁城	422	yw_canhuantiecheng	yw_canhuantiecheng		1		fight	0		20	1	Main Camera	-1	9500	9200	45					14000										1	1					UI/Textures/Loading/Loading_zhulin.jpg	1							
+居延泽	423	yw_juyanze	yw_juyanze		1		fight	0		20	1	Main Camera	-1	7450	7500	45					14000										1						UI/Textures/Loading/Loading_zhulin.jpg	1							
+居庸关	428	yw_juyongguan	yw_juyongguan		1		fight	0		20	1	Main Camera	-1	8737	12104	45					10170										1	1					UI/Textures/Loading/Loading_canghai.jpg	1
+西夏皇陵	424	yw_xixiahuangling	yw_xixiahuangling		1		fight	0		20	1	Main Camera	-1	9550	9350	45					14000										1						UI/Textures/Loading/Loading_zhulin.jpg	1							
+龙门客栈	425	yw_shamokezhan01	yw_shamokezhan01		1		fight	0		20	1	Main Camera	-1	8227	6841	45					10170										1	1					UI/Textures/Loading/Loading_erengu.jpg	1							
+龙门之争	6204	jz_fokuzhizhan01	jz_fokuzhizhan01		2		battle	1	32|show	1	1	Main Camera	480	7046	6603	45					20		2	1	600						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg
+龙门之争	6205	jz_fokuzhizhan02	jz_fokuzhizhan02		2		battle	1	32|show	1	1	Main Camera	480	10342	10110	45					20			1	600						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg
+龙门之争准备场	6202	zc_zhunbei01	zc_zhunbei02	baihutang02	2		battle	0	22|show	1	1	Main Camera	300	1280	1800	45					21		2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg
+龙门之争准备场	6203	zc_zhunbei01	zc_zhunbei02	baihutang02	2		battle	0	22|show	1	1	Main Camera	300	1280	1800	45					21		2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg
+龙泉村	10044	zc_lingtuzhan04	lt_longquancun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+蓬丘岱屿	426	yw_pengqiudaiyu01	yw_pengqiudaiyu01		1		fight	0		20	1	Main Camera	-1	7616	7240	45					14000										1						UI/Textures/Loading/Loading_canghai.jpg	1							
+雾凇雪岭	427	yw_wusongxueling	yw_wusongxueling		1		fight	0		20	1	Main Camera	-1	8785	8578	45					14050										1						UI/Textures/Loading/Loading_xuedi.jpg	1							
+西陵村	10046	zc_lingtuzhan04	lt_xilingcun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+西山村	10041	zc_lingtuzhan04	lt_xishancun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+临安小道	472	fb_canghai02	rw_canghai02		1		fight	1		1	1	Main Camera	30	2500	5900	45					12180										1						UI/Textures/Loading/Loading_canghai.jpg								
+白水之围	473	fb_baishuisi01	rw_baishuisi01		1		fight	0		1	1	Main Camera	30	1686	11015	45					10160										1						UI/Textures/Loading/Loading_erengu.jpg								
+古战场	479	fb_erengu05	rw_guzhanchang		1		fight	1		1	1	Main Camera	30	1800	5400	45					10500																								
+古战场	10018	yewai_02	lt_guzhanchang		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+九猴洞	480	fb_digong01	rw_jiuhoudong02		1		fight	1		1	1	Main Camera	30	2200	6800	45					10110										1						UI/Textures/Loading/Loading_digong.jpg								
+破旧小屋	481	sn_yougu01	sn_yougu01		3	1	fight	0		1	1	Main Camera	30	3000	2060	-15	9	25	40		12280										1						UI/Textures/Loading/Loading_digong.jpg								
+练武场	482	zc_zhunbei01	rw_liangongchang		1		fight	1		1	1	Main Camera	30	4500	5700	45					14000										1						UI/Textures/Loading/Loading_wuxing.jpg								
+猎场	1703	hd_dalie01	hd_dalie01		2		fuben	1	38|show	1	1	Main Camera 1	600	11272	6490	45	9	8	23		10380		1	1	600												UI/Textures/Loading/Loading_canghai.jpg
+藏剑山庄	483	fb_shanzhuang05	rw_cangjianshanzhuang		1		fight	1		1	1	Main Camera	30	2766	4386	45					10110										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+小屋	484	sn_liyoudao01	sn_liyoudao01		3	1	fight	0		1	1	Main Camera	30	2750	2420	-41.5026	9	25	40		10340										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+忘忧谷	485	yw_canghai	rw_wangyougu		1		fight	0		1	1	Main Camera	30	1110	950	-41.5026					10340										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+衡山脚下	486	fb_zhulin05	rw_hengshan		1		fight	0		1	1	Main Camera	30	2200	3600	45					10420										1						UI/Textures/Loading/Loading_zhulin.jpg								
+九猴洞	487	fb_digong01	rw_jiuhoudong01		1		fight	0		1	1	Main Camera	30	2200	6800	45					10110										1						UI/Textures/Loading/Loading_digong.jpg								
+武夷派	488	fb_shanzhuang04	rw_wuyipai		1		fight	1		1	1	Main Camera	30	2000	10860	45					10280										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+武夷禁地	489	fb_digong06	rw_wuyijindi		1		fight	1		1	1	Main Camera	30	2350	5530	45					10110										1						UI/Textures/Loading/Loading_digong.jpg								
+临安驿道	490	fb_erengu06	rw_linanyidao		1		fight	1		1	1	Main Camera	30	5473	4882	46.97166					10130										1						UI/Textures/Loading/Loading_erengu.jpg								
+华山派	491	fb_shanzhuang07	rw_huashanpai		1		fight	1		1	1	Main Camera	30	5200	3750	45					10240										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+少林幽谷	492	fb_luoyegu06	rw_shaolinyougu		1		fight	0		1	1	Main Camera	30	1976	5743	48.45993					10230										1						UI/Textures/Loading/Loading_luoyegu.jpg								
+绍海村	10048	zc_lingtuzhan04	lt_shaohaicun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+华山密道	493	fb_erengu07	rw_huashanmidao		1		fight	1		1	1	Main Camera	30	2600	6250	48.56705					10140										1						UI/Textures/Loading/Loading_digong.jpg								
+飞龙堡	494	fb_shanzhuang01	rw_feilongbao01		1		fight	1		1	1	Main Camera	30	2670	3890	45					14000										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+无忧教禁地	495	fb_digong07	rw_wuyoujiaojindi		1		fight	1		1	1	Main Camera	30	1400	4550	45					14000										1						UI/Textures/Loading/Loading_digong.jpg								
+赤霄道	496	fb_rongyan07	rw_zhaixinglou		1		fight	1		1	1	Main Camera	30	1600	3700	45					14000										1						UI/Textures/Loading/Loading_digong.jpg								
+飞龙堡	497	fb_shanzhuang01	rw_feilongbao02		1		fight	1		1	1	Main Camera	30	2700	2100	45					14000										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+悲魔山庄	498	fb_shanzhuang06	rw_beimoshanzhuang		1		fight	0		1	1	Main Camera	30	2210	3000	45					14000										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+离忧山洞	499	fb_erengu	rw_liyoushandong		1		fight	0		1	1	Main Camera	30	2100	3000	45					10280										1	0					UI/Textures/Loading/Loading_erengu.jpg								
+山贼秘窟	500	mijing_e_05	fb_chengemijing		2		fuben	1	9|show	1	1	Main Camera	600	2424	2585	45				1			2	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+秘银矿洞	501	mijing_c_02	fb_miyinkuangdong		2		fuben	1		1	1	Main Camera	600	4606	3970	45				1			1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+神秘洞窟	600	fb_erengu03	DungeonFuben_Floor1		2		fuben	1	9|show	1	1	Main Camera	600	4027	7060	135							2	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+妖兽巢穴	601	fb_erengu06	DungeonFuben_Floor2		2		fuben	1	9|show	1	1	Main Camera	600	2766	4386	49.56794							2	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+宝石秘藏	602	fb_rongyan03	DungeonFuben_Floor3		2		fuben	1	9|show	1	1	Main Camera	600	200	200	45							2	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+水晶洞窟	603	mijing_c_02	fb_miyinkuangdong		2		fuben	1	9|show	1	1	Main Camera	600	4606	3970	45							2	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+朔北雪原	431	yw_shuobeixueyuan	yw_shuobeixueyuan		1		fight	0		20	1	Main Camera	-1	9021	9580	45					14050										1						UI/Textures/Loading/Loading_xuedi.jpg	1
+奸商地窖	700	fb_erengu07	fb_daozeichaoxue		2		fuben	1	9|show	1	1	Main Camera	600	3000	3300	45				1					3600						1						UI/Textures/Loading/Loading_erengu.jpg								
+忘雪谷	701	fb_xuedi03	zmhd_wangxuegu		2		fuben	1	9|show	1	1	Main Camera	600	3150	5200	45					10200		2	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+义结金兰	702	fb_luoyegu01	jiebai_yufenggu		1		fight	0		1	1	Main Camera	600	3427	1006	-45					10200		2								1						UI/Textures/Loading/Loading_xuedi.jpg								
+暗黑地牢	703	baihutang02	tianlao_anheidilao		1		battle	1	31|show	1	1	Main Camera	30	3598	3564	45					12280		1	1							1						UI/Textures/Loading/Loading_digong.jpg				1				
+忘雪谷	800	fb_xuedi03	hd_wangxuegu		1		fight	1		1	1	Main Camera	30	3150	5200	45					10200										1						UI/Textures/Loading/Loading_xuedi.jpg								
+玉枫谷	801	fb_luoyegu01	hd_yufenggu		1		fight	0		1	1	Main Camera	30	5000	4500	-45					10200										1						UI/Textures/Loading/Loading_xuedi.jpg								
+忘忧岛	999	cj_xinshoucun01	cj_xinshoucun01		3	50	city	0		1	1	Main Camera	300	4096	4263	45					10020					1											UI/Textures/Loading/loading_wangyoudao.jpg								
+忘忧岛	1000	cj_xinshoucun02	cj_xinshoucun02		3	50	city	0		1	1	Main Camera	300	5000	5500	45					10020					1											UI/Textures/Loading/loading_wangyoudao.jpg								
+杀戮战场	1001	zc_zhanchang	zc_zhanchang		2		battle	1	3|show	1	1	Main Camera	300	8517	5334	0					20		1	1							1		1	3	1	20	UI/Textures/Loading/Loading_shanzhuang.jpg								
+战场	1002	zc_zhanchang	zc_zhanchang		2		battle	1	3|show	1	1	Main Camera	730	8517	5334	0					20		1	1							1		1	3	1	20	UI/Textures/Loading/Loading_shanzhuang.jpg								
+武神殿	1003	jj_jingjichang01	jj_jingjichang01		2		fuben	1	1|show	1	1	Main Camera	180	2034	1154	135								1	10						1						UI/Textures/Loading/Loading_shanzhuang.jpg		20					1	
+家族属地	1004	jiazhu_01	jiazhu_01		2		kin	0		1	1	Main Camera	180	4733	4115	135					14000										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+洗髓岛	1005	zc_zhunbei01	xisuidao		1		fuben	1		1	1	Main Camera	900	4500	5700	45					14000		1	1							1						UI/Textures/Loading/Loading_wuxing.jpg	1			1				
+PK场	1006	zc_zhunbei01	pkarea		1		fight	1		1	1	Main Camera	900	4500	5700	45				1											1						UI/Textures/Loading/Loading_wuxing.jpg								
+群英会准备场	1008	zc_zhunbei01	zc_zhunbei01		2		fuben	0	3|show	1	1	Main Camera	180	1280	1800	45							2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg								
+群英会	1009	jj_qunyinghui01	jj_qunyinghui01		2		fuben	1	3|show	1	1	Main Camera	360	2139	2156	135							2	1	180						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg		400						
+杀戮战场	1010	zc_zhanchang03	zc_zhanchang03		2		battle	1	3|show	1	1	Main Camera	300	8517	5334	0					20		1	1						70	1		1	3	1	20	UI/Textures/Loading/Loading_shanzhuang.jpg								
+战场准备场	1014	zc_zhunbei01	zc_zhunbei01		2		battle	0	3|show	1	1	Main Camera	120	1280	1800	45					21		2	1	3600								1				UI/Textures/Loading/Loading_wuxing.jpg								
+对战场	1015	jj_qunyinghui01	jj_qunyinghui01		2		fuben	1	3|show	1	2	Main Camera	180	2139	2156	135							1	1	10						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg		20						
+竞技场2	1016	jj_jingjichang02	jj_jingjichang02		2		fuben	1	3|show	1	2	Main Camera	180	2145	2288	45								1							1		1				UI/Textures/Loading/Loading_shanzhuang.jpg								
+武林盟主	1017	jj_jingjichang03	jj_jingjichang03		2		fuben	1	3|show	1	2	Main Camera	180	2192	1971	45								1	10						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg		600						
+复仇	1018	jj_jingjichang04	jj_jingjichang04		2		fuben	1	3|show	1	2	Main Camera	180	2374	2332	45								1	10						1						UI/Textures/Loading/Loading_erengu.jpg		10						
+探索遇敌	1019	jj_jingjichang05	jj_jingjichang05		2		fuben	1	3|show	1	2	Main Camera	180	3052	2869	45								1	10						1						UI/Textures/Loading/Loading_erengu.jpg		20						
+唐家村	10040	zc_lingtuzhan04	lt_tangjiacun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+战场	1020	zc_zhanchang02	zc_zhanchang02		2		battle	1	3|show	1	1	Main Camera		8669	3212	0					21		1	1							1		1		1	20	UI/Textures/Loading/Loading_wuxing.jpg								
+家族战准备场	1021	fb_shanzhuang06	jzz_zhunbeichang		2		fuben	0	10|show	1	1	Main Camera		5609	8595	45					10280		1		3600						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg								
+战场	1022	zc_zhanchang02	zc_zhanchang02		2		battle	1	3|show	1	1	Main Camera		8669	3212	0							1	1							1		1		1		UI/Textures/Loading/Loading_wuxing.jpg								
+家族战	1023	zc_zhanchang	zc_jiazhuzhan01		2		battle	1	10|show	1	1	Main Camera	300	8517	5334	0					20		1	1							1		1	3	1		UI/Textures/Loading/Loading_shanzhuang.jpg								
+门派竞技	1024	jj_menpaijingji01	jj_menpaijingji01		2		fuben	0	9|show	1	1	Main Camera	300	6040	6659	135					10480		1	1	3600						1						UI/Textures/Loading/Loading_shanzhuang.jpg								1
+预选赛场	1025	jj_menpaijingji02	jj_menpaijingji02		2		fuben	0	9|show	1	1	Main Camera	300	6364	6292	135					10480		1	1	3600						1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+白虎堂大殿	1026	baihutang_zhunbei01	baihutang_zhunbei01		2		fuben	1	12|show	1	1	Main Camera		6940	7268	45					10110				900						1		1	1			UI/Textures/Loading/Loading_shanzhuang.jpg								
+白虎堂	1027	baihutang01	baihutang01		2		fuben	1	12|show	1	1	Main Camera	1800	7637	6902	45					10110			1	600						1		1	1	1		UI/Textures/Loading/Loading_digong.jpg								
+白虎堂一层	1028	baihutang02	baihutang02		2		fuben	1	12|show	1	1	Main Camera	300	3344	3693	45					10110			1	900						1		1	1	1		UI/Textures/Loading/Loading_shanzhuang.jpg								
+白虎堂五层	1029	baihutang01	baihutang01		2		fuben	1	12|show	1	1	Main Camera	1800	7637	6902	45					10110			1	1800						1		1	1	1		UI/Textures/Loading/Loading_digong.jpg								
+地牢禁地	1030	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190				3900						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+落叶禁地	1031	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190				3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg								
+竹林禁地	1032	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190				3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+轮回禁地	1033	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190				3900						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+溟渊禁地	1034	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190				3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg								
+森罗禁地	1035	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190				3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+通天塔准备场	1040	tongtianta_zhunbei01	tongtianta_zhunbei01	baihutang02	2		battle	0	6|show	1	1	Main Camera	120	6773	5767	45					21		2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg								
+通天塔一层	1041	tongtianta_a_01	tongtianta_a_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	300	2868	5038	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg		50						
+通天塔二层	1042	tongtianta_b_01	tongtianta_b_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	300	2868	5038	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg		50						
+通天塔三层	1043	tongtianta_c_01	tongtianta_c_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	300	2868	5038	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg		50						
+通天塔四层	1044	tongtianta_d_01	tongtianta_d_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	300	2868	5038	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg		100						
+通天塔五层	1045	tongtianta_e_01	tongtianta_e_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	300	2868	5038	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg		100						
+通天塔六层	1046	tongtianta_f_01	tongtianta_f_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	300	2868	5038	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg		100						
+通天塔七层	1056	tongtianta_f_01	tongtianta_f_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	300	2868	5038	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg		50						
+通天塔七层	1047	tongtianta_g_01	tongtianta_g_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	5	2551	2296	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg								
+通天塔八层	1057	tongtianta_g_01	tongtianta_g_01	baihutang02	2		fuben	0	11|show	1	1	Main Camera	5	2551	2296	45					21		2	1							1		1				UI/Textures/Loading/Loading_digong.jpg								
+家族试炼	1048	jiazhushilian01	jiazhushilian01		2		fuben	1	9|show	1	1	Main Camera	180	3924	3318	45					21										1				1			1							
+望月遗迹	1049	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190				3900						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+望月遗迹	1077	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190				3900						1				1		UI/Textures/Loading/Loading_erengu.jpg
+望月遗迹	1080	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190				3900						1				1		UI/Textures/Loading/Loading_erengu.jpg
+凝尘遗迹	1050	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190				3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg								
+凝尘遗迹	1078	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190				3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg
+凝尘遗迹	1081	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190				3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg
+千叶遗迹	1051	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190				3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+千叶遗迹	1079	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190				3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg
+千叶遗迹	1082	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190				3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg
+黑狱废墟	1052	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190				3900						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+长坂废墟	1053	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190				3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg								
+禁谷废墟	1054	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190				3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+跨服战场准备场	1055	zc_zhunbei01	zc_zhunbei02		2		battle	0	3|show	1	1	Main Camera	5	1280	1800	45					21		2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg								
+宋金攻防战	1060	zc_zhanchang04	zc_zhanchang04		2		battle	1	3|show	1	1	Main Camera	730	3260	8400	0					10110		2	1							1		1	3	1	20	UI/Textures/Loading/Loading_digong.jpg								
+黑狱幻境	1061	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+长坂幻境	1062	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg								
+禁谷幻境	1063	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+黑狱废墟	1064	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+长坂废墟	1065	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg								
+禁谷废墟	1066	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+黑狱幻境	1067	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+长坂幻境	1068	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg								
+禁谷幻境	1069	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+黑狱废墟	1070	lidai01	lidai01		2		boss	0	10|show	30	1	Main Camera	180	3272	3203	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+长坂废墟	1071	lidai03	lidai03		2		boss	0	10|show	30	1	Main Camera	180	1496	1324	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_luoyegu.jpg								
+禁谷废墟	1072	lidai02	lidai02		2		boss	0	10|show	30	1	Main Camera	180	1943	1388	45					12190		2		3900						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+家族秘境	1073	jiazhumijing01	jiazhumijing01		2		fuben	1	9|show	20	1	Main Camera	180	3029	5565	45					10170				1800						1						UI/Textures/Loading/Loading_luoyegu.jpg	1							
+家族保卫战	1074	jiazhumijing02	jiazhumijing02		2		fuben	1	9|show	20	1	Main Camera		6211	2340	0					10170				1800						1						UI/Textures/Loading/Loading_luoyegu.jpg	1							
+家族保卫战	1075	jiazhumijing02	jiazhumijing02		2		fuben	1	9|show	20	1	Main Camera		6211	2340	0					10170				1800						1						UI/Textures/Loading/Loading_luoyegu.jpg	1							
+家族保卫战	1076	jiazhumijing02	jiazhumijing02		2		fuben	1	9|show	20	1	Main Camera		6211	2340	0					10170				1800						1						UI/Textures/Loading/Loading_luoyegu.jpg	1							
+秦始皇陵一层	1100	q_qinshi01	q_qinshi01		2		fuben	0		20	1	Main Camera	180	8000	5750	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+秦始皇陵二层	1101	q_qinshi02	q_qinshi02		2		fuben	0		20	1	Main Camera	180	6000	5650	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+秦始皇陵三层	1102	q_qinshi03	q_qinshi03		2		fuben	0		20	1	Main Camera	180	5100	6150	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+秦始皇陵三层	1109	q_qinshi03	q_qinshi03		2		fuben	0		20	1	Main Camera	180	5100	6150	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+天机阁	1103	q_shinei04	q_shinei04		2		fuben	1	21|show	20	1	Main Camera	300	1900	3400	45					14030				-1							1			1		UI/Textures/Loading/Loading_digong.jpg								1
+八荒营	1104	q_shinei02	q_shinei02		2		fuben	1	21|show	20	1	Main Camera	300	1900	3400	45					14030				-1							1			1		UI/Textures/Loading/Loading_digong.jpg								1
+六合楼	1105	q_shinei03	q_shinei03		2		fuben	1	21|show	20	1	Main Camera	300	1900	3400	45					14030				-1							1			1		UI/Textures/Loading/Loading_digong.jpg								1
+龙门村	10038	zc_lingtuzhan04	lt_longmencun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+永生台	1106	q_shinei01	q_shinei01		2		fuben	0	19|show	20	1	Main Camera	300	1000	4200	45					14030											1			1		UI/Textures/Loading/Loading_digong.jpg								1
+护主殿	1107	q_shinei03	q_leaderroom	q_shinei03	2		fuben	0	19|show	20	1	Main Camera	300	1000	3400	45					14030											1			1		UI/Textures/Loading/Loading_digong.jpg								1
+花木村	10032	zc_lingtuzhan04	lt_huamucun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+九天疑冢	1108	q_shinei03	q_leaderroom	q_shinei03	2		fuben	0	19|show	20	1	Main Camera	300	1000	3400	45					14030		2									1			1		UI/Textures/Loading/Loading_digong.jpg		100						1
+女帝疑冢	1110	nd_nvdiyizhong01	nd_nvdiyizhong01		2		fuben	0		20	1	Main Camera	180	3500	6000	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg								1
+蓬莱	433	yw_penglai	yw_penglai		1		fight	0		20	1	Main Camera	-1	9550	9350	45					14000										1						UI/Textures/Loading/Loading_zhulin.jpg	1
+大理寺	1111	nd_nvdiyizhong02	nd_nvdiyizhong02		2		fuben	0	19|show	20	1	Main Camera	300	2100	3200	45					14030											1			1		UI/Textures/Loading/Loading_digong.jpg								1
+大邑县	10004	zc_lingtuzhan05	lt_dayixian		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+天后神都	1112	nd_nvdiyizhong03	nd_nvdiyizhong03		2		fuben	0	19|show	20	1	Main Camera	300	3500	7000	45					14030											1			1		UI/Textures/Loading/Loading_digong.jpg								1
+赝雀宫	1113	nd_nvdiyizhong02	nd_nvdiyizhong02		2		fuben	0	19|show	20	1	Main Camera	300	2100	3200	45					14030		2									1			1		UI/Textures/Loading/Loading_digong.jpg								1
+华山论剑准备场	1200	tongtianta_zhunbei01	hs_zhunbeichang		2		fuben	0	17|show	1	1	Main Camera	120	2868	5038	45					20		2	1	3600						1						UI/Textures/Loading/Loading_zhulin.jpg								
+华山论剑预选赛	1201	hs_shashanlunjian02	hs_shashanlunjian02		2		fuben	0	20|show	1	1	Main Camera	300	2600	3000	0					14000		2	1	60						1		1				UI/Textures/Loading/Loading_canghai.jpg		400	1					
+华山论剑决赛场	1202	hs_shashanlunjian01	hs_shashanlunjian01		2		fuben	0	18|show	1	1	Main Camera	300	6500	7800	0					14050		2	1	3600						1		1				UI/Textures/Loading/Loading_canghai.jpg			1					
+预选赛场	1203	jj_zhuduileitai01	jj_zhuduileitai01		2		fuben	0	20|show	1	1	Main Camera	300	6626	6438	135					14000		2	1	1800						1		1				UI/Textures/Loading/Loading_canghai.jpg			1					
+月牙村	10033	zc_lingtuzhan04	lt_yueyacun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+云中镇	10005	zc_lingtuzhan05	lt_yunzhongzhen		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+招亲擂台	1300	jj_zhuduileitai01	jj_zhuduileitai01		2		fuben	0	24|show	1	1	Main Camera	300	6626	6438	135					10480		1		300						1						UI/Textures/Loading/Loading_shanzhuang.jpg						1		
+震泽渡口	430	yw_jiangnan	yw_jiangnan		1		fight	0		20	1	Main Camera	-1	8500	8952	45					14000										1						UI/Textures/Loading/Loading_zhulin.jpg	1
+比武招亲赛场	1301	jj_zhuduileitai01	jj_biwuzhaoqin		2		fuben	0	24|show	1	1	Main Camera	300	6626	6438	135					10480		1		3600						1						UI/Textures/Loading/Loading_shanzhuang.jpg						1		
+武林大会准备场	1302	fb_shanzhuang02	wldh_zhunbeichang		2		fuben	0	17|show	1	1	Main Camera	120	2868	5038	45					20		2	1	3600						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg								
+武林大会初赛	1303	jj_wulindahui01	jj_wulindahui01		2		fuben	0	20|show	1	1	Main Camera	300	3715	3209	0					14000		2	1	60						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg			1					
+武林大会决赛	1304	jj_wulindahui02	jj_wulindahui02		2		fuben	0	18|show	1	1	Main Camera	300	12483	7824	0					14050		2	1	3600						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg			1					
+襄阳城	1400	zc_lingtuzhan01	zc_lingtuzhan01		2		battle	0	13|show	1	1	Main Camera	120	5734	7061	45					20				2760						1				1										
+稻香村	1401	zc_lingtuzhan02	zc_lingtuzhan02_dx		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	0					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg								
+巴陵县	1402	zc_lingtuzhan02	zc_lingtuzhan02_bl		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	0					13000				2760						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+巴陵县	10006	zc_lingtuzhan05	lt_balinxian		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+江津村	1403	zc_lingtuzhan02	zc_lingtuzhan02_jj		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	0					13010				2760						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+永乐镇	1404	zc_lingtuzhan02	zc_lingtuzhan02_yl		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	0					10040				2760						1				1		UI/Textures/Loading/Loading_shanzhuang.jpg								
+永乐镇	10003	zc_lingtuzhan05	lt_yonglezhen		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+洞庭湖畔	1405	yewai_01	lt_yewai_01	lt_yewai_01	2		battle	0	13|show	1	1	Main Camera	120	10659	7546	45					14000				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg								
+洞庭湖畔	10019	yewai_01	lt_dongtinghupan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+苗岭	1406	yw_zhulin02	lt_yw_zhulin02	lt_yw_zhulin02	2		battle	0	13|show	1	1	Main Camera	120	8690	8380	45					14040				2760						1				1		UI/Textures/Loading/Loading_zhulin.jpg								
+苗岭	10009	yw_zhulin02	lt_miaoling		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+灭火大作战	271	mijing_g_02	WarOfIceAndFire		2		fuben	1	20|show	1	1	Main Camera	300	4765	1792	45					10230		2	1	1800					100	1						UI/Textures/Loading/Loading_digong.jpg								1
+灭火大作战准备场	272	tongtianta_zhunbei01	WarOfIceAndFire_zhunbei		2		fuben	0	17|show	1	1	Main Camera	300	2868	5038	45					16		2	1	1800						1						UI/Textures/Loading/Loading_xuedi.jpg
+点苍山	1407	yw_xuedi02	lt_yw_xuedi02	lt_yw_xuedi02	2		battle	0	13|show	1	1	Main Camera	120	8005	8253	45					14060				2760						1				1		UI/Textures/Loading/Loading_xuedi.jpg								
+点苍山	10007	yw_xuedi02	lt_diancangshan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+响水洞	1408	yw_xiangshuidong	lt_yw_xiangshuidong	lt_yw_xiangshuidong	2		battle	0	13|show	1	1	Main Camera	120	6706	7349	45					14060				2760						1				1		UI/Textures/Loading/Loading_erengu.jpg								
+响水洞	10008	yw_xiangshuidong	lt_xiangshuidong		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+见性峰	1409	yw_xuedi01	lt_yw_xuedi01	lt_yw_xuedi01	2		battle	0	13|show	1	1	Main Camera	120	6820	6255	45					14050				2760						1				1		UI/Textures/Loading/Loading_xuedi.jpg								
+见性峰	10028	yw_xuedi01	lt_jianxingfeng		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+剑门关	1410	yw_jianmenguan2	lt_yw_jianmenguan2	lt_yw_jianmenguan2	2		battle	0	13|show	1	1	Main Camera	120	7903	7668	45					14000				2760						1				1		UI/Textures/Loading/Loading_shanzhuang.jpg								
+剑门关	10010	yw_jianmenguan2	lt_jianmenguan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+荐菊洞	1411	yw_jianjudong	lt_yw_jianjudong	lt_yw_jianjudong	2		battle	0	13|show	1	1	Main Camera	120	8416	8324	45					13010				2760						1				1		UI/Textures/Loading/Loading_digong.jpg								
+荐菊洞	10029	yw_jianjudong	lt_jianjudong		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+伏牛山	1412	yw_jianmenguan	lt_yw_jianmenguan	lt_yw_jianmenguan	2		battle	0	13|show	1	1	Main Camera	120	8310	8582	45					14000				2760						1				1		UI/Textures/Loading/Loading_shanzhuang.jpg								
+伏牛山	10017	yw_jianmenguan	lt_funiushan		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+江湖试炼	1501	mijing_e_05	fb_chengemijing		2		fuben	1	9|show	1	1	Main Camera	600	2424	2585	45							2	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+江湖试炼	1502	mijing_c_02	fb_miyinkuangdong		2		fuben	1	9|show	1	1	Main Camera	600	4606	3970	45							2	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+江湖试炼	1503	mijing_b_07	mijing_b_07		2		fuben	1	9|show	1	1	Main Camera	600	3053	5596	45					12040		2	1							1						UI/Textures/Loading/Loading_canghai.jpg								
+江湖试炼	1504	mijing_e_06	mijing_e_06		2		fuben	1	8|show	1	3	Main Camera	600	1064	4127	45					12190		2	1																					
+小楼听雨舫	1600	pz_chuan01	pz_chuan01		2		fuben	0	23|show	1	1	Main Camera	600	820	1080	45	9	8	23						600																			1	
+忘忧谷	1601	yw_canghai	hd_wangyougu		2		fuben	1	9|show	1	1	Main Camera	30	1300	1400	-41.5026					10340				600						1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+忘忧岛	1602	cj_xinshoucun01	hd_qm_nalanqianlin		2		fuben	0	8|show	1	3	Main Camera	600	5000	8100	45	35	35	20		12190		2	1																					
+凤凰山	1603	fb_canghai04	hd_qm_zhanglinxin		2		fuben	0	8|show	1	3	Main Camera	600	1064	4127	45	35	35	20		12190		2	1																					
+凌绝峰	1604	fb_xuedi01	hd_qm_shangguanfeilong		2		fuben	0	8|show	1	3	Main Camera	600	1064	4127	45	35	35	20		12190		2	1																					
+剑气峰	1605	fb_xuedi06	hd_qm_zhuofeifan		2		fuben	0	8|show	1	3	Main Camera	600	1064	4127	45	35	35	20		12190		2	1																					
+凌绝峰	1606	fb_xuedi01	hd_qm_shangguanfeilong		2		fuben	0	8|show	1	3	Main Camera	600	1064	4127	45	35	35	20		12190		2	1																					
+落叶谷	1607	fb_luoyegu02	hd_qm_mengzhiqiu		2		fuben	0	8|show	1	3	Main Camera	600	1064	4127	45	35	35	20		12190		2	1																					
+临安驿道	1608	fb_erengu06	hd_qm_zhangfeng		2		fuben	0	8|show	1	3	Main Camera	600	1064	4127	45	35	35	20		12190		2	1																					
+灵泉村	10034	zc_lingtuzhan04	lt_lingquancun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+武当山	1609	mijing_d_04	hd_qm_tianxingdaozhang		2		fuben	0	8|show	1	3	Main Camera	600	1064	4127	45	35	35	20		12190		2	1																					
+风波亭	1610	fb_zhulin05	hd_qm_yuefei		2		fuben	0	8|show	1	3	Main Camera	600	1064	4127	45	35	35	20		12190		2	1																					
+心魔幻境	1611	fb_rongyan01	hd_520_xinmohuanjing		2		fuben	1	8|show	1	3	Main Camera	600	5000	9800	45	35	35	20		12190		2	1																					
+心魔幻境	1612	fb_rongyan01	hd_520_xinmohuanjing		2		fuben	1	8|show	1	3	Main Camera	600	5000	9800	45	35	35	20		12190		2	1																					
+心魔幻境	1613	fb_rongyan01	hd_520_xinmohuanjing		2		fuben	1	8|show	1	3	Main Camera	600	5000	9800	45	35	35	20		12190		2	1																					
+心魔幻境	1614	fb_rongyan01	hd_520_xinmohuanjing		2		fuben	1	8|show	1	3	Main Camera	600	5000	9800	45	35	35	20		12190		2	1																					
+心魔幻境	1615	fb_rongyan01	hd_520_xinmohuanjing		2		fuben	1	8|show	1	3	Main Camera	600	5000	9800	45	35	35	20		12190		2	1																					
+心魔幻境	1616	fb_rongyan01	hd_520_xinmohuanjing		2		fuben	1	8|show	1	3	Main Camera	600	5000	9800	45	35	35	20		12190		2	1																					
+心魔幻境	1617	fb_rongyan01	hd_520_xinmohuanjing		2		fuben	1	8|show	1	3	Main Camera	600	5000	9800	45	35	35	20		12190		2	1																					
+幽泉石谷	1618	fb_canghai05	hd_daiyanren_1		2		fuben	1	8|show	1	1	Main Camera		5854	1716	45				1	10340		2	1							1														
+冰石战场	1619	cj_xinshouguan01	hd_daiyanren_2		2		fuben	1	8|show	1	1	Main Camera		6514	11207	135				1	10050		2	1							1														
+熔岩秘窟	1620	fb_rongyan07	hd_daiyanren_3		2		fuben	1	8|show	1	1	Main Camera		5854	1716	45				1	10340		2	1							1														
+天霜山庄	1621	fb_xuedi06	hd_daiyanren_4		2		fuben	1	8|show	1	1	Main Camera		5854	1716	45				1	10340		2	1							1														
+天霜山庄	1622	fb_canghai05	hd_daiyanren_5		2		fuben	1	8|show	1	1	Main Camera		5854	1716	45				1	10340		2	1							1														
+新颖小院	1623	fb_canghai06	fb_canghai06		2		fuben	1	8|show	1	1	Main Camera		5854	1716	45				1	10340		2	1							1														
+新颖小院	1624	fb_canghai06	hd_fathersday		2		fuben	1	8|show	1	1	Main Camera		6650	6700	45				1	10340			1							1														
+打雪仗准备场	1700	tongtianta_zhunbei01	dxz_zhunbeichang		2		fuben	0	17|show	1	1	Main Camera	300	2868	5038	45					16		2	1	3600						1						UI/Textures/Loading/Loading_xuedi.jpg								
+打雪仗准备场	1704	tongtianta_zhunbei01	dxz_zhunbeichang		2		fuben	0	17|show	1	1	Main Camera	300	2868	5038	45					16		2	1	3600						1						UI/Textures/Loading/Loading_xuedi.jpg
+打雪仗	1701	hd_daxuezhang01	hd_daxuezhang01		2		fuben	1	20|show	1	1	Main Camera	300	820	1080	45					10050		2	1	1800					100	1						UI/Textures/Loading/Loading_xuedi.jpg								
+塞外大漠	1800	yw_shamomigong	yw_shouweimingxia		2		fuben	1	9|show	1	1	Main Camera	900	7200	7000	45				1	10030		2	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+碧霞岛	2000	fb_canghai05	ts_001		2		fuben	1		1	1	Main Camera		5854	1716	45				1	10340		1	1							1						UI/Textures/Loading/Loading_canghai.jpg								
+衡山脚下	2001	fb_zhulin05	ts_002		2		fuben	1		1	1	Main Camera		1170	4961	45				1	10310		1	1							1						UI/Textures/Loading/Loading_zhulin.jpg								
+藏剑幽谷	2002	fb_luoyegu05	ts_003		2		fuben	1		1	1	Main Camera		2976	3333	45				1	10140		1	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+茶马商道	429	yw_zangqu	yw_zangqu		1		fight	0		20	1	Main Camera	-1	9723	9401	45					14000										1						UI/Textures/Loading/Loading_canghai.jpg	1
+离忧山洞	2003	fb_erengu	ts_004		2		fuben	1		1	1	Main Camera		271	2772	45				1	10280		1	1							1						UI/Textures/Loading/Loading_erengu.jpg								
+幽暗地牢	2004	fb_digong07	ts_005		2		fuben	1		1	1	Main Camera		200	1840	45				1	10180		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+藏剑山庄	2005	fb_shanzhuang05	ts_006		2		fuben	1		1	1	Main Camera		2766	4386	45				1	10110		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+凌绝峰	2006	fb_xuedi01	ts_007		2		fuben	1		1	1	Main Camera		3259	1065	45				1	10220		1	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+无忧禁地	2007	fb_digong04	ts_008		2		fuben	1		1	1	Main Camera		1976	5743	45				1	10230		1	1							1						UI/Textures/Loading/Loading_digong.jpg								
+临安城东	2008	fb_erengu07	ts_009		2		fuben	1		1	1	Main Camera		2374	1900	45				1	10380		1	1				10382			1						UI/Textures/Loading/Loading_erengu.jpg								
+悲魔山庄	2009	fb_shanzhuang06	ts_010		2		fuben	1		1	1	Main Camera		2412	6050	45				1	10300		1	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+比武场	3000	jj_zhuduileitai01	jj_zhuduileitai01		1		fuben	0		10	1	Main Camera	120	6626	6438	135					10480										1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+心魔幻境	3001	jj_wuchabie01	jj_wuchabie01	baihutang02	2		battle	0	22|show	1	1	Main Camera	1740			45					10110		2																						
+心魔幻境准备场	3002	zc_zhunbei01	zc_zhunbei02	baihutang02	2		battle	0	22|show	1	1	Main Camera	300	1280	1800	45					21		2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg								
+心魔绝地	3003	jj_wuchabie02	jj_wuchabie02		2		battle	0	32|show	1	1	Main Camera	1740			0					10110		2																						
+1级家园	4000	sn_jiayuan01	sn_jiayuan01		2		house	0		1	3	Main Camera	180	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+2级家园	4001	sn_jiayuan02	sn_jiayuan02		2		house	0		1	3	Main Camera	180	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+3级家园	4002	sn_jiayuan03	sn_jiayuan03		2		house	0		1	3	Main Camera	180	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+4级家园	4003	sn_jiayuan04	sn_jiayuan04		2		house	0		1	3	Main Camera	180	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+5级家园	4004	sn_jiayuan05	sn_jiayuan05		2		house	0		1	3	Main Camera	180	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+6级家园	4005	sn_jiayuan06	sn_jiayuan06		2		house	0		1	3	Main Camera	180	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+新颖小筑	4006	sn_jiayuan05	sn_jiayuan05		2		house	0		1	3	Main Camera	180	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+新颖小筑	4007	sn_jiayuan05	hd_spokesmanhome		2		fuben	1	9|show	1	1	Main Camera	900	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+杏花村	10036	zc_lingtuzhan04	lt_xinghuacun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+7级家园	4008	sn_jiayuan07	sn_jiayuan07		2		house	0		1	3	Main Camera	180	2322	18120	45					14000				600						1						UI/Textures/Loading.jpg							1	
+忘忧酒馆	4100	sn_jiuguan01	sn_jiuguan01		1		city	0		1	1	Main Camera	180	2329	17897	45					14000																								
+桃花幻境	4200	fb_canghai05	house_peach		2		house	0		1	1	Main Camera	180	5854	1716	45					17		2		600						1						UI/Textures/Loading/Loading_canghai.jpg							1	
+庄园·晚樱连理	5000	fb_jiehun_diji01	fb_jiehun_diji01	baihutang02	2		fuben	0	26|show	1	15	Main Camera	3600	2574	4970	45					1010			1	600						1		1												
+海岛·红鸾揽月	5001	fb_jiehun_zhongji01	fb_jiehun_zhongji01	baihutang02	2		fuben	0	26|show	1	15	Main Camera	3600	3237	6040	45					1010			1	600						1		1												
+舫舟·乘龙配凤	5002	fb_jiehun_gaoji01	fb_jiehun_gaoji01	baihutang02	2		fuben	0	26|show	1	15	Main Camera	3600	4632	6249	45					1010			1	600						1		1												
+庄园·晚樱连理	5003	fb_jiehun_diji01	fb_jiehun_diji01	baihutang02	2		fuben	0	26|show	1	15	Main Camera	120	2574	4970	45					1010			1	600						1		1												
+海岛·红鸾揽月	5004	fb_jiehun_zhongji01	fb_jiehun_zhongji01	baihutang02	2		fuben	0	26|show	1	15	Main Camera	120	3237	6040	45					1010			1	600						1		1												
+舫舟·乘龙配凤	5005	fb_jiehun_gaoji01	fb_jiehun_gaoji01	baihutang02	2		fuben	0	26|show	1	15	Main Camera	120	4632	6249	45					1010			1	600						1		1												
+密洞洞天	6001	fb_erengu02	jm_qiyu01		2		fuben	1	9|show	1	1	Main Camera		4192	3842	45					10380										1						UI/Textures/Loading/Loading_erengu.jpg								
+密洞洞天	6002	fb_erengu02	jm_qiyu02		2		fuben	1	9|show	1	1	Main Camera		4192	3842	45					10380										1						UI/Textures/Loading/Loading_erengu.jpg								
+舞动江湖	6003	sn_jiayuan07	tiaowu_1		2		fuben	0	33|show	20	1	Main Camera	180	4576	18077	45					14000				600						1		1				UI/Textures/Loading.jpg								
+舞动江湖准备场	6004	sn_jiayuan07	tiaowu_1		2		fuben	0	34|show	20	1	Main Camera	180	4576	18077	45					14000				600						1		1				UI/Textures/Loading.jpg								
+守卫襄阳	6101	zc_lingtuzhan02	wlds_lingtuzhan01		1		fight	0		1	1	Main Camera	120	19500	7300	0					20										1							1							
+家族遭遇战准备场	6200	zc_zhunbei01	zc_zhunbei02	baihutang02	2		battle	0	22|show	1	1	Main Camera	300	1280	1800	45					21		2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg								
+家族遭遇战	6201	jiazuPK_01	jiazuPK_01	jiazuPK_01	2		battle	1	32|show	1	1	Main Camera	480	14155	9406	0					20				600						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg								
+深秋禁地	7001	fb_luoyegu02	fb_stsl		2		fuben	1	9|show	1	1	Main Camera	180	4806	2612	45				1	10210		2	1							1						UI/Textures/Loading/Loading_luoyegu.jpg								
+忘忧山谷	7002	yw_mobeicaoyuan	yw_wysg	yw_mobeicaoyuan_01	4		fight	0	24|show	20	1	Main Camera	-1	9750	11630	45					14000										1	1	1				UI/Textures/Loading/Loading_canghai.jpg	1			1				
+忘忧镇	10024	zc_lingtuzhan05	lt_wangyoudao		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+通幽曲径	7003	mijing_c_04	womensday		2		fuben	1	8|show	1	1	Main Camera	180	2400	1897	45					30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								1
+家族试炼	7500	zc_lingtuzhan01	jiazhushilian02		2		fuben	1	9|show	1	1	Main Camera	180	5734	7061	45					21										1				1			1							
+临安王城	8000	zc_kuafuzhan01	zc_kuafuzhan01		2		battle	1	13|show	1	1	Main Camera	1800	5734	7061	45					20				2760						1				1										
+临安内城	8001	zc_kuafuzhan01	zc_kuafuzhan02		2		battle	1	13|show	1	1	Main Camera	1800	5734	7061	45					20				2760						1				1										
+临安外城	8002	zc_lingtuzhan02	zc_kuafuzhan03		2		battle	1	13|show	1	1	Main Camera	1800	7049	9168	0					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg								
+临安外城	8003	zc_lingtuzhan03	zc_lingtuzhan03		2		battle	1	13|show	1	1	Main Camera	1800	7049	9168	0					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg								
+桃花迷阵	8004	taohuamizhen01	taohuamizhen01		2		battle	1	36|show	1	1	Main Camera	2100	6725	6990	45					12190		2																						
+遗迹绿洲	8005	taohuamizhen02	taohuamizhen02		2		battle	1	36|show	1	1	Main Camera	2100	5695	3990	45					12190		2										1												
+遗迹密室	8006	taohuamizhen03	taohuamizhen03		2		battle	1	36|show	1	1	Main Camera	2100	3560	3565	45					12190		2										1												
+遗迹寻宝准备场	8007	zc_zhunbei01	zc_zhunbei02	baihutang02	2		battle	0	22|show	1	1	Main Camera	300	1280	1800	45					21		2	1	3600						1		1				UI/Textures/Loading/Loading_wuxing.jpg								
+游历秘境	8008	mijing_e_05	fb_youli_01		2		fuben	1	9|show	1	1	Main Camera	600	2424	2585	45				1			2	1							1						UI/Textures/Loading/Loading_erengu.jpg								1
+渔场	1702	hd_diaoyu01	hd_diaoyu01		2		fuben	0	39|show	1	1	Main Camera 1	600	9350	2783	25.29	16	5			10380		1	1	600												UI/Textures/Loading/Loading_canghai.jpg
+相会鹊桥	8009	cj_linan01	qixiqueqiao		2		fuben	0		1	1	Main Camera	7200	6836	11261	45					10011		2	1							1						UI/Textures/Loading/Loading_shanzhuang.jpg								
+忘忧酒馆	8011	sn_jiuguan01	fb_jiuguan01		3	300	city	0		1	1	Main Camera	180	3429	6572	45					14000												1												
+忘忧酒馆（专场）	8012	sn_jiuguan01	fb_jiuguan02		2	300	fuben	0	8|show	1	1	Main Camera	180	3429	6572	45					14000			1									1												
+野外修炼	9001	mijing_b_03	fb_yewaixiulian		2		fuben	1	8|show	1	1	Main Camera	300	710	611	45				1	30		3	1							1						UI/Textures/Loading/Loading_canghai.jpg								
+忘雪谷（缘）	8013	fb_xuedi03	zmhd_wangxuegu		2		fuben	1	9|show	1	1	Main Camera	600	3150	5200	45					10200		2	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+塞外大漠（缘）	8014	yw_shamomigong	yw_shouweimingxia		2		fuben	1	9|show	1	1	Main Camera	900	7200	7000	45				1	10030		2	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+若雪梦境（缘）	8015	fb_canghai06	qy_canghai06		2		fuben	1	8|show	1	1	Main Camera	600	5854	1716	45				1	10340		2	1							1						UI/Textures/Loading/Loading_xuedi.jpg								
+五行相克	9002	jj_jingjichang01	jj_wuxingxiangke		2		fuben	1	1|show	1	1	Main Camera	180	2034	1154	135								1	10						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg		20					1	
+五岭村	10045	zc_lingtuzhan04	lt_wulingcun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+论学堂	8016	sn_jiayuan04	st_lunxuetang		2		fuben	0	1|show	1	1	Main Camera	180	2034	1154	45					14000			1	10						1		1				UI/Textures/Loading/Loading_shanzhuang.jpg		20					1	
+罗霄村	10031	zc_lingtuzhan04	lt_luoxiaocun		2		battle	0	13|show	1	1	Main Camera	120	7049	9168	45					12280				2760						1				1		UI/Textures/Loading/Loading_canghai.jpg
+忘忧酒馆（年夜饭）	8017	sn_jiuguan01	fb_jiuguan03		2	300	city	0	37|show	1	1	Main Camera	180	3429	6572	45					14000			1									1												
+神之墓地1层	11100	q_qinshi01	bb_home01		1		fight	0		20	1	Main Camera	180	8000	5750	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+神之墓地2层	11101	q_qinshi02	bb_home02		1		fight	0		20	1	Main Camera	180	6000	5650	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+神之墓地3层	11102	q_qinshi03	bb_home03		1		fight	0		20	1	Main Camera	180	5100	6150	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+神之墓地4层	11103	q_qinshi01	bb_home04		1		fight	0		20	1	Main Camera	180	8000	5750	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+神之墓地5层	11104	q_qinshi02	bb_home05		1		fight	0		20	1	Main Camera	180	6000	5650	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			
+神之墓地6层	11105	q_qinshi03	bb_home06		1		fight	0		20	1	Main Camera	180	5100	6150	45					14030				-1						1	1			1		UI/Textures/Loading/Loading_digong.jpg					20			

@@ -1,0 +1,5 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+Prison1	万金财		2828		1	120	3670	4526	32	-1	0	0		0	0	0	0	0	0	0	0	
+Prison2	白起		2829	50		120	3600	3446	0	-1	0	0		0	0	0	0	0	0	0	0	
+Prison3	墙		104			120	3495	1868	16	-1	0	0		0	0	0	0	0	0	0	0	
+Prison4	墙		104			120	3791	1865	16	-1	0	0		0	0	0	0	0	0	0	0	

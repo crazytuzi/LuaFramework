@@ -1,0 +1,24 @@
+StoneLevel	NeedNum	AttribLevel	Img
+1	10	1	
+1	20	2	
+2	20	3	
+2	30	4	
+3	20	5	
+3	30	6	
+4	20	7	
+4	30	8	
+4	40	9	
+5	10	10	
+5	20	11	
+5	30	12	
+5	40	13	InsetMark4
+6	10	14	InsetMark4
+6	20	15	InsetMark4
+6	30	16	InsetMark4
+6	40	17	InsetMark4
+6	50	18	InsetMark5
+7	10	19	InsetMark5
+7	20	20	InsetMark5
+7	30	21	InsetMark5
+7	40	22	InsetMark5
+7	50	23	InsetMark5

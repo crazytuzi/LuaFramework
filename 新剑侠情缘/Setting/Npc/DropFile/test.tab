@@ -1,0 +1,6 @@
+AwardType	AwardValue1	AwardValue2	AwardValue3	RandRate	WorldNotify	Name	IntoAuction
+Coin	100			-1			
+PartnerFamiliar	71	10		-1			
+PartnerFamiliar	71	20		300000	1		
+item	579	1		300000	1		1
+item	580	5		300000			

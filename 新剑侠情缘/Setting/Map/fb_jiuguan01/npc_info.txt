@@ -1,0 +1,10 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+laoban	老板娘		3214	200	1	99	3689	6769	32	-1	0	0		0	0	0	0	0	0	0	0	
+jinshinei	室内		73	200		99	5685	17601	0	-1	0	0		0	0	0	0	0	0	0	0	
+qushiwai	庭院		73	200		99	3096	6525	0	-1	0	0		0	0	0	0	0	0	0	0	
+denglong	灯笼		3279	200		99	2699	18094	0	-1	0	0		0	0	0	0	0	0	0	0	
+denglong	灯笼		3279	200		99	2686	17554	0	-1	0	0		0	0	0	0	0	0	0	0	
+denglong	灯笼		3279	200		99	4482	18808	0	-1	0	0		0	0	0	0	0	0	0	0	
+denglong	灯笼		3279	200		99	4868	18731	0	-1	0	0		0	0	0	0	0	0	0	0	
+denglong	灯笼		3279	200		99	5655	17792	0	-1	0	0		0	0	0	0	0	0	0	0	
+denglong	灯笼		3279	200		99	5706	17386	0	-1	0	0		0	0	0	0	0	0	0	0	

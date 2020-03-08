@@ -1,0 +1,23 @@
+Key	ColorName	IsGradient	Effect	EffectColor	FontSize
+PlayerName	PlayerName		Outline	PlayerNameOutline	20
+OtherPlayerName	OtherPlayerName		Outline	PlayerNameOutline	20
+TeammateName	TeammateName		Outline	PlayerNameOutline	20
+NpcName	NpcName		Shadow	NpcNameShadow	20
+EnemyName	EnemyName		Shadow	EnemyNameShadow	20
+EliteName	EliteName		Shadow	EliteNameShadow	20
+LeaderName	LeaderName		Shadow	LeaderNameShadow	20
+BossName	BossName	1	Shadow	BossNameShadow	20
+FubenNpcName1	White		Shadow	NpcNameShadow	20
+FubenNpcName2	Green		Shadow	NpcNameShadow	20
+FubenNpcName3	Blue		Shadow	NpcNameShadow	20
+FubenNpcName4	Purple		Shadow	NpcNameShadow	20
+FubenNpcName5	Pink		Shadow	NpcNameShadow	20
+FubenNpcName6	Orange		Shadow	NpcNameShadow	20
+FubenNpcName7	Gold		Shadow	NpcNameShadow	20
+FubenEnemyName1	White		Shadow	EnemyNameShadow	20
+FubenEnemyName2	Green		Shadow	EnemyNameShadow	20
+FubenEnemyName3	Blue		Shadow	EnemyNameShadow	20
+FubenEnemyName4	Purple		Shadow	EnemyNameShadow	20
+FubenEnemyName5	Pink		Shadow	EnemyNameShadow	20
+FubenEnemyName6	Orange		Shadow	EnemyNameShadow	20
+FubenEnemyName7	Gold		Shadow	EnemyNameShadow	20

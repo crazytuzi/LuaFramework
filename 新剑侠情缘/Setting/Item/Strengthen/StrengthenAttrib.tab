@@ -1,0 +1,2551 @@
+AttribType	Level	Value1	Value2	Value3
+lifemax_v	1	40		
+lifemax_v	2	80		
+lifemax_v	3	120		
+lifemax_v	4	160		
+lifemax_v	5	200		
+lifemax_v	6	240		
+lifemax_v	7	280		
+lifemax_v	8	320		
+lifemax_v	9	360		
+lifemax_v	10	400		
+lifemax_v	11	440		
+lifemax_v	12	480		
+lifemax_v	13	520		
+lifemax_v	14	560		
+lifemax_v	15	600		
+lifemax_v	16	640		
+lifemax_v	17	680		
+lifemax_v	18	720		
+lifemax_v	19	760		
+lifemax_v	20	800		
+lifemax_v	21	840		
+lifemax_v	22	880		
+lifemax_v	23	920		
+lifemax_v	24	960		
+lifemax_v	25	1000		
+lifemax_v	26	1040		
+lifemax_v	27	1080		
+lifemax_v	28	1120		
+lifemax_v	29	1160		
+lifemax_v	30	1200		
+lifemax_v	31	1240		
+lifemax_v	32	1280		
+lifemax_v	33	1320		
+lifemax_v	34	1360		
+lifemax_v	35	1400		
+lifemax_v	36	1440		
+lifemax_v	37	1480		
+lifemax_v	38	1520		
+lifemax_v	39	1560		
+lifemax_v	40	1600		
+lifemax_v	41	1640		
+lifemax_v	42	1680		
+lifemax_v	43	1720		
+lifemax_v	44	1760		
+lifemax_v	45	1800		
+lifemax_v	46	1840		
+lifemax_v	47	1880		
+lifemax_v	48	1920		
+lifemax_v	49	1960		
+lifemax_v	50	2000		
+lifemax_v	51	2040		
+lifemax_v	52	2080		
+lifemax_v	53	2120		
+lifemax_v	54	2160		
+lifemax_v	55	2200		
+lifemax_v	56	2240		
+lifemax_v	57	2280		
+lifemax_v	58	2320		
+lifemax_v	59	2360		
+lifemax_v	60	2400		
+lifemax_v	61	2440		
+lifemax_v	62	2480		
+lifemax_v	63	2520		
+lifemax_v	64	2560		
+lifemax_v	65	2600		
+lifemax_v	66	2640		
+lifemax_v	67	2680		
+lifemax_v	68	2720		
+lifemax_v	69	2760		
+lifemax_v	70	2800		
+lifemax_v	71	2840		
+lifemax_v	72	2880		
+lifemax_v	73	2920		
+lifemax_v	74	2960		
+lifemax_v	75	3000		
+lifemax_v	76	3040		
+lifemax_v	77	3080		
+lifemax_v	78	3120		
+lifemax_v	79	3160		
+lifemax_v	80	3200		
+lifemax_v	81	3280		
+lifemax_v	82	3360		
+lifemax_v	83	3440		
+lifemax_v	84	3520		
+lifemax_v	85	3600		
+lifemax_v	86	3680		
+lifemax_v	87	3760		
+lifemax_v	88	3840		
+lifemax_v	89	3920		
+lifemax_v	90	4000		
+lifemax_v	91	4100		
+lifemax_v	92	4200		
+lifemax_v	93	4300		
+lifemax_v	94	4400		
+lifemax_v	95	4500		
+lifemax_v	96	4600		
+lifemax_v	97	4700		
+lifemax_v	98	4800		
+lifemax_v	99	4900		
+lifemax_v	100	5000		
+lifemax_v	101	5200		
+lifemax_v	102	5400		
+lifemax_v	103	5600		
+lifemax_v	104	5800		
+lifemax_v	105	6000		
+lifemax_v	106	6200		
+lifemax_v	107	6400		
+lifemax_v	108	6600		
+lifemax_v	109	6800		
+lifemax_v	110	7000		
+lifemax_v	111	7300		
+lifemax_v	112	7600		
+lifemax_v	113	7900		
+lifemax_v	114	8200		
+lifemax_v	115	8500		
+lifemax_v	116	8800		
+lifemax_v	117	9100		
+lifemax_v	118	9400		
+lifemax_v	119	9700		
+lifemax_v	120	10000		
+lifemax_v	121	10300		
+lifemax_v	122	10600		
+lifemax_v	123	10900		
+lifemax_v	124	11200		
+lifemax_v	125	11500		
+lifemax_v	126	11800		
+lifemax_v	127	12100		
+lifemax_v	128	12400		
+lifemax_v	129	12700		
+lifemax_v	130	13000		
+lifemax_v	131	13400		
+lifemax_v	132	13800		
+lifemax_v	133	14200		
+lifemax_v	134	14600		
+lifemax_v	135	15000		
+lifemax_v	136	15400		
+lifemax_v	137	15800		
+lifemax_v	138	16200		
+lifemax_v	139	16600		
+lifemax_v	140	17000		
+lifemax_v	141	17400		
+lifemax_v	142	17800		
+lifemax_v	143	18200		
+lifemax_v	144	18600		
+lifemax_v	145	19000		
+lifemax_v	146	19400		
+lifemax_v	147	19800		
+lifemax_v	148	20200		
+lifemax_v	149	20600		
+lifemax_v	150	21000		
+basic_damage_v	1	6		6
+basic_damage_v	2	12		12
+basic_damage_v	3	18		18
+basic_damage_v	4	24		24
+basic_damage_v	5	30		30
+basic_damage_v	6	36		36
+basic_damage_v	7	42		42
+basic_damage_v	8	48		48
+basic_damage_v	9	54		54
+basic_damage_v	10	60		60
+basic_damage_v	11	66		66
+basic_damage_v	12	72		72
+basic_damage_v	13	78		78
+basic_damage_v	14	84		84
+basic_damage_v	15	90		90
+basic_damage_v	16	96		96
+basic_damage_v	17	102		102
+basic_damage_v	18	108		108
+basic_damage_v	19	114		114
+basic_damage_v	20	120		120
+basic_damage_v	21	126		126
+basic_damage_v	22	132		132
+basic_damage_v	23	138		138
+basic_damage_v	24	144		144
+basic_damage_v	25	150		150
+basic_damage_v	26	156		156
+basic_damage_v	27	162		162
+basic_damage_v	28	168		168
+basic_damage_v	29	174		174
+basic_damage_v	30	180		180
+basic_damage_v	31	186		186
+basic_damage_v	32	192		192
+basic_damage_v	33	198		198
+basic_damage_v	34	204		204
+basic_damage_v	35	210		210
+basic_damage_v	36	216		216
+basic_damage_v	37	222		222
+basic_damage_v	38	228		228
+basic_damage_v	39	234		234
+basic_damage_v	40	240		240
+basic_damage_v	41	246		246
+basic_damage_v	42	252		252
+basic_damage_v	43	258		258
+basic_damage_v	44	264		264
+basic_damage_v	45	270		270
+basic_damage_v	46	276		276
+basic_damage_v	47	282		282
+basic_damage_v	48	288		288
+basic_damage_v	49	294		294
+basic_damage_v	50	300		300
+basic_damage_v	51	306		306
+basic_damage_v	52	312		312
+basic_damage_v	53	318		318
+basic_damage_v	54	324		324
+basic_damage_v	55	330		330
+basic_damage_v	56	336		336
+basic_damage_v	57	342		342
+basic_damage_v	58	348		348
+basic_damage_v	59	354		354
+basic_damage_v	60	360		360
+basic_damage_v	61	366		366
+basic_damage_v	62	372		372
+basic_damage_v	63	378		378
+basic_damage_v	64	384		384
+basic_damage_v	65	390		390
+basic_damage_v	66	396		396
+basic_damage_v	67	402		402
+basic_damage_v	68	408		408
+basic_damage_v	69	414		414
+basic_damage_v	70	420		420
+basic_damage_v	71	426		426
+basic_damage_v	72	432		432
+basic_damage_v	73	438		438
+basic_damage_v	74	444		444
+basic_damage_v	75	450		450
+basic_damage_v	76	456		456
+basic_damage_v	77	462		462
+basic_damage_v	78	468		468
+basic_damage_v	79	474		474
+basic_damage_v	80	480		480
+basic_damage_v	81	492		492
+basic_damage_v	82	504		504
+basic_damage_v	83	516		516
+basic_damage_v	84	528		528
+basic_damage_v	85	540		540
+basic_damage_v	86	552		552
+basic_damage_v	87	564		564
+basic_damage_v	88	576		576
+basic_damage_v	89	588		588
+basic_damage_v	90	600		600
+basic_damage_v	91	615		615
+basic_damage_v	92	630		630
+basic_damage_v	93	645		645
+basic_damage_v	94	660		660
+basic_damage_v	95	675		675
+basic_damage_v	96	690		690
+basic_damage_v	97	705		705
+basic_damage_v	98	720		720
+basic_damage_v	99	735		735
+basic_damage_v	100	750		750
+basic_damage_v	101	780		780
+basic_damage_v	102	810		810
+basic_damage_v	103	840		840
+basic_damage_v	104	870		870
+basic_damage_v	105	900		900
+basic_damage_v	106	930		930
+basic_damage_v	107	960		960
+basic_damage_v	108	990		990
+basic_damage_v	109	1020		1020
+basic_damage_v	110	1050		1050
+basic_damage_v	111	1095		1095
+basic_damage_v	112	1140		1140
+basic_damage_v	113	1185		1185
+basic_damage_v	114	1230		1230
+basic_damage_v	115	1275		1275
+basic_damage_v	116	1320		1320
+basic_damage_v	117	1365		1365
+basic_damage_v	118	1410		1410
+basic_damage_v	119	1455		1455
+basic_damage_v	120	1500		1500
+basic_damage_v	121	1545		1545
+basic_damage_v	122	1590		1590
+basic_damage_v	123	1635		1635
+basic_damage_v	124	1680		1680
+basic_damage_v	125	1725		1725
+basic_damage_v	126	1770		1770
+basic_damage_v	127	1815		1815
+basic_damage_v	128	1860		1860
+basic_damage_v	129	1905		1905
+basic_damage_v	130	1950		1950
+basic_damage_v	131	2010		2010
+basic_damage_v	132	2070		2070
+basic_damage_v	133	2130		2130
+basic_damage_v	134	2190		2190
+basic_damage_v	135	2250		2250
+basic_damage_v	136	2310		2310
+basic_damage_v	137	2370		2370
+basic_damage_v	138	2430		2430
+basic_damage_v	139	2490		2490
+basic_damage_v	140	2550		2550
+basic_damage_v	141	2610		2610
+basic_damage_v	142	2670		2670
+basic_damage_v	143	2730		2730
+basic_damage_v	144	2790		2790
+basic_damage_v	145	2850		2850
+basic_damage_v	146	2910		2910
+basic_damage_v	147	2970		2970
+basic_damage_v	148	3030		3030
+basic_damage_v	149	3090		3090
+basic_damage_v	150	3150		3150
+physical_damage_v	1	6		6
+physical_damage_v	2	12		12
+physical_damage_v	3	18		18
+physical_damage_v	4	24		24
+physical_damage_v	5	30		30
+physical_damage_v	6	36		36
+physical_damage_v	7	42		42
+physical_damage_v	8	48		48
+physical_damage_v	9	54		54
+physical_damage_v	10	60		60
+physical_damage_v	11	66		66
+physical_damage_v	12	72		72
+physical_damage_v	13	78		78
+physical_damage_v	14	84		84
+physical_damage_v	15	90		90
+physical_damage_v	16	96		96
+physical_damage_v	17	102		102
+physical_damage_v	18	108		108
+physical_damage_v	19	114		114
+physical_damage_v	20	120		120
+physical_damage_v	21	126		126
+physical_damage_v	22	132		132
+physical_damage_v	23	138		138
+physical_damage_v	24	144		144
+physical_damage_v	25	150		150
+physical_damage_v	26	156		156
+physical_damage_v	27	162		162
+physical_damage_v	28	168		168
+physical_damage_v	29	174		174
+physical_damage_v	30	180		180
+physical_damage_v	31	186		186
+physical_damage_v	32	192		192
+physical_damage_v	33	198		198
+physical_damage_v	34	204		204
+physical_damage_v	35	210		210
+physical_damage_v	36	216		216
+physical_damage_v	37	222		222
+physical_damage_v	38	228		228
+physical_damage_v	39	234		234
+physical_damage_v	40	240		240
+physical_damage_v	41	246		246
+physical_damage_v	42	252		252
+physical_damage_v	43	258		258
+physical_damage_v	44	264		264
+physical_damage_v	45	270		270
+physical_damage_v	46	276		276
+physical_damage_v	47	282		282
+physical_damage_v	48	288		288
+physical_damage_v	49	294		294
+physical_damage_v	50	300		300
+physical_damage_v	51	306		306
+physical_damage_v	52	312		312
+physical_damage_v	53	318		318
+physical_damage_v	54	324		324
+physical_damage_v	55	330		330
+physical_damage_v	56	336		336
+physical_damage_v	57	342		342
+physical_damage_v	58	348		348
+physical_damage_v	59	354		354
+physical_damage_v	60	360		360
+physical_damage_v	61	366		366
+physical_damage_v	62	372		372
+physical_damage_v	63	378		378
+physical_damage_v	64	384		384
+physical_damage_v	65	390		390
+physical_damage_v	66	396		396
+physical_damage_v	67	402		402
+physical_damage_v	68	408		408
+physical_damage_v	69	414		414
+physical_damage_v	70	420		420
+physical_damage_v	71	426		426
+physical_damage_v	72	432		432
+physical_damage_v	73	438		438
+physical_damage_v	74	444		444
+physical_damage_v	75	450		450
+physical_damage_v	76	456		456
+physical_damage_v	77	462		462
+physical_damage_v	78	468		468
+physical_damage_v	79	474		474
+physical_damage_v	80	480		480
+physical_damage_v	81	492		492
+physical_damage_v	82	504		504
+physical_damage_v	83	516		516
+physical_damage_v	84	528		528
+physical_damage_v	85	540		540
+physical_damage_v	86	552		552
+physical_damage_v	87	564		564
+physical_damage_v	88	576		576
+physical_damage_v	89	588		588
+physical_damage_v	90	600		600
+physical_damage_v	91	615		615
+physical_damage_v	92	630		630
+physical_damage_v	93	645		645
+physical_damage_v	94	660		660
+physical_damage_v	95	675		675
+physical_damage_v	96	690		690
+physical_damage_v	97	705		705
+physical_damage_v	98	720		720
+physical_damage_v	99	735		735
+physical_damage_v	100	750		750
+physical_damage_v	101	780		780
+physical_damage_v	102	810		810
+physical_damage_v	103	840		840
+physical_damage_v	104	870		870
+physical_damage_v	105	900		900
+physical_damage_v	106	930		930
+physical_damage_v	107	960		960
+physical_damage_v	108	990		990
+physical_damage_v	109	1020		1020
+physical_damage_v	110	1050		1050
+physical_damage_v	111	1095		1095
+physical_damage_v	112	1140		1140
+physical_damage_v	113	1185		1185
+physical_damage_v	114	1230		1230
+physical_damage_v	115	1275		1275
+physical_damage_v	116	1320		1320
+physical_damage_v	117	1365		1365
+physical_damage_v	118	1410		1410
+physical_damage_v	119	1455		1455
+physical_damage_v	120	1500		1500
+physical_damage_v	121	1545		1545
+physical_damage_v	122	1590		1590
+physical_damage_v	123	1635		1635
+physical_damage_v	124	1680		1680
+physical_damage_v	125	1725		1725
+physical_damage_v	126	1770		1770
+physical_damage_v	127	1815		1815
+physical_damage_v	128	1860		1860
+physical_damage_v	129	1905		1905
+physical_damage_v	130	1950		1950
+physical_damage_v	131	2010		2010
+physical_damage_v	132	2070		2070
+physical_damage_v	133	2130		2130
+physical_damage_v	134	2190		2190
+physical_damage_v	135	2250		2250
+physical_damage_v	136	2310		2310
+physical_damage_v	137	2370		2370
+physical_damage_v	138	2430		2430
+physical_damage_v	139	2490		2490
+physical_damage_v	140	2550		2550
+physical_damage_v	141	2610		2610
+physical_damage_v	142	2670		2670
+physical_damage_v	143	2730		2730
+physical_damage_v	144	2790		2790
+physical_damage_v	145	2850		2850
+physical_damage_v	146	2910		2910
+physical_damage_v	147	2970		2970
+physical_damage_v	148	3030		3030
+physical_damage_v	149	3090		3090
+physical_damage_v	150	3150		3150
+all_series_resist_v	1	1		
+all_series_resist_v	2	3		
+all_series_resist_v	3	4		
+all_series_resist_v	4	6		
+all_series_resist_v	5	7		
+all_series_resist_v	6	9		
+all_series_resist_v	7	10		
+all_series_resist_v	8	12		
+all_series_resist_v	9	13		
+all_series_resist_v	10	15		
+all_series_resist_v	11	16		
+all_series_resist_v	12	18		
+all_series_resist_v	13	19		
+all_series_resist_v	14	21		
+all_series_resist_v	15	22		
+all_series_resist_v	16	24		
+all_series_resist_v	17	25		
+all_series_resist_v	18	27		
+all_series_resist_v	19	28		
+all_series_resist_v	20	30		
+all_series_resist_v	21	31		
+all_series_resist_v	22	33		
+all_series_resist_v	23	34		
+all_series_resist_v	24	36		
+all_series_resist_v	25	37		
+all_series_resist_v	26	39		
+all_series_resist_v	27	40		
+all_series_resist_v	28	42		
+all_series_resist_v	29	43		
+all_series_resist_v	30	45		
+all_series_resist_v	31	46		
+all_series_resist_v	32	48		
+all_series_resist_v	33	49		
+all_series_resist_v	34	51		
+all_series_resist_v	35	52		
+all_series_resist_v	36	54		
+all_series_resist_v	37	55		
+all_series_resist_v	38	57		
+all_series_resist_v	39	58		
+all_series_resist_v	40	60		
+all_series_resist_v	41	61		
+all_series_resist_v	42	63		
+all_series_resist_v	43	64		
+all_series_resist_v	44	66		
+all_series_resist_v	45	67		
+all_series_resist_v	46	69		
+all_series_resist_v	47	70		
+all_series_resist_v	48	72		
+all_series_resist_v	49	73		
+all_series_resist_v	50	75		
+all_series_resist_v	51	76		
+all_series_resist_v	52	78		
+all_series_resist_v	53	79		
+all_series_resist_v	54	81		
+all_series_resist_v	55	82		
+all_series_resist_v	56	84		
+all_series_resist_v	57	85		
+all_series_resist_v	58	87		
+all_series_resist_v	59	88		
+all_series_resist_v	60	90		
+all_series_resist_v	61	91		
+all_series_resist_v	62	93		
+all_series_resist_v	63	94		
+all_series_resist_v	64	96		
+all_series_resist_v	65	97		
+all_series_resist_v	66	99		
+all_series_resist_v	67	100		
+all_series_resist_v	68	102		
+all_series_resist_v	69	103		
+all_series_resist_v	70	105		
+all_series_resist_v	71	106		
+all_series_resist_v	72	108		
+all_series_resist_v	73	109		
+all_series_resist_v	74	111		
+all_series_resist_v	75	112		
+all_series_resist_v	76	114		
+all_series_resist_v	77	115		
+all_series_resist_v	78	117		
+all_series_resist_v	79	118		
+all_series_resist_v	80	120		
+all_series_resist_v	81	123		
+all_series_resist_v	82	126		
+all_series_resist_v	83	129		
+all_series_resist_v	84	132		
+all_series_resist_v	85	135		
+all_series_resist_v	86	138		
+all_series_resist_v	87	141		
+all_series_resist_v	88	144		
+all_series_resist_v	89	147		
+all_series_resist_v	90	150		
+all_series_resist_v	91	153		
+all_series_resist_v	92	157		
+all_series_resist_v	93	161		
+all_series_resist_v	94	165		
+all_series_resist_v	95	168		
+all_series_resist_v	96	172		
+all_series_resist_v	97	176		
+all_series_resist_v	98	180		
+all_series_resist_v	99	183		
+all_series_resist_v	100	187		
+all_series_resist_v	101	195		
+all_series_resist_v	102	202		
+all_series_resist_v	103	210		
+all_series_resist_v	104	217		
+all_series_resist_v	105	225		
+all_series_resist_v	106	232		
+all_series_resist_v	107	240		
+all_series_resist_v	108	247		
+all_series_resist_v	109	255		
+all_series_resist_v	110	263		
+all_series_resist_v	111	274		
+all_series_resist_v	112	285		
+all_series_resist_v	113	296		
+all_series_resist_v	114	308		
+all_series_resist_v	115	319		
+all_series_resist_v	116	330		
+all_series_resist_v	117	341		
+all_series_resist_v	118	353		
+all_series_resist_v	119	364		
+all_series_resist_v	120	375		
+all_series_resist_v	121	386		
+all_series_resist_v	122	397		
+all_series_resist_v	123	408		
+all_series_resist_v	124	420		
+all_series_resist_v	125	431		
+all_series_resist_v	126	442		
+all_series_resist_v	127	453		
+all_series_resist_v	128	465		
+all_series_resist_v	129	476		
+all_series_resist_v	130	487		
+all_series_resist_v	131	502		
+all_series_resist_v	132	517		
+all_series_resist_v	133	532		
+all_series_resist_v	134	547		
+all_series_resist_v	135	562		
+all_series_resist_v	136	577		
+all_series_resist_v	137	592		
+all_series_resist_v	138	607		
+all_series_resist_v	139	622		
+all_series_resist_v	140	637		
+all_series_resist_v	141	652		
+all_series_resist_v	142	667		
+all_series_resist_v	143	682		
+all_series_resist_v	144	697		
+all_series_resist_v	145	712		
+all_series_resist_v	146	727		
+all_series_resist_v	147	742		
+all_series_resist_v	148	757		
+all_series_resist_v	149	772		
+all_series_resist_v	150	787		
+attackrate_v	1	16		
+attackrate_v	2	32		
+attackrate_v	3	48		
+attackrate_v	4	64		
+attackrate_v	5	80		
+attackrate_v	6	96		
+attackrate_v	7	112		
+attackrate_v	8	128		
+attackrate_v	9	144		
+attackrate_v	10	160		
+attackrate_v	11	176		
+attackrate_v	12	192		
+attackrate_v	13	208		
+attackrate_v	14	224		
+attackrate_v	15	240		
+attackrate_v	16	256		
+attackrate_v	17	272		
+attackrate_v	18	288		
+attackrate_v	19	304		
+attackrate_v	20	320		
+attackrate_v	21	336		
+attackrate_v	22	352		
+attackrate_v	23	368		
+attackrate_v	24	384		
+attackrate_v	25	400		
+attackrate_v	26	416		
+attackrate_v	27	432		
+attackrate_v	28	448		
+attackrate_v	29	464		
+attackrate_v	30	480		
+attackrate_v	31	496		
+attackrate_v	32	512		
+attackrate_v	33	528		
+attackrate_v	34	544		
+attackrate_v	35	560		
+attackrate_v	36	576		
+attackrate_v	37	592		
+attackrate_v	38	608		
+attackrate_v	39	624		
+attackrate_v	40	640		
+attackrate_v	41	656		
+attackrate_v	42	672		
+attackrate_v	43	688		
+attackrate_v	44	704		
+attackrate_v	45	720		
+attackrate_v	46	736		
+attackrate_v	47	752		
+attackrate_v	48	768		
+attackrate_v	49	784		
+attackrate_v	50	800		
+attackrate_v	51	816		
+attackrate_v	52	832		
+attackrate_v	53	848		
+attackrate_v	54	864		
+attackrate_v	55	880		
+attackrate_v	56	896		
+attackrate_v	57	912		
+attackrate_v	58	928		
+attackrate_v	59	944		
+attackrate_v	60	960		
+attackrate_v	61	976		
+attackrate_v	62	992		
+attackrate_v	63	1008		
+attackrate_v	64	1024		
+attackrate_v	65	1040		
+attackrate_v	66	1056		
+attackrate_v	67	1072		
+attackrate_v	68	1088		
+attackrate_v	69	1104		
+attackrate_v	70	1120		
+attackrate_v	71	1136		
+attackrate_v	72	1152		
+attackrate_v	73	1168		
+attackrate_v	74	1184		
+attackrate_v	75	1200		
+attackrate_v	76	1216		
+attackrate_v	77	1232		
+attackrate_v	78	1248		
+attackrate_v	79	1264		
+attackrate_v	80	1280		
+attackrate_v	81	1312		
+attackrate_v	82	1344		
+attackrate_v	83	1376		
+attackrate_v	84	1408		
+attackrate_v	85	1440		
+attackrate_v	86	1472		
+attackrate_v	87	1504		
+attackrate_v	88	1536		
+attackrate_v	89	1568		
+attackrate_v	90	1600		
+attackrate_v	91	1640		
+attackrate_v	92	1680		
+attackrate_v	93	1720		
+attackrate_v	94	1760		
+attackrate_v	95	1800		
+attackrate_v	96	1840		
+attackrate_v	97	1880		
+attackrate_v	98	1920		
+attackrate_v	99	1960		
+attackrate_v	100	2000		
+attackrate_v	101	2080		
+attackrate_v	102	2160		
+attackrate_v	103	2240		
+attackrate_v	104	2320		
+attackrate_v	105	2400		
+attackrate_v	106	2480		
+attackrate_v	107	2560		
+attackrate_v	108	2640		
+attackrate_v	109	2720		
+attackrate_v	110	2800		
+attackrate_v	111	2920		
+attackrate_v	112	3040		
+attackrate_v	113	3160		
+attackrate_v	114	3280		
+attackrate_v	115	3400		
+attackrate_v	116	3520		
+attackrate_v	117	3640		
+attackrate_v	118	3760		
+attackrate_v	119	3880		
+attackrate_v	120	4000		
+attackrate_v	121	4120		
+attackrate_v	122	4240		
+attackrate_v	123	4360		
+attackrate_v	124	4480		
+attackrate_v	125	4600		
+attackrate_v	126	4720		
+attackrate_v	127	4840		
+attackrate_v	128	4960		
+attackrate_v	129	5080		
+attackrate_v	130	5200		
+attackrate_v	131	5360		
+attackrate_v	132	5520		
+attackrate_v	133	5680		
+attackrate_v	134	5840		
+attackrate_v	135	6000		
+attackrate_v	136	6160		
+attackrate_v	137	6320		
+attackrate_v	138	6480		
+attackrate_v	139	6640		
+attackrate_v	140	6800		
+attackrate_v	141	6960		
+attackrate_v	142	7120		
+attackrate_v	143	7280		
+attackrate_v	144	7440		
+attackrate_v	145	7600		
+attackrate_v	146	7760		
+attackrate_v	147	7920		
+attackrate_v	148	8080		
+attackrate_v	149	8240		
+attackrate_v	150	8400		
+defense_v	1	0		
+defense_v	2	0		
+defense_v	3	0		
+defense_v	4	0		
+defense_v	5	0		
+defense_v	6	0		
+defense_v	7	0		
+defense_v	8	0		
+defense_v	9	0		
+defense_v	10	0		
+defense_v	11	0		
+defense_v	12	0		
+defense_v	13	0		
+defense_v	14	0		
+defense_v	15	0		
+defense_v	16	0		
+defense_v	17	0		
+defense_v	18	0		
+defense_v	19	0		
+defense_v	20	0		
+defense_v	21	0		
+defense_v	22	0		
+defense_v	23	0		
+defense_v	24	0		
+defense_v	25	0		
+defense_v	26	0		
+defense_v	27	0		
+defense_v	28	0		
+defense_v	29	0		
+defense_v	30	0		
+defense_v	31	0		
+defense_v	32	0		
+defense_v	33	0		
+defense_v	34	0		
+defense_v	35	0		
+defense_v	36	0		
+defense_v	37	0		
+defense_v	38	0		
+defense_v	39	0		
+defense_v	40	0		
+defense_v	41	0		
+defense_v	42	0		
+defense_v	43	0		
+defense_v	44	0		
+defense_v	45	0		
+defense_v	46	0		
+defense_v	47	0		
+defense_v	48	0		
+defense_v	49	0		
+defense_v	50	0		
+defense_v	51	0		
+defense_v	52	0		
+defense_v	53	0		
+defense_v	54	0		
+defense_v	55	0		
+defense_v	56	0		
+defense_v	57	0		
+defense_v	58	0		
+defense_v	59	0		
+defense_v	60	0		
+defense_v	61	0		
+defense_v	62	0		
+defense_v	63	0		
+defense_v	64	0		
+defense_v	65	0		
+defense_v	66	0		
+defense_v	67	0		
+defense_v	68	0		
+defense_v	69	0		
+defense_v	70	0		
+defense_v	71	0		
+defense_v	72	0		
+defense_v	73	0		
+defense_v	74	0		
+defense_v	75	0		
+defense_v	76	0		
+defense_v	77	0		
+defense_v	78	0		
+defense_v	79	0		
+defense_v	80	0		
+defense_v	81	0		
+defense_v	82	0		
+defense_v	83	0		
+defense_v	84	0		
+defense_v	85	0		
+defense_v	86	0		
+defense_v	87	0		
+defense_v	88	0		
+defense_v	89	0		
+defense_v	90	0		
+defense_v	91	0		
+defense_v	92	0		
+defense_v	93	0		
+defense_v	94	0		
+defense_v	95	0		
+defense_v	96	0		
+defense_v	97	0		
+defense_v	98	0		
+defense_v	99	0		
+defense_v	100	0		
+defense_v	101	0		
+defense_v	102	0		
+defense_v	103	0		
+defense_v	104	0		
+defense_v	105	0		
+defense_v	106	0		
+defense_v	107	0		
+defense_v	108	0		
+defense_v	109	0		
+defense_v	110	0		
+defense_v	111	0		
+defense_v	112	0		
+defense_v	113	0		
+defense_v	114	0		
+defense_v	115	0		
+defense_v	116	0		
+defense_v	117	0		
+defense_v	118	0		
+defense_v	119	0		
+defense_v	120	0		
+defense_v	121	0		
+defense_v	122	0		
+defense_v	123	0		
+defense_v	124	0		
+defense_v	125	0		
+defense_v	126	0		
+defense_v	127	0		
+defense_v	128	0		
+defense_v	129	0		
+defense_v	130	0		
+defense_v	131	40		
+defense_v	132	80		
+defense_v	133	120		
+defense_v	134	160		
+defense_v	135	200		
+defense_v	136	240		
+defense_v	137	280		
+defense_v	138	320		
+defense_v	139	360		
+defense_v	140	400		
+defense_v	141	440		
+defense_v	142	480		
+defense_v	143	520		
+defense_v	144	560		
+defense_v	145	600		
+defense_v	146	640		
+defense_v	147	680		
+defense_v	148	720		
+defense_v	149	760		
+defense_v	150	800		
+deadlystrike_v	1	5		
+deadlystrike_v	2	5		
+deadlystrike_v	3	5		
+deadlystrike_v	4	6		
+deadlystrike_v	5	6		
+deadlystrike_v	6	7		
+deadlystrike_v	7	7		
+deadlystrike_v	8	8		
+deadlystrike_v	9	8		
+deadlystrike_v	10	9		
+deadlystrike_v	11	9		
+deadlystrike_v	12	10		
+deadlystrike_v	13	10		
+deadlystrike_v	14	11		
+deadlystrike_v	15	13		
+deadlystrike_v	16	13		
+deadlystrike_v	17	13		
+deadlystrike_v	18	13		
+deadlystrike_v	19	13		
+deadlystrike_v	20	13		
+deadlystrike_v	21	14		
+deadlystrike_v	22	14		
+deadlystrike_v	23	14		
+deadlystrike_v	24	14		
+deadlystrike_v	25	14		
+deadlystrike_v	26	15		
+deadlystrike_v	27	15		
+deadlystrike_v	28	15		
+deadlystrike_v	29	15		
+deadlystrike_v	30	15		
+deadlystrike_v	31	15		
+deadlystrike_v	32	15		
+deadlystrike_v	33	15		
+deadlystrike_v	34	15		
+deadlystrike_v	35	15		
+deadlystrike_v	36	15		
+deadlystrike_v	37	15		
+deadlystrike_v	38	15		
+deadlystrike_v	39	15		
+deadlystrike_v	40	15		
+deadlystrike_v	41	15		
+deadlystrike_v	42	15		
+deadlystrike_v	43	15		
+deadlystrike_v	44	15		
+deadlystrike_v	45	15		
+deadlystrike_v	46	15		
+deadlystrike_v	47	15		
+deadlystrike_v	48	15		
+deadlystrike_v	49	15		
+deadlystrike_v	50	15		
+deadlystrike_v	51	15		
+deadlystrike_v	52	15		
+deadlystrike_v	53	15		
+deadlystrike_v	54	15		
+deadlystrike_v	55	15		
+deadlystrike_v	56	15		
+deadlystrike_v	57	15		
+deadlystrike_v	58	15		
+deadlystrike_v	59	15		
+deadlystrike_v	60	15		
+deadlystrike_v	61	15		
+deadlystrike_v	62	15		
+deadlystrike_v	63	15		
+deadlystrike_v	64	15		
+deadlystrike_v	65	15		
+deadlystrike_v	66	15		
+deadlystrike_v	67	15		
+deadlystrike_v	68	15		
+deadlystrike_v	69	15		
+deadlystrike_v	70	15		
+deadlystrike_v	71	15		
+deadlystrike_v	72	15		
+deadlystrike_v	73	15		
+deadlystrike_v	74	15		
+deadlystrike_v	75	15		
+deadlystrike_v	76	15		
+deadlystrike_v	77	15		
+deadlystrike_v	78	15		
+deadlystrike_v	79	15		
+deadlystrike_v	80	15		
+deadlystrike_v	81	15		
+deadlystrike_v	82	15		
+deadlystrike_v	83	15		
+deadlystrike_v	84	15		
+deadlystrike_v	85	15		
+deadlystrike_v	86	15		
+deadlystrike_v	87	15		
+deadlystrike_v	88	15		
+deadlystrike_v	89	15		
+deadlystrike_v	90	15		
+deadlystrike_v	91	15		
+deadlystrike_v	92	15		
+deadlystrike_v	93	15		
+deadlystrike_v	94	15		
+deadlystrike_v	95	15		
+deadlystrike_v	96	15		
+deadlystrike_v	97	15		
+deadlystrike_v	98	15		
+deadlystrike_v	99	15		
+deadlystrike_v	100	15		
+deadlystrike_v	101	15		
+deadlystrike_v	102	15		
+deadlystrike_v	103	15		
+deadlystrike_v	104	15		
+deadlystrike_v	105	15		
+deadlystrike_v	106	15		
+deadlystrike_v	107	15		
+deadlystrike_v	108	15		
+deadlystrike_v	109	15		
+deadlystrike_v	110	15		
+deadlystrike_v	111	15		
+deadlystrike_v	112	15		
+deadlystrike_v	113	15		
+deadlystrike_v	114	15		
+deadlystrike_v	115	15		
+deadlystrike_v	116	15		
+deadlystrike_v	117	15		
+deadlystrike_v	118	15		
+deadlystrike_v	119	15		
+deadlystrike_v	120	15		
+deadlystrike_v	121	15		
+deadlystrike_v	122	15		
+deadlystrike_v	123	15		
+deadlystrike_v	124	15		
+deadlystrike_v	125	15		
+deadlystrike_v	126	15		
+deadlystrike_v	127	15		
+deadlystrike_v	128	15		
+deadlystrike_v	129	15		
+deadlystrike_v	130	15		
+deadlystrike_v	131	15		
+deadlystrike_v	132	15		
+deadlystrike_v	133	15		
+deadlystrike_v	134	15		
+deadlystrike_v	135	15		
+deadlystrike_v	136	15		
+deadlystrike_v	137	15		
+deadlystrike_v	138	15		
+deadlystrike_v	139	15		
+deadlystrike_v	140	15		
+deadlystrike_v	141	15		
+deadlystrike_v	142	15		
+deadlystrike_v	143	15		
+deadlystrike_v	144	15		
+deadlystrike_v	145	15		
+deadlystrike_v	146	15		
+deadlystrike_v	147	15		
+deadlystrike_v	148	15		
+deadlystrike_v	149	15		
+deadlystrike_v	150	15		
+runspeed_v	1	1		
+runspeed_v	2	2		
+runspeed_v	3	3		
+runspeed_v	4	4		
+runspeed_v	5	5		
+runspeed_v	6	6		
+runspeed_v	7	7		
+runspeed_v	8	8		
+runspeed_v	9	9		
+runspeed_v	10	10		
+runspeed_v	11	11		
+runspeed_v	12	12		
+runspeed_v	13	13		
+runspeed_v	14	14		
+runspeed_v	15	15		
+runspeed_v	16	16		
+runspeed_v	17	17		
+runspeed_v	18	18		
+runspeed_v	19	19		
+runspeed_v	20	20		
+runspeed_v	21	21		
+runspeed_v	22	22		
+runspeed_v	23	23		
+runspeed_v	24	24		
+runspeed_v	25	25		
+runspeed_v	26	26		
+runspeed_v	27	27		
+runspeed_v	28	28		
+runspeed_v	29	29		
+runspeed_v	30	30		
+runspeed_v	31	31		
+runspeed_v	32	32		
+runspeed_v	33	33		
+runspeed_v	34	34		
+runspeed_v	35	35		
+runspeed_v	36	36		
+runspeed_v	37	37		
+runspeed_v	38	38		
+runspeed_v	39	39		
+runspeed_v	40	40		
+runspeed_v	41	41		
+runspeed_v	42	42		
+runspeed_v	43	43		
+runspeed_v	44	44		
+runspeed_v	45	45		
+runspeed_v	46	46		
+runspeed_v	47	47		
+runspeed_v	48	48		
+runspeed_v	49	49		
+runspeed_v	50	50		
+runspeed_v	51	51		
+runspeed_v	52	52		
+runspeed_v	53	53		
+runspeed_v	54	54		
+runspeed_v	55	55		
+runspeed_v	56	56		
+runspeed_v	57	57		
+runspeed_v	58	58		
+runspeed_v	59	59		
+runspeed_v	60	60		
+runspeed_v	61	61		
+runspeed_v	62	62		
+runspeed_v	63	63		
+runspeed_v	64	64		
+runspeed_v	65	65		
+runspeed_v	66	66		
+runspeed_v	67	67		
+runspeed_v	68	68		
+runspeed_v	69	69		
+runspeed_v	70	70		
+runspeed_v	71	71		
+runspeed_v	72	72		
+runspeed_v	73	73		
+runspeed_v	74	74		
+runspeed_v	75	75		
+runspeed_v	76	76		
+runspeed_v	77	77		
+runspeed_v	78	78		
+runspeed_v	79	79		
+runspeed_v	80	80		
+runspeed_v	81	81		
+runspeed_v	82	82		
+runspeed_v	83	83		
+runspeed_v	84	84		
+runspeed_v	85	85		
+runspeed_v	86	86		
+runspeed_v	87	87		
+runspeed_v	88	88		
+runspeed_v	89	89		
+runspeed_v	90	90		
+runspeed_v	91	91		
+runspeed_v	92	92		
+runspeed_v	93	93		
+runspeed_v	94	94		
+runspeed_v	95	95		
+runspeed_v	96	96		
+runspeed_v	97	97		
+runspeed_v	98	98		
+runspeed_v	99	99		
+runspeed_v	100	100		
+runspeed_v	101	101		
+runspeed_v	102	102		
+runspeed_v	103	103		
+runspeed_v	104	104		
+runspeed_v	105	105		
+runspeed_v	106	106		
+runspeed_v	107	107		
+runspeed_v	108	108		
+runspeed_v	109	109		
+runspeed_v	110	110		
+runspeed_v	111	111		
+runspeed_v	112	112		
+runspeed_v	113	113		
+runspeed_v	114	114		
+runspeed_v	115	115		
+runspeed_v	116	116		
+runspeed_v	117	117		
+runspeed_v	118	118		
+runspeed_v	119	119		
+runspeed_v	120	120		
+runspeed_v	121	121		
+runspeed_v	122	122		
+runspeed_v	123	123		
+runspeed_v	124	124		
+runspeed_v	125	125		
+runspeed_v	126	126		
+runspeed_v	127	127		
+runspeed_v	128	128		
+runspeed_v	129	129		
+runspeed_v	130	130		
+runspeed_v	131	130		
+runspeed_v	132	130		
+runspeed_v	133	130		
+runspeed_v	134	130		
+runspeed_v	135	130		
+runspeed_v	136	130		
+runspeed_v	137	130		
+runspeed_v	138	130		
+runspeed_v	139	130		
+runspeed_v	140	130		
+runspeed_v	141	130		
+runspeed_v	142	130		
+runspeed_v	143	130		
+runspeed_v	144	130		
+runspeed_v	145	130		
+runspeed_v	146	130		
+runspeed_v	147	130		
+runspeed_v	148	130		
+runspeed_v	149	130		
+runspeed_v	150	130		
+attackspeed_v	1	1		
+attackspeed_v	2	1		
+attackspeed_v	3	1		
+attackspeed_v	4	1		
+attackspeed_v	5	1		
+attackspeed_v	6	1		
+attackspeed_v	7	1		
+attackspeed_v	8	1		
+attackspeed_v	9	1		
+attackspeed_v	10	1		
+attackspeed_v	11	1		
+attackspeed_v	12	1		
+attackspeed_v	13	1		
+attackspeed_v	14	1		
+attackspeed_v	15	1		
+attackspeed_v	16	1		
+attackspeed_v	17	1		
+attackspeed_v	18	1		
+attackspeed_v	19	1		
+attackspeed_v	20	1		
+attackspeed_v	21	1		
+attackspeed_v	22	1		
+attackspeed_v	23	1		
+attackspeed_v	24	1		
+attackspeed_v	25	1		
+attackspeed_v	26	1		
+attackspeed_v	27	1		
+attackspeed_v	28	1		
+attackspeed_v	29	1		
+attackspeed_v	30	1		
+attackspeed_v	31	1		
+attackspeed_v	32	1		
+attackspeed_v	33	1		
+attackspeed_v	34	1		
+attackspeed_v	35	1		
+attackspeed_v	36	1		
+attackspeed_v	37	1		
+attackspeed_v	38	1		
+attackspeed_v	39	1		
+attackspeed_v	40	1		
+attackspeed_v	41	1		
+attackspeed_v	42	1		
+attackspeed_v	43	1		
+attackspeed_v	44	1		
+attackspeed_v	45	1		
+attackspeed_v	46	1		
+attackspeed_v	47	1		
+attackspeed_v	48	1		
+attackspeed_v	49	1		
+attackspeed_v	50	1		
+attackspeed_v	51	1		
+attackspeed_v	52	1		
+attackspeed_v	53	1		
+attackspeed_v	54	1		
+attackspeed_v	55	1		
+attackspeed_v	56	1		
+attackspeed_v	57	1		
+attackspeed_v	58	1		
+attackspeed_v	59	1		
+attackspeed_v	60	1		
+attackspeed_v	61	1		
+attackspeed_v	62	1		
+attackspeed_v	63	1		
+attackspeed_v	64	1		
+attackspeed_v	65	1		
+attackspeed_v	66	1		
+attackspeed_v	67	1		
+attackspeed_v	68	1		
+attackspeed_v	69	1		
+attackspeed_v	70	1		
+attackspeed_v	71	1		
+attackspeed_v	72	1		
+attackspeed_v	73	1		
+attackspeed_v	74	1		
+attackspeed_v	75	1		
+attackspeed_v	76	1		
+attackspeed_v	77	1		
+attackspeed_v	78	1		
+attackspeed_v	79	1		
+attackspeed_v	80	1		
+attackspeed_v	81	1		
+attackspeed_v	82	1		
+attackspeed_v	83	1		
+attackspeed_v	84	1		
+attackspeed_v	85	1		
+attackspeed_v	86	1		
+attackspeed_v	87	1		
+attackspeed_v	88	1		
+attackspeed_v	89	1		
+attackspeed_v	90	1		
+attackspeed_v	91	1		
+attackspeed_v	92	1		
+attackspeed_v	93	1		
+attackspeed_v	94	1		
+attackspeed_v	95	1		
+attackspeed_v	96	1		
+attackspeed_v	97	1		
+attackspeed_v	98	1		
+attackspeed_v	99	1		
+attackspeed_v	100	1		
+attackspeed_v	101	1		
+attackspeed_v	102	1		
+attackspeed_v	103	1		
+attackspeed_v	104	1		
+attackspeed_v	105	1		
+attackspeed_v	106	1		
+attackspeed_v	107	1		
+attackspeed_v	108	1		
+attackspeed_v	109	1		
+attackspeed_v	110	1		
+attackspeed_v	111	1		
+attackspeed_v	112	1		
+attackspeed_v	113	1		
+attackspeed_v	114	1		
+attackspeed_v	115	1		
+attackspeed_v	116	1		
+attackspeed_v	117	1		
+attackspeed_v	118	1		
+attackspeed_v	119	1		
+attackspeed_v	120	1		
+attackspeed_v	121	1		
+attackspeed_v	122	1		
+attackspeed_v	123	1		
+attackspeed_v	124	1		
+attackspeed_v	125	1		
+attackspeed_v	126	1		
+attackspeed_v	127	1		
+attackspeed_v	128	1		
+attackspeed_v	129	1		
+attackspeed_v	130	1		
+attackspeed_v	131	1		
+attackspeed_v	132	1		
+attackspeed_v	133	1		
+attackspeed_v	134	1		
+attackspeed_v	135	1		
+attackspeed_v	136	1		
+attackspeed_v	137	1		
+attackspeed_v	138	1		
+attackspeed_v	139	1		
+attackspeed_v	140	1		
+attackspeed_v	141	1		
+attackspeed_v	142	1		
+attackspeed_v	143	1		
+attackspeed_v	144	1		
+attackspeed_v	145	1		
+attackspeed_v	146	1		
+attackspeed_v	147	1		
+attackspeed_v	148	1		
+attackspeed_v	149	1		
+attackspeed_v	150	1		
+add_seriesstate_time_v	1	1		
+add_seriesstate_time_v	2	3		
+add_seriesstate_time_v	3	4		
+add_seriesstate_time_v	4	6		
+add_seriesstate_time_v	5	7		
+add_seriesstate_time_v	6	9		
+add_seriesstate_time_v	7	10		
+add_seriesstate_time_v	8	12		
+add_seriesstate_time_v	9	13		
+add_seriesstate_time_v	10	15		
+add_seriesstate_time_v	11	16		
+add_seriesstate_time_v	12	18		
+add_seriesstate_time_v	13	19		
+add_seriesstate_time_v	14	21		
+add_seriesstate_time_v	15	22		
+add_seriesstate_time_v	16	24		
+add_seriesstate_time_v	17	25		
+add_seriesstate_time_v	18	27		
+add_seriesstate_time_v	19	28		
+add_seriesstate_time_v	20	30		
+add_seriesstate_time_v	21	31		
+add_seriesstate_time_v	22	33		
+add_seriesstate_time_v	23	34		
+add_seriesstate_time_v	24	36		
+add_seriesstate_time_v	25	37		
+add_seriesstate_time_v	26	39		
+add_seriesstate_time_v	27	40		
+add_seriesstate_time_v	28	42		
+add_seriesstate_time_v	29	43		
+add_seriesstate_time_v	30	45		
+add_seriesstate_time_v	31	46		
+add_seriesstate_time_v	32	48		
+add_seriesstate_time_v	33	49		
+add_seriesstate_time_v	34	51		
+add_seriesstate_time_v	35	52		
+add_seriesstate_time_v	36	54		
+add_seriesstate_time_v	37	55		
+add_seriesstate_time_v	38	57		
+add_seriesstate_time_v	39	58		
+add_seriesstate_time_v	40	60		
+add_seriesstate_time_v	41	61		
+add_seriesstate_time_v	42	63		
+add_seriesstate_time_v	43	64		
+add_seriesstate_time_v	44	66		
+add_seriesstate_time_v	45	67		
+add_seriesstate_time_v	46	69		
+add_seriesstate_time_v	47	70		
+add_seriesstate_time_v	48	72		
+add_seriesstate_time_v	49	73		
+add_seriesstate_time_v	50	75		
+add_seriesstate_time_v	51	76		
+add_seriesstate_time_v	52	78		
+add_seriesstate_time_v	53	79		
+add_seriesstate_time_v	54	81		
+add_seriesstate_time_v	55	82		
+add_seriesstate_time_v	56	84		
+add_seriesstate_time_v	57	85		
+add_seriesstate_time_v	58	87		
+add_seriesstate_time_v	59	88		
+add_seriesstate_time_v	60	90		
+add_seriesstate_time_v	61	91		
+add_seriesstate_time_v	62	93		
+add_seriesstate_time_v	63	94		
+add_seriesstate_time_v	64	96		
+add_seriesstate_time_v	65	97		
+add_seriesstate_time_v	66	99		
+add_seriesstate_time_v	67	100		
+add_seriesstate_time_v	68	102		
+add_seriesstate_time_v	69	103		
+add_seriesstate_time_v	70	105		
+add_seriesstate_time_v	71	106		
+add_seriesstate_time_v	72	108		
+add_seriesstate_time_v	73	109		
+add_seriesstate_time_v	74	111		
+add_seriesstate_time_v	75	112		
+add_seriesstate_time_v	76	114		
+add_seriesstate_time_v	77	115		
+add_seriesstate_time_v	78	117		
+add_seriesstate_time_v	79	118		
+add_seriesstate_time_v	80	120		
+add_seriesstate_time_v	81	123		
+add_seriesstate_time_v	82	126		
+add_seriesstate_time_v	83	129		
+add_seriesstate_time_v	84	132		
+add_seriesstate_time_v	85	135		
+add_seriesstate_time_v	86	138		
+add_seriesstate_time_v	87	141		
+add_seriesstate_time_v	88	144		
+add_seriesstate_time_v	89	147		
+add_seriesstate_time_v	90	150		
+add_seriesstate_time_v	91	153		
+add_seriesstate_time_v	92	157		
+add_seriesstate_time_v	93	161		
+add_seriesstate_time_v	94	165		
+add_seriesstate_time_v	95	168		
+add_seriesstate_time_v	96	172		
+add_seriesstate_time_v	97	176		
+add_seriesstate_time_v	98	180		
+add_seriesstate_time_v	99	183		
+add_seriesstate_time_v	100	187		
+add_seriesstate_time_v	101	195		
+add_seriesstate_time_v	102	202		
+add_seriesstate_time_v	103	210		
+add_seriesstate_time_v	104	217		
+add_seriesstate_time_v	105	225		
+add_seriesstate_time_v	106	232		
+add_seriesstate_time_v	107	240		
+add_seriesstate_time_v	108	247		
+add_seriesstate_time_v	109	255		
+add_seriesstate_time_v	110	263		
+add_seriesstate_time_v	111	274		
+add_seriesstate_time_v	112	285		
+add_seriesstate_time_v	113	296		
+add_seriesstate_time_v	114	308		
+add_seriesstate_time_v	115	319		
+add_seriesstate_time_v	116	330		
+add_seriesstate_time_v	117	341		
+add_seriesstate_time_v	118	353		
+add_seriesstate_time_v	119	364		
+add_seriesstate_time_v	120	375		
+add_seriesstate_time_v	121	386		
+add_seriesstate_time_v	122	397		
+add_seriesstate_time_v	123	408		
+add_seriesstate_time_v	124	420		
+add_seriesstate_time_v	125	431		
+add_seriesstate_time_v	126	442		
+add_seriesstate_time_v	127	453		
+add_seriesstate_time_v	128	465		
+add_seriesstate_time_v	129	476		
+add_seriesstate_time_v	130	487		
+add_seriesstate_time_v	131	502		
+add_seriesstate_time_v	132	517		
+add_seriesstate_time_v	133	532		
+add_seriesstate_time_v	134	547		
+add_seriesstate_time_v	135	562		
+add_seriesstate_time_v	136	577		
+add_seriesstate_time_v	137	592		
+add_seriesstate_time_v	138	607		
+add_seriesstate_time_v	139	622		
+add_seriesstate_time_v	140	637		
+add_seriesstate_time_v	141	652		
+add_seriesstate_time_v	142	667		
+add_seriesstate_time_v	143	682		
+add_seriesstate_time_v	144	697		
+add_seriesstate_time_v	145	712		
+add_seriesstate_time_v	146	727		
+add_seriesstate_time_v	147	742		
+add_seriesstate_time_v	148	757		
+add_seriesstate_time_v	149	772		
+add_seriesstate_time_v	150	787		
+add_seriesstate_rate_v	1	1		
+add_seriesstate_rate_v	2	3		
+add_seriesstate_rate_v	3	4		
+add_seriesstate_rate_v	4	6		
+add_seriesstate_rate_v	5	7		
+add_seriesstate_rate_v	6	9		
+add_seriesstate_rate_v	7	10		
+add_seriesstate_rate_v	8	12		
+add_seriesstate_rate_v	9	13		
+add_seriesstate_rate_v	10	15		
+add_seriesstate_rate_v	11	16		
+add_seriesstate_rate_v	12	18		
+add_seriesstate_rate_v	13	19		
+add_seriesstate_rate_v	14	21		
+add_seriesstate_rate_v	15	22		
+add_seriesstate_rate_v	16	24		
+add_seriesstate_rate_v	17	25		
+add_seriesstate_rate_v	18	27		
+add_seriesstate_rate_v	19	28		
+add_seriesstate_rate_v	20	30		
+add_seriesstate_rate_v	21	31		
+add_seriesstate_rate_v	22	33		
+add_seriesstate_rate_v	23	34		
+add_seriesstate_rate_v	24	36		
+add_seriesstate_rate_v	25	37		
+add_seriesstate_rate_v	26	39		
+add_seriesstate_rate_v	27	40		
+add_seriesstate_rate_v	28	42		
+add_seriesstate_rate_v	29	43		
+add_seriesstate_rate_v	30	45		
+add_seriesstate_rate_v	31	46		
+add_seriesstate_rate_v	32	48		
+add_seriesstate_rate_v	33	49		
+add_seriesstate_rate_v	34	51		
+add_seriesstate_rate_v	35	52		
+add_seriesstate_rate_v	36	54		
+add_seriesstate_rate_v	37	55		
+add_seriesstate_rate_v	38	57		
+add_seriesstate_rate_v	39	58		
+add_seriesstate_rate_v	40	60		
+add_seriesstate_rate_v	41	61		
+add_seriesstate_rate_v	42	63		
+add_seriesstate_rate_v	43	64		
+add_seriesstate_rate_v	44	66		
+add_seriesstate_rate_v	45	67		
+add_seriesstate_rate_v	46	69		
+add_seriesstate_rate_v	47	70		
+add_seriesstate_rate_v	48	72		
+add_seriesstate_rate_v	49	73		
+add_seriesstate_rate_v	50	75		
+add_seriesstate_rate_v	51	76		
+add_seriesstate_rate_v	52	78		
+add_seriesstate_rate_v	53	79		
+add_seriesstate_rate_v	54	81		
+add_seriesstate_rate_v	55	82		
+add_seriesstate_rate_v	56	84		
+add_seriesstate_rate_v	57	85		
+add_seriesstate_rate_v	58	87		
+add_seriesstate_rate_v	59	88		
+add_seriesstate_rate_v	60	90		
+add_seriesstate_rate_v	61	91		
+add_seriesstate_rate_v	62	93		
+add_seriesstate_rate_v	63	94		
+add_seriesstate_rate_v	64	96		
+add_seriesstate_rate_v	65	97		
+add_seriesstate_rate_v	66	99		
+add_seriesstate_rate_v	67	100		
+add_seriesstate_rate_v	68	102		
+add_seriesstate_rate_v	69	103		
+add_seriesstate_rate_v	70	105		
+add_seriesstate_rate_v	71	106		
+add_seriesstate_rate_v	72	108		
+add_seriesstate_rate_v	73	109		
+add_seriesstate_rate_v	74	111		
+add_seriesstate_rate_v	75	112		
+add_seriesstate_rate_v	76	114		
+add_seriesstate_rate_v	77	115		
+add_seriesstate_rate_v	78	117		
+add_seriesstate_rate_v	79	118		
+add_seriesstate_rate_v	80	120		
+add_seriesstate_rate_v	81	123		
+add_seriesstate_rate_v	82	126		
+add_seriesstate_rate_v	83	129		
+add_seriesstate_rate_v	84	132		
+add_seriesstate_rate_v	85	135		
+add_seriesstate_rate_v	86	138		
+add_seriesstate_rate_v	87	141		
+add_seriesstate_rate_v	88	144		
+add_seriesstate_rate_v	89	147		
+add_seriesstate_rate_v	90	150		
+add_seriesstate_rate_v	91	153		
+add_seriesstate_rate_v	92	157		
+add_seriesstate_rate_v	93	161		
+add_seriesstate_rate_v	94	165		
+add_seriesstate_rate_v	95	168		
+add_seriesstate_rate_v	96	172		
+add_seriesstate_rate_v	97	176		
+add_seriesstate_rate_v	98	180		
+add_seriesstate_rate_v	99	183		
+add_seriesstate_rate_v	100	187		
+add_seriesstate_rate_v	101	195		
+add_seriesstate_rate_v	102	202		
+add_seriesstate_rate_v	103	210		
+add_seriesstate_rate_v	104	217		
+add_seriesstate_rate_v	105	225		
+add_seriesstate_rate_v	106	232		
+add_seriesstate_rate_v	107	240		
+add_seriesstate_rate_v	108	247		
+add_seriesstate_rate_v	109	255		
+add_seriesstate_rate_v	110	263		
+add_seriesstate_rate_v	111	274		
+add_seriesstate_rate_v	112	285		
+add_seriesstate_rate_v	113	296		
+add_seriesstate_rate_v	114	308		
+add_seriesstate_rate_v	115	319		
+add_seriesstate_rate_v	116	330		
+add_seriesstate_rate_v	117	341		
+add_seriesstate_rate_v	118	353		
+add_seriesstate_rate_v	119	364		
+add_seriesstate_rate_v	120	375		
+add_seriesstate_rate_v	121	386		
+add_seriesstate_rate_v	122	397		
+add_seriesstate_rate_v	123	408		
+add_seriesstate_rate_v	124	420		
+add_seriesstate_rate_v	125	431		
+add_seriesstate_rate_v	126	442		
+add_seriesstate_rate_v	127	453		
+add_seriesstate_rate_v	128	465		
+add_seriesstate_rate_v	129	476		
+add_seriesstate_rate_v	130	487		
+add_seriesstate_rate_v	131	502		
+add_seriesstate_rate_v	132	517		
+add_seriesstate_rate_v	133	532		
+add_seriesstate_rate_v	134	547		
+add_seriesstate_rate_v	135	562		
+add_seriesstate_rate_v	136	577		
+add_seriesstate_rate_v	137	592		
+add_seriesstate_rate_v	138	607		
+add_seriesstate_rate_v	139	622		
+add_seriesstate_rate_v	140	637		
+add_seriesstate_rate_v	141	652		
+add_seriesstate_rate_v	142	667		
+add_seriesstate_rate_v	143	682		
+add_seriesstate_rate_v	144	697		
+add_seriesstate_rate_v	145	712		
+add_seriesstate_rate_v	146	727		
+add_seriesstate_rate_v	147	742		
+add_seriesstate_rate_v	148	757		
+add_seriesstate_rate_v	149	772		
+add_seriesstate_rate_v	150	787		
+resist_allseriesstate_rate_v	1	1		
+resist_allseriesstate_rate_v	2	3		
+resist_allseriesstate_rate_v	3	4		
+resist_allseriesstate_rate_v	4	6		
+resist_allseriesstate_rate_v	5	7		
+resist_allseriesstate_rate_v	6	9		
+resist_allseriesstate_rate_v	7	10		
+resist_allseriesstate_rate_v	8	12		
+resist_allseriesstate_rate_v	9	13		
+resist_allseriesstate_rate_v	10	15		
+resist_allseriesstate_rate_v	11	16		
+resist_allseriesstate_rate_v	12	18		
+resist_allseriesstate_rate_v	13	19		
+resist_allseriesstate_rate_v	14	21		
+resist_allseriesstate_rate_v	15	22		
+resist_allseriesstate_rate_v	16	24		
+resist_allseriesstate_rate_v	17	25		
+resist_allseriesstate_rate_v	18	27		
+resist_allseriesstate_rate_v	19	28		
+resist_allseriesstate_rate_v	20	30		
+resist_allseriesstate_rate_v	21	31		
+resist_allseriesstate_rate_v	22	33		
+resist_allseriesstate_rate_v	23	34		
+resist_allseriesstate_rate_v	24	36		
+resist_allseriesstate_rate_v	25	37		
+resist_allseriesstate_rate_v	26	39		
+resist_allseriesstate_rate_v	27	40		
+resist_allseriesstate_rate_v	28	42		
+resist_allseriesstate_rate_v	29	43		
+resist_allseriesstate_rate_v	30	45		
+resist_allseriesstate_rate_v	31	46		
+resist_allseriesstate_rate_v	32	48		
+resist_allseriesstate_rate_v	33	49		
+resist_allseriesstate_rate_v	34	51		
+resist_allseriesstate_rate_v	35	52		
+resist_allseriesstate_rate_v	36	54		
+resist_allseriesstate_rate_v	37	55		
+resist_allseriesstate_rate_v	38	57		
+resist_allseriesstate_rate_v	39	58		
+resist_allseriesstate_rate_v	40	60		
+resist_allseriesstate_rate_v	41	61		
+resist_allseriesstate_rate_v	42	63		
+resist_allseriesstate_rate_v	43	64		
+resist_allseriesstate_rate_v	44	66		
+resist_allseriesstate_rate_v	45	67		
+resist_allseriesstate_rate_v	46	69		
+resist_allseriesstate_rate_v	47	70		
+resist_allseriesstate_rate_v	48	72		
+resist_allseriesstate_rate_v	49	73		
+resist_allseriesstate_rate_v	50	75		
+resist_allseriesstate_rate_v	51	76		
+resist_allseriesstate_rate_v	52	78		
+resist_allseriesstate_rate_v	53	79		
+resist_allseriesstate_rate_v	54	81		
+resist_allseriesstate_rate_v	55	82		
+resist_allseriesstate_rate_v	56	84		
+resist_allseriesstate_rate_v	57	85		
+resist_allseriesstate_rate_v	58	87		
+resist_allseriesstate_rate_v	59	88		
+resist_allseriesstate_rate_v	60	90		
+resist_allseriesstate_rate_v	61	91		
+resist_allseriesstate_rate_v	62	93		
+resist_allseriesstate_rate_v	63	94		
+resist_allseriesstate_rate_v	64	96		
+resist_allseriesstate_rate_v	65	97		
+resist_allseriesstate_rate_v	66	99		
+resist_allseriesstate_rate_v	67	100		
+resist_allseriesstate_rate_v	68	102		
+resist_allseriesstate_rate_v	69	103		
+resist_allseriesstate_rate_v	70	105		
+resist_allseriesstate_rate_v	71	106		
+resist_allseriesstate_rate_v	72	108		
+resist_allseriesstate_rate_v	73	109		
+resist_allseriesstate_rate_v	74	111		
+resist_allseriesstate_rate_v	75	112		
+resist_allseriesstate_rate_v	76	114		
+resist_allseriesstate_rate_v	77	115		
+resist_allseriesstate_rate_v	78	117		
+resist_allseriesstate_rate_v	79	118		
+resist_allseriesstate_rate_v	80	120		
+resist_allseriesstate_rate_v	81	123		
+resist_allseriesstate_rate_v	82	126		
+resist_allseriesstate_rate_v	83	129		
+resist_allseriesstate_rate_v	84	132		
+resist_allseriesstate_rate_v	85	135		
+resist_allseriesstate_rate_v	86	138		
+resist_allseriesstate_rate_v	87	141		
+resist_allseriesstate_rate_v	88	144		
+resist_allseriesstate_rate_v	89	147		
+resist_allseriesstate_rate_v	90	150		
+resist_allseriesstate_rate_v	91	153		
+resist_allseriesstate_rate_v	92	157		
+resist_allseriesstate_rate_v	93	161		
+resist_allseriesstate_rate_v	94	165		
+resist_allseriesstate_rate_v	95	168		
+resist_allseriesstate_rate_v	96	172		
+resist_allseriesstate_rate_v	97	176		
+resist_allseriesstate_rate_v	98	180		
+resist_allseriesstate_rate_v	99	183		
+resist_allseriesstate_rate_v	100	187		
+resist_allseriesstate_rate_v	101	195		
+resist_allseriesstate_rate_v	102	202		
+resist_allseriesstate_rate_v	103	210		
+resist_allseriesstate_rate_v	104	217		
+resist_allseriesstate_rate_v	105	225		
+resist_allseriesstate_rate_v	106	232		
+resist_allseriesstate_rate_v	107	240		
+resist_allseriesstate_rate_v	108	247		
+resist_allseriesstate_rate_v	109	255		
+resist_allseriesstate_rate_v	110	263		
+resist_allseriesstate_rate_v	111	274		
+resist_allseriesstate_rate_v	112	285		
+resist_allseriesstate_rate_v	113	296		
+resist_allseriesstate_rate_v	114	308		
+resist_allseriesstate_rate_v	115	319		
+resist_allseriesstate_rate_v	116	330		
+resist_allseriesstate_rate_v	117	341		
+resist_allseriesstate_rate_v	118	353		
+resist_allseriesstate_rate_v	119	364		
+resist_allseriesstate_rate_v	120	375		
+resist_allseriesstate_rate_v	121	386		
+resist_allseriesstate_rate_v	122	397		
+resist_allseriesstate_rate_v	123	408		
+resist_allseriesstate_rate_v	124	420		
+resist_allseriesstate_rate_v	125	431		
+resist_allseriesstate_rate_v	126	442		
+resist_allseriesstate_rate_v	127	453		
+resist_allseriesstate_rate_v	128	465		
+resist_allseriesstate_rate_v	129	476		
+resist_allseriesstate_rate_v	130	487		
+resist_allseriesstate_rate_v	131	502		
+resist_allseriesstate_rate_v	132	517		
+resist_allseriesstate_rate_v	133	532		
+resist_allseriesstate_rate_v	134	547		
+resist_allseriesstate_rate_v	135	562		
+resist_allseriesstate_rate_v	136	577		
+resist_allseriesstate_rate_v	137	592		
+resist_allseriesstate_rate_v	138	607		
+resist_allseriesstate_rate_v	139	622		
+resist_allseriesstate_rate_v	140	637		
+resist_allseriesstate_rate_v	141	652		
+resist_allseriesstate_rate_v	142	667		
+resist_allseriesstate_rate_v	143	682		
+resist_allseriesstate_rate_v	144	697		
+resist_allseriesstate_rate_v	145	712		
+resist_allseriesstate_rate_v	146	727		
+resist_allseriesstate_rate_v	147	742		
+resist_allseriesstate_rate_v	148	757		
+resist_allseriesstate_rate_v	149	772		
+resist_allseriesstate_rate_v	150	787		
+metal_resist_v	1	3		
+metal_resist_v	2	6		
+metal_resist_v	3	9		
+metal_resist_v	4	12		
+metal_resist_v	5	15		
+metal_resist_v	6	18		
+metal_resist_v	7	21		
+metal_resist_v	8	24		
+metal_resist_v	9	27		
+metal_resist_v	10	30		
+metal_resist_v	11	33		
+metal_resist_v	12	36		
+metal_resist_v	13	39		
+metal_resist_v	14	42		
+metal_resist_v	15	45		
+metal_resist_v	16	48		
+metal_resist_v	17	51		
+metal_resist_v	18	54		
+metal_resist_v	19	57		
+metal_resist_v	20	60		
+metal_resist_v	21	63		
+metal_resist_v	22	66		
+metal_resist_v	23	69		
+metal_resist_v	24	72		
+metal_resist_v	25	75		
+metal_resist_v	26	78		
+metal_resist_v	27	81		
+metal_resist_v	28	84		
+metal_resist_v	29	87		
+metal_resist_v	30	90		
+metal_resist_v	31	93		
+metal_resist_v	32	96		
+metal_resist_v	33	99		
+metal_resist_v	34	102		
+metal_resist_v	35	105		
+metal_resist_v	36	108		
+metal_resist_v	37	111		
+metal_resist_v	38	114		
+metal_resist_v	39	117		
+metal_resist_v	40	120		
+metal_resist_v	41	123		
+metal_resist_v	42	126		
+metal_resist_v	43	129		
+metal_resist_v	44	132		
+metal_resist_v	45	135		
+metal_resist_v	46	138		
+metal_resist_v	47	141		
+metal_resist_v	48	144		
+metal_resist_v	49	147		
+metal_resist_v	50	150		
+metal_resist_v	51	153		
+metal_resist_v	52	156		
+metal_resist_v	53	159		
+metal_resist_v	54	162		
+metal_resist_v	55	165		
+metal_resist_v	56	168		
+metal_resist_v	57	171		
+metal_resist_v	58	174		
+metal_resist_v	59	177		
+metal_resist_v	60	180		
+metal_resist_v	61	183		
+metal_resist_v	62	186		
+metal_resist_v	63	189		
+metal_resist_v	64	192		
+metal_resist_v	65	195		
+metal_resist_v	66	198		
+metal_resist_v	67	201		
+metal_resist_v	68	204		
+metal_resist_v	69	207		
+metal_resist_v	70	210		
+metal_resist_v	71	213		
+metal_resist_v	72	216		
+metal_resist_v	73	219		
+metal_resist_v	74	222		
+metal_resist_v	75	225		
+metal_resist_v	76	228		
+metal_resist_v	77	231		
+metal_resist_v	78	234		
+metal_resist_v	79	237		
+metal_resist_v	80	240		
+metal_resist_v	81	246		
+metal_resist_v	82	252		
+metal_resist_v	83	258		
+metal_resist_v	84	264		
+metal_resist_v	85	270		
+metal_resist_v	86	276		
+metal_resist_v	87	282		
+metal_resist_v	88	288		
+metal_resist_v	89	294		
+metal_resist_v	90	300		
+metal_resist_v	91	308		
+metal_resist_v	92	315		
+metal_resist_v	93	323		
+metal_resist_v	94	330		
+metal_resist_v	95	338		
+metal_resist_v	96	345		
+metal_resist_v	97	353		
+metal_resist_v	98	360		
+metal_resist_v	99	368		
+metal_resist_v	100	375		
+metal_resist_v	101	390		
+metal_resist_v	102	405		
+metal_resist_v	103	420		
+metal_resist_v	104	435		
+metal_resist_v	105	450		
+metal_resist_v	106	465		
+metal_resist_v	107	480		
+metal_resist_v	108	495		
+metal_resist_v	109	510		
+metal_resist_v	110	525		
+metal_resist_v	111	548		
+metal_resist_v	112	570		
+metal_resist_v	113	593		
+metal_resist_v	114	593		
+metal_resist_v	115	638		
+metal_resist_v	116	660		
+metal_resist_v	117	683		
+metal_resist_v	118	705		
+metal_resist_v	119	728		
+metal_resist_v	120	750		
+metal_resist_v	121	772		
+metal_resist_v	122	795		
+metal_resist_v	123	817		
+metal_resist_v	124	840		
+metal_resist_v	125	862		
+metal_resist_v	126	885		
+metal_resist_v	127	907		
+metal_resist_v	128	930		
+metal_resist_v	129	952		
+metal_resist_v	130	975		
+metal_resist_v	131	1005		
+metal_resist_v	132	1035		
+metal_resist_v	133	1065		
+metal_resist_v	134	1095		
+metal_resist_v	135	1125		
+metal_resist_v	136	1155		
+metal_resist_v	137	1185		
+metal_resist_v	138	1215		
+metal_resist_v	139	1245		
+metal_resist_v	140	1275		
+metal_resist_v	141	1305		
+metal_resist_v	142	1335		
+metal_resist_v	143	1365		
+metal_resist_v	144	1395		
+metal_resist_v	145	1425		
+metal_resist_v	146	1455		
+metal_resist_v	147	1485		
+metal_resist_v	148	1515		
+metal_resist_v	149	1545		
+metal_resist_v	150	1575		
+earth_resist_v	1	3		
+earth_resist_v	2	6		
+earth_resist_v	3	9		
+earth_resist_v	4	12		
+earth_resist_v	5	15		
+earth_resist_v	6	18		
+earth_resist_v	7	21		
+earth_resist_v	8	24		
+earth_resist_v	9	27		
+earth_resist_v	10	30		
+earth_resist_v	11	33		
+earth_resist_v	12	36		
+earth_resist_v	13	39		
+earth_resist_v	14	42		
+earth_resist_v	15	45		
+earth_resist_v	16	48		
+earth_resist_v	17	51		
+earth_resist_v	18	54		
+earth_resist_v	19	57		
+earth_resist_v	20	60		
+earth_resist_v	21	63		
+earth_resist_v	22	66		
+earth_resist_v	23	69		
+earth_resist_v	24	72		
+earth_resist_v	25	75		
+earth_resist_v	26	78		
+earth_resist_v	27	81		
+earth_resist_v	28	84		
+earth_resist_v	29	87		
+earth_resist_v	30	90		
+earth_resist_v	31	93		
+earth_resist_v	32	96		
+earth_resist_v	33	99		
+earth_resist_v	34	102		
+earth_resist_v	35	105		
+earth_resist_v	36	108		
+earth_resist_v	37	111		
+earth_resist_v	38	114		
+earth_resist_v	39	117		
+earth_resist_v	40	120		
+earth_resist_v	41	123		
+earth_resist_v	42	126		
+earth_resist_v	43	129		
+earth_resist_v	44	132		
+earth_resist_v	45	135		
+earth_resist_v	46	138		
+earth_resist_v	47	141		
+earth_resist_v	48	144		
+earth_resist_v	49	147		
+earth_resist_v	50	150		
+earth_resist_v	51	153		
+earth_resist_v	52	156		
+earth_resist_v	53	159		
+earth_resist_v	54	162		
+earth_resist_v	55	165		
+earth_resist_v	56	168		
+earth_resist_v	57	171		
+earth_resist_v	58	174		
+earth_resist_v	59	177		
+earth_resist_v	60	180		
+earth_resist_v	61	183		
+earth_resist_v	62	186		
+earth_resist_v	63	189		
+earth_resist_v	64	192		
+earth_resist_v	65	195		
+earth_resist_v	66	198		
+earth_resist_v	67	201		
+earth_resist_v	68	204		
+earth_resist_v	69	207		
+earth_resist_v	70	210		
+earth_resist_v	71	213		
+earth_resist_v	72	216		
+earth_resist_v	73	219		
+earth_resist_v	74	222		
+earth_resist_v	75	225		
+earth_resist_v	76	228		
+earth_resist_v	77	231		
+earth_resist_v	78	234		
+earth_resist_v	79	237		
+earth_resist_v	80	240		
+earth_resist_v	81	246		
+earth_resist_v	82	252		
+earth_resist_v	83	258		
+earth_resist_v	84	264		
+earth_resist_v	85	270		
+earth_resist_v	86	276		
+earth_resist_v	87	282		
+earth_resist_v	88	288		
+earth_resist_v	89	294		
+earth_resist_v	90	300		
+earth_resist_v	91	308		
+earth_resist_v	92	315		
+earth_resist_v	93	323		
+earth_resist_v	94	330		
+earth_resist_v	95	338		
+earth_resist_v	96	345		
+earth_resist_v	97	353		
+earth_resist_v	98	360		
+earth_resist_v	99	368		
+earth_resist_v	100	375		
+earth_resist_v	101	390		
+earth_resist_v	102	405		
+earth_resist_v	103	420		
+earth_resist_v	104	435		
+earth_resist_v	105	450		
+earth_resist_v	106	465		
+earth_resist_v	107	480		
+earth_resist_v	108	495		
+earth_resist_v	109	510		
+earth_resist_v	110	525		
+earth_resist_v	111	548		
+earth_resist_v	112	570		
+earth_resist_v	113	593		
+earth_resist_v	114	593		
+earth_resist_v	115	638		
+earth_resist_v	116	660		
+earth_resist_v	117	683		
+earth_resist_v	118	705		
+earth_resist_v	119	728		
+earth_resist_v	120	750		
+earth_resist_v	121	772		
+earth_resist_v	122	795		
+earth_resist_v	123	817		
+earth_resist_v	124	840		
+earth_resist_v	125	862		
+earth_resist_v	126	885		
+earth_resist_v	127	907		
+earth_resist_v	128	930		
+earth_resist_v	129	952		
+earth_resist_v	130	975		
+earth_resist_v	131	1005		
+earth_resist_v	132	1035		
+earth_resist_v	133	1065		
+earth_resist_v	134	1095		
+earth_resist_v	135	1125		
+earth_resist_v	136	1155		
+earth_resist_v	137	1185		
+earth_resist_v	138	1215		
+earth_resist_v	139	1245		
+earth_resist_v	140	1275		
+earth_resist_v	141	1305		
+earth_resist_v	142	1335		
+earth_resist_v	143	1365		
+earth_resist_v	144	1395		
+earth_resist_v	145	1425		
+earth_resist_v	146	1455		
+earth_resist_v	147	1485		
+earth_resist_v	148	1515		
+earth_resist_v	149	1545		
+earth_resist_v	150	1575		
+water_resist_v	1	3		
+water_resist_v	2	6		
+water_resist_v	3	9		
+water_resist_v	4	12		
+water_resist_v	5	15		
+water_resist_v	6	18		
+water_resist_v	7	21		
+water_resist_v	8	24		
+water_resist_v	9	27		
+water_resist_v	10	30		
+water_resist_v	11	33		
+water_resist_v	12	36		
+water_resist_v	13	39		
+water_resist_v	14	42		
+water_resist_v	15	45		
+water_resist_v	16	48		
+water_resist_v	17	51		
+water_resist_v	18	54		
+water_resist_v	19	57		
+water_resist_v	20	60		
+water_resist_v	21	63		
+water_resist_v	22	66		
+water_resist_v	23	69		
+water_resist_v	24	72		
+water_resist_v	25	75		
+water_resist_v	26	78		
+water_resist_v	27	81		
+water_resist_v	28	84		
+water_resist_v	29	87		
+water_resist_v	30	90		
+water_resist_v	31	93		
+water_resist_v	32	96		
+water_resist_v	33	99		
+water_resist_v	34	102		
+water_resist_v	35	105		
+water_resist_v	36	108		
+water_resist_v	37	111		
+water_resist_v	38	114		
+water_resist_v	39	117		
+water_resist_v	40	120		
+water_resist_v	41	123		
+water_resist_v	42	126		
+water_resist_v	43	129		
+water_resist_v	44	132		
+water_resist_v	45	135		
+water_resist_v	46	138		
+water_resist_v	47	141		
+water_resist_v	48	144		
+water_resist_v	49	147		
+water_resist_v	50	150		
+water_resist_v	51	153		
+water_resist_v	52	156		
+water_resist_v	53	159		
+water_resist_v	54	162		
+water_resist_v	55	165		
+water_resist_v	56	168		
+water_resist_v	57	171		
+water_resist_v	58	174		
+water_resist_v	59	177		
+water_resist_v	60	180		
+water_resist_v	61	183		
+water_resist_v	62	186		
+water_resist_v	63	189		
+water_resist_v	64	192		
+water_resist_v	65	195		
+water_resist_v	66	198		
+water_resist_v	67	201		
+water_resist_v	68	204		
+water_resist_v	69	207		
+water_resist_v	70	210		
+water_resist_v	71	213		
+water_resist_v	72	216		
+water_resist_v	73	219		
+water_resist_v	74	222		
+water_resist_v	75	225		
+water_resist_v	76	228		
+water_resist_v	77	231		
+water_resist_v	78	234		
+water_resist_v	79	237		
+water_resist_v	80	240		
+water_resist_v	81	246		
+water_resist_v	82	252		
+water_resist_v	83	258		
+water_resist_v	84	264		
+water_resist_v	85	270		
+water_resist_v	86	276		
+water_resist_v	87	282		
+water_resist_v	88	288		
+water_resist_v	89	294		
+water_resist_v	90	300		
+water_resist_v	91	308		
+water_resist_v	92	315		
+water_resist_v	93	323		
+water_resist_v	94	330		
+water_resist_v	95	338		
+water_resist_v	96	345		
+water_resist_v	97	353		
+water_resist_v	98	360		
+water_resist_v	99	368		
+water_resist_v	100	375		
+water_resist_v	101	390		
+water_resist_v	102	405		
+water_resist_v	103	420		
+water_resist_v	104	435		
+water_resist_v	105	450		
+water_resist_v	106	465		
+water_resist_v	107	480		
+water_resist_v	108	495		
+water_resist_v	109	510		
+water_resist_v	110	525		
+water_resist_v	111	548		
+water_resist_v	112	570		
+water_resist_v	113	593		
+water_resist_v	114	593		
+water_resist_v	115	638		
+water_resist_v	116	660		
+water_resist_v	117	683		
+water_resist_v	118	705		
+water_resist_v	119	728		
+water_resist_v	120	750		
+water_resist_v	121	772		
+water_resist_v	122	795		
+water_resist_v	123	817		
+water_resist_v	124	840		
+water_resist_v	125	862		
+water_resist_v	126	885		
+water_resist_v	127	907		
+water_resist_v	128	930		
+water_resist_v	129	952		
+water_resist_v	130	975		
+water_resist_v	131	1005		
+water_resist_v	132	1035		
+water_resist_v	133	1065		
+water_resist_v	134	1095		
+water_resist_v	135	1125		
+water_resist_v	136	1155		
+water_resist_v	137	1185		
+water_resist_v	138	1215		
+water_resist_v	139	1245		
+water_resist_v	140	1275		
+water_resist_v	141	1305		
+water_resist_v	142	1335		
+water_resist_v	143	1365		
+water_resist_v	144	1395		
+water_resist_v	145	1425		
+water_resist_v	146	1455		
+water_resist_v	147	1485		
+water_resist_v	148	1515		
+water_resist_v	149	1545		
+water_resist_v	150	1575		
+fire_resist_v	1	3		
+fire_resist_v	2	6		
+fire_resist_v	3	9		
+fire_resist_v	4	12		
+fire_resist_v	5	15		
+fire_resist_v	6	18		
+fire_resist_v	7	21		
+fire_resist_v	8	24		
+fire_resist_v	9	27		
+fire_resist_v	10	30		
+fire_resist_v	11	33		
+fire_resist_v	12	36		
+fire_resist_v	13	39		
+fire_resist_v	14	42		
+fire_resist_v	15	45		
+fire_resist_v	16	48		
+fire_resist_v	17	51		
+fire_resist_v	18	54		
+fire_resist_v	19	57		
+fire_resist_v	20	60		
+fire_resist_v	21	63		
+fire_resist_v	22	66		
+fire_resist_v	23	69		
+fire_resist_v	24	72		
+fire_resist_v	25	75		
+fire_resist_v	26	78		
+fire_resist_v	27	81		
+fire_resist_v	28	84		
+fire_resist_v	29	87		
+fire_resist_v	30	90		
+fire_resist_v	31	93		
+fire_resist_v	32	96		
+fire_resist_v	33	99		
+fire_resist_v	34	102		
+fire_resist_v	35	105		
+fire_resist_v	36	108		
+fire_resist_v	37	111		
+fire_resist_v	38	114		
+fire_resist_v	39	117		
+fire_resist_v	40	120		
+fire_resist_v	41	123		
+fire_resist_v	42	126		
+fire_resist_v	43	129		
+fire_resist_v	44	132		
+fire_resist_v	45	135		
+fire_resist_v	46	138		
+fire_resist_v	47	141		
+fire_resist_v	48	144		
+fire_resist_v	49	147		
+fire_resist_v	50	150		
+fire_resist_v	51	153		
+fire_resist_v	52	156		
+fire_resist_v	53	159		
+fire_resist_v	54	162		
+fire_resist_v	55	165		
+fire_resist_v	56	168		
+fire_resist_v	57	171		
+fire_resist_v	58	174		
+fire_resist_v	59	177		
+fire_resist_v	60	180		
+fire_resist_v	61	183		
+fire_resist_v	62	186		
+fire_resist_v	63	189		
+fire_resist_v	64	192		
+fire_resist_v	65	195		
+fire_resist_v	66	198		
+fire_resist_v	67	201		
+fire_resist_v	68	204		
+fire_resist_v	69	207		
+fire_resist_v	70	210		
+fire_resist_v	71	213		
+fire_resist_v	72	216		
+fire_resist_v	73	219		
+fire_resist_v	74	222		
+fire_resist_v	75	225		
+fire_resist_v	76	228		
+fire_resist_v	77	231		
+fire_resist_v	78	234		
+fire_resist_v	79	237		
+fire_resist_v	80	240		
+fire_resist_v	81	246		
+fire_resist_v	82	252		
+fire_resist_v	83	258		
+fire_resist_v	84	264		
+fire_resist_v	85	270		
+fire_resist_v	86	276		
+fire_resist_v	87	282		
+fire_resist_v	88	288		
+fire_resist_v	89	294		
+fire_resist_v	90	300		
+fire_resist_v	91	308		
+fire_resist_v	92	315		
+fire_resist_v	93	323		
+fire_resist_v	94	330		
+fire_resist_v	95	338		
+fire_resist_v	96	345		
+fire_resist_v	97	353		
+fire_resist_v	98	360		
+fire_resist_v	99	368		
+fire_resist_v	100	375		
+fire_resist_v	101	390		
+fire_resist_v	102	405		
+fire_resist_v	103	420		
+fire_resist_v	104	435		
+fire_resist_v	105	450		
+fire_resist_v	106	465		
+fire_resist_v	107	480		
+fire_resist_v	108	495		
+fire_resist_v	109	510		
+fire_resist_v	110	525		
+fire_resist_v	111	548		
+fire_resist_v	112	570		
+fire_resist_v	113	593		
+fire_resist_v	114	593		
+fire_resist_v	115	638		
+fire_resist_v	116	660		
+fire_resist_v	117	683		
+fire_resist_v	118	705		
+fire_resist_v	119	728		
+fire_resist_v	120	750		
+fire_resist_v	121	772		
+fire_resist_v	122	795		
+fire_resist_v	123	817		
+fire_resist_v	124	840		
+fire_resist_v	125	862		
+fire_resist_v	126	885		
+fire_resist_v	127	907		
+fire_resist_v	128	930		
+fire_resist_v	129	952		
+fire_resist_v	130	975		
+fire_resist_v	131	1005		
+fire_resist_v	132	1035		
+fire_resist_v	133	1065		
+fire_resist_v	134	1095		
+fire_resist_v	135	1125		
+fire_resist_v	136	1155		
+fire_resist_v	137	1185		
+fire_resist_v	138	1215		
+fire_resist_v	139	1245		
+fire_resist_v	140	1275		
+fire_resist_v	141	1305		
+fire_resist_v	142	1335		
+fire_resist_v	143	1365		
+fire_resist_v	144	1395		
+fire_resist_v	145	1425		
+fire_resist_v	146	1455		
+fire_resist_v	147	1485		
+fire_resist_v	148	1515		
+fire_resist_v	149	1545		
+fire_resist_v	150	1575		
+wood_resist_v	1	3		
+wood_resist_v	2	6		
+wood_resist_v	3	9		
+wood_resist_v	4	12		
+wood_resist_v	5	15		
+wood_resist_v	6	18		
+wood_resist_v	7	21		
+wood_resist_v	8	24		
+wood_resist_v	9	27		
+wood_resist_v	10	30		
+wood_resist_v	11	33		
+wood_resist_v	12	36		
+wood_resist_v	13	39		
+wood_resist_v	14	42		
+wood_resist_v	15	45		
+wood_resist_v	16	48		
+wood_resist_v	17	51		
+wood_resist_v	18	54		
+wood_resist_v	19	57		
+wood_resist_v	20	60		
+wood_resist_v	21	63		
+wood_resist_v	22	66		
+wood_resist_v	23	69		
+wood_resist_v	24	72		
+wood_resist_v	25	75		
+wood_resist_v	26	78		
+wood_resist_v	27	81		
+wood_resist_v	28	84		
+wood_resist_v	29	87		
+wood_resist_v	30	90		
+wood_resist_v	31	93		
+wood_resist_v	32	96		
+wood_resist_v	33	99		
+wood_resist_v	34	102		
+wood_resist_v	35	105		
+wood_resist_v	36	108		
+wood_resist_v	37	111		
+wood_resist_v	38	114		
+wood_resist_v	39	117		
+wood_resist_v	40	120		
+wood_resist_v	41	123		
+wood_resist_v	42	126		
+wood_resist_v	43	129		
+wood_resist_v	44	132		
+wood_resist_v	45	135		
+wood_resist_v	46	138		
+wood_resist_v	47	141		
+wood_resist_v	48	144		
+wood_resist_v	49	147		
+wood_resist_v	50	150		
+wood_resist_v	51	153		
+wood_resist_v	52	156		
+wood_resist_v	53	159		
+wood_resist_v	54	162		
+wood_resist_v	55	165		
+wood_resist_v	56	168		
+wood_resist_v	57	171		
+wood_resist_v	58	174		
+wood_resist_v	59	177		
+wood_resist_v	60	180		
+wood_resist_v	61	183		
+wood_resist_v	62	186		
+wood_resist_v	63	189		
+wood_resist_v	64	192		
+wood_resist_v	65	195		
+wood_resist_v	66	198		
+wood_resist_v	67	201		
+wood_resist_v	68	204		
+wood_resist_v	69	207		
+wood_resist_v	70	210		
+wood_resist_v	71	213		
+wood_resist_v	72	216		
+wood_resist_v	73	219		
+wood_resist_v	74	222		
+wood_resist_v	75	225		
+wood_resist_v	76	228		
+wood_resist_v	77	231		
+wood_resist_v	78	234		
+wood_resist_v	79	237		
+wood_resist_v	80	240		
+wood_resist_v	81	246		
+wood_resist_v	82	252		
+wood_resist_v	83	258		
+wood_resist_v	84	264		
+wood_resist_v	85	270		
+wood_resist_v	86	276		
+wood_resist_v	87	282		
+wood_resist_v	88	288		
+wood_resist_v	89	294		
+wood_resist_v	90	300		
+wood_resist_v	91	308		
+wood_resist_v	92	315		
+wood_resist_v	93	323		
+wood_resist_v	94	330		
+wood_resist_v	95	338		
+wood_resist_v	96	345		
+wood_resist_v	97	353		
+wood_resist_v	98	360		
+wood_resist_v	99	368		
+wood_resist_v	100	375		
+wood_resist_v	101	390		
+wood_resist_v	102	405		
+wood_resist_v	103	420		
+wood_resist_v	104	435		
+wood_resist_v	105	450		
+wood_resist_v	106	465		
+wood_resist_v	107	480		
+wood_resist_v	108	495		
+wood_resist_v	109	510		
+wood_resist_v	110	525		
+wood_resist_v	111	548		
+wood_resist_v	112	570		
+wood_resist_v	113	593		
+wood_resist_v	114	593		
+wood_resist_v	115	638		
+wood_resist_v	116	660		
+wood_resist_v	117	683		
+wood_resist_v	118	705		
+wood_resist_v	119	728		
+wood_resist_v	120	750		
+wood_resist_v	121	772		
+wood_resist_v	122	795		
+wood_resist_v	123	817		
+wood_resist_v	124	840		
+wood_resist_v	125	862		
+wood_resist_v	126	885		
+wood_resist_v	127	907		
+wood_resist_v	128	930		
+wood_resist_v	129	952		
+wood_resist_v	130	975		
+wood_resist_v	131	1005		
+wood_resist_v	132	1035		
+wood_resist_v	133	1065		
+wood_resist_v	134	1095		
+wood_resist_v	135	1125		
+wood_resist_v	136	1155		
+wood_resist_v	137	1185		
+wood_resist_v	138	1215		
+wood_resist_v	139	1245		
+wood_resist_v	140	1275		
+wood_resist_v	141	1305		
+wood_resist_v	142	1335		
+wood_resist_v	143	1365		
+wood_resist_v	144	1395		
+wood_resist_v	145	1425		
+wood_resist_v	146	1455		
+wood_resist_v	147	1485		
+wood_resist_v	148	1515		
+wood_resist_v	149	1545		
+wood_resist_v	150	1575		

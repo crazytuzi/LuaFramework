@@ -1,0 +1,6 @@
+TemplateId	Name	Kind	ItemType	Icon	BigIcon	CDType	ClassName	DetailType	Intro	ItemValue	Level	ObjID	Price	Quality	RequireLevel	Sellable	Stack	ExtParam1	ExtParam2	ExtParam3	ExtParam4	ExtParam5	ExtParam6	ExtParam7	ExtParam8	ExtParam9	ExtParam10	ShowType
+7689	一阶铭文	Inscription_1	38	5901	5901		InscriptionItem	2	一阶铭文	1080000	1	3	270000	1	60	1	1	1001										
+7690	二阶铭文	Inscription_2	38	5902	5902		InscriptionItem	2	二阶铭文	2180000	2	3	545000	2	60	1	1	1002										
+7691	三阶铭文	Inscription_3	38	5903	5903		InscriptionItem	2	三阶铭文	3520000	3	3	880000	3	60	1	1	1003										
+7692	四阶铭文	Inscription_4	38	5903	5903		InscriptionItem	2	四阶铭文	10000000	4	3	10000000	4	60	1	1	1004										
+7693	五阶铭文	Inscription_5	38	5903	5903		InscriptionItem	2	五阶铭文	10000000	5	3	10000000	5	60	1	1	1005										

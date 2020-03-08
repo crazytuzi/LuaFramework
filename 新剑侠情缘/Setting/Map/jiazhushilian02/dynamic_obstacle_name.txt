@@ -1,0 +1,5 @@
+wall
+gate_r
+gate_d
+gate_l
+gate_go

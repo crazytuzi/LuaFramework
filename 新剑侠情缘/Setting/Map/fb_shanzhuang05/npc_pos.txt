@@ -1,0 +1,16 @@
+Patrol_Leader	2788	2922
+Patrol_1_1	2307	4375
+Patrol_1_1	2304	3941
+Patrol_1_1	2297	3534
+Patrol_1_1	2279	3133
+Patrol_1_1	3166	4388
+Patrol_1_1	3154	3932
+Patrol_1_1	3132	3522
+Patrol_1_1	3123	3115
+Patrol_1_1	2288	2666
+Patrol_1_1	3120	2647
+Patrol_1_1	2248	2231
+Patrol_1_1	3129	2234
+Patrol_1_1	2255	1895
+Patrol_1_1	3129	1886
+npath1	7234	6573

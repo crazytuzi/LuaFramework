@@ -1,0 +1,11 @@
+Name	TabFile
+主线任务	Setting/Task/Task.tab
+支线任务	Setting/Task/Task_Pedagogical.tab
+家族任务	Setting/Task/Task_Kin.tab
+特殊任务	Setting/Task/Task_Special.tab
+武林大事	Setting/Task/Task_WLDS.tab
+阵法任务	Setting/Task/Task_ZhenFa.tab
+循环任务	Setting/Task/Task_WLDS_Cycle.tab
+门客任务	Setting/Task/Task_PartnerGuest.tab
+剑意风流	Setting/Task/Task_JYFL.tab
+悬赏任务	Setting/Task/Task_Materials.tab

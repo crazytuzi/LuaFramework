@@ -1,0 +1,5 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Scalc	Skill1Icon	1	15	{0,0,0}	{1.2,1.2,1.2}
+Scalc	Skill1Icon	15	30	{1.2,1.2,1.2}	{1,1,1}
+Scalc	Skill1Icon	30	45	{1,1,1}	{1.2,1.2,1.2}
+Scalc	Skill1Icon	45	50	{1.2,1.2,1.2}	{1,1,1}

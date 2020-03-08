@@ -1,0 +1,5 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+chuansongmen	西方通道		73	50		90	2600	11900	0	-1	0	0		-1	0	0	0	0	0	0	0
+chuansongmen	北方通道		73	50		90	12530	11000	0	-1	0	0		-1	0	0	0	0	0	0	0
+chuansongmen	东方通道		73	50		90	12630	2340	0	-1	0	0		-1	0	0	0	0	0	0	0
+chuansongmen	南方通道		73	50		90	2860	2170	0	-1	0	0		-1	0	0	0	0	0	0	0

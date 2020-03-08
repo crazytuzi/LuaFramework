@@ -1,0 +1,17 @@
+Index	NpcName	TitleID	NpcTemplateId	HideTaskId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+wyd_hushenyi	胡神医		417	10	100		99	4688	6265	32	-1	0	0		0	0	0	0	0	0	0	0
+wyd_bingxinhua	赤心花		955	5	100		99	8000	6200	40	-1	0	0		0	0	0	0	0	0	0	0
+wyd_nalanzhen	纳兰真		418	18	100		99	5270	5950	43	-1	0	0		0	0	0	0	0	0	0	0
+wyd_yangyingfeng	杨影枫		419	55	100		99	5200	6100	36	-1	0	0		0	0	0	0	0	0	0	0
+whz_xiaolizi	小殷方		578	14	100		99	8300	5900	24	-1	0	0		0	0	0	0	0	0	0	0
+wyd_nalanqianlin	纳兰潜凛		954	14	100		99	8670	5150	47	-1	0	0		0	0	0	0	0	0	0	0
+wyd_lieying	猎鹰		956	14	100		99	4201	6147	16	-1	0	0		0	0	0	0	0	0	0	0
+daiyanren_tingting	林更新	117	2116		150	1	99	4546	4642	30	-1	0	0		0	0	0	0	0	0	0	0
+hd_xiaoyintong	颖宝宝	119	2204		150	1	99	4881	4293	0	-1	0	0		0	0	0	0	0	0	0	0
+qinggong1	上升气流		74		20		99	5584	2130	0	-1	0	0		0	0	0	0	0	0	0	0
+qinggong2	上升气流		74		20		99	2489	7725	0	-1	0	0		0	0	0	0	0	0	0	0
+qinggong3	上升气流		74		20		99	3269	6271	0	-1	0	0		0	0	0	0	0	0	0	0
+qinggong4	上升气流		74		20		99	7087	3084	0	-1	0	0		0	0	0	0	0	0	0	0
+st_npc	上官飞龙	160	1839		100	1	99	3550	6030	48	-1	0	0		0	0	0	0	0	0	0	0
+wyd_yukuang1	鲫鱼		3207		50	1	99	3814	2023	0	-1	0	0		0	0	0	0	0	0	0	0
+wyd_yukuang2	鲫鱼		3207		50	1	99	5195	2201	0	-1	0	0		0	0	0	0	0	0	0	0

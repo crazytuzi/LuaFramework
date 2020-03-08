@@ -1,0 +1,10 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Rotation	Pointer	0	10	@1	@2
+Rotation	Pointer	10	21	@2	@3
+Rotation	Pointer	21	33	@3	@4
+Rotation	Pointer	33	47	@4	@5
+Rotation	Pointer	47	63	@5	@6
+Rotation	Pointer	63	83	@6	@7
+Rotation	Pointer	83	107	@7	@8
+Rotation	Pointer	107	136	@8	@9
+Rotation	Pointer	136	171	@9	@10

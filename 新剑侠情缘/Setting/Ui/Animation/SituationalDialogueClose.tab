@@ -1,0 +1,17 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+AnchorMove	TopAnchor	0	2	{0,0,0}	{0,-1.380623,0}
+AnchorMove	TopAnchor	2	5	{0,-1.380623,0}	{0,-4.955077,0}
+AnchorMove	TopAnchor	5	6	{0,-4.955077,0}	{0,-5.371874,0}
+AnchorMove	TopAnchor	6	7	{0,-5.371874,0}	{0,-4.911482,0}
+AnchorMove	TopAnchor	7	8	{0,-4.911482,0}	{0,-3.28,0}
+AnchorMove	TopAnchor	8	11	{0,-3.28,0}	{0,9.17,0}
+AnchorMove	TopAnchor	11	15	{0,9.17,0}	{0,40,0}
+AnchorMove	ButtomAnchor	0	8	{0,0,0}	{0,10,0}
+AnchorMove	ButtomAnchor	8	10	{0,10,0}	{0,-51.457,0}
+AnchorMove	ButtomAnchor	10	13	{0,-51.457,0}	{0,-238.5422,0}
+AnchorMove	ButtomAnchor	13	14	{0,-238.5422,0}	{0,-282.8579,0}
+AnchorMove	ButtomAnchor	14	15	{0,-282.8579,0}	{0,-300,0}
+Alpha	Main	0	20	1	1
+Alpha	Main	20	30	1	0
+Commander		1	29	Ui.UiManager.SetForbiddenOperation(ture)	
+Commander		29	30	Ui.UiManager.SetForbiddenOperation(false)	

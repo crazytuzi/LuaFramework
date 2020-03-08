@@ -1,0 +1,247 @@
+TemplateId	Name	Kind	ShowType	ItemType	DetailType	Level	RequireLevel	RealLevel	Icon	BigIcon	ObjID	Intro	Price	Quality	ItemValue	Sellable	ClassName	ResEffect	FightPower	ExtParam1	ExtParam2	ExtParam3	Attrib1Type	Attrib1Value1	Attrib1Value2	Attrib1Value3	Attrib2Type	Attrib2Value1	Attrib2Value2	Attrib2Value3	Attrib3Type	Attrib3Value1	Attrib3Value2	Attrib3Value3	Attrib4Type	Attrib4Value1	Attrib4Value2	Attrib4Value3	Attrib5Type	Attrib5Value1	Attrib5Value2	Attrib5Value3	Attrib6Type	Attrib6Value1	Attrib6Value2	Attrib6Value3	Attrib7Type	Attrib7Value1	Attrib7Value2	Attrib7Value3	Attrib8Type	Attrib8Value1	Attrib8Value2	Attrib8Value3	Attrib9Type	Attrib9Value1	Attrib9Value2	Attrib9Value3	Attrib10Type	Attrib10Value1	Attrib10Value2	Attrib10Value3	Attrib9Value1	Attrib9Value2	Attrib9Value3	Attrib10Type	Attrib10Value1	Attrib10Value2	Attrib10Value3
+7967	【普通】绝学秘本	Miben_lv1		23		1	100	1	7967	7967			1296	1	800000		MibenBook		800	1	1																																																
+7968	【优秀】绝学秘本	Miben_lv2		23		2	100	2	7967	7967			1296	2	2400000		MibenBook		2400	1	2																																																
+7969	【精良】绝学秘本	Miben_lv3		23		3	100	3	7967	7967			1296	3	7200000		MibenBook		7200	1	3																																																
+7970	【传承】绝学秘本	Miben_lv4		23		4	100	4	7967	7967			1296	4	21600000		MibenBook		21600	1	4																																																
+7971	【卓越】绝学秘本	Miben_lv5		23		5	100	5	7967	7967			1296	5	64800000		MibenBook		64800	1	5																																																
+7972	【稀有】绝学秘本	Miben_lv6		23		6	100	6	7967	7967			1296	6	194400000		MibenBook		194400	1	6																																																
+7973	【黄金】绝学秘本	Miben_lv7		23		7	100	7	7967	7967			1296	7	583200000		MibenBook		583200	1	7																																																
+7974	【普通】绝学断篇	Duanpian_lv1		24		1	100	1	7974	7974			324	1	200000		DuanpianBook		200	2	1																																																
+7975	【优秀】绝学断篇	Duanpian_lv2		24		2	100	2	7974	7974			324	2	600000		DuanpianBook		600	2	2																																																
+7976	【精良】绝学断篇	Duanpian_lv3		24		3	100	3	7974	7974			324	3	1800000		DuanpianBook		1800	2	3																																																
+7977	【传承】绝学断篇	Duanpian_lv4		24		4	100	4	7974	7974			324	4	5400000		DuanpianBook		5400	2	4																																																
+7978	【卓越】绝学断篇	Duanpian_lv5		24		5	100	5	7974	7974			324	5	16200000		DuanpianBook		16200	2	5																																																
+7979	【稀有】绝学断篇	Duanpian_lv6		24		6	100	6	7974	7974			324	6	48600000		DuanpianBook		48600	2	6																																																
+7980	【黄金】绝学断篇	Duanpian_lv7		24		7	100	7	7974	7974			324	7	145800000		DuanpianBook		145800	2	7																																																
+10938	【传承】绝学断篇	Duanpian_lv4_Suit1		24		4	100	4	7975	7975			324	4	5400000		DuanpianBook		5400	2	4	1																																															
+10939	【传承】绝学断篇	Duanpian_lv4_Suit2		24		4	100	4	7976	7976			324	4	5400000		DuanpianBook		5400	2	4	2																																															
+10940	【传承】绝学断篇	Duanpian_lv4_Suit3		24		4	100	4	7977	7977			324	4	5400000		DuanpianBook		5400	2	4	3																																															
+11722	【传承】绝学断篇	Duanpian_lv4_Suit4		24		4	100	4	7978	7978			324	4	5400000		DuanpianBook		5400	2	4	4																																															
+10586	【卓越】绝学断篇	Duanpian_lv5_Suit1		24		5	100	5	7975	7975			324	5	16200000		DuanpianBook		16200	2	5	1																																															
+10587	【卓越】绝学断篇	Duanpian_lv5_Suit2		24		5	100	5	7976	7976			324	5	16200000		DuanpianBook		16200	2	5	2																																															
+10588	【卓越】绝学断篇	Duanpian_lv5_Suit3		24		5	100	5	7977	7977			324	5	16200000		DuanpianBook		16200	2	5	3																																															
+11723	【卓越】绝学断篇	Duanpian_lv5_Suit4		24		5	100	5	7978	7978			324	5	16200000		DuanpianBook		16200	2	5	4																																															
+11793	【稀有】绝学断篇	Duanpian_lv6_Suit1		24		6	100	6	7975	7975			324	6	48600000		DuanpianBook		48600	2	6	1																																															
+11794	【稀有】绝学断篇	Duanpian_lv6_Suit2		24		6	100	6	7976	7976			324	6	48600000		DuanpianBook		48600	2	6	2																																															
+11795	【稀有】绝学断篇	Duanpian_lv6_Suit3		24		6	100	6	7977	7977			324	6	48600000		DuanpianBook		48600	2	6	3																																															
+11796	【稀有】绝学断篇	Duanpian_lv6_Suit4		24		6	100	6	7978	7978			324	6	48600000		DuanpianBook		48600	2	6	4																																															
+7981	绝学·风虎云龙	Juexue_Pub_01		22		4	100		7981	7981				6	5600000		JuexueBook		5600																																																		
+7982	绝学·挥袂生风	Juexue_Pub_02		22		4	100		7982	7982				6	5600000		JuexueBook		5600																																																		
+7983	公用绝学3	Juexue_Pub_03		22		4	100		7991	7991				6	5600000		JuexueBook		5600																																																		
+7984	公用绝学4	Juexue_Pub_04		22		4	100		7991	7991				6	5600000		JuexueBook		5600																																																		
+7985	公用绝学5	Juexue_Pub_05		22		4	100		7991	7991				6	5600000		JuexueBook		5600																																																		
+7986	公用绝学6	Juexue_Pub_06		22		4	100		7991	7991				6	5600000		JuexueBook		5600																																																		
+7987	公用绝学7	Juexue_Pub_07		22		4	100		7991	7991				6	5600000		JuexueBook		5600																																																		
+7988	公用绝学8	Juexue_Pub_08		22		4	100		7991	7991				6	5600000		JuexueBook		5600																																																		
+7989	公用绝学9	Juexue_Pub_09		22		4	100		7991	7991				6	5600000		JuexueBook		5600																																																		
+7990	公用绝学10	Juexue_Pub_10		22		4	100		7991	7991				6	5600000		JuexueBook		5600																																																		
+7991	绝学·金钟罩	Juexue_Faction01_01		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+7992	绝学·血战八方	Juexue_Faction01_02		22		4	100		7992	7992				6	4600000		JuexueBook		4600																																																		
+7993	天王绝学3	Juexue_Faction01_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+7994	天王绝学4	Juexue_Faction01_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+7995	天王绝学5	Juexue_Faction01_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+7996	天王绝学6	Juexue_Faction01_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+7997	天王绝学7	Juexue_Faction01_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+7998	天王绝学8	Juexue_Faction01_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+7999	天王绝学9	Juexue_Faction01_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8000	天王绝学10	Juexue_Faction01_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8001	绝学·慈航普度	Juexue_Faction02_01		22		4	100		8001	8001				6	4600000		JuexueBook		4600																																																		
+8002	绝学·白露凝霜	Juexue_Faction02_02		22		4	100		8002	8002				6	4600000		JuexueBook		4600																																																		
+8003	峨眉绝学3	Juexue_Faction02_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8004	峨眉绝学4	Juexue_Faction02_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8005	峨眉绝学5	Juexue_Faction02_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8006	峨眉绝学6	Juexue_Faction02_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8007	峨眉绝学7	Juexue_Faction02_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8008	峨眉绝学8	Juexue_Faction02_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8009	峨眉绝学9	Juexue_Faction02_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8010	峨眉绝学10	Juexue_Faction02_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8011	绝学·火凤燎原	Juexue_Faction03_01		22		4	100		8011	8011				6	4600000		JuexueBook		4600																																																		
+8012	绝学·桃花箭术	Juexue_Faction03_02		22		4	100		8012	8012				6	4600000		JuexueBook		4600																																																		
+8013	桃花绝学3	Juexue_Faction03_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8014	桃花绝学4	Juexue_Faction03_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8015	桃花绝学5	Juexue_Faction03_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8016	桃花绝学6	Juexue_Faction03_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8017	桃花绝学7	Juexue_Faction03_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8018	桃花绝学8	Juexue_Faction03_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8019	桃花绝学9	Juexue_Faction03_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8020	桃花绝学10	Juexue_Faction03_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8021	绝学·白虹贯日	Juexue_Faction04_01		22		4	100		8021	8021				6	4600000		JuexueBook		4600																																																		
+8022	绝学·七探蛇盘	Juexue_Faction04_02		22		4	100		8022	8022				6	4600000		JuexueBook		4600																																																		
+8023	逍遥绝学3	Juexue_Faction04_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8024	逍遥绝学4	Juexue_Faction04_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8025	逍遥绝学5	Juexue_Faction04_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8026	逍遥绝学6	Juexue_Faction04_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8027	逍遥绝学7	Juexue_Faction04_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8028	逍遥绝学8	Juexue_Faction04_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8029	逍遥绝学9	Juexue_Faction04_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8030	逍遥绝学10	Juexue_Faction04_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8031	绝学·无我无剑	Juexue_Faction05_01		22		4	100		8031	8031				6	4600000		JuexueBook		4600																																																		
+8032	绝学·坐忘无我	Juexue_Faction05_02		22		4	100		8032	8032				6	4600000		JuexueBook		4600																																																		
+8033	武当绝学3	Juexue_Faction05_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8034	武当绝学4	Juexue_Faction05_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8035	武当绝学5	Juexue_Faction05_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8036	武当绝学6	Juexue_Faction05_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8037	武当绝学7	Juexue_Faction05_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8038	武当绝学8	Juexue_Faction05_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8039	武当绝学9	Juexue_Faction05_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8040	武当绝学10	Juexue_Faction05_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8041	绝学·死亡回旋	Juexue_Faction06_01		22		4	100		8041	8041				6	4600000		JuexueBook		4600																																																		
+8042	绝学·血月之影	Juexue_Faction06_02		22		4	100		8042	8042				6	4600000		JuexueBook		4600																																																		
+8043	天忍绝学3	Juexue_Faction06_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8044	天忍绝学4	Juexue_Faction06_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8045	天忍绝学5	Juexue_Faction06_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8046	天忍绝学6	Juexue_Faction06_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8047	天忍绝学7	Juexue_Faction06_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8048	天忍绝学8	Juexue_Faction06_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8049	天忍绝学9	Juexue_Faction06_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8050	天忍绝学10	Juexue_Faction06_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8051	绝学·大力金刚指	Juexue_Faction07_01		22		4	100		8051	8051				6	4600000		JuexueBook		4600																																																		
+8052	绝学·罗汉阵	Juexue_Faction07_02		22		4	100		8052	8052				6	4600000		JuexueBook		4600																																																		
+8053	少林绝学3	Juexue_Faction07_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8054	少林绝学4	Juexue_Faction07_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8055	少林绝学5	Juexue_Faction07_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8056	少林绝学6	Juexue_Faction07_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8057	少林绝学7	Juexue_Faction07_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8058	少林绝学8	Juexue_Faction07_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8059	少林绝学9	Juexue_Faction07_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8060	少林绝学10	Juexue_Faction07_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8061	绝学·召唤啵啵	Juexue_Faction08_01		22		4	100		8061	8061				6	4600000		JuexueBook		4600																																																		
+8062	绝学·冰心雪莲	Juexue_Faction08_02		22		4	100		8062	8062				6	4600000		JuexueBook		4600																																																		
+8063	翠烟绝学3	Juexue_Faction08_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8064	翠烟绝学4	Juexue_Faction08_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8065	翠烟绝学5	Juexue_Faction08_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8066	翠烟绝学6	Juexue_Faction08_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8067	翠烟绝学7	Juexue_Faction08_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8068	翠烟绝学8	Juexue_Faction08_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8069	翠烟绝学9	Juexue_Faction08_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8070	翠烟绝学10	Juexue_Faction08_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8071	绝学·暴雨梨花	Juexue_Faction09_01		22		4	100		8071	8071				6	4600000		JuexueBook		4600																																																		
+8072	绝学·九宫飞星	Juexue_Faction09_02		22		4	100		8072	8072				6	4600000		JuexueBook		4600																																																		
+8073	唐门绝学3	Juexue_Faction09_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8074	唐门绝学4	Juexue_Faction09_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8075	唐门绝学5	Juexue_Faction09_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8076	唐门绝学6	Juexue_Faction09_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8077	唐门绝学7	Juexue_Faction09_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8078	唐门绝学8	Juexue_Faction09_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8079	唐门绝学9	Juexue_Faction09_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8080	唐门绝学10	Juexue_Faction09_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8081	绝学·混沌剑阵	Juexue_Faction10_01		22		4	100		8081	8081				6	4600000		JuexueBook		4600																																																		
+8082	绝学·啸风三连击	Juexue_Faction10_02		22		4	100		8082	8082				6	4600000		JuexueBook		4600																																																		
+8083	昆仑绝学3	Juexue_Faction10_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8084	昆仑绝学4	Juexue_Faction10_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8085	昆仑绝学5	Juexue_Faction10_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8086	昆仑绝学6	Juexue_Faction10_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8087	昆仑绝学7	Juexue_Faction10_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8088	昆仑绝学8	Juexue_Faction10_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8089	昆仑绝学9	Juexue_Faction10_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8090	昆仑绝学10	Juexue_Faction10_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8091	绝学·亢龙有悔	Juexue_Faction11_01		22		4	100		8091	8091				6	4600000		JuexueBook		4600																																																		
+8092	绝学·龙战于野	Juexue_Faction11_02		22		4	100		8092	8092				6	4600000		JuexueBook		4600																																																		
+8093	丐帮绝学3	Juexue_Faction11_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8094	丐帮绝学4	Juexue_Faction11_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8095	丐帮绝学5	Juexue_Faction11_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8096	丐帮绝学6	Juexue_Faction11_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8097	丐帮绝学7	Juexue_Faction11_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8098	丐帮绝学8	Juexue_Faction11_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8099	丐帮绝学9	Juexue_Faction11_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8100	丐帮绝学10	Juexue_Faction11_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8101	绝学·五毒笛法	Juexue_Faction12_01		22		4	100		8101	8101				6	4600000		JuexueBook		4600																																																		
+8102	绝学·驭蛊心经	Juexue_Faction12_02		22		4	100		8102	8102				6	4600000		JuexueBook		4600																																																		
+8103	五毒绝学3	Juexue_Faction12_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8104	五毒绝学4	Juexue_Faction12_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8105	五毒绝学5	Juexue_Faction12_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8106	五毒绝学6	Juexue_Faction12_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8107	五毒绝学7	Juexue_Faction12_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8108	五毒绝学8	Juexue_Faction12_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8109	五毒绝学9	Juexue_Faction12_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8110	五毒绝学10	Juexue_Faction12_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8111	绝学·玉泉鱼跃	Juexue_Faction13_01		22		4	100		8111	8111				6	4600000		JuexueBook		4600																																																		
+8112	绝学·映波锁澜	Juexue_Faction13_02		22		4	100		8112	8112				6	4600000		JuexueBook		4600																																																		
+8113	藏剑绝学3	Juexue_Faction13_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8114	藏剑绝学4	Juexue_Faction13_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8115	藏剑绝学5	Juexue_Faction13_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8116	藏剑绝学6	Juexue_Faction13_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8117	藏剑绝学7	Juexue_Faction13_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8118	藏剑绝学8	Juexue_Faction13_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8119	藏剑绝学9	Juexue_Faction13_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8120	藏剑绝学10	Juexue_Faction13_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8121	绝学·余音绕梁	Juexue_Faction14_01		22		4	100		8121	8121				6	4600000		JuexueBook		4600																																																		
+8122	绝学·云生结海	Juexue_Faction14_02		22		4	100		8122	8122				6	4600000		JuexueBook		4600																																																		
+8123	长歌绝学3	Juexue_Faction14_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8124	长歌绝学4	Juexue_Faction14_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8125	长歌绝学5	Juexue_Faction14_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8126	长歌绝学6	Juexue_Faction14_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8127	长歌绝学7	Juexue_Faction14_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8128	长歌绝学8	Juexue_Faction14_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8129	长歌绝学9	Juexue_Faction14_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8130	长歌绝学10	Juexue_Faction14_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8131	绝学·琴瑟和鸣	Juexue_Faction15_01		22		4	100		8131	8131				6	4600000		JuexueBook		4600																																																		
+8132	绝学·梅花三弄	Juexue_Faction15_02		22		4	100		8132	8132				6	4600000		JuexueBook		4600																																																		
+8133	天山绝学3	Juexue_Faction15_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8134	天山绝学4	Juexue_Faction15_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8135	天山绝学5	Juexue_Faction15_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8136	天山绝学6	Juexue_Faction15_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8137	天山绝学7	Juexue_Faction15_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8138	天山绝学8	Juexue_Faction15_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8139	天山绝学9	Juexue_Faction15_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8140	天山绝学10	Juexue_Faction15_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8141	绝学·浴血蹈锋	Juexue_Faction16_01		22		4	100		8141	8141				6	4600000		JuexueBook		4600																																																		
+8142	绝学·挟山超海	Juexue_Faction16_02		22		4	100		8142	8142				6	4600000		JuexueBook		4600																																																		
+8143	霸刀绝学3	Juexue_Faction16_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8144	霸刀绝学4	Juexue_Faction16_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8145	霸刀绝学5	Juexue_Faction16_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8146	霸刀绝学6	Juexue_Faction16_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8147	霸刀绝学7	Juexue_Faction16_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8148	霸刀绝学8	Juexue_Faction16_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8149	霸刀绝学9	Juexue_Faction16_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8150	霸刀绝学10	Juexue_Faction16_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8151	绝学·风送紫霞	Juexue_Faction17_01		22		4	100		8151	8151				6	4600000		JuexueBook		4600																																																		
+8152	绝学·萧史乘龙	Juexue_Faction17_02		22		4	100		8152	8152				6	4600000		JuexueBook		4600																																																		
+8153	华山绝学3	Juexue_Faction17_03		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8154	华山绝学4	Juexue_Faction17_04		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8155	华山绝学5	Juexue_Faction17_05		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8156	华山绝学6	Juexue_Faction17_06		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8157	华山绝学7	Juexue_Faction17_07		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8158	华山绝学8	Juexue_Faction17_08		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8159	华山绝学9	Juexue_Faction17_09		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+8160	华山绝学10	Juexue_Faction17_10		22		4	100		7991	7991				6	4600000		JuexueBook		4600																																																		
+9988	绝学·火光残影	Juexue_Faction18_01		22		4	100		9988	9988				6	4600000		JuexueBook		4600																																																		
+9989	绝学·不灭之光	Juexue_Faction18_02		22		4	100		9989	9989				6	4600000		JuexueBook		4600																																																		
+9990	明教绝学3	Juexue_Faction18_03		22		4	100		9990	9990				6	4600000		JuexueBook		4600																																																		
+9991	明教绝学4	Juexue_Faction18_04		22		4	100		9991	9991				6	4600000		JuexueBook		4600																																																		
+9992	明教绝学5	Juexue_Faction18_05		22		4	100		9992	9992				6	4600000		JuexueBook		4600																																																		
+9993	明教绝学6	Juexue_Faction18_06		22		4	100		9993	9993				6	4600000		JuexueBook		4600																																																		
+9994	明教绝学7	Juexue_Faction18_07		22		4	100		9994	9994				6	4600000		JuexueBook		4600																																																		
+9995	明教绝学8	Juexue_Faction18_08		22		4	100		9995	9995				6	4600000		JuexueBook		4600																																																		
+9996	明教绝学9	Juexue_Faction18_09		22		4	100		9996	9996				6	4600000		JuexueBook		4600																																																		
+9997	明教绝学10	Juexue_Faction18_10		22		4	100		9997	9997				6	4600000		JuexueBook		4600																																																		
+10557	绝学·一阳指	Juexue_Faction19_01		22		4	100		10557	10557				6	4600000		JuexueBook		4600																																																		
+10558	绝学·五罗轻烟	Juexue_Faction19_02		22		4	100		10558	10558				6	4600000		JuexueBook		4600																																																		
+10559	段氏绝学3	Juexue_Faction19_03		22		4	100		10559	10559				6	4600000		JuexueBook		4600																																																		
+10560	段氏绝学4	Juexue_Faction19_04		22		4	100		10560	10560				6	4600000		JuexueBook		4600																																																		
+10561	段氏绝学5	Juexue_Faction19_05		22		4	100		10561	10561				6	4600000		JuexueBook		4600																																																		
+10562	段氏绝学6	Juexue_Faction19_06		22		4	100		10562	10562				6	4600000		JuexueBook		4600																																																		
+10563	段氏绝学7	Juexue_Faction19_07		22		4	100		10563	10563				6	4600000		JuexueBook		4600																																																		
+10564	段氏绝学8	Juexue_Faction19_08		22		4	100		10564	10564				6	4600000		JuexueBook		4600																																																		
+10565	段氏绝学9	Juexue_Faction19_09		22		4	100		10565	10565				6	4600000		JuexueBook		4600																																																		
+10566	段氏绝学10	Juexue_Faction19_10		22		4	100		10566	10566				6	4600000		JuexueBook		4600																																																		
+11285	绝学·万花笔法	Juexue_Faction20_01		22		4	100		111285	111285				6	4600000		JuexueBook		4600																																																		
+11286	绝学·墨守成规	Juexue_Faction20_02		22		4	100		111286	111286				6	4600000		JuexueBook		4600																																																		
+11287	万花绝学3	Juexue_Faction20_03		22		4	100		111287	111287				6	4600000		JuexueBook		4600																																																		
+11288	万花绝学4	Juexue_Faction20_04		22		4	100		111288	111288				6	4600000		JuexueBook		4600																																																		
+11289	万花绝学5	Juexue_Faction20_05		22		4	100		111289	111289				6	4600000		JuexueBook		4600																																																		
+11290	万花绝学6	Juexue_Faction20_06		22		4	100		111290	111290				6	4600000		JuexueBook		4600																																																		
+11291	万花绝学7	Juexue_Faction20_07		22		4	100		111291	111291				6	4600000		JuexueBook		4600																																																		
+11292	万花绝学8	Juexue_Faction20_08		22		4	100		111292	111292				6	4600000		JuexueBook		4600																																																		
+11293	万花绝学9	Juexue_Faction20_09		22		4	100		111293	111293				6	4600000		JuexueBook		4600																																																		
+11294	万花绝学10	Juexue_Faction20_10		22		4	100		111294	111294				6	4600000		JuexueBook		4600																																																		
+11964	绝学·奇门盾	Juexue_Faction21_01		22		4	100		111965	111965				6	4600000		JuexueBook		4600																																																		
+11965	绝学·横枪跃马	Juexue_Faction21_02		22		4	100		111964	111964				6	4600000		JuexueBook		4600																																																		
+11966	杨门绝学3	Juexue_Faction21_03		22		4	100		111966	111966				6	4600000		JuexueBook		4600																																																		
+11967	杨门绝学4	Juexue_Faction21_04		22		4	100		111967	111967				6	4600000		JuexueBook		4600																																																		
+11968	杨门绝学5	Juexue_Faction21_05		22		4	100		111968	111968				6	4600000		JuexueBook		4600																																																		
+11969	杨门绝学6	Juexue_Faction21_06		22		4	100		111969	111969				6	4600000		JuexueBook		4600																																																		
+11970	杨门绝学7	Juexue_Faction21_07		22		4	100		111970	111970				6	4600000		JuexueBook		4600																																																		
+11971	杨门绝学8	Juexue_Faction21_08		22		4	100		111971	111971				6	4600000		JuexueBook		4600																																																		
+11972	杨门绝学9	Juexue_Faction21_09		22		4	100		111972	111972				6	4600000		JuexueBook		4600																																																		
+11973	杨门绝学10	Juexue_Faction21_10		22		4	100		111973	111973				6	4600000		JuexueBook		4600																																																		

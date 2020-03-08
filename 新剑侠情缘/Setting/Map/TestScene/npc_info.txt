@@ -1,0 +1,4 @@
+Index	NpcName	TitleID	NpcTemplateIndex	NpcTemplateId	NpcLevel	XPos	YPos	Quantity	NpcType	NpcCamp	NpcPosFile	NpcDroprate	NpcUiIcon	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	NPCUiFuncType	NpcShowUiInfoFlag	NpcUiType	NpcUiIconOffsetX	NpcUiIconOffsetY
+to_senluo	森罗殿入口		trap_chuansong	2714	80	100	200	-1	0	0				0	0	0	0	0	0	0	0	0	1	0	-11	-11
+todizang	地藏殿入口		trap_chuansong	2714	80	150	300	-1	0	0				0	0	0	0	0	0	0	0	0	1	0	-11	-11
+chefu	车夫		yangzhou_chefu	2228	99	300	150	-1	0	0				0	0	0	0	0	0	0	0	1	0	1	-11	-11

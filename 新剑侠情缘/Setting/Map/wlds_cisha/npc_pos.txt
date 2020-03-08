@@ -1,0 +1,7 @@
+boss	4361	10675
+guaiwu	4315	10324
+guaiwu	4500	10081
+guaiwu	4705	9841
+guaiwu	4817	10810
+guaiwu	5110	10698
+guaiwu	5384	10563

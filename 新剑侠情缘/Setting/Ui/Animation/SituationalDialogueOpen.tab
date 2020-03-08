@@ -1,0 +1,11 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+AnchorMove	TopAnchor	0	5	{0,40,0}	{0,-5,0}
+AnchorMove	TopAnchor	5	7	{0,-5,0}	{0,-8.896,0}
+AnchorMove	TopAnchor	7	10	{0,-8.896,0}	{0,-6.8125,0}
+AnchorMove	TopAnchor	10	13	{0,-6.8125,0}	{0,-1.624003,0}
+AnchorMove	TopAnchor	13	15	{0,-1.624003,0}	{0,0,0}
+AnchorMove	ButtomAnchor	0	7	{0,-300,0}	{0,-30.423,0}
+AnchorMove	ButtomAnchor	7	10	{0,-30.423,0}	{0,20,0}
+AnchorMove	ButtomAnchor	10	13	{0,20,0}	{0,7.51772,0}
+AnchorMove	ButtomAnchor	13	15	{0,7.51772,0}	{0,0,0}
+Alpha	Main	0	1	0	1

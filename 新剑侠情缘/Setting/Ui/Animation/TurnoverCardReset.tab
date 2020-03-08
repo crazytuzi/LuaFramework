@@ -1,0 +1,10 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Scalc	Item	0	1	{1,1,1}	{1,1,1}
+Scalc	PartnerHead	0	1	{1,1,1}	{1,1,1}
+Rotation	CardBack1	0	1	{0,0,0}	{0,0,0}
+Scalc	CardBack1	0	1	{1,1,1}	{1,1,1}
+Rotation	Card	0	1	{0,0,0}	{0,0,0}
+Scalc	Card	0	1	{1,1,1}	{1,1,1}
+Scalc	ResultName	0	1	{1,1,1}	{1,1,1}
+Scalc	TxtResultName	0	1	{1,1,1}	{1,1,1}
+Move	TxtResultName	0	1	{0,0,0}	{0,0,0}

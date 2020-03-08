@@ -1,0 +1,251 @@
+SubKind	ParentKind	Level	FinishCount	NeedPush	ListType	Title	Desc	Award	AwardTitle
+Chat_Private	Chat	1	1			窃窃私语	密聊其他玩家	Gold|5	
+Chat_Emotion	Chat	2	1			言辞并茂	在任意频道发送表情	Gold|5	
+Chat_Voice	Chat	3	1			余音绕梁	成功使用语音聊天	Gold|5	
+Chat_Public	Chat	4	1			大家好！	发送公聊信息	Gold|5	
+Chat_Color	Chat	5	1			千里传音	发送彩聊信息	Gold|10	
+Angry_Normal	Angry	1	1			我怒了！	释放怒气技能	Gold|5	
+QuickTeamUp_Normal	QuickTeamUp	1	1			快速组队	使用快速组队成功参与一次组队活动	Gold|5	
+Prison_1	Prison	1	1			追影令	第1次通过追影令挑战其他玩家	Gold|5	
+Title_Normal	Title	1	1			江湖名号	获得一个称号	Gold|10	
+Title_Purple	Title	2	1			小有名气	获得一个紫色称号	Gold|30	
+Title_Pink	Title	3	1			名声在外	获得一个粉色称号	Gold|50	
+Title_Orange	Title	4	1	1		声名显赫	获得一个橙色称号	Gold|100	
+Title_Gold	Title	5	1	1		名动江湖	获得一个金色称号	Gold|300	
+Charm_1	Charm	1	500	1		有点姿色	魅力值达到500	Gold|10	
+Charm_1	Charm	2	2000	1	1	如花似玉	魅力值达到2000	Gold|30;Item|6990|1	
+Charm_1	Charm	3	5000	1	1	绝色美人	魅力值达到5000	Gold|50;Item|6991|1	
+Charm_1	Charm	4	20000	1	1	倾国倾城	魅力值达到20000	Gold|100;Item|6992|1	
+Charm_1	Charm	5	100000	1		人见人爱	魅力值达到100000	Gold|300	1068
+Partner_1	Partner	1	1			天涯相伴	第一次获得同伴	Gold|5	
+Partner_2	Partner	2	1			江湖豪杰	第一次获得乙级以上的同伴	Gold|5	
+Partner_3	Partner	3	1			人员齐整	出战满4个同伴	Gold|10	
+Partner_4	Partner	4	1			一流侠客	第一次获得甲级以上的同伴	Gold|30	
+Partner_5	Partner	5	1	1		共览众山小	出战满4个甲级以上的同伴	Gold|100	1000
+FriendFamiliar_1	FriendFamiliar	1	3			清交素友	与3个好友的亲密度达到5级	Gold|30	
+FriendFamiliar_2	FriendFamiliar	2	3			情深意重	与3个好友的亲密度达到10级	Gold|50	
+FriendFamiliar_3	FriendFamiliar	3	3			肝胆相照	与3个好友的亲密度达到20级	Gold|100	
+FriendFamiliar_4	FriendFamiliar	4	3			相交莫逆	与3个好友的亲密度达到30级	Gold|300	
+FriendFamiliar_5	FriendFamiliar	5	3	1		情同生死	与3个好友的亲密度达到40级	Gold|500	1002
+Foe_1	Foe	1	1			挑战敌人	第1次通过敌人界面挑战其他玩家	Gold|5	
+Family_1	Family	1	1			人在江湖	成功加入家族	Gold|5	
+Family_2	Family	2	1			温馨港湾	进入家族地图	Gold|5	
+Family_3	Family	3	1			家族礼物	成功获取一个家族礼盒	Gold|5	
+Family_4	Family	4	1			装备打造	在家族作坊打造1次装备	Gold|10	
+Family_5	Family	5	1			家族烤火	参与1次家族烤火活动	Gold|20	
+GetMeFight_1	GetMeFight	1	1			传功	累计传功或被传功1次	Gold|10	
+GetMeFight_1	GetMeFight	2	3			渐入佳境	累计传功或被传功3次	Gold|10	
+GetMeFight_1	GetMeFight	3	10			功力深厚	累计传功或被传功10次	Gold|20	
+GetMeFight_1	GetMeFight	4	30			修为精湛	累计传功或被传功30次	Gold|30	1006
+GetMeFight_1	GetMeFight	5	100	1		炉火纯青	累计传功或被传功100次	Gold|50	1007
+FamilyContribute_1	FamilyContribute	1	1			家族捐献	完成1次家族捐献	Gold|10	
+FamilyContribute_1	FamilyContribute	2	10			无私捐献	完成10次家族捐献	Gold|20	
+FamilyContribute_1	FamilyContribute	3	50			功勋卓著	完成50次家族捐献	Gold|30	
+FamilyContribute_1	FamilyContribute	4	200			顶梁柱	完成200次家族捐献	Gold|50	
+FamilyContribute_1	FamilyContribute	5	1000	1		千金散尽还复来	完成1000次家族捐献	Gold|100	1008
+FamilyContribute_1	FamilyContribute	6	10000	1	1	富可敌国	完成10000次家族捐献	Gold|500;Item|4250|1	
+PayOff_1	PayOff	1	1			家族工资	领取1次家族工资	Gold|10	
+PayOff_1	PayOff	2	100			多劳多得	累计领取的家族工资超过100元宝	Gold|20	
+PayOff_1	PayOff	3	1000			积极分子	累计领取的家族工资超过1000元宝	Gold|30	
+PayOff_1	PayOff	4	3000			家族资深成员	累计领取的家族工资超过3000元宝	Gold|50	
+PayOff_1	PayOff	5	10000			家族核心成员	累计领取的家族工资超过10000元宝	Gold|100	
+FirstAuctionDeal_1	FirstAuctionDeal	1	1			拍卖行	进入拍卖行查看	Gold|5	
+FirstAuctionDeal_2	FirstAuctionDeal	2	1			宝贝竞拍	成功从拍卖行中拍到一件物品	Gold|20	
+EquipRefinement_1	EquipRefinement	1	1			装备洗练	成功完成一次装备洗练	Gold|5	
+EquipRefinement_2	EquipRefinement	2	1			细心打磨	将身上一件装备洗满6条属性	Gold|10	
+EquipRefinement_3	EquipRefinement	3	1			精心雕琢	将一条橙色属性洗练到装备上	Gold|20	
+EquipRefinement_4	EquipRefinement	4	1	1		千锤百炼	将身上一件装备洗满6条紫色以上属性	Gold|50	
+EquipRefinement_5	EquipRefinement	5	1	1		神兵宝甲	身上所有装备洗满6条紫色以上属性	Gold|100	
+EnhanceOnce_1	EnhanceOnce	1	1			装备强化	装备强化成功	Gold|5	
+EnhanceFailure_1	EnhanceFailure	1	1			运气不佳	装备强化连续失败三次	Gold|10	
+EnhanceMaster_1	EnhanceMaster	1	10			强化学徒	全身装备强化+5以上	Gold|10	
+EnhanceMaster_2	EnhanceMaster	2	10			强化专家	全身装备强化+20以上	Gold|20	
+EnhanceMaster_3	EnhanceMaster	3	10			强化巨匠	全身装备强化+40以上	Gold|30	
+EnhanceMaster_4	EnhanceMaster	4	10	1		强化大师	全身装备强化+60以上	Gold|50	1009
+EnhanceMaster_5	EnhanceMaster	5	10	1		强化宗师	全身装备强化+80以上	Gold|100	1010
+EnhanceMaster_6	EnhanceMaster	6	10	1	1	强化圣匠	全身装备强化+100以上	Gold|500;Item|4247|1	
+InsetOnce_1	InsetOnce	1	1			装备镶嵌	在装备上镶嵌一颗魂石	Gold|5	
+InsetFull_1	InsetFull	1	1			无孔不入	将一件装备镶嵌满四颗魂石	Gold|10	
+InsetMaster_1	InsetMaster	1	1			镶嵌学徒	镶嵌20个1级以上魂石	Gold|20	
+InsetMaster_2	InsetMaster	2	1			镶嵌专家	镶嵌20个2级以上魂石	Gold|30	
+InsetMaster_3	InsetMaster	3	1			镶嵌巨匠	镶嵌20个3级以上魂石	Gold|50	
+InsetMaster_4	InsetMaster	4	1	1		镶嵌大师	镶嵌20个4级以上魂石	Gold|50	1011
+InsetMaster_5	InsetMaster	5	1	1		镶嵌宗师	镶嵌20个5级以上魂石	Gold|100	1012
+InsetMaster_6	InsetMaster	6	1	1	1	镶嵌圣匠	镶嵌40个6级以上魂石	Gold|500;Item|4249|1	
+PerfectDay_1	PerfectDay	1	20			好的开始	每日目标完成度达到20	Gold|5	
+PerfectDay_1	PerfectDay	2	60			再接再厉	每日目标完成度达到60	Gold|10	
+PerfectDay_1	PerfectDay	3	80			勤勤恳恳	每日目标完成度达到80	Gold|20	
+PerfectDay_1	PerfectDay	4	100			完美的一天	每日目标完成度达到100	Gold|30	
+PerfectDay_2	PerfectDay	5	1	1		完美的一周	连续7天每日目标完成度均达到100	Gold|100	
+SignIn_1	SignIn	1	1			初来乍到	领取1次签到奖励	Gold|5	
+SignIn_1	SignIn	2	3			我又来了	领取3次签到奖励	Gold|10	
+SignIn_1	SignIn	3	10			剑侠十日游	领取10次签到奖励	Gold|20	
+SignIn_1	SignIn	4	30			江湖豪侠	领取30次签到奖励	Gold|30	
+SignIn_1	SignIn	5	100	1		真正的剑侠	领取100次签到奖励	Gold|50	1017
+MoneyTree_1	MoneyTree	1	1			摇钱树	使用摇钱树1次	Gold|5	
+MoneyTree_1	MoneyTree	2	10			钱如雨下	使用摇钱树10次	Gold|10	
+MoneyTree_1	MoneyTree	3	50			招财进宝	使用摇钱树50次	Gold|20	
+MoneyTree_1	MoneyTree	4	200			财源广进	使用摇钱树200次	Gold|30	1020
+MoneyTree_1	MoneyTree	5	1000	1		财神降临	使用摇钱树1000次	Gold|50	1021
+CommerceTask_1	CommerceTask	1	1			商会任务	完成一个商会任务	Gold|5	
+CommerceTask_2	CommerceTask	2	1			家族助力	成功寻求一次家族成员的帮助	Gold|10	
+CommerceTask_3	CommerceTask	3	1			牛刀小试	完成1轮商会任务	Gold|10	
+CommerceTask_3	CommerceTask	4	10			轻车熟路	完成10轮商会任务	Gold|20	
+CommerceTask_3	CommerceTask	5	100	1		商行天下	完成100轮商会任务	Gold|50	1024
+Cangbaotu_1	Cangbaotu	1	1			挖宝	成功挖宝1次	Gold|5	
+Cangbaotu_2	Cangbaotu	2	1			里面是什么？	挖到古旧的箱子	Gold|10	
+Cangbaotu_3	Cangbaotu	3	1			鸿运当头	挖到蓝色品质以上的物品	Gold|10	
+Cangbaotu_1	Cangbaotu	4	200			寻宝者	成功挖宝200次	Gold|30	1025
+Cangbaotu_1	Cangbaotu	5	1000	1		夺宝奇兵	成功挖宝1000次	Gold|50	1026
+PunishTask_1	PunishTask	1	1			江湖惩恶	完成1次惩恶任务	Gold|5	
+PunishTask_1	PunishTask	2	20			严惩恶徒	完成20次惩恶任务	Gold|10	
+PunishTask_1	PunishTask	3	100			行侠仗义	完成100次惩恶任务	Gold|20	
+PunishTask_1	PunishTask	4	300			除恶务尽	完成300次惩恶任务	Gold|30	
+PunishTask_1	PunishTask	5	1000	1		侠名满江湖	完成1000次惩恶任务	Gold|50	1027
+TeamFuben_1	TeamFuben	1	1			组队秘境	通关一次组队秘境	Gold|5	
+TeamFuben_2	TeamFuben	2	1			风云乍起	藏剑山庄秘境达成卓越评价	Gold|20	1028
+TeamFuben_3	TeamFuben	3	1			武夷惊魂	武夷禁地秘境达成卓越评价	Gold|20	1029
+TeamFuben_4	TeamFuben	4	1			熔火之心	熔火霹雳秘境达成卓越评价	Gold|20	1030
+TeamFuben_5	TeamFuben	5	1			勇闯翠竹幽谷	翠竹幽谷秘境达成卓越评价	Gold|20	1031
+SearchFuben_1	SearchFuben	1	1			宝藏探索	开始第1次宝藏探索	Gold|5	
+SearchFuben_2	SearchFuben	2	1			遇敌！	宝藏探索遇到其他玩家	Gold|5	
+RandomFuben_1	RandomFuben	1	1			初入凌绝峰	通关凌绝峰1级房间	Gold|5	
+RandomFuben_2	RandomFuben	2	1			迷雾重重	通关凌绝峰2级房间	Gold|10	
+RandomFuben_3	RandomFuben	3	1			波谲云诡	通关凌绝峰3级房间	Gold|10	
+RandomFuben_4	RandomFuben	4	1			登凌绝顶	通关凌绝峰4级房间	Gold|20	
+RandomFuben_5	RandomFuben	5	1	1		绝处逢生	通关凌绝峰5级房间	Gold|30	1032
+RandomFubenCard_1	RandomFubenCard	1	1			凌绝峰的秘密	收集了一张凌绝峰卡片	Gold|10	
+RandomFubenCard_2	RandomFubenCard	2	1			凌绝峰秘藏	领取过凌绝峰卡片收集奖励	Gold|20	
+RandomFubenCard_3	RandomFubenCard	3	1			江湖百晓生	凌绝峰卡片收集排名中获得前100名	Gold|30	
+RandomFubenCard_4	RandomFubenCard	4	1			凌绝笑红尘	凌绝峰卡片收集排名中获得前30名	Gold|50	
+RandomFubenCard_5	RandomFubenCard	5	1			九天逍遥游	凌绝峰卡片收集排名中获得第一名	Gold|100	
+JuanZhou_1	JuanZhou	1	1			商会委托	完成一个卷轴任务	Gold|10	
+JuanZhou_2	JuanZhou	2	1			商会重托	完成一个蓝色以上的卷轴任务	Gold|20	
+JuanZhou_3	JuanZhou	3	20			商会常客	累计完成20个卷轴任务	Gold|30	
+JuanZhou_3	JuanZhou	4	100			商会好手	累计完成100个卷轴任务	Gold|50	
+JuanZhou_3	JuanZhou	5	400			商会密友	累计完成400个卷轴任务	Gold|100	1069
+RankBattle_1	RankBattle	1	1			挑战武神殿	在武神殿挑战1次其他玩家	Gold|5	
+RankBattle_2	RankBattle	2	1			武林高手	武神殿排名进入前1000名	Gold|20	
+RankBattle_3	RankBattle	3	1			以一敌百	武神殿排名进入前100名	Gold|30	
+RankBattle_4	RankBattle	4	1	1		一骑当千	武神殿排名进入前10名	Gold|50	1033
+RankBattle_5	RankBattle	5	1	1		武神！	武神殿排名达到第1名	Gold|100	1034
+Battle_1	Battle	1	1			宋金战场	报名参加1次战场	Gold|10	
+Battle_1	Battle	2	10			扬刀立马	参加10次战场	Gold|20	
+Battle_3	Battle	3	10			常胜之师	参加战场获胜10场	Gold|30	1035
+Battle_1	Battle	4	100	1		醉卧沙场	参加100次战场	Gold|50	1036
+Battle_3	Battle	5	100	1		一将功成万骨枯	参加战场获胜100场	Gold|100	1037
+Rank_1	Rank	1	1			血战黄沙	战场个人排名前50%	Gold|10	
+Rank_2	Rank	2	1			急先锋	战场个人排名前3	Gold|20	
+Rank_3	Rank	3	1			战功第一	战场个人排名第一	Gold|30	
+Rank_3	Rank	4	10	1		军功盖世	战场个人排名第1累计达到10次	Gold|50	1038
+Rank_3	Rank	5	100	1		神将再世	战场个人排名第1累计达到100次	Gold|100	1039
+BossRob_1	BossRob	1	1			武艺比拼	在挑战武林盟主中夺得1次其他玩家的积分	Gold|10	
+BossNumberOne_1	BossNumberOne	1	1			我们是最强的！	挑战武林盟主家族最终排名第一	Gold|30	
+Boss_1	Boss	1	1			盟主的考验	挑战武林盟主个人最终排名进入前100	Gold|10	
+Boss_2	Boss	2	1			盟主的首肯	挑战武林盟主个人最终排名进入前30	Gold|20	
+Boss_3	Boss	3	1			盟主的青睐	挑战武林盟主个人最终排名进入前10	Gold|30	1043
+Boss_4	Boss	4	1			盟主的赞赏	挑战武林盟主个人最终排名第一	Gold|50	1044
+Boss_4	Boss	5	100			盟主的惊叹	获得100次挑战武林盟主个人最终排名第1	Gold|100	1045
+Boss_4	Boss	6	200	1	1	武林盟主	获得200次挑战武林盟主个人最终排名第1	Gold|500;Item|4248|1	
+BossChallenge_1	BossChallenge	1	1			打就打谁怕谁	挑战一次武林盟主	Gold|5	
+FieldLeader_1	FieldLeader	1	1			野外首领	参与1次野外首领	Gold|10	
+FieldLeader_2	FieldLeader	2	1			狩猎	击败1只野外首领	Gold|10	
+FieldLeader_2	FieldLeader	3	10			狩猎者	击败10只野外首领	Gold|20	
+FieldLeader_2	FieldLeader	4	100			怪物猎人	击败100只野外首领	Gold|30	1046
+FieldLeader_2	FieldLeader	5	500			狩猎之王	击败500只野外首领	Gold|100	1047
+FieldBoss_1	FieldBoss	1	1			历代名将	成功参与1次历代名将	Gold|10	
+FieldBoss_2	FieldBoss	2	1			名将的首肯	家族成功击败1次历代名将	Gold|10	
+FieldBoss_2	FieldBoss	3	10			名将的青睐	家族成功击败10次历代名将	Gold|20	1056
+FieldBoss_2	FieldBoss	4	100			名将的赞赏	家族成功击败100次历代名将	Gold|30	1057
+FieldBoss_2	FieldBoss	5	500			名将的惊叹	家族成功击败500次历代名将	Gold|100	1058
+ImperialTombEmperor_1	ImperialTombEmperor	1	1			始皇/女帝	成功参与一次始皇降临/女帝复苏	Gold|10	
+ImperialTombEmperor_2	ImperialTombEmperor	2	1			无双帝皇	家族成功击杀1次秦始皇/武则天	Gold|10	
+ImperialTombEmperor_2	ImperialTombEmperor	3	5			帝皇执念	家族成功击杀5次秦始皇/武则天	Gold|20	
+ImperialTombEmperor_2	ImperialTombEmperor	4	20			帝皇随从	家族成功击杀20次秦始皇/武则天	Gold|30	1075
+ImperialTombEmperor_2	ImperialTombEmperor	5	100			帝皇亲卫	家族成功击杀100次秦始皇/武则天	Gold|100	1076
+HonorLevel_1	HonorLevel	1	1			江湖头衔	获得1个头衔	Gold|10	
+TheBox_1	TheBox	1	1			黄金宝箱	打开1个黄金宝箱	Gold|5	
+TheBox_1	TheBox	2	10			碰碰运气！	打开10个黄金宝箱	Gold|10	
+TheBox_1	TheBox	3	50			多多益善	打开50个黄金宝箱	Gold|30	
+TheBox_1	TheBox	4	300			宝箱痴迷者	打开300个黄金宝箱	Gold|50	1048
+TheBox_1	TheBox	5	1000			开箱大师	打开1000个黄金宝箱	Gold|100	1049
+XiuLian_1	XiuLian	1	1			野外修炼	开启1次修炼状态	Gold|10	
+XiuLian_2	XiuLian	2	1			好温暖！	在修炼状态下点燃一堆篝火	Gold|10	
+XiuLian_1	XiuLian	3	20			每日苦修	开启20次修炼状态	Gold|20	
+XiuLian_1	XiuLian	4	60			勤学苦练	开启60次修炼状态	Gold|30	
+XiuLian_1	XiuLian	5	200			练级狂魔	开启200次修炼状态	Gold|50	1050
+Dungeon_1	Dungeon	1	1			隐秘地宫	挖宝掉入地宫	Gold|10	
+Dungeon_2	Dungeon	2	1			前路凶险	在地宫中成功邀请其他玩家进入	Gold|10	
+Dungeon_3	Dungeon	3	1			鼎力协助	被其他玩家邀请进入地宫	Gold|10	
+Dungeon_4	Dungeon	4	1			曲径通幽	在地宫中发现第二层密室	Gold|20	
+Dungeon_1	Dungeon	5	50			上苍眷顾	挖宝掉入地宫50次	Gold|50	
+HeroChallenge_1	HeroChallenge	1	1			挑战开始	成功通过1轮英雄挑战	Gold|10	
+HeroChallenge_2	HeroChallenge	2	1			勇往直前	成功通过6轮英雄挑战	Gold|20	
+HeroChallenge_3	HeroChallenge	3	1			全胜通关	成功通过10轮英雄挑战	Gold|30	
+HeroChallenge_3	HeroChallenge	4	10			攻无不克	成功通过10轮英雄挑战10次	Gold|50	1040
+HeroChallenge_3	HeroChallenge	5	100	1		百战成魔	成功通过10轮英雄挑战100次	Gold|100	1041
+QunYingHui_1	QunYingHui	1	1			初战群英	在群英会中取得一场胜利	Gold|10	
+QunYingHui_2	QunYingHui	2	1			牛刀小试	在当天群英会中取得三场胜利	Gold|20	
+QunYingHui_3	QunYingHui	3	1			锋芒毕露	在当天群英会中取得六场连胜	Gold|30	1070
+QunYingHui_3	QunYingHui	4	5	1		大显身手	在群英会中取得六场连胜累计达到5次	Gold|50	1071
+QunYingHui_3	QunYingHui	5	50	1		傲视群英	在群英会中取得六场连胜累计达到50次	Gold|100	1072
+TeamBattle_1	TeamBattle	1	1			初探通天塔	成功踏入通天塔	Gold|10	
+TeamBattle_2	TeamBattle	2	1			更上一层楼	成功踏入通天塔下一层	Gold|10	
+TeamBattle_3	TeamBattle	3	1			通天塔顶	成功踏入通天塔第七层	Gold|30	
+TeamBattle_3	TeamBattle	4	10			一步登天	成功踏入通天塔第七层10次	Gold|50	1052
+TeamBattle_3	TeamBattle	5	50			邀明月	成功踏入通天塔第七层50次	Gold|100	1053
+TeamBattleFurniture_1	TeamBattleFurniture	1	20	1	1	登峰造极	成功踏入通天塔第八层20次	Gold|500;Item|4251|1	
+FactionBattle_1	FactionBattle	1	1			门派盛会	成功参加门派竞技	Gold|10	
+FactionBattle_2	FactionBattle	2	1			门派高手	成功进入门派竞技淘汰赛	Gold|20	
+FactionBattle_3	FactionBattle	3	1			门派八强	成功进入门派竞技八强	Gold|30	
+FactionBattle_4	FactionBattle	4	1			门派四强	成功进入门派竞技四强	Gold|50	
+FactionBattle_5	FactionBattle	5	1			最后对决	成功进入门派竞技决赛	Gold|100	
+FactionBattleNew_1	FactionBattleNew	1	1	1		新人王	成功夺得门派竞技新人王	Gold|200	
+FactionBattleBrother_1	FactionBattleBrother	1	1	1	1	首席弟子	成功当选门派竞技大师兄/大师姐	Gold|500;Item|4244|1	
+HuaShanLunJian_1	HuaShanLunJian	1	1	1	1	冠绝江湖	成功夺得华山论剑冠军	Gold|500;Item|4245|1	
+InDifferBattle_1	InDifferBattle	1	1			心魔幻境	成功参与心魔幻境活动	Gold|10	
+InDifferBattle_2	InDifferBattle	2	1			击败神秘人	在心魔幻境中击败过一个神秘人	Gold|20	
+InDifferBattle_3	InDifferBattle	3	1			活着	在心魔幻境中进入到第三阶段	Gold|30	
+InDifferBattle_4	InDifferBattle	4	1	1		生存高手	在心魔幻境中获得一次优胜	Gold|50	1073
+InDifferBattle_4	InDifferBattle	5	10	1		生存大师	在心魔幻境中获得优胜累计达到10次	Gold|100	1074
+WhiteTiger_1	WhiteTiger	1	1			初探白虎堂	进入白虎堂第一层	Gold|10	
+WhiteTiger_2	WhiteTiger	2	1			白虎堂勇士	在白虎堂中击败1个其他玩家	Gold|10	
+WhiteTiger_3	WhiteTiger	3	1			狭路相逢勇者胜	通过白虎堂第四层	Gold|20	
+WhiteTiger_2	WhiteTiger	4	100			嗜血成性	在白虎堂中击败100个其他玩家	Gold|50	
+WhiteTiger_2	WhiteTiger	5	500			白虎堂狩猎者	在白虎堂中击败500个其他玩家	Gold|100	1055
+KinEscort_1	KinEscort	1	1			行走江湖	成功参与1次家族运镖	Gold|10	
+KinEscort_2	KinEscort	2	1			打劫！	在家族运镖中成功抢到1个“掉落的货物”	Gold|10	
+KinEscort_3	KinEscort	3	1			价值连城	将一辆紫色以上的镖车完整的护送到目的地	Gold|20	
+KinEscort_4	KinEscort	4	30			老江湖	成功将30辆镖车护送到目的地	Gold|30	
+KinEscort_4	KinEscort	5	100			镖行天下	成功将100辆镖车护送到目的地	Gold|100	1059
+HighCangbaotu_1	HighCangbaotu	1	1			高级藏宝图	成功挖1次高级藏宝图	Gold|20	
+HighCangbaotu_2	HighCangbaotu	2	1			被围攻了	挖高级藏宝图时出现夺宝贼	Gold|20	
+HighCangbaotu_3	HighCangbaotu	3	1			秘籍到手	挖高级藏宝图挖到武林秘籍	Gold|30	
+HighCangbaotu_4	HighCangbaotu	4	1			本命神兵	挖高级藏宝图挖到同伴本命神兵	Gold|40	
+HighCangbaotu_5	HighCangbaotu	5	1			哇！首领	挖高级藏宝图时出现首领	Gold|50	
+PkExcercise_1	PkExcercise	1	1			切磋一下	和其他玩家切磋一次	Gold|5	
+RedBag_1	RedBag	1	1			红包红包！	第1次发红包	Gold|10	
+Friend_1	Friend	1	1			泛泛之交	与1个好友的亲密度达到5级	Gold|10	
+Friend_2	Friend	2	1			情义之交	与1个好友的亲密度达到10级	Gold|30	
+Friend_3	Friend	3	1			肝胆之交	与1个好友的亲密度达到20级	Gold|50	
+Friend_4	Friend	4	1			莫逆之交	与1个好友的亲密度达到30级	Gold|100	
+Friend_5	Friend	5	1			生死之交	与1个好友的亲密度达到40级	Gold|300	
+KinFuben_1	KinFuben	1	1			试炼开始	参与1次家族试炼	Gold|10	
+KinFuben_1	KinFuben	2	2			再次试炼	参与2次家族试炼	Gold|20	
+KinFuben_1	KinFuben	3	4			家族练兵	参与4次家族试炼	Gold|30	
+KinFuben_1	KinFuben	4	10			勤加演练	参与10次家族试炼	Gold|50	
+KinFuben_1	KinFuben	5	20	1		百炼成钢	参与20次家族试炼	Gold|100	1005
+DomainBattle_1	DomainBattle	1	10			豪杰	在攻城战中击败10名敌对玩家	Gold|10	
+DomainBattle_1	DomainBattle	2	50			追命	在攻城战中击败50名敌对玩家	Gold|30	
+DomainBattle_1	DomainBattle	3	200			无情	在攻城战中击败200名敌对玩家	Gold|50	1060
+DomainBattle_1	DomainBattle	4	500			罗刹	在攻城战中击败500名敌对玩家	Gold|100	1061
+DomainBattle_1	DomainBattle	5	1000			战神	在攻城战中击败1000名敌对玩家	Gold|300	1062
+TeacherStudentElite_1	TeacherStudentElite	1	1			杰出弟子	有1个杰出弟子出师	Gold|30	
+TeacherStudentMaster_1	TeacherStudentMaster	1	2			良师益友	有2个弟子出师	Gold|20	
+TeacherStudentMaster_1	TeacherStudentMaster	2	5			诲人不倦	有5个弟子出师	Gold|50	
+TeacherStudentMaster_1	TeacherStudentMaster	3	10	1		为人师表	有10个弟子出师	Gold|100	1063
+TeacherStudentMaster_1	TeacherStudentMaster	4	20	1		桃李满天下	有20个弟子出师	Gold|300	1064
+TeacherStudentMaster_1	TeacherStudentMaster	5	30	1		一代宗师	有30个弟子出师	Gold|500	1065
+IDIPZan_1	IDIPZan	1	10			比心心	给其他玩家的个人空间点赞达到10次	Gold|10	
+IDIPPopularity_1	IDIPPopularity	1	50	1		小有名气	个人空间人气值达到50	Gold|20	
+IDIPPopularity_1	IDIPPopularity	2	500	1		崭露头角	个人空间人气值达到500	Gold|30	

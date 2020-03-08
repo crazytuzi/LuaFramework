@@ -1,0 +1,16 @@
+X	第一段动作时的X轴偏移
+Y	第一段动作时的Y轴偏移
+X1	第二段动作时的X轴偏移
+Y1	第二段动作时的Y轴偏移
+HidePart	隐藏部分
+Height	名字UI高度
+St	站立动作
+Run	移动动作
+RunEvent	移动的动作事件
+Speed	移动速度
+HorseSlot	双人同骑时的乘坐插槽位置
+HY	双人同骑时的人物UI以及影子位置偏移
+Act	动作
+ActEvent	动作事件
+ActLoop	动作是否循环
+Len	相隔长度

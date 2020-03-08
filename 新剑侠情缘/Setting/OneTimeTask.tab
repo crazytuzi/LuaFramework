@@ -1,0 +1,91 @@
+TimeFrame	Day	Name	ScriptFunc	WeekDay	Time1	Time2	Time3	Time4	Time5	Time6	Time7	Time8	Time9	Time10	Param1	Param2	Param3	Param4	Param5
+OpenLevel39	1	家族传功、商会任务、凌绝峰	SendTimeFrameMail		4:05										OpenDay2	1	活动预告\n    【预告】%date开放新内容：家族传功、商会任务、凌绝峰。\n   活动详情请查看活动日历界面的预告分页！	Coin|1000
+OpenLevel39	1	20级野外首领、英雄挑战、白虎堂	SendTimeFrameMail		4:05										OpenDay3	1	活动预告\n    【预告】%date开放新内容：20级野外首领、英雄挑战、白虎堂。\n   活动详情请查看活动日历界面的预告分页！	Coin|1000
+OpenLevel39	1	门派竞技	SendTimeFrameMail	26	4:05										OpenDay4	1	门派竞技通知\n    诸位同门袍泽，如今我派愈发繁荣，门下精英辈出，故师尊欲举行盛举——门派竞技，但凡我派弟子均可参与，先以混战形式交手，剩余者再以一对一的形式角逐最终胜者，最终胜者将荣获本派「新人王」之称号，诸位同门，努力为此荣耀战斗吧！\n\n   门派竞技将于%date开启！\n   活动详情请查看活动日历界面！	Coin|1000	1
+OpenLevel39	1	家族试炼	SendTimeFrameMail	14	4:05										OpenDay4	1	活动预告\n    【预告】%date开放新内容：家族试炼。\n   活动详情请查看活动日历界面！	Coin|1000	1
+OpenLevel39	1	通天塔	SendTimeFrameMail	25	4:05										OpenDay4	1	活动预告\n    【预告】%date开放新内容：通天塔。\n   活动详情请查看活动日历界面！	Coin|1000	1
+OpenLevel39	1	家族运镖	SendTimeFrameMail		4:05										OpenDay5	1	活动预告\n    【预告】%date开放新内容：家族运镖。\n   活动详情请查看活动日历界面的预告分页！	Coin|1000
+OpenLevel49	-1	49级上限	SendTimeFrameMail		4:05										OpenLevel49	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放3阶装备打造、角色等级限制开放至49级。	Coin|1000
+OpenLevel49	1	40级野外首领	SendTimeFrameMail		4:05										OpenDay6	1	活动预告\n    【预告】%date开放新内容：40级野外首领。\n   活动详情请查看活动日历界面的野外首领活动介绍！	Coin|1000
+OpenLevel49	1	40级历代名将	SendTimeFrameMail		4:05										OpenDay7	1	活动预告\n    【预告】%date开放新内容：40级历代名将。\n   活动详情请查看活动日历界面的预告分页！	Coin|1000
+OpenLevel59	-1	59级上限	SendTimeFrameMail		4:05										OpenLevel59	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放4阶装备打造、角色等级限制开放至59级。	Coin|1000
+OpenLevel59	-1	攻城战	SendTimeFrameMail	15	4:05										OpenDomainBattle	1	活动预告\n    【预告】%date开放新内容：攻城战。\n   各位武林同道，一起来为自己的家族争夺领地吧！我们的最终目标是进军襄阳，夺取城主荣耀。\n   活动详情请查看活动日历界面！	Coin|1000	1
+OpenLevel59	-1	凌绝峰收集活动	SendTimeFrameMail		4:05										OpenLevel59	1	活动预告\n    【预告】%date开放新内容：凌绝峰收集活动。\n   各位大侠，开放59级等级上限后，挑战凌绝峰将获得卡片凭证，收集起来与大家一起比拼排行，获得高额奖励。\n   活动详情请查看活动日历界面！	Coin|1000
+OpenLevel59	-1	师徒系统	SendTimeFrameMail		4:05										OpenLevel59	1	活动预告\n    【预告】%date开放新内容：师徒系统。\n    达到[FFFE0D]50级[-]以上的的侠士可以与达到[FFFE0D]20级[-]以上的小侠士结为师徒关系，双方等级差需要[FFFE0D]≥5级[-]，处理师徒关系可前往忘忧岛找上官飞龙。\n    [FFFE0D]提升剑侠尊享等级可以缩减双方等级差要求\n    剑侠尊享6：双方等级差需要≥4级\n    剑侠尊享9：双方等级差需要≥3级\n    剑侠尊享12：双方等级差需要≥2级[-]	Coin|1000
+OpenLevel59	1	攻城战开启	DeclareWarDomainBattle	26	4:01
+OpenLevel59	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel69	-2	69级上限	SendTimeFrameMail		4:05										OpenLevel69	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放5阶装备打造、角色等级限制开放至69级。	Coin|1000
+OpenLevel69	-2	凌绝峰噩梦难度	SendTimeFrameMail		4:05										OpenLevel69	1	活动预告\n    【预告】%date开放新内容：凌绝峰噩梦难度。\n   活动详情请查看活动日历界面凌绝峰的相关帮助信息！	Coin|1000
+OpenLevel69	-1	婚姻系统开放	SendTimeFrameMail		4:05										OpenLevel69	1	活动预告\n    【预告】%date开放新内容：婚姻系统。\n    [FFFE0D]订婚：[-]与心仪的[FFFE0D]异性[-]对象组队，由其中一方使用[ff8f06][url=openwnd:缘定今生, ItemTips, "Item", nil, 6155][-]发起求婚。[FFFE0D]需双方等级达到50级、亲密度达到30级。[-]\n    [FFFE0D]成婚：[-]双方结成订婚关系后，可前往襄阳城找[00FF00][url=npc:月老, 2371, 10][-]预定婚礼，完婚后双方还能获得独有的[FFFE0D]称号、家具、礼服、婚书[-]等奖励	Coin|1000
+OpenLevel69	1	华山论剑	SendTimeFrameMail		4:05										HuaShanLunJian	1	活动预告\n    【预告】%date开放新内容：华山论剑。\n   各位武林同道，成立自己的战队，登临华山之巅争夺武林至尊的名号吧。\n   注意：活动正式开放需要处于每月的[FFFE0D]7号~15号之间[-]，请各位大侠留意活动时间。\n   活动详情请查看活动日历！	Coin|1000
+OpenLevel69	1	开服战力冲榜活动	StartPowerRank		0:00
+OpenLevel69	1	珍宝阁降价	SendTimeFrameMail	1	4:05										OpenLevel69	1	每周限购降价\n    随着服务器开放69级等级上限，商会老板万金财决定降价珍宝阁【每周限购】内的部分物品，助力诸位侠士早日成为武林翘楚。\n    [FFFE0D]蓝水晶[-]\n    价格：160元宝[FFFE0D]（新上架物品）[-]\n    [FFFE0D]无暇的神秘矿石[-]\n    价格：640元宝[FFFE0D]（新上架物品）[-]\n    [FFFE0D]白水晶[-]\n    原价：8元宝            现价：6元宝\n    [FFFE0D]绿水晶[-]\n    原价：40元宝          现价：35元宝\n    [FFFE0D]未雕琢的神秘矿石[-]\n    原价：30元宝          现价：25元宝\n    [FFFE0D]普通的神秘矿石[-]\n    原价：160元宝        现价：140元宝
+OpenLevel69	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel69	1	60级野外首领	SendTimeFrameMail		4:05										OpenDay35	1	活动预告\n    【预告】%date开放新内容：60级野外首领。\n   活动详情请查看活动日历界面的野外首领活动介绍！	Coin|1000
+OpenDay52	-1	60级历代名将	SendTimeFrameMail		4:05										OpenDay52	1	活动预告\n    【预告】%date开放新内容：60级历代名将。\n   活动详情请查看活动日历界面的历代名将活动介绍！	Coin|1000
+OpenLevel79	-2	79级上限	SendTimeFrameMail		4:05										OpenLevel79	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放6阶装备打造、开放同伴经脉系统、角色等级限制开放至79级。	Coin|1000
+OpenLevel79	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel79	1	同伴经脉	SendTimeFrameMail		4:05											67	公孙惜花的飞鸽传书\n见信好：\n    武林盟得到消息，江湖奇人玄天道人公布了一些[FFFE0D]打通经脉[-]的神秘功法，传言经脉打通后能大大[FFFE0D]加强同伴[-]的武功修为，对各位武林侠士也有[FFFE0D]极大的帮助[-]。少侠若达到[FFFE0D]70级[-]请速来隐香楼找奴家，奴家有话对你说！	Coin|1000
+OpenLevel79	1	秦始皇陵开放	SendTimeFrameMail		4:05										OpenDay89	1	活动预告\n    【预告】%date开放新内容：诸位侠士，武林中风云变幻，竟有一批盗墓贼发现了通往秦始皇陵的线索，今日江湖中闹得沸沸扬扬，侠士若是有兴致，不妨也去查探一番，或许会有意料之外的收获。\n\n   此外，由于皇陵吸引了大批武林高手前往，皇陵开放后，[FFFE0D]每日下午15：30的历代名将将关闭！[-]\n   活动详情请查看活动日历界面的秦始皇陵活动介绍！	Coin|1000
+OpenLevel89	-2	89级上限	SendTimeFrameMail		4:05										OpenLevel89	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放7阶装备打造、开放阵法系统、高级秘籍系统、角色等级限制开放至89级。	Coin|1000
+OpenLevel89	1	珍宝阁降价	SendTimeFrameMail	1	4:05										OpenLevel89	1	每周限购降价\n    随着服务器开放89级等级上限，商会老板万金财决定降价珍宝阁【每周限购】内的部分物品，助力诸位侠士早日成为武林翘楚。\n    [FFFE0D]紫水晶[-]\n    价格：640元宝[FFFE0D]（新上架物品）[-]\n    [FFFE0D]白水晶[-]\n    原价：6元宝            现价：5元宝\n    [FFFE0D]绿水晶[-]\n    原价：35元宝          现价：30元宝\n    [FFFE0D]蓝水晶[-]\n    原价：160元宝        现价：140元宝\n    [FFFE0D]未雕琢的神秘矿石[-]\n    原价：25元宝          现价：20元宝\n    [FFFE0D]普通的神秘矿石[-]\n    原价：140元宝        现价：120元宝\n    [FFFE0D]无暇的神秘矿石[-]\n    原价：640元宝        现价：560元宝
+OpenLevel89	1	80级野外首领	SendTimeFrameMail		4:05										OpenDay116	1	活动预告\n    【预告】%date开放新内容：80级野外首领。\n   活动详情请查看活动日历界面的野外首领活动介绍！	Coin|1000
+OpenLevel89	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel89	1	80级历代名将	SendTimeFrameMail		4:05										OpenDay128	1	活动预告\n    【预告】%date开放新内容：80级历代名将。\n   活动详情请查看活动日历界面的历代名将活动介绍！	Coin|1000
+OpenLevel89	1	秦始皇陵黄金图谱变更	SendTimeFrameMail		4:05										OpenDay153	1	活动预告\n    【预告】%date秦始皇陵黄金图谱产出提示:秦始皇陵中千变万化，内蕴天机，今日起始皇降世将新增黄金武器、黄金玉佩的图谱，请诸位侠士周知！\n   活动详情请查看活动日历界面的始皇降世活动介绍！	Coin|1000
+OpenLevel99	-2	角色等级99级	SendTimeFrameMail		4:05										OpenLevel99	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放8阶装备打造、角色等级限制开放至99级。	Coin|1000
+OpenLevel99	-2	凌绝峰苦痛难度	SendTimeFrameMail		4:05										OpenLevel99	1	活动预告\n    【预告】%date开放新内容：凌绝峰苦痛难度。\n   活动详情请查看活动日历界面凌绝峰的相关帮助信息！	Coin|1000
+OpenLevel99	-1	遗迹寻宝	SendTimeFrameMail		4:05										OpenKeyQuestFuben	1	活动预告\n    【预告】%date开放新内容：遗迹寻宝。\n   届时将[FFFE0D]取消周一和周三晚上20：00点的白虎堂[-]，活动详情请查看活动日历界面的遗迹寻宝活动介绍！	Coin|1000
+OpenLevel99	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel109	-2	角色等级109级	SendTimeFrameMail		4:05										OpenLevel109	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放9阶装备打造、角色等级限制开放至109级。	Coin|1000
+OpenLevel109	-2	同伴门客	SendTimeFrameMail		4:05										OpenLevel109	1	颖宝宝的飞鸽传书\n见信好：\n    听闻少侠最近在江湖上名声日盛，颖宝很为你高兴呢。最近我研读战国历史，发现[FFFE0D]门客[-]很有意思，2天后来找我，我给你讲一下！	Coin|1000
+OpenLevel109	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel109	1	100级野外首领	SendTimeFrameMail		4:05										OpenDay251	1	活动预告\n    【预告】%date开放新内容：100级野外首领。\n   活动详情请查看活动日历界面的野外首领活动介绍！	Coin|1000
+OpenLevel89	1	跨服通天塔	SendTimeFrameMail	26	4:05										OpenLevel89	1	跨服通天塔开启\n    各位侠士，通天塔活动迎来了新的阶段，开启了跨服模式。通天塔起始层数将会提高一层，在最后一轮竞技中，将有可能遇到来自其他服务器的对手。通天塔全新八层，等你来挑战！
+OpenLevel69	1	心魔幻境/绝地	SendTimeFrameMail	135	4:05										OpenDay118	1	活动预告\n    【预告】%date开放新内容：心魔幻境/绝地。\n    3人组队跨服无差别竞技，[FFFE0D]固定相同等级、不携带同伴、初始拥有相同的战力水平[-]。摆脱装备和等级的桎梏，感受纯操作的竞技快感！\n   活动详情请查看活动日历界面的心魔幻境/绝地活动介绍！	Coin|1000	1
+OpenLevel99	1	无双头衔	SendTimeFrameMail		4:05										OpenDay188	1	头衔开放预告\n    诸位侠士！[FFFE0D]「无双」[-]头衔将于%date开放，届时满足条件的侠士即可消耗[FFFE0D]帝皇令[-]完成晋升。	Coin|1000
+OpenLevel99	1	秦始皇同伴掉落	SendTimeFrameMail	36	4:05										OpenDay204	1	活动预告\n    [FFFE0D]天级同伴「秦始皇」[-]产出提示：秦始皇陵中千变万化，内蕴天机，%date起始皇降世将新增[FFFE0D]天级同伴「秦始皇」[-]，请诸位侠士周知！\n   活动详情请查看活动日历界面的始皇降世活动介绍！	Coin|1000	1
+OpenLevel99	1	秦始皇本命武器掉落	SendTimeFrameMail	36	4:05										OpenDay234	1	活动预告\n    秦始皇本命武器「泰阿剑」即将重见天日！\n    %date起[FFFE0D]始皇降世[-]将新增产出[FFFE0D]秦始皇本命武器「泰阿剑」[-]，请诸位侠士周知！\n   活动详情请查看活动日历界面的始皇降世活动介绍！	Coin|1000	1
+OpenLevel89	1	开放同伴觉醒功能	SendTimeFrameMail		4:05										OpenDay159	1	同伴觉醒预告\n    诸位侠士！同伴觉醒功能将于%date开放，觉醒后的同伴将永久提升各项潜能，[FFFE0D]正式开放同伴觉醒后可在【同伴】界面进行相关操作[-]。\n\n                                               [00FF00][url=openwnd:觉醒规则, GeneralHelpPanel, "PartnerAwarenessHelp"][-]	Coin|1000
+OpenLevel119	-2	角色等级119级	SendTimeFrameMail		4:05										OpenLevel119	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放10阶装备打造、角色等级限制开放至119级。	Coin|1000
+OpenLevel119	-2	门派秘卷	SendTimeFrameMail		4:05										OpenLevel119	1	活动预告\n    【预告】%date开放新内容：部分门派技能等级上限可通过消耗门派信物来提高。\n   详情请查看技能界面！	Coin|1000
+OpenLevel119	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel119	1	110级历代名将	SendTimeFrameMail		4:05										OpenDay353	1	活动预告\n    【预告】%date开放新内容：110级历代名将。\n   活动详情请查看活动日历界面的历代名将活动介绍！	Coin|1000
+OpenLevel129	-2	角色等级129级	SendTimeFrameMail		4:05										OpenLevel129	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放11阶装备打造、角色等级限制开放至129级、家园等级限制开放至7级。	Coin|1000
+OpenLevel109	1	珍宝阁降价	SendTimeFrameMail	1	4:05										OpenLevel109	1	每周限购降价\n    随着服务器开放109级等级上限，商会老板万金财决定降价珍宝阁【每周限购】内的部分物品，助力诸位侠士早日成为武林翘楚。\n    [FFFE0D]绿水晶[-]\n    原价：30元宝          现价：25元宝\n    [FFFE0D]蓝水晶[-]\n    原价：140元宝        现价：120元宝\n    [FFFE0D]紫水晶[-]\n    原价：640元宝        现价：560元宝\n    [FFFE0D]普通的神秘矿石[-]\n    原价：120元宝        现价：100元宝\n    [FFFE0D]无暇的神秘矿石[-]\n    原价：560元宝        现价：480元宝
+OpenLevel109	1	完颜洪烈同伴掉落	SendTimeFrameMail	15	4:05										OpenDay279	1	活动预告\n    [FFFE0D]天级同伴「完颜洪烈」[-]产出提示：%date起始攻城战将新增产出[FFFE0D]天级同伴「完颜洪烈」[-]，请诸位侠士周知！\n   详情请查看活动日历界面的攻城战介绍！	Coin|1000
+OpenLevel109	1	开放绝学系统	SendTimeFrameMail		4:05										OpenDay279	1	新功能预告\n    【预告】%date开放新内容：绝学系统即将开放，详情请参看[00FF00][url=openwnd:绝学介绍, GeneralHelpPanel, "JueXueHelp"][-]	Coin|1000
+OpenLevel59	-1	开放家园系统	SendTimeFrameMail		4:05										OpenDay15	1	家园开放预告\n    诸位侠士，[FFFE0D]家园系统[-]将于%date开放，届时可前往[FFFE0D][url=npc:颖宝宝, 2279, 10][-]处接受家园建造任务，完成后即可免费获得属于自己的一片小天地。\n\n                                               [00FF00][url=openwnd:家园介绍, GeneralHelpPanel, "HouseHelp"][-]	Coin|1000
+OpenLevel79	-1	开放3级家园	SendTimeFrameMail		4:05										OpenDay69	1	活动预告\n    【预告】%date开放新内容：家园等级限制开放至3级。	Coin|1000
+OpenLevel79	1	开放3级家具制作	SendTimeFrameMail		4:05										OpenDay99	1	活动预告\n    【预告】%date开放新内容：家具坊开放3级家具制作。	Coin|1000
+OpenLevel89	-1	开放4级家园	SendTimeFrameMail		4:05										OpenDay114	1	活动预告\n    【预告】%date开放新内容：家园等级限制开放至4级。	Coin|1000
+OpenLevel99	-1	开放5级家园	SendTimeFrameMail		4:05										OpenDay174	1	活动预告\n    【预告】%date开放新内容：家园等级限制开放至5级。	Coin|1000
+OpenLevel99	1	开放4级家具制作	SendTimeFrameMail		4:05										OpenDay224	1	活动预告\n    【预告】%date开放新内容：家具坊开放4级家具制作	Coin|1000
+OpenLevel109	-1	开放6级家园	SendTimeFrameMail		4:05										OpenDay249	1	活动预告\n    【预告】%date开放新内容：家园等级限制开放至6级。	Coin|1000
+OpenLevel119	1	开放5级家具制作	SendTimeFrameMail		4:05										OpenDay399	1	活动预告\n    【预告】%date开放新内容：家具坊开放5级家具制作	Coin|1000
+OpenLevel109	1	完颜洪烈本命武器掉落	SendTimeFrameMail	15	4:05										OpenDay279	1	活动预告\n    完颜洪烈本命武器「金龙御鹰手」即将重见天日！\n    %date起[FFFE0D]攻城战[-]将新增产出[FFFE0D]完颜洪烈本命武器「金龙御鹰手」[-]，请诸位侠士周知！\n   活动详情请查看活动日历界面的攻城战活动介绍！	Coin|1000	1
+OpenLevel109	1	开放第二个门客位	SendTimeFrameMail		4:05										OpenDay290	1	门客位开启预告\n    【预告】%date开放新内容：第二个门客位，可以给第二个同伴配置门客了!	Coin|1000	1
+OpenLevel109	1	门客三星	SendTimeFrameMail		4:05										OpenDay290	1	门客星级开放预告\n    【预告】%date开放新内容：门客三星，可以把门客升级为3星了！	Coin|1000	1
+OpenLevel119	1	开放第三个门客位	SendTimeFrameMail		4:05										OpenLevel119	1	门客位开启预告\n    【预告】%date开放新内容：第三个门客位，可以给第三个同伴配置门客了!	Coin|1000	1
+OpenLevel119	1	珍宝阁降价	SendTimeFrameMail	1	4:05										OpenLevel119	1	每周限购降价\n    随着服务器开放119级等级上限，商会老板万金财决定降价珍宝阁【每周限购】内的部分物品，助力诸位侠士早日成为武林翘楚。\n    [FFFE0D]蓝水晶[-]\n    原价：120元宝        现价：100元宝\n    [FFFE0D]紫水晶[-]\n    原价：560元宝        现价：480元宝\n    [FFFE0D]破损的神秘矿石[-]\n    原价：20元宝          现价：15元宝\n    [FFFE0D]普通的神秘矿石[-]\n    原价：100元宝        现价：80元宝\n    [FFFE0D]无暇的神秘矿石[-]\n    原价：480元宝        现价：400元宝
+OpenLevel129	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel129	1	女帝复苏	SendTimeFrameMail		4:05										OpenLevel129Add10	1	活动预告\n    【预告】%date开放新内容：女帝复苏\n   各位武林同道，女帝武则天将复苏于世，还请诸位侠士早日做好准备，与家族成员一同前往。\n   活动详情请查看活动日历界面！	Coin|1000
+OpenLevel129	-2	女帝复苏新黄金装备掉落	SendTimeFrameMail		4:05										OpenLevel129Add30	1	活动预告\n    大唐盛世再现！女帝时期锻造冶炼珍品全新黄金图谱即将重见天日！\n    %date起[FFFE0D]女帝复苏[-]将新增产出[FFFE0D]「黄金图谱·戒指」、「黄金图谱·护腕」[-]，请诸位侠士周知！\n   活动详情请查看活动日历界面的女帝复苏活动介绍！	Coin|1000
+OpenDay353	-1	跨服历代名将开启	SendActNewInfomation		4:05										跨服历代名将开启	CrossLDMJ	OpenDay353	3
+OpenLevel139	-2	角色等级139级	SendTimeFrameMail		4:05										OpenLevel139	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放12阶装备打造、角色等级限制开放至139级。	Coin|1000
+OpenLevel139	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel89	-2	跨服武林盟主开启	SendNewInfomation		4:05										跨服武林盟主开启	CrossWLMZ	跨服武林盟主开启\n    诸位豪侠，江湖即将开启跨服武林盟主，届时会遇到更多实力超群的武林高手，竞争必定激烈异常，是时候展现非凡的个人实力和家族凝聚力了！诸位豪侠可做好准备加速历练，携手家族成员逐鹿群雄，再战江湖！\n   跨服武林盟主资格获取：[FFFE0D]每周一至周四、周六及周日的普通武林盟主中表现优异的家族[-]。（将于每周四晚普通武林盟主结束后进行结算并公布）\n   跨服武林盟主场次时间：[FFFE0D]首次获取资格后的每周五中午12:30和晚上19:30（共两场）[-]。	OpenLevel89	1
+OpenLevel99	1	新家族试炼	SendTimeFrameMail	5	4:05											1	活动预告\n    前线来报，完颜洪烈亲率大军直逼襄阳城下。宋朝廷将寡兵疲，有意招揽江湖侠士共同抵御外敌……\n    全新[FFFE0D]「家族试炼·保卫襄阳城」[-]，[FFFE0D]更高难度的试炼，更丰厚的奖励[-]，考验家族成员之间的默契配合，今晚[FFFE0D]21:00[-]与君共战！	Coin|1000
+OpenLevel119	-1	跨服攻城战	SendTimeFrameMail	6	4:05										OpenCrossDomainBattle	1	活动预告\n    【预告】%date开放新内容：跨服攻城战。\n   各位武林同道，一起来为自己的家族争夺领地吧！我们的最终目标是争夺临安城王座、为成为临安城主而战。\n   活动详情请查看活动日历界面！	Coin|1000	1
+OpenLevel129	1	120级野外首领	SendTimeFrameMail		4:05										OpenLevel129	1	活动预告\n    【预告】%date开放新内容：120级野外首领。\n   活动详情请查看活动日历界面的野外首领活动介绍！	Coin|1000
+OpenLevel149	-2	角色等级149级	SendTimeFrameMail		4:05										OpenLevel149	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放13阶装备打造、角色等级限制开放至149级。	Coin|1000
+OpenLevel149	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel159	-2	角色等级159级	SendTimeFrameMail		4:05										OpenLevel159	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放14阶装备打造、角色等级限制开放至159级。	Coin|1000
+OpenLevel159	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel169	-2	角色等级169级	SendTimeFrameMail		4:05										OpenLevel169	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放15阶装备打造、角色等级限制开放至169级。	Coin|1000
+OpenLevel169	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel179	-2	角色等级179级	SendTimeFrameMail		4:05										OpenLevel179	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放16阶装备打造、角色等级限制开放至179级。	Coin|1000
+OpenLevel179	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel189	-2	角色等级189级	SendTimeFrameMail		4:05										OpenLevel189	1	活动预告\n    【预告】%date开放新内容：家族建筑（兵甲坊、首饰坊、防具坊）开放17阶装备打造、角色等级限制开放至189级。	Coin|1000
+OpenLevel189	1	西域行商	SendTimeFrameMail		4:05											1	贾有钱的飞鸽传书\n见信好：\n    江湖只知商会万金财，却少有人知我西域商贾有钱。此次西行收获颇多，我将会在拍卖行[FFFE0D]停留3天[-]，[FFFE0D]每天19:05[-]开设专场拍卖。届时将竞拍[FFFE0D]各类稀有珍品[-]，诸位侠士们可不要错过哦！	Coin|1000
+OpenLevel129	1	开放第四个门客位	SendTimeFrameMail		4:05										OpenLevel129	1	门客位开启预告\n    【预告】%date开放新内容：第四个门客位，可以给第四个同伴配置门客了!	Coin|1000	1

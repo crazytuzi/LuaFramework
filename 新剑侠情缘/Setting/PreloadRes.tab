@@ -1,0 +1,21 @@
+MapTID	ResPath	CheckFunc
+1003	Scenes/Meshes/jj_jingjichang01/donghua/Main Camera.controller	
+999	Scenes/camera/xinshoucun/xsc_qgcam1.controller	
+999	Effect/Prefabs/JueSe/xiaoyao/xy_logo.prefab	
+999	Effect/Prefabs/JueSe/TR/tr_logo.prefab	
+999	Effect/Prefabs/JueSe/taohua/th_logo.prefab	
+999	Effect/Prefabs/JueSe/WuDang1/wd_logo.prefab	
+999	Effect/Prefabs/JueSe/emei/em_logo.prefab	
+999	Effect/Prefabs/JueSe/TW/tw_logo.prefab	
+999	Effect/Prefabs/ChangJing/xsc_scene_logo.prefab	
+999	Effect/Prefabs/ChangJing/xsc_logo_hei.prefab	
+10	Scenes/camera/luoyang/luoyang_cam1.controller	CameraAnimation
+10	Effect/Prefabs/ChangJing/luoyang_zimu.prefab	CameraAnimation
+10	Effect/Prefabs/ChangJing/luoyang_cam1.prefab	CameraAnimation
+2	Effect/Prefabs/ChangJing/XinShouGuan/CJ_xinshouguan02_baozha.prefab	
+2	UI/Prefabs/HomeScreen/BgBlackAll.prefab	
+2	UI/Prefabs/Fuben/BlackScreenPlotPanel.prefab	
+15	Scenes/camera/cj_linan01/linan_cam1.controller	CameraAnimation
+15	Effect/Prefabs/ChangJing/linan_cam1_hei.prefab	CameraAnimation
+15	Effect/Prefabs/ChangJing/linan_cam1_scene.prefab	CameraAnimation
+-1	Player/Npcs/Prefabs/npc_268.prefab	

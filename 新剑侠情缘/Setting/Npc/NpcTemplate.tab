@@ -1,0 +1,833 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	DefaultDialog	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	WalkSpeed	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	IsNotShowShadow	FixExperience	SyncFirst	IsNotBYStealLife	Sex
+Fb_Protect_1	71	白衣女子	0	0	FubenDeath		105	3	103			205	57	1					560	980	Setting/Npc/Ai/CommonActive2.ini			1	20																			
+Fb_Protect_2	72	红缨侍	0	1	FubenDeath		108					201	21	1					560	980	Setting/Npc/Ai/CommonActive.ini			1	15	1					900000													
+chuansong	73	传送门	4	0			8					1							560	980				1	15																			
+chuansong_X	3677	传送门	4	0			3677					1							560	980				1	15																			
+chuansong_X1	3683	传送门	4	0			3683					1							560	980				1	15																			
+Changjing_hehua	232	荷花	5	0			355					1																																
+qinggong	74	上升气流	4	0			361					1							560	980				1	15																	1		
+Task_xs_1	75	纳兰真	2	1			177	13	113	这是默认对话		1							560	980				1	17	1																		
+Task_xs_2	76	纳兰潜凛	2	1			21	210	310			1							560	980				1	17	1																		
+Test_muzhuang	81	木桩-稳如泰山	0	1			11					100							560	980				1	15	1	1																	
+Test_muzhuang_1	244	木桩	0	1			11					100							560	980				1	15	1																		
+Test13	82	被动怪	0	1	FubenDeath		11					1	21	1					560	980	Setting/Npc/Ai/CommonPassive.ini			1	15	1																		
+Test14	83	主动怪	0	1	FubenDeath		11					1	38	1					560	980	Setting/Npc/Ai/ComboTest.ini			1	15	1																		
+Test_combo	84	测试AI连招	0	1			1				10	2	201	1	202	1	203	1	560	980	Setting/Npc/Ai/CommonActive.ini			1	15	1																		
+test_damo	3745	达摩	0	1			1267					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+Test_pt1	85	不是我的伙伴	3	1			11												560	980	Setting/Npc/Ai/partner/FellowCommon.ini			1	15	1																		
+Test_pt2	86	不是你的伙伴	3	1			13						201	1					560	980	Setting/Npc/Ai/partner/FellowCommon.ini			1	17	1																		
+Test_pt3	87	不是他的伙伴	3	1			103						501	1					560	980	Setting/Npc/Ai/partner/FellowCommon.ini			1	17	1																		
+City_touxian	88	独孤剑	2	1	ZhenFaTaskNpc		32	210	310	一人之力，终究难以回天！早些团结周围的力量，组成联盟，方能长盛不衰！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	17	1																		
+City_jingjichang	89	南宫飞云	2	1			5027	207	307			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_huodongjieyin	90	活动接引人	2	1	ActivityNpc		177	13	113			1	35	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_lingtuzhan	91	刘云	2	1			107	213	313			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_shiliangu	92	张风	2	1			1119	15	115			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	17	1																		
+City_jiazu	93	家族管理员	2	1			11	226	326			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_qianghua	94	强化	2	1			139	203	303			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_shanghui	95	小紫烟	2	1			191	802	802	这位客官好俊呐，可打算与心仪之人登上小楼听雨舫？若未获得船票，可从我这儿直接购买哦！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_chiyoumu	96	蚩尤墓	2	1			115	214	314			1	22	1							Setting/Npc/Ai/CommonActive.ini			0	18	1																		
+City_butou	97	月眉儿	2	1			1102	22	122	哼！敢跟我们飞龙堡作对！看来这些小贼是活得太轻松了！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_jiayuan	98	卫兵	2	1			150	11	111	誓守临安，以死卫城！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	17	1																		
+City_jiulou	99	公孙惜花	2	1	ActivityQuestion		189	5	105	听闻从前有个「百晓生」什么都知道，今后我这「隐香楼」的老板娘便要超过他！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_tiejiang	100	孟知秋	2	1			156	203	303	手中无剑，心中有剑，人即是剑，无坚不摧！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc1	620	唐影	2	1			119	201	301	也许吧……不知何时，才能找到那个懂我的人……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc2	621	张琳心	2	1			1100	996	997			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc3	622	紫轩	2	1			131	20	120	我是选美大会的司仪，负责大会的报名和投票事宜。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc4	623	殷方	2	1			125	208	308	（偷偷摸摸）那个拿着折扇的青年看上去武功很高！就决定是他了！		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc5	624	杨影枫	2	1			1101	225	325	「武道德经」……么？若是能将此物拿到手，兴许爹爹的愿望就能完成了……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc6	625	张如梦	2	1			193	214	314	时光不可追溯，只可一路向前……		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc7	626	玄天道人	2	1			5016	211	311	道可道，非常道，名可名，非恒名。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc8	627	家族总管	2	1			107	19	119			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc9	629	纳兰潜凛	2	1	SwornFriendsNpc1		187	212	312	人在江湖，身不由己。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc10	630	陆文龙	2	1			144	205	305			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc11	631	燕若雪	2	1	LoverNpc		1129	727	727			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc12	632	蔷薇	2	1			103	18	118	爹爹真是老糊涂了！卓非凡那家伙有什么好的？哼！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc13	633	杨瑛	2	1			141	17	117			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc14	693	腾云	4	1			426	999				1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc15	694	秋依水	2	1			158	218	318	「武道德经」出世，只怕武林又要掀起一场腥风血雨……		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc16	699	驾雾	4	1			427	999				1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc17	1350	柴嵩	2	1			132	999				1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+City_npc18	2752	龙五	2	1			658	999				1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TianWang_Master	1527	杨瑛	2	1			141	17	117			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+XiaoYao_Master	1528	祝子虚	2	1			214	216	316			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+Emei_Master	1529	清晓师太	2	1			185	2	102			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TaoHua_Master	1530	黄暮云	2	1	CardPickHelper		209	16	116			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TianRen_Master	1531	道一真人	2	1			1116	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+WuDang_Master	1532	端木睿	2	1			1122	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+ShaoLin_Master	2659	玄因	2	1			1132	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+CuiYan_Master	2660	秋依水	2	1			1153	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TangMen_Master	2661	唐仇	2	1			1175	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+KunLun_Master	2662	璇玑子	2	1			1150	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+GaiBang_Master	2663	石轩辕	2	1			1168	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+WuDu_Master	2664	黑面郎君	2	1			1167	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+CangJian_Master	2665	叶无心	2	1			1217	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+ChangGe_Master	2666	萧玉竹	2	1			1219	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TianShan_Master	2667	天音	2	1			1231	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+BaDao_Master	2924	王腾	2	1			1241	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+HuaShan_Master	2972	孟苍岚	2	1			1243	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+MingJiao_Master	3316	明教教主	2	1			712	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+Music_diaoxiang	3686	诗音阁雕像	2	0	GoodVoiceStatue		565		993			1									Setting/Npc/Ai/KeepMoving.ini			0	10	3						NoTurn		10	5									
+HuaShan_Master0	3197	神秘人	2	1			1243	999	999	凡事都逃不过一个情字啊！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TianWang_Leader	1533	杨铁心	2	1			5211	999	999	「天王」属性为[FFFE0D]金[-]，克制[FFFE0D]木[-]属性的[FFFE0D]逍遥、唐门、五毒、华山[-]，进可乘胜追击，退可控敌暂避，擅长攻坚！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+XiaoYao_Leader	1534	柳潇庭	2	1			5210	999	999	「逍遥」属性为[FFFE0D]木[-]，克制[FFFE0D]土[-]属性的[FFFE0D]武当、昆仑、长歌、万花[-]，滑若游鱼，迅若飞鸟，控敌与指掌之间！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+Emei_Leader	1535	无想	2	1			5212	999	999	「峨嵋」属性为[FFFE0D]水[-]，克制[FFFE0D]火[-]属性的[FFFE0D]桃花、天忍、丐帮、明教[-]，佛心慈佑，救济世人，心若冰清，天塌不惊。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TaoHua_Leader	1536	李恬儿	2	1			5209	999	999	「桃花」属性为[FFFE0D]火[-]，克制[FFFE0D]金[-]属性的[FFFE0D]天王、少林、藏剑、霸刀、杨门[-]，百里之外取人首级，未见其人，先见其矢。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TianRen_Leader	1537	李天目	2	1			6111	999	999	「武当」属性为[FFFE0D]土[-]，克制[FFFE0D]水[-]属性的[FFFE0D]峨嵋、翠烟、天山、段氏[-]，融阴阳之道，攻可剑芒凌霄，守可剑气化盾。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+WuDang_Leader	1538	完颜襄	2	1			1131	999	999	「天忍」属性为[FFFE0D]火[-]，克制[FFFE0D]金[-]属性的[FFFE0D]天王、少林、藏剑、霸刀、杨门[-]，伺机而动，一击必中！十步杀一人，千里不留行！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+ShaoLin_Leader	2668	玄慈	2	1			1169	999	999	「少林」属性为[FFFE0D]金[-]，克制[FFFE0D]木[-]属性的[FFFE0D]逍遥、唐门、五毒、华山[-]，阿弥陀佛，练就一身铜皮铁骨，擅长以守代攻。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+CuiYan_Leader	2669	尹筱雨	2	1			1149	999	999	「翠烟」属性为[FFFE0D]水[-]，克制[FFFE0D]火[-]属性的[FFFE0D]桃花、天忍、丐帮、明教[-]，灵宠熊猫来助战，冰罗华伞雨成霜。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TangMen_Leader	2670	唐晓	2	1			1166	999	999	「唐门」属性为[FFFE0D]木[-]，克制[FFFE0D]土[-]属性的[FFFE0D]武当、昆仑、长歌、万花[-]，擅长暗器、陷阱，步步为营，巧劲制敌！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+KunLun_Leader	2671	宋秋石	2	1			1165	999	999	「昆仑」属性为[FFFE0D]土[-]，克制[FFFE0D]水[-]属性的[FFFE0D]峨嵋、翠烟、天山、段氏[-]，天雷妙法，控敌无踪，飞剑御体，来去自如。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+GaiBang_Leader	2672	何人我	2	1			1170	999	999	「丐帮」属性为[FFFE0D]火[-]，克制[FFFE0D]金[-]属性的[FFFE0D]天王、少林、藏剑、霸刀、杨门[-]，步法精妙，精于躲闪，擒龙控鹤，敌所难逃！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+WuDu_Leader	2673	古嫣然	2	1			1174	999	999	「五毒」属性为[FFFE0D]木[-]，克制[FFFE0D]土[-]属性的[FFFE0D]武当、昆仑、长歌、万花[-]，天下毒尊，掌控五毒灵兽，沾毒者必将受尽折磨而亡！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+CangJian_Leader	2674	叶青阳	2	1			1218	999	999	「藏剑」属性为[FFFE0D]金[-]，克制[FFFE0D]木[-]属性的[FFFE0D]逍遥、唐门、五毒、华山[-]，只可攻，不善守，以身为剑，无坚不摧！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+ChangGe_Leader	2675	冰仪	2	1			1210	999	999	「长歌」属性为[FFFE0D]土[-]，克制[FFFE0D]水[-]属性的[FFFE0D]峨嵋、翠烟、天山、段氏[-]，轻音霓裳，妙曼舞姿势，得我舞者，得武之助！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+TianShan_Leader	2676	惊雪	2	1			1232	999	999	「天山」属性为[FFFE0D]水[-]，克制[FFFE0D]火[-]属性的[FFFE0D]桃花、天忍、丐帮、明教[-]，以万年不化之天山寒霜内力侵入敌体，削弱其身。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+BaDao_Leader	2925	王云潇	2	1			1242	999	999	「霸刀」属性为[FFFE0D]金[-]，克制[FFFE0D]木[-]属性的[FFFE0D]逍遥、唐门、五毒、华山[-]，最擅背水一战，置之死地而后生！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+HuaShan_Leader	2973	林青羽	2	1			1244	999	999	「华山」属性为[FFFE0D]木[-]，克制[FFFE0D]土[-]属性的[FFFE0D]武当、昆仑、长歌、万花[-]，身法灵动，飘逸自如，万花丛中过，片叶不沾身！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+MingJiao_Leader	3317	风行周	2	1			711	999	999	「明教」属性为[FFFE0D]火[-]，克制[FFFE0D]金[-]属性的[FFFE0D]天王、少林、藏剑、霸刀、杨门[-]，步法精妙，精于躲闪，擒龙控鹤，敌所难逃！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+Fb_zhangai	104	副本动态障碍	5	1			312																	1		1																		
+CommerceTask	190	万金财	2	1	CommerceTask		146	206	306			1							560	980					17	1		109																
+CookMateria_Hunter	3833	小猎户	2	1	HuntingNpc		159	623	994	一二三四五，上山打老虎！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	17	1
+CookMaterial_Bear	3830		0	1			990	200	994			1112	166	1	200	1			600	10000	Setting/Npc/Ai/CommonPassive2.ini			1	20	2
+CookMaterial_Cai1	3758	菜	2	0	ClientCookGatherNpc		3753	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Cai2	3759	菜	2	0	CookGather		3753	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Chicken	3832		0	1			992	200	994			1112	166	1	200	1			600	10000	Setting/Npc/Ai/CommonPassive2.ini			1	20	2
+CookMaterial_Hetun1	3780	鱼篓	2	0	ClientCookGatherNpc		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Hetun2	3781	鱼篓	2	0	CookGather		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Jiangtuan1	3782	鱼篓	2	0	ClientCookGatherNpc		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Jiangtuan2	3783	鱼篓	2	0	CookGather		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Jidan1	3760	鸡蛋	2	0	ClientCookGatherNpc		3754	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Jidan2	3761	鸡蛋	2	0	CookGather		3754	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Lajiao1	3764	辣椒	2	0	ClientCookGatherNpc		3756	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Lajiao2	3765	辣椒	2	0	CookGather		3756	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Liyu1	3772	鱼篓	2	0	ClientCookGatherNpc		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Liyu2	3773	鱼篓	2	0	CookGather		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Luyu1	3774	鱼篓	2	0	ClientCookGatherNpc		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Luyu2	3775	鱼篓	2	0	CookGather		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Manyu1	3778	鱼篓	2	0	ClientCookGatherNpc		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Manyu2	3779	鱼篓	2	0	CookGather		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Pangxie1	3770	鱼篓	2	0	ClientCookGatherNpc		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Pangxie2	3771	鱼篓	2	0	CookGather		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Pig	3831		0	1			991	200	994			1112	166	1	200	1			600	10000	Setting/Npc/Ai/CommonPassive2.ini			1	20	2
+CookMaterial_Shui1	3756	水桶	2	0	ClientCookGatherNpc		3752	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Shui2	3757	水桶	2	0	CookGather		3752	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Xia1	3768	鱼篓	2	0	ClientCookGatherNpc		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Xia2	3769	鱼篓	2	0	CookGather		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Xianggu1	3762	香菇	2	0	ClientCookGatherNpc		3755	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Xianggu2	3763	香菇	2	0	CookGather		3755	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Yiner1	3766	银耳	2	0	ClientCookGatherNpc		3757	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Yiner2	3767	银耳	2	0	CookGather		3757	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Yinyu1	3776	鱼篓	2	0	ClientCookGatherNpc		3758	992	992			1							560	980				1	15							NoTurn
+CookMaterial_Yinyu2	3777	鱼篓	2	0	CookGather		3758	992	992			1							560	980				1	15							NoTurn
+BuffBall_white	202	白色能量球	5	0			346					1							560	980				1	15																			
+BuffBall_green	203	绿色能量球	5	0			347					1							560	980				1	15																			
+BuffBall_blue	204	蓝色能量球	5	0			348					1							560	980				1	15																			
+BuffBall_purple	205	紫色能量球	5	0			349					1							560	980				1	15																			
+BuffBall_red	206	红色能量球	5	0			350					1							560	980				1	15																			
+BuffBall_gold	207	金色能量球	5	0			351					1							560	980				1	15																			
+tansuo_baoxiang	208	探索宝箱	5	1			352					1							560	980				1	15																			
+KinGatherBox	1840	庆典宝箱	2	1	GatherBox	2707	352	995	300			1												1	15	1						NoTurn										1		
+KinDinnerGatherBox	3439	庆典宝箱	2	1	FamilyReunionDinnerBoxNpc	10438	352	995	300			1												1	15	1						NoTurn										1		
+KinFoKu_1	3733	天龙旗	0	1	KinFoKuBattle		737	200	994			1120			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+KinFoKu_2	3734	天龙珠	2	1	KinFoKuBattle		732	992	992										560	980				1	1																			
+PunishAttack_npc1	212	武林恶徒	0	1	PunishTaskAttack		123					51	21	1	91	1			3000	3000	Setting/Npc/Ai/CommonActive.ini			1	18			9																
+PunishAttack_npc2	214	武林恶徒	0	1	PunishTaskAttack		123					51	21	1	91	1			3000	3000	Setting/Npc/Ai/CommonActive.ini			1	18			10																
+PunishAttack_npc3	215	武林恶徒	0	1	PunishTaskAttack		123					52	21	1	91	1			3000	3000	Setting/Npc/Ai/CommonActive.ini			1	18			11																
+PunishAttack_npc4	216	武林恶徒	0	1	PunishTaskAttack		123					52	21	1	91	1			3000	3000	Setting/Npc/Ai/CommonActive.ini			1	18			12																
+PunishAttack_npc5	217	武林恶徒	0	1	PunishTaskAttack		123					53	21	1	91	1			3000	3000	Setting/Npc/Ai/CommonActive.ini			1	18			13																
+PunishDialog_npc1	213	武林恶徒	2	0	PunishTaskDialog		123					51	21	1					3000	3000					18			9																
+PunishDialog_npc2	219	武林恶徒	2	0	PunishTaskDialog		123					51	21	1					3000	3000					18			10																
+PunishDialog_npc3	218	武林恶徒	2	0	PunishTaskDialog		123					52	21	1					3000	3000					18			11																
+PunishDialog_npc4	220	武林恶徒	2	0	PunishTaskDialog		123					52	21	1					3000	3000					18			12																
+PunishDialog_npc5	221	武林恶徒	2	0	PunishTaskDialog		123					52	21	1					3000	3000					18	1		13																
+Eagle	222	腐食鹰	0	1	FubenDeath		113					3	22	1					3000	3000	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+Red_Security	223	红缨卫	0	1	FubenDeath		118					3	21	1					3000	3000	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+Yehao	224	叶浩	0	1	FubenDeath		119					3	21	1					3000	3000	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+LeavegGateNpc	225	离开地宫	4	0			8					1							560	980				1	15																			
+NextGateNpc	226	神秘入口	4	0			8					1							560	980				1	15																			
+KinRobber_np1	228	盗贼	2	0	KinRobber		174					3	21	1					3000	3000					18																			
+KinRobber_np2	229	盗贼	0	1	KinRobber		174					61	21	1	91	1			3000	3000	Setting/Npc/Ai/CommonActive.ini			1	18	1																		
+Onehand_big	231	独臂壮汉	0	1	FubenDeath		354					205	1359	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss8.ini			1	12	2																		
+Kin_Manager	266	家族总管	2	0	KinManager		107	213	313			3	21	1					3000	3000					18	1																		
+NoneRes	267		0	1			358					3	1398	1					3000	3000	Setting/Npc/Ai/RangeActive.ini			1	0	1	1																	
+Npc_Sword	268	剑	4	0			362					1							560	980				1	15																			
+WJ_dici	429	地刺	5	0			374					1							560	980				1	15																			
+WJ_gunshi	430	滚石	5	0			375					1							560	980				1	15																			
+WJ_jianqun	431	剑群	5	0			376					1							560	980				1	15																			
+WJ_kaiguan	432	开关	5	0			377					1							560	980				1	15																			
+WJ_paoche	433	炮车	5	0			378					1							560	980				1	15																			
+Fb_Stone	435	宝石矿	2	0	FubenDialogEvent	2,采集中...,DigStone	389	995																								NoTurn												
+Fb_Crystal	187	水晶矿	2	0	FubenDialogEvent	2,采集中...,DigCrystal	390	995																								NoTurn												
+digong_gouhuo	436	篝火	4	0	GouHuoNpc	all|3000|6|3000|0|10	380																	0																				
+digong_gouhuo_1	695	篝火	4	0	GouHuoNpc	all|3000|5|3000|0|6	380																	0																				
+Duanshi_fight	3460	段氏弟子	0	1	FubenDeath		1210	999	999			20000	21	1	63	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+Duanshi_Leader	3454	段智兴	2	1			1250	999	999	「段氏」属性为[FFFE0D]水[-]，克制[FFFE0D]火[-]属性的[FFFE0D]桃花、天忍、丐帮、明教[-]，扇出游龙，指若惊鸿，潇洒飘逸，翩翩贵公子。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+Duanshi_Master	3453	段正兴	2	1			1251	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+activity_dyr_gouhuo_1	2402	温暖的炉火	4	0	GouHuoNpc	teamfuben|3000|5|6000|0|12	945																	0																				
+task_gouhuo	453	篝火	5	0			380																																					
+zhiyin_jiantou	451	指引箭头	5	0			382																																					
+zhiyin_quan	452	指引圈	5	0			383																																					
+yw_commerce_npc1	454	灵猴	0	1			117				2700	3	1032	1					600	600	Setting/Npc/Ai/CommonActive.ini			1	18			21																
+yw_commerce_npc2	455	蛮熊	0	1			116				2700	3	1031	1					600	600	Setting/Npc/Ai/CommonActive.ini			1	18			21																
+yw_commerce_npc3	456	巨蝎	0	1			109				2700	3	1032	1					600	600	Setting/Npc/Ai/CommonActive.ini			1	18			21																
+yw_commerce_npc4	457	灰狼	0	1			115				2700	3	1031	1					600	600	Setting/Npc/Ai/CommonActive.ini			1	18			21																
+yw_commerce_npc5	458	金钱豹	0	1			111				2700	3	1031	1					600	600	Setting/Npc/Ai/CommonActive.ini			1	18	1		21																
+guangquan	459	上升气流	5	0			361					1							560	980				1	15																			
+kin_gouhuo_2	516	家族篝火火焰	5	0	GouHuoNpc	kin|10000|30|600|1|0	392																																					
+XinshouFb_enemy_1	517	强盗	0	1	FubenDeath		136					92	166	1					3000	3000	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+XinshouFb_Boss_1	518	神秘人	4	0	FubenDeath		24	200	994			91	194	1	91	1			1500	1500	Setting/Npc/Ai/fuben/newrole.ini			1	20	2					900006													
+XinshouFb_Boss_2	663	神秘人	0	1	FubenDeath		24	200	994			91	194	1	91	1			1500	1500	Setting/Npc/Ai/fuben/newrole.ini			1	20	2																		
+XinshouFb_Npc_1	519	卓非凡	4	0	FubenDeath		194	218	318			91	177	1	91	1			1500	1500	Setting/Npc/Ai/Stay.ini			1	20	1																		
+XinshouFb_Npc_2	520	卓非凡	0	0	FubenDeath		194	218	318			91	177	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+xs_shibing_dh	1150	重伤的宋兵	0	0	FubenDeath		477	200	300			92	166	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	3									2									
+xs_nalanzhen_dh	1221	神秘少女	0	0	FubenDeath		177	13	113			92	166	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1									2									
+xs_jinbing_gw	1151	金兵	0	1	FubenDeath		1127	200	300			92	166	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1									1									
+xs_jinbing_jy	1158	百夫长	0	1	FubenDeath		181	200	300			93	166	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1									3									
+xs_sishi_gw	1152	死士	0	1	FubenDeath		124	200	300			92	166	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1					900001													
+xs_jiangjun_hs	1153	大将军	0	0	FubenDeath		1113	209	309			91	177	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	2									2									
+xs_zhuofeifan_hs	1154	卓非凡	0	0	FubenDeath		194	218	318			91	177	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	2									2									
+YangMen_Leader	3827	杨荩忱	2	1			1279	999	999	「杨门」属性为[FFFE0D]金[-]，克制[FFFE0D]木[-]属性的[FFFE0D]逍遥、唐门、五毒、华山[-]，跃马弯弓踏九州，一杆长枪定乾坤！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1
+xs_shenmiren_bs	1155	神秘人	0	1	FubenDeath		24	200	994			91	194	1	91	1			1500	1500	Setting/Npc/Ai/fuben/newrole.ini			1	20	2									4									
+xs_dajiang_bs	2711	完颜华黎	0	1	FubenDeath		180	200	994			91	166	1	91	1			1500	1500	Setting/Npc/Ai/fuben/xinshouboss.ini			1	20	2									4									
+xs_shiti1	2712	金兵尸体	0	0	FubenDeath		1127	200	300			91	166	1					800	800	Setting/Npc/Ai/CommonActive.ini			1	20	3	1													1				
+xs_shiti2	2713	宋兵尸体	0	0	FubenDeath		1126	200	300			91												1	20	3	1													1				
+xs_shiti3	2714	武林人士尸体	0	0	FubenDeath		163	200	300			91												1	20	3	1													1				
+xs_shiti4	2715	武林人士尸体	0	0	FubenDeath		120	200	300			91												1	20	3	1													1				
+xs_shiti5	2716	武林人士尸体	0	0	FubenDeath		1210	200	300			91												1	20	3	1													1				
+xs_shiti6	2717	武林人士尸体	0	0	FubenDeath		142	200	300			91												1	20	3	1													1				
+UseImage_1	558	神秘女子						996	997																																			
+UseImage_2	559	神秘女子						998	999																																			
+UseImage_3	560	天王弟子						1001	1121																																			
+UseImage_4	561	峨嵋弟子						1002	1122																																			
+UseImage_5	562	桃花弟子						1003	1123																																			
+UseImage_6	563	逍遥弟子						1004	1124																																			
+UseImage_7	1228	武当弟子						1005	1125																																			
+UseImage_8	1229	天忍弟子						1006	1126																																			
+Fb_Npc_muziyi	577	沐紫衣	2	0	FubenDeath		176	1	101			305	56	1	91	1			3000	3000	Setting/Npc/Ai/Stay.ini			1	20	1																		
+QiYuMiJingNuQi	628	怒气	2	0	AdventureAnger	3|1000|开启中|下一波敌人即将出现，各位侠士请做好准备！	377					201												1		1																		
+Wlmz_boss	634	独孤剑	0	1	FubenDeath		32	654				801	1756	1	2304	1			1500	1500	Setting/Npc/Ai/normal/wlmz.ini			1	20	2																		
+Wlmz_boss2	1896	南宫飞云	0	1	FubenDeath		27	307				801	1759	1	2304	1			1500	1500	Setting/Npc/Ai/normal/wlmz_ngfy.ini			1	20	2																		
+Wlmz_boss3	1897	杨影枫	0	1	FubenDeath		536	225				801	1762	1	2304	1	1765	1	1500	1500	Setting/Npc/Ai/normal/wlmz_yyf.ini			1	20	2																		
+Wlmz_boss4	2189	唐简	0	1	FubenDeath		1190	661				801	1785	1	2304	1			1500	1500	Setting/Npc/Ai/normal/wlmz_tj.ini			1	20	2																		
+Wlmz_boss5	3329	鬼谷子	0	1	FubenDeath		1171	666				801	1793	1	2304	1			1500	1500	Setting/Npc/Ai/normal/wlmz_ggz.ini			1	20	2																		
+WuDang_Dizi1	3455	殷利亨	2	1			1252	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+WuDang_Dizi2	3456	张松溪	2	1			1253	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+WuDang_Dizi3	3457	宋远桥	2	1			1254	999	999			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+KinNest_gouhuo	654	篝火	4	0	GouHuoNpc	all|3000|5|500|0|12	380																	0																				
+KinNest_boss1	655	神秘高手	0	1	FubenDeath		152					815	182	1	91	1	1065	2	650	650	Setting/Npc/Ai/CommonActive.ini			1	20	2																		
+KinNest_boss2	656	神秘高手	0	1	FubenDeath		169					815	166	1	91	1	1065	2	650	650	Setting/Npc/Ai/CommonActive.ini			1	20	2																		
+KinNest_boss3	657	神秘高手	0	1	FubenDeath		24					815	23	1	91	1	1065	2	650	650	Setting/Npc/Ai/CommonActive.ini			1	20	2																		
+DungeonSoldier_1	1307	古代毒蝎	0	1	FubenDeath		109	200	300			401	21	1	105	1			1500	1500	Setting/Npc/Ai/fuben/DungeonSoldier1.ini			1	12	1																		
+DungeonSoldier_2	1308	古代毒蛛	0	1	FubenDeath		112	200	300			401	21	1	105	1			1500	1500	Setting/Npc/Ai/fuben/DungeonSoldier2.ini			1	15	1									1									
+DungeonSoldier_3	1309	古代毒蜂	0	1	FubenDeath		1182	200	300			401	1689	1	105	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	15	1									1									
+DungeonLeader_1	664	神秘守护者	0	1	FubenDeath		317	200	300			405	90	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss1.ini			1	17	2									4									
+KinTask_np1	672	小和尚	2	0	KinTaskNpc	673	163					3	21	1					3000	3000					18			300																
+KinTask_np2	673	小和尚	0	1	KinTaskFightNpc		163					62	21	1	91	1			600	600	Setting/Npc/Ai/CommonActive.ini			1	18	1		300																
+yewai_10_1	1748	泼皮	0	1	FieldMapNpc		170	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_10.tab	1	18	1							1			16		1754	800					
+yewai_10_2	1749	大刀马贼	0	1	FieldMapNpc		106	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_10.tab	1	18	1							1			16		1755	800					
+yewai_10_3	1750	鬼面刺客	0	1	FieldMapNpc		436	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_10.tab	1	18	1							1			16		1756	800					
+yewai_10_4	1751	恶霸	0	1	FieldMapNpc		173	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_10.tab	1	18	1							1			16		1757	800					
+yewai_10_5	1752	云游道士	0	1	FieldMapNpc		169	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_10.tab	1	18	1							1			16		1758	800					
+yewai_10_6	1753	东瀛女侍	0	1	FieldMapNpc		102	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_10.tab	1	18	1							1			16		1759	800					
+yewai_jy_10_1	1754	泼皮·精英	0	1	FieldMapNpc		170	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_10.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_10_2	1755	大刀马贼·精英	0	1	FieldMapNpc		106	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_10.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_10_3	1756	鬼面刺客·精英	0	1	FieldMapNpc		436	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_10.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_10_4	1757	恶霸·精英	0	1	FieldMapNpc		173	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_10.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_10_5	1758	云游道士·精英	0	1	FieldMapNpc		169	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_10.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_10_6	1759	东瀛女侍·精英	0	1	FieldMapNpc		102	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_10.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_20_1	1010	飞龙堡弟子	0	1	FieldMapNpc		151	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_20.tab	1	18	1							1			16		1016	800					
+yewai_20_2	1011	药王谷弟子	0	1	FieldMapNpc		139	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_20.tab	1	18	1							1			16		1017	800					
+yewai_20_3	1012	五色教弟子	0	1	FieldMapNpc		124	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_20.tab	1	18	1							1			16		1018	800					
+yewai_20_4	1013	流氓	0	1	FieldMapNpc		170	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_20.tab	1	18	1							1			16		1019	800					
+yewai_20_5	1014	南宫家守卫	0	1	FieldMapNpc		174	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_20.tab	1	18	1							1			16		1020	800					
+yewai_20_6	1015	武林败类	0	1	FieldMapNpc		134	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_20.tab	1	18	1							1			16		1021	800					
+yewai_jy_20_1	1016	飞龙堡弟子·精英	0	1	FieldMapNpc		151	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_20.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_20_2	1017	药王谷弟子·精英	0	1	FieldMapNpc		139	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_20.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_20_3	1018	五色教弟子·精英	0	1	FieldMapNpc		124	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_20.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_20_4	1019	流氓·精英	0	1	FieldMapNpc		170	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_20.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_20_5	1020	南宫家守卫·精英	0	1	FieldMapNpc		174	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_20.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_20_6	1021	武林败类·精英	0	1	FieldMapNpc		134	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_20.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_40_1	1022	女舞侍	0	1	FieldMapNpc		102	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_40.tab	1	18	1							1			16		1028	800					
+yewai_40_2	1023	大刀侍卫	0	1	FieldMapNpc		106	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_40.tab	1	18	1							1			16		1029	800					
+yewai_40_3	1024	恶人谷狂徒	0	1	FieldMapNpc		436	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_40.tab	1	18	1							1			16		1030	800					
+yewai_40_4	1025	江湖宵小	0	1	FieldMapNpc		170	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_40.tab	1	18	1							1			16		1031	800					
+yewai_40_5	1026	茅山道士	0	1	FieldMapNpc		169	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_40.tab	1	18	1							1			16		1032	800					
+yewai_40_6	1027	绿林豪客	0	1	FieldMapNpc		173	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_40.tab	1	18	1							1			16		1033	800					
+yewai_jy_40_1	1028	女舞侍·精英	0	1	FieldMapNpc		102	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_40.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_40_2	1029	大刀侍卫·精英	0	1	FieldMapNpc		106	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_40.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_40_3	1030	恶人谷狂徒·精英	0	1	FieldMapNpc		436	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_40.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_40_4	1031	江湖宵小·精英	0	1	FieldMapNpc		170	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_40.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_40_5	1032	茅山道士·精英	0	1	FieldMapNpc		169	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_40.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_40_6	1033	绿林豪客·精英	0	1	FieldMapNpc		173	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_40.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_40_pk_1	1222	恶人谷屠夫	0	1	FieldMapNpc		171	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_30_pk.tab	1	18	1							1			16		1224	8000					
+yewai_40_pk_2	1223	朝廷精锐	0	1	FieldMapNpc		150	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_30_pk.tab	1	18	1							1			16		1230	8000					
+yewai_jy_40_pk_1	1224	恶人谷屠夫·精英	0	1	FieldMapNpc		171	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_30_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_40_pk_2	1230	朝廷精锐·精英	0	1	FieldMapNpc		150	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_30_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_50_pk_1	1760	武林恶徒	0	1	FieldMapNpc		171	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_50_pk.tab	1	18	1							1			16		1762	8000					
+yewai_50_pk_2	1761	禁军士兵	0	1	FieldMapNpc		150	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_50_pk.tab	1	18	1							1			16		1763	8000					
+yewai_jy_50_pk_1	1762	武林恶徒·精英	0	1	FieldMapNpc		171	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_50_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_50_pk_2	1763	禁军士兵·精英	0	1	FieldMapNpc		150	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_50_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_60_1	1034	宋军士兵	0	1	FieldMapNpc		151	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_60.tab	1	18	1							1			16		1040	500					
+yewai_60_2	1035	采药人	0	1	FieldMapNpc		139	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_60.tab	1	18	1							1			16		1041	500					
+yewai_60_3	1036	神秘刺客	0	1	FieldMapNpc		124	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_60.tab	1	18	1							1			16		1042	500					
+yewai_60_4	1037	流窜匪类	0	1	FieldMapNpc		170	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_60.tab	1	18	1							1			16		1043	500					
+yewai_60_5	1038	蒙面刺客	0	1	FieldMapNpc		174	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_60.tab	1	18	1							1			16		1044	500					
+yewai_60_6	1039	无忧教弟子	0	1	FieldMapNpc		134	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_60.tab	1	18	1							1			16		1045	500					
+yewai_jy_60_1	1040	宋军士兵·精英	0	1	FieldMapNpc		151	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_60.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_60_2	1041	采药人·精英	0	1	FieldMapNpc		139	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_60.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_60_3	1042	神秘刺客·精英	0	1	FieldMapNpc		124	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_60.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_60_4	1043	流窜匪类·精英	0	1	FieldMapNpc		170	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_60.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_60_5	1044	蒙面刺客·精英	0	1	FieldMapNpc		174	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_60.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_jy_60_6	1045	无忧教弟子·精英	0	1	FieldMapNpc		134	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_60.tab	1	18	1			197	1			1		3	5000	50000							
+yewai_70_pk_1	1851	强盗	0	1	FieldMapNpc		171	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_70_pk.tab	1	18	1							1			16		1853	8000					
+yewai_70_pk_2	1852	朝廷叛军	0	1	FieldMapNpc		150	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_70_pk.tab	1	18	1							1			16		1854	8000					
+yewai_jy_70_pk_1	1853	强盗·精英	0	1	FieldMapNpc		171	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_70_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_70_pk_2	1854	朝廷叛军·精英	0	1	FieldMapNpc		150	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_70_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_80_1	1855	地痞	0	1	FieldMapNpc		170	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_80.tab	1	18	1							1			16		1861	500					
+yewai_80_2	1856	枫林卫	0	1	FieldMapNpc		106	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_80.tab	1	18	1							1			16		1862	500					
+yewai_80_3	1857	鬼面侍卫	0	1	FieldMapNpc		436	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_80.tab	1	18	1							1			16		1863	500					
+yewai_80_4	1858	市井之徒	0	1	FieldMapNpc		173	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_80.tab	1	18	1							1			16		1864	500					
+yewai_80_5	1859	市井神棍	0	1	FieldMapNpc		169	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_80.tab	1	18	1							1			16		1865	500					
+yewai_80_6	1860	东瀛歌姬	0	1	FieldMapNpc		102	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_80.tab	1	18	1							1			16		1866	500					
+yewai_jy_80_1	1861	地痞·精英	0	1	FieldMapNpc		170	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_80.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_80_2	1862	枫林卫·精英	0	1	FieldMapNpc		106	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_80.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_80_3	1863	鬼面侍卫·精英	0	1	FieldMapNpc		436	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_80.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_80_4	1864	市井之徒·精英	0	1	FieldMapNpc		173	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_80.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_80_5	1865	市井神棍·精英	0	1	FieldMapNpc		169	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_80.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_80_6	1866	东瀛歌姬·精英	0	1	FieldMapNpc		102	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_80.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_90_pk_1	2047	蛮熊	0	1	FieldMapNpc		116	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_90_pk.tab	1	18	1							1			16		2049	8000					
+yewai_90_pk_2	2048	狩猎者	0	1	FieldMapNpc		159	200	300		600	611	182	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_90_pk.tab	1	18	1							1			16		2050	8000					
+yewai_jy_90_pk_1	2049	蛮熊·精英	0	1	FieldMapNpc		116	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_90_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_90_pk_2	2050	狩猎者·精英	0	1	FieldMapNpc		159	200	300			612	182	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_90_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_100_1	2067	灵猴	0	1	FieldMapNpc		117	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16		2073	500					
+yewai_100_2	2068	采药人	0	1	FieldMapNpc		139	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16		2074	500					
+yewai_100_3	2069	江洋大盗	0	1	FieldMapNpc		174	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16		2075	500					
+yewai_100_4	2070	灰狼	0	1	FieldMapNpc		115	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16		2076	500					
+yewai_100_5	2071	金兵	0	1	FieldMapNpc		1127	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16		2077	500					
+yewai_100_6	2072	采花贼	0	1	FieldMapNpc		173	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16		2078	500					
+yewai_jy_100_1	2073	灵猴·精英	0	1	FieldMapNpc		117	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_100.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_100_2	2074	采药人·精英	0	1	FieldMapNpc		139	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_100.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_100_3	2075	江洋大盗·精英	0	1	FieldMapNpc		174	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_100.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_100_4	2076	灰狼·精英	0	1	FieldMapNpc		115	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_100.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_100_5	2077	金兵·精英	0	1	FieldMapNpc		1127	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_100.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_100_6	2078	采花贼·精英	0	1	FieldMapNpc		173	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_100.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_110_pk_1	2414	宋军精锐	0	1	FieldMapNpc		151	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_110_pk.tab	1	18	1							1			16		2416	8000					
+yewai_110_pk_2	2415	金军精锐	0	1	FieldMapNpc		1127	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_110_pk.tab	1	18	1							1			16		2417	8000					
+yewai_jy_110_pk_1	2416	宋军精锐·精英	0	1	FieldMapNpc		151	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_110_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_110_pk_2	2417	金军精锐·精英	0	1	FieldMapNpc		1127	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_110_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_120_1	2703	大漠匪类	0	1	FieldMapNpc		106	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_120.tab	1	18	1							1			16		2707	500					
+yewai_120_2	2704	大漠恶人	0	1	FieldMapNpc		436	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_120.tab	1	18	1							1			16		2708	500					
+yewai_120_3	2705	摸金校尉	0	1	FieldMapNpc		106	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_120.tab	1	18	1							1			16		2709	500					
+yewai_120_4	2706	皇陵守卫	0	1	FieldMapNpc		1127	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_120.tab	1	18	1							1			16		2710	500					
+yewai_jy_120_1	2707	大漠匪类·精英	0	1	FieldMapNpc		106	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_110_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_120_2	2708	大漠恶人·精英	0	1	FieldMapNpc		436	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_110_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_120_3	2709	摸金校尉·精英	0	1	FieldMapNpc		106	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_110_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_120_4	2710	皇陵守卫·精英	0	1	FieldMapNpc		1127	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_110_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_130_pk_1	2904	荒漠饿狼	0	1	FieldMapNpc		115	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_130.tab	1	18	1							1			16		2906	8000					
+yewai_130_pk_2	2905	荒漠悍匪	0	1	FieldMapNpc		436	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_130.tab	1	18	1							1			16		2907	8000					
+yewai_jy_130_pk_1	2906	荒漠饿狼·精英	0	1	FieldMapNpc		115	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_130_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_130_pk_2	2907	荒漠悍匪·精英	0	1	FieldMapNpc		436	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_130_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_140_1	3320	东瀛歌姬	0	1	FieldMapNpc		102	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_140.tab	1	18	1							1			16		3324	8000					
+yewai_140_2	3321	采药人	0	1	FieldMapNpc		139	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_140.tab	1	18	1							1			16		3325	8000					
+yewai_140_3	3322	蛮熊	0	1	FieldMapNpc		116	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_140.tab	1	18	1							1			16		3326	8000					
+yewai_140_4	3323	狩猎者	0	1	FieldMapNpc		159	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_140.tab	1	18	1							1			16		3327	8000					
+yewai_150_pk_1	3449	宋军精锐	0	1	FieldMapNpc		151	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_150.tab	1	18	1							1			16		3451	8000					
+yewai_150_pk_2	3450	金军精锐	0	1	FieldMapNpc		1127	200	300		600	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_150.tab	1	18	1							1			16		3452	8000					
+yewai_160_1	3735	滇边恶匪	0	1	FieldMapNpc		436	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_160.tab	1	18	1							1			16		3739	1000					
+yewai_160_2	3736	采药人	0	1	FieldMapNpc		139	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_160.tab	1	18	1							1			16		3740	1000					
+yewai_160_3	3737	蒙面水贼	0	1	FieldMapNpc		174	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_160.tab	1	18	1							1			16		3741	1000					
+yewai_160_4	3738	江南侍女	0	1	FieldMapNpc		102	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_160.tab	1	18	1							1			16		3742	1000					
+yewai_180_1	3800	漠北苍狼	0	1	FieldMapNpc		115	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_180.tab	1	18	1							1			16		3804	300
+yewai_180_2	3801	漠北恶匪	0	1	FieldMapNpc		436	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_180.tab	1	18	1							1			16		3805	300
+yewai_180_3	3802	朔北药农	0	1	FieldMapNpc		139	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_180.tab	1	18	1							1			16		3806	300
+yewai_180_4	3803	极地猎人	0	1	FieldMapNpc		159	200	300		500	611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_180.tab	1	18	1							1			16		3807	300
+yewai_jy_140_1	3324	东瀛歌姬·精英	0	1	FieldMapNpc		102	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_140.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_140_2	3325	采药人·精英	0	1	FieldMapNpc		139	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_140.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_140_3	3326	蛮熊·精英	0	1	FieldMapNpc		116	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_140.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_140_4	3327	狩猎者·精英	0	1	FieldMapNpc		159	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_140.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_150_pk_1	3451	宋军精锐·精英	0	1	FieldMapNpc		151	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_150_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_150_pk_2	3452	金军精锐·精英	0	1	FieldMapNpc		1127	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_150_pk.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_160_1	3739	滇边恶匪·精英	0	1	FieldMapNpc		436	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_160.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_160_2	3740	采药人·精英	0	1	FieldMapNpc		139	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_160.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_160_3	3741	蒙面水贼·精英	0	1	FieldMapNpc		174	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_160.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_160_4	3742	江南侍女·精英	0	1	FieldMapNpc		102	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_160.tab	1	18	1			197	1			1		3	5000	30000							
+yewai_jy_180_1	3804	漠北苍狼·精英	0	1	FieldMapNpc		115	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_180.tab	1	18	1			197	1			1		3	5000	100000
+yewai_jy_180_2	3805	漠北恶匪·精英	0	1	FieldMapNpc		436	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_180.tab	1	18	1			197	1			1		3	5000	100000
+yewai_jy_180_3	3806	朔北药农·精英	0	1	FieldMapNpc		139	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_180.tab	1	18	1			197	1			1		3	5000	100000
+yewai_jy_180_4	3807	极地猎人·精英	0	1	FieldMapNpc		159	200	300			612	166	1	91	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_jy_180.tab	1	18	1			197	1			1		3	5000	100000
+yewai_gouhuo_1	1073	篝火	5	0	GouHuoNpc		380																																					
+HighCangbaotu_npc1	1253	夺宝贼	0	1	DuoBaoZei		134					611	166	1	91	1			500	500	Setting/Npc/Ai/CommonActive.ini			1	18	1																		
+wanglaoji_1	1339	王小吉	2	1			1123	1	308			1	56	1										0	15	1																		
+WanHua_Leader	3747	张承素	2	1			1266	999	999	「万花」属性为[FFFE0D]土[-]，克制[FFFE0D]水[-]属性的[FFFE0D]峨嵋、翠烟、天山、段氏[-]，使判官笔，一身长衫，儒侠风范。		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+daiyanren_1	1666	挺哥	2	1	SpokesmanTask		1134			“寂寞双煞”武功高强，少侠可结伴前往追捕。本人终身幸福托于少侠，盼少侠平安带“又缘糕”归来。		1	56	1										0	15	1																		
+ZhaoYouTing	2116	林更新	2	1			1179			我有酒，你有故事么？		1	56	1	1696	1								0	15	1																		
+daiyanren_2	1667	小缘	2	1			1133			没想到挺师弟如此有心，竟知晓我爱吃“又缘糕”，更是请出“兔小灰”与“兔小白”。		1	56	1										0	15	1																		
+daiyanren_3	1668	寂	0	1			11					612	22	1	91	1			500	500	Setting/Npc/Ai/random/murongyue.ini			1	17	2																		
+daiyanren_4	1669	寞	0	1			12					612	21	1	91	1			500	500	Setting/Npc/Ai/random/murongyue.ini			1	17	2																		
+daiyanren_5	1677	挺哥	2	1	ClientTaskNpc		1134		993			1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+daiyanren_9	1685	小缘	2	1	ClientTaskNpc		1133		993	听闻“兔小灰”与“兔小白”大师现身襄阳，曾做出百年难得一见的“又缘糕”，不知我是否有幸品尝。		1	56	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+daiyanren_7	1679	挺哥	0	1			1134					1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+daiyanren_6	1678	小缘	0	1			1133					1	56	1							Setting/Npc/Ai/CommonActive.ini			0	20	3																		
+Npc_Horse	1613	马	4	1			479	999				1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+LT_anquanqu	1720	征战营地·明亮	5	0			501	200	994			91									Setting/Npc/Ai/Stay.ini			0	15	3	1													1				
+LT_anquanqu1	1721	征战营地·普通	5	0			502	200	994			91									Setting/Npc/Ai/Stay.ini			0	15	3	1													1				
+LT_anquanqu2	1722	征战营地·昏暗	5	0			503	200	994			91									Setting/Npc/Ai/Stay.ini			0	15	3	1													1				
+LT_gate	1723	城门	0	1	BattleNpc		504	200	994			1001			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	2	1					NoTurn										1	1	
+LT_gate_v	1777	城门	0	1	BattleNpc		504	200	994			1002			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	2	1					NoTurn										1	1	
+LT_longzhu_sun	1724	日耀龙柱	0	1	BattleNpc		499	200	994			1008			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+LT_longzhu_moon	1725	月华龙柱	0	1	BattleNpc		498	200	994			1009			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+LT_longzhu_star	1726	星辉龙柱	0	1	BattleNpc		498	200	994			1009			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+LT_gongcc_bs	1727	攻城车	0	0			506	200	994			1003	194	1	91	1	105	1	1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+LT_jinnc_bs	1728	劲弩车	0	0			480	200	994			1004	194	1	91	1	105	1	1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+LT_tiepc_bs	1729	铁炮车	0	0			378	200	994			1005	194	1	91	1	105	1	1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+LT_shenss_zh	1730	神射手	0	0	BattleNpc		159	200	994			1006	1731	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+LT_guwq_zh	1731	鼓舞旗	0	0	BattleNpc		505	200	994			1007			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1		2	1		1732	1														
+LT_guide_invisible	1732	隐藏指引	6	0			469	200	994			91			91	1			1500	1500	Setting/Npc/Ai/Stay.ini			0	20	3														1				
+LT_bsdh_gongcc	1733	攻城车·变身	2	0	DomainBattleChange	攻城车|2218|3600	506	200	994	攻城车可以对城门造成额外大量伤害，是攻城必备装置。		1003			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	3						NoTurn												
+LT_bsdh_jinnc	1734	劲弩车·变身	2	0	DomainBattleChange	劲弩车|2219|3600	480	200	994	劲弩车能对路径上的敌人造成较高伤害，伤害值固定，建议自身能力较弱的玩家操作以获得提升。		1004			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	3						NoTurn												
+LT_bsdh_tiepc	1735	铁炮车·变身	2	0	DomainBattleChange	铁炮车|2220|3600	378	200	994	铁炮车能对定点敌人造成大量伤害，伤害值固定，建议自身能力较弱的玩家操作以获得提升。		1005			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	3						NoTurn												
+LT_diaoxiang_tw	1771	天王城主雕像	0	0			508	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_em	1772	峨眉城主雕像	0	0			509	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_th	1773	桃花城主雕像	0	0			510	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_xy	1774	逍遥城主雕像	0	0			511	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_wd	1775	武当城主雕像	0	0			512	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_tr	1776	天忍城主雕像	0	0			513	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_gouhuo	1817	城战篝火火焰	5	0	GouHuoNpc	kin|3000|12|1000|0|15	392																																					
+Card_ljf_d6	1821	一堆书籍	2	0	CardCollectionGather	2616|5|2	519	995																								NoTurn												
+Card_ljf_d7	1822	一本经书	2	0	CardCollectionGather	2618|5|2	520	995																								NoTurn												
+Card_ljf_e3	1823	一封书信	2	0	CardCollectionGather	2624|5|2	521	995																								NoTurn												
+Card_ljf_e9	1824	心魔宝珠	2	0	CardCollectionGather	2631|5|2	486	995																								NoTurn												
+Card_ljf_g10	2066	乾坤袋	2	0	CardCollectionGather	3388|5|2	566	995																								NoTurn												
+Arena_np1	1829	武僧	2	0	ArenaNpc	ArenaEnterNpc	163																					115																
+Arena_np2	1830	武僧	2	0	ArenaNpc	ArenaManagerNpc	163																					116																
+Xisuidao_npc	1831	纳兰真	2	1	ChangeFactionDialog		177	13	113			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+TeacherStudent_npc	1839	上官飞龙	2	0	TeacherStudentNpc		5021	607	310																			160																
+LT_diaoxiang_tw_new	1841	天王城主雕像	2	0	MainCityMaster	1	532	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_em_new	1842	峨眉城主雕像	2	0	MainCityMaster	2	531	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_th_new	1843	桃花城主雕像	2	0	MainCityMaster	3	533	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_xy_new	1844	逍遥城主雕像	2	0	MainCityMaster	4	527	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_wd_new	1845	武当城主雕像	2	0	MainCityMaster	5	529	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_tr_new	1846	天忍城主雕像	2	0	MainCityMaster	6	534	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_sl_new	1847	少林城主雕像	2	0	MainCityMaster	7	528	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_cy_new	1848	翠烟城主雕像	2	0	MainCityMaster	8	530	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_tm_new	2000	唐门城主雕像	2	0	MainCityMaster	9	537	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_kl_new	2002	昆仑城主雕像	2	0	MainCityMaster	10	538	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_gb_new	2215	丐帮城主雕像	2	0	MainCityMaster	11	586	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_wudu_new	2216	五毒城主雕像	2	0	MainCityMaster	12	587	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_cj_new	2379	藏剑城主雕像	2	0	MainCityMaster	13	608	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_cg_new	2380	长歌城主雕像	2	0	MainCityMaster	14	609	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_tsma_new	2655	天山男城主雕像	2	0	MainCityMaster	15	646	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_tsfe_new	2656	天山女城主雕像	2	0	MainCityMaster	15	647	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_bdma_new	2909	霸刀男城主雕像	2	0	MainCityMaster	16	689	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_bdfe_new	2910	霸刀女城主雕像	2	0	MainCityMaster	16	690	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_wdfe_new	2911	武当女城主雕像	2	0	MainCityMaster	5	691	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_hsma_new	2966	华山男城主雕像	2	0	MainCityMaster	17	699	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_hsfe_new	2967	华山女城主雕像	2	0	MainCityMaster	17	700	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_klma_new	2968	昆仑男城主雕像	2	0	MainCityMaster	10	701	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_mjma_new	3280	明教男城主雕像	2	0	MainCityMaster	18	708	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_mjfe_new	3281	明教女城主雕像	2	0	MainCityMaster	18	709	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_twfe_new	3282	天王女城主雕像	2	0	MainCityMaster	1	710	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+HSLJ_diaoxiang_tw	1886	天王华山论剑雕像	0	0			532	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_em	1887	峨眉华山论剑雕像	0	0			531	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_th	1888	桃花华山论剑雕像	0	0			533	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_xy	1889	逍遥华山论剑雕像	0	0			527	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_xyfe	3445	逍遥女华山论剑雕像	0	0			718	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_ymfe	3797	杨门女华山论剑雕像	0	0			741	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn
+HSLJ_diaoxiang_ymma	3796	杨门男华山论剑雕像	0	0			740	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn
+HSLJ_diaoxiang_wd	1890	武当华山论剑雕像	0	0			529	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_tr	1891	天忍华山论剑雕像	0	0			534	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_trfe	3798	天忍男华山论剑雕像	0	0			742	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn
+HSLJ_diaoxiang_sl	1892	少林华山论剑雕像	0	0			528	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_cy	1893	翠烟华山论剑雕像	0	0			530	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_dsfe	3444	段氏女华山论剑雕像	0	0			717	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_dsma	3443	段氏男华山论剑雕像	0	0			716	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_tm	2118	唐门华山论剑雕像	0	0			537	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_kl	2119	昆仑华山论剑雕像	0	0			538	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_gb	2221	丐帮华山论剑雕像	0	0			586	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_gbfe	3729	丐帮女华山论剑雕像	0	0			731	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_wd1	2220	五毒华山论剑雕像	0	0			587	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_cj	2381	藏剑华山论剑雕像	0	0			608	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_cg	2382	长歌华山论剑雕像	0	0			609	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_tsma	2677	天山男华山论剑雕像	0	0			646	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_tsfe	2678	天山女华山论剑雕像	0	0			647	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_bdma	2912	霸刀男华山论剑雕像	0	0			689	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_bdfe	2913	霸刀女华山论剑雕像	0	0			690	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_wdfe	2914	武当女华山论剑雕像	0	0			691	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_whfe	3728	万花女华山论剑雕像	0	0			730	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_whma	3727	万花男华山论剑雕像	0	0			729	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_hsma	2969	华山男华山论剑雕像	0	0			699	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_hsfe	2970	华山女华山论剑雕像	0	0			700	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_klma	2971	昆仑男华山论剑雕像	0	0			701	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_mjma	3283	明教男华山论剑雕像	0	0			708	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_mjfe	3284	明教女华山论剑雕像	0	0			709	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+HSLJ_diaoxiang_twfe	3285	天王女华山论剑雕像	0	0			710	200	994	会当凌绝顶，一览众山小！		91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3						NoTurn												
+zhongqiu_dati	1895	中秋使者	2	1			183	200	994	中秋佳节倍思亲，祝天下人都能团团圆圆。我这有些题目你能回答吗？（每日4点，答题次数刷新)		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	3									5									
+hd_yd_xuedui	2120	雪堆	5	0			553	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_yd_xueren_big	2121	柔弱的雪人	2	0	NYSnowmanNpc		555	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			1							1		
+hd_yd_xueren_big2	2151	顽强的雪人	2	0	NYSnowmanNpc		568	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			2							1		
+hd_yd_xueren_big3	2152	普通的雪人	2	0	NYSnowmanNpc		569	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			3							1		
+hd_yd_xueren_big4	2153	精致的雪人	2	0	NYSnowmanNpc		570	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			4							1		
+hd_yd_xueren_big5	2154	巨大的雪人	2	0	NYSnowmanNpc		571	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			5							1		
+hd_yd_xueren_big6	2155	壮观的雪人	2	0	NYSnowmanNpc		572	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			6							1		
+hd_yd_xueren_big7	2156	超级大雪人	2	0	NYSnowmanNpc		573	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			7							1		
+hd__sd_shengdanshaonv	2122	圣诞少女	5	0			1154	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1					NoTurn												
+hd__sd_shengdanlaoren	2123	圣诞老人	2	0			1160	200	994	圣诞节来了，我这里有些礼物，你们要吗？		100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1																	
+hd__sd_shengdanshu	2124	圣诞树	5	0			554	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_nianshou	2125	年兽	6	1			1159	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_nianshou1	2150	年兽-隐藏	6	1			469	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn								1				
+hd_dxz_bs01	2126	雪仗小男孩	0	0			1155	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1					NoTurn												
+hd_dxz_bs02	2127	雪仗小女孩	0	0			1156	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1					NoTurn												
+hd_dxz_bs03	2128	狮帽小男孩	0	0			1157	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1					NoTurn												
+hd_dxz_bs04	2129	狮帽小女孩	0	0			1158	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1					NoTurn												
+hd_dxz_xueren01	2130	神奇雪人	2	0	FubenDialogEvent	2,采集中...,GatherNpc	539	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xueren02	2131	神奇雪人	2	0	FubenDialogEvent	2,采集中...,GatherNpc	540	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xueren03	2132	神奇雪人	2	0	FubenDialogEvent	2,采集中...,GatherNpc	543	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xueren04	2133	神奇雪人	2	0	FubenDialogEvent	2,采集中...,GatherNpc	542	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xueren05	2134	小雪人	0	0			541	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xueren06	2135	雪堆	2	0	FubenDialogEvent	2,采集中...,GatherNpc	553	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_bujian01	3713	齿轮	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	20020	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_bujian02	3714	轴承	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	20019	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_bujian03	3715	水莲	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	3208	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_bujian04	3716	盔甲	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	672	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_huowa01	3719	火娃	0	0			1256	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1					NoTurn												
+hd_miehuo_jijia01	3717	玄武机甲	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	3219	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_jijia02	3718	玄武机甲	2	0			1255	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				10	3	1					NoTurn												
+hd_miehuo_jineng01	3707	昆仑雪	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	553	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_jineng02	3708	昆仑玄水	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	727	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_jineng03	3709	昆仑玄水	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	679	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_jineng04	3710	昆仑玄水	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	680	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_jineng05	3711	昆仑玄水	2	0	WarOfIceAndFireDialogEvent	2,采集中...,GatherNpc	728	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_laolong01	3712	天火牢笼	2	0	WarOfIceAndFireDialogEvent	2,打开中...,GatherNpc	695	995	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_miehuo_shuiwa01	3706	水娃	0	0			1257	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1					NoTurn												
+hd_dxz_xianjing01	2136	冰原陷阱	2	0	FubenDialogEvent	1,采集中...,GatherNpc	544	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xianjing02	2137	冰原陷阱	2	0	FubenDialogEvent	1,采集中...,GatherNpc	545	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xianjing03	2138	冰原陷阱	2	0	FubenDialogEvent	1,采集中...,GatherNpc	546	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xianjing04	2139	冰原陷阱	2	0	FubenDialogEvent	1,采集中...,GatherNpc	547	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_xianjing05	2140	冰原陷阱	2	0	FubenDialogEvent	1,采集中...,GatherNpc	548	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_shenfu01	2141	雪原神符	2	0	FubenDialogEvent	1,采集中...,GatherNpc	549	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_shenfu02	2142	雪原神符	2	0	FubenDialogEvent	1,采集中...,GatherNpc	550	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_shenfu03	2143	雪原神符	2	0	FubenDialogEvent	1,采集中...,GatherNpc	551	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_dxz_shenfu04	2144	雪原神符	2	0	FubenDialogEvent	1,采集中...,GatherNpc	552	992	992			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn										1		
+hd_yx_huadeng	2145	花灯	2	0			556	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn												
+hd_zs_tree01	2146	青翠树苗	2	0			557	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn												
+hd_zs_tree02	2147	茂盛小树	2	0			558	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn												
+hd_zs_tree03	2148	茁壮树木	2	0			559	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn												
+hd_zs_tree04	2149	参天大树	2	0			560	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn												
+Hd_cyjl_1	2051	成语接龙NPC	0	1	FubenDeath		190		993		30	403	166	1	200	1			500	500	Setting/Npc/Ai/CommonPassive.ini			1	18	1										1								
+jiebai_npc	2056	纳兰潜凛	2	1	SwornFriendsNpc2		187	212	312			1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+hd_yd_xueren_box	2159	雪人宝箱	2	0	NYSnowmanBox		574	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			1									
+hd_yd_xueren_box2	2160	雪人宝箱	2	0	NYSnowmanBox		574	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			2									
+hd_yd_xueren_box3	2161	雪人宝箱	2	0	NYSnowmanBox		574	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			3									
+hd_yd_xueren_box4	2162	雪人宝箱	2	0	NYSnowmanBox		574	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			4									
+hd_yd_xueren_box5	2163	雪人宝箱	2	0	NYSnowmanBox		574	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			5									
+hd_yd_xueren_box6	2164	雪人宝箱	2	0	NYSnowmanBox		574	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			6									
+hd_yd_xueren_box7	2165	雪人宝箱	2	0	NYSnowmanBox		574	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			7									
+Partner_skill_bq	2166		7	1			523		300			31	3227	1	836	1			1500	1500	Setting/Npc/Ai/partner/partner_qinshihuang_hujia.ini			1	18	3									1								1	
+hd_ny_nianhuo	2171	年货	2	0	MonsterNianDlgNpc		574	200	994			100							1000	1000	Setting/Npc/Ai/Stay.ini			1	20	3	1					NoTurn			2							1		
+hd_ny_nianshou	2172	凶残的年兽	0	1			576	200	994			10000	91	1	3523	1			1000	1000	Setting/Npc/Ai/Activity/nianshou.ini			1	20	3									6							1	1	
+hd_ny_yanhua	2173	散落的烟花	2	0	FireworkPickNpc		566	200	994			100							1000	1000	Setting/Npc/Ai/Stay.ini			1	20	3	1					NoTurn			2							1		
+hd_ny_houzi	2174	小猴子	0	1			575				2700	3	1032	1					600	600	Setting/Npc/Ai/CommonActive.ini			1	18			21																
+hd_ny_nianshoubox	2185	年兽宝箱	2	0	MonsterNianGatherBox	3713	352	995	300			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn			1							1		
+House_npc	2279	颖宝宝	2	1	HouseManagerNpc		1178		993	这位侠士，你需要建房么？		1	56	1	1697	1					Setting/Npc/Ai/CommonActive.ini			0	15	3																		
+BeautyPageant_npc1	2304	选美宣传使者	0	0			565		993			1									Setting/Npc/Ai/KeepMoving.ini			0	10	3								10										
+BeautyPageant_npc2	2305	选美宣传使者	0	0			565		993			1									Setting/Npc/Ai/KeepMoving.ini			0	10	3								10										
+BeautyPageant_diaoxiang	2306	选美雕像（本服冠军）	2	0	KinElectStatue		565		993			1									Setting/Npc/Ai/KeepMoving.ini			0	10	3						NoTurn		10	5									
+BeautyPageant_diaoxiang2	2336	选美雕像（全服冠军）	2	0	KinElectStatue		565		993			1									Setting/Npc/Ai/KeepMoving.ini			0	10	3						NoTurn		10	5									
+Daiyanren_lingengxin	2324	林更新	2	1			1179			我有酒，你有故事么？		1	56	1	1696	1								0	15	1																		
+Daiyanren_zhaoliying	2325	颖宝宝	2	1			1178			苍生血泪千帆尽，同舟共济与君还		1	56	1	1697	1								0	15	1																		
+Daiyanren_City_lingengxin	2326	林更新	2	1	SampleHouseManagerNpc		1179			大侠快来我家与我共饮一杯		1	56	1	1696	1								0	15	1																		
+Daiyanren_City_zhaoliying	2327	颖宝宝	2	1	ProlocutorNpc		1178			倘若各位不嫌弃，请到寒舍奉茶		1	56	1	1697	1								0	15	1																		
+Daiyanren_House_lingengxin	2330	林更新	0	1			1179					1	56	1	1696	1					Setting/Npc/Ai/KeepMoving.ini			0	8	1								8										
+Daiyanren_House_zhaoliying	2331	颖宝宝	2	1			1178			欢迎到访寒舍做客~		1	56	1	1697	1					Setting/Npc/Ai/KeepMoving.ini			0	7	1																		
+Marry_ManLevel1	2353	新郎	0	0			601					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_ManLevel2	2354	新郎	0	0			590					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_ManLevel3	2355	新郎	0	0			591					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_WomanLevel1	2356	新娘	0	0			602					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_WomanLevel2	2357	新娘	0	0			603					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_WomanLevel3	2358	新娘	0	0			604					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_LoliLevel1	2359	新娘（萝莉）	0	0			605					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_LoliLevel2	2360	新娘（萝莉）	0	0			606					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_LoliLevel3	2361	新娘（萝莉）	0	0			607					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_huajiaoLevel1	2362	花轿	0	0			596					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_huajiaoLoliLevel1	2365	花轿萝莉	0	0			597					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_HorseLevel3	2370	新郎骑马	0	0			598					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_yuelao	2371	月老	2	0	YueLaoNpc	CityNpc	600	9041		千里姻缘一线牵，少侠可是来寻红线的另一头？		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3		125						7										
+Marry_Fuben_yuelao	2535	月老	2	0	YueLaoNpc	FubenNpc	600	9041		天生才子佳人配，只羡鸳鸯不羡仙！		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3		125						7										
+Marry_hongniang	2372	红娘	2	0	hongNiangNpc		599	9039		愿无岁月可回头，且以深情共白首。		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3		126						7										
+Marry_huatong1	2373	凤囍	2	0	HuaTongNpc		595	9040		嘻嘻，你是不是有心上人了？说不定月爷爷能帮到你。		1									Setting/Npc/Ai/KeepMoving.ini			1	7	3		124						7										
+Marry_huatong2	2374		0	0			594			凤囍（撒花）（游城时固定坐标）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_chuisuona	2375		0	0			592			吹唢呐（游城时固定坐标）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_qiaoluo	2376		0	0			593			敲锣（游城时固定坐标）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_hongniang	2385		0	0			599			红娘（游城）（还未被使用）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_huatong1	2386		0	0			594			凤囍1（游城队伍里的花童）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_huatong2	2387		0	0			594			凤囍2（游城队伍里的花童）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_huatong3	2388		0	0			594			凤囍3（游城队伍里起点的花童）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_huatong4	2389		0	0			594			凤囍4（游城队伍里起点的花童）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_huatong5	2638		0	0	WeddingTourNpc		594			凤囍3（游城结束后，宣传用的巡逻花童1，负责喊话）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_huatong6	2639		0	0	WeddingTourNpc		594			凤囍4（游城结束后，宣传用的巡逻花童2）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_chuisuona1	2390		0	0			592			吹唢呐1（还未被使用）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_chuisuona2	2391		0	0			592			吹唢呐2（还未被使用）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_chuisuona3	2394		0	0			592			吹唢呐3（还未被使用）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_chuisuona4	2395		0	0			592			吹唢呐4（还未被使用）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_qiaoluo1	2392		0	0			593			敲锣1（还未被使用）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+MarryTourMap_qiaoluo2	2393		0	0			593			敲锣2（还未被使用）		1									Setting/Npc/Ai/KeepMoving.ini			0	7	3								7										
+Marry_bianpao	2396	开心爆竹	0	0			612					1									Setting/Npc/Ai/KeepMoving.ini			0	7	3						NoTurn		7										
+Marry_box	2397	喜糖礼盒	2	1	WeddingCandyNpc		613	9038				1									Setting/Npc/Ai/KeepMoving.ini			0	7	3						NoTurn		7										
+Marry_tongxinguo	2398	同心果	2	1	ConcentricFruitNpc		614	9037				1									Setting/Npc/Ai/KeepMoving.ini			0	7	3						NoTurn		7										
+Marry1_TableFood_1	2537	姻缘美满	2	1	WeddingTableNpc	60	20010	9034				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry1_TableFood_2	2538	喜庆满堂	2	1	WeddingTableNpc	60	20010	9034				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry1_TableFood_3	2539	花好月圆	2	1	WeddingTableNpc	60	20010	9034				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry1_TableFood_4	2540	永结连理	2	1	WeddingTableNpc	60	20010	9034				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry1_TableFood_5	2541	百年好合	2	1	WeddingTableNpc	60	20010	9034				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry2_TableFood_1	2542	姻缘美满	2	1	WeddingTableNpc	60	20011	9035				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry2_TableFood_2	2543	喜庆满堂	2	1	WeddingTableNpc	60	20011	9035				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry2_TableFood_3	2544	花好月圆	2	1	WeddingTableNpc	60	20011	9035				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry2_TableFood_4	2545	永结连理	2	1	WeddingTableNpc	60	20011	9035				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry2_TableFood_5	2546	百年好合	2	1	WeddingTableNpc	60	20011	9035				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry3_TableFood_1	2547	姻缘美满	2	1	WeddingTableNpc	60	20012	9036				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry3_TableFood_2	2548	喜庆满堂	2	1	WeddingTableNpc	60	20012	9036				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry3_TableFood_3	2549	花好月圆	2	1	WeddingTableNpc	60	20012	9036				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry3_TableFood_4	2550	永结连理	2	1	WeddingTableNpc	60	20012	9036				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry3_TableFood_5	2551	百年好合	2	1	WeddingTableNpc	60	20012	9036				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry_gouhuo	2552		4	0	GouHuoNpc	all|30000|10|250|0|147	469																	0																0				
+Marry2_gouhuo	2629		4	0	GouHuoNpc	all|30000|10|340|0|161	469																	0																0				
+Marry3_gouhuo	2630		4	0	GouHuoNpc	all|30000|10|340|0|161	469																	0																0				
+Marry1_Table	2556		0	0		60	20002			第一档空桌		1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry2_Table	2557		0	0		60	20005			第二档空桌		1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Marry3_Table	2558		0	0		60	20008			第三档空桌		1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+test_yewuxing	2449	叶无心	0	1			1217					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_zhangchengsu	3744	张承素	0	1			1266					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_yeqingyang	2450	叶青阳	0	1			1218					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_xiaoyuzhu	2451	萧玉竹	0	1			1219					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_bingyi	2452	冰仪	0	1			1210					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+Marry3_wanjincai	2624	万金财	0	0			146					1									Setting/Npc/Ai/KeepMoving.ini			0	10	3								10										
+Marry3_lingengxin	2625	林更新	0	0			1179					1									Setting/Npc/Ai/KeepMoving.ini			0	10	3								10										
+Marry3_xiaocaiyan	2626	小紫烟	0	0			191					1									Setting/Npc/Ai/KeepMoving.ini			0	10	3								10										
+Marry3_xiaoyinfang	2627	小殷方	0	0			125					1									Setting/Npc/Ai/KeepMoving.ini			0	10	3								10										
+Marry3_xiaoyintong	2628	小殷童	0	0			192					1									Setting/Npc/Ai/KeepMoving.ini			0	10	3								10										
+xisuidao_gold	2648	天机制式傀儡-金	0	1	FixExpNpc		190		993		15	8	166	1	200	1			500	500				1	18	1										1								
+xisuidao_Wood	2649	天机制式傀儡-木	0	1	FixExpNpc		190		993		15	9	166	1	200	1			500	500				1	18	1										1								
+xisuidao_Water	2650	天机制式傀儡-水	0	1	FixExpNpc		190		993		15	10	166	1	200	1			500	500				1	18	1										1								
+xisuidao_Fire	2651	天机制式傀儡-火	0	1	FixExpNpc		190		993		15	13	166	1	200	1			500	500				1	18	1										1								
+xisuidao_Earth	2652	天机制式傀儡-土	0	1	FixExpNpc		190		993		15	12	166	1	200	1			500	500				1	18	1										1								
+Marry_huaquan	2654		0	0		60	20013			婚礼主台的花，用来围城花圈		1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+House_animal_1	2679	小白	0	0			20300			汪汪汪……		1									Setting/Npc/Ai/KeepMoving.ini				7	3								7										
+House_animal_2	2680	小黑	0	0			20301			喵~~		1									Setting/Npc/Ai/KeepMoving.ini				7	3								7										
+House_animal_3	2941	波斯	0	0			20302			喵~~		1									Setting/Npc/Ai/KeepMoving.ini				7	3								7										
+House_animal_4	3428	小捌	0	0			20303			呼噜呼噜……		1									Setting/Npc/Ai/KeepMoving.ini				7	3								7										
+diaoxiangyuliu_huapen	2681	花盆	5	0			648	200	994			100							560	980	Setting/Npc/Ai/Stay.ini			1	17	3	1					NoTurn												
+test_101	2685	女村民	0	1			649					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_102	2686	马贼1	0	1			650					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_103	2687	马贼2	0	1			651					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_104	2688	灾民	0	1			652					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_105	2689	刺客1	0	1			653					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_106	2690	刺客2	0	1			654					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_107	2691	小女孩	0	1			655					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_108	2692	武官	0	1			656					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_109	2693	赵云	0	1			657					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_110	2694	无名	0	1			658					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_111	2695	天山掌门	0	1			659					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_112	2696	天山师姐	0	1			660					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_113	2697	小师妹	0	1			661					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+test_114	2718	张凤凤	0	1			3					611	166	1	200	1			600	600		1	Setting/Npc/DropFile/yewai/yewai_100.tab		18	3							1			16								
+test_115	2719	王炫凰	0	1			1008					611	166	1	200	1			600	600		1	Setting/Npc/DropFile/yewai/yewai_100.tab		18	3							1			16								
+test_116	2720	李传侠	0	1			4					611	166	1	200	1			600	600		1	Setting/Npc/DropFile/yewai/yewai_100.tab		18	3							1			16								
+test_117	2721	刘剑奇	0	1			1003					611	166	1	200	1			600	600		1	Setting/Npc/DropFile/yewai/yewai_100.tab		18	3							1			16								
+ActSkillNPC_1	2827	放技能专用隐形NPC	6	1	FubenDeath		469	200	300			343							1000	1000	Setting/Npc/Ai/CommonActive.ini			1	0	1									1					1				
+tianlao_shouwei	2828	万金财	2	0	PrisonHelper		146	206	306	只要你把钱给我，我就有本事让你提前离开这鬼地方！																						NoTurn			3									
+tianlao_Boss	2829	白起	0	1	FieldMapNpc		523	8002	300		15	655	3023	1	91	1	1065	1	3000	3000	Setting/Npc/Ai/Tomb/baiqi.ini			1	18	2									6								1	
+tianlao_juhua	2830	菊花	5	0			666	200	994																							NoTurn												
+kufu_longzhu_king1	2831	「天覆」龙柱	0	1	cross_domain_pillar		499	200	994			1010			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kufu_longzhu_king2	2832	「地载」龙柱	0	1	cross_domain_pillar		499	200	994			1010			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kufu_longzhu_king3	2833	「风扬」龙柱	0	1	cross_domain_pillar		499	200	994			1010			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kufu_longzhu_king4	2834	「云垂」龙柱	0	1	cross_domain_pillar		499	200	994			1010			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kufu_longzhu_king5	2835	「龙飞」龙柱	0	1	cross_domain_pillar		499	200	994			1010			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kufu_longzhu_king6	2836	「虎翼」龙柱	0	1	cross_domain_pillar		499	200	994			1010			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kufu_longzhu_king7	2837	「鸟翔」龙柱	0	1	cross_domain_pillar		499	200	994			1010			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kufu_longzhu_king8	2838	「蛇蟠」龙柱	0	1	cross_domain_pillar		499	200	994			1010			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kuafu_longzhu_outer1	2839	「北」龙柱	0	1	cross_domain_pillar		498	200	994			1011			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kuafu_longzhu_outer2	2840	「中」龙柱	0	1	cross_domain_pillar		498	200	994			1011			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kuafu_longzhu_outer3	2841	「南」龙柱	0	1	cross_domain_pillar		498	200	994			1011			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kuafu_gate_outer	2842	城门	0	1	cross_domain_wall		504	200	994			1012			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	2	1					NoTurn										1	1	
+kuafu_gate_inner1	2843	「青龙」守护碑	0	1	cross_domain_wall		20015	200	994			1013			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	2	1					NoTurn										1	1	
+kuafu_gate_inner2	2844	「朱雀」守护碑	0	1	cross_domain_wall		20018	200	994			1013			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	2	1					NoTurn										1	1	
+kuafu_gate_inner3	2845	「白虎」守护碑	0	1	cross_domain_wall		20016	200	994			1013			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	2	1					NoTurn										1	1	
+kuafu_gate_inner4	2846	「玄武」守护碑	0	1	cross_domain_wall		20017	200	994			1013			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	2	1					NoTurn										1	1	
+kuafu_wangzuo	2847	临安王座	2	0	cross_domain_throne		20014	9045	9045			1014			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+kuafu_gongcc_bs	2848	攻城车	2	0	corss_domain_change	攻城车|2218|3600	506	200	994	攻城车可以对城门造成额外大量伤害，是攻城必备装置。		1003			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	3						NoTurn												
+kuafu_jinnc_bs	2849	劲弩车	2	0	corss_domain_change	劲弩车|2219|3600	480	200	994	劲弩车能对路径上的敌人造成较高伤害，伤害值固定，建议自身能力较弱的玩家操作以获得提升。		1004			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	3						NoTurn												
+kuafu_tiepc_bs	2850	铁炮车	2	0	corss_domain_change	铁炮车|2220|3600	378	200	994	铁炮车能对定点敌人造成大量伤害，伤害值固定，建议自身能力较弱的玩家操作以获得提升。		1005			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	3						NoTurn												
+kuafu_shenss_zh	2851	神射手	0	0	corss_domain_attack		159	200	994			1006	1731	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+kuafu_guwq_zh	2852	鼓舞旗	0	0	corss_domain_attack		505	200	994			1007			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1		2	1		1732	1														
+kuafu_wangzuo_2	2853	王座专用隐形NPC	6	1			469	200	300			1014							1000	1000	Setting/Npc/Ai/CommonActive.ini			1	0	3									1					1				
+kuafu_wangzuo_fight	2870	占据王座	0	0	cross_domain_throne_fight		20014	9045	9045			1014			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+Field_Header_lv120_Show1	2871	巨螯蜂后	0	1			667	9043				611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1																		
+Field_Header_lv120_Show2	2872	龙纹狮王	0	1			668	9042				611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1																		
+Field_Header_lv140_Show1	3330	万毒棘皇	0	1			714	9048				611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1																		
+Field_Header_lv140_Show2	3331	玄冰貂皇	0	1			713	9049				611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1																		
+Field_Header_lv160_Show1	3731	磐石牛王	0	1			738	9050				611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1																		
+Field_Header_lv160_Show2	3732	炙炎牛后	0	1			739	9051				611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1																		
+hd_ny_denglong	2873	红灯笼	2	0	LanternPickNpc		669	995	300																							NoTurn												
+PetDog	2874	小白犬	0	0	DogPetNpc		20300	10001	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+PetCat	2875	小黑猫	0	0	CatPetNpc		20301	10002	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+PetCat_White	2943	小波斯	0	0	CatPetNpc		20302	10003	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+PetCat_Show	2949	小黑猫	0	0			20301	10002	994			10000							1000	1000	Setting/Npc/Ai/Stay.ini				20	3								10	1							1	1	
+PetCat_VIP	3684	小黑猫	0	0	DogPetNpc		20301	10002	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+PetCat_White_Show	2950	小波斯	0	0			20302	10003	994			10000							1000	1000	Setting/Npc/Ai/Stay.ini				20	3								10	1							1	1	
+PetPig	3429	小捌	0	0	CatPetNpc		20303	10004	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+PetRabbit	3746	小白兔	0	0	CatPetNpc		20305	10005	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+PetSquirrel	3799	小松鼠	0	0	CatPetNpc		20306	10006	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1
+PetCat_LoveTask	3242	情缘猫	0	0	CatPetNpc		20301	10002	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+Test_xuanjizi	2926	璇玑子	0	1			1223	10002	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+test_yangjinchen	3826	杨荩忱	0	1			1279					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16
+test_yangjizhou	3825	杨继周	0	1			1278					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16
+Test_daoyizhenren	2927	道一真人	0	1			1236	10002	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+test_linfengtang	3743	林枫棠	0	1			1265					611	166	1	200	1			600	600	Setting/Npc/Ai/CommonPassive.ini	1	Setting/Npc/DropFile/yewai/yewai_100.tab	1	18	1							1			16								
+GoodVoice_npc	2939	好声音宣传使者	0	0			1232		993			1									Setting/Npc/Ai/KeepMoving.ini			0	10	3								10										
+GoodVoice_diaoxiang	2940	好声音雕像	2	0	GoodVoiceStatue		565		993			1									Setting/Npc/Ai/KeepMoving.ini			0	10	3						NoTurn		10	5									
+GoodVoice_taohuaban	2944	桃花瓣	2	1	TaoHuaNpc		698	9046				1												1	10	1						NoTurn										1		
+GoodVoice_horse1	2945	螭魅雪狐	0	0			929		993			1							1000	1000	Setting/Npc/Ai/Stay.ini				10	3								10										
+GoodVoice_horse2	2946	幽炎·螭魅雪狐	0	0			930		993			1							1000	1000	Setting/Npc/Ai/CommonActive.ini				10	3								10										
+TeamTreatureTrans_1to2	2954	传送银符	2	1	FubenDialogEvent	0,,OpenKey	550		550										560	980				1	1										3									
+TeamTreatureTrans_2to3	2955	传送金符	2	1	FubenDialogEvent	0,,OpenKey	549		549										560	980				1	1										7									
+TeamTreature_dropbox	2956	掉落宝箱	2	1	FubenDialogEvent	0,,OpenDeathDropItem	933	995	933										560	980				1	1							NoTurn												
+TeamTreature_findbox	2957	宝箱	2	1	FubenDialogEvent	1,采集中...,OpenBox,2957	2957	995	2957			1							1000	1000					10							NoTurn		10										
+TeamTreature_transanimol	2958	偷吃猴	0	1	FubenDeath		2958		2958			6	22	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	20	2								20	3									
+TeamTreature_boss1	3217	偷吃猴王	0	1	FubenDeath		3217		3217			653	22	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	20	2								20	5									
+TeamTreature_findbox2	2959	宝箱	2	1	FubenDialogEvent	1,采集中...,OpenBox,2959	2957	995	2957			1							1000	1000					10							NoTurn		10	2									
+TeamTreature_transanimol2	2960	盗宝贼	0	1	FubenDeath		143		300			6	22	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini				15	2								15	4									
+TeamTreature_findbox3	2961	宝箱	2	1	FubenDialogEvent	10,采集中...,OpenBox,2961	2957	995	2957			1							1000	1000					10							NoTurn		10	3									
+TeamTreature_findbigbox3	2962	巨型宝箱	2	1	FubenDialogEvent	30,采集中...,OpenTeamBox,2962	2962	995	2962			1							1000	1000					10							NoTurn		10	6									
+jiazuPK_1	2974	龙柱	0	1	KinEncounterNpc		499	200	994			1101			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_1_2	3163	龙柱	0	1	KinEncounterNpc		499	200	994			1102			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_1_3	3162	龙柱	0	1	KinEncounterNpc		499	200	994			1103			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_1_4	3164	龙柱	0	1	KinEncounterNpc		499	200	994			1104			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_1_5	3165	龙柱	0	1	KinEncounterNpc		499	200	994			1105			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_1_6	3166	龙柱	0	1	KinEncounterNpc		499	200	994			1106			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_1_7	3167	龙柱	0	1	KinEncounterNpc		499	200	994			1107			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_2	2975	封渊神木	0	1	KinEncounterNpc		702	200	994			1108			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_2_2	3168	封渊神木	0	1	KinEncounterNpc		702	200	994			1109			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_2_3	3169	封渊神木	0	1	KinEncounterNpc		702	200	994			1110			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_2_4	3170	封渊神木	0	1	KinEncounterNpc		702	200	994			1111			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_2_5	3171	封渊神木	0	1	KinEncounterNpc		702	200	994			1112			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_2_6	3172	封渊神木	0	1	KinEncounterNpc		702	200	994			1113			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_2_7	3173	封渊神木	0	1	KinEncounterNpc		702	200	994			1114			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_3	2976	东·粮仓	0	1	KinEncounterNpc		703	200	994			1108			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_3_2	3174	东·粮仓	0	1	KinEncounterNpc		703	200	994			1109			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_3_3	3175	东·粮仓	0	1	KinEncounterNpc		703	200	994			1110			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_3_4	3176	东·粮仓	0	1	KinEncounterNpc		703	200	994			1111			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_3_5	3177	东·粮仓	0	1	KinEncounterNpc		703	200	994			1112			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_3_6	3178	东·粮仓	0	1	KinEncounterNpc		703	200	994			1113			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_3_7	3179	东·粮仓	0	1	KinEncounterNpc		703	200	994			1114			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_4	3155	雄常神木	0	1	KinEncounterNpc		702	200	994			1108			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_4_2	3180	雄常神木	0	1	KinEncounterNpc		702	200	994			1109			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_4_3	3181	雄常神木	0	1	KinEncounterNpc		702	200	994			1110			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_4_4	3182	雄常神木	0	1	KinEncounterNpc		702	200	994			1111			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_4_5	3183	雄常神木	0	1	KinEncounterNpc		702	200	994			1112			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_4_6	3184	雄常神木	0	1	KinEncounterNpc		702	200	994			1113			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_4_7	3185	雄常神木	0	1	KinEncounterNpc		702	200	994			1114			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_5	3156	西·粮仓	0	1	KinEncounterNpc		703	200	994			1108			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_5_2	3186	西·粮仓	0	1	KinEncounterNpc		703	200	994			1109			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_5_3	3187	西·粮仓	0	1	KinEncounterNpc		703	200	994			1110			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_5_4	3188	西·粮仓	0	1	KinEncounterNpc		703	200	994			1111			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_5_5	3189	西·粮仓	0	1	KinEncounterNpc		703	200	994			1112			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_5_6	3190	西·粮仓	0	1	KinEncounterNpc		703	200	994			1113			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_5_7	3191	西·粮仓	0	1	KinEncounterNpc		703	200	994			1114			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1	
+jiazuPK_6	3192	劲弩车	2	0	KinEncounterChange	劲弩车|5143|3600	480	200	994	劲弩车能对路径上的敌人造成较高伤害，伤害值固定，建议自身能力较弱的玩家操作以获得提升。		1004			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			0	20	3						NoTurn												
+jiazuPK_7	3193	劲弩车	0	0			480	200	994			1004	194	1	91	1	105	1	1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+jiuguanboss	3198	老板娘	2	1	FemaleBoss		1103	999	999	选择不同，视角不同，对真相的了解顺序亦不同									1500	1500	Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+jiuguanboss_fb	3214	老板娘	2	1			1103	999	999	忘忧酒馆，一醉忘忧！									1500	1500	Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+jiuguanjieyinren	3213	老板娘	2	1	DrinkHouseNpc		1103	999	999	忘忧酒馆，一醉忘忧！									1500	1500	Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+Jiuguan_TableFood_1	3215	松木桌子	5	1			3215	9034				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Jiuguan_TableFood_1_a	3236	家族宴席	2	1	DrinkHouseTableNpc		3215	9047				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Jiuguan_TableFood_2	3216	普通桌子	5	1			3216	9034				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Jiuguan_TableFood_2_a	3237	家族宴席	2	1	DrinkHouseTableNpc		3216	9047				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+Jiuguan_TableFood_3	3424	风味年夜饭	2	1	DrinkHouseTableNpc		3437	9047				1									Setting/Npc/Ai/KeepMoving.ini			0		3						NoTurn												
+kin_gouhuo_3	3238	家族宴席篝火火焰	5	0	GouHuoNpc	all|15000|30|600|1|0	392																																					
+taohuashu_1	3239		2	1	FairylandPeach		704	200	994			1									Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn												
+taohuashu_2	3240		2	1	FairylandPeach		705	200	994			1									Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn												
+taohuashu_3	3241		2	1	FairylandPeach		706	200	994			1									Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn												
+jiuguan_zhaoliying	3243	颖宝宝	2	1			1180	999	999	青衣白衫剑侠客，百里秦川万里豪									1500	1500	Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+jiuguan_lingengxin	3244	林更新	2	1			1181	999	999	青衣白衫剑侠客，百里秦川万里豪									1500	1500	Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+jiuguan_linqingyu	3245	林青羽	2	1			1244	999	999	青衣白衫剑侠客，百里秦川万里豪									1500	1500	Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+JYFL_video	3246	林青羽	2	1	TaskVideoNpc		1244	999	999	青衣白衫剑侠客，百里秦川万里豪									1500	1500	Setting/Npc/Ai/CommonActive.ini			0	15	1																		
+WanJu_CaiHong	3252	玩具彩虹	5	1			707	200	994																																			
+BaDao_fight	3261	霸刀弟子	0	1	FubenDeath		1242	999	999			20000	21	1	24	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+TianWang_fight	3262	天王弟子	0	1	FubenDeath		5211	999	999			20000	21	1	24	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+CangJian_fight	3263	藏剑弟子	0	1	FubenDeath		1218	999	999			20000	21	1	24	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+ShaoLin_fight	3264	少林弟子	0	1	FubenDeath		1169	999	999			20000	21	1	24	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+TangMen_fight	3266	唐门弟子	0	1	FubenDeath		1166	999	999			20000	21	1	27	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+XiaoYao_fight	3265	逍遥弟子	0	1	FubenDeath		5210	999	999			20000	21	1	27	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+HuaShan_fight	3267	华山弟子	0	1	FubenDeath		1244	999	999			20000	21	1	27	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+WuDu_fight	3268	五毒弟子	0	1	FubenDeath		1174	999	999			20000	21	1	41	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+Emei_fight	3269	峨嵋弟子	0	1	FubenDeath		5212	999	999			20000	21	1	43	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+CuiYan_fight	3270	翠烟弟子	0	1	FubenDeath		1149	999	999			20000	21	1	43	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+TianShan_fight	3271	天山弟子	0	1	FubenDeath		1232	999	999			20000	21	1	43	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+TaoHua_fight	3272	桃花弟子	0	1	FubenDeath		5209	999	999			20000	21	1	40	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+TianRen_fight	3273	天忍弟子	0	1	FubenDeath		6111	999	999			20000	21	1	26	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+GaiBang_fight	3274	丐帮弟子	0	1	FubenDeath		1170	999	999			20000	21	1	26	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+WuDang_fight	3275	武当弟子	0	1	FubenDeath		1131	999	999			20000	21	1	59	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+KunLun_fight	3276	昆仑弟子	0	1	FubenDeath		1165	999	999			20000	21	1	59	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+ChangGe_fight	3277	长歌弟子	0	1	FubenDeath		1210	999	999			20000	21	1	63	1					Setting/Npc/Ai/CommonActive.ini			1	20	1																		
+jiuguan_denglong	3279	红灯笼	5	0			669	995	300																							NoTurn												
+WanJu_JiuTan	3286	酒坛	2	1	ToyWineNpc	3,饮酒中…	3218	995	994																							NoTurn												
+WanJu_YanHua	3821	鸾凤和鸣	5	1			743	200	994
+WanJu_ZhanQi	3752	苍龙啸日旗	5	1			736	200	994																																			
+JiangniangJiutan_1	3287	盛典酒坛	2		MaterialCollectBoxNpc		3218	995	300																							NoTurn												
+JiangniangJiutan_2	3288	盛典酒坛	2		MaterialCollectBoxNpc		3220	995	300																							NoTurn												
+JiangniangJiutan_3	3289	盛典酒坛	2		MaterialCollectBoxNpc		3221	995	300																							NoTurn												
+LT_diaoxiang_tw_wanju	3290	天王城主雕像（玩具）	2	0	MainCityMaster	1	30001	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_twfe_wanju	3291	天王女城主雕像（玩具）	2	0	MainCityMaster	1	30002	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_em_wanju	3292	峨眉城主雕像（玩具）	2	0	MainCityMaster	2	30003	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_th_wanju	3293	桃花城主雕像（玩具）	2	0	MainCityMaster	3	30004	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_xy_wanju	3294	逍遥城主雕像（玩具）	2	0	MainCityMaster	4	30005	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_xyfe_new	3448	逍遥女城主雕像	2	0	MainCityMaster	4	718	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_xyfe_wanju	3789	逍遥女城主雕像（玩具）	2	0	MainCityMaster	4	30028	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_ymfe_new	3794	杨门女城主雕像	2	0	MainCityMaster	21	741	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_ymfe_wanju	3837	杨门女城主雕像	2	0	MainCityMaster	21	30033	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_ymma_new	3793	杨门男城主雕像	2	0	MainCityMaster	21	740	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_ymma_wanju	3836	杨门男城主雕像	2	0	MainCityMaster	21	30032	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_wd_wanju	3295	武当城主雕像（玩具）	2	0	MainCityMaster	5	30006	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_wdfe_wanju	3296	武当女城主雕像（玩具）	2	0	MainCityMaster	5	30007	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_whfe_new	3725	万花女城主雕像	2	0	MainCityMaster	20	730	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_whfe_wanju	3791	万花女城主雕像（玩具）	2	0	MainCityMaster	20	30030	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_whma_new	3724	万花男城主雕像	2	0	MainCityMaster	20	729	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_whma_wanju	3790	万花男城主雕像（玩具）	2	0	MainCityMaster	20	30029	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_tr_wanju	3297	天忍城主雕像（玩具）	2	0	MainCityMaster	6	30008	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_trma_new	3795	天忍男城主雕像	2	0	MainCityMaster	6	742	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_trma_wanju	3838	天忍男城主雕像	2	0	MainCityMaster	6	30034	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_sl_wanju	3298	少林城主雕像（玩具）	2	0	MainCityMaster	7	30009	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_cy_wanju	3299	翠烟城主雕像（玩具）	2	0	MainCityMaster	8	30010	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_dsfe_new	3447	段氏女城主雕像	2	0	MainCityMaster	19	717	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_dsfe_wanju	3788	段氏女城主雕像（玩具）	2	0	MainCityMaster	19	30027	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_dsma_new	3446	段氏男城主雕像	2	0	MainCityMaster	19	716	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_dsma_wanju	3787	段氏男城主雕像（玩具）	2	0	MainCityMaster	19	30026	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_tm_wanju	3300	唐门城主雕像（玩具）	2	0	MainCityMaster	9	30011	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_kl_wanju	3301	昆仑城主雕像（玩具）	2	0	MainCityMaster	10	30012	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_klma_wanju	3302	昆仑男城主雕像（玩具）	2	0	MainCityMaster	10	30013	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_gb_wanju	3303	丐帮城主雕像（玩具）	2	0	MainCityMaster	11	30014	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_gbfe_new	3726	丐帮女城主雕像	2	0	MainCityMaster	11	731	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_gbfe_wanju	3792	丐帮女城主雕像（玩具）	2	0	MainCityMaster	11	30031	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn
+LT_diaoxiang_wudu_wanju	3305	五毒城主雕像（玩具）	2	0	MainCityMaster	12	30015	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_cj_wanju	3304	藏剑城主雕像（玩具）	2	0	MainCityMaster	13	30016	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_cg_wanju	3306	长歌城主雕像（玩具）	2	0	MainCityMaster	14	30017	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_tsma_wanju	3307	天山男城主雕像（玩具）	2	0	MainCityMaster	15	30018	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_tsfe_wanju	3308	天山女城主雕像（玩具）	2	0	MainCityMaster	15	30019	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_bdma_wanju	3309	霸刀男城主雕像（玩具）	2	0	MainCityMaster	16	30020	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_bdfe_wanju	3310	霸刀女城主雕像（玩具）	2	0	MainCityMaster	16	30021	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_hsma_wanju	3311	华山男城主雕像（玩具）	2	0	MainCityMaster	17	30022	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_hsfe_wanju	3312	华山女城主雕像（玩具）	2	0	MainCityMaster	17	30023	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_mjma_wanju	3313	明教男城主雕像（玩具）	2	0	MainCityMaster	18	30024	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+LT_diaoxiang_mjfe_wanju	3314	明教女城主雕像（玩具）	2	0	MainCityMaster	18	30025	200	994			91							1500	1500	Setting/Npc/Ai/Stay.ini				20	3		6000	195	1		NoTurn												
+Jiuguan_jingjichang	3315	南宫飞云	2	0			5027	207	307	一年一度的江湖盛典就要到来啦！大家有什么作品都可以找我提交哦！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1	1	374				NoTurn												
+BrocadeAwardBox_1	3425	普通的新年锦盒	2	0	BrocadeBoxNpc		974					1							560	980				1	15							NoTurn												
+BrocadeAwardBox_2	3426	精致的新年锦盒	2	0	BrocadeBoxNpc		975					1							560	980				1	15							NoTurn												
+BrocadeAwardBox_3	3427	华美的新年锦盒	2	0	BrocadeBoxNpc		976					1							560	980				1	15							NoTurn												
+Caishen	3442	财神	2	0			715	200	994			100							560	980	Setting/Npc/Ai/Stay.ini				17	3	1																	
+FoolsDayPig	3461	愚人节变身猪	0	0	CatPetNpc		20304	10004	994			10000							1000	1000	Setting/Npc/Ai/normal/Pet.ini				20	3								10	1							1	1	
+BeichenNpc_chefu	9316	神之墓地车夫·可达二层	2	0	Beichen_Chefu1		5027	207	307	想去下一层冒险吗！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1	1	1032				NoTurn												
+BeichenNpc_chefu	9317	神之墓地车夫·可达三层	2	0	Beichen_Chefu2		5027	207	307	想去下一层冒险吗！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1	1	1033				NoTurn												
+BeichenNpc_chefu	9318	神之墓地车夫·可达四层	2	0	Beichen_Chefu3		5027	207	307	想去下一层冒险吗！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1	1	1033				NoTurn												
+BeichenNpc_chefu	9319	神之墓地车夫·可达五层	2	0	Beichen_Chefu4		5027	207	307	想去下一层冒险吗！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1	1	1033				NoTurn												
+BeichenNpc_chefu	9320	神之墓地车夫·可达六层	2	0	Beichen_Chefu5		5027	207	307	想去下一层冒险吗！		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1	1	1033				NoTurn												

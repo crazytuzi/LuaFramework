@@ -1,0 +1,18 @@
+nActId	szAct	szDesc	nCompleteCount	nBackerExp	nGuiderRenown	szGuiderExtAward
+1	BuyKinGift	成功获取50个家族礼盒	50	500	1000	
+2	KinDonate	家族金库捐献50次	50	500	1000	
+3	KinSalary	领取20次家族拍卖分红	20	500	1000	
+4	CangBaoTu	完成50次挖宝	50	500	1000	
+5	EverydayTarget	累计7天每日目标完成度达到100	7	1000	2000	
+6	OpenXiuLian	开启20次修炼状态	20	500	1000	
+7	PunishTask	完成50次惩恶任务	50	500	1000	
+8	FieldLeader	参与10次野外首领	10	500	1000	
+9	FieldBoss	参与10次历代名将	10	500	1000	
+10	CommerceTask	完成10轮商会任务	10	500	1000	
+11	Battle	参加10次宋金战场	10	500	1000	
+12	FactionBattle	参加3次门派竞技	3	500	1000	
+13	Boss	参加12次武林盟主	12	500	1000	
+14	Buy7DaysGift	购买7日礼包	1	1000	2000	
+15	Buy30DaysGift	购买30日礼包	1	1000	2000	
+16	BuyDailyGift	购买10次每日礼包	10	1000	2000	
+17	ImperialTomb	和向导组队完成300分钟秦始皇陵	18000	1000		Item|2804|5|0|1

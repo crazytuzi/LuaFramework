@@ -1,0 +1,4 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+ChuanSong1	敦煌古城		3683	50	1	1	13543	12651	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong2	漠北草原		73	50	1	1	13551	2343	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong3	昆虚脉藏		73	50	1	1	2495	2002	0	-1	0	0		0	0	0	0	0	0	0	0	

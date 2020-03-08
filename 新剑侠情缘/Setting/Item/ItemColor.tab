@@ -1,0 +1,61 @@
+Quality	Color	FrameColor	Animation	AnimationAtlas	EffectId	TxtColor	GTopColorID	GBottomColorID
+0	White	itemframe				848484		
+1	White	itemframe				848484		
+2	Green	itemframeGreen				64db00		
+3	Blue	itemframeBlue				11adf6		
+4	Purple	itemframePurple				aa62fc		
+5	Pink	itemframePink				ff578c		
+6	Orange	itemframeOrange				ff8f06		
+7	Gold	itemframeGold				e6d012		
+9	Gold	itemframePlatinum				e6d012	302	303
+11	Gold	itemframeGold				e6d012		
+12	Gold	itemframeGold				e6d012		
+13	Gold	itemframeGold				e6d012		
+14	White	itemframe				848484		
+15	Green	itemframeGreen				64db00		
+16	Blue	itemframeBlue				11adf6		
+17	Purple	itemframePurple				aa62fc		
+18	Pink	itemframePink				ff578c		
+21	Green	itemframeGreen	item1_	UI/Atlas/ItemGrid/ItemGrid.prefab	9046	64db00		
+22	Green	itemframeGreen	item1_	UI/Atlas/ItemGrid/ItemGrid.prefab	9047	64db00		
+23	Green	itemframeGreen	item1_	UI/Atlas/ItemGrid/ItemGrid.prefab	9048	64db00		
+24	Green	itemframeGreen	item1_	UI/Atlas/ItemGrid/ItemGrid.prefab	9049	64db00		
+25	Green	itemframeGreen	item1_	UI/Atlas/ItemGrid/ItemGrid.prefab	9050	64db00		
+26	Green	itemframeGreen	item1_	UI/Atlas/ItemGrid/ItemGrid.prefab	9051	64db00		
+31	Blue	itemframeBlue	item2_	UI/Atlas/ItemGrid/ItemGrid.prefab	9046	11adf6		
+32	Blue	itemframeBlue	item2_	UI/Atlas/ItemGrid/ItemGrid.prefab	9047	11adf6		
+33	Blue	itemframeBlue	item2_	UI/Atlas/ItemGrid/ItemGrid.prefab	9048	11adf6		
+34	Blue	itemframeBlue	item2_	UI/Atlas/ItemGrid/ItemGrid.prefab	9049	11adf6		
+35	Blue	itemframeBlue	item2_	UI/Atlas/ItemGrid/ItemGrid.prefab	9050	11adf6		
+36	Blue	itemframeBlue	item2_	UI/Atlas/ItemGrid/ItemGrid.prefab	9051	11adf6		
+41	Purple	itemframePurple	item3_	UI/Atlas/ItemGrid/ItemGrid.prefab	9046	aa62fc		
+42	Purple	itemframePurple	item3_	UI/Atlas/ItemGrid/ItemGrid.prefab	9047	aa62fc		
+43	Purple	itemframePurple	item3_	UI/Atlas/ItemGrid/ItemGrid.prefab	9048	aa62fc		
+44	Purple	itemframePurple	item3_	UI/Atlas/ItemGrid/ItemGrid.prefab	9049	aa62fc		
+45	Purple	itemframePurple	item3_	UI/Atlas/ItemGrid/ItemGrid.prefab	9050	aa62fc		
+46	Purple	itemframePurple	item3_	UI/Atlas/ItemGrid/ItemGrid.prefab	9051	aa62fc		
+51	Pink	itemframePink	item4_	UI/Atlas/ItemGrid/ItemGrid.prefab	9046	ff578c		
+52	Pink	itemframePink	item4_	UI/Atlas/ItemGrid/ItemGrid.prefab	9047	ff578c		
+53	Pink	itemframePink	item4_	UI/Atlas/ItemGrid/ItemGrid.prefab	9048	ff578c		
+54	Pink	itemframePink	item4_	UI/Atlas/ItemGrid/ItemGrid.prefab	9049	ff578c		
+55	Pink	itemframePink	item4_	UI/Atlas/ItemGrid/ItemGrid.prefab	9050	ff578c		
+56	Pink	itemframePink	item4_	UI/Atlas/ItemGrid/ItemGrid.prefab	9051	ff578c		
+61	Orange	itemframeOrange	item5_	UI/Atlas/ItemGrid/ItemGrid.prefab	9046	ff8f06		
+62	Orange	itemframeOrange	item5_	UI/Atlas/ItemGrid/ItemGrid.prefab	9047	ff8f06		
+63	Orange	itemframeOrange	item5_	UI/Atlas/ItemGrid/ItemGrid.prefab	9048	ff8f06		
+64	Orange	itemframeOrange	item5_	UI/Atlas/ItemGrid/ItemGrid.prefab	9049	ff8f06		
+65	Orange	itemframeOrange	item5_	UI/Atlas/ItemGrid/ItemGrid.prefab	9050	ff8f06		
+66	Orange	itemframeOrange	item5_	UI/Atlas/ItemGrid/ItemGrid.prefab	9051	ff8f06		
+71	Gold	itemframeGold	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9046	e6d012		
+72	Gold	itemframeGold	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9047	e6d012		
+73	Gold	itemframeGold	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9048	e6d012		
+74	Gold	itemframeGold	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9049	e6d012		
+75	Gold	itemframeGold	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9050	e6d012		
+76	Gold	itemframeGold	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9051	e6d012		
+81	Gold	SpecialItemframeGold	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9051	e6d012		
+91	Gold	itemframePlatinum	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9046	e6d012	302	303
+92	Gold	itemframePlatinum	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9047	e6d012	302	303
+93	Gold	itemframePlatinum	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9048	e6d012	302	303
+94	Gold	itemframePlatinum	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9049	e6d012	302	303
+95	Gold	itemframePlatinum	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9050	e6d012	302	303
+96	Gold	itemframePlatinum	item6_	UI/Atlas/ItemGrid/ItemGrid.prefab	9051	e6d012	302	303

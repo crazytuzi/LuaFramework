@@ -1,0 +1,9 @@
+trap1
+trap2
+trap3
+trap4
+trap5
+trap6
+6
+7
+8

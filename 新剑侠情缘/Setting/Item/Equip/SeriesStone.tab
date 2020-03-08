@@ -1,0 +1,22 @@
+TemplateId	Name	Kind	ShowType	ItemType	DetailType	Level	RequireLevel	RealLevel	Icon	BigIcon	ObjID	Intro	Price	Quality	ItemValue	Sellable	ClassName	ResEffect	FightPower
+8399	五行石	SeriesStone_Lv_1		25	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8400	一阶五行石	5Stone_weapon_1		25	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8401	一阶五行石	5Stone_armor_1		26	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8402	一阶五行石	5Stone_ring_1		27	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8403	一阶五行石	5Stone_necklace_1		28	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8404	一阶五行石	5Stone_amulet_1		29	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8405	一阶五行石	5tone_boots_1		30	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8406	一阶五行石	5tone_belt_1		31	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8407	一阶五行石	5tone_helm_1		40	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8408	一阶五行石	5tone_cuff_1		41	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8409	一阶五行石	5tone_pendant_1		42	1	1	60	1	7001	7001			3000000	3			SeriesStone		
+8410	二阶五行石	5Stone_weapon_2		25	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8411	二阶五行石	5Stone_armor_2		26	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8412	二阶五行石	5Stone_ring_2		27	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8413	二阶五行石	5Stone_necklace_2		28	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8414	二阶五行石	5Stone_amulet_2		29	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8415	二阶五行石	5tone_boots_2		30	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8416	二阶五行石	5tone_belt_2		31	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8417	二阶五行石	5tone_helm_2		40	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8418	二阶五行石	5tone_cuff_2		41	1	2	60	2	7001	7001			3000000	3			SeriesStone		
+8419	二阶五行石	5tone_pendant_2		42	1	2	60	2	7001	7001			3000000	3			SeriesStone		

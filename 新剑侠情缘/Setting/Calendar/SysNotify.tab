@@ -1,0 +1,15 @@
+StringKey	LevelMin	LimitFunc	Name	Message	BeforSec	DefaultSel
+Boss	20		武林盟主	挑战武林盟主开启，速来挑战吧	300	1
+Battle	24		宋金战场	最热血澎湃的宋金战场开战了！	0	0
+FieldBoss	30		历代名将	挑战历代名将开启，速来挑战吧	300	1
+KinGather	11	NeedKin	家族烤火	家族聚集时间到了，快来参加吧！	300	1
+DomainBattle	20	NeedKin	攻城战	攻城战开启，速来挑战吧！	300	1
+FactionBattle	30		门派竞技	门派竞技即将开启，快来挑战门派新人王！	300	1
+TeamBattle	30		通天塔	通天塔即将开启，等你来挑战7层！	300	1
+KinFuben	30	NeedKin	家族试炼	家族试炼时间到了，快和家族好友一起试炼吧！	300	1
+ImperialTombEmperor	60	NeedKin	始皇降世	秦始皇即将现身于世，与家族一同前往挑战吧！	300	1
+InDifferBattle	50		心魔幻境	心魔幻境即将开启！无差别竞技，感受纯操作的竞技快感。	300	0
+ImperialTombFemaleEmperor	60	NeedKin	女帝复苏	武则天即将复苏于世，与家族一同前往挑战吧！	300	1
+KinSecretFuben	70	NeedKin	家族秘境	家族秘境时间到了，快和家族好友一起前往挑战吧！	300	1
+KeyQuestFuben	50		遗迹寻宝	遗迹寻宝时间到了，快和好友一起前往寻宝吧！	300	1
+KinDefendFuben	70	NeedKin	家族保卫战	家族保卫战时间到了，快和家族好友一起前往抵御金兵吧！	300	1

@@ -1,0 +1,10 @@
+nType	szName	nCharge	nMinCd	nCd	nLevel	szChannelName
+1	Public		13	30	30	世界频道
+2	Color	1	1	3	30	彩聊频道
+3	Map		8	10	1	临时频道
+4	Team		1	3	1	队伍频道
+5	Family		1	3	1	家族频道
+6	Private		1	3	30	密聊频道
+7	Nearby		1	3	10	附近频道
+8	Friend		1	3	10	好友频道
+10	Cross		8	15	10	主播频道

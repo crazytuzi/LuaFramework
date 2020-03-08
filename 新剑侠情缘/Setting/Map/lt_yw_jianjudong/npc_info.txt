@@ -1,0 +1,9 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+NpcTrapToYLZ	去永乐镇		73	50	1	1	13311	9897	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_sun	日耀龙柱		1732	50	1	1	8429	8322	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_defense	守方大营		1732	50	1	1	11255	10154	32	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack1	征战营地·天		1732	50	1	1	4383	11310	24	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack2	征战营地·地		1732	50	1	1	4779	4408	8	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack3	征战营地·人		1732	50	1	1	12205	4944	56	-1	0	0		0	0	0	0	0	0	0	0
+WallGuard	后营障碍		104	50		1	11102	10152	48	-1	0	0		0	0	0	0	0	0	0	0
+WallGuard	后营障碍		104	50		1	11372	10148	48	-1	0	0		0	0	0	0	0	0	0	0

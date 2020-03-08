@@ -1,0 +1,34 @@
+GameFormat	MinRank	MaxRank	AllAward	RedBagKey	MailConent
+1	1	1	BasicExp|1000;Item|6012|25;AddTimeTitle|7104|15768000;Item|5238|1;Item|6008|1;Item|6010|1;Item|10153|1	wldh_top1;wldh_g_top1	恭喜您所在战队获得了本届武林大会[FFFE0D]双人赛冠军[-]，武林盟特发来丰厚奖励，请查收！
+1	2	2	BasicExp|900;Item|6012|20;AddTimeTitle|7103|15768000;Item|6011|1	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]双人赛亚军[-]，武林盟特发来丰厚奖励，请查收！
+1	3	3	BasicExp|850;Item|6012|16;AddTimeTitle|7103|15768000	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]双人赛季军[-]，武林盟特发来丰厚奖励，请查收！
+1	4	4	BasicExp|800;Item|6012|14;AddTimeTitle|7103|15768000	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]双人赛殿军[-]，武林盟特发来丰厚奖励，请查收！
+1	5	16	BasicExp|750;Item|6012|12;AddTimeTitle|7102|15768000	wldh_top16	恭喜您所在战队进入了本届武林大会[FFFE0D]双人赛前16强[-]，武林盟特发来丰厚奖励，请查收！
+1	17	50	BasicExp|700;Item|6012|10;AddTimeTitle|7101|15768000	wldh_elite	恭喜您所在战队进入了本届武林大会[FFFE0D]双人赛前50强[-]，武林盟特发来丰厚奖励，请查收！
+1	51	100	BasicExp|650;Item|6012|9;AddTimeTitle|7101|15768000	wldh_elite	恭喜您所在战队进入了本届武林大会[FFFE0D]双人赛前100强[-]，武林盟特发来丰厚奖励，请查收！
+1	101	200	BasicExp|550;Item|6012|7;AddTimeTitle|7100|15768000		本届武林大会双人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+1	201	500	BasicExp|500;Item|6012|6;AddTimeTitle|7100|15768000		本届武林大会双人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+1	501	1000	BasicExp|480;Item|6012|4;AddTimeTitle|7100|15768000		本届武林大会双人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+1	1001	100000	BasicExp|480;Item|6012|2;AddTimeTitle|7100|15768000		本届武林大会双人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+2	1	1	BasicExp|1000;Item|6012|25;AddTimeTitle|7109|15768000;Item|5238|1;Item|6008|1;Item|6010|1;Item|10153|1	wldh_top1;wldh_g_top1	恭喜您所在战队获得了本届武林大会[FFFE0D]三人赛冠军[-]，武林盟特发来丰厚奖励，请查收！
+2	2	2	BasicExp|900;Item|6012|20;AddTimeTitle|7108|15768000;Item|6011|1	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]三人赛亚军[-]，武林盟特发来丰厚奖励，请查收！
+2	3	3	BasicExp|850;Item|6012|16;AddTimeTitle|7108|15768000	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]三人赛季军[-]，武林盟特发来丰厚奖励，请查收！
+2	4	4	BasicExp|800;Item|6012|14;AddTimeTitle|7108|15768000	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]三人赛殿军[-]，武林盟特发来丰厚奖励，请查收！
+2	5	16	BasicExp|700;Item|6012|12;AddTimeTitle|7107|15768000	wldh_top16	恭喜您所在战队进入了本届武林大会[FFFE0D]三人赛前16强[-]，武林盟特发来丰厚奖励，请查收！
+2	17	50	BasicExp|650;Item|6012|10;AddTimeTitle|7106|15768000	wldh_elite	恭喜您所在战队进入了本届武林大会[FFFE0D]三人赛前50强[-]，武林盟特发来丰厚奖励，请查收！
+2	51	100	BasicExp|600;Item|6012|9;AddTimeTitle|7106|15768000	wldh_elite	恭喜您所在战队进入了本届武林大会[FFFE0D]三人赛前100强[-]，武林盟特发来丰厚奖励，请查收！
+2	101	150	BasicExp|550;Item|6012|7;AddTimeTitle|7105|15768000		本届武林大会三人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+2	151	400	BasicExp|500;Item|6012|6;AddTimeTitle|7105|15768000		本届武林大会三人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+2	401	800	BasicExp|480;Item|6012|4;AddTimeTitle|7105|15768000		本届武林大会三人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+2	801	100000	BasicExp|480;Item|6012|2;AddTimeTitle|7105|15768000		本届武林大会三人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+3	1	1	BasicExp|1000;Item|6012|25;AddTimeTitle|7119|15768000;Item|5238|1;Item|6008|1;Item|6010|1;Item|10153|1	wldh_top1;wldh_g_top1	恭喜您所在战队获得了本届武林大会[FFFE0D]四人赛冠军[-]，武林盟特发来丰厚奖励，请查收！
+3	2	2	BasicExp|900;Item|6012|20;AddTimeTitle|7118|15768000;Item|6011|1	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]四人赛亚军[-]，武林盟特发来丰厚奖励，请查收！
+3	3	3	BasicExp|850;Item|6012|16;AddTimeTitle|7118|15768000	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]四人赛季军[-]，武林盟特发来丰厚奖励，请查收！
+3	4	4	BasicExp|800;Item|6012|14;AddTimeTitle|7118|15768000	wldh_top4;wldh_g_top4	恭喜您所在战队获得了本届武林大会[FFFE0D]四人赛殿军[-]，武林盟特发来丰厚奖励，请查收！
+3	5	16	BasicExp|700;Item|6012|12;AddTimeTitle|7117|15768000	wldh_top16	恭喜您所在战队进入了本届武林大会[FFFE0D]四人赛前16强[-]，武林盟特发来丰厚奖励，请查收！
+3	17	40	BasicExp|650;Item|6012|10;AddTimeTitle|7116|15768000	wldh_elite	恭喜您所在战队进入了本届武林大会[FFFE0D]四人赛前40强[-]，武林盟特发来丰厚奖励，请查收！
+3	41	80	BasicExp|600;Item|6012|9;AddTimeTitle|7116|15768000	wldh_elite	恭喜您所在战队进入了本届武林大会[FFFE0D]四人赛前80强[-]，武林盟特发来丰厚奖励，请查收！
+3	81	150	BasicExp|550;Item|6012|7;AddTimeTitle|7115|15768000		本届武林大会四人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+3	151	300	BasicExp|500;Item|6012|6;AddTimeTitle|7115|15768000		本届武林大会四人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+3	301	500	BasicExp|480;Item|6012|4;AddTimeTitle|7115|15768000		本届武林大会四人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+3	501	100000	BasicExp|480;Item|6012|2;AddTimeTitle|7115|15768000		本届武林大会四人赛结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！

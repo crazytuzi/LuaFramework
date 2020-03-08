@@ -1,0 +1,71 @@
+nId	nTab	nKind	nSubType	szName	nQuality	nScore	szIconSprite	szIconAtlas	szDesc	nIsBest
+1	1		1	井水	2	1	shui	UI/Atlas/Item/Item/Item23.prefab	凿井而出的水，平平无奇，有些清甜\n[64db00]普通食材[-]	
+2	1		1	无根水	3	2	shui	UI/Atlas/Item/Item/Item23.prefab	雨过三旬后接到的水，号约“无根水”\n[11adf6]珍品食材[-]	
+3	1		1	天山圣水	4	3	shui	UI/Atlas/Item/Item/Item23.prefab	天山山麓的冰雪融水，清冽异常，沁人心脾\n[aa62fc]绝品食材[-]	1
+4	1		2	大米	2	1	mi	UI/Atlas/Item/Item/Item23.prefab	民间普通稻田出产的寻常大米，不甚香甜，口感却佳\n[64db00]普通食材[-]	
+5	1		2	珍珠米	3	2	mi	UI/Atlas/Item/Item/Item23.prefab	大宋皇室专用贡米，圆润短小，软而有黏性，形如珍珠\n[11adf6]珍品食材[-]	
+6	1		2	暹罗香米	4	3	mi	UI/Atlas/Item/Item/Item23.prefab	胡商从海外传入极稀有的米，米身细长匀称，香气浓郁异常\n[aa62fc]绝品食材[-]	1
+7	1		3	面粉	2	1	mianfen	UI/Atlas/Item/Item/Item23.prefab	以民间普通工艺将未脱皮的小麦磨成的面粉，面色微黄。\n[64db00]普通食材[-]	
+8	1		3	石磨面粉	3	2	mianfen	UI/Atlas/Item/Item/Item23.prefab	小麦脱皮后以石磨低速慢磨出的面粉，口感柔韧，麦香浓郁\n[11adf6]珍品食材[-]	
+9	1		3	麦芯香粉	4	3	mianfen	UI/Atlas/Item/Item/Item23.prefab	精选麦粒粉心部分磨成的面粉，面色洁白如雪，做出的面食美味异常\n[aa62fc]绝品食材[-]	1
+10	1		4	油	2	1	you	UI/Atlas/Item/Item/Item23.prefab	民间普通工艺榨出的油，色泽较深，有些许杂质\n[64db00]普通食材[-]	
+11	1		4	精炼油	3	2	you	UI/Atlas/Item/Item/Item23.prefab	油坊精炼出的油，无味色浅，色泽明亮\n[11adf6]珍品食材[-]	
+12	1		4	万里飘香	4	3	you	UI/Atlas/Item/Item/Item23.prefab	天下第一油坊产出的油，色泽鲜亮澄澈，几无杂质\n[aa62fc]绝品食材[-]	1
+13	1		5	野菜	2	1	baicai	UI/Atlas/Item/Item/Item23.prefab	路边常见的野菜，食之有益\n[64db00]普通食材[-]	
+14	1		5	大株野菜	3	2	baicai	UI/Atlas/Item/Item/Item23.prefab	优沃条件下长出的野菜，较为肥壮鲜美\n[11adf6]珍品食材[-]	
+15	1		5	手植鲜蔬	4	3	baicai	UI/Atlas/Item/Item/Item23.prefab	取菜种手植，精心培侍浇水施肥长成的菜，菜色鲜亮，品相极佳\n[aa62fc]绝品食材[-]	1
+16	1		6	嫩豆腐	2	1	doufu	UI/Atlas/Item/Item/Item23.prefab	以石膏点制的豆腐，水分较多，质地细嫩\n[64db00]普通食材[-]	
+17	1		6	韧豆腐	3	2	doufu	UI/Atlas/Item/Item/Item23.prefab	以卤水点制的豆腐，味道更浓，质地更韧，适宜烹饪\n[11adf6]珍品食材[-]	
+18	1		6	水林白璧	4	3	doufu	UI/Atlas/Item/Item/Item23.prefab	东海之外的僧侣传来的稀有物品点制的豆腐，极为鲜美，嫩滑细腻\n[aa62fc]绝品食材[-]	1
+19	1		7	鸡蛋	2	1	jidan	UI/Atlas/Item/Item/Item23.prefab	普通芦花鸡产的蛋，味甘，性平\n[64db00]普通食材[-]	
+20	1		7	红心蛋	3	2	jidan	UI/Atlas/Item/Item/Item23.prefab	传说西域有火鸡，其蛋黄通红似火，风味独特\n[11adf6]珍品食材[-]	
+21	1		7	药膳蛋	4	3	jidan	UI/Atlas/Item/Item/Item23.prefab	自小饲以药材长大的鸡所产的蛋，药用价值丰富，食之大补\n[aa62fc]绝品食材[-]	1
+22	1		8	香菇	2	1	mogu	UI/Atlas/Item/Item/Item23.prefab	肉质肥厚细嫩，味道鲜美，久负盛名，深受喜爱\n[64db00]普通食材[-]	
+23	1		8	珍品香菇	3	2	mogu	UI/Atlas/Item/Item/Item23.prefab	民间养殖的香菇，香气独特，营养丰富\n[11adf6]珍品食材[-]	
+24	1		8	山珍菇王	4	3	mogu	UI/Atlas/Item/Item/Item23.prefab	生长于深山中的香菇，浓香飘百里，鲜味沁心脾\n[aa62fc]绝品食材[-]	1
+25	1		9	辣椒	2	1	laji	UI/Atlas/Item/Item/Item23.prefab	辣味调味品，有人嗜之如命\n[64db00]普通食材[-]	
+26	1		9	朝天椒	3	2	laji	UI/Atlas/Item/Item/Item23.prefab	味道更为给力的辣椒\n[11adf6]珍品食材[-]	
+27	1		9	鬼王椒	4	3	laji	UI/Atlas/Item/Item/Item23.prefab	西域传来的辣度极高的辣椒，人人闻之色变视之为砒霜，但仍有人视之如蜜糖\n[aa62fc]绝品食材[-]	1
+28	1		10	小银耳	2	1	yiner	UI/Atlas/Item/Item/Item23.prefab	较小的银耳，普通百姓常用的食材\n[64db00]普通食材[-]	
+29	1		10	银耳	3	2	yiner	UI/Atlas/Item/Item/Item23.prefab	临安城中各大酒楼常选用的食材\n[11adf6]珍品食材[-]	
+30	1		10	贡品银耳	4	3	yiner	UI/Atlas/Item/Item/Item23.prefab	大宋皇室专用贡品，难得一见\n[aa62fc]绝品食材[-]	1
+31	1	1001	11	鸡肉	2	1	jirou	UI/Atlas/Item/Item/Item23.prefab	普通养殖鸡的鸡肉，味道尚可\n[64db00]普通食材[-]	
+32	1	1001	11	土鸡肉	3	2	jirou	UI/Atlas/Item/Item/Item23.prefab	散养或野生的土鸡肉，风味十足，有些鲜美\n[11adf6]珍品食材[-]	
+33	1	1001	11	鸡王肉	4	3	jirou	UI/Atlas/Item/Item/Item23.prefab	野生鸡群中的鸡王的肉，肉质紧实，顶级口感\n[aa62fc]绝品食材[-]	1
+34	1	1001	12	五花肉	2	1	shourou	UI/Atlas/Item/Item/Item23.prefab	肥瘦相间的兽肉，嫩且多汁\n[64db00]普通食材[-]	
+35	1	1001	12	后腿肉	3	2	shourou	UI/Atlas/Item/Item/Item23.prefab	野兽的后腿肉，肉质精嫩，肥瘦相连\n[11adf6]珍品食材[-]	
+36	1	1001	12	精里脊肉	4	3	shourou	UI/Atlas/Item/Item/Item23.prefab	野兽身上味道最佳的部位，产量极少，肉质鲜美异常\n[aa62fc]绝品食材[-]	1
+37	1	1001	13	小熊掌	2	1	xiongzhang	UI/Atlas/Item/Item/Item23.prefab	体型较小的熊类的熊掌，一般口感\n[64db00]普通食材[-]	
+38	1	1001	13	熊掌	3	2	xiongzhang	UI/Atlas/Item/Item/Item23.prefab	普通熊类的熊掌，口感极佳\n[11adf6]珍品食材[-]	
+39	1	1001	13	熊皇掌	4	3	xiongzhang	UI/Atlas/Item/Item/Item23.prefab	撼天熊皇的熊掌，极为稀有难得，传说中只有最强的侠士才能获得\n[aa62fc]绝品食材[-]	1
+40	1		14	小虾米	2	1	xia	UI/Atlas/Item/Item/Item23.prefab	水中一网下去极易收获的小虾米，味道鲜美\n[64db00]普通食材[-]	
+41	1		14	河虾	3	2	xia	UI/Atlas/Item/Item/Item23.prefab	生长于淡水中的虾，肉质极为细嫩\n[11adf6]珍品食材[-]	
+42	1		14	海虾	4	3	xia	UI/Atlas/Item/Item/Item23.prefab	生长于海水中的虾，营养全面丰富\n[aa62fc]绝品食材[-]	1
+43	1		15	河蟹	2	1	pangxie	UI/Atlas/Item/Item/Item23.prefab	淡水中生长的螃蟹，味道鲜美\n[64db00]普通食材[-]	
+44	1		15	海蟹	3	2	pangxie	UI/Atlas/Item/Item/Item23.prefab	海水中生长的螃蟹，口感鲜嫩，营养丰富\n[11adf6]珍品食材[-]	
+45	1		15	大闸蟹	4	3	pangxie	UI/Atlas/Item/Item/Item23.prefab	青背、白肚、金爪、黄毛，肉质鲜美异常\n[aa62fc]绝品食材[-]	1
+46	1	1002	16	小鲤鱼	2	1	liyu	UI/Atlas/Item/Item/Item23.prefab	体型较小的鲤鱼，民间最常见的食用鱼类\n[64db00]普通食材[-]	
+47	1	1002	16	鲤鱼	3	2	liyu	UI/Atlas/Item/Item/Item23.prefab	普通鲤鱼，肉质鲜嫩，适合烹饪\n[11adf6]珍品食材[-]	
+48	1	1002	16	大鲤鱼	4	3	liyu	UI/Atlas/Item/Item/Item23.prefab	体型较大的鲤鱼，传说可越过龙门而化身成龙\n[aa62fc]绝品食材[-]	1
+49	1	1002	17	小鲈鱼	2	1	luyu	UI/Atlas/Item/Item/Item23.prefab	体型较小的鲈鱼，口感差强人意\n[64db00]普通食材[-]	
+50	1	1002	17	鲈鱼	3	2	luyu	UI/Atlas/Item/Item/Item23.prefab	普通鲈鱼，肉质洁白肥嫩，味道鲜美\n[11adf6]珍品食材[-]	
+51	1	1002	17	大鲈鱼	4	3	luyu	UI/Atlas/Item/Item/Item23.prefab	极为名贵的大鲈鱼，肉质细美，宜羹，又可为脍\n[aa62fc]绝品食材[-]	1
+52	1	1002	18	小银鱼	2	1	yinyu	UI/Atlas/Item/Item/Item23.prefab	体型较小的银鱼，基本无鱼刺，适合小孩子使用\n[64db00]普通食材[-]	
+53	1	1002	18	银鱼	3	2	yinyu	UI/Atlas/Item/Item/Item23.prefab	普通银鱼，可不去鳍、骨，属“整体性食物”\n[11adf6]珍品食材[-]	
+54	1	1002	18	大银鱼	4	3	yinyu	UI/Atlas/Item/Item/Item23.prefab	体型较大的银鱼，通体透明，口感极为细嫩\n[aa62fc]绝品食材[-]	1
+55	1	1002	19	小鳗鱼	2	1	manyu	UI/Atlas/Item/Item/Item23.prefab	体型较小的鳗鱼，似蛇，无鳞\n[64db00]普通食材[-]	
+56	1	1002	19	鳗鱼	3	2	manyu	UI/Atlas/Item/Item/Item23.prefab	普通鳗鱼，肉质细嫩，味道鲜美\n[11adf6]珍品食材[-]	
+57	1	1002	19	大鳗鱼	4	3	manyu	UI/Atlas/Item/Item/Item23.prefab	体型较大的鳗鱼，口感极为滑嫩，易入味，烹饪的顶级食材\n[aa62fc]绝品食材[-]	1
+58	1	1002	20	小河豚	2	1	hetun	UI/Atlas/Item/Item/Item23.prefab	体型较小的河豚，有剧毒，故有舍命吃河豚之说\n[64db00]普通食材[-]	
+59	1	1002	20	河豚	3	2	hetun	UI/Atlas/Item/Item/Item23.prefab	体型中等的河豚，其肉洁白如霜，鲜嫩可口\n[11adf6]珍品食材[-]	
+60	1	1002	20	大河豚	4	3	hetun	UI/Atlas/Item/Item/Item23.prefab	极为肥美的河豚，肉味腴美，有人入口后叹曰：不吃河鲀，不知鱼味\n[aa62fc]绝品食材[-]	1
+61	1	1002	21	小江团	2	1	jiangtuan	UI/Atlas/Item/Item/Item23.prefab	体型较小的江团，鲜美细嫩，营养丰富\n[64db00]普通食材[-]	
+62	1	1002	21	江团	3	2	jiangtuan	UI/Atlas/Item/Item/Item23.prefab	 体型中等的江团，粉红石首仍无骨，雪白河豚不药人\n[11adf6]珍品食材[-]	
+63	1	1002	21	大江团	4	3	jiangtuan	UI/Atlas/Item/Item/Item23.prefab	极肥美的江团，足以达到朝廷贡品的等级\n[aa62fc]绝品食材[-]	1
+101	2		100	锄头	3		chutou	UI/Atlas/Item/Item/Item21.prefab	每次采集需要消耗一个[FFFE0D]锄头[-]\n可通过[FFFE0D]食盒[-]打开烹饪商店购买	
+102	2		101	普通鱼饵	2		BaitIntermediate	UI/Atlas/Item/Item/Item24.prefab	每次钓鱼需要消耗一个[FFFE0D]鱼饵[-]\n可通过[FFFE0D]食盒[-]打开烹饪商店购买	
+103	2		101	高级香饵	3		BaitLower	UI/Atlas/Item/Item/Item24.prefab	每次钓鱼需要消耗一个[FFFE0D]鱼饵[-]\n注：此鱼饵可使鱼篓变大\n可通过[FFFE0D]食盒[-]打开烹饪商店购买	
+104	2		101	神奇鱼饵	4		BaitSenior	UI/Atlas/Item/Item/Item24.prefab	每次钓鱼需要消耗一个[FFFE0D]鱼饵[-]\n注：此鱼饵可使鱼篓变大且有几率出现神秘宝箱\n可通过[FFFE0D]食盒[-]打开烹饪商店购买	
+105	2		102	制式箭	2		zhishijian	UI/Atlas/Item/Item/Item24.prefab	每次打猎需要消耗一支[FFFE0D]箭[-]\n可通过[FFFE0D]食盒[-]打开烹饪商店购买	
+106	2		102	麻醉箭	3		mazuijian	UI/Atlas/Item/Item/Item24.prefab	每次打猎需要消耗一支[FFFE0D]箭[-]\n注：此箭附带麻醉效果\n可通过[FFFE0D]食盒[-]打开烹饪商店购买	
+107	2		102	金鈚箭	4		jinzijian	UI/Atlas/Item/Item/Item24.prefab	每次打猎需要消耗一支[FFFE0D]箭[-]\n注：此箭附带额外伤害\n可通过[FFFE0D]食盒[-]打开烹饪商店购买	

@@ -1,0 +1,69 @@
+nId	nType	szName	nPart1	nPart2	nPart3	nPart4	nPart5	nQuality	nScore	szProduce	szIconSprite	szIconAtlas	szPic	szDesc
+1	1	水煮鱼片	1	1002				3	2	2:11438;4:11439;6:11440;	shuizhuyu	UI/Atlas/Item/Item/Item21.prefab	shuizhuyupian	寻常菜式，清水煮鲜鱼，材料易得，烹饪简单。油而不腻，肉质滑嫩
+2	1	水煮鲜虾	1	14				3	2	2:11441;4:11442;6:11443;	shuizhuxia	UI/Atlas/Item/Item/Item21.prefab	shuizhuxianxia	清水烧开，放虾入锅，煮熟即可，配蘸料食用更佳。虾味鲜美，肉嫩可口
+3	1	水煮肉片	1	1001				3	2	2:11444;4:11445;6:11446;	shuizhuroupian	UI/Atlas/Item/Item/Item21.prefab	shuizhuroupian	常见家常菜，瘦肉切片，清水煮熟。肉嫩菜鲜，汤红油亮
+4	1	水煮豆腐	1	6				3	2	2:11447;4:11448;6:11449;	shuizhudoufu	UI/Atlas/Item/Item/Item21.prefab	shuizhudoufu	烹饪简单，用料常见，豆腐切块下水，煮熟即可。食之补中益气，清热润燥
+5	1	水煮青菜	1	5				3	2	2:11450;4:11451;6:11452;	shuizhuqingcai	UI/Atlas/Item/Item/Item21.prefab	shuizhuqingcai	烹饪简单，用料常见，沸水下入青菜再次沸腾出锅装盘即可。汤清菜明，颇具诗意
+6	1	阳春面	1	3				3	2	2:11453;4:11454;6:11455;	yangchunmian	UI/Atlas/Item/Item/Item21.prefab	yangchunmian	又称清汤光面，沸水细面，佐以调料。汤清味鲜，清淡爽口
+7	1	荷包面	1	7	3			4	3	3:11456;6:11457;9:11458;	hebaodan	UI/Atlas/Item/Item/Item22.prefab	hebaodan	清水煮沸放入鸡蛋，九成熟时下面条，面熟出锅。以面为主，以蛋点睛
+8	1	蟹黄豆腐	1	15	6	3		5	4	4:11459;8:11460;12:11461;	xiehuangdoufu	UI/Atlas/Item/Item/Item23.prefab	xiehuangdoufu	螃蟹取黄，豆腐混之，面粉收汁。豆腐白嫩、蟹肉黄香，咸中带鲜，香鲜可口，别具风味
+9	1	肉酿生麸	1	1001	3			4	3	3:11462;6:11463;9:11464;	rouniangshengfu	UI/Atlas/Item/Item/Item22.prefab	rouniangshengfu	水面筋拉皮，裹入肉末收口，煮熟起锅。面皮薄韧光亮，肉馅鲜嫩多汁
+10	1	鸡汤煮干丝	1	11	14	6		5	4	4:11465;8:11466;12:11467;	jitangzhugansi	UI/Atlas/Item/Item/Item22.prefab	jitangzhugansi	鸡肉及豆腐切丝，与虾仁同放入鸡汤中旺火煮之。爽口开胃，异常珍美，百食不厌
+11	1	皮蛋瘦肉粥	1	7	1001	2		5	4	4:11468;8:11469;12:11470;	pidanshourouzhou	UI/Atlas/Item/Item/Item22.prefab	pidanshourouzhou	大米煮粥，放入皮蛋及肉片，肉片浮起时离火。入口顺滑，鲜美异常
+12	1	麻婆豆腐	4	6	9			4	3	3:11471;6:11472;9:11473;	mapodoufu	UI/Atlas/Item/Item/Item22.prefab	mapodoufu	川渝传统名菜，用辣椒入味豆腐。口味独特，口感顺滑
+13	1	鸿运当头	1	14	9			4	3	3:11474;6:11475;9:11476;	hongyundangtou	UI/Atlas/Item/Item/Item22.prefab	hongyundangtou	虾仁拼圈，辣椒居中。菜品鲜香可口，寓意生动
+14	1	海鲜粥	1	14	15	2		5	4	4:11477;8:11478;12:11479;	haixianzhou	UI/Atlas/Item/Item/Item22.prefab	haixianzhou	水中加米熬成白粥，再加以虾蟹慢火细煮。清香鲜美，益精强志
+15	1	三鲜水饺	1	3	14	5	1001	6	5	5:11480;10:11481;15:11482;	sanxianshuijiao	UI/Atlas/Item/Item/Item22.prefab	sanxianshuijiao	取青菜肉末虾仁调成馅料，覆以面皮，下水煮熟即可。鲜香可口，味道丰富
+16	1	馄饨	1	1001	5	3		3	4	4:11483;8:11484;12:11485;	hundun	UI/Atlas/Item/Item/Item22.prefab	hundun	青菜肉末和馅，以薄面皮包之，下锅煮熟即可。亦有抄手、云吞、包面等叫法
+17	2	蟹粉狮子头	1	1001	15	14	5	6	5	5:11486;10:11487;15:11488;	xiefenshizitou	UI/Atlas/Item/Item/Item23.prefab	fenzhengshizitou	肉圆之上嵌以蟹黄，虾子辅之，青菜点缀，微火慢炖而成。口感松软，肥而不腻
+18	2	小鸡炖蘑菇	1	8	11			4	3	3:11489;6:11490;9:11491;	xiaojidunmogu	UI/Atlas/Item/Item/Item23.prefab	xiaojidunmogu	取野生香菇与鸡肉一同炖制，成菜汤鲜浓厚，鸡肉酥烂
+19	2	鱼蛋双白汤	1	1002	7			4	3	3:11492;6:11493;9:11494;	yudanshuangbaitang	UI/Atlas/Item/Item/Item23.prefab	yudanshuangbaizhou	鱼肉剁蓉攒为丸状，与鸡蛋同炖。鱼丸其色如瓷，富有弹性，脆而不腻
+20	2	游龙翔空	1	19	10			7	3	3:11495;6:11496;9:11497;	youlongxiangkong	UI/Atlas/Item/Item/Item23.prefab	youlongxiangfeng	鳗鱼穿过银耳，颇有蛟龙在云中翻腾之意。
+21	2	凤凰胎	1	11	12			4	3	3:11498;6:11499;9:11500;	fenghuangtai	UI/Atlas/Item/Item/Item22.prefab	fenghuangtai	将鸡放入猪肚，再加以药材小火慢煲。祛病强体，养生保健
+22	2	清炖鸡孚	1	12	11	8	7	6	5	5:11501;10:11502;15:11503;	qingzhengjifu	UI/Atlas/Item/Item/Item22.prefab	qingdunjifu	鸡腿、猪肉、香菇、蛋花清炖而成。鸡香肉鲜质酥烂，清汤味醇色洁白
+23	2	雪花鸡淖	1	10	11			4	3	3:11504;6:11505;9:11506;	xuehuajizhuo	UI/Atlas/Item/Item/Item23.prefab	xuehuajizhuo	鸡糁调浆，将之软炒，然后将炖制银耳覆于其上。状如云朵，似积雪堆叠，入口柔软滑嫩
+24	2	三丝敲鱼	1	1002	11	12	8	6	5	5:11507;10:11508;15:11509;	sansiqiaoyu	UI/Atlas/Item/Item/Item22.prefab	sansiqiaoyu	轻敲鱼肉为鱼片，辅以鸡丝、肉丝、香菇丝，炖熟即可。鱼肉鲜嫩，色白汤清，香鲜可口
+25	2	红烧河豚	1	4	20	12		7	4	4:11510;8:11511;12:11512;	hongshaohetun	UI/Atlas/Item/Item/Item22.prefab	hongshaohetun	河豚、五花肉煸透后入高汤，大火煮沸，小火焖透即成。肉肥嫩，汁浓醇
+26	2	掌上明珠	1	13	1002	12	5	7	5	5:11513;10:11514;15:11515;	zhangshangmingzhu	UI/Atlas/Item/Item/Item23.prefab	zhangshangmingzhu	因原料难得，菜式亦即为罕见。成菜形似掌上托明珠，故得名
+27	2	青菜炖豆腐	1	5	6			4	3	3:11516;6:11517;9:11518;	qingcaidundoufu	UI/Atlas/Item/Item/Item22.prefab	qingcaidundoufu	青菜与豆腐同炖，出锅前后均青白分明，此中颇有禅意
+28	3	烤肉	1001					2	1	1:11519;2:11520;3:11521;	kaorou	UI/Atlas/Item/Item/Item23.prefab	kaorou	兽肉切片在火上烤制而成。做法简单，成品却香溢满堂，民间流传已久
+29	3	烤虾	14					2	1	1:11522;2:11523;3:11524;	kaoxia	UI/Atlas/Item/Item/Item23.prefab	kaoxia	鲜虾串以竹签，炭烤而成。江南河边常有结对少年捕虾，此之故也
+30	3	烤鱼	1002					2	1	1:11525;2:11526;3:11527;	kaoyu	UI/Atlas/Item/Item/Item23.prefab	kaoyu	捕一尾鱼，放于火上炙烤，熟透即成。江湖儿女多用其果腹，盖其原料易得，做法简易
+31	3	烤香菇	8					2	1	1:11528;2:11529;3:11530;	kaoxianggu	UI/Atlas/Item/Item/Item23.prefab	kaoxianggu	香菇背花十字刀，置于火上炙烤而成。鲜味借烤炙之势，颇有喷薄扑面之感
+32	3	银鱼烤饭团	18	2				7	2	2:11531;4:11532;6:11533;	kaofantuan	UI/Atlas/Item/Item/Item23.prefab	yinyukaofantuan	银鱼剁蓉掺入白饭，手握成饭团，火上烤至金黄即可。
+33	3	蛋黄酥	3	7	4			4	3	3:11534;6:11535;9:11536;	danhuangsu	UI/Atlas/Item/Item/Item23.prefab	danhuangsu	蛋黄为馅包以面皮，层层上油置于火上烘烤，临安城中大户人家喜食
+34	4	油饼	4	3				3	2	2:11537;4:11538;6:11539;	youbing	UI/Atlas/Item/Item/Item24.prefab	youbing	面团擀薄，层层相压。各层之间均涂以豆油，平底锅烙制。外黄里暄，酥软油润
+35	4	酥炸豆腐	4	6				3	2	2:11540;4:11541;6:11542;	suzhadoufu	UI/Atlas/Item/Item/Item24.prefab	suzhadoufu	豆腐入油锅，成色金黄捞起。宜趁热食用，香气宜人
+36	4	炸酥肉	4	12				3	2	2:11543;4:11544;6:11545;	zhasurou	UI/Atlas/Item/Item/Item24.prefab	zhasurou	八成热油锅下肉，肉色金黄后起锅。外酥里嫩，搭配蘸料食用更佳
+37	4	黄金鸡	4	11				3	2	2:11546;4:11547;6:11548;	huangjinji	UI/Atlas/Item/Item/Item24.prefab	huangjinji	鸡肉过油，炸至酥脆。配黄金鸡宜饮酒，临安城中风尚，一时风靡
+38	4	香酥鱼干	4	1002				3	2	2:11549;4:11550;6:11551;	xiangsuyugan	UI/Atlas/Item/Item/Item24.prefab	xiangsuyugan	鱼干泡软后入油锅，炒至鱼干变脆即可。酥脆可口，鱼香四溢
+39	4	金毛狮子鱼	4	16	12	7	3	6	5	5:11552;10:11553;15:11554;	jinmaoshiziyu	UI/Atlas/Item/Item/Item24.prefab	jinmaoshiziyu	鲤鱼下油锅，裹以蛋糊，至金黄色出锅，肉丝缀之，浇以热油即成。鱼丝蓬松似狮子而得名
+40	4	煎蛋饼	4	7				3	2	2:11555;4:11556;6:11557;	jiandanbing	UI/Atlas/Item/Item/Item24.prefab	jiandanbing	鸡蛋打散后入油锅，成型后翻面，至两面金黄出锅。市井中即为常见
+41	4	肉末斩蛋	4	1001	7			4	3	3:11558;6:11559;9:11560;	roumoqiedan	UI/Atlas/Item/Item/Item24.prefab	roumozhandan	鸡蛋打散进油锅，摊至两面金黄，后撒上炒好的肉末即成。蛋香肉香相得益彰
+42	4	虾蓉金香饼	4	7	14	3	12	6	5	5:11561;10:11562;15:11563;	xiarongjinxiangbing	UI/Atlas/Item/Item/Item24.prefab	xiarongjingxiangbing	虾仁剁蓉，混以面粉鸡蛋摊平进油锅，两面金黄后撒上炒好的肉末即成
+43	4	宫保鸡丁	4	11	9			4	3	3:11564;6:11565;9:11566;	gongbaojiding	UI/Atlas/Item/Item/Item23.prefab	gongbaojiding	宫廷名菜，在大宋宗室中颇受好评。做法传至宫外后亦深得民间赞赏
+44	4	年糕	4	2				3	2	2:11567;4:11568;6:11569;	niangao	UI/Atlas/Item/Item/Item24.prefab	niangao	节令食物，春节时百姓每取年糕在油锅中炸透食用。年年糕，年年高
+45	4	金陵丸子	4	12	14	5		5	4	4:11570;8:11571;12:11572;	jinlingwanzi	UI/Atlas/Item/Item/Item24.prefab	jinlingdoufu	瘦肉虾仁青菜剁碎，攒成丸状下入油锅，酥透后装盘。流传于金陵城故得名
+46	4	香炸琵琶虾	4	14	11	3	7	6	5	5:11573;10:11574;15:11575;	xiangzhapipaxia	UI/Atlas/Item/Item/Item24.prefab	xiangzhapipaxia	虾仁鸡肉斩成茸，加面粉鸡蛋调馅，先蒸后炸而成。肉质松软，多为老人所喜
+47	4	忘忧饼	4	3	7	1		5	4	4:11576;8:11577;12:11578;	wangyoubing	UI/Atlas/Item/Item/Item24.prefab	huangyoubing	相传大宋太祖曾为俗事所扰，偶感肚饿遂食之，后大赞此味足以忘忧，故得名
+48	5	太极明虾	14	1001	7	3		5	4	4:11579;8:11580;12:11581;	taijimingxia	UI/Atlas/Item/Item/Item22.prefab	taijimingxia	虾胶拼圆，阴阳鱼眼处填以调好的肉馅，上蒸笼蒸熟即成。造形美观、鲜嫩清馥
+49	5	腊味合蒸	12	11	1002			4	3	3:11582;6:11583;9:11584;	laweihezheng	UI/Atlas/Item/Item/Item22.prefab	laweihezheng	将腊猪肉、腊鸡、腊鱼、鸡汤和调料，下锅清蒸而成。腊香浓重、咸甜适口、柔韧不腻
+50	5	蟹黄虾盅	14	15	5			4	3	3:11585;6:11586;9:11587;	xiehuangxiazhong	UI/Atlas/Item/Item/Item22.prefab	xiehuangxiazhong	洁白晶莹的盅形虾肉上托着黑色蟹腿和桔色蟹黄。色美质嫩，蟹黄香浓，可谓鲜中之珍
+51	5	蒸水蛋	1	7				2	2	2:11588;4:11589;6:11590;	zhengshuidan	UI/Atlas/Item/Item/Item22.prefab	zhengshuidan	鸡蛋加冷水打散泡，静置入盅后蒸。细腻滑嫩、老少皆宜
+52	5	剁椒鱼头	1002	9	4			4	3	3:11591;6:11592;9:11593;	duojiaoyutou	UI/Atlas/Item/Item/Item22.prefab	duojiaoyutou	鱼头、剁椒配以辅料蒸制而成。肉质细嫩、肥而不腻、口感软糯、鲜辣适口
+53	5	清蒸鲈鱼	17	4				7	2	2:11594;4:11595;6:11596;	qingzhengluyu	UI/Atlas/Item/Item/Item22.prefab	qingzhengluyu	鲈鱼上笼清蒸，蒸熟后将热油淋于表面即可。细嫩爽滑、口味咸鲜
+54	5	鲜蒸江团	21	1001	8			7	3	3:11597;6:11598;9:11599;	qingzhengjiangtuan	UI/Atlas/Item/Item/Item22.prefab	qingzhnegjiangtuan	鱼身斜剞几刀，肉丝、香菇片插入，上笼蒸熟即成。肉质肥美细嫩，汤清味鲜
+55	5	蒸碗糕	1	3	7			3	2	3:11600;6:11601;9:11602;	zhenwangao	UI/Atlas/Item/Item/Item22.prefab	zhengwangao	东南沿海常见的新春节令食物。松软香甜，味道可口
+56	5	虾仁蒸蛋羹	1	7	14			4	3	3:11603;6:11604;9:11605;	xiarenzhengdangeng	UI/Atlas/Item/Item/Item22.prefab	xiarenzhengdangeng	鸡蛋入碗打散加温水，摆上虾仁入蒸锅隔水蒸熟即成。软滑香甜，清嫩鲜美
+57	5	黯然销魂饭	1	2	12	7		5	4	4:11606;8:11607;12:11608;	anranxiaohunfan	UI/Atlas/Item/Item/Item22.prefab	anranxiaohunfan	普通叉烧饭做底，荷包蛋点睛。此味足让人黯然销魂，由是得名
+58	5	白饭	1	2				3	2	2:11609;4:11610;6:11611;	baifan	UI/Atlas/Item/Item/Item22.prefab	baifan	简简单单得把米蒸熟而成的饭。中原极常见的主食，细嚼之下有清甜之味
+59	5	大白馒头	1	3				3	2	2:11612;4:11613;6:11614;	dabaimantou	UI/Atlas/Item/Item/Item22.prefab	dabaimantou	发酵的面蒸熟而成。中原极常见的主食，细嚼之下有清甜之味
+60	5	肉粽	1	1001	2			4	3	3:11615;6:11616;9:11617;	rouzong	UI/Atlas/Item/Item/Item22.prefab	rouzhong	端午节节日食物，糯米吃水后与肉馅同被粽叶包裹好蒸熟即成。又称角黍、筒粽
+61	5	清蒸大闸蟹	15					2	1	1:11618;2:11619;3:11620;	qingzhengdazhaxie	UI/Atlas/Item/Item/Item22.prefab	qingzhengdazhaxie	大闸蟹上锅蒸熟即可。螃蟹原形原味，色泽橙黄，蟹肉鲜美，味道醇厚
+62	5	白蒸干菜	5					2	1	1:11621;2:11622;3:11623;	baizhenggancai	UI/Atlas/Item/Item/Item22.prefab	baizhenggancai	青菜腌制后上锅蒸熟。菜式简单，却极下饭
+63	5	粉蒸肉	2	1001				3	2	2:11624;4:11625;6:11626;	fenzhengrou	UI/Atlas/Item/Item/Item22.prefab	fenzhengrou	鲜肉切片，涂以米粉，上笼蒸软即可。糯而清香，酥而爽口，嫩而不糜，香味浓郁
+64	5	香菇蒸肉卷	3	8	1001			4	3	3:11627;6:11628;9:11629;	xiangguzhengroujuan	UI/Atlas/Item/Item/Item22.prefab	xiangguzhengroujuan	香菇与肉卷同蒸而成。香菇鲜，鲜肉香，二者相得益彰
+65	5	香菇蒸蛋	8	7				3	2	2:11630;4:11631;6:11632;	xiangguzhengdan	UI/Atlas/Item/Item/Item22.prefab	xiangguzhengdan	香菇先以高汤煨透，再与鸡蛋同蒸。质嫩爽滑，味道鲜美
+66	5	糯米肉丸	2	1001	7	3		5	4	4:11633;8:11634;12:11635;	nuomirouwan	UI/Atlas/Item/Item/Item22.prefab	nuomirouwan	鲜肉鸡蛋面粉调馅，攒成丸状，外层以糯米裹之，蒸熟而成。口感软糯鲜香
+67	5	鳗鱼饭	19	2				7	2	2:11636;4:11637;6:11638;	manyufan	UI/Atlas/Item/Item/Item22.prefab	manyufan	传自海外的菜式，鳗鱼分段，先蒸后烤，熟后铺于米饭之上即成。鲜美无比，回味无穷
+68	5	风云际会	1	1002	5			4	3	3:11639;6:11640;9:11641;	fengyunjihui	UI/Atlas/Item/Item/Item22.prefab	fengyunjihui	取风云际会，浅水游鱼之意。多为临安城中酒楼主菜，造型美观，味亦鲜美

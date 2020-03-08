@@ -1,0 +1,174 @@
+TemplateId	Name	Kind	ItemType	BigIcon	CDType	ClassName	DetailType	Icon	Intro	ItemValue	Level	ObjID	Price	Quality	RequireLevel	Sellable	Stack	ExtParam1	ExtParam2	ExtParam3	ExtParam4	ExtParam5	ExtParam6	ExtParam7	ExtParam8	ExtParam9	ExtParam10
+793	碎片·蚩尤	Partner_piece_SSS_1	35	793		PartnerStone	1	793	同伴碎片	80000	1	6	1000	7	1	0	99999	1									
+794	碎片·后羿	Partner_piece_SSS_2	35	794		PartnerStone	1	794	同伴碎片	80000	1	6	1000	7	1	0	99999	2									
+795	碎片·苏妲己	Partner_piece_SSS_3	35	795		PartnerStone	1	795	同伴碎片	80000	1	6	1000	7	1	0	99999	3									
+796	碎片·鬼谷子	Partner_piece_SSS_4	35	796		PartnerStone	1	796	同伴碎片	80000	1	6	1000	7	1	0	99999	4									
+797	碎片·项羽	Partner_piece_SSS_5	35	797		PartnerStone	1	797	同伴碎片	80000	1	6	1000	7	1	0	99999	5									
+798	碎片·秦始皇	Partner_piece_SSS_6	35	798		PartnerStone	1	798	同伴碎片	80000	1	6	1000	7	1	0	99999	6									
+799	碎片·武则天	Partner_piece_SSS_7	35	799		PartnerStone	1	799	同伴碎片	80000	1	6	1000	7	1	0	99999	7									
+800	碎片·吕洞宾	Partner_piece_SSS_8	35	800		PartnerStone	1	800	同伴碎片	80000	1	6	1000	7	1	0	99999	8									
+801	碎片·张三丰	Partner_piece_SSS_9	35	801		PartnerStone	1	801	同伴碎片	80000	1	6	1000	7	1	0	99999	9									
+802	碎片·西施	Partner_piece_SSS_10	35	802		PartnerStone	1	802	同伴碎片	80000	1	6	1000	7	1	0	99999	10									
+803	碎片·独孤剑	Partner_piece_SS_1	35	803		PartnerStone	1	803	同伴碎片	40000	1	6	1000	6	1	0	99999	11									
+804	碎片·南宫飞云	Partner_piece_SS_2	35	804		PartnerStone	1	804	同伴碎片	40000	1	6	1000	6	1	0	99999	12									
+805	碎片·杨影枫	Partner_piece_SS_3	35	805		PartnerStone	1	805	同伴碎片	40000	1	6	1000	6	1	0	99999	13									
+806	碎片·玄天道人	Partner_piece_SS_4	35	806		PartnerStone	1	806	同伴碎片	40000	1	6	1000	6	1	0	99999	14									
+807	碎片·虞姬	Partner_piece_SS_5	35	807		PartnerStone	1	807	同伴碎片	40000	1	6	1000	6	1	0	99999	15									
+808	碎片·赵飞燕	Partner_piece_SS_6	35	808		PartnerStone	1	808	同伴碎片	40000	1	6	1000	6	1	0	99999	16									
+809	碎片·荆轲	Partner_piece_SS_7	35	809		PartnerStone	1	809	同伴碎片	40000	1	6	1000	6	1	0	99999	17									
+810	碎片·李广	Partner_piece_SS_8	35	810		PartnerStone	1	810	同伴碎片	40000	1	6	1000	6	1	0	99999	18									
+811	碎片·赵云	Partner_piece_SS_9	35	811		PartnerStone	1	811	同伴碎片	40000	1	6	1000	6	1	0	99999	19									
+1017	碎片·李元霸	Partner_piece_SS_10	35	1447		PartnerStone	1	1447	同伴碎片	40000	1	6	1000	6	1	0	99999	20									
+812	碎片·月眉儿	Partner_piece_S_1	35	812		PartnerStone	1	812	同伴碎片	20000	1	6	1000	4	1	0	99999	21									
+813	碎片·杨瑛	Partner_piece_S_2	35	813		PartnerStone	1	813	同伴碎片	20000	1	6	1000	4	1	0	99999	22									
+814	碎片·祝子虚	Partner_piece_S_3	35	814		PartnerStone	1	814	同伴碎片	20000	1	6	1000	4	1	0	99999	23									
+815	碎片·清和	Partner_piece_S_4	35	815		PartnerStone	1	815	同伴碎片	20000	1	6	1000	4	1	0	99999	24									
+816	碎片·黄暮云	Partner_piece_S_5	35	816		PartnerStone	1	816	同伴碎片	20000	1	6	1000	4	1	0	99999	25									
+817	碎片·道一真人	Partner_piece_S_6	35	817		PartnerStone	1	817	同伴碎片	20000	1	6	1000	4	1	0	99999	26									
+818	碎片·端木睿	Partner_piece_S_7	35	818		PartnerStone	1	818	同伴碎片	20000	1	6	1000	4	1	0	99999	27									
+819	碎片·玄因	Partner_piece_S_8	35	819		PartnerStone	1	819	同伴碎片	20000	1	6	1000	4	1	0	99999	28									
+820	碎片·尹含烟	Partner_piece_S_9	35	820		PartnerStone	1	820	同伴碎片	20000	1	6	1000	4	1	0	99999	29									
+1435	碎片·何人我	Partner_piece_S_30	35	1435		PartnerStone	1	1435	同伴碎片	20000	1	6	1000	4	1	0	99999	127									
+1436	碎片·璇玑子	Partner_piece_S_31	35	1436		PartnerStone	1	1436	同伴碎片	20000	1	6	1000	4	1	0	99999	128									
+1437	碎片·黑面郎君	Partner_piece_S_32	35	1437		PartnerStone	1	1437	同伴碎片	20000	1	6	1000	4	1	0	99999	129									
+1438	碎片·唐仇	Partner_piece_S_33	35	1438		PartnerStone	1	1438	同伴碎片	20000	1	6	1000	4	1	0	99999	130									
+821	碎片·高长恭	Partner_piece_S_10	35	821		PartnerStone	1	821	同伴碎片	20000	1	6	1000	4	1	0	99999	30									
+822	碎片·哲别	Partner_piece_S_11	35	822		PartnerStone	1	822	同伴碎片	20000	1	6	1000	4	1	0	99999	31									
+823	碎片·袁承志	Partner_piece_S_12	35	823		PartnerStone	1	823	同伴碎片	20000	1	6	1000	4	1	0	99999	32									
+824	碎片·鳌拜	Partner_piece_S_13	35	824		PartnerStone	1	824	同伴碎片	20000	1	6	1000	4	1	0	99999	33									
+825	碎片·金翅鹏皇	Partner_piece_S_14	35	825		PartnerStone	1	825	同伴碎片	20000	1	6	1000	4	1	0	99999	34									
+826	碎片·赤睛虎皇	Partner_piece_S_15	35	826		PartnerStone	1	826	同伴碎片	20000	1	6	1000	4	1	0	99999	35									
+827	碎片·撼天熊皇	Partner_piece_S_16	35	827		PartnerStone	1	827	同伴碎片	20000	1	6	1000	4	1	0	99999	36									
+828	碎片·定海金刚	Partner_piece_S_17	35	828		PartnerStone	1	828	同伴碎片	20000	1	6	1000	4	1	0	99999	37									
+829	碎片·唐影	Partner_piece_S_18	35	829		PartnerStone	1	829	同伴碎片	20000	1	6	1000	4	1	0	99999	38									
+830	碎片·岳飞	Partner_piece_S_19	35	830		PartnerStone	1	830	同伴碎片	20000	1	6	1000	4	1	0	99999	39									
+831	碎片·杨熙烈	Partner_piece_S_20	35	831		PartnerStone	1	831	同伴碎片	20000	1	6	1000	4	1	0	99999	40									
+832	碎片·上官飞龙	Partner_piece_S_21	35	832		PartnerStone	1	832	同伴碎片	20000	1	6	1000	4	1	0	99999	41									
+833	碎片·叶无心	Partner_piece_S_22	35	833		PartnerStone	1	833	同伴碎片	20000	1	6	1000	4	1	0	99999	42									
+834	碎片·孟知秋	Partner_piece_S_23	35	834		PartnerStone	1	834	同伴碎片	20000	1	6	1000	4	1	0	99999	43									
+835	碎片·纳兰潜凛	Partner_piece_S_24	35	835		PartnerStone	1	835	同伴碎片	20000	1	6	1000	4	1	0	99999	44									
+836	碎片·张风	Partner_piece_S_25	35	836		PartnerStone	1	836	同伴碎片	20000	1	6	1000	4	1	0	99999	45									
+837	碎片·无虚大师	Partner_piece_S_26	35	837		PartnerStone	1	837	同伴碎片	20000	1	6	1000	4	1	0	99999	46									
+1018	碎片·南宫灭	Partner_piece_S_27	35	2217		PartnerStone	1	2217	同伴碎片	20000	1	6	1000	4	1	0	99999	47									
+1019	碎片·方勉	Partner_piece_S_28	35	2219		PartnerStone	1	2219	同伴碎片	20000	1	6	1000	4	1	0	99999	48									
+1434	碎片·秋依水	Partner_piece_S_29	35	1434		PartnerStone	1	1434	同伴碎片	20000	1	6	1000	4	1	0	99999	135									
+1439	碎片·燕若雪	Partner_piece_S_34	35	1439		PartnerStone	1	1439	同伴碎片	20000	1	6	1000	4	1	0	99999	131									
+1440	碎片·杨再兴	Partner_piece_S_35	35	1440		PartnerStone	1	1440	同伴碎片	20000	1	6	1000	4	1	0	99999	132									
+1441	碎片·韩世忠	Partner_piece_S_36	35	1441		PartnerStone	1	1441	同伴碎片	20000	1	6	1000	4	1	0	99999	133									
+1447	碎片·聂小倩	Partner_piece_A_31	35	1447		PartnerStone	1	1447	同伴碎片	15000	1	6	1000	3	1	0	99999	134									
+838	碎片·纳兰真	Partner_piece_A_1	35	838		PartnerStone	1	838	同伴碎片	15000	1	6	1000	3	1	0	99999	49									
+1385	碎片·少年杨影枫	Partner_piece_A_30	35	1385		PartnerStone	1	1385	同伴碎片	15000	1	6	1000	3	1	0	99999	126									
+839	碎片·杨铁心	Partner_piece_A_2	35	839		PartnerStone	1	839	同伴碎片	15000	1	6	1000	3	1	0	99999	50									
+840	碎片·柳潇庭	Partner_piece_A_3	35	840		PartnerStone	1	840	同伴碎片	15000	1	6	1000	3	1	0	99999	51									
+841	碎片·无想	Partner_piece_A_4	35	841		PartnerStone	1	841	同伴碎片	15000	1	6	1000	3	1	0	99999	52									
+842	碎片·李恬儿	Partner_piece_A_5	35	842		PartnerStone	1	842	同伴碎片	15000	1	6	1000	3	1	0	99999	53									
+843	碎片·天目	Partner_piece_A_6	35	843		PartnerStone	1	843	同伴碎片	15000	1	6	1000	3	1	0	99999	54									
+844	碎片·完颜襄	Partner_piece_A_7	35	844		PartnerStone	1	844	同伴碎片	15000	1	6	1000	3	1	0	99999	55									
+845	碎片·玄慈	Partner_piece_A_8	35	845		PartnerStone	1	845	同伴碎片	15000	1	6	1000	3	1	0	99999	56									
+846	碎片·尹筱雨	Partner_piece_A_9	35	846		PartnerStone	1	846	同伴碎片	15000	1	6	1000	3	1	0	99999	57									
+1443	碎片·石轩辕	Partner_piece_A_33	35	1443		PartnerStone	1	1443	同伴碎片	15000	1	6	1000	3	1	0	99999	136									
+1444	碎片·秋石	Partner_piece_A_34	35	1444		PartnerStone	1	1444	同伴碎片	15000	1	6	1000	3	1	0	99999	137									
+1445	碎片·古嫣然	Partner_piece_A_35	35	1445		PartnerStone	1	1445	同伴碎片	15000	1	6	1000	3	1	0	99999	138									
+1446	碎片·唐晓	Partner_piece_A_36	35	1446		PartnerStone	1	1446	同伴碎片	15000	1	6	1000	3	1	0	99999	139									
+847	碎片·寒玉鹿王	Partner_piece_A_10	35	847		PartnerStone	1	847	同伴碎片	15000	1	6	1000	3	1	0	99999	58									
+848	碎片·大地狼王	Partner_piece_A_11	35	848		PartnerStone	1	848	同伴碎片	15000	1	6	1000	3	1	0	99999	59									
+849	碎片·奔焰豹王	Partner_piece_A_12	35	849		PartnerStone	1	849	同伴碎片	15000	1	6	1000	3	1	0	99999	60									
+850	碎片·九尾狐王	Partner_piece_A_13	35	850		PartnerStone	1	850	同伴碎片	15000	1	6	1000	3	1	0	99999	61									
+851	碎片·南宫彩虹	Partner_piece_A_14	35	851		PartnerStone	1	851	同伴碎片	15000	1	6	1000	3	1	0	99999	62									
+852	碎片·张琳心	Partner_piece_A_15	35	852		PartnerStone	1	852	同伴碎片	15000	1	6	1000	3	1	0	99999	63									
+853	碎片·蔷薇	Partner_piece_A_16	35	853		PartnerStone	1	853	同伴碎片	15000	1	6	1000	3	1	0	99999	64									
+854	碎片·耶律辟离	Partner_piece_A_17	35	854		PartnerStone	1	854	同伴碎片	15000	1	6	1000	3	1	0	99999	65									
+855	碎片·苏墨芸	Partner_piece_A_18	35	855		PartnerStone	1	855	同伴碎片	15000	1	6	1000	3	1	0	99999	66									
+856	碎片·卓非凡	Partner_piece_A_19	35	856		PartnerStone	1	856	同伴碎片	15000	1	6	1000	3	1	0	99999	67									
+857	碎片·紫轩	Partner_piece_A_20	35	857		PartnerStone	1	857	同伴碎片	15000	1	6	1000	3	1	0	99999	68									
+858	碎片·张如梦	Partner_piece_A_21	35	858		PartnerStone	1	858	同伴碎片	15000	1	6	1000	3	1	0	99999	69									
+859	碎片·林海	Partner_piece_A_22	35	859		PartnerStone	1	859	同伴碎片	15000	1	6	1000	3	1	0	99999	70									
+860	碎片·陆文龙	Partner_piece_A_23	35	860		PartnerStone	1	860	同伴碎片	15000	1	6	1000	3	1	0	99999	71									
+861	碎片·无相	Partner_piece_A_24	35	861		PartnerStone	1	861	同伴碎片	15000	1	6	1000	3	1	0	99999	72									
+862	碎片·赵升权	Partner_piece_A_25	35	862		PartnerStone	1	862	同伴碎片	15000	1	6	1000	3	1	0	99999	73									
+863	碎片·赵节	Partner_piece_A_26	35	863		PartnerStone	1	863	同伴碎片	15000	1	6	1000	3	1	0	99999	74									
+864	碎片·邵骑风	Partner_piece_A_27	35	864		PartnerStone	1	864	同伴碎片	15000	1	6	1000	3	1	0	99999	75									
+865	碎片·A28	Partner_piece_A_28	35	865		PartnerStone	1	865	同伴碎片	15000	1	6	1000	3	1	0	99999	76									
+866	碎片·A29	Partner_piece_A_29	35	866		PartnerStone	1	866	同伴碎片	15000	1	6	1000	3	1	0	99999	77									
+867	碎片·剑童	Partner_piece_B_1	35	867		PartnerStone	1	867	同伴碎片	10000	1	6	1000	2	1	0	99999	78									
+868	碎片·萧动尘	Partner_piece_B_2	35	868		PartnerStone	1	868	同伴碎片	10000	1	6	1000	2	1	0	99999	79									
+869	碎片·心魔	Partner_piece_B_3	35	869		PartnerStone	1	869	同伴碎片	10000	1	6	1000	2	1	0	99999	80									
+870	碎片·胡神医	Partner_piece_B_4	35	870		PartnerStone	1	870	同伴碎片	10000	1	6	1000	2	1	0	99999	81									
+871	碎片·秦沐白	Partner_piece_B_5	35	871		PartnerStone	1	871	同伴碎片	10000	1	6	1000	2	1	0	99999	82									
+872	碎片·张仲天	Partner_piece_B_6	35	872		PartnerStone	1	872	同伴碎片	10000	1	6	1000	2	1	0	99999	83									
+873	碎片·路达	Partner_piece_B_7	35	873		PartnerStone	1	873	同伴碎片	10000	1	6	1000	2	1	0	99999	84									
+874	碎片·李三	Partner_piece_B_8	35	874		PartnerStone	1	874	同伴碎片	10000	1	6	1000	2	1	0	99999	85									
+875	碎片·卢青	Partner_piece_B_9	35	875		PartnerStone	1	875	同伴碎片	10000	1	6	1000	2	1	0	99999	86									
+876	碎片·莺儿	Partner_piece_B_10	35	876		PartnerStone	1	876	同伴碎片	10000	1	6	1000	2	1	0	99999	87									
+877	碎片·顾武	Partner_piece_B_11	35	877		PartnerStone	1	877	同伴碎片	10000	1	6	1000	2	1	0	99999	88									
+878	碎片·B12	Partner_piece_B_12	35	878		PartnerStone	1	878	同伴碎片	10000	1	6	1000	2	1	0	99999	89									
+879	碎片·B13	Partner_piece_B_13	35	879		PartnerStone	1	879	同伴碎片	10000	1	6	1000	2	1	0	99999	90									
+880	碎片·B14	Partner_piece_B_14	35	880		PartnerStone	1	880	同伴碎片	10000	1	6	1000	2	1	0	99999	91									
+881	碎片·B15	Partner_piece_B_15	35	881		PartnerStone	1	881	同伴碎片	10000	1	6	1000	2	1	0	99999	92									
+882	碎片·B16	Partner_piece_B_16	35	882		PartnerStone	1	882	同伴碎片	10000	1	6	1000	2	1	0	99999	93									
+883	碎片·B17	Partner_piece_B_17	35	883		PartnerStone	1	883	同伴碎片	10000	1	6	1000	2	1	0	99999	94									
+884	碎片·B18	Partner_piece_B_18	35	884		PartnerStone	1	884	同伴碎片	10000	1	6	1000	2	1	0	99999	95									
+885	碎片·金钱豹	Partner_piece_C_1	35	885		PartnerStone	1	885	同伴碎片	5000	1	6	1000	1	1	0	99999	96									
+886	碎片·黑翼猎鹰	Partner_piece_C_2	35	886		PartnerStone	1	886	同伴碎片	5000	1	6	1000	1	1	0	99999	97									
+887	碎片·武林恶徒	Partner_piece_C_3	35	887		PartnerStone	1	887	同伴碎片	5000	1	6	1000	1	1	0	99999	98									
+888	碎片·猛虎	Partner_piece_C_4	35	888		PartnerStone	1	888	同伴碎片	5000	1	6	1000	1	1	0	99999	99									
+889	碎片·枫林卫	Partner_piece_C_5	35	889		PartnerStone	1	889	同伴碎片	5000	1	6	1000	1	1	0	99999	100									
+890	碎片·猿猴	Partner_piece_C_6	35	890		PartnerStone	1	890	同伴碎片	5000	1	6	1000	1	1	0	99999	101									
+891	碎片·铁面捕头	Partner_piece_C_7	35	891		PartnerStone	1	891	同伴碎片	5000	1	6	1000	1	1	0	99999	102									
+892	碎片·红衣女童	Partner_piece_C_8	35	892		PartnerStone	1	892	同伴碎片	5000	1	6	1000	1	1	0	99999	103									
+893	碎片·铸剑师	Partner_piece_C_9	35	893		PartnerStone	1	893	同伴碎片	5000	1	6	1000	1	1	0	99999	104									
+894	碎片·猎人	Partner_piece_C_10	35	894		PartnerStone	1	894	同伴碎片	5000	1	6	1000	1	1	0	99999	105									
+895	碎片·红缨侍	Partner_piece_C_11	35	895		PartnerStone	1	895	同伴碎片	5000	1	6	1000	1	1	0	99999	106									
+896	碎片·强盗	Partner_piece_C_12	35	896		PartnerStone	1	896	同伴碎片	5000	1	6	1000	1	1	0	99999	107									
+897	碎片·药王谷弟子	Partner_piece_C_13	35	897		PartnerStone	1	897	同伴碎片	5000	1	6	1000	1	1	0	99999	108									
+898	碎片·灰狼	Partner_piece_C_14	35	898		PartnerStone	1	898	同伴碎片	5000	1	6	1000	1	1	0	99999	109									
+899	碎片·东瀛忍者	Partner_piece_C_15	35	899		PartnerStone	1	899	同伴碎片	5000	1	6	1000	1	1	0	99999	110									
+900	碎片·生使	Partner_piece_C_16	35	900		PartnerStone	1	900	同伴碎片	5000	1	6	1000	1	1	0	99999	111									
+901	碎片·死侍	Partner_piece_C_17	35	901		PartnerStone	1	901	同伴碎片	5000	1	6	1000	1	1	0	99999	112									
+902	碎片·火狐	Partner_piece_C_18	35	902		PartnerStone	1	902	同伴碎片	5000	1	6	1000	1	1	0	99999	113									
+903	碎片·九幽弟子	Partner_piece_C_19	35	903		PartnerStone	1	903	同伴碎片	5000	1	6	1000	1	1	0	99999	114									
+904	碎片·黑熊	Partner_piece_C_20	35	904		PartnerStone	1	904	同伴碎片	5000	1	6	1000	1	1	0	99999	115									
+905	碎片·无忧教弟子	Partner_piece_C_21	35	905		PartnerStone	1	905	同伴碎片	5000	1	6	1000	1	1	0	99999	116									
+906	碎片·天工匠者	Partner_piece_C_22	35	906		PartnerStone	1	906	同伴碎片	5000	1	6	1000	1	1	0	99999	117									
+907	碎片·傀儡士兵	Partner_piece_C_23	35	907		PartnerStone	1	907	同伴碎片	5000	1	6	1000	1	1	0	99999	118									
+908	碎片·机关人	Partner_piece_C_24	35	908		PartnerStone	1	908	同伴碎片	5000	1	6	1000	1	1	0	99999	119									
+909	碎片·C25	Partner_piece_C_25	35	909		PartnerStone	1	909	同伴碎片	5000	1	6	1000	1	1	0	99999	120									
+910	碎片·C26	Partner_piece_C_26	35	910		PartnerStone	1	910	同伴碎片	5000	1	6	1000	1	1	0	99999	121									
+911	碎片·C27	Partner_piece_C_27	35	911		PartnerStone	1	911	同伴碎片	5000	1	6	1000	1	1	0	99999	122									
+912	碎片·C28	Partner_piece_C_28	35	912		PartnerStone	1	912	同伴碎片	5000	1	6	1000	1	1	0	99999	123									
+913	碎片·C29	Partner_piece_C_29	35	913		PartnerStone	1	913	同伴碎片	5000	1	6	1000	1	1	0	99999	124									
+914	碎片·C30	Partner_piece_C_30	35	914		PartnerStone	1	914	同伴碎片	5000	1	6	1000	1	1	0	99999	125									
+970	高级符文·饕餮卷轴碎片	RuneScoll_piece_12_Lv3	35	693		PartnerScroll	4	693	卷轴碎片	8000	1	6	1000	3	1	0	99999										
+971	高级符文·帝江卷轴碎片	RuneScoll_piece_13_Lv3	35	694		PartnerScroll	4	694	卷轴碎片	8000	1	6	1000	3	1	0	99999										
+972	高级符文·烛龙卷轴碎片	RuneScoll_piece_14_Lv3	35	695		PartnerScroll	4	695	卷轴碎片	8000	1	6	1000	3	1	0	99999										
+973	高级符文·夔牛卷轴碎片	RuneScoll_piece_15_Lv3	35	696		PartnerScroll	4	696	卷轴碎片	8000	1	6	1000	3	1	0	99999										
+974	高级符文·穷奇卷轴碎片	RuneScoll_piece_16_Lv3	35	697		PartnerScroll	4	697	卷轴碎片	8000	1	6	1000	3	1	0	99999										
+975	高级符文·鲲鹏卷轴碎片	RuneScoll_piece_17_Lv3	35	698		PartnerScroll	4	698	卷轴碎片	8000	1	6	1000	3	1	0	99999										
+976	高级符文·腾蛇卷轴碎片	RuneScoll_piece_18_Lv3	35	699		PartnerScroll	4	699	卷轴碎片	8000	1	6	1000	3	1	0	99999										
+977	高级符文·貔貅卷轴碎片	RuneScoll_piece_19_Lv3	35	700		PartnerScroll	4	700	卷轴碎片	8000	1	6	1000	3	1	0	99999										
+978	强效符文·全抗卷轴碎片	RuneScoll_piece_3_Lv4	35	701		PartnerScroll	4	701	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+979	强效符文·命中卷轴碎片	RuneScoll_piece_4_Lv4	35	702		PartnerScroll	4	702	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+980	强效符文·闪避卷轴碎片	RuneScoll_piece_5_Lv4	35	703		PartnerScroll	4	703	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+981	强效符文·会心卷轴碎片	RuneScoll_piece_6_Lv4	35	704		PartnerScroll	4	704	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+982	强效符文·忽闪卷轴碎片	RuneScoll_piece_7_Lv4	35	705		PartnerScroll	4	705	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+983	强效符文·减会心卷轴碎片	RuneScoll_piece_8_Lv4	35	706		PartnerScroll	4	706	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+984	强效符文·效果卷轴碎片	RuneScoll_piece_9_Lv4	35	707		PartnerScroll	4	707	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+985	强效符文·减效果卷轴碎片	RuneScoll_piece_10_Lv4	35	708		PartnerScroll	4	708	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+986	强效符文·回复卷轴碎片	RuneScoll_piece_11_Lv4	35	709		PartnerScroll	4	709	卷轴碎片	8000	1	6	1000	4	1	0	99999										
+987	特效符文·玄武卷轴碎片	RuneScroll_piece_20_Lv5	35	710		PartnerScroll	4	710	卷轴碎片	12000	1	6	1000	5	1	0	99999										
+988	特效符文·青龙卷轴碎片	RuneScroll_piece_21_Lv5	35	711		PartnerScroll	4	711	卷轴碎片	12000	1	6	1000	5	1	0	99999										
+989	特效符文·凤凰卷轴碎片	RuneScroll_piece_22_Lv5	35	712		PartnerScroll	4	712	卷轴碎片	12000	1	6	1000	5	1	0	99999										
+990	特效符文·白虎卷轴碎片	RuneScroll_piece_23_Lv5	35	713		PartnerScroll	4	713	卷轴碎片	12000	1	6	1000	5	1	0	99999										
+991	特效符文·朱雀卷轴碎片	RuneScroll_piece_24_Lv5	35	714		PartnerScroll	4	714	卷轴碎片	12000	1	6	1000	5	1	0	99999										
+992	特效符文·应龙卷轴碎片	RuneScroll_piece_25_Lv5	35	715		PartnerScroll	4	715	卷轴碎片	12000	1	6	1000	5	1	0	99999										
+993	特效符文·白泽卷轴碎片	RuneScroll_piece_26_Lv5	35	716		PartnerScroll	4	716	卷轴碎片	12000	1	6	1000	5	1	0	99999										
+994	特效符文·麒麟卷轴碎片	RuneScroll_piece_27_Lv5	35	717		PartnerScroll	4	717	卷轴碎片	12000	1	6	1000	5	1	0	99999										
+995	完美符文·全抗卷轴碎片	RuneScoll_piece_3_Lv6	35	718		PartnerScroll	4	718	卷轴碎片	15000	1	6	1000	6	1	0	99999										
+996	完美符文·命中卷轴碎片	RuneScoll_piece_4_Lv6	35	719		PartnerScroll	4	719	卷轴碎片	15000	1	6	1000	6	1	0	99999										
+997	完美符文·闪避卷轴碎片	RuneScoll_piece_5_Lv6	35	720		PartnerScroll	4	720	卷轴碎片	15000	1	6	1000	6	1	0	99999										
+998	完美符文·会心卷轴碎片	RuneScoll_piece_6_Lv6	35	721		PartnerScroll	4	721	卷轴碎片	15000	1	6	1000	6	1	0	99999										
+999	完美符文·忽闪卷轴碎片	RuneScoll_piece_7_Lv6	35	722		PartnerScroll	4	722	卷轴碎片	15000	1	6	1000	6	1	0	99999										
+1000	完美符文·减会心卷轴碎片	RuneScoll_piece_8_Lv6	35	723		PartnerScroll	4	723	卷轴碎片	15000	1	6	1000	6	1	0	99999										
+1001	完美符文·效果卷轴碎片	RuneScoll_piece_9_Lv6	35	724		PartnerScroll	4	724	卷轴碎片	15000	1	6	1000	6	1	0	99999										
+1002	完美符文·减效果卷轴碎片	RuneScoll_piece_10_Lv6	35	725		PartnerScroll	4	725	卷轴碎片	15000	1	6	1000	6	1	0	99999										
+1003	完美符文·回复卷轴碎片	RuneScoll_piece_11_Lv6	35	726		PartnerScroll	4	726	卷轴碎片	15000	1	6	1000	6	1	0	99999										

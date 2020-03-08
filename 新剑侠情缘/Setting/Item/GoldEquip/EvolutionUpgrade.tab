@@ -1,0 +1,201 @@
+SrcItem	TarItem	DESC	Cosume2Item	Consume2Count	CosumeItem	TimeFrame1	ConsumeCount1	TimeFrame2	ConsumeCount2	TimeFrame3	ConsumeCount3	TimeFrame4	ConsumeCount4	TimeFrame5	ConsumeCount5	TimeFrame6	ConsumeCount6	TimeFrame7	ConsumeCount7	TimeFrame8	ConsumeCount8	TimeFrame9	ConsumeCount9	TimeFrame10	ConsumeCount10
+2764	2765	T6升T7黄金武器			2804	OpenLevel89	90	OpenLevel99	72	OpenLevel109	63	OpenLevel119	54	OpenLevel129	45										
+2782	2783	T6升T7黄金衣服			2804	OpenLevel89	54	OpenLevel99	43	OpenLevel109	37	OpenLevel119	32	OpenLevel129	27										
+2779	2780	T6升T7黄金帽子			2804	OpenLevel89	18	OpenLevel99	14	OpenLevel109	12	OpenLevel119	10	OpenLevel129	9										
+2788	2789	T6升T7黄金腰带			2804	OpenLevel89	18	OpenLevel99	14	OpenLevel109	12	OpenLevel119	10	OpenLevel129	9										
+2785	2786	T6升T7黄金护腕			2804	OpenLevel89	18	OpenLevel99	14	OpenLevel109	12	OpenLevel119	10	OpenLevel129	9										
+2791	2792	T6升T7黄金鞋子			2804	OpenLevel89	18	OpenLevel99	14	OpenLevel109	12	OpenLevel119	10	OpenLevel129	9										
+2767	2768	T6升T7黄金项链			2804	OpenLevel89	36	OpenLevel99	28	OpenLevel109	25	OpenLevel119	21	OpenLevel129	18										
+2770	2771	T6升T7黄金戒指			2804	OpenLevel89	36	OpenLevel99	28	OpenLevel109	25	OpenLevel119	21	OpenLevel129	18										
+2773	2774	T6升T7黄金玉佩			2804	OpenLevel89	36	OpenLevel99	28	OpenLevel109	25	OpenLevel119	21	OpenLevel129	18										
+2776	2777	T6升T7黄金护身符			2804	OpenLevel89	36	OpenLevel99	28	OpenLevel109	25	OpenLevel119	21	OpenLevel129	18										
+2765	2766	T7升T8黄金武器			2804	OpenLevel99	120	OpenLevel109	96	OpenLevel119	84	OpenLevel129	72	OpenLevel139	60										
+2783	2784	T7升T8黄金衣服			2804	OpenLevel99	72	OpenLevel109	57	OpenLevel119	50	OpenLevel129	43	OpenLevel139	36										
+2780	2781	T7升T8黄金帽子			2804	OpenLevel99	24	OpenLevel109	19	OpenLevel119	16	OpenLevel129	14	OpenLevel139	12										
+2789	2790	T7升T8黄金腰带			2804	OpenLevel99	24	OpenLevel109	19	OpenLevel119	16	OpenLevel129	14	OpenLevel139	12										
+2786	2787	T7升T8黄金护腕			2804	OpenLevel99	24	OpenLevel109	19	OpenLevel119	16	OpenLevel129	14	OpenLevel139	12										
+2792	2793	T7升T8黄金鞋子			2804	OpenLevel99	24	OpenLevel109	19	OpenLevel119	16	OpenLevel129	14	OpenLevel139	12										
+2768	2769	T7升T8黄金项链			2804	OpenLevel99	48	OpenLevel109	38	OpenLevel119	33	OpenLevel129	28	OpenLevel139	24										
+2771	2772	T7升T8黄金戒指			2804	OpenLevel99	48	OpenLevel109	38	OpenLevel119	33	OpenLevel129	28	OpenLevel139	24										
+2774	2775	T7升T8黄金玉佩			2804	OpenLevel99	48	OpenLevel109	38	OpenLevel119	33	OpenLevel129	28	OpenLevel139	24										
+2777	2778	T7升T8黄金护身符			2804	OpenLevel99	48	OpenLevel109	38	OpenLevel119	33	OpenLevel129	28	OpenLevel139	24										
+2766	3619	T8升T9黄金武器			2804	OpenLevel109	120	OpenLevel119	96	OpenLevel129	84	OpenLevel139	72	OpenLevel149	60										
+2784	3631	T8升T9黄金衣服			2804	OpenLevel109	72	OpenLevel119	57	OpenLevel129	50	OpenLevel139	43	OpenLevel149	36										
+2781	3629	T8升T9黄金帽子			2804	OpenLevel109	24	OpenLevel119	19	OpenLevel129	16	OpenLevel139	14	OpenLevel149	12										
+2790	3635	T8升T9黄金腰带			2804	OpenLevel109	24	OpenLevel119	19	OpenLevel129	16	OpenLevel139	14	OpenLevel149	12										
+2787	3633	T8升T9黄金护腕			2804	OpenLevel109	24	OpenLevel119	19	OpenLevel129	16	OpenLevel139	14	OpenLevel149	12										
+2793	3637	T8升T9黄金鞋子			2804	OpenLevel109	24	OpenLevel119	19	OpenLevel129	16	OpenLevel139	14	OpenLevel149	12										
+2769	3621	T8升T9黄金项链			2804	OpenLevel109	48	OpenLevel119	38	OpenLevel129	33	OpenLevel139	28	OpenLevel149	24										
+2772	3623	T8升T9黄金戒指			2804	OpenLevel109	48	OpenLevel119	38	OpenLevel129	33	OpenLevel139	28	OpenLevel149	24										
+2775	3625	T8升T9黄金玉佩			2804	OpenLevel109	48	OpenLevel119	38	OpenLevel129	33	OpenLevel139	28	OpenLevel149	24										
+2778	3627	T8升T9黄金护身符			2804	OpenLevel109	48	OpenLevel119	38	OpenLevel129	33	OpenLevel139	28	OpenLevel149	24										
+3619	3620	T9升T10黄金武器			2804	OpenLevel119	120	OpenLevel129	96	OpenLevel139	84	OpenLevel149	72	OpenLevel159	60										
+3631	3632	T9升T10黄金衣服			2804	OpenLevel119	72	OpenLevel129	57	OpenLevel139	50	OpenLevel149	43	OpenLevel159	36										
+3629	3630	T9升T10黄金帽子			2804	OpenLevel119	24	OpenLevel129	19	OpenLevel139	16	OpenLevel149	14	OpenLevel159	12										
+3635	3636	T9升T10黄金腰带			2804	OpenLevel119	24	OpenLevel129	19	OpenLevel139	16	OpenLevel149	14	OpenLevel159	12										
+3633	3634	T9升T10黄金护腕			2804	OpenLevel119	24	OpenLevel129	19	OpenLevel139	16	OpenLevel149	14	OpenLevel159	12										
+3637	3638	T9升T10黄金鞋子			2804	OpenLevel119	24	OpenLevel129	19	OpenLevel139	16	OpenLevel149	14	OpenLevel159	12										
+3621	3622	T9升T10黄金项链			2804	OpenLevel119	48	OpenLevel129	38	OpenLevel139	33	OpenLevel149	28	OpenLevel159	24										
+3623	3624	T9升T10黄金戒指			2804	OpenLevel119	48	OpenLevel129	38	OpenLevel139	33	OpenLevel149	28	OpenLevel159	24										
+3625	3626	T9升T10黄金玉佩			2804	OpenLevel119	48	OpenLevel129	38	OpenLevel139	33	OpenLevel149	28	OpenLevel159	24										
+3627	3628	T9升T10黄金护身符			2804	OpenLevel119	48	OpenLevel129	38	OpenLevel139	33	OpenLevel149	28	OpenLevel159	24										
+3620	5360	T10升T11黄金武器			2804	OpenLevel129	120	OpenLevel139	96	OpenLevel149	84	OpenLevel159	72	OpenLevel169	60										
+3632	5390	T10升T11黄金衣服			2804	OpenLevel129	72	OpenLevel139	57	OpenLevel149	50	OpenLevel159	43	OpenLevel169	36										
+3630	5385	T10升T11黄金帽子			2804	OpenLevel129	24	OpenLevel139	19	OpenLevel149	16	OpenLevel159	14	OpenLevel169	12										
+3636	5400	T10升T11黄金腰带			2804	OpenLevel129	24	OpenLevel139	19	OpenLevel149	16	OpenLevel159	14	OpenLevel169	12										
+3634	5395	T10升T11黄金护腕			2804	OpenLevel129	24	OpenLevel139	19	OpenLevel149	16	OpenLevel159	14	OpenLevel169	12										
+3638	5405	T10升T11黄金鞋子			2804	OpenLevel129	24	OpenLevel139	19	OpenLevel149	16	OpenLevel159	14	OpenLevel169	12										
+3622	5365	T10升T11黄金项链			2804	OpenLevel129	48	OpenLevel139	38	OpenLevel149	33	OpenLevel159	28	OpenLevel169	24										
+3624	5370	T10升T11黄金戒指			2804	OpenLevel129	48	OpenLevel139	38	OpenLevel149	33	OpenLevel159	28	OpenLevel169	24										
+3626	5375	T10升T11黄金玉佩			2804	OpenLevel129	48	OpenLevel139	38	OpenLevel149	33	OpenLevel159	28	OpenLevel169	24										
+3628	5380	T10升T11黄金护身符			2804	OpenLevel129	48	OpenLevel139	38	OpenLevel149	33	OpenLevel159	28	OpenLevel169	24										
+5360	5361	T11升T12黄金武器			2804	OpenLevel139	120	OpenLevel149	96	OpenLevel159	84	OpenLevel169	72	OpenLevel179	60										
+5390	5391	T11升T12黄金衣服			2804	OpenLevel139	72	OpenLevel149	57	OpenLevel159	50	OpenLevel169	43	OpenLevel179	36										
+5385	5386	T11升T12黄金帽子			2804	OpenLevel139	24	OpenLevel149	19	OpenLevel159	16	OpenLevel169	14	OpenLevel179	12										
+5400	5401	T11升T12黄金腰带			2804	OpenLevel139	24	OpenLevel149	19	OpenLevel159	16	OpenLevel169	14	OpenLevel179	12										
+5395	5396	T11升T12黄金护腕			2804	OpenLevel139	24	OpenLevel149	19	OpenLevel159	16	OpenLevel169	14	OpenLevel179	12										
+5405	5406	T11升T12黄金鞋子			2804	OpenLevel139	24	OpenLevel149	19	OpenLevel159	16	OpenLevel169	14	OpenLevel179	12										
+5365	5366	T11升T12黄金项链			2804	OpenLevel139	48	OpenLevel149	38	OpenLevel159	33	OpenLevel169	28	OpenLevel179	24										
+5370	5371	T11升T12黄金戒指			2804	OpenLevel139	48	OpenLevel149	38	OpenLevel159	33	OpenLevel169	28	OpenLevel179	24										
+5375	5376	T11升T12黄金玉佩			2804	OpenLevel139	48	OpenLevel149	38	OpenLevel159	33	OpenLevel169	28	OpenLevel179	24										
+5380	5381	T11升T12黄金护身符			2804	OpenLevel139	48	OpenLevel149	38	OpenLevel159	33	OpenLevel169	28	OpenLevel179	24										
+5361	5362	T12升T13黄金武器			2804	OpenLevel149	120	OpenLevel159	96	OpenLevel169	84	OpenLevel179	72	OpenLevel189	60										
+5391	5392	T12升T13黄金衣服			2804	OpenLevel149	72	OpenLevel159	57	OpenLevel169	50	OpenLevel179	43	OpenLevel189	36										
+5386	5387	T12升T13黄金帽子			2804	OpenLevel149	24	OpenLevel159	19	OpenLevel169	16	OpenLevel179	14	OpenLevel189	12										
+5401	5402	T12升T13黄金腰带			2804	OpenLevel149	24	OpenLevel159	19	OpenLevel169	16	OpenLevel179	14	OpenLevel189	12										
+5396	5397	T12升T13黄金护腕			2804	OpenLevel149	24	OpenLevel159	19	OpenLevel169	16	OpenLevel179	14	OpenLevel189	12										
+5406	5407	T12升T13黄金鞋子			2804	OpenLevel149	24	OpenLevel159	19	OpenLevel169	16	OpenLevel179	14	OpenLevel189	12										
+5366	5367	T12升T13黄金项链			2804	OpenLevel149	48	OpenLevel159	38	OpenLevel169	33	OpenLevel179	28	OpenLevel189	24										
+5371	5372	T12升T13黄金戒指			2804	OpenLevel149	48	OpenLevel159	38	OpenLevel169	33	OpenLevel179	28	OpenLevel189	24										
+5376	5377	T12升T13黄金玉佩			2804	OpenLevel149	48	OpenLevel159	38	OpenLevel169	33	OpenLevel179	28	OpenLevel189	24										
+5381	5382	T12升T13黄金护身符			2804	OpenLevel149	48	OpenLevel159	38	OpenLevel169	33	OpenLevel179	28	OpenLevel189	24										
+5362	5363	T13升T14黄金武器			2804	OpenLevel159	120	OpenLevel169	96	OpenLevel179	84	OpenLevel189	72	OpenLevel199	60										
+5392	5393	T13升T14黄金衣服			2804	OpenLevel159	72	OpenLevel169	57	OpenLevel179	50	OpenLevel189	43	OpenLevel199	36										
+5387	5388	T13升T14黄金帽子			2804	OpenLevel159	24	OpenLevel169	19	OpenLevel179	16	OpenLevel189	14	OpenLevel199	12										
+5402	5403	T13升T14黄金腰带			2804	OpenLevel159	24	OpenLevel169	19	OpenLevel179	16	OpenLevel189	14	OpenLevel199	12										
+5397	5398	T13升T14黄金护腕			2804	OpenLevel159	24	OpenLevel169	19	OpenLevel179	16	OpenLevel189	14	OpenLevel199	12										
+5407	5408	T13升T14黄金鞋子			2804	OpenLevel159	24	OpenLevel169	19	OpenLevel179	16	OpenLevel189	14	OpenLevel199	12										
+5367	5368	T13升T14黄金项链			2804	OpenLevel159	48	OpenLevel169	38	OpenLevel179	33	OpenLevel189	28	OpenLevel199	24										
+5372	5373	T13升T14黄金戒指			2804	OpenLevel159	48	OpenLevel169	38	OpenLevel179	33	OpenLevel189	28	OpenLevel199	24										
+5377	5378	T13升T14黄金玉佩			2804	OpenLevel159	48	OpenLevel169	38	OpenLevel179	33	OpenLevel189	28	OpenLevel199	24										
+5382	5383	T13升T14黄金护身符			2804	OpenLevel159	48	OpenLevel169	38	OpenLevel179	33	OpenLevel189	28	OpenLevel199	24										
+5363	5364	T14升T15黄金武器			2804	OpenLevel169	120	OpenLevel179	96	OpenLevel189	84	OpenLevel199	72	OpenLevel209	60										
+5393	5394	T14升T15黄金衣服			2804	OpenLevel169	72	OpenLevel179	57	OpenLevel189	50	OpenLevel199	43	OpenLevel209	36										
+5388	5389	T14升T15黄金帽子			2804	OpenLevel169	24	OpenLevel179	19	OpenLevel189	16	OpenLevel199	14	OpenLevel209	12										
+5403	5404	T14升T15黄金腰带			2804	OpenLevel169	24	OpenLevel179	19	OpenLevel189	16	OpenLevel199	14	OpenLevel209	12										
+5398	5399	T14升T15黄金护腕			2804	OpenLevel169	24	OpenLevel179	19	OpenLevel189	16	OpenLevel199	14	OpenLevel209	12										
+5408	5409	T14升T15黄金鞋子			2804	OpenLevel169	24	OpenLevel179	19	OpenLevel189	16	OpenLevel199	14	OpenLevel209	12										
+5368	5369	T14升T15黄金项链			2804	OpenLevel169	48	OpenLevel179	38	OpenLevel189	33	OpenLevel199	28	OpenLevel209	24										
+5373	5374	T14升T15黄金戒指			2804	OpenLevel169	48	OpenLevel179	38	OpenLevel189	33	OpenLevel199	28	OpenLevel209	24										
+5378	5379	T14升T15黄金玉佩			2804	OpenLevel169	48	OpenLevel179	38	OpenLevel189	33	OpenLevel199	28	OpenLevel209	24										
+5383	5384	T14升T15黄金护身符			2804	OpenLevel169	48	OpenLevel179	38	OpenLevel189	33	OpenLevel199	28	OpenLevel209	24										
+5364	9729	T15升T16黄金武器			2804	OpenLevel179	120	OpenLevel189	96	OpenLevel199	84	OpenLevel209	72	OpenLevel219	60										
+5394	9759	T15升T16黄金衣服			2804	OpenLevel179	72	OpenLevel189	57	OpenLevel199	50	OpenLevel209	43	OpenLevel219	36										
+5389	9754	T15升T16黄金帽子			2804	OpenLevel179	24	OpenLevel189	19	OpenLevel199	16	OpenLevel209	14	OpenLevel219	12										
+5404	9764	T15升T16黄金腰带			2804	OpenLevel179	24	OpenLevel189	19	OpenLevel199	16	OpenLevel209	14	OpenLevel219	12										
+5399	9780	T15升T16黄金护腕			2804	OpenLevel179	24	OpenLevel189	19	OpenLevel199	16	OpenLevel209	14	OpenLevel219	12										
+5409	9769	T15升T16黄金鞋子			2804	OpenLevel179	24	OpenLevel189	19	OpenLevel199	16	OpenLevel209	14	OpenLevel219	12										
+5369	9734	T15升T16黄金项链			2804	OpenLevel179	48	OpenLevel189	38	OpenLevel199	33	OpenLevel209	28	OpenLevel219	24										
+5374	9739	T15升T16黄金戒指			2804	OpenLevel179	48	OpenLevel189	38	OpenLevel199	33	OpenLevel209	28	OpenLevel219	24										
+5379	9744	T15升T16黄金玉佩			2804	OpenLevel179	48	OpenLevel189	38	OpenLevel199	33	OpenLevel209	28	OpenLevel219	24										
+5384	9749	T15升T16黄金护身符			2804	OpenLevel179	48	OpenLevel189	38	OpenLevel199	33	OpenLevel209	28	OpenLevel219	24										
+9729	9730	T16升T17黄金武器			2804	OpenLevel189	120	OpenLevel199	96	OpenLevel209	84	OpenLevel219	72	OpenLevel229	60										
+9759	9760	T16升T17黄金衣服			2804	OpenLevel189	72	OpenLevel199	57	OpenLevel209	50	OpenLevel219	43	OpenLevel229	36										
+9754	9755	T16升T17黄金帽子			2804	OpenLevel189	24	OpenLevel199	19	OpenLevel209	16	OpenLevel219	14	OpenLevel229	12										
+9764	9765	T16升T17黄金腰带			2804	OpenLevel189	24	OpenLevel199	19	OpenLevel209	16	OpenLevel219	14	OpenLevel229	12										
+9780	9781	T16升T17黄金护腕			2804	OpenLevel189	24	OpenLevel199	19	OpenLevel209	16	OpenLevel219	14	OpenLevel229	12										
+9769	9770	T16升T17黄金鞋子			2804	OpenLevel189	24	OpenLevel199	19	OpenLevel209	16	OpenLevel219	14	OpenLevel229	12										
+9734	9735	T16升T17黄金项链			2804	OpenLevel189	48	OpenLevel199	38	OpenLevel209	33	OpenLevel219	28	OpenLevel229	24										
+9739	9740	T16升T17黄金戒指			2804	OpenLevel189	48	OpenLevel199	38	OpenLevel209	33	OpenLevel219	28	OpenLevel229	24										
+9744	9745	T16升T17黄金玉佩			2804	OpenLevel189	48	OpenLevel199	38	OpenLevel209	33	OpenLevel219	28	OpenLevel229	24										
+9749	9750	T16升T17黄金护身符			2804	OpenLevel189	48	OpenLevel199	38	OpenLevel209	33	OpenLevel219	28	OpenLevel229	24										
+9730	9731	T17升T18黄金武器			2804	OpenLevel199	120	OpenLevel209	96	OpenLevel219	84	OpenLevel229	72	OpenLevel239	60										
+9760	9761	T17升T18黄金衣服			2804	OpenLevel199	72	OpenLevel209	57	OpenLevel219	50	OpenLevel229	43	OpenLevel239	36										
+9755	9756	T17升T18黄金帽子			2804	OpenLevel199	24	OpenLevel209	19	OpenLevel219	16	OpenLevel229	14	OpenLevel239	12										
+9765	9766	T17升T18黄金腰带			2804	OpenLevel199	24	OpenLevel209	19	OpenLevel219	16	OpenLevel229	14	OpenLevel239	12										
+9781	9782	T17升T18黄金护腕			2804	OpenLevel199	24	OpenLevel209	19	OpenLevel219	16	OpenLevel229	14	OpenLevel239	12										
+9770	9771	T17升T18黄金鞋子			2804	OpenLevel199	24	OpenLevel209	19	OpenLevel219	16	OpenLevel229	14	OpenLevel239	12										
+9735	9736	T17升T18黄金项链			2804	OpenLevel199	48	OpenLevel209	38	OpenLevel219	33	OpenLevel229	28	OpenLevel239	24										
+9740	9741	T17升T18黄金戒指			2804	OpenLevel199	48	OpenLevel209	38	OpenLevel219	33	OpenLevel229	28	OpenLevel239	24										
+9745	9746	T17升T18黄金玉佩			2804	OpenLevel199	48	OpenLevel209	38	OpenLevel219	33	OpenLevel229	28	OpenLevel239	24										
+9750	9751	T17升T18黄金护身符			2804	OpenLevel199	48	OpenLevel209	38	OpenLevel219	33	OpenLevel229	28	OpenLevel239	24										
+10016	10017	T10升T11白金武器	10014	30	2804	OpenLevel129	120	OpenLevel139	96	OpenLevel149	84	OpenLevel159	72	OpenLevel169	60										
+10104	10105	T10升T11白金衣服	10014	18	2804	OpenLevel129	72	OpenLevel139	57	OpenLevel149	50	OpenLevel159	43	OpenLevel169	36										
+10060	10061	T10升T11白金帽子	10014	6	2804	OpenLevel129	24	OpenLevel139	19	OpenLevel149	16	OpenLevel159	14	OpenLevel169	12										
+10093	10094	T10升T11白金腰带	10014	6	2804	OpenLevel129	24	OpenLevel139	19	OpenLevel149	16	OpenLevel159	14	OpenLevel169	12										
+10071	10072	T10升T11白金护腕	10014	6	2804	OpenLevel129	24	OpenLevel139	19	OpenLevel149	16	OpenLevel159	14	OpenLevel169	12										
+10082	10083	T10升T11白金鞋子	10014	6	2804	OpenLevel129	24	OpenLevel139	19	OpenLevel149	16	OpenLevel159	14	OpenLevel169	12										
+10049	10050	T10升T11白金项链	10014	12	2804	OpenLevel129	48	OpenLevel139	38	OpenLevel149	33	OpenLevel159	28	OpenLevel169	24										
+10027	10028	T10升T11白金戒指	10014	12	2804	OpenLevel129	48	OpenLevel139	38	OpenLevel149	33	OpenLevel159	28	OpenLevel169	24										
+10038	10039	T10升T11白金玉佩	10014	12	2804	OpenLevel129	48	OpenLevel139	38	OpenLevel149	33	OpenLevel159	28	OpenLevel169	24										
+10115	10116	T10升T11白金护身符	10014	12	2804	OpenLevel129	48	OpenLevel139	38	OpenLevel149	33	OpenLevel159	28	OpenLevel169	24										
+10017	10018	T11升T12白金武器	10014	30	2804	OpenLevel139	120	OpenLevel149	96	OpenLevel159	84	OpenLevel169	72	OpenLevel179	60										
+10105	10106	T11升T12白金衣服	10014	18	2804	OpenLevel139	72	OpenLevel149	57	OpenLevel159	50	OpenLevel169	43	OpenLevel179	36										
+10061	10062	T11升T12白金帽子	10014	6	2804	OpenLevel139	24	OpenLevel149	19	OpenLevel159	16	OpenLevel169	14	OpenLevel179	12										
+10094	10095	T11升T12白金腰带	10014	6	2804	OpenLevel139	24	OpenLevel149	19	OpenLevel159	16	OpenLevel169	14	OpenLevel179	12										
+10072	10073	T11升T12白金护腕	10014	6	2804	OpenLevel139	24	OpenLevel149	19	OpenLevel159	16	OpenLevel169	14	OpenLevel179	12										
+10083	10084	T11升T12白金鞋子	10014	6	2804	OpenLevel139	24	OpenLevel149	19	OpenLevel159	16	OpenLevel169	14	OpenLevel179	12										
+10050	10051	T11升T12白金项链	10014	12	2804	OpenLevel139	48	OpenLevel149	38	OpenLevel159	33	OpenLevel169	28	OpenLevel179	24										
+10028	10029	T11升T12白金戒指	10014	12	2804	OpenLevel139	48	OpenLevel149	38	OpenLevel159	33	OpenLevel169	28	OpenLevel179	24										
+10039	10040	T11升T12白金玉佩	10014	12	2804	OpenLevel139	48	OpenLevel149	38	OpenLevel159	33	OpenLevel169	28	OpenLevel179	24										
+10116	10117	T11升T12白金护身符	10014	12	2804	OpenLevel139	48	OpenLevel149	38	OpenLevel159	33	OpenLevel169	28	OpenLevel179	24										
+10018	10019	T12升T13白金武器	10014	30	2804	OpenLevel149	120	OpenLevel159	96	OpenLevel169	84	OpenLevel179	72	OpenLevel189	60										
+10106	10107	T12升T13白金衣服	10014	18	2804	OpenLevel149	72	OpenLevel159	57	OpenLevel169	50	OpenLevel179	43	OpenLevel189	36										
+10062	10063	T12升T13白金帽子	10014	6	2804	OpenLevel149	24	OpenLevel159	19	OpenLevel169	16	OpenLevel179	14	OpenLevel189	12										
+10095	10096	T12升T13白金腰带	10014	6	2804	OpenLevel149	24	OpenLevel159	19	OpenLevel169	16	OpenLevel179	14	OpenLevel189	12										
+10073	10074	T12升T13白金护腕	10014	6	2804	OpenLevel149	24	OpenLevel159	19	OpenLevel169	16	OpenLevel179	14	OpenLevel189	12										
+10084	10085	T12升T13白金鞋子	10014	6	2804	OpenLevel149	24	OpenLevel159	19	OpenLevel169	16	OpenLevel179	14	OpenLevel189	12										
+10051	10052	T12升T13白金项链	10014	12	2804	OpenLevel149	48	OpenLevel159	38	OpenLevel169	33	OpenLevel179	28	OpenLevel189	24										
+10029	10030	T12升T13白金戒指	10014	12	2804	OpenLevel149	48	OpenLevel159	38	OpenLevel169	33	OpenLevel179	28	OpenLevel189	24										
+10040	10041	T12升T13白金玉佩	10014	12	2804	OpenLevel149	48	OpenLevel159	38	OpenLevel169	33	OpenLevel179	28	OpenLevel189	24										
+10117	10118	T12升T13白金护身符	10014	12	2804	OpenLevel149	48	OpenLevel159	38	OpenLevel169	33	OpenLevel179	28	OpenLevel189	24										
+10019	10020	T13升T14白金武器	10014	30	2804	OpenLevel159	120	OpenLevel169	96	OpenLevel179	84	OpenLevel189	72	OpenLevel199	60										
+10107	10108	T13升T14白金衣服	10014	18	2804	OpenLevel159	72	OpenLevel169	57	OpenLevel179	50	OpenLevel189	43	OpenLevel199	36										
+10063	10064	T13升T14白金帽子	10014	6	2804	OpenLevel159	24	OpenLevel169	19	OpenLevel179	16	OpenLevel189	14	OpenLevel199	12										
+10096	10097	T13升T14白金腰带	10014	6	2804	OpenLevel159	24	OpenLevel169	19	OpenLevel179	16	OpenLevel189	14	OpenLevel199	12										
+10074	10075	T13升T14白金护腕	10014	6	2804	OpenLevel159	24	OpenLevel169	19	OpenLevel179	16	OpenLevel189	14	OpenLevel199	12										
+10085	10086	T13升T14白金鞋子	10014	6	2804	OpenLevel159	24	OpenLevel169	19	OpenLevel179	16	OpenLevel189	14	OpenLevel199	12										
+10052	10053	T13升T14白金项链	10014	12	2804	OpenLevel159	48	OpenLevel169	38	OpenLevel179	33	OpenLevel189	28	OpenLevel199	24										
+10030	10031	T13升T14白金戒指	10014	12	2804	OpenLevel159	48	OpenLevel169	38	OpenLevel179	33	OpenLevel189	28	OpenLevel199	24										
+10041	10042	T13升T14白金玉佩	10014	12	2804	OpenLevel159	48	OpenLevel169	38	OpenLevel179	33	OpenLevel189	28	OpenLevel199	24										
+10118	10119	T13升T14白金护身符	10014	12	2804	OpenLevel159	48	OpenLevel169	38	OpenLevel179	33	OpenLevel189	28	OpenLevel199	24										
+10020	10021	T14升T15白金武器	10014	30	2804	OpenLevel169	120	OpenLevel179	96	OpenLevel189	84	OpenLevel199	72	OpenLevel209	60										
+10108	10109	T14升T15白金衣服	10014	18	2804	OpenLevel169	72	OpenLevel179	57	OpenLevel189	50	OpenLevel199	43	OpenLevel209	36										
+10064	10065	T14升T15白金帽子	10014	6	2804	OpenLevel169	24	OpenLevel179	19	OpenLevel189	16	OpenLevel199	14	OpenLevel209	12										
+10097	10098	T14升T15白金腰带	10014	6	2804	OpenLevel169	24	OpenLevel179	19	OpenLevel189	16	OpenLevel199	14	OpenLevel209	12										
+10075	10076	T14升T15白金护腕	10014	6	2804	OpenLevel169	24	OpenLevel179	19	OpenLevel189	16	OpenLevel199	14	OpenLevel209	12										
+10086	10087	T14升T15白金鞋子	10014	6	2804	OpenLevel169	24	OpenLevel179	19	OpenLevel189	16	OpenLevel199	14	OpenLevel209	12										
+10053	10054	T14升T15白金项链	10014	12	2804	OpenLevel169	48	OpenLevel179	38	OpenLevel189	33	OpenLevel199	28	OpenLevel209	24										
+10031	10032	T14升T15白金戒指	10014	12	2804	OpenLevel169	48	OpenLevel179	38	OpenLevel189	33	OpenLevel199	28	OpenLevel209	24										
+10042	10043	T14升T15白金玉佩	10014	12	2804	OpenLevel169	48	OpenLevel179	38	OpenLevel189	33	OpenLevel199	28	OpenLevel209	24										
+10119	10120	T14升T15白金护身符	10014	12	2804	OpenLevel169	48	OpenLevel179	38	OpenLevel189	33	OpenLevel199	28	OpenLevel209	24										
+10021	10022	T15升T16白金武器	10014	30	2804	OpenLevel179	120	OpenLevel189	96	OpenLevel199	84	OpenLevel209	72	OpenLevel219	60										
+10109	10110	T15升T16白金衣服	10014	18	2804	OpenLevel179	72	OpenLevel189	57	OpenLevel199	50	OpenLevel209	43	OpenLevel219	36										
+10065	10066	T15升T16白金帽子	10014	6	2804	OpenLevel179	24	OpenLevel189	19	OpenLevel199	16	OpenLevel209	14	OpenLevel219	12										
+10098	10099	T15升T16白金腰带	10014	6	2804	OpenLevel179	24	OpenLevel189	19	OpenLevel199	16	OpenLevel209	14	OpenLevel219	12										
+10076	10077	T15升T16白金护腕	10014	6	2804	OpenLevel179	24	OpenLevel189	19	OpenLevel199	16	OpenLevel209	14	OpenLevel219	12										
+10087	10088	T15升T16白金鞋子	10014	6	2804	OpenLevel179	24	OpenLevel189	19	OpenLevel199	16	OpenLevel209	14	OpenLevel219	12										
+10054	10055	T15升T16白金项链	10014	12	2804	OpenLevel179	48	OpenLevel189	38	OpenLevel199	33	OpenLevel209	28	OpenLevel219	24										
+10032	10033	T15升T16白金戒指	10014	12	2804	OpenLevel179	48	OpenLevel189	38	OpenLevel199	33	OpenLevel209	28	OpenLevel219	24										
+10043	10044	T15升T16白金玉佩	10014	12	2804	OpenLevel179	48	OpenLevel189	38	OpenLevel199	33	OpenLevel209	28	OpenLevel219	24										
+10120	10121	T15升T16白金护身符	10014	12	2804	OpenLevel179	48	OpenLevel189	38	OpenLevel199	33	OpenLevel209	28	OpenLevel219	24										
+10022	10023	T16升T17白金武器	10014	30	2804	OpenLevel189	120	OpenLevel199	96	OpenLevel209	84	OpenLevel219	72	OpenLevel229	60										
+10110	10111	T16升T17白金衣服	10014	18	2804	OpenLevel189	72	OpenLevel199	57	OpenLevel209	50	OpenLevel219	43	OpenLevel229	36										
+10066	10067	T16升T17白金帽子	10014	6	2804	OpenLevel189	24	OpenLevel199	19	OpenLevel209	16	OpenLevel219	14	OpenLevel229	12										
+10099	10100	T16升T17白金腰带	10014	6	2804	OpenLevel189	24	OpenLevel199	19	OpenLevel209	16	OpenLevel219	14	OpenLevel229	12										
+10077	10078	T16升T17白金护腕	10014	6	2804	OpenLevel189	24	OpenLevel199	19	OpenLevel209	16	OpenLevel219	14	OpenLevel229	12										
+10088	10089	T16升T17白金鞋子	10014	6	2804	OpenLevel189	24	OpenLevel199	19	OpenLevel209	16	OpenLevel219	14	OpenLevel229	12										
+10055	10056	T16升T17白金项链	10014	12	2804	OpenLevel189	48	OpenLevel199	38	OpenLevel209	33	OpenLevel219	28	OpenLevel229	24										
+10033	10034	T16升T17白金戒指	10014	12	2804	OpenLevel189	48	OpenLevel199	38	OpenLevel209	33	OpenLevel219	28	OpenLevel229	24										
+10044	10045	T16升T17白金玉佩	10014	12	2804	OpenLevel189	48	OpenLevel199	38	OpenLevel209	33	OpenLevel219	28	OpenLevel229	24										
+10121	10122	T16升T17白金护身符	10014	12	2804	OpenLevel189	48	OpenLevel199	38	OpenLevel209	33	OpenLevel219	28	OpenLevel229	24										
+10023	10024	T17升T18白金武器	10014	30	2804	OpenLevel199	120	OpenLevel209	96	OpenLevel219	84	OpenLevel229	72	OpenLevel239	60										
+10111	10112	T17升T18白金衣服	10014	18	2804	OpenLevel199	72	OpenLevel209	57	OpenLevel219	50	OpenLevel229	43	OpenLevel239	36										
+10067	10068	T17升T18白金帽子	10014	6	2804	OpenLevel199	24	OpenLevel209	19	OpenLevel219	16	OpenLevel229	14	OpenLevel239	12										
+10100	10101	T17升T18白金腰带	10014	6	2804	OpenLevel199	24	OpenLevel209	19	OpenLevel219	16	OpenLevel229	14	OpenLevel239	12										
+10078	10079	T17升T18白金护腕	10014	6	2804	OpenLevel199	24	OpenLevel209	19	OpenLevel219	16	OpenLevel229	14	OpenLevel239	12										
+10089	10090	T17升T18白金鞋子	10014	6	2804	OpenLevel199	24	OpenLevel209	19	OpenLevel219	16	OpenLevel229	14	OpenLevel239	12										
+10056	10057	T17升T18白金项链	10014	12	2804	OpenLevel199	48	OpenLevel209	38	OpenLevel219	33	OpenLevel229	28	OpenLevel239	24										
+10034	10035	T17升T18白金戒指	10014	12	2804	OpenLevel199	48	OpenLevel209	38	OpenLevel219	33	OpenLevel229	28	OpenLevel239	24										
+10045	10046	T17升T18白金玉佩	10014	12	2804	OpenLevel199	48	OpenLevel209	38	OpenLevel219	33	OpenLevel229	28	OpenLevel239	24										
+10122	10123	T17升T18白金护身符	10014	12	2804	OpenLevel199	48	OpenLevel209	38	OpenLevel219	33	OpenLevel229	28	OpenLevel239	24										

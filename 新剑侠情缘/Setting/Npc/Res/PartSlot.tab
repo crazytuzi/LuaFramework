@@ -1,0 +1,16 @@
+Des	SlotId	SlotName	身体插槽1到48，翅膀插槽51到98，武器插槽101到150,马插槽151到200
+身体右手插槽	1	B_RH	
+身体左手插槽	2	B_LH	
+身体翅膀插槽	3	B_Spine2	
+身体根骨骼1	4	Bip001	
+身体根骨骼2	5	Bip01	
+npc右手	11	S_RH	
+npc左手	12	S_LH	
+npc右腿	13	S_RH_01	
+npc左腿	14	S_LH_01	
+npc头部	15	S_Hat	
+npc头顶	16	S_HAT_01	
+武当右手	17	Bip01 R Hand	
+马背	152	B_Hs	
+双人坐骑-前	153	B_Hs001	
+双人坐骑-后	154	B_Hs002	

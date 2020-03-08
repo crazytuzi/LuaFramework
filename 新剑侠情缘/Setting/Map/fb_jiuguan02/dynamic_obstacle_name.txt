@@ -1,0 +1,4 @@
+DynmincObstacle1
+DynmincObstacle2
+DynmincObstacle3
+DynmincObstacle4

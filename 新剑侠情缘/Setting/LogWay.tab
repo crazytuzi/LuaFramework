@@ -1,0 +1,547 @@
+WayName	Value	Desc	Comment	Reason2	Round	kin	kinMem
+LogWay_DegreeCtrl	1		活动次数购买	活动key			
+LogWay_Refinement	2		洗练				
+LogWay_IdentifyEquip	3		装备鉴定				
+LogWay_ConsumePartnerStone	4		消耗同伴魂石				
+LogWay_QuickBuy	5		快速购买				
+LogWay_ClearRevengeCD	6		清除复仇CD				
+LogWay_WantedLongCost	7		长时间通缉				
+LogWay_ResetFubenTimes	8		重置副本次数				
+LogWay_ReviveInFuben	9		副本里重生				
+LogWay_AuctionBid	10		拍卖行竞价	拍卖单号id			
+LogWay_AuctionBidOver	11		拍卖行一口价	拍卖单号id			
+LogWay_JoinKin	12		加入家族			1	
+LogWay_KinGatherDrink	13	烤火喝酒	家族聚集饮酒				1
+LogWay_MapExploreReset	14		重置地图探索				
+LogWay_MissionAwardAdd	15		增加副本事后抽奖次数	抽奖次数			
+LogWay_PartnerSkillLevelUp	17		同伴技能升级				
+LogWay_ChangeName	18		玩家改名				
+LogWay_Offline	19		异步消耗银两（被抢夺）				
+LogWay_BuyRankBattleTimes	20		购买武神殿次数				
+LogWay_BuyVipAward	21		购买【剑侠V】特权礼包				
+LogWay_SkillLevelUp	22		技能升级				
+LogWay_Strengthen	23		强化				
+LogWay_StoneCombine	24		宝石合成				
+LogWay_CommerceTaskHelp	25	协助商会任务	商会任务协助				
+LogWay_UseHelper	27		助战				
+LogWay_AddPartnerStone	28		获取同伴魂石				
+LogWay_QuickBuyRecu	29		快速购买失败				
+LogWay_ChuangGongSend	30	传功	传功授予				
+LogWay_RobCoinAddHate	31		抢夺银两				
+LogWay_DungeonMgrKill	32		神秘洞窟击杀				
+LogWay_BidFail	33		拍卖竞价失败	拍卖单号id			
+LogWay_BidOverFail	34		拍卖一口价失败				
+LogWay_CreateKin	35		创建家族			1	
+LogWay_KinDonate	36	家族捐献	家族捐献				1
+LogWay_KinGatherAward	37	家族烤火	家族聚集奖励				
+LogWay_KinRobberFirstKill	38		家族盗贼首杀				
+LogWay_KinRobber	39		家族盗贼击杀				
+LogWay_MoneyTreeShake	40	摇钱树	摇动摇钱树				
+LogWay_RankBattle_BASE_AWARD	42	武神殿	武神殿基础奖励				
+LogWay_RankBattle_WIN_AWARD	43	武神殿	武神殿胜利奖励				
+LogWay_Recharge	44		充值				
+LogWay_BuyMonthCard	45		月卡				
+LogWay_BuyWeekCard	46		周卡				
+LogWay_GrowInvestAward	47		一本万利	nGroupIndex*1000+nIndex			
+LogWay_ShopSell	48		商店出售				
+LogWay_FinishCommerceTask	49	商会任务	完成商会任务				
+LogWay_CommerceTaskDoHelp	50	协助商会任务	商会任务协助				
+LogWay_JuBaoPenTakeMoney	51		聚宝盆获取				
+LogWay_OpenLightStone	52		武器附魔				
+LogWay_DebrisCreateStone	53		宝石碎片合成				
+LogWay_PartnerStoneUse	54		同伴魂石使用				
+LogWay_RandomItem	55		随机道具（宝箱）使用	道具奖励配置id			
+LogWay_AchievementAward	56	成就	成就奖励				
+LogWay_Battle	57	战场	战场		1		
+LogWay_FieldBoss	58	历代名将	历代名将		1		
+LogWay_FieldLeader	59	野外首领	野外首领		1		
+LogWay_EverydayTargetAward	60	每日目标	每日目标奖励				
+LogWay_CoinPick	61		银两抽卡	道具id			
+LogWay_CoinTenPick	62		银两十连抽	道具id,道具id,...(十个)			
+LogWay_GoldPick	63		元宝抽卡	道具id			
+LogWay_GoldTenPick	64		元宝十连抽	道具id,道具id,...(十个)			
+LogWay_GoldFreePick	65		元宝免费抽卡				
+LogWay_Debris	66		碎片抢夺				
+LogWay_FactionBattleBox	67	门派竞技	门派竞技领奖				
+LogWay_PersonalFuben	68		单人副本	单人副本id	1		
+LogWay_RandomFuben	69	凌绝峰	凌绝峰		1		
+LogWay_TeamFubenOutAward	71	组队秘境	组队秘境出来奖励				
+LogWay_TeamFuben	72	组队秘境	组队秘境		1		
+LogWay_FindDungeonAward	73	神秘洞窟	发现神秘洞窟奖励				
+LogWay_DungeonFubenOpenGateAward	74	神秘洞窟	神秘洞窟开门奖励				
+LogWay_KinNest	75		家族巢穴(关闭)				
+LogWay_HeroChallenge	76	英雄挑战	英雄挑战		1		
+LogWay_AuctionOnDeal	77		拍卖成交				
+LogWay_KinBuyGiftBox	78		家族礼盒				1
+LogWay_GatherAnswer	79	家族答题	家族答题参与				
+LogWay_GatherAnswerRight	80	家族答题	家族答题正确				
+LogWay_TakeMailAttach	81		领取邮件附件				
+LogWay_ExplorationFuben	82	探索	地图探索		1		
+LogWay_MissionAward	83		副本事后抽奖	抽奖id（副本类型* 1000 + 抽奖次数）			
+LogWay_DungLeaderOnAttack	84	神秘洞窟	神秘洞窟首领参与				
+LogWay_DungLeaderDeath	85	神秘洞窟	神秘洞窟首领死亡				
+LogWay_DecomposePartner	86		分解同伴				
+LogWay_PrayGainReward	87		祈福				
+LogWay_PunishTask	88	惩恶任务	惩恶任务		1		
+LogWay_QunYingHui	89	群英会	群英会		1		
+LogWay_RankBattleAward_Rank	90	武神殿	武神殿排名奖励				
+LogWay_TakeMonthCardAward	91		领取月卡奖励				
+LogWay_TakeWeekCardAward	92		领取周卡奖励				
+LogWay_CommerceTaskCommitItem	93	商会任务	商会任务提交道具				
+LogWay_KinTaskOnFinish	95		家族任务完成（关闭）				
+LogWay_Task	96	主线任务	主线任务	任务id			
+LogWay_SubTask	97	支线任务	支线任务	任务id			
+LogWay_ActivityQuestion	98	答题活动	答题活动		1		
+LogWay_GetLoginAwards	99		登录领奖				
+LogWay_SignInAwardNormal	100		签到普通奖励				
+LogWay_SignInAwardVip	101		签到【剑侠V】特权奖励				
+LogWay_ComposeItem	103		道具合成				
+LogWay_DebrisMerge	104		装备碎片合成				
+LogWay_ShopBuy	106		商店购买	元宝流水对应道具id，道具流水对应商品id			
+LogWay_StoneCombine	107		宝石合成				
+LogWay_InsetGetOrg	108		宝石镶嵌替换				
+LogWay_UseItem	109		使用道具				
+LogWay_CangBaoTuWaBao	110	藏宝图	藏宝图挖宝		1		
+LogWay_OpenCaseItem	111		钥匙宝箱				
+LogWay_FinishHonorLevel	112		升级头衔				
+LogWay_ComposeUse	113		道具合成消耗				
+LogWay_DebrisAvoidRob	114		碎片抢夺免战				
+LogWay_SweepFuben	115		副本扫荡				
+LogWay_PartnerUseEquip	116		同伴使用装备				
+LogWay_PartnerUseExpItem	117		同伴使用经验道具				
+LogWay_StrengthenBreak	118		强化突破				
+LogWay_DoStrengthen	119		强化				
+LogWay_QuickCombie	121		魂石快速合成				
+LogWay_OnInset	122		魂石镶嵌				
+LogWay_QuickInset	123		魂石快速镶嵌				
+LogWay_CommerceTask	124	商会任务	商会任务		1		
+LogWay_TaskItem	125		任务消耗道具				
+LogWay_CodeAward	126		礼包码领奖				
+LogWay_GMGlobalMail	127		客服全局邮件				
+LogWay_GMPersonMail	128		客服单人邮件				
+LogWay_GMCompenMail	129		客服补偿邮件				
+LogWay_GMGlobalCompenMail	130		客服全局补偿邮件				
+LogWay_KinBattle_Win	131	家族战	家族战胜利				
+LogWay_KinBattle_Fail	132	家族战	家族战失败				
+LogWay_KinBattle_Draw	133	家族战	家族战平				
+LogWay_TeamBattle	134	通天塔	通天塔		1		
+LogWay_FixExpNpc	135		野外固定经验				
+LogWay_Exp_Death	136		死亡扣除经验				
+LogWay_ChuangGongGet	137	传功	传功接受				
+LogWay_KinEscort	138	运镖	运镖				1
+LogWay_Guohuo	139		篝火				
+LogWay_XiuLian	140	野外修炼	野外修炼		1		
+LogWay_DungeonFuben	141	神秘洞窟	神秘洞窟		1		
+LogWay_Revenge	142		复仇		1		
+LogWay_Wanted	143	协助通缉	通缉		1		
+LogWay_BossFight	144	武林盟主	挑战武盟主打盟主				
+LogWay_BossRob	145	武林盟主	挑战武盟主抢夺				
+LogWay_Boss	146	武林盟主	挑战武盟主		1		
+LogWay_WhiteTiger	147	白虎堂	白虎堂		1		
+LogWay_NpcDropAward	148		npc掉落产出				
+LogWay_GatherDrink	149	家族烤火	家族聚集饮酒				
+LogWay_FirstLogin	150		第一次登陆				
+LogWay_RoleLevelUp	151		角色升级				
+LogWay_SkillPointBook	152		技能点书				
+LogWay_IdipDoDelExpReq	153		后台手动经验变动				
+LogWay_IdipDoDelItemReq	154		后台手动道具变动				
+LogWay_IdipDoSendAttachMailReq	155		后台手动发送带附件系统邮件请求				
+LogWay_IdipDoSendItemReq	156		邮件发送多个道具请求				
+LogWay_MarketStallCostMoneyBuy	157		购买摆摊商品消耗	摆摊商品id			
+LogWay_MarketStallCostItem	158		摆摊上架扣道具				
+LogWay_MarketStallCancelItem	159		摆摊下架物品				
+LogWay_MarketStallGetMoney	160		摆摊出售获得货币				
+LogWay_MarketStallGetItem	161		摆摊购买获得道具				
+LogWay_MarketUpdateItemCost	162		摆摊CD期间刷新商品列表扣钱				
+LogWay_AdventureFuben	163	山贼密窟	山贼密窟		1		
+LogWay_FactionBattle	164	门派竞技	门派竞技		1		
+LogWay_KinBattle	165	家族战	家族战		1		1
+LogWay_RankBattle	166	武神殿	武神殿		1		
+LogWay_PersonalAuction	167		个人拍卖物品退回或所得				
+LogWay_EntityComposeConsume	168		实体道具合成材料消耗				
+LogWay_EntityComposeAdd	169		实体道具合成道具增加				
+LogWay_DaoBaoZaiAward	170	高级藏宝图	高级藏宝图盗宝贼奖励				
+LogWay_ValueComposeAdd	171		道具合成				
+LogWay_KinTrainNpcAward	172	家族试炼	家族试炼npc掉落				
+LogWay_KinTrainExChange	173	家族试炼	古铜币兑换宝箱				
+LogWay_KinGather	174	家族烤火	家族聚集		1		1
+LogWay_ChuangGong	175	传功	传功		1		
+LogWay_LeaveKin	176		离开家族			1	
+LogWay_DeleteKin	177		解散家族			1	
+LogWay_DeleteKinImmediately	178		立即解散家族			1	
+LogWay_DeleteKinCombine	179		合并解散家族			1	
+LogWay_KinBuildingLevelUp	180		家族升级			1	
+LogWay_KinAddPrestige	181		家族威望改变			1	
+LogWay_KinAddContribution	182		增加家族贡献			1	
+LogWay_KinTrain	183	家族试炼	家族试炼		1		1
+LogWay_ReturnGold2Player	184		支付失败后元宝返还				
+LogWay_SyncOuterGold	185		同步托管货币				
+LogWay_IdipDoDelDiamondReq	186		后台手动元宝变动				
+LogWay_IdipDoDelMoneyReq	187		后台手动钱币变动				
+LogWay_KinSalary	188		家族工资(废弃)				
+LogWay_RemoveInset	189		镶嵌剥离	剥离的道具id			
+LogWay_OnHookFree	190		离线挂机免费领取经验				
+LogWay_OnHookPay	191		离线挂机付费领取经验				
+LogWay_ResetSkill	192		重设技能				
+LogWay_KinRedBag	193	家族红包	家族红包				
+LogWay_SendGift	194	赠送玫瑰花/幸运草	赠送玫瑰或幸运草				
+LogWay_PartnerUseProtentialItem	195		使用资质丹				
+LogWay_PartnerUseSkillBook	196		使用技能书				
+LogWay_SendGoldFail	197		赠送元宝失败返还				
+LogWay_PartnerUseWeapon	198		使用同伴本命武器				
+LogWay_ChooseItem	199		选择道具				
+LogWay_ExchangeBattleBox	200		战场荣誉兑换战场宝箱				
+LogWay_EquipMaker	201		兵甲坊				
+LogWay_PartnerReInit	202		同伴洗髓				
+LogWay_AuctionGold	203		拍卖分红				
+LogWay_SeriesFuben	204		江湖试炼				
+LogWay_KinTrainCommon	205	家族试炼	家族试炼通用				
+LogWay_OneDayCard	206		一元大礼包	nEndTimeKey			
+LogWay_RandomBoss	207		藏宝图随机boss				
+LogWay_IdipDoUpdateMoneyReq	208		AQ后台手动游戏币变动				
+LogWay_IdipDoUpdateDiamondReq	209		AQ后台手动元宝变动				
+LogWay_IdipAqDoSendMsgReq	210		AQ后台手动发邮件消息				
+LogWay_SupplementAward	211		补领奖励 				
+LogWay_KinAddFound	212		增加家族资金			1	
+LogWay_QQVIPEveryDayReward	213		QQ会员每日奖励				
+LogWay_QQSVIPEveryDayReward	214		QQ超级会员每日奖励				
+LogWay_QQVIPGreenReward	215		QQ会员新手奖励				
+LogWay_QQSVIPGreenReward	216		QQ超级会员新手奖励				
+LogWay_IdipDoDelFriendReq	217		后台手动伙伴变动				
+LogWay_IdipDoUpdatHonhrContributeReq	218		后台手动荣誉贡献变动				
+LogWay_IdipDoMailSendHonhrContributeReq	219		后台手动邮件发送荣誉贡献				
+LogWay_MarketStallCostMoneyUpdatePrice	220		摆摊更新上架物品手续费				
+LogWay_MarketStallCostMoneyNewSell	221		摆摊新上架物品手续费				
+LogWay_FriendGift	222		好友赠礼				
+LogWay_MiJi	223		秘籍				
+LogWay_OnHookUseBaiJuWan	224		使用白驹丸或特效白驹丸获取的经验				
+LogWay_FactionMonkey	225		门派大师兄				
+LogWay_KillFieldMapNpc	226	野外修炼	野外击杀精英怪				
+LogWay_WhiteTigerFuben_FF	227	白虎堂	白虎堂进入首层				
+LogWay_WhiteTigerFuben_OF	228	白虎堂	白虎堂进入其他层				
+LogWay_WhiteTigerFuben_BOSS	229	白虎堂	白虎堂击杀boss				
+LogWay_DoSendGoldMailAttachVipExp	230		邮件发送元宝同时附送对应的VIP经验请求				
+LogWay_DoSendAttributeFriend	231		邮件发送具体属性的同伴请求				
+LogWay_AddFriend	232		加好友成功				
+LogWay_DelFriend	233		删除好友成功				
+LogWay_DomainBattle	234	攻城战	攻城战				
+LogWay_DomainBattleMaster	235		攻城战城主奖				
+LogWay_LevelRankActivity	236		等级排名奖励				
+LogWay_PowerRankActivity	237		战力排名奖励				
+LogWay_EquipExchage	238		装备收藏				
+LogWay_ChangeColor	239		外装染色				
+LogWay_ActDuanWuJie	240		端午节活动				
+LogWay_KinPrestigeAutoReduce	241		家族威望衰减				
+LogWay_KinSalaryProfit	242		家族管理层工资				
+LogWay_KinCostFound	243		消耗家族建设资金				
+LogWay_TimeOut	244		道具超时				
+LogWay_IdipDoSendNoAttachToDesignPlayerMailReq	245		对指定区服全部玩家发送不带附件的邮件请求				
+LogWay_FirstRechargeAward	246		首充礼包				
+LogWay_IdipDoSendAttachMailToDesignPartionLevelPlayerReq	247		对指对指定区服、指定等级的玩家发送带附件的补偿邮件请求				
+LogWay_ActivyRechargeCard	248		周月卡活动				
+LogWay_MarketStallBuyFailSendGold	249		摆摊购买失败，返还元宝				
+LogWay_ChangeKinName	250		修改家族名				
+LogWay_CollectionSystem	251		卡片收集系统				
+LogWay_PartnerCallPartner	252		招募同伴				
+LogWay_ExchangeSeverSend	253		兑换之系统补偿				
+LogWay_SummerGift	254		夏日好礼活动				
+LogWay_NewPackageGift	255		换包奖励				
+LogWay_ChangeFaction	256		转门派				
+LogWay_EfunAttachMail	257		Efun奖励邮件				
+LogWay_HSLJGuessing	258		华山论剑竞猜				
+LogWay_ImperialTomb_Enter_Boss	259	秦始皇陵	进入首领房间				
+LogWay_ImperialTomb_Leave	260	秦始皇陵	离开皇陵				
+LogWay_TS_Report	261	师徒	汇报目标				
+LogWay_Qixi	262		七夕				
+LogWay_HSLJPreAward	263		华山论剑预选赛奖励				
+LogWay_HSLJFinalsAward	264		华山论剑决赛奖励				
+LogWay_VipAwardBoxExchange	265		vip兑换任选魂石箱				
+LogWay_TS_Graduate	266	师徒	出师				
+LogWay_GatherBox	267		开放等级上限庆典活动				
+LogWay_Money_Debt_Add	268		货币欠款				
+LogWay_Money_Debt_Cost	269		偿还货币欠款				
+LogWay_RechargeSumAct	270		累计充值消费活动				
+LogWay_BindPhoneReward	271		绑定手机奖励				
+LogWay_InviteFriendReward	272		邀请好友奖励				
+LogWay_MiJiUpgrade	273		秘籍升阶				
+LogWay_MiJiTuPo	274		秘籍突破				
+LogWay_RenownShop	275	名望商店	名望商店				
+LogWay_GoldEquipEvo	276		黄金装备进化				
+LogWay_TrainEquipAttri	277		属性养成				
+LogWay_ImperialTomb_Normal_Boss	278	秦始皇陵	密室首领				
+LogWay_ImperialTomb_Boss	279	秦始皇陵	首领				
+LogWay_ImperialTomb_Box	280	秦始皇陵	密室宝箱				
+LogWay_HSLJPreGame	281		华山论剑预选赛比赛				
+LogWay_HSLJFinalsGame	282		华山论剑预决赛比赛				
+LogWay_RegressionPrivilege	283		回归特权				
+LogWay_ImperialTomb_Minion	284	秦始皇陵	小怪				
+LogWay_ImperialTomb_Leader	285	秦始皇陵	普通首领				
+LogWay_IdIpAddVipExp	286		idip增加vip经验				
+LogWay_ImperialTomb_Send_Ticket	287	秦始皇陵	开放当天赠送门票				
+LogWay_ZhongQiuJie	288		中秋节				
+LogWay_ImperialTomb_Normal_Attend	289	秦始皇陵	挂机参与时间				
+LogWay_ImperialTomb_Emperor_Attend	290	秦始皇陵	Boss参与时间				
+LogWay_XiuLianXinDeBook	291	心得书	心得书				
+LogWay_GoldEquipUpgrade	292		黄金装备升阶				
+LogWay_SendMailGift	293	赠送礼物	赠送邮件礼物				
+LogWay_JiangQuan	294	奖券	奖券道具				
+LogWay_ChouJiangDay	295	新年抽奖	每日抽奖奖励				
+LogWay_ChouJiangBig	296	元宵大奖	大奖奖励				
+LogWay_IdentifyItem	297	鉴定道具	鉴定				
+LogWay_JuanZhou	298	卷轴任务	卷轴任务				
+LogWay_JXSH	299	锦绣山河	锦绣山河				
+LogWay_ExchangeItem	300		道具兑换				
+LogWay_OnHookSpecialPay	301		没到vip等级领取特效白驹丸				
+LogWay_ShanHeSheJiTu	302		山河社稷图				
+LogWay_InDifferBattle	303	心魔幻境	心魔幻境				
+LogWay_SendBless	304		祝福送礼				
+LogWay_WeekendQuestion	305		周末活跃活动				
+LogWay_WeekendQuestionAllRight	306		周末活跃活动正确阶段奖励				
+LogWay_WeekendQuestionCompleted	307		周末活跃活动结束阶段奖励				
+LogWay_SwornFriends	308	结拜	结拜				
+LogWay_Idioms	309	有缘一线牵	有缘一线牵				
+LogWay_ContinualRechargeAct	310		连续充值活动				
+LogWay_ActGanEnJie	311		感恩节活动				
+LogWay_ActDefend	312		守卫名侠				
+LogWay_QQVIPOpenReward	313		QQ会员开通奖励				
+LogWay_QQSVIPOpenReward	314		QQ超级会员开通奖励				
+LogWay_ChristmasGift	315		圣诞活动				
+LogWay_LiHeChuanQing	316		礼盒传情				
+LogWay_InDifferBattleAward	317	心魔幻境	心魔幻境奖励				
+LogWay_RechargeAllDayCardAct	318		每日礼包加码				
+LogWay_SnowmanAct	319	植树节活动	植树节活动				
+LogWay_NYSnowmanActBox	320	元旦雪人	元旦雪人				
+LogWay_DaXueZhang	321	打雪仗	打雪仗				
+LogWay_ChatAward	322		口令红包				
+LogWay_WinterAct	323	冬至节日	冬至节日				
+LogWay_RecordStone	324		铭刻石				
+LogWay_HSLJNewsMail	325		华山论剑最新消息				
+LogWay_DirectLevelUp	326		直升系统				
+LogWay_BiWuZhaoQin	327		比武招亲				
+LogWay_TS_CustomTasks	328	师徒	完成布置任务奖励				
+LogWay_WishAct	329	许愿活动	许愿活动				
+LogWay_TS_Dismiss	330	师徒	解除关系				
+LogWay_TS_CancelDismiss	331		取消解除关系				
+LogWay_FriendRecall_Renown	332	玩家召回	获得名望				
+LogWay_PartnerAwareness	333		同伴觉醒				
+LogWay_NewYearLoginAct	334		登录领奖活动				
+LogWay_MonsterNianAct	335	年兽	年兽奖励				
+LogWay_ReduceFatigueAct	336		降低疲劳活动				
+LogWay_NewYearBuyGift	337		新年大礼包	nEndTimeKey			
+LogWay_ChangeTitleText	338		修改自定义称号				
+LogWay_RegressionPrivilege_O2N	339		回归活动中老玩家回新服得到元宝专用				
+LogWay_QingRenJie	340	情人节	情人节				
+LogWay_NewServerPrivilege	341		回归特权回新服活动				
+LogWay_IdipDoSendAttachMailExpireReq	342		IDIP发送有时限道具				
+LogWay_WomensDay	343		女侠节				
+LogWay_WomanAct	344	女侠节印象活动	女侠节印象活动				
+LogWay_BuyDirectEnhance	345		购买运营直强道具				
+LogWay_ArborDayCure	346		植树节 节流				
+LogWay_TreeAct	347		植树节 开源				
+LogWay_FurnitureMake	348		家具打造				
+LogWay_HouseLevelUp	349		升级家园				
+LogWay_Muse	350		冥想				
+LogWay_MakeZhenYuan	351		真元打造				
+LogWay_QingMingAct	352		清明节				
+LogWay_ZhenYuanSkill	353		真元技能洗练				
+LogWay_HousePlant	354		家园种植				
+LogWay_PlantCure	355	家园协助养护	植物养护				
+LogWay_PlantCrop	356		植物收成				
+LogWay_SellFurniture	357		出售家具				
+LogWay_IdipDoSendItemWhiteTimeReq	358		IDIP邮件发送时效道具				
+LogWay_IdipDoValueNimbusReq	359		IDIP修改元气				
+LogWay_IdipDoValueRechargeReq	360		IDIP修改黎饰				
+LogWay_UseEnergyContainer	361		使用元气容器				
+LogWay_UseEnergyItem	362		使用元气道具				
+LogWay_BuyDressMoney	363		购买黎饰				
+LogWay_WulinHonor	364		武林荣誉				
+LogWay_LoverRecallAct	365		往日情缘				
+LogWay_GetBattleQualify	366		获取战场资格				
+LogWay_BeautyPageant_Vote	367		武林第一美女投票				
+LogWay_BeautyPageant_Recharge	368		武林第一美女充值送投票道具				
+LogWay_BeautyPageant_SignUp	369		武林第一美女报名				
+LogWay_NpcBiWuZhaoQin	370		Npc比武招亲				
+LogWay_ActivityFuben	371		活动副本				
+LogWay_BeautyPageant_EverydayAward	372		武林第一美女每日活跃				
+LogWay_FathersDay	373		父亲节				
+LogWay_WeddingFirework	374		烟花				
+LogWay_WeddingTour	375		婚礼游城				
+LogWay_GM	376		通过GMWEB或IDIP执行				
+LogWay_WuLinDaHui	377		武林大会				
+LogWay_IdipSendUnattchMail	378		发送无附件系统个人邮件				
+LogWay_Wedding	379	婚礼	婚礼				
+LogWay_HouseDefend	380	家园守卫	家园守卫				
+LogWay_ActHonorLevelRank	381		头衔活动				
+LogWay_InDifferBattleUpgrade	382		心魔进阶				
+LogWay_ImperialTomb_StayTime	383	秦始皇陵	挂机时间变化				
+LogWay_Marriage_ChangeTitle	384	结婚	修改称号				
+LogWay_Marriage_Memorial	385		结婚纪念日				
+LogWay_Marriage_Dismiss	386	离婚	离婚				
+LogWay_Marriage_CashGift	387		送礼金				
+LogWay_XueWeiLevelup	388		冲穴				
+LogWay_Lottery_Award	389		抽奖				
+LogWay_XueWeiUseProtentialItem	390		使用资质丹获得真气				
+LogWay_WeddingBook	391		订婚期				
+LogWay_WeddingWarnBookMail	392		婚期提醒邮件				
+LogWay_WeddingOverdueBookMail	393		婚期过期邮件				
+LogWay_XueWeiResetAward	394		重置穴位				
+LogWay_JingMaiOpenAward	395		开启经脉系统时返还真气				
+LogWay_UseZhenQiItem	396		使用真气丹				
+LogWay_WeddingMarryAward	397		结婚奖励				
+LogWay_CrossBossFight	398	武林盟主	跨服挑战武盟主打盟主				
+LogWay_CrossBossRob	399	武林盟主	跨服挑战武盟主抢夺				
+LogWay_IdipDoReikiReq	400		IDIP修改真气				
+LogWay_TeachersDay	401	师徒节	师徒节				
+LogWay_CollectAndRobClue	402		国庆残卷收集活动				
+LogWay_InDifferBattleAwardMonth	403	月度心魔幻境	月度心魔幻境奖励				
+LogWay_InDifferBattleAwardSeason	404	季度心魔幻境	季度心魔幻境奖励				
+LogWay_JiziAct	405		盛典活动-集字活动				
+LogWay_DiscountCoupon	406		打折券				
+LogWay_SendGiftMoonCake	407	赠送晴云秋月	赠送晴云秋月				
+LogWay_AwardBySexItem	408		根据性别的奖励道具				
+LogWay_IdIpCostMoneyDept	409	idip扣除货币可扣成欠款状态	idip扣除货币可扣成欠款状态				
+LogWay_AuctionClosed	410		拍卖关闭				
+LogWay_ZhenFaQuestion	411		阵法试练任务答题奖励				
+LogWay_ZhenFaAward	412		阵法试练任务奖励				
+LogWay_ZhenFaOtherAward	413		阵法试练队友奖励				
+LogWay_ZhenFa	414		阵法				
+LogWay_QQInviteUnRegFriends	415		手Q邀请未注册好友奖励				
+LogWay_CombineKey	416		合成				
+LogWay_CommerceTaskAct	417		商会任务活动				
+LogWay_DongzhiAct	418		2017冬至活动				
+LogWay_NewYearChris	419		双旦活动				
+LogWay_ZhenFaOpenBoxAward	420		开启阵法试练宝箱				
+LogWay_Item2BreakSkillMaxLv	421		消耗道具突破技能等级上限				
+LogWay_QYHCross	422		跨服群英会				
+LogWay_WldsTask	423	武林大事	武林大事				
+LogWay_QYHCrossWinAward	424		跨服群英会胜场奖励				
+LogWay_QYHCrossJoinAward	425		跨服群英会n战奖励				
+LogWay_GFMGiftGiving	426		GFM送礼				
+LogWay_AppPackageGift	427		app礼包				
+LogWay_LabaAct	428	腊八节	腊八节腊八粥				
+LogWay_Avatar	429	变身	变身				
+LogWay_NewYearQAAct	430		新年答题				
+LogWay_IDIPAddItemByStr	431						
+LogWay_Pet	432	宠物	宠物				
+LogWay_InterConnExtGold	433	互通额外补偿					
+LogWay_Uncompose	434	道具拆分					
+LogWay_MagicBowl	435	聚宝盆					
+LogWay_KinSecretFuben	436	家族秘境					
+LogWay_JingMaiLevelUp	437	经脉	经脉				
+LogWay_GoodVoiceRecharge	438	好声音充值赠送	剑侠好声音				
+LogWay_GoodVoice_Winner	439	好声音优胜	剑侠好声音				
+LogWay_GoodVoice_RankGlobal	440	好声音排名全服奖励	剑侠好声音				
+LogWay_BeautyPageant_Winner	441	选美排名奖	武林选美				
+LogWay_GoodVoice_TaoHuaRain	442	好声音桃花雨奖励	剑侠好声音				
+LogWay_GoodVoice_SignUp	443	好声音报名	剑侠好声音				
+LogWay_GoodVoice_SemiFinalArea	444	好声音复赛区域冠军	剑侠好声音				
+LogWay_GoodVoice_SemiFinalFaction	445	好声音复赛门派冠军	剑侠好声音				
+LogWay_GoodVoice_Vote	446	好声音投票奖励	剑侠好声音				
+LogWay_MedalFightAct	447	奖章争夺战	奖章争夺战				
+LogWay_PlantCureHelpAct	448	劳动最光荣	劳动最光荣				
+LogWay_GoodVoiceVoteRank	449	好声音贡献投票排名奖励	剑侠好声音				
+LogWay_GoodVoiceCommond	450	剑侠好声音	剑侠好声音				
+LogWay_GoodVoiceEveryTarget	451	剑侠好声音每日活跃	剑侠好声音				
+LogWay_GoodVoiceLGX	452	剑侠好声音林更新战队	剑侠好声音				
+LogWay_GoodVoiceZLY	453	剑侠好声音赵丽颖战队	剑侠好声音				
+LogWay_DanceAct	454	舞动江湖	舞动江湖				
+LogWay_JueXue	455	绝学	绝学				
+LogWay_WorldCupAct	456	世界杯	世界杯				
+LogWay_JueDiAct	457	心魔绝地活动	心魔绝地活动				
+LogWay_KeyQuestFuben	458	遗迹寻宝	遗迹寻宝				
+LogWay_UnlockPartnerCardPos	459	解锁门客位	门客				
+LogWay_PartnerCardSendGift	460	门客送礼	门客				
+LogWay_KinEncounter	461	家族遭遇战	家族遭遇战				
+LogWay_PartnerCardVisitQuestion	462	门客	门客回答问题奖励	门客回答问题奖励			
+LogWay_PartnerCardDevil	463	门客	门客心魔奖励	门客心魔奖励			
+LogWay_PartnerCardTripFuben	464	门客	门客协助副本	门客协助副本			
+LogWay_PartnerCardTripFubenKill	465	门客	门客协助副本击杀	门客协助副本击杀			
+LogWay_PartnerCardTripFubenGate	466	门客	门客协助副本开门奖励	门客协助副本开门奖励			
+LogWay_PartnerCardActAward	467	门客	门客派遣奖励	门客派遣奖励			
+LogWay_ExchangeTicketAct	468	票券兑换					
+LogWay_DismissPartnerCard	469	门客	门客遣散	门客遣散			
+LogWay_PartnerCardActCost	470	门客	门客派遣消耗	门客派遣消耗			
+LogWay_PartnerCardSendRepeat	471	门客	门客重复拆解	门客重复拆解			
+LogWay_AlterWeddingPromise	472	誓言	修改结婚誓言	修改结婚誓言			
+LogWay_KinDinnerParty	473	家族聚餐	家族聚餐				
+LogWay_JYFL	474	剑意风流	剑意风流				
+LogWay_KinDinnerPartyHelp	475	协助聚餐任务	协助聚餐任务				
+LogWay_IdipPartnerCard	476	门客	idip门客相关				
+LogWay_IdiomsTask	477	情缘任务	情缘一线牵任务				
+LogWay_LoverTask	478	情缘任务	情缘任务				
+LogWay_WaiYiTry	479	云裳华服	云裳华服				
+LogWay_RentDrinkHouse	480	家族宴席	家族宴席				
+LogWay_Toy	481	玩具	玩具				
+LogWay_HousePeachWater	482	桃花树浇水	桃花树浇水				
+LogWay_HousePeachFertilizer	483	桃花树施肥	桃花树施肥				
+LogWay_HousePeachBringUp	484	桃花树护持	桃花树护持				
+LogWay_HousePeachTree	485	桃花树养成	桃花树养成				
+LogWay_DreamTask	486	情缘任务	情缘梦境				
+LogWay_KinActivityRankAct	487	家族活跃排行	家族活跃排行				
+LogWay_ShangShengDianActGold	488	盛典群侠会	我要上盛典活动分红				
+LogWay_MaterialCollectAct	489	酿酒	酿酒				
+LogWay_ShangShengDianActItem	490	盛典群侠会	我要上盛典典字帛书				
+LogWay_JiangHuShengDian	491	江湖盛典活动	江湖盛典活动				
+LogWay_YinXingJiQingAct	492	银杏寄情	银杏寄情				
+LogWay_RechargeSumOpenBox	493	充值返利礼包	充值返利礼包				
+LogWay_AuctionGlobalBonus	494	全服拍卖分红	全服拍卖分红				
+LogWay_PartnerCardCompose	495	门客合成	门客合成				
+LogWay_KinDefendFuben	496	保家卫国	保家卫国				
+LogWay_DumplingBanquetAct	497	饺子宴	饺子宴				
+LogWay_DongRiJiAct	498	师徒礼盒	师徒礼盒				
+LogWay_ZhenQiNoLimitItem	499	无限真气丹	无限真气丹				
+LogWay_ToyDragon	500	玩具接龙	玩具接龙				
+LogWay_BrocadeBoxAct	501	锦盒活动	锦盒活动				
+LogWay_FamilyReunionDinner	502	年夜饭	年夜饭				
+LogWay_YuanXiaoDengMiAct	503	元宵花灯	元宵花灯				
+LogWay_ThanksLetterAct	504	感谢信	感谢信				
+LogWay_QingRenJie_Gift	505	霞蔚锦簇	霞蔚锦簇				
+LogWay_RankBattleActAward	506	武神殿	武神殿重置排名段奖励				
+LogWay_XingYiDouZhuanAct	507	星移斗转	星移斗转				
+LogWay_BaiXiaoShengTuJian	508	百晓生图鉴	百晓生图鉴				
+LogWay_LingJueFengWeek	509	天机迷阵	天机迷阵				
+LogWay_Reunion	510	重逢	重逢				
+LogWay_FoolsDay	511	愚人节	愚人节				
+LogWay_LingTuZhan	512	跨服领土战	跨服领土战				
+LogWay_DrinkToDreamAct	513	大醉江湖梦一场	大醉江湖梦一场				
+LogWay_ShiYinGeDailyGift	514	诗音阁	诗音阁每日礼包				
+LogWay_ShiYinGeEverydayTarget	515	诗音阁	诗音阁活跃度				
+LogWay_ShiYinGeRegression	516	诗音阁	诗音阁回流玩家				
+LogWay_ShiYinGeWinner	517	诗音阁	诗音阁获胜				
+LogWay_ItemDungeon	518	山河图	山河图				
+LogWay_ShiYinGeSignUp	519	诗音阁	诗音阁报名				
+LogWay_RankBattleCross	520	跨服武神殿	跨服武神殿				
+LogWay_RankBattleCross_WIN_AWARD	521	跨服武神殿	跨服武神殿获胜经验奖励				
+LogWay_RankBattle_BASE_AWARD	522	跨服武神殿	跨服武神殿基础经验奖励				
+LogWay_AnniversaryJiYuAct	523	周年寄语活动	周年寄语活动				
+LogWay_PlantCureAct	524	端午养护活动	端午养护活动				
+LogWay_ItemRecovery	525	道具回收	道具回收				
+LogWay_SummerChouJiang	526	盛夏抽奖	盛夏抽奖				
+LogWay_HouseCollectHorse	527	收藏坐骑外装	收藏坐骑外装				
+LogWay_ChangBaiZhiDian	528	长白之巅	长白之巅				
+LogWay_SummerChouJiangDay	529	盛夏抽奖	每日抽奖奖励				
+LogWay_SummerChouJiangBig	530	盛夏大奖	大奖奖励				
+LogWay_WarOfIceAndFire	531	灭火大作战	灭火大作战				
+LogWay_FactionBattleRank	532	门派竞技	门派竞技名次				
+LogWay_KinDonateAct	533	金库储备活动	金库储备活动				
+LogWay_KinElectAct	534		家族评选活动				
+LogWay_HouseParrot	535		家族鹦鹉家具				
+LogWay_KinElect_Vote	536	家族评选	家族评选投票				
+LogWay_Rubbing	537	拓印	拓印				
+LogWay_LingTuZhanSeason	538	领土战季度奖励	领土战季度奖励				
+LogWay_KinFokuBattle	539	龙门之争	龙门之争				
+LogWay_Cook	540	烹饪	烹饪				
+LogWay_IdIpAddVipExp	541	增加5000Vip经验	增加5000Vip经验				
+LogWay_BeautyPageantLGX	542	好声音	VN好声音林更新战队				
+LogWay_BeautyPageantZLY	543	好声音	VN好声音赵丽颖战队				
+LogWay_BeautyPageant_SemiFinalArea	544	好声音	VN好声音区域				
+LogWay_KeyQuestFubenOpenBox	545	遗迹寻宝	遗迹寻宝开箱子				
+LogWay_KeyQuestFubenKillBoss	546	遗迹寻宝	遗迹寻宝击杀boss				
+LogWay_AdvCangBaoTuWaBao	547	高级藏宝图	高级藏宝图挖宝		1		
+LogWay_TianJiMiZhen	548	天机迷阵	天机迷阵				
+LogWay_KinChaosFight	549	琼花杯大师赛	家族竞技联赛				
+LogWay_PiFeng	550	披风	披风				
+LogWay_SecretCard	551	武勋秘令	武勋秘令				
+LogWay_CookFishing	552	钓鱼	钓鱼				
+LogWay_FurnitureExpire	553	家具过期	家具过期				
+LogWay_SecretCard_IDIP	554	武勋秘令	武勋秘令				

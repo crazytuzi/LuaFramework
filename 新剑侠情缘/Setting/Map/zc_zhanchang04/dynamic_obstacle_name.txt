@@ -1,0 +1,6 @@
+son_daying
+son_neita
+son_waita
+jin_waita
+jin_neita
+jin_daying

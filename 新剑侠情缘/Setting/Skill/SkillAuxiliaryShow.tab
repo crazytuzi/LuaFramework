@@ -1,0 +1,20 @@
+ItemTID	Class	UseInfo	Channel	Desc	TimeFrame
+1454	SkillHelp	使用后可增加3点技能点	完成主线任务可以获得	武道德经	
+1430	SkillHelp	使用后可增加1点技能点	高级藏宝图产出，也可通过摆摊购买	武林秘籍（上）	
+1431	SkillHelp	使用后可增加1点技能点	高级藏宝图、华山论剑产出，也可通过摆摊购买	武林秘籍（中）	OpenLevel69
+1432	SkillHelp	使用后可增加1点技能点	高级藏宝图、华山论剑产出，也可通过摆摊购买	武林秘籍（下）	OpenLevel109
+2591	SkillHelp	使用后可增加1点技能点	节日活动产出，也可通过名望商店或摆摊购买	八宝粽	
+2876	SkillHelp	使用后可增加1点技能点	节日活动产出，也可通过名望商店或摆摊购买	月满西楼	
+9570	SkillHelp	使用后可增加1点技能点	节日活动产出，也可通过摆摊购买	簪星曳月	
+8251	SkillHelp	使用后可增加1点技能点	节日活动产出，也可通过摆摊购买	彩缕碧筠粽	
+3238	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各10点	完成主线任务可以获得	江翻海沸诀要	
+3714	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各10点	节日活动产出，也可通过摆摊购买	洗髓经（上）	
+3715	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各10点	节日活动产出，也可通过摆摊购买	洗髓经（中）	
+3716	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各10点	节日活动产出，也可通过摆摊购买	洗髓经（下）	
+7912	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各10点	节日活动产出	易骨经·卷一	
+7913	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各10点	节日活动产出	易骨经·卷二	OpenLevel139
+7914	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各10点	节日活动产出	易骨经·卷三	OpenLevel139
+7915	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各10点	节日活动产出	易骨经·卷四	OpenLevel139
+2877	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各5点	节日活动产出，也可通过名望商店或摆摊购买	彩云追月	
+6444	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各5点	节日活动产出，也可通过名望商店或摆摊购买	千里月明	
+11658	AddAttributeItemHelp	增加4项潜能（体质、力量、敏捷、灵巧）各5点	节日活动产出，也可以通过礼包购买	冰壶秋月	

@@ -1,0 +1,3 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Alpha	BtnTitles	1	5	0	1
+Commander		29	29	self:SetEnableSelButton(true)	

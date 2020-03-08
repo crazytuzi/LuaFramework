@@ -1,0 +1,8 @@
+trap1
+jump
+trap2
+trap3
+trap4
+trap5
+jump1
+gopos

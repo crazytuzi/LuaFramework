@@ -1,0 +1,5 @@
+wall
+gate_n
+gate_m
+gate_s
+wallguard

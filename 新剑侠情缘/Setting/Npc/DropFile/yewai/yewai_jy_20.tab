@@ -1,0 +1,18 @@
+AwardType	AwardValue1	AwardValue2	AwardValue3	RandRate	WorldNotify	KinNotify	Name
+item	1023	1		5000			T2武器
+item	1083	1		5000			T2衣服
+item	1033	1		5000			T2项链
+item	1043	1		5000			T2戒指
+item	1053	1		5000			T2玉佩
+item	1063	1		5000			T2护身符
+item	1073	1		5000			T2帽子
+item	1093	1		5000			T2护腕
+item	1103	1		5000			T2腰带
+item	1113	1		5000			T2鞋子
+item	785	1		6250			钥匙
+item	787	1		12500			藏宝图
+item	212	1		25000			白水晶
+item	213	1		6250			破损的神秘矿石
+Coin	5000			10000			5000银两
+item	1234	1		2000			玫瑰花
+item	1235	1		2000			幸运草

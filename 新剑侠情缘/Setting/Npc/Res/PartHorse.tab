@@ -1,0 +1,55 @@
+ResId	ResFile	ResAttribID	Desc	IsOrgColorValue	MinCastValue	SlotName1	SlotGray1	SlotMinCast1	Slot1Color1	Slot1Light1	Slot1Color2	Slot1Light2	Slot1Color3	Slot1Light3
+1	Player/Horse/Prefabs/Horse01.prefab													
+2	Player/Horse/Prefabs/Horse02.prefab													
+3	Player/Horse/Prefabs/Horse03.prefab													
+4	Player/Horse/Prefabs/Horse04.prefab													
+5	Player/Horse/Prefabs/Horse05.prefab	801												
+6	Player/Horse/Prefabs/Horse06.prefab													
+7	Player/Horse/Prefabs/Horse05.prefab	802												
+8	Player/Horse/Prefabs/Horse09.prefab													
+9	Player/Horse/Prefabs/Horse09_a.prefab													
+10	Player/Horse/Prefabs/Horse07.prefab													
+11	Player/Horse/Prefabs/Horse08.prefab													
+12	Player/Horse/Prefabs/Horse08.prefab	806												
+13	Player/Horse/Prefabs/Horse10.prefab													
+14	Player/Horse/Prefabs/Horse10_a.prefab													
+15	Player/Horse/Prefabs/Horse11.prefab													
+16	Player/Horse/Prefabs/Horse11_a.prefab													
+17	Player/Horse/Prefabs/Horse10_b.prefab													
+18	Player/Horse/Prefabs/Horse15.prefab													
+19	Player/Horse/Prefabs/Horse16.prefab													
+20	Player/Horse/Prefabs/Horse16_a.prefab													
+21	Player/Horse/Prefabs/HorseHk01.prefab													
+22	Player/Horse/Prefabs/Horse05.prefab	803												
+23	Player/Horse/Prefabs/Horse05.prefab	804												
+24	Player/Horse/Prefabs/HorseHk01.prefab	805												
+25	Player/Horse/Prefabs/Horse17.prefab													
+26	Player/Horse/Prefabs/Horse17_a.prefab													
+27	Player/Horse/Prefabs/Horse18.prefab													
+28	Player/Horse/Prefabs/Horse18_a.prefab													
+29	Player/Horse/Prefabs/Horse09.prefab	807												
+30	Player/Horse/Prefabs/Wolf01.prefab	812	血瞳·月绝											
+31	Player/Horse/Prefabs/Wolf02.prefab		螭魅雪狐											
+32	Player/Horse/Prefabs/Wolf02_a.prefab		幽炎·螭魅雪狐											
+33	Player/Horse/Prefabs/Wolf01.prefab	808	血瞳·啸霜											
+34	Player/Horse/Prefabs/Wolf01.prefab	809	血瞳·荒尘											
+35	Player/Horse/Prefabs/Wolf01.prefab	810	血瞳·清穹											
+36	Player/Horse/Prefabs/Horse11_b.prefab		众星攒月驹											
+37	Player/Horse/Prefabs/elephant01.prefab		大象											
+38	Player/Horse/Prefabs/Horse19.prefab		150级马											
+39	Player/Horse/Prefabs/Horse19_a.prefab		150级城主马											
+40	Player/Horse/Prefabs/Horse16_b.prefab		踢金·蓝湛灵鹿											
+41	Player/Horse/Prefabs/Wolf03.prefab		炽羽灼心											
+42	Player/Horse/Prefabs/Bear01.prefab		凛冬咆哮											
+43	Player/Horse/Prefabs/Cattle01.prefab		踢金毛犀											
+44	Player/Horse/Prefabs/Bear01_a.prefab		凛冬咆哮											
+45	Player/Horse/Prefabs/Wolf02.prefab	811	粉黛掠影											
+46	Player/Horse/Prefabs/Wolf02_b.prefab		粉黛掠影（特效）											
+47	Player/Horse/Prefabs/Wolf02_c.prefab		粉黛掠影（大特效）											
+48	Player/Horse/Prefabs/Bear01_b.prefab		凛冬咆哮（新偏色）											
+49	Player/Horse/Prefabs/elephant01_a.prefab		大象（新偏色）											
+50	Player/Horse/Prefabs/Alpaca01.prefab		追风											
+51	Player/Horse/Prefabs/Alpaca01_b.prefab		追风											
+52	Player/Horse/Prefabs/Crane01.prefab		昆仑玄影											
+53	Player/Horse/Prefabs/Crane01_b.prefab		昆仑玄影											
+54	Player/Horse/Prefabs/Wolf04_b.prefab		幽魂·踏霜											

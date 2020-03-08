@@ -1,0 +1,4 @@
+szActivity	nIntervalMin	nIntervalMax	szDuration	szFormatTalkFunc	
+WeddingNpc	12	12	10	Wedding:FormatTourNpcTalk	
+					
+					 

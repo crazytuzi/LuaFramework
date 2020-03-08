@@ -1,0 +1,7 @@
+nMapTemplateId	szMapName	szType	szName	nX	nY	nNpcTemplate	nDir	szMiniMapSyncKey
+8002	临安外城	gate_n	北城门	11593	9426	2842	23	DES_GateB
+8002	临安外城	gate_s	南城门	11622	5054	2842	39	DES_GateN
+8001	临安内城	xuanwu	「玄武」守护碑	18284	24152	2846	16	DES_Gate_XW
+8001	临安内城	zhuque	「朱雀」守护碑	18257	12697	2844	16	DES_Gate_ZQ
+8001	临安内城	baihu	「白虎」守护碑	12502	18451	2845	32	DES_Gate_BH
+8001	临安内城	qinglong	「青龙」守护碑	23955	18422	2843	32	DES_Gate_QL

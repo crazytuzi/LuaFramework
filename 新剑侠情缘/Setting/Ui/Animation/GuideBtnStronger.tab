@@ -1,0 +1,6 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Move	BtnStronger	1	45	{-570,-180,0}	{-570,-180,0}
+Move	BtnStronger	45	60	{-570,-180,0}	{-690,-45,0}
+Scalc	BtnStronger	65	75	{1,1,1}	{1.2,1.2,1.2}
+Scalc	BtnStronger	75	85	{1.2,1.2,1.2}	{0.87,0.87,0.87}
+Commander		1	2	me.GoDirection(me.GetNpc().GetDir(), 0)	

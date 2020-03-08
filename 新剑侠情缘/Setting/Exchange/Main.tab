@@ -1,0 +1,4 @@
+Type	Conent	Title	CheckFun	CheckFunSever	ConfirmFunc
+ServerVipeExChange	vip礼包补偿兑换		DefaultCheck		
+QisexuanxiangExchange	七色玄香		Check_Qixi		
+VipAwardBoxExchange	vip礼包补偿兑换		DefaultCheck		

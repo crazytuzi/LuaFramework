@@ -1,0 +1,17 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Fill	Bg_01	1	1	{0,0,0}	{0,0,0}
+Fill	Describe_01	1	1	{0,0,0}	{0,0,0}
+Fill	Bg_02	1	1	{0,0,0}	{0,0,0}
+Fill	Describe_02	1	1	{0,0,0}	{0,0,0}
+Fill	Bg_03	1	1	{0,0,0}	{0,0,0}
+Fill	Describe_03	1	1	{0,0,0}	{0,0,0}
+Fill	Bg_04	1	1	{0,0,0}	{0,0,0}
+Fill	Describe_04	1	1	{0,0,0}	{0,0,0}
+Fill	Bg_01	2	62	{0,0,0}	{1,0,0}
+Fill	Describe_01	12	72	{0,0,0}	{1,0,0}
+Fill	Bg_02	72	132	{0,0,0}	{1,0,0}
+Fill	Describe_02	82	142	{0,0,0}	{1,0,0}
+Fill	Bg_03	142	202	{0,0,0}	{1,0,0}
+Fill	Describe_03	152	212	{0,0,0}	{1,0,0}
+Fill	Bg_04	212	272	{0,0,0}	{1,0,0}
+Fill	Describe_04	222	282	{0,0,0}	{1,0,0}

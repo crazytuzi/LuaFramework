@@ -1,0 +1,32 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	DefaultDialog	WalkSpeed	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	IsNotShowShadow
+JHSL_Boss_1	1496	李三	0	1	FubenDeath		159	623	300		952	182	1	47	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_2	1497	陆文龙	0	1	FubenDeath		144	619	300		952	166	1	48	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_3	1498	秦沐白	0	1	FubenDeath		5318	702	300		952	1317	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss3.ini			1	18	2			197	1						3					
+JHSL_Boss_4	1499	顾武	0	1	FubenDeath		143	618	300		952	21	1	29	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_5	1500	路达	0	1	FubenDeath		138	616	300		952	21	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss3.ini			1	18	2			197	1						3					
+JHSL_Boss_6	1501	苏墨芸	0	1	FubenDeath		133	709	300		952	1898	1	91	1			1500	1500	Setting/Npc/Ai/random/sumoyun.ini			1	18	2			197	1						3					
+JHSL_Boss_7	1502	胡神医	0	1	FubenDeath		5022	223	300		952	21	1	2364	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_8	1503	无相	0	1	FubenDeath		1118	638	300		952	2439	1	2363	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_9	1504	张仲天	0	1	FubenDeath		160	624	300		952	106	1	51	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_10	1505	林海	0	1	FubenDeath		1120	640	300		952	2926	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/40fb_sl1.ini			1	18	2			197	1						3					
+JHSL_Boss_11	1506	张如梦	0	1	FubenDeath		193	214	300		952	2919	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_12	1507	邵骑风	0	1	FubenDeath		199	207	300		952	2929	1	2472	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_13	1508	卢青	0	1	FubenDeath		1121	641	300		952	167	1	2393	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_14	1509	南宫彩虹	0	1	FubenDeath		126	706	300		952	2920	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss3.ini			1	18	2			197	1						3					
+JHSL_Boss_15	1510	赵节	0	1	FubenDeath		153	621	300		952	2928	1	2366	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_16	1511	莺儿	0	1	FubenDeath		196	714	300		952	38	1	2486	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_17	1512	赵无双	0	1	FubenDeath		127	707	300		952	39	1	44	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_18	1513	蔷薇	0	1	FubenDeath		103	703	300		952	57	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_19	1514	萧动尘	0	1	FubenDeath		5014	229	300		952	1335	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss6.ini			1	18	2			197	1						3					
+JHSL_Boss_20	1515	紫轩	0	1	FubenDeath		131	708	300		952	40	1	52	1			1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_21	1516	张风	0	1	FubenDeath		1119	639	300		952	167	1	91	1			1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	2			197	1						3					
+JHSL_Boss_22	1517	月明瑶	0	1	FubenDeath		118	705	300		952	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_23	1518	柴嵩	0	1	FubenDeath		132	200	300		952	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_24	1519	赵升权	0	1	FubenDeath		1109	632	300		952	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_25	1520	封玉书	0	1	FubenDeath		182	200	300		952	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_26	1521	张琳心	0	1	FubenDeath		1100	200	300		952	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_27	1522	何暮雪	0	1	FubenDeath		5215	200	300		952	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_28	1523	纳兰真	0	1	FubenDeath		177	200	300		952	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_29	1524	殷方	0	1	FubenDeath		125	200	300		952	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Boss_30	1525	月眉儿	0	1	FubenDeath		1102	200	300		952	1898	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2			197	1						3					
+JHSL_Enemy	1526	江湖宵小	0	1	FubenDeath		120	200	300		951	1896	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1										1					

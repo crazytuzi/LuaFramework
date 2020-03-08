@@ -1,0 +1,55 @@
+TimeFrame	AwardType	AwardValue1	AwardValue2	AwardValue3	RandRate	WorldNotify	KinNotify	Name
+OpenLevel39	item	5441	1		90			T11武器
+OpenLevel39	item	5521	1		90			T11衣服
+OpenLevel39	item	5471	1		90			T11项链
+OpenLevel39	item	5481	1		90			T11戒指
+OpenLevel39	item	5491	1		90			T11玉佩
+OpenLevel39	item	5501	1		90			T11护身符
+OpenLevel39	item	5511	1		90			T11帽子
+OpenLevel39	item	5531	1		90			T11护腕
+OpenLevel39	item	5541	1		90			T11腰带
+OpenLevel39	item	5551	1		90			T11鞋子
+OpenLevel39	item	785	1		9000			钥匙
+OpenLevel39	item	787	1		20000			藏宝图
+OpenLevel39	item	212	1		30000			白水晶
+OpenLevel39	item	222	1		2000			绿水晶
+OpenLevel39	item	213	1		9000			破损的神秘矿石
+OpenLevel39	Coin	2000			35000			2000银两
+OpenLevel39	item	1234	1		2000			玫瑰花
+OpenLevel39	item	1235	1		2000			幸运草
+OpenLevel139	item	5442	1		90			T12武器
+OpenLevel139	item	5522	1		90			T12衣服
+OpenLevel139	item	5472	1		90			T12项链
+OpenLevel139	item	5482	1		90			T12戒指
+OpenLevel139	item	5492	1		90			T12玉佩
+OpenLevel139	item	5502	1		90			T12护身符
+OpenLevel139	item	5512	1		90			T12帽子
+OpenLevel139	item	5532	1		90			T12护腕
+OpenLevel139	item	5542	1		90			T12腰带
+OpenLevel139	item	5552	1		90			T12鞋子
+OpenLevel139	item	785	1		9000			钥匙
+OpenLevel139	item	787	1		20000			藏宝图
+OpenLevel139	item	212	1		30000			白水晶
+OpenLevel139	item	222	1		2000			绿水晶
+OpenLevel139	item	213	1		9000			破损的神秘矿石
+OpenLevel139	Coin	2000			35000			2000银两
+OpenLevel139	item	1234	1		2000			玫瑰花
+OpenLevel139	item	1235	1		2000			幸运草
+OpenLevel149	item	5443	1		90			T13武器
+OpenLevel149	item	5523	1		90			T13衣服
+OpenLevel149	item	5473	1		90			T13项链
+OpenLevel149	item	5483	1		90			T13戒指
+OpenLevel149	item	5493	1		90			T13玉佩
+OpenLevel149	item	5503	1		90			T13护身符
+OpenLevel149	item	5513	1		90			T13帽子
+OpenLevel149	item	5533	1		90			T13护腕
+OpenLevel149	item	5543	1		90			T13腰带
+OpenLevel149	item	5553	1		90			T13鞋子
+OpenLevel149	item	785	1		9000			钥匙
+OpenLevel149	item	787	1		20000			藏宝图
+OpenLevel149	item	212	1		30000			白水晶
+OpenLevel149	item	222	1		2000			绿水晶
+OpenLevel149	item	213	1		9000			破损的神秘矿石
+OpenLevel149	Coin	2000			35000			2000银两
+OpenLevel149	item	1234	1		2000			玫瑰花
+OpenLevel149	item	1235	1		2000			幸运草

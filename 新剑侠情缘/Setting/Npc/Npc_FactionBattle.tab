@@ -1,0 +1,4 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	DefaultDialog	WalkSpeed	NameColor
+Faction_AwardBox	727	宝箱	2	1	FactionAwardBox		352	995	326		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1						NoTurn				
+Faction_Flag	728	冠军旗帜	2	1	FactionAwardFlag		412	226	326		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1						NoTurn				
+Faction_Campfire	729	篝火	2	1	GouHuoNpc	all|3000|20|600|0|60	380	226	326		1	21	1							Setting/Npc/Ai/CommonActive.ini			0	15	1						NoTurn				

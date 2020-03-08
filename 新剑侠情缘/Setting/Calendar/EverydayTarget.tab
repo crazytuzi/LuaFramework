@@ -1,0 +1,33 @@
+StringKey	SaveKey	Name	Func	Param
+Rank	1	武神殿	JumpToAct	
+ActivityQuestion	2	每日答题	JumpToAct	
+CangBaoTu	3	藏宝图	JumpToAct	
+EquipEnhance	4	装备强化	OpenWindow	StrengthenPanel
+TeamFuben	5	组队秘境	JumpToAct	
+PunishTask	6	惩恶任务	JumpToAct	
+ExplorationFuben	7	宝藏探索	JumpToAct	
+Boss	8	挑战武林盟主	JumpToAct	
+RandomFuben	9	凌绝峰	JumpToAct	
+Battle	10	宋金战场	JumpToAct	
+CommerceTask	11	商会任务	JumpToAct	
+KinDonate	12	家族捐献	OpenKinVaultPanel	
+ChuanGong	13	家族传功	JumpToAct	
+EquipRefinement	14	装备洗练	OpenWindow	ItemBox|TogEquip
+XiuLian	15	野外修炼	JumpToAct	
+WhiteTigerFuben	16	白虎堂	JumpToAct	
+FieldBoss	17	历代名将	JumpToAct	
+KinGiftBox	18	家族礼盒	OpenKinVaultPanel	
+KinGather	19	家族烤火	JumpToAct	
+EquipStone	20	魂石镶嵌	OpenWindow	StrengthenPanel|Inset
+TeamBattle	21	通天塔	JumpToAct	
+KinFuben	22	家族试炼	JumpToAct	
+FactionBattle	23	门派竞技	JumpToAct	
+RechargeGift	24	领取7日或30日礼包奖励	OpenWindow	WelfareActivity|RechargeGift
+DailyRechargeGift	25	购买任意每日礼包	OpenWindow	WelfareActivity|DailyRechargeGift
+DomainBattle	26	攻城战	OpenWindow	KinDetailPanel|DomainBattleMain
+HeroChallenge	27	英雄挑战	JumpToAct	
+InDifferBattle	28	心魔幻境	JumpToAct	
+Muse	29	打坐冥想	JumpToAct	
+QunYingHui	30	群英会	JumpToAct	
+KinSecretFuben	31	家族秘境	JumpToAct	
+KinDefendFuben	32	家族保卫战	JumpToAct	

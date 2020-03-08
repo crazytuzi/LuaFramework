@@ -1,0 +1,14 @@
+Name	Level	MainLevel	StarLevel	FightLevel	PowerValue	ImgPrefix	Atlas	NeedPower	TimeFrame	RepairTimeFrame	NeedFubenStar	ItemID	ItemCount	IsNotice
+超凡	1	1		10	200	T1_	UI/Atlas/Title/Title.prefab	100	OpenLevel39					
+出尘	2	2		20	600	T2_	UI/Atlas/Title/Title.prefab	8000	OpenLevel39					
+惊鸿	3	3		30	1200	T3_	UI/Atlas/Title/Title.prefab	15000	OpenLevel39					
+凌云	4	4		40	2400	T4_	UI/Atlas/Title/Title.prefab	24000	OpenLevel39			1393	2	1
+御空	5	5		50	4800	T5_	UI/Atlas/Title/Title.prefab	48000	OpenLevel39			1393	4	1
+潜龙	6	6		60	8800	T6_	UI/Atlas/Title/Title.prefab	80000	OpenLevel39			1394	4	1
+傲世	7	7		70	16800	T7_	UI/Atlas/Title/Title.prefab	150000	OpenLevel39			1394	8	1
+倚天	8	8		80	16800	T8_	UI/Atlas/Title/Title.prefab	300000	OpenLevel39			1395	8	1
+至尊	9	9		90	32000	T9_	UI/Atlas/Title/Title.prefab	600000	OpenLevel39			1395	16	1
+武圣	10	10		92	72000	T12_	UI/Atlas/Title/Title.prefab	1200000	OpenLevel39			1396	12	1
+无双	11	11		94	144000	T15_	UI/Atlas/Title/Title.prefab	2400000	OpenLevel89			1396	24	1
+传说	12	12		100	300000	T20_	UI/Atlas/Title/Title.prefab	5000000	OpenLevel89			1397	30	1
+神话	13	13		102	600000	T21_	UI/Atlas/Title/Title.prefab	10000000	OpenLevel89			1397	60	1

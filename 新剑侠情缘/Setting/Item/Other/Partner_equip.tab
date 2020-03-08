@@ -1,0 +1,147 @@
+TemplateId	Name	Kind	ItemType	BigIcon	CDType	ClassName	DetailType	Icon	Intro	ItemValue	Level	ObjID	Price	Quality	RequireLevel	Sellable	Stack	ExtParam1	ExtParam2	ExtParam3	ExtParam4	ExtParam5	ExtParam6	ExtParam7	ExtParam8	ExtParam9	ExtParam10
+583	伙伴装备测试	test33	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+584	伙伴装备测试	test34	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+586	同伴帽子	test36	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+587	同伴项链	test37	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+588	同伴上衣	test38	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+589	同伴下装	test39	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+590	同伴护手	test40	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+591	同伴鞋子	test41	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+592	同伴帽子2	test42	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+593	同伴项链2	test43	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+594	同伴上衣2	test44	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+595	同伴下装2	test45	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+596	同伴护手2	test46	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+597	同伴鞋子2	test47	35	100		PartnerEquip	2	100		1	1		1000		1	1	99999										
+603	初级符文·生命	Rune_1_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+604	中级符文·生命	Rune_1_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+605	高级符文·生命	Rune_1_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+606	强效符文·生命	Rune_1_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+607	特效符文·生命	Rune_1_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+608	完美符文·生命	Rune_1_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+609	初级符文·攻击	Rune_2_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+610	中级符文·攻击	Rune_2_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+611	高级符文·攻击	Rune_2_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+612	强效符文·攻击	Rune_2_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+613	特效符文·攻击	Rune_2_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+614	完美符文·攻击	Rune_2_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+615	初级符文·全抗	Rune_3_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+616	中级符文·全抗	Rune_3_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+617	高级符文·全抗	Rune_3_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+618	强效符文·全抗	Rune_3_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+619	特效符文·全抗	Rune_3_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+620	完美符文·全抗	Rune_3_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+621	初级符文·命中	Rune_4_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+622	中级符文·命中	Rune_4_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+623	高级符文·命中	Rune_4_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+624	强效符文·命中	Rune_4_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+625	特效符文·命中	Rune_4_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+626	完美符文·命中	Rune_4_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+627	初级符文·闪避	Rune_5_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+628	中级符文·闪避	Rune_5_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+629	高级符文·闪避	Rune_5_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+630	强效符文·闪避	Rune_5_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+631	特效符文·闪避	Rune_5_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+632	完美符文·闪避	Rune_5_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+633	初级符文·会心	Rune_6_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+634	中级符文·会心	Rune_6_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+635	高级符文·会心	Rune_6_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+636	强效符文·会心	Rune_6_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+637	特效符文·会心	Rune_6_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+638	完美符文·会心	Rune_6_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+639	初级符文·忽闪	Rune_7_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+640	中级符文·忽闪	Rune_7_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+641	高级符文·忽闪	Rune_7_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+642	强效符文·忽闪	Rune_7_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+643	特效符文·忽闪	Rune_7_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+644	完美符文·忽闪	Rune_7_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+645	初级符文·减会心	Rune_8_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+646	中级符文·减会心	Rune_8_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+647	高级符文·减会心	Rune_8_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+648	强效符文·减会心	Rune_8_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+649	特效符文·减会心	Rune_8_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+650	完美符文·减会心	Rune_8_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+651	初级符文·效果	Rune_9_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+652	中级符文·效果	Rune_9_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+653	高级符文·效果	Rune_9_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+654	强效符文·效果	Rune_9_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+655	特效符文·效果	Rune_9_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+656	完美符文·效果	Rune_9_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+657	初级符文·减效果	Rune_10_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+658	中级符文·减效果	Rune_10_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+659	高级符文·减效果	Rune_10_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+660	强效符文·减效果	Rune_10_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+661	特效符文·减效果	Rune_10_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+662	完美符文·减效果	Rune_10_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+663	初级符文·回复	Rune_11_Lv1	35	100		PartnerEquip	2	100		5000	1		1000	1	1	1	99999										
+664	中级符文·回复	Rune_11_Lv2	35	100		PartnerEquip	2	100		15000	2		1000	2	1	1	99999										
+665	高级符文·回复	Rune_11_Lv3	35	100		PartnerEquip	2	100		40000	3		1000	3	1	1	99999										
+666	强效符文·回复	Rune_11_Lv4	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+667	特效符文·回复	Rune_11_Lv5	35	100		PartnerEquip	2	100		480000	5		1000	5	1	1	99999										
+668	完美符文·回复	Rune_11_Lv6	35	100		PartnerEquip	2	100		1920000	6		1000	6	1	1	99999										
+727	高级符文·饕餮	Rune_12_Lv3	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+728	高级符文·帝江	Rune_13_Lv3	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+729	高级符文·烛龙	Rune_14_Lv3	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+730	高级符文·夔牛	Rune_15_Lv3	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+731	高级符文·穷奇	Rune_16_Lv3	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+732	高级符文·鲲鹏	Rune_17_Lv3	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+733	高级符文·腾蛇	Rune_18_Lv3	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+734	高级符文·貔貅	Rune_19_Lv3	35	100		PartnerEquip	2	100		120000	4		1000	4	1	1	99999										
+669	强效符文·饕餮	Rune_12_Lv4	35	100		PartnerEquip	2	100		360000	4		1000	4	1	1	99999										
+670	强效符文·帝江	Rune_13_Lv4	35	100		PartnerEquip	2	100		360000	4		1000	4	1	1	99999										
+671	强效符文·烛龙	Rune_14_Lv4	35	100		PartnerEquip	2	100		360000	4		1000	4	1	1	99999										
+672	强效符文·夔牛	Rune_15_Lv4	35	100		PartnerEquip	2	100		360000	4		1000	4	1	1	99999										
+673	强效符文·穷奇	Rune_16_Lv4	35	100		PartnerEquip	2	100		360000	4		1000	4	1	1	99999										
+674	强效符文·鲲鹏	Rune_17_Lv4	35	100		PartnerEquip	2	100		360000	4		1000	4	1	1	99999										
+675	强效符文·腾蛇	Rune_18_Lv4	35	100		PartnerEquip	2	100		360000	4		1000	4	1	1	99999										
+676	强效符文·貔貅	Rune_19_Lv4	35	100		PartnerEquip	2	100		360000	4		1000	4	1	1	99999										
+677	特效符文·玄武	Rune_20_Lv5	35	100		PartnerEquip	2	100		1440000	5		1000	5	1	1	99999										
+678	特效符文·青龙	Rune_21_Lv5	35	100		PartnerEquip	2	100		1440000	5		1000	5	1	1	99999										
+679	特效符文·凤凰	Rune_22_Lv5	35	100		PartnerEquip	2	100		1440000	5		1000	5	1	1	99999										
+680	特效符文·白虎	Rune_23_Lv5	35	100		PartnerEquip	2	100		1440000	5		1000	5	1	1	99999										
+681	特效符文·朱雀	Rune_24_Lv5	35	100		PartnerEquip	2	100		1440000	5		1000	5	1	1	99999										
+682	特效符文·应龙	Rune_25_Lv5	35	100		PartnerEquip	2	100		1440000	5		1000	5	1	1	99999										
+683	特效符文·白泽	Rune_26_Lv5	35	100		PartnerEquip	2	100		1440000	5		1000	5	1	1	99999										
+684	特效符文·麒麟	Rune_27_Lv5	35	100		PartnerEquip	2	100		1440000	5		1000	5	1	1	99999										
+685	完美符文·玄武	Rune_20_Lv6	35	100		PartnerEquip	2	100		6720000	6		1000	6	1	1	99999										
+686	完美符文·青龙	Rune_21_Lv6	35	100		PartnerEquip	2	100		6720000	6		1000	6	1	1	99999										
+687	完美符文·凤凰	Rune_22_Lv6	35	100		PartnerEquip	2	100		6720000	6		1000	6	1	1	99999										
+688	完美符文·白虎	Rune_23_Lv6	35	100		PartnerEquip	2	100		6720000	6		1000	6	1	1	99999										
+689	完美符文·朱雀	Rune_24_Lv6	35	100		PartnerEquip	2	100		6720000	6		1000	6	1	1	99999										
+690	完美符文·应龙	Rune_25_Lv6	35	100		PartnerEquip	2	100		6720000	6		1000	6	1	1	99999										
+691	完美符文·白泽	Rune_26_Lv6	35	100		PartnerEquip	2	100		6720000	6		1000	6	1	1	99999										
+692	完美符文·麒麟	Rune_27_Lv6	35	100		PartnerEquip	2	100		6720000	6		1000	6	1	1	99999										
+693	高级符文·饕餮卷轴	RuneScoll_12_Lv3	35	100		PartnerScroll	3	100		40000	3		1000	3	1	1	99999										
+694	高级符文·帝江卷轴	RuneScoll_13_Lv3	35	100		PartnerScroll	3	100		40000	3		1000	3	1	1	99999										
+695	高级符文·烛龙卷轴	RuneScoll_14_Lv3	35	100		PartnerScroll	3	100		40000	3		1000	3	1	1	99999										
+696	高级符文·夔牛卷轴	RuneScoll_15_Lv3	35	100		PartnerScroll	3	100		40000	3		1000	3	1	1	99999										
+697	高级符文·穷奇卷轴	RuneScoll_16_Lv3	35	100		PartnerScroll	3	100		40000	3		1000	3	1	1	99999										
+698	高级符文·鲲鹏卷轴	RuneScoll_17_Lv3	35	100		PartnerScroll	3	100		40000	3		1000	3	1	1	99999										
+699	高级符文·腾蛇卷轴	RuneScoll_18_Lv3	35	100		PartnerScroll	3	100		40000	3		1000	3	1	1	99999										
+700	高级符文·貔貅卷轴	RuneScoll_19_Lv3	35	100		PartnerScroll	3	100		40000	3		1000	3	1	1	99999										
+701	强效符文·全抗卷轴	RuneScoll_3_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+702	强效符文·命中卷轴	RuneScoll_4_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+703	强效符文·闪避卷轴	RuneScoll_5_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+704	强效符文·会心卷轴	RuneScoll_6_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+705	强效符文·忽闪卷轴	RuneScoll_7_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+706	强效符文·减会心卷轴	RuneScoll_8_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+707	强效符文·效果卷轴	RuneScoll_9_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+708	强效符文·减效果卷轴	RuneScoll_10_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+709	强效符文·回复卷轴	RuneScoll_11_Lv4	35	100		PartnerScroll	3	100		80000	4		1000	4	1	1	99999										
+710	特效符文·玄武卷轴	RuneScroll_20_Lv5	35	100		PartnerScroll	3	100		720000	5		1000	5	1	1	99999										
+711	特效符文·青龙卷轴	RuneScroll_21_Lv5	35	100		PartnerScroll	3	100		720000	5		1000	5	1	1	99999										
+712	特效符文·凤凰卷轴	RuneScroll_22_Lv5	35	100		PartnerScroll	3	100		720000	5		1000	5	1	1	99999										
+713	特效符文·白虎卷轴	RuneScroll_23_Lv5	35	100		PartnerScroll	3	100		720000	5		1000	5	1	1	99999										
+714	特效符文·朱雀卷轴	RuneScroll_24_Lv5	35	100		PartnerScroll	3	100		720000	5		1000	5	1	1	99999										
+715	特效符文·应龙卷轴	RuneScroll_25_Lv5	35	100		PartnerScroll	3	100		720000	5		1000	5	1	1	99999										
+716	特效符文·白泽卷轴	RuneScroll_26_Lv5	35	100		PartnerScroll	3	100		720000	5		1000	5	1	1	99999										
+717	特效符文·麒麟卷轴	RuneScroll_27_Lv5	35	100		PartnerScroll	3	100		720000	5		1000	5	1	1	99999										
+718	完美符文·全抗卷轴	RuneScoll_3_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										
+719	完美符文·命中卷轴	RuneScoll_4_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										
+720	完美符文·闪避卷轴	RuneScoll_5_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										
+721	完美符文·会心卷轴	RuneScoll_6_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										
+722	完美符文·忽闪卷轴	RuneScoll_7_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										
+723	完美符文·减会心卷轴	RuneScoll_8_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										
+724	完美符文·效果卷轴	RuneScoll_9_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										
+725	完美符文·减效果卷轴	RuneScoll_10_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										
+726	完美符文·回复卷轴	RuneScoll_11_Lv6	35	100		PartnerScroll	3	100		960000	6		1000	6	1	1	99999										

@@ -1,0 +1,11 @@
+TrapToFight1
+TrapToPeace1
+TrapToAttack
+BackCampIn
+TrapToFlield_jmg
+TrapToFlield_jxf
+TrapOutN
+TrapOutS
+BackCampOut
+TrapToFight2
+TrapToPeace2

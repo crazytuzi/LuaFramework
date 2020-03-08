@@ -1,0 +1,11 @@
+TemplateId	Name	Kind	ItemType	BigIcon	CDType	ClassName	DetailType	Icon	Intro	ItemValue	Level	ObjID	Price	Quality	RequireLevel	Sellable	Stack	ExtParam1	ExtParam2	ExtParam3	ExtParam4	ExtParam5	ExtParam6	ExtParam7	ExtParam8	ExtParam9	ExtParam10
+201	生命宝石碎片	life_stone_piece	34	771		Stone	3	771	3个生命宝石碎片，可以合成一个生命宝石1级		1	2	1000		1	1	99999										
+202	攻击宝石碎片	physcical_damage_stone_piece	34	771		Stone	3	771	3个攻击宝石碎片，可以合成一个攻击宝石1级		1	2	1000		1	1	99999										
+203	抗性宝石碎片	all_resist_stone_piece	34	771		Stone	3	771	3个抗性宝石碎片，可以合成一个抗性宝石1级		1	2	1000		1	1	99999										
+204	忽抗宝石碎片	ignore_all_resist_stone_piece	34	771		Stone	3	771	3个忽抗宝石碎片，可以合成一个忽抗宝石1级		1	2	1000		1	1	99999										
+205	闪避宝石碎片	defense_stone_piece	34	771		Stone	3	771	3个闪避宝石碎片，可以合成一个闪避宝石1级		1	2	1000		1	1	99999										
+206	忽闪宝石碎片	ignore_defense_stone_piece	34	771		Stone	3	771	3个忽闪宝石碎片，可以合成一个忽闪宝石1级		1	2	1000		1	1	99999										
+207	会心宝石碎片	deadlystrike_stone_piece	34	771		Stone	3	771	3个会心宝石碎片，可以合成一个会心宝石1级		1	2	1000		1	1	99999										
+208	减会心宝石碎片	weaken_deadlystrike_stone_piece	34	771		Stone	3	771	3个减会心宝石碎片，可以合成一个减会心宝石1级		1	2	1000		1	1	99999										
+209	效果宝石碎片	add_seriesstate_stone_piece	34	771		Stone	3	771	3个效果宝石碎片，可以合成一个效果宝石1级		1	2	1000		1	1	99999										
+210	减效果宝石碎片	resist_allseriesstate_stone_piece	34	771		Stone	3	771	3个减效果宝石碎片，可以合成一个减效果宝石1级		1	2	1000		1	1	99999										

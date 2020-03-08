@@ -1,0 +1,7 @@
+BgId	BgName	BgTipsPic	BgSmallPic	BgTexture	ViewBgTexture	EffectId	EffectIdView	RequirementText	Desc
+1	主题·明月夜	ChoiceBg01	DressBgSmall01	UI/Textures/DressBg.jpg	UI/Textures/OthersDetailBg1.jpg			默认主题	BgId必填且不可重复，存盘数据，目前最大只支持到32
+2	主题·春意闹	ChoiceBg02	DressBgSmall02	UI/Textures/DressBg2.jpg	UI/Textures/OthersDetailBg2.jpg			魅力值达到2000可解锁	
+3	主题·枫林晚	ChoiceBg03	DressBgSmall03	UI/Textures/DressBg3.jpg	UI/Textures/OthersDetailBg3.jpg			魅力值达到5000可解锁	
+4	主题·花未稀	ChoiceBg04	DressBgSmall04	UI/Textures/DressBg4.jpg	UI/Textures/OthersDetailBg4.jpg			魅力值达到20000可解锁	
+5	主题·共婵娟	ChoiceBg05	DressBgSmall05	UI/Textures/DressBg5.jpg	UI/Textures/OthersDetailBg5.jpg			中秋祭月活动排名前三可解锁	
+6	主题·寒江雪	ChoiceBg06	DressBgSmall06	UI/Textures/DressBg6.jpg	UI/Textures/OthersDetailBg6.jpg	545011	545012	登峰造极令达到40级可解锁	

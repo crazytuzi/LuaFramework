@@ -1,0 +1,37 @@
+TimeFrame	AwardType	AwardValue1	AwardValue2	AwardValue3	RandRate	WorldNotify	KinNotify	Name
+OpenLevel39	item	1028	1		200			T7武器
+OpenLevel39	item	1088	1		200			T7衣服
+OpenLevel39	item	1038	1		200			T7项链
+OpenLevel39	item	1048	1		200			T7戒指
+OpenLevel39	item	1058	1		200			T7玉佩
+OpenLevel39	item	1068	1		200			T7护身符
+OpenLevel39	item	1078	1		200			T7帽子
+OpenLevel39	item	1098	1		200			T7护腕
+OpenLevel39	item	1108	1		200			T7腰带
+OpenLevel39	item	1118	1		200			T7鞋子
+OpenLevel39	item	785	1		8200			钥匙
+OpenLevel39	item	787	1		16200			藏宝图
+OpenLevel39	item	212	1		30000			白水晶
+OpenLevel39	item	222	1		1500			绿水晶
+OpenLevel39	item	213	1		8200			破损的神秘矿石
+OpenLevel39	Coin	2000			32500			2000银两
+OpenLevel39	item	1234	1		2000			玫瑰花
+OpenLevel39	item	1235	1		2000			幸运草
+OpenLevel99	item	1029	1		150			T8武器
+OpenLevel99	item	1089	1		150			T8衣服
+OpenLevel99	item	1039	1		150			T8项链
+OpenLevel99	item	1049	1		150			T8戒指
+OpenLevel99	item	1059	1		150			T8玉佩
+OpenLevel99	item	1069	1		150			T8护身符
+OpenLevel99	item	1079	1		150			T8帽子
+OpenLevel99	item	1099	1		150			T8护腕
+OpenLevel99	item	1109	1		150			T8腰带
+OpenLevel99	item	1119	1		150			T8鞋子
+OpenLevel99	item	785	1		9000			钥匙
+OpenLevel99	item	787	1		20000			藏宝图
+OpenLevel99	item	212	1		30000			白水晶
+OpenLevel99	item	222	1		2000			绿水晶
+OpenLevel99	item	213	1		9000			破损的神秘矿石
+OpenLevel99	Coin	2000			35000			2000银两
+OpenLevel99	item	1234	1		2000			玫瑰花
+OpenLevel99	item	1235	1		2000			幸运草

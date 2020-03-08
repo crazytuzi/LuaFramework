@@ -1,0 +1,8 @@
+trap1
+trappos1
+trap2
+trap3
+jump
+trap4
+trap6
+trap7

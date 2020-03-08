@@ -1,0 +1,6 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Scalc	Item	0	15	{0,1,1}	{0,1,1}
+Scalc	PartnerHead	0	15	{1,1,1}	{0,1,1}
+Scalc	Item	16	30	{0,1,1}	{1,1,1}
+Scalc	PartnerHead	16	30	{0,1,1}	{0,1,1}
+Scalc	TxtResultName	0	30	{0,0,1}	{1,1,1}

@@ -1,0 +1,20 @@
+nTaskId	szTaskIndex	szTaskTitle	szDetailDesc	szTaskDesc	szFinishDesc	nFinishDialogId	szTrackInfo	szFinishTrackInfo	nAutoNextTaskId	bNotAutoNext	bAutoFinish	nFinishTaskNpcId	bCanRepeat	bKillNpcToAllPlayer	Target_KillNpc	nAcceptDialogId	bShowFinish	nTaskType
+5000	kin_1	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]万金财[-]	拜访[FFFE0D]万金财[-]	拜访[FFFE0D]万金财[-]	20001		"[url=npc:testtt,$F,10]"		1	1	190	1			20000	1	3
+5001	kin_2	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]叶无心[-]	拜访[FFFE0D]叶无心[-]	拜访[FFFE0D]叶无心[-]	20003		"[url=npc:testtt,$F,10]"		1	1	620	1			20002	1	3
+5002	kin_3	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]薛银药[-]	拜访[FFFE0D]薛银药[-]	拜访[FFFE0D]薛银药[-]	20005		"[url=npc:testtt,$F,10]"		1	1	621	1			20004	1	3
+5003	kin_4	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]王朝[-]	拜访[FFFE0D]王朝[-]	拜访[FFFE0D]王朝[-]	20007		"[url=npc:testtt,$F,10]"		1	1	630	1			20006	1	3
+5004	kin_5	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]纳兰真[-]	拜访[FFFE0D]纳兰真[-]	拜访[FFFE0D]纳兰真[-]	20009		"[url=npc:testtt,$F,10]"		1	1	90	1			20008	1	3
+5005	kin_6	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]叶雨柔[-]	拜访[FFFE0D]叶雨柔[-]	拜访[FFFE0D]叶雨柔[-]	20011		"[url=npc:testtt,$F,10]"		1	1	622	1			20010	1	3
+5006	kin_7	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]纳兰潜凛[-]	拜访[FFFE0D]纳兰潜凛[-]	拜访[FFFE0D]纳兰潜凛[-]	20013		"[url=npc:testtt,$F,10]"		1	1	629	1			20012	1	3
+5007	kin_8	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]小李子[-]	拜访[FFFE0D]小李子[-]	拜访[FFFE0D]小李子[-]	20015		"[url=npc:testtt,$F,10]"		1	1	623	1			20014	1	3
+5008	kin_9	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]孟知秋[-]	拜访[FFFE0D]孟知秋[-]	拜访[FFFE0D]孟知秋[-]	20017		"[url=npc:testtt,$F,10]"		1	1	100	1			20016	1	3
+5009	kin_10	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]月眉儿[-]	拜访[FFFE0D]月眉儿[-]	拜访[FFFE0D]月眉儿[-]	20019		"[url=npc:testtt,$F,10]"		1	1	97	1			20018	1	3
+5010	kin_11	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]白筱笙[-]	拜访[FFFE0D]白筱笙[-]	拜访[FFFE0D]白筱笙[-]	20021		"[url=npc:testtt,$F,10]"		1	1	99	1			20020	1	3
+5011	kin_12	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]慕容越[-]	拜访[FFFE0D]慕容越[-]	拜访[FFFE0D]慕容越[-]	20023		"[url=npc:testtt,$F,10]"		1	1	626	1			20022	1	3
+5012	kin_13	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]苏墨芸[-]	拜访[FFFE0D]苏墨芸[-]	拜访[FFFE0D]苏墨芸[-]	20025		"[url=npc:testtt,$F,10]"		1	1	627	1			20024	1	3
+5013	kin_14	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]杨影枫[-]	拜访[FFFE0D]杨影枫[-]	拜访[FFFE0D]杨影枫[-]	20027		"[url=npc:testtt,$F,10]"		1	1	624	1			20026	1	3
+5014	kin_15	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]独孤剑[-]	拜访[FFFE0D]独孤剑[-]	拜访[FFFE0D]独孤剑[-]	20029		"[url=npc:testtt,$F,10]"		1	1	88	1			20028	1	3
+5015	kin_16	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]紫轩[-]	拜访[FFFE0D]紫轩[-]	拜访[FFFE0D]紫轩[-]	20031		"[url=npc:testtt,$F,10]"		1	1	631	1			20030	1	3
+5016	kin_17	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]蔷薇[-]	拜访[FFFE0D]蔷薇[-]	拜访[FFFE0D]蔷薇[-]	20033		"[url=npc:testtt,$F,10]"		1	1	632	1			20032	1	3
+5017	kin_18	家族-拜访	家族的发展离不开各路侠士的相助，前去拜访一下[FFFE0D]昙心[-]	拜访[FFFE0D]昙心[-]	拜访[FFFE0D]昙心[-]	20035		"[url=npc:testtt,$F,10]"		1	1	625	1			20034	1	3
+5018	kin_19	家族-切磋	前去接受[FFFE0D]小和尚[-]的切磋试炼	与[FFFE0D]小和尚[-]切磋武艺	与[FFFE0D]小和尚[-]切磋武艺		"[url=npc:testtt,672,1004]"			1	1		1	1	673|1	20036	1	3

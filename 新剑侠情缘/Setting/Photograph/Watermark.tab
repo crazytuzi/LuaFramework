@@ -1,0 +1,11 @@
+nId	szName	szAtlas	szIcon	szTexture	szText
+1	爱心	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnaixin	UI/Textures/Photograph/aixin.png	爱你哟
+2	屏幕	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnpingmu	UI/Textures/Photograph/pingmu.png	
+3	日记本	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnrijiben	UI/Textures/Photograph/rijiben.png	
+4	便利贴	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnbianlitie	UI/Textures/Photograph/bianlitie.png	
+5	药丸	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnyaowan	UI/Textures/Photograph/yaowan.png	
+6	信纸	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnxinzhi	UI/Textures/Photograph/xinzhi.png	
+7	红唇	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnhongchun	UI/Textures/Photograph/hongchun.png	
+8	手札	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnshouzha	UI/Textures/Photograph/shouzha.png	见字如面
+9	播放器	UI/Atlas/Item/Item/PhotoItem01.prefab	Btnbofangqi	UI/Textures/Photograph/bofangqi.png	
+10	大熊猫	UI/Atlas/Item/Item/PhotoItem01.prefab	Btndaxiongmao	UI/Textures/Photograph/daxiongmao.png	

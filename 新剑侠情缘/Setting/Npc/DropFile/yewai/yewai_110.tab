@@ -1,0 +1,14 @@
+AwardType	AwardValue1	AwardValue2	AwardValue3	RandRate	XiuLianRate	WorldNotify	KinNotify	TeamNotify	Name
+item	1031	1		0.6	6				T10武器
+item	1091	1		0.6	6				T10衣服
+item	1041	1		0.6	6				T10项链
+item	1051	1		0.6	6				T10戒指
+item	1061	1		0.6	6				T10玉佩
+item	1071	1		0.6	6				T10护身符
+item	1081	1		0.6	6				T10帽子
+item	1101	1		0.6	6				T10护腕
+item	1111	1		0.6	6				T10腰带
+item	1121	1		0.6	6				T10鞋子
+item	786	1		20	200				黄金宝箱
+item	787	1		10	100				藏宝图
+item	212	1		100	1000				白水晶

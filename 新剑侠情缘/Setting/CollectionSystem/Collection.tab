@@ -1,0 +1,105 @@
+nCollectionId	szName	nCardTemplateId	szTimeFrame	szAward	nRare	szDropNpc1	szDropNpc2	szDropNpc3	szDropNpc4	szDropNpc5
+1	飞剑客	2594	OpenLevel59	Coin|500	3	1571|300000				
+1	滚石烈焰	2595	OpenLevel59	Coin|500	2	1665|75000				
+1	华山罪人	2596	OpenLevel59	Coin|500	3	1325|300000				
+1	唐门英杰	2597	OpenLevel59	Coin|500	4					
+1	血海玫瑰	2598	OpenLevel59	Coin|500	3	1568|300000				
+1	风中女侠	2599	OpenLevel59	Coin|500	2	1331|300000				
+1	少林叛徒	2600	OpenLevel59	Coin|500	3	1574|300000				
+1	失心疯	2601	OpenLevel59	Coin|500	3	1670|150000				
+1	认贼作父	2602	OpenLevel59	Coin|500	3	1573|300000				
+1	藏剑孤女	2603	OpenLevel59	Coin|500	2					
+1	飞龙堡主	2604	OpenLevel59	Coin|500	3	1575|300000				
+1	绝不还手	2605	OpenLevel59	Coin|500	3	1719|350000				
+1	巾帼英雄	2606	OpenLevel59	Coin|500	3	1138|300000				
+1	护花使者	2607	OpenLevel59	Coin|500	4	1618|120000				
+1	鸠占鹊巢	2608	OpenLevel59	Coin|500	3	1361|300000				
+1	鸿门宴	2610	OpenLevel59	Coin|500	5					
+1	掌上明珠	2611	OpenLevel59	Coin|500	3	1576|300000				
+1	武当名宿	2612	OpenLevel59	Coin|500	4	1599|300000				
+1	神剑御雷	2613	OpenLevel59	Coin|500	5					
+1	哀愁郡主	2614	OpenLevel59	Coin|500	4	1581|300000				
+1	叛国求荣	2615	OpenLevel59	Coin|500	3	1366|300000				
+1	议和手书	2616	OpenLevel59	Coin|500	5					
+1	藏剑庄主	2617	OpenLevel59	Coin|500	3	1372|300000				
+1	武道德经	2618	OpenLevel59	Coin|500	5					
+1	翠烟花使	2619	OpenLevel59	Coin|500	6					
+1	大梦方醒	2620	OpenLevel59	Coin|500	3	1582|300000				
+1	一代豪侠	2621	OpenLevel59	Coin|500	6	1125|300000				
+1	无忧教主	2622	OpenLevel59	Coin|500	6	1584|300000				
+1	心剑客	2623	OpenLevel59	Coin|500	6	1389|300000				
+1	李代桃僵	2624	OpenLevel59	Coin|500	7					
+1	金顶圣女	2625	OpenLevel59	Coin|500	7					
+1	天剑客	2626	OpenLevel59	Coin|500	6	1132|300000				
+1	机关秘术	2627	OpenLevel59	Coin|500	7	1419|50000				
+1	心灰意冷	2628	OpenLevel59	Coin|500	6	1133|300000				
+1	长歌门主	2629	OpenLevel59	Coin|500	5	1592|300000				
+1	少女忘忧	2630	OpenLevel59	Coin|500	4	1595|300000				
+1	心魔	2631	OpenLevel59	Coin|500	7					
+1	风雪山庄	2632	OpenLevel59	Coin|500	5	1598|300000				
+1	唐门少主	2633	OpenLevel69	Coin|500	7	1794|300000				
+1	翠烟往事	2634	OpenLevel69	Coin|500	7	1798|300000				
+1	武林盟主	2635	OpenLevel69	Coin|500	7	1801|300000				
+1	无处忘忧	2636	OpenLevel69	Coin|500	6	1820|300000				
+1	天王叛徒	2637	OpenLevel69	Coin|500	6	1804|300000				
+1	衡山女侠	2638	OpenLevel69	Coin|500	6	1808|300000				
+1	峨嵋掌门	2639	OpenLevel69	Coin|500	8					
+1	桃花岛主	3380	OpenLevel99	Coin|500	7	2040|300000				
+1	武当掌门	3381	OpenLevel99	Coin|500	7	1988|300000				
+1	天忍教主	3382	OpenLevel99	Coin|500	7	2034|300000				
+1	翠烟门主	3383	OpenLevel99	Coin|500	7	1991|300000				
+1	昆仑掌门	3384	OpenLevel99	Coin|500	7	1986|300000				
+1	奇门异术	3385	OpenLevel99	Coin|500	6	2043|300000				
+1	少年英雄	3386	OpenLevel99	Coin|500	6	2046|300000				
+1	绝对邪恶	3387	OpenLevel99	Coin|500	6	2055|300000				
+1	袖中乾坤	3388	OpenLevel99	Coin|500	8					
+2	武当山	3031		Coin|500						
+2	泰山	3032		Coin|500						
+2	丹霞山	3033		Coin|500						
+2	五台山	3034		Coin|500						
+2	华山	3035		Coin|500						
+2	玉龙雪山	3036		Coin|500						
+2	九华山	3037		Coin|500						
+2	峨眉山	3038		Coin|500						
+2	庐山	3039		Coin|500						
+2	武夷山	3040		Coin|500						
+2	黄山	3041		Coin|500						
+2	雁荡山	3042		Coin|500						
+2	普陀山	3043		Coin|500						
+2	龙虎山	3044		Coin|500						
+2	珠穆朗玛峰	3045		Coin|500						
+2	鼓浪屿	3046		Coin|500						
+2	九寨沟	3047		Coin|500						
+2	张家界	3048		Coin|500						
+2	可可西里	3049		Coin|500						
+2	天涯海角	3050		Coin|500						
+2	黄果树瀑布	3051		Coin|500						
+2	壶口瀑布	3052		Coin|500						
+2	苍山洱海	3053		Coin|500						
+2	西湖	3054		Coin|500						
+2	千岛湖	3055		Coin|500						
+2	鄱阳湖	3056		Coin|500						
+2	洞庭湖	3057		Coin|500						
+2	青海湖	3058		Coin|500						
+2	长白山天池	3059		Coin|500						
+2	五大连池	3060		Coin|500						
+2	秦淮河	3061		Coin|500						
+2	漓江	3062		Coin|500						
+2	云冈石窟	3063		Coin|500						
+2	龙门石窟	3064		Coin|500						
+2	莫高窟	11703		Coin|500						
+2	黄鹤楼	11704		Coin|500						
+2	岳阳楼	11705		Coin|500						
+2	蓬莱阁	11706		Coin|500						
+2	滕王阁	11707		Coin|500						
+2	少林寺	11708		Coin|500						
+2	崇圣寺	11709		Coin|500						
+2	雁门关	11710		Coin|500						
+2	万里长城	11711		Coin|500						
+2	都江堰	11712		Coin|500						
+2	乐山大佛	11713		Coin|500						
+2	三星堆遗址	11714		Coin|500						
+2	楼兰古城	11715		Coin|500						
+2	秦始皇陵	11716		Coin|500						
+2	黄帝陵	11717		Coin|500						
+2	赤壁	11718		Coin|500						

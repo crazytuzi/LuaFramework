@@ -1,0 +1,17 @@
+Index	XPos	YPos	Text	Color	FontSize
+NpcTrapToAttack	18692	11131	襄阳	White	16
+NpcTrapToFlield_dcs	3796	10714	点苍山	White	16
+NpcTrapToFlield_xsd	3465	3227	响水洞	White	16
+ZY_GateN	11624	9405	北城门	Gold	16
+ZY_GateS	11648	5092	南城门	Gold	16
+ZY_Longzhu_sun	13159	7279	日耀龙柱	Gold	16
+ZY_Longzhu_moon	14861	10191	月华龙柱	Gold	16
+ZY_Longzhu_star	14863	4967	星辉龙柱	Gold	16
+YD_attack1	4719	10048	征战营地	Gold	18
+YD_attack2	4328	3979	征战营地	Gold	18
+YD_defense	19490	7343	守方大营	Gold	18
+DES_GateN	11624	8905	（击破）	White	14
+DES_GateS	11648	4590	（击破）	White	14
+OCC_Longzhu_sun	13159	6780	（家族占据）	White	14
+OCC_Longzhu_moon	14861	9690	（家族占据）	White	14
+OCC_Longzhu_star	14863	4470	（家族占据）	White	14

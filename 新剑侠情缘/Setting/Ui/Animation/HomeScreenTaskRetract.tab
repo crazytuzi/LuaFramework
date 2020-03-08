@@ -1,0 +1,5 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Move	MainInfo	1	15	null	{-300,-280,0}
+Move	BtnFold	1	15	null	{-20,-155,0}
+Move	BtnFold	15	30	{-20,-155,0}	{16,-155,0}
+Rotation	BtnFold	14	15	{0,0,0}	{0,180,0}

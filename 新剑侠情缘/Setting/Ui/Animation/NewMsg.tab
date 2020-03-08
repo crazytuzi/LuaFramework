@@ -1,0 +1,11 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Scalc	BtnActivityMsg	0	30	{0.65,0.65,1}	{0.65,0.65,1}
+Scalc	BtnActivityMsg	30	35	{0.65,0.65,1}	{0.8,0.8,1}
+Scalc	BtnActivityMsg	35	40	{0.8,0.8,1}	{0.65,0.65,1}
+Scalc	BtnActivityMsg	40	50	{0.65,0.65,1}	{0.65,0.65,1}
+Scalc	BtnActivityMsg	50	55	{0.65,0.65,1}	{0.8,0.8,1}
+Scalc	BtnActivityMsg	55	60	{0.8,0.8,1}	{0.65,0.65,1}
+Scalc	BtnActivityMsg	60	70	{0.65,0.65,1}	{0.65,0.65,1}
+Scalc	BtnActivityMsg	70	75	{0.65,0.65,1}	{0.8,0.8,1}
+Scalc	BtnActivityMsg	75	80	{0.8,0.8,1}	{0.65,0.65,1}
+Scalc	BtnActivityMsg	80	160	{0.8,0.8,1}	{0.65,0.65,1}

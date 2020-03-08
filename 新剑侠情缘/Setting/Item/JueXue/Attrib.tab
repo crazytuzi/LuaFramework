@@ -1,0 +1,766 @@
+Idx	AttribType	Level	FightPower	AttribValue	ValueMin1	ValueMin2	ValueMin3	ValueRange1	ValueRange2	ValueRange3
+1	basic_damage_v	1			29		29	29		29
+1	basic_damage_v	2			44		44	44		44
+1	basic_damage_v	3			66		66	66		66
+1	basic_damage_v	4			100		100	100		100
+1	basic_damage_v	5			150		150	150		150
+1	basic_damage_v	6			225		225	225		225
+1	basic_damage_v	7			337		337	337		337
+1	basic_damage_v	8			506		506	506		506
+1	basic_damage_v	9			759		759	759		759
+1	basic_damage_v	10			1139		1139	1139		1139
+1	basic_damage_v	11			1708		1708	1708		1708
+1	basic_damage_v	12			2562		2562	2562		2562
+1	basic_damage_v	13			3844		3844	3844		3844
+1	basic_damage_v	14			5766		5766	5766		5766
+1	basic_damage_v	15			8649		8649	8649		8649
+2	rangedamagereturn_v	1			103			103		
+2	rangedamagereturn_v	2			155			155		
+2	rangedamagereturn_v	3			233			233		
+2	rangedamagereturn_v	4			350			350		
+2	rangedamagereturn_v	5			525			525		
+2	rangedamagereturn_v	6			787			787		
+2	rangedamagereturn_v	7			1181			1181		
+2	rangedamagereturn_v	8			1771			1771		
+2	rangedamagereturn_v	9			2657			2657		
+2	rangedamagereturn_v	10			3986			3986		
+2	rangedamagereturn_v	11			5980			5980		
+2	rangedamagereturn_v	12			8970			8970		
+2	rangedamagereturn_v	13			13455			13455		
+2	rangedamagereturn_v	14			20182			20182		
+2	rangedamagereturn_v	15			30274			30274		
+3	meleedamagereturn_v	1			103			103		
+3	meleedamagereturn_v	2			155			155		
+3	meleedamagereturn_v	3			233			233		
+3	meleedamagereturn_v	4			350			350		
+3	meleedamagereturn_v	5			525			525		
+3	meleedamagereturn_v	6			787			787		
+3	meleedamagereturn_v	7			1181			1181		
+3	meleedamagereturn_v	8			1771			1771		
+3	meleedamagereturn_v	9			2657			2657		
+3	meleedamagereturn_v	10			3986			3986		
+3	meleedamagereturn_v	11			5980			5980		
+3	meleedamagereturn_v	12			8970			8970		
+3	meleedamagereturn_v	13			13455			13455		
+3	meleedamagereturn_v	14			20182			20182		
+3	meleedamagereturn_v	15			30274			30274		
+4	vitality_v	1			14			14		
+4	vitality_v	2			22			22		
+4	vitality_v	3			33			33		
+4	vitality_v	4			50			50		
+4	vitality_v	5			75			75		
+4	vitality_v	6			112			112		
+4	vitality_v	7			168			168		
+4	vitality_v	8			253			253		
+4	vitality_v	9			379			379		
+4	vitality_v	10			569			569		
+4	vitality_v	11			854			854		
+4	vitality_v	12			1281			1281		
+4	vitality_v	13			1922			1922		
+4	vitality_v	14			2883			2883		
+4	vitality_v	15			4324			4324		
+5	strength_v	1			14			14		
+5	strength_v	2			22			22		
+5	strength_v	3			33			33		
+5	strength_v	4			50			50		
+5	strength_v	5			75			75		
+5	strength_v	6			112			112		
+5	strength_v	7			168			168		
+5	strength_v	8			253			253		
+5	strength_v	9			379			379		
+5	strength_v	10			569			569		
+5	strength_v	11			854			854		
+5	strength_v	12			1281			1281		
+5	strength_v	13			1922			1922		
+5	strength_v	14			2883			2883		
+5	strength_v	15			4324			4324		
+6	dexterity_v	1			14			14		
+6	dexterity_v	2			22			22		
+6	dexterity_v	3			33			33		
+6	dexterity_v	4			50			50		
+6	dexterity_v	5			75			75		
+6	dexterity_v	6			112			112		
+6	dexterity_v	7			168			168		
+6	dexterity_v	8			253			253		
+6	dexterity_v	9			379			379		
+6	dexterity_v	10			569			569		
+6	dexterity_v	11			854			854		
+6	dexterity_v	12			1281			1281		
+6	dexterity_v	13			1922			1922		
+6	dexterity_v	14			2883			2883		
+6	dexterity_v	15			4324			4324		
+7	energy_v	1			14			14		
+7	energy_v	2			22			22		
+7	energy_v	3			33			33		
+7	energy_v	4			50			50		
+7	energy_v	5			75			75		
+7	energy_v	6			112			112		
+7	energy_v	7			168			168		
+7	energy_v	8			253			253		
+7	energy_v	9			379			379		
+7	energy_v	10			569			569		
+7	energy_v	11			854			854		
+7	energy_v	12			1281			1281		
+7	energy_v	13			1922			1922		
+7	energy_v	14			2883			2883		
+7	energy_v	15			4324			4324		
+8	ignore_all_resist_v	1			100	14			14	
+8	ignore_all_resist_v	2			100	22			22	
+8	ignore_all_resist_v	3			100	33			33	
+8	ignore_all_resist_v	4			100	50			50	
+8	ignore_all_resist_v	5			100	75			75	
+8	ignore_all_resist_v	6			100	112			112	
+8	ignore_all_resist_v	7			100	168			168	
+8	ignore_all_resist_v	8			100	253			253	
+8	ignore_all_resist_v	9			100	379			379	
+8	ignore_all_resist_v	10			100	569			569	
+8	ignore_all_resist_v	11			100	854			854	
+8	ignore_all_resist_v	12			100	1281			1281	
+8	ignore_all_resist_v	13			100	1922			1922	
+8	ignore_all_resist_v	14			100	2883			2883	
+8	ignore_all_resist_v	15			100	4324			4324	
+9	defense_v	1			59			59		
+9	defense_v	2			88			88		
+9	defense_v	3			133			133		
+9	defense_v	4			200			200		
+9	defense_v	5			300			300		
+9	defense_v	6			450			450		
+9	defense_v	7			675			675		
+9	defense_v	8			1012			1012		
+9	defense_v	9			1518			1518		
+9	defense_v	10			2278			2278		
+9	defense_v	11			3417			3417		
+9	defense_v	12			5125			5125		
+9	defense_v	13			7688			7688		
+9	defense_v	14			11533			11533		
+9	defense_v	15			17299			17299		
+10	ignore_defense_v	1			59			59		
+10	ignore_defense_v	2			88			88		
+10	ignore_defense_v	3			133			133		
+10	ignore_defense_v	4			200			200		
+10	ignore_defense_v	5			300			300		
+10	ignore_defense_v	6			450			450		
+10	ignore_defense_v	7			675			675		
+10	ignore_defense_v	8			1012			1012		
+10	ignore_defense_v	9			1518			1518		
+10	ignore_defense_v	10			2278			2278		
+10	ignore_defense_v	11			3417			3417		
+10	ignore_defense_v	12			5125			5125		
+10	ignore_defense_v	13			7688			7688		
+10	ignore_defense_v	14			11533			11533		
+10	ignore_defense_v	15			17299			17299		
+11	deadlystrike_v	1			29			29		
+11	deadlystrike_v	2			44			44		
+11	deadlystrike_v	3			66			66		
+11	deadlystrike_v	4			100			100		
+11	deadlystrike_v	5			150			150		
+11	deadlystrike_v	6			225			225		
+11	deadlystrike_v	7			337			337		
+11	deadlystrike_v	8			506			506		
+11	deadlystrike_v	9			759			759		
+11	deadlystrike_v	10			1139			1139		
+11	deadlystrike_v	11			1708			1708		
+11	deadlystrike_v	12			2562			2562		
+11	deadlystrike_v	13			3844			3844		
+11	deadlystrike_v	14			5766			5766		
+11	deadlystrike_v	15			8649			8649		
+12	weaken_deadlystrike_v	1			29			29		
+12	weaken_deadlystrike_v	2			44			44		
+12	weaken_deadlystrike_v	3			66			66		
+12	weaken_deadlystrike_v	4			100			100		
+12	weaken_deadlystrike_v	5			150			150		
+12	weaken_deadlystrike_v	6			225			225		
+12	weaken_deadlystrike_v	7			337			337		
+12	weaken_deadlystrike_v	8			506			506		
+12	weaken_deadlystrike_v	9			759			759		
+12	weaken_deadlystrike_v	10			1139			1139		
+12	weaken_deadlystrike_v	11			1708			1708		
+12	weaken_deadlystrike_v	12			2562			2562		
+12	weaken_deadlystrike_v	13			3844			3844		
+12	weaken_deadlystrike_v	14			5766			5766		
+12	weaken_deadlystrike_v	15			8649			8649		
+13	add_seriesstate_rate_v	1			11			11		
+13	add_seriesstate_rate_v	2			17			17		
+13	add_seriesstate_rate_v	3			26			26		
+13	add_seriesstate_rate_v	4			40			40		
+13	add_seriesstate_rate_v	5			60			60		
+13	add_seriesstate_rate_v	6			90			90		
+13	add_seriesstate_rate_v	7			135			135		
+13	add_seriesstate_rate_v	8			202			202		
+13	add_seriesstate_rate_v	9			303			303		
+13	add_seriesstate_rate_v	10			455			455		
+13	add_seriesstate_rate_v	11			683			683		
+13	add_seriesstate_rate_v	12			1025			1025		
+13	add_seriesstate_rate_v	13			1537			1537		
+13	add_seriesstate_rate_v	14			2306			2306		
+13	add_seriesstate_rate_v	15			3459			3459		
+14	resist_allseriesstate_rate_v	1			11			11		
+14	resist_allseriesstate_rate_v	2			17			17		
+14	resist_allseriesstate_rate_v	3			26			26		
+14	resist_allseriesstate_rate_v	4			40			40		
+14	resist_allseriesstate_rate_v	5			60			60		
+14	resist_allseriesstate_rate_v	6			90			90		
+14	resist_allseriesstate_rate_v	7			135			135		
+14	resist_allseriesstate_rate_v	8			202			202		
+14	resist_allseriesstate_rate_v	9			303			303		
+14	resist_allseriesstate_rate_v	10			455			455		
+14	resist_allseriesstate_rate_v	11			683			683		
+14	resist_allseriesstate_rate_v	12			1025			1025		
+14	resist_allseriesstate_rate_v	13			1537			1537		
+14	resist_allseriesstate_rate_v	14			2306			2306		
+14	resist_allseriesstate_rate_v	15			3459			3459		
+15	state_hurt_resistrate	1			59			59		
+15	state_hurt_resistrate	2			88			88		
+15	state_hurt_resistrate	3			133			133		
+15	state_hurt_resistrate	4			200			200		
+15	state_hurt_resistrate	5			300			300		
+15	state_hurt_resistrate	6			450			450		
+15	state_hurt_resistrate	7			675			675		
+15	state_hurt_resistrate	8			1012			1012		
+15	state_hurt_resistrate	9			1518			1518		
+15	state_hurt_resistrate	10			2278			2278		
+15	state_hurt_resistrate	11			3417			3417		
+15	state_hurt_resistrate	12			5125			5125		
+15	state_hurt_resistrate	13			7688			7688		
+15	state_hurt_resistrate	14			11533			11533		
+15	state_hurt_resistrate	15			17299			17299		
+16	state_zhican_resistrate	1			59			59		
+16	state_zhican_resistrate	2			88			88		
+16	state_zhican_resistrate	3			133			133		
+16	state_zhican_resistrate	4			200			200		
+16	state_zhican_resistrate	5			300			300		
+16	state_zhican_resistrate	6			450			450		
+16	state_zhican_resistrate	7			675			675		
+16	state_zhican_resistrate	8			1012			1012		
+16	state_zhican_resistrate	9			1518			1518		
+16	state_zhican_resistrate	10			2278			2278		
+16	state_zhican_resistrate	11			3417			3417		
+16	state_zhican_resistrate	12			5125			5125		
+16	state_zhican_resistrate	13			7688			7688		
+16	state_zhican_resistrate	14			11533			11533		
+16	state_zhican_resistrate	15			17299			17299		
+17	state_slowall_resistrate	1			59			59		
+17	state_slowall_resistrate	2			88			88		
+17	state_slowall_resistrate	3			133			133		
+17	state_slowall_resistrate	4			200			200		
+17	state_slowall_resistrate	5			300			300		
+17	state_slowall_resistrate	6			450			450		
+17	state_slowall_resistrate	7			675			675		
+17	state_slowall_resistrate	8			1012			1012		
+17	state_slowall_resistrate	9			1518			1518		
+17	state_slowall_resistrate	10			2278			2278		
+17	state_slowall_resistrate	11			3417			3417		
+17	state_slowall_resistrate	12			5125			5125		
+17	state_slowall_resistrate	13			7688			7688		
+17	state_slowall_resistrate	14			11533			11533		
+17	state_slowall_resistrate	15			17299			17299		
+18	state_palsy_resistrate	1			59			59		
+18	state_palsy_resistrate	2			88			88		
+18	state_palsy_resistrate	3			133			133		
+18	state_palsy_resistrate	4			200			200		
+18	state_palsy_resistrate	5			300			300		
+18	state_palsy_resistrate	6			450			450		
+18	state_palsy_resistrate	7			675			675		
+18	state_palsy_resistrate	8			1012			1012		
+18	state_palsy_resistrate	9			1518			1518		
+18	state_palsy_resistrate	10			2278			2278		
+18	state_palsy_resistrate	11			3417			3417		
+18	state_palsy_resistrate	12			5125			5125		
+18	state_palsy_resistrate	13			7688			7688		
+18	state_palsy_resistrate	14			11533			11533		
+18	state_palsy_resistrate	15			17299			17299		
+19	state_stun_resistrate	1			59			59		
+19	state_stun_resistrate	2			88			88		
+19	state_stun_resistrate	3			133			133		
+19	state_stun_resistrate	4			200			200		
+19	state_stun_resistrate	5			300			300		
+19	state_stun_resistrate	6			450			450		
+19	state_stun_resistrate	7			675			675		
+19	state_stun_resistrate	8			1012			1012		
+19	state_stun_resistrate	9			1518			1518		
+19	state_stun_resistrate	10			2278			2278		
+19	state_stun_resistrate	11			3417			3417		
+19	state_stun_resistrate	12			5125			5125		
+19	state_stun_resistrate	13			7688			7688		
+19	state_stun_resistrate	14			11533			11533		
+19	state_stun_resistrate	15			17299			17299		
+20	add_seriesstate_time_v	1			11			11		
+20	add_seriesstate_time_v	2			17			17		
+20	add_seriesstate_time_v	3			26			26		
+20	add_seriesstate_time_v	4			40			40		
+20	add_seriesstate_time_v	5			60			60		
+20	add_seriesstate_time_v	6			90			90		
+20	add_seriesstate_time_v	7			135			135		
+20	add_seriesstate_time_v	8			202			202		
+20	add_seriesstate_time_v	9			303			303		
+20	add_seriesstate_time_v	10			455			455		
+20	add_seriesstate_time_v	11			683			683		
+20	add_seriesstate_time_v	12			1025			1025		
+20	add_seriesstate_time_v	13			1537			1537		
+20	add_seriesstate_time_v	14			2306			2306		
+20	add_seriesstate_time_v	15			3459			3459		
+21	resist_allseriesstate_time_v	1			11			11		
+21	resist_allseriesstate_time_v	2			17			17		
+21	resist_allseriesstate_time_v	3			26			26		
+21	resist_allseriesstate_time_v	4			40			40		
+21	resist_allseriesstate_time_v	5			60			60		
+21	resist_allseriesstate_time_v	6			90			90		
+21	resist_allseriesstate_time_v	7			135			135		
+21	resist_allseriesstate_time_v	8			202			202		
+21	resist_allseriesstate_time_v	9			303			303		
+21	resist_allseriesstate_time_v	10			455			455		
+21	resist_allseriesstate_time_v	11			683			683		
+21	resist_allseriesstate_time_v	12			1025			1025		
+21	resist_allseriesstate_time_v	13			1537			1537		
+21	resist_allseriesstate_time_v	14			2306			2306		
+21	resist_allseriesstate_time_v	15			3459			3459		
+22	resist_allspecialstate_time_v	1			11			11		
+22	resist_allspecialstate_time_v	2			17			17		
+22	resist_allspecialstate_time_v	3			26			26		
+22	resist_allspecialstate_time_v	4			40			40		
+22	resist_allspecialstate_time_v	5			60			60		
+22	resist_allspecialstate_time_v	6			90			90		
+22	resist_allspecialstate_time_v	7			135			135		
+22	resist_allspecialstate_time_v	8			202			202		
+22	resist_allspecialstate_time_v	9			303			303		
+22	resist_allspecialstate_time_v	10			455			455		
+22	resist_allspecialstate_time_v	11			683			683		
+22	resist_allspecialstate_time_v	12			1025			1025		
+22	resist_allspecialstate_time_v	13			1537			1537		
+22	resist_allspecialstate_time_v	14			2306			2306		
+22	resist_allspecialstate_time_v	15			3459			3459		
+101	recover_life_v	1			158	75		158		
+101	recover_life_v	2			237	75		237		
+101	recover_life_v	3			355	75		355		
+101	recover_life_v	4			533	75		533		
+101	recover_life_v	5			800	75		800		
+101	recover_life_v	6			1200	75		1200		
+101	recover_life_v	7			1800	75		1800		
+101	recover_life_v	8			2700	75		2700		
+101	recover_life_v	9			4050	75		4050		
+101	recover_life_v	10			6075	75		6075		
+101	recover_life_v	11			9112	75		9112		
+101	recover_life_v	12			13668	75		13668		
+101	recover_life_v	13			20503	75		20503		
+101	recover_life_v	14			30754	75		30754		
+101	recover_life_v	15			46132	75		46132		
+102	lifemax_v	1			395			395		
+102	lifemax_v	2			592			592		
+102	lifemax_v	3			888			888		
+102	lifemax_v	4			1333			1333		
+102	lifemax_v	5			2000			2000		
+102	lifemax_v	6			3000			3000		
+102	lifemax_v	7			4500			4500		
+102	lifemax_v	8			6750			6750		
+102	lifemax_v	9			10125			10125		
+102	lifemax_v	10			15187			15187		
+102	lifemax_v	11			22781			22781		
+102	lifemax_v	12			34171			34171		
+102	lifemax_v	13			51257			51257		
+102	lifemax_v	14			76886			76886		
+102	lifemax_v	15			115330			115330		
+103	physical_damage_v	1			19		19	19		19
+103	physical_damage_v	2			29		29	29		29
+103	physical_damage_v	3			44		44	44		44
+103	physical_damage_v	4			66		66	66		66
+103	physical_damage_v	5			100		100	100		100
+103	physical_damage_v	6			150		150	150		150
+103	physical_damage_v	7			225		225	225		225
+103	physical_damage_v	8			337		337	337		337
+103	physical_damage_v	9			506		506	506		506
+103	physical_damage_v	10			759		759	759		759
+103	physical_damage_v	11			1139		1139	1139		1139
+103	physical_damage_v	12			1708		1708	1708		1708
+103	physical_damage_v	13			2562		2562	2562		2562
+103	physical_damage_v	14			3844		3844	3844		3844
+103	physical_damage_v	15			5766		5766	5766		5766
+104	rangedamagereturn_v	1			69			69		
+104	rangedamagereturn_v	2			103			103		
+104	rangedamagereturn_v	3			155			155		
+104	rangedamagereturn_v	4			233			233		
+104	rangedamagereturn_v	5			350			350		
+104	rangedamagereturn_v	6			525			525		
+104	rangedamagereturn_v	7			787			787		
+104	rangedamagereturn_v	8			1181			1181		
+104	rangedamagereturn_v	9			1771			1771		
+104	rangedamagereturn_v	10			2657			2657		
+104	rangedamagereturn_v	11			3986			3986		
+104	rangedamagereturn_v	12			5980			5980		
+104	rangedamagereturn_v	13			8970			8970		
+104	rangedamagereturn_v	14			13455			13455		
+104	rangedamagereturn_v	15			20182			20182		
+105	meleedamagereturn_v	1			69			69		
+105	meleedamagereturn_v	2			103			103		
+105	meleedamagereturn_v	3			155			155		
+105	meleedamagereturn_v	4			233			233		
+105	meleedamagereturn_v	5			350			350		
+105	meleedamagereturn_v	6			525			525		
+105	meleedamagereturn_v	7			787			787		
+105	meleedamagereturn_v	8			1181			1181		
+105	meleedamagereturn_v	9			1771			1771		
+105	meleedamagereturn_v	10			2657			2657		
+105	meleedamagereturn_v	11			3986			3986		
+105	meleedamagereturn_v	12			5980			5980		
+105	meleedamagereturn_v	13			8970			8970		
+105	meleedamagereturn_v	14			13455			13455		
+105	meleedamagereturn_v	15			20182			20182		
+106	all_series_resist_v	1			9			9		
+106	all_series_resist_v	2			14			14		
+106	all_series_resist_v	3			22			22		
+106	all_series_resist_v	4			33			33		
+106	all_series_resist_v	5			50			50		
+106	all_series_resist_v	6			75			75		
+106	all_series_resist_v	7			112			112		
+106	all_series_resist_v	8			168			168		
+106	all_series_resist_v	9			253			253		
+106	all_series_resist_v	10			379			379		
+106	all_series_resist_v	11			569			569		
+106	all_series_resist_v	12			854			854		
+106	all_series_resist_v	13			1281			1281		
+106	all_series_resist_v	14			1922			1922		
+106	all_series_resist_v	15			2883			2883		
+107	metal_resist_v	1			49			49		
+107	metal_resist_v	2			74			74		
+107	metal_resist_v	3			111			111		
+107	metal_resist_v	4			166			166		
+107	metal_resist_v	5			250			250		
+107	metal_resist_v	6			375			375		
+107	metal_resist_v	7			562			562		
+107	metal_resist_v	8			843			843		
+107	metal_resist_v	9			1265			1265		
+107	metal_resist_v	10			1898			1898		
+107	metal_resist_v	11			2847			2847		
+107	metal_resist_v	12			4271			4271		
+107	metal_resist_v	13			6407			6407		
+107	metal_resist_v	14			9610			9610		
+107	metal_resist_v	15			14416			14416		
+108	wood_resist_v	1			49			49		
+108	wood_resist_v	2			74			74		
+108	wood_resist_v	3			111			111		
+108	wood_resist_v	4			166			166		
+108	wood_resist_v	5			250			250		
+108	wood_resist_v	6			375			375		
+108	wood_resist_v	7			562			562		
+108	wood_resist_v	8			843			843		
+108	wood_resist_v	9			1265			1265		
+108	wood_resist_v	10			1898			1898		
+108	wood_resist_v	11			2847			2847		
+108	wood_resist_v	12			4271			4271		
+108	wood_resist_v	13			6407			6407		
+108	wood_resist_v	14			9610			9610		
+108	wood_resist_v	15			14416			14416		
+109	water_resist_v	1			49			49		
+109	water_resist_v	2			74			74		
+109	water_resist_v	3			111			111		
+109	water_resist_v	4			166			166		
+109	water_resist_v	5			250			250		
+109	water_resist_v	6			375			375		
+109	water_resist_v	7			562			562		
+109	water_resist_v	8			843			843		
+109	water_resist_v	9			1265			1265		
+109	water_resist_v	10			1898			1898		
+109	water_resist_v	11			2847			2847		
+109	water_resist_v	12			4271			4271		
+109	water_resist_v	13			6407			6407		
+109	water_resist_v	14			9610			9610		
+109	water_resist_v	15			14416			14416		
+110	fire_resist_v	1			49			49		
+110	fire_resist_v	2			74			74		
+110	fire_resist_v	3			111			111		
+110	fire_resist_v	4			166			166		
+110	fire_resist_v	5			250			250		
+110	fire_resist_v	6			375			375		
+110	fire_resist_v	7			562			562		
+110	fire_resist_v	8			843			843		
+110	fire_resist_v	9			1265			1265		
+110	fire_resist_v	10			1898			1898		
+110	fire_resist_v	11			2847			2847		
+110	fire_resist_v	12			4271			4271		
+110	fire_resist_v	13			6407			6407		
+110	fire_resist_v	14			9610			9610		
+110	fire_resist_v	15			14416			14416		
+111	earth_resist_v	1			49			49		
+111	earth_resist_v	2			74			74		
+111	earth_resist_v	3			111			111		
+111	earth_resist_v	4			166			166		
+111	earth_resist_v	5			250			250		
+111	earth_resist_v	6			375			375		
+111	earth_resist_v	7			562			562		
+111	earth_resist_v	8			843			843		
+111	earth_resist_v	9			1265			1265		
+111	earth_resist_v	10			1898			1898		
+111	earth_resist_v	11			2847			2847		
+111	earth_resist_v	12			4271			4271		
+111	earth_resist_v	13			6407			6407		
+111	earth_resist_v	14			9610			9610		
+111	earth_resist_v	15			14416			14416		
+112	ignore_all_resist_v	1			100	9			9	
+112	ignore_all_resist_v	2			100	14			14	
+112	ignore_all_resist_v	3			100	22			22	
+112	ignore_all_resist_v	4			100	33			33	
+112	ignore_all_resist_v	5			100	50			50	
+112	ignore_all_resist_v	6			100	75			75	
+112	ignore_all_resist_v	7			100	112			112	
+112	ignore_all_resist_v	8			100	168			168	
+112	ignore_all_resist_v	9			100	253			253	
+112	ignore_all_resist_v	10			100	379			379	
+112	ignore_all_resist_v	11			100	569			569	
+112	ignore_all_resist_v	12			100	854			854	
+112	ignore_all_resist_v	13			100	1281			1281	
+112	ignore_all_resist_v	14			100	1922			1922	
+112	ignore_all_resist_v	15			100	2883			2883	
+113	attackrate_v	1			79			79		
+113	attackrate_v	2			118			118		
+113	attackrate_v	3			177			177		
+113	attackrate_v	4			266			266		
+113	attackrate_v	5			400			400		
+113	attackrate_v	6			600			600		
+113	attackrate_v	7			900			900		
+113	attackrate_v	8			1350			1350		
+113	attackrate_v	9			2025			2025		
+113	attackrate_v	10			3037			3037		
+113	attackrate_v	11			4556			4556		
+113	attackrate_v	12			6834			6834		
+113	attackrate_v	13			10251			10251		
+113	attackrate_v	14			15377			15377		
+113	attackrate_v	15			23066			23066		
+114	defense_v	1			39			39		
+114	defense_v	2			59			59		
+114	defense_v	3			88			88		
+114	defense_v	4			133			133		
+114	defense_v	5			200			200		
+114	defense_v	6			300			300		
+114	defense_v	7			450			450		
+114	defense_v	8			675			675		
+114	defense_v	9			1012			1012		
+114	defense_v	10			1518			1518		
+114	defense_v	11			2278			2278		
+114	defense_v	12			3417			3417		
+114	defense_v	13			5125			5125		
+114	defense_v	14			7688			7688		
+114	defense_v	15			11533			11533		
+115	ignore_defense_v	1			39			39		
+115	ignore_defense_v	2			59			59		
+115	ignore_defense_v	3			88			88		
+115	ignore_defense_v	4			133			133		
+115	ignore_defense_v	5			200			200		
+115	ignore_defense_v	6			300			300		
+115	ignore_defense_v	7			450			450		
+115	ignore_defense_v	8			675			675		
+115	ignore_defense_v	9			1012			1012		
+115	ignore_defense_v	10			1518			1518		
+115	ignore_defense_v	11			2278			2278		
+115	ignore_defense_v	12			3417			3417		
+115	ignore_defense_v	13			5125			5125		
+115	ignore_defense_v	14			7688			7688		
+115	ignore_defense_v	15			11533			11533		
+116	deadlystrike_v	1			19			19		
+116	deadlystrike_v	2			29			29		
+116	deadlystrike_v	3			44			44		
+116	deadlystrike_v	4			66			66		
+116	deadlystrike_v	5			100			100		
+116	deadlystrike_v	6			150			150		
+116	deadlystrike_v	7			225			225		
+116	deadlystrike_v	8			337			337		
+116	deadlystrike_v	9			506			506		
+116	deadlystrike_v	10			759			759		
+116	deadlystrike_v	11			1139			1139		
+116	deadlystrike_v	12			1708			1708		
+116	deadlystrike_v	13			2562			2562		
+116	deadlystrike_v	14			3844			3844		
+116	deadlystrike_v	15			5766			5766		
+117	weaken_deadlystrike_v	1			19			19		
+117	weaken_deadlystrike_v	2			29			29		
+117	weaken_deadlystrike_v	3			44			44		
+117	weaken_deadlystrike_v	4			66			66		
+117	weaken_deadlystrike_v	5			100			100		
+117	weaken_deadlystrike_v	6			150			150		
+117	weaken_deadlystrike_v	7			225			225		
+117	weaken_deadlystrike_v	8			337			337		
+117	weaken_deadlystrike_v	9			506			506		
+117	weaken_deadlystrike_v	10			759			759		
+117	weaken_deadlystrike_v	11			1139			1139		
+117	weaken_deadlystrike_v	12			1708			1708		
+117	weaken_deadlystrike_v	13			2562			2562		
+117	weaken_deadlystrike_v	14			3844			3844		
+117	weaken_deadlystrike_v	15			5766			5766		
+118	add_seriesstate_rate_v	1			7			7		
+118	add_seriesstate_rate_v	2			11			11		
+118	add_seriesstate_rate_v	3			17			17		
+118	add_seriesstate_rate_v	4			26			26		
+118	add_seriesstate_rate_v	5			40			40		
+118	add_seriesstate_rate_v	6			60			60		
+118	add_seriesstate_rate_v	7			90			90		
+118	add_seriesstate_rate_v	8			135			135		
+118	add_seriesstate_rate_v	9			202			202		
+118	add_seriesstate_rate_v	10			303			303		
+118	add_seriesstate_rate_v	11			455			455		
+118	add_seriesstate_rate_v	12			683			683		
+118	add_seriesstate_rate_v	13			1025			1025		
+118	add_seriesstate_rate_v	14			1537			1537		
+118	add_seriesstate_rate_v	15			2306			2306		
+119	resist_allseriesstate_rate_v	1			7			7		
+119	resist_allseriesstate_rate_v	2			11			11		
+119	resist_allseriesstate_rate_v	3			17			17		
+119	resist_allseriesstate_rate_v	4			26			26		
+119	resist_allseriesstate_rate_v	5			40			40		
+119	resist_allseriesstate_rate_v	6			60			60		
+119	resist_allseriesstate_rate_v	7			90			90		
+119	resist_allseriesstate_rate_v	8			135			135		
+119	resist_allseriesstate_rate_v	9			202			202		
+119	resist_allseriesstate_rate_v	10			303			303		
+119	resist_allseriesstate_rate_v	11			455			455		
+119	resist_allseriesstate_rate_v	12			683			683		
+119	resist_allseriesstate_rate_v	13			1025			1025		
+119	resist_allseriesstate_rate_v	14			1537			1537		
+119	resist_allseriesstate_rate_v	15			2306			2306		
+120	state_hurt_resistrate	1			39			39		
+120	state_hurt_resistrate	2			59			59		
+120	state_hurt_resistrate	3			88			88		
+120	state_hurt_resistrate	4			133			133		
+120	state_hurt_resistrate	5			200			200		
+120	state_hurt_resistrate	6			300			300		
+120	state_hurt_resistrate	7			450			450		
+120	state_hurt_resistrate	8			675			675		
+120	state_hurt_resistrate	9			1012			1012		
+120	state_hurt_resistrate	10			1518			1518		
+120	state_hurt_resistrate	11			2278			2278		
+120	state_hurt_resistrate	12			3417			3417		
+120	state_hurt_resistrate	13			5125			5125		
+120	state_hurt_resistrate	14			7688			7688		
+120	state_hurt_resistrate	15			11533			11533		
+121	state_zhican_resistrate	1			39			39		
+121	state_zhican_resistrate	2			59			59		
+121	state_zhican_resistrate	3			88			88		
+121	state_zhican_resistrate	4			133			133		
+121	state_zhican_resistrate	5			200			200		
+121	state_zhican_resistrate	6			300			300		
+121	state_zhican_resistrate	7			450			450		
+121	state_zhican_resistrate	8			675			675		
+121	state_zhican_resistrate	9			1012			1012		
+121	state_zhican_resistrate	10			1518			1518		
+121	state_zhican_resistrate	11			2278			2278		
+121	state_zhican_resistrate	12			3417			3417		
+121	state_zhican_resistrate	13			5125			5125		
+121	state_zhican_resistrate	14			7688			7688		
+121	state_zhican_resistrate	15			11533			11533		
+122	state_slowall_resistrate	1			39			39		
+122	state_slowall_resistrate	2			59			59		
+122	state_slowall_resistrate	3			88			88		
+122	state_slowall_resistrate	4			133			133		
+122	state_slowall_resistrate	5			200			200		
+122	state_slowall_resistrate	6			300			300		
+122	state_slowall_resistrate	7			450			450		
+122	state_slowall_resistrate	8			675			675		
+122	state_slowall_resistrate	9			1012			1012		
+122	state_slowall_resistrate	10			1518			1518		
+122	state_slowall_resistrate	11			2278			2278		
+122	state_slowall_resistrate	12			3417			3417		
+122	state_slowall_resistrate	13			5125			5125		
+122	state_slowall_resistrate	14			7688			7688		
+122	state_slowall_resistrate	15			11533			11533		
+123	state_palsy_resistrate	1			39			39		
+123	state_palsy_resistrate	2			59			59		
+123	state_palsy_resistrate	3			88			88		
+123	state_palsy_resistrate	4			133			133		
+123	state_palsy_resistrate	5			200			200		
+123	state_palsy_resistrate	6			300			300		
+123	state_palsy_resistrate	7			450			450		
+123	state_palsy_resistrate	8			675			675		
+123	state_palsy_resistrate	9			1012			1012		
+123	state_palsy_resistrate	10			1518			1518		
+123	state_palsy_resistrate	11			2278			2278		
+123	state_palsy_resistrate	12			3417			3417		
+123	state_palsy_resistrate	13			5125			5125		
+123	state_palsy_resistrate	14			7688			7688		
+123	state_palsy_resistrate	15			11533			11533		
+124	state_stun_resistrate	1			39			39		
+124	state_stun_resistrate	2			59			59		
+124	state_stun_resistrate	3			88			88		
+124	state_stun_resistrate	4			133			133		
+124	state_stun_resistrate	5			200			200		
+124	state_stun_resistrate	6			300			300		
+124	state_stun_resistrate	7			450			450		
+124	state_stun_resistrate	8			675			675		
+124	state_stun_resistrate	9			1012			1012		
+124	state_stun_resistrate	10			1518			1518		
+124	state_stun_resistrate	11			2278			2278		
+124	state_stun_resistrate	12			3417			3417		
+124	state_stun_resistrate	13			5125			5125		
+124	state_stun_resistrate	14			7688			7688		
+124	state_stun_resistrate	15			11533			11533		
+125	state_hurt_resisttime	1			39			39		
+125	state_hurt_resisttime	2			59			59		
+125	state_hurt_resisttime	3			88			88		
+125	state_hurt_resisttime	4			133			133		
+125	state_hurt_resisttime	5			200			200		
+125	state_hurt_resisttime	6			300			300		
+125	state_hurt_resisttime	7			450			450		
+125	state_hurt_resisttime	8			675			675		
+125	state_hurt_resisttime	9			1012			1012		
+125	state_hurt_resisttime	10			1518			1518		
+125	state_hurt_resisttime	11			2278			2278		
+125	state_hurt_resisttime	12			3417			3417		
+125	state_hurt_resisttime	13			5125			5125		
+125	state_hurt_resisttime	14			7688			7688		
+125	state_hurt_resisttime	15			11533			11533		
+126	state_zhican_resisttime	1			39			39		
+126	state_zhican_resisttime	2			59			59		
+126	state_zhican_resisttime	3			88			88		
+126	state_zhican_resisttime	4			133			133		
+126	state_zhican_resisttime	5			200			200		
+126	state_zhican_resisttime	6			300			300		
+126	state_zhican_resisttime	7			450			450		
+126	state_zhican_resisttime	8			675			675		
+126	state_zhican_resisttime	9			1012			1012		
+126	state_zhican_resisttime	10			1518			1518		
+126	state_zhican_resisttime	11			2278			2278		
+126	state_zhican_resisttime	12			3417			3417		
+126	state_zhican_resisttime	13			5125			5125		
+126	state_zhican_resisttime	14			7688			7688		
+126	state_zhican_resisttime	15			11533			11533		
+127	state_slowall_resisttime	1			39			39		
+127	state_slowall_resisttime	2			59			59		
+127	state_slowall_resisttime	3			88			88		
+127	state_slowall_resisttime	4			133			133		
+127	state_slowall_resisttime	5			200			200		
+127	state_slowall_resisttime	6			300			300		
+127	state_slowall_resisttime	7			450			450		
+127	state_slowall_resisttime	8			675			675		
+127	state_slowall_resisttime	9			1012			1012		
+127	state_slowall_resisttime	10			1518			1518		
+127	state_slowall_resisttime	11			2278			2278		
+127	state_slowall_resisttime	12			3417			3417		
+127	state_slowall_resisttime	13			5125			5125		
+127	state_slowall_resisttime	14			7688			7688		
+127	state_slowall_resisttime	15			11533			11533		
+128	state_palsy_resisttime	1			39			39		
+128	state_palsy_resisttime	2			59			59		
+128	state_palsy_resisttime	3			88			88		
+128	state_palsy_resisttime	4			133			133		
+128	state_palsy_resisttime	5			200			200		
+128	state_palsy_resisttime	6			300			300		
+128	state_palsy_resisttime	7			450			450		
+128	state_palsy_resisttime	8			675			675		
+128	state_palsy_resisttime	9			1012			1012		
+128	state_palsy_resisttime	10			1518			1518		
+128	state_palsy_resisttime	11			2278			2278		
+128	state_palsy_resisttime	12			3417			3417		
+128	state_palsy_resisttime	13			5125			5125		
+128	state_palsy_resisttime	14			7688			7688		
+128	state_palsy_resisttime	15			11533			11533		
+129	state_stun_resisttime	1			39			39		
+129	state_stun_resisttime	2			59			59		
+129	state_stun_resisttime	3			88			88		
+129	state_stun_resisttime	4			133			133		
+129	state_stun_resisttime	5			200			200		
+129	state_stun_resisttime	6			300			300		
+129	state_stun_resisttime	7			450			450		
+129	state_stun_resisttime	8			675			675		
+129	state_stun_resisttime	9			1012			1012		
+129	state_stun_resisttime	10			1518			1518		
+129	state_stun_resisttime	11			2278			2278		
+129	state_stun_resisttime	12			3417			3417		
+129	state_stun_resisttime	13			5125			5125		
+129	state_stun_resisttime	14			7688			7688		
+129	state_stun_resisttime	15			11533			11533		

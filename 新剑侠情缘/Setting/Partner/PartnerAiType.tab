@@ -1,0 +1,15 @@
+nAiTypeId	szInfo	szAiPath	nAiSkillId1	nAiSkillId2	nAiSkillId3
+1	稳重	Setting/Npc/Ai/partner/wenzhong.ini	2593		
+2	冷静	Setting/Npc/Ai/partner/lengjing.ini	2594		
+3	争胜	Setting/Npc/Ai/partner/zhengshen.ini			
+4	重义	Setting/Npc/Ai/partner/zhongyi.ini	2597		
+5	护主	Setting/Npc/Ai/partner/huzhu.ini	2605		
+6	狡诈	Setting/Npc/Ai/partner/jiaozha.ini	2595		
+7	果敢	Setting/Npc/Ai/partner/guogan.ini	2596		
+8	精明	Setting/Npc/Ai/partner/jingming.ini			
+9	谨慎	Setting/Npc/Ai/partner/jinshen.ini	2598		
+10	勇猛	Setting/Npc/Ai/partner/yongmeng.ini	2600		
+11	不屈	Setting/Npc/Ai/partner/buqu.ini	2602		
+12	威严	Setting/Npc/Ai/partner/weiyan.ini	2604		
+13	温婉	Setting/Npc/Ai/partner/wenwan.ini	2607		
+14	嗜血	Setting/Npc/Ai/partner/shixue.ini	2608		

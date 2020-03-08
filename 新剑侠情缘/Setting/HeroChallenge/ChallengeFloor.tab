@@ -1,0 +1,11 @@
+Floor	MinRank	MaxRank	Awards	IsNpc
+1	2501	3000	BasicExp|6	
+2	2001	2500	BasicExp|8	
+3	1501	2000	BasicExp|8	
+4	1001	1500	BasicExp|8	
+5	801	1000	BasicExp|10	
+6	601	800	BasicExp|10	
+7	301	600	BasicExp|10	
+8	151	300	BasicExp|10	
+9	51	150	BasicExp|10	
+10	1	50	BasicExp|10	

@@ -1,0 +1,6 @@
+TemplateId	Name	Kind	ItemType	Icon	BigIcon	CDType	ClassName	DetailType	Intro	ItemValue	Level	ObjID	Price	Quality	RequireLevel	Sellable	Stack	ExtParam1	ExtParam2	ExtParam3	ExtParam4	ExtParam5	ExtParam6	ExtParam7	ExtParam8	ExtParam9	ExtParam10
+1391	1级附魔石·攻击	Enchant_1_Lv1	34	1017	1017		OpenLightStone	2	1级附魔石·攻击，使用后增加自身属性并使武器发光	500000	1	3	1000	31	1	1	99999										
+1392	2级附魔石·攻击	Enchant_1_Lv2	34	1017	1017		OpenLightStone	2	2级附魔石·攻击，使用后增加自身属性并使武器发光	2000000	2	3	1000	41	1	1	99999										
+1526	3级附魔石·攻击	Enchant_1_Lv3	34	1017	1017		OpenLightStone	2	3级附魔石·攻击，使用后增加自身属性并使武器发光	5000000	3	3	1000	51	1	1	99999										
+3313	4级附魔石·攻击	Enchant_1_Lv4	34	1018	1018		OpenLightStone	2	4级附魔石·攻击，使用后增加自身属性并使武器发光	6000000	4	3	1000	61	1	1	99999										
+3314	5级附魔石·攻击	Enchant_1_Lv5	34	1019	1019		OpenLightStone	2	5级附魔石·攻击，使用后增加自身属性并使武器发光	7000000	5	3	1000	71	1	1	99999										

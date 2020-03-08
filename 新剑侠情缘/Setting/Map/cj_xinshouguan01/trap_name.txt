@@ -1,0 +1,12 @@
+action1
+action2
+action3
+zhiyin1
+zhiyin2
+zhiyin4
+jump1
+jump2
+jump3
+jump4
+jump5
+zhiyin3

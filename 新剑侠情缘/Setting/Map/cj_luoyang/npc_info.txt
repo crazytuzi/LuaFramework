@@ -1,0 +1,21 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+chefu	通往新手村		73		1	99	12335	7628	0	-1	0	0		0	0	0	0	0	0	0	0
+chefu	带刀侍卫		94		1	99	9182	7382	62	-1	0	0		0	0	0	0	0	0	0	0
+chefu	带刀侍卫		94		1	99	10525	7390	62	-1	0	0		0	0	0	0	0	0	0	0
+chefu	女捕头		97		1	99	9547	7405	62	-1	0	0		0	0	0	0	0	0	0	0
+chefu	官员		95		1	99	8007	3832	0	-1	0	0		0	0	0	0	0	0	0	0
+chefu	女捕头		97		1	99	10108	7374	62	-1	0	0		0	0	0	0	0	0	0	0
+chefu	李四		99		1	99	10919	10948	51	-1	0	0		0	0	0	0	0	0	0	0
+chefu	铁面人		93		1	99	10459	10916	45	-1	0	0		0	0	0	0	0	0	0	0
+chefu	九尾狐		88		1	99	10014	4429	62	-1	0	0		0	0	0	0	0	0	0	0
+chefu	武林盟主		92		1	99	8018	7643	56	-1	0	0		0	0	0	0	0	0	0	0
+chefu	皇城卫士		89		1	99	8504	5205	1	-1	0	0		0	0	0	0	0	0	0	0
+chefu	皇城卫士		89		1	99	7612	5210	1	-1	0	0		0	0	0	0	0	0	0	0
+chefu	商贩		3		1	99	9469	10465	62	-1	0	0		0	0	0	0	0	0	0	0
+chefu	王府守卫		89		1	99	11755	10148	45	-1	0	0		0	0	0	0	0	0	0	0
+chefu	王府守卫		89		1	99	11781	10766	45	-1	0	0		0	0	0	0	0	0	0	0
+chefu	官员		91		1	99	11463	9538	1	-1	0	0		0	0	0	0	0	0	0	0
+chefu	官员		91		1	99	11964	9551	1	-1	0	0		0	0	0	0	0	0	0	0
+chefu	带刀侍卫		94		1	99	8347	3804	54	-1	0	0		0	0	0	0	0	0	0	0
+chefu	带刀侍卫		94		1	99	7700	3804	0	-1	0	0		0	0	0	0	0	0	0	0
+chefu	神仙姐姐		90		1	99	5184	10705	6	-1	0	0		0	0	0	0	0	0	0	0

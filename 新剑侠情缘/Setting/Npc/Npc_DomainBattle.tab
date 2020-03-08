@@ -1,0 +1,19 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	DefaultDialog	WalkSpeed	NameColor	Experience	FixExperience	GouHuoRate	IsNotBYStealLife	IsNotShowShadow	Sex	SyncFirst	TransBossNpcTID	TransBossRate
+Longzhu_1	3667	龙柱（1级）	0	1	LTZFlagNpc		498	200	994		1008			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Longzhu_2	3668	龙柱（2级）	0	1	LTZFlagNpc		499	200	994		1008			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Longzhu_3	3669	龙柱（3级）	0	1	LTZFlagNpc		3669	200	994		1008			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Longzhu_4	3670	龙柱（4级）	0	1	LTZFlagNpc		3670	200	994		1008			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Longzhu_5	3671	龙柱（5级）	0	1	LTZFlagNpc		3671	200	994		1008			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Chengmen_1	3672	城门（1级）	0	1			504	200	994		1001			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Chengmen_2	3673	城门（2级）	0	1			3673	200	994		1001			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Chengmen_3	3674	城门（3级）	0	1			3674	200	994		1001			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Chengmen_4	3675	城门（4级）	0	1			3675	200	994		1001			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Chengmen_5	3676	内城门	0	1			3676	200	994		1001			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Chengmen_6	3680	城门（1级）	0	1			3680	200	994		1002			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Chengmen_7	3681	城门（2级）	0	1			3681	200	994		1002			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Chengmen_8	3682	城门（3级）	0	1			3682	200	994		1002			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+QiZhi_qianxian	3678	前线旗帜	0	1			505	200	994		1008			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn								1			1		
+Baodong_npc	3679	流寇	0	1			180				1118	55	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive5.ini			1	18	1										1				1					
+Gongchengche_npc	3685	攻城车	0	0			506	200	994		1119	194	1	91	1	105	1	1500	1500	Setting/Npc/Ai/CommonActive.ini			1	20	1																			
+Wangzuo	3687	王座	2	0	TLZthrone		20014	9045	9045		1014			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1		
+Wangzuo_fight	3688	王座	0	0			20014	9045	9045		1014			91	1	105	1	1500	1500	Setting/Npc/Ai/Stay.ini			1	20	2	1					NoTurn										1	1		

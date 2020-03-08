@@ -1,0 +1,16 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+zhangai1			104	50	1	1	4880	9305	32	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai2			104	50	1	1	8080	5080	20	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai3			104	50	1	1	13239	6841	7	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai4			104	50	1	1	13068	11890	26	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai5			104	50	1	1	7934	13644	11	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong1	达摩洞·外·一		74	20		99	1748	10413	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong2	达摩洞·外·二		74	20		99	1792	8230	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong3	达摩洞·外·三		74	20		99	6070	2427	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong4	达摩洞·外·四		74	20		99	8212	1662	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong5	达摩洞·外·五		74	20		99	15147	4066	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong6	达摩洞·外·六		74	20		99	16440	5918	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong7	达摩洞·外·七		74	20		99	16268	12703	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong8	达摩洞·外·八		74	20		99	15018	14547	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong9	达摩洞·外·九		74	20		99	7846	17079	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong10	达摩洞·外·十		74	20		99	5728	16237	0	-1	0	0		0	0	0	0	0	0	0	0	

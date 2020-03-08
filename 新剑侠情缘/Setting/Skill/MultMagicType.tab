@@ -1,0 +1,336 @@
+MagicName	Value1	Value2	Value3	非buff属性	szMagicDesc	paramDesc	CodeName
+lifemax_v	1				生命上限点数加成	增加的点数	magic_lifemax_v
+lifemax_p	1				基础生命上限增加百分比	增加的百分比	magic_lifemax_p
+recover_life_v	1	0			生命恢复点数	回复点数;回复间隔(帧)	magic_recover_life_v
+recover_life_p	1	0			生命恢复百分比	回复最大生命百分比;回复间隔(帧)	magic_recover_life_p
+manamax_v	1				内力上限点数加成	增加的点数	magic_manamax_v
+manamax_p	1				内力上限百分比加成	增加的百分比	magic_manamax_p
+recover_mana_v	1	0			内力回复点数	回复点数;回复间隔(帧)	magic_recover_mana_v
+staminamax_v	1				最大体力点数	增加的点数	magic_staminamax_v
+staminamax_p	1				最大体力百分比加成	增加的百分比	magic_staminamax_p
+recover_stamina_v	1	0			体力回复点数	回复点数;回复间隔(帧)	magic_recover_stamina_v
+lifereplenish_p	1				生命回复效率	增加的百分比	magic_lifereplenish_p
+manareplenish_p	1				内力回复效率	增加的百分比	magic_manareplenish_p
+strength_v	1				力量	增加的点数	magic_strength_v
+dexterity_v	1				敏捷	增加的点数	magic_dexterity_v
+vitality_v	1				体质	增加的点数	magic_vitality_v
+energy_v	1				灵巧	增加的点数	magic_energy_v
+basic_damage_v	1	0	1		武器基础攻击力(不分内外功)	攻击下限:攻击上限	magic_weapon_base_damage_v
+physical_damage_v	1	0	1		浮动攻击	攻击下限:攻击上限	magic_weapon_physical_damage_v
+runspeed_p	1				提高移动速度百分比	增加的百分比	magic_runspeed_p
+runspeed_v	1				提高移动速度点数	10=1点跑速	magic_runspeed_v
+attackspeed_v	1				武功出招速度	攻速点数	magic_attack_speed_v
+attack_speed_p	1				攻速增加百分比	增加的百分比	magic_attack_speed_p
+attackrate_v	1				攻击方：攻击命中值点数	增加的点数	magic_attackrating_v
+attackrate_p	1				攻击方：攻击命中值百分比	增加的百分比	magic_attackrating_p
+defense_v	1				闪避值增加点数	增加的点数	magic_defense_v
+defense_p	1				基础闪避值增加百分比	增加的百分比	magic_defense_p
+ignore_defense_v	1				攻击方：增加忽略闪避点数	增加的点数	magic_ignoredefense_v
+ignore_defense_p	1				攻击方：增加忽略最终闪避百分比	增加的百分比	magic_ignoredefense_p
+deadlystrike_v	1				攻击方：会心一击值	增加的点数	magic_deadlystrike_v
+deadlystrike_p	1				攻击方基础会心增加百分比	增加的百分比	magic_deadlystrike_p
+deadlystrike_damage_p	1				攻击方：会心一击的伤害倍值加成	增加的百分比	magic_deadlystrike_damage_p
+weaken_deadlystrike_v	1				防御方：减少会心一击值	增加的点数	magic_weaken_deadlystrike_v
+weaken_deadlystrike_damage_p	1				防御方：减会心伤害百分比	增加的百分比	magic_weaken_deadlystrike_damage_p
+metal_resist_v	1				金属性抗性点数	增加的点数	magic_metal_resist_v
+wood_resist_v	1				木属性抗性点数	增加的点数	magic_wood_resist_v
+water_resist_v	1				水属性抗性点数	增加的点数	magic_water_resist_v
+fire_resist_v	1				火属性抗性点数	增加的点数	magic_fire_resist_v
+earth_resist_v	1				土属性抗性点数	增加的点数	magic_earth_resist_v
+all_series_resist_v	1				增加所有属性抗性点数	增加的点数	magic_all_series_resist_v
+all_series_resist_p	1				增加基础抗性百分比	增加的百分比	magic_all_series_resist_p
+return_resist_p	1				反弹抗性	增加的百分比	magic_return_resist_p
+physics_potentialdamage_p	1				基础攻击百分比	增加的百分比	magic_physics_potential_damage_p
+physical_metaldamage_v	1	0	1		金系伤害增加	攻击下限:攻击上限	magic_physicaldamage_metal_v
+physical_wooddamage_v	1	0	1		木系伤害增加	攻击下限:攻击上限	magic_physicaldamage_wood_v
+physical_waterdamage_v	1	0	1		水系伤害增加	攻击下限:攻击上限	magic_physicaldamage_water_v
+physical_firedamage_v	1	0	1		火系伤害增加	攻击下限:攻击上限	magic_physicaldamage_fire_v
+physical_earthdamage_v	1	0	1		土系伤害增加	攻击下限:攻击上限	magic_physicaldamage_earth_v
+add_base_damage_p	1				攻击方：发挥角色基础攻击力增加(技能倍率加成)	增加的百分比	magic_add_base_damage_p
+add_skill_damage_p	1				攻击方：发挥技能攻击力增加(技能点数加成)	增加的百分比	magic_add_skill_damage_p
+enhance_final_damage_p	1				最终伤害放大	增加的百分比	magic_enhance_final_damage_p
+reduce_final_damage_p	1				最终伤害缩小	增加的百分比	magic_reduce_final_damage_p
+damage4npc_p	1				攻击方：对NPC的伤害加成	增加的百分比	magic_damage4npc_p
+defuse_damage	1	0			受到攻击减少v1,最多不超过原伤害的v2%	化解的点数;最高百分比	magic_defuse_damage
+add_seriesstate_rate_v	1				造成五行状态几率增加,根据玩家五行	增加的点数	magic_add_seriesstate_rate
+add_seriesstate_time_v	1				造成五行状态时间增加,根据玩家五行	增加的点数	magic_add_seriesstate_time
+resist_allseriesstate_time_v	1				所有五行状态抵抗时间调整	减少的点数	magic_resist_all_seriesstate_time
+resist_allseriesstate_rate_v	1				所有五行状态抵抗几率调整	减少的点数	magic_resist_all_seriesstate_rate
+resist_allspecialstate_time_v	1				所有负面状态抵抗时间调整	减少的点数	magic_resist_all_specialstate_time
+resist_allspecialstate_rate_v	1				所有负面状态抵抗几率调整	减少的点数	magic_resist_all_specialstate_rate
+invincible_b	0				不受任何伤害和攻击效果,无敌	无参数	magic_invincible_b
+ignore_metal_resist	0	1			以p1%的概率,忽略目标p2%的金抗	概率:忽抗比例	magic_ignore_metal_resist
+ignore_wood_resist	0	1			以p1%的概率,忽略目标p2%的木抗	概率:忽抗比例	magic_ignore_wood_resist
+ignore_water_resist	0	1			以p1%的概率,忽略目标p2%的水抗	概率:忽抗比例	magic_ignore_water_resist
+ignore_fire_resist	0	1			以p1%的概率,忽略目标p2%的火抗	概率:忽抗比例	magic_ignore_fire_resist
+ignore_earth_resist	0	1			以p1%的概率,忽略目标p2%的土抗	概率:忽抗比例	magic_ignore_resist_end
+ignore_all_resist	0	1			以p1%的概率,忽略目标p2%的全抗	概率:忽抗比例	magic_ignore_all_resist
+ignore_metal_resist_v	0	1			以p1%的概率,忽略目标p2点金抗	概率:忽抗点数	magic_ignore_metal_resist_v
+ignore_wood_resist_v	0	1			以p1%的概率,忽略目标p2点木抗	概率:忽抗点数	magic_ignore_wood_resist_v
+ignore_water_resist_v	0	1			以p1%的概率,忽略目标p2点水抗	概率:忽抗点数	magic_ignore_water_resist_v
+ignore_fire_resist_v	0	1			以p1%的概率,忽略目标p2点火抗	概率:忽抗点数	magic_ignore_fire_resist_v
+ignore_earth_resist_v	0	1			以p1%的概率,忽略目标p2点土抗	概率:忽抗点数	magic_ignore_resist_v_end
+ignore_all_resist_v	0	1			以p1%的概率,忽略目标p2点全抗	概率:忽抗点数	magic_ignore_all_resist_v
+reduce_recive_npc_damage_p	1				???受到npc伤害加成(代码里没有判断npc)	加成百分比	magic_reduce_recive_npc_damage_p
+steallife_p	1				攻击方：伤害转化成生命	转化的百分比	magic_steallife_p
+stealmana_p	1				攻击方：伤害转化成内力	转化的百分比	magic_stealmana_p
+stealstamina_p	1				攻击方：伤害转化成体力	转化的百分比	magic_stealstamina_p
+meleedamagereturn_v	1				受近身攻击时伤害反弹点数	增加的点数	magic_meleedamage_return_v
+meleedamagereturn_p	1				受近身攻击时伤害反弹率	增加的百分比	magic_meleedamage_return_p
+rangedamagereturn_v	1				受远程攻击时伤害反弹点数	增加的点数	magic_rangedamage_return_v
+rangedamagereturn_p	1				受远程攻击时伤害反弹率	增加的百分比	magic_rangedamage_return_p
+metal_resist_p	1				金属性防御万分比	增加的万分比	magic_metal_resist_p
+wood_resist_p	1				木属性防御万分比	增加的万分比	magic_wood_resist_p
+water_resist_p	1				水属性防御万分比	增加的万分比	magic_water_resist_p
+fire_resist_p	1				火属性防御万分比	增加的万分比	magic_fire_resist_p
+earth_resist_p	1				土属性防御万分比	增加的万分比	magic_earth_resist_p
+droprate_p	1				杀怪掉落加成百分比	增加的百分比	magic_droprate_p
+enhance_exp_p	1				经验加成百分比	增加的百分比	magic_expenhance_p
+spe_npchurt	0	0	0		???		magic_spe_npchurt
+series_enhance_v	1				攻击方：五行相克强化	点数	magic_series_enhance_v
+series_abate_v	1				防御方：五行相克弱化	点数	magic_series_abate_v
+target_player_dmg_p	1				对选中的玩家伤害加成	百分比	magic_target_player_dmg_p
+target_dmg_p	1				对选中目标伤害加成	百分比	magic_target_dmg_p
+npc_ext_miss	1				对npc额外闪避点数	点数	magic_npc_ext_miss
+special_dmg_p	1				攻击者对有special_dmg_taget标记目标伤害加成	百分比	magic_special_dmg_p
+special_dmg_taget	0				标记	1	magic_special_dmg_taget
+melee_dmg_p	1				受到近战伤害加成	百分比	magic_melee_dmg_p
+remote_dmg_p	1				受到远程伤害加成	百分比	magic_remote_dmg_p
+miss_remote_rate	1				完全闪避远程系数(闪避率=v/(v+500))	闪避系数	magic_miss_remote_rate
+stealdmg_shield	1				免疫伤害,并将受到的伤害转化成生命回复	转化百分比	magic_stealdmg_shield
+recdot_metal_p	1				使目标受到金系dot伤害加成	加成百分比	magic_recdot_metal_p
+recdot_wood_p	1				使目标受到木系dot伤害加成	加成百分比	magic_recdot_wood_p
+recdot_water_p	1				使目标受到水系dot伤害加成	加成百分比	magic_recdot_water_p
+recdot_fire_p	1				使目标受到火系dot伤害加成	加成百分比	magic_recdot_fire_p
+recdot_earth_p	1				使目标受到土系dot伤害加成	加成百分比	magic_recdot_p_end
+steallife_resist_v	1				防御方：抵御吸血的点数	点数	magic_steallife_resist_v
+steallife_resist_p	1				吸血抗性(p*(1-p))	抗性百分比	magic_steallife_resist_p
+miss_alldmg_v	1				完全闪避(v/(v+500))	闪避系数	magic_miss_alldmg_v
+exp_coin_contrib	1	1	1		经验、银两、贡献加成	经验加成;银两加成;贡献加成	magic_exp_coin_contrib
+playerdmg_npc_p	1				受到玩家伤害加成	加成百分比	magic_playerdmg_npc_p
+damage4player_p	1				对玩家伤害加成	加成百分比	magic_damage4player_p
+ignore_defense_vp	1				忽略基础闪避百分比	百分比	magic_ignore_defense_vp
+ignore_all_resist_vp	1				忽略基础抗性百分比	百分比	magic_ignore_all_resist_vp
+ignore_deadlystrike_vp	1				忽略基础会心百分比	百分比	magic_ignore_deadlystrike_vp
+magicshield	1	0			抵御伤害敏捷百分比护盾	敏捷百分比;持续帧数	magic_magicshield
+magic_fixshield	1	0			抵御伤害点数(盾)	抵消点数;持续帧数	magic_magic_fixshield
+autoskill	0	0			buff的autoskill	自动技能的ID;技能等级	magic_autoskill
+autoskill2	0	0			buff的autoskill	自动技能的ID;技能等级	magic_autoskill2
+autoskill3	0	0			buff的autoskill	自动技能的ID;技能等级	magic_autoskill3
+autoskill4	0	0			buff的autoskill	自动技能的ID;技能等级	magic_autoskill4
+autoskill5	0	0			buff的autoskill	自动技能的ID;技能等级	magic_autoskill5
+fightpower_v1	1				战力增加	点数	magic_fightpower_v1
+fightpower_v2	1				战力增加	点数	magic_fightpower_v2
+fightpower_v3	1				战力增加	点数	magic_fightpower_v3
+fightpower_v4	1				战力增加	点数	magic_fightpower_v4
+fightpower_v5	1				战力增加	点数	magic_fightpower_v5
+ignoreattackontime	0	0			每隔p1帧忽略p2帧攻击(多个独立且不冲突)	时间间隔(帧);忽略攻击帧数	magic_ignoreattackontime
+ignore_skillstate1	0				闪避并且在结束时清除指定buff	闪避的buff技能id	magic_ignore_skillstate1
+ignore_skillstate2	0				闪避并且在结束时清除指定buff	闪避的buff技能id	magic_ignore_skillstate2
+ignore_skillstate3	0				闪避并且在结束时清除指定buff	闪避的buff技能id	magic_ignore_skillstate3
+ignore_series_state	0				清除并免疫属性状态	无参数	magic_ignore_series_state
+ignore_abnor_state	0				清除并免疫负面状态	无参数	magic_ignore_abnor_state
+rand_ignoreskill	0	0	0		立即清除n个特定风格技能,并对此风格技能一定概率免疫	几率百分比:数量:技能风格代号	magic_rand_ignoreskill
+vitality_recover_life	1	0			每n帧回复体质百分比的生命	体质百分比;回复间隔	magic_vitality_recover_life
+protected	0				自我保护	是否	magic_protected
+shapeshift	0				变身	变身npcid;不改变外观	magic_shapeshift
+breakhide	0				???打破隐身		magic_breakhide
+reverse_hide	0				受击者暂时隐身无效	0	magic_reverse_hide
+super_hide	0				强力隐身		magic_super_hide
+end_breakhide	0				???buff结束打破隐身		magic_end_breakhide
+certainly_hit	0				被打时必然被命中	无参数	magic_certainly_hit
+link_skill_buff	0				连招内保持当前BUFF的魔法属性	无参数	magic_link_skill_buff
+locked_state	0	0	0		禁止移动、释放技能、使用道具	是否;是否;是否	magic_locked
+forbid_recover	0				治疗无效	是否	magic_forbid_recover
+forbid_jump	0				禁轻功	无	magic_forbid_jump
+lifecurmax_p	1				总生命上限增加百分比	增加的百分比	magic_lifecurmax_p
+flag_attack_npc	0				标记时间(仅自身可见,以前藏剑冲刺优先冲刺flag)	标记帧数	magic_flag_attack_npc
+ignore_dmgskill	1				几率闪避特定风格技能	几率万分比;风格id	magic_ignore_dmgskill
+add_skillflaglevel	0	1			指定类型的技能等级+1	标示类型;增加的等级	magic_add_skillflaglevel
+dotdamage_metal	0	0	0		攻击方：对目标造成持续性金系伤害	发挥基础攻击力%;X系攻击点数;伤害间隔	magic_dotdamage_metal
+dotdamage_wood	0	0	0		攻击方：对目标造成持续性木系伤害	发挥基础攻击力%;X系攻击点数;伤害间隔	magic_dotdamage_wood
+dotdamage_water	0	0	0		攻击方：对目标造成持续性水系伤害	发挥基础攻击力%;X系攻击点数;伤害间隔	magic_dotdamage_water
+dotdamage_fire	0	0	0		攻击方：对目标造成持续性火系伤害	发挥基础攻击力%;X系攻击点数;伤害间隔	magic_dotdamage_fire
+dotdamage_earth	0	0	0		攻击方：对目标造成持续性土系伤害	发挥基础攻击力%;X系攻击点数;伤害间隔	magic_dotdamage_earth
+dotdamage_holy	0	0	0		攻击方：对目标造成持续性神圣伤害	发挥基础攻击力%;X系攻击点数;伤害间隔	magic_dotdamage_end
+dotdamage_maxlife_p	1	0	1		攻击方：对目标造成持续性百分比生命损失	百分比;间隔;伤害点数上限	magic_dotdamage_maxlife_p
+skill_ignore_npchurt	0				是否不受npchurt影响	是否	magic_skill_ignore_npchurt
+add_skill_level	0	1	0		增加指定技能的等级	技能ID;增加技能等级;没有该技能时是否自动有效	magic_skilladdition_addskilllevel
+add_skill_level2	0	1	0		增加指定技能的等级	技能ID;增加技能等级;没有该技能时是否自动有效	magic_skilladdition_addskilllevel2
+add_skill_level3	0	1	0		增加指定技能的等级	技能ID;增加技能等级;没有该技能时是否自动有效	magic_skilladdition_addskilllevel3
+add_skill_level4	0	1	0		增加指定技能的等级	技能ID;增加技能等级;没有该技能时是否自动有效	magic_skilladdition_addskilllevel4
+add_skill_level5	0	1	0		增加指定技能的等级	技能ID;增加技能等级;没有该技能时是否自动有效	magic_skilladdition_addskilllevel5
+add_skill_level6	0	1	0		增加指定技能的等级	技能ID;增加技能等级;没有该技能时是否自动有效	magic_skilladdition_addskilllevel6
+addstartskill	0	0	0		为指定技能设定startskill	技能id;startskill的id;技能等级	magic_skilladdition_addstartskill
+addstartskill2	0	0	0		为指定技能设定startskill	技能id;startskill的id;技能等级	magic_skilladdition_addstartskill2
+addstartskill3	0	0	0		为指定技能设定startskill	技能id;startskill的id;技能等级	magic_skilladdition_addstartskill3
+addchildskill1	0	0	0		???	技能id;childskill的id	magic_skilladdition_addchildskill1
+addchildskill2	0	0	0		???	技能id;childskill的id	magic_skilladdition_addchildskill2
+addchildskill3	0	0	0		???	技能id;childskill的id	magic_skilladdition_addchildskill3
+addchildskill4	0	0	0		???	技能id;childskill的id	magic_skilladdition_addchildskill4
+addaction_event1	0	0			将a技能替换为b技能	原技能;替换后技能	magic_skilladdition_action_event1
+addaction_event2	0	0			将a技能替换为b技能	原技能;替换后技能	magic_skilladdition_action_event2
+addaction_event3	0	0			将a技能替换为b技能	原技能;替换后技能	magic_skilladdition_action_event3
+addaction_event4	0	0			将a技能替换为b技能	原技能;替换后技能	magic_skilladdition_action_event4
+add_hitskill1	0	0	0		为指定技能设定hitskill	技能id;hitskill的id;技能等级	magic_skilladdition_hitskill1
+add_hitskill2	0	0	0		为指定技能设定hitskill	技能id;hitskill的id;技能等级	magic_skilladdition_hitskill2
+add_hitskill3	0	0	0		为指定技能设定hitskill	技能id;hitskill的id;技能等级	magic_skilladdition_hitskill3
+add_ms_magic1	0	0	0		???		magic_ms_coll_update_magic1
+add_ms_magic2	0	0	0		???		magic_ms_coll_update_magic2
+add_collskill1	0	0	0		为指定技能设定collskill	技能id;collskill的id;技能等级	magic_skilladdition_collskill1
+add_collskill2	0	0	0		为指定技能设定collskill	技能id;collskill的id;技能等级	magic_skilladdition_collskill2
+add_melee_float	0	0	0		将指定技能设为可选中空中	技能id	magic_skilladdition_melee_float
+add_hit_float1	0	0	0		将指定技能设为可击中空中	技能id	magic_skilladdition_hit_float1
+add_hit_float2	0	0	0		将指定技能设为可击中空中	技能id	magic_skilladdition_hit_float2
+add_hit_float3	0	0	0		将指定技能设为可击中空中	技能id	magic_skilladdition_hit_float3
+add_mult_proc_sate1	0	0	0		根据周围人数叠加buff	技能ID;叠加层数;自身为圆心格子半径	magic_mult_process_state1
+add_mult_proc_sate2	0	0	0		根据周围人数叠加buff	技能ID;叠加层数;自身为圆心格子半径	magic_mult_process_state2
+add_mult_proc_sate3	0	0	0		根据周围人数叠加buff	技能ID;叠加层数;自身为圆心格子半径	magic_mult_process_state3
+add_mult_proc_sate4	0	0	0		根据周围人数叠加buff	技能ID;叠加层数;自身为圆心格子半径	magic_mult_process_state4
+superposemagic	0	0	0		技能buff叠加层数上限	0	magic_skilladdition_superpose_magic
+add_steallife_p	0	1	0		指定的技能,造成伤害时偷取生命的万分比	技能ID;万分比	magic_skilladdition_steallife_p
+deccdtime	0	1	0		减少技能原始cd	技能id;减少帧数	magic_skilladdition_deccdtime
+addpowerwhencol	0	1	0		子弹穿透的伤害加成	技能id;穿透后伤害增加比例	magic_skilladdition_addpowerwhencol
+addpowerwhencol1	0	1	0		子弹穿透的伤害加成	技能id;穿透后伤害增加比例	magic_skilladdition_addpowerwhencol1
+addpowerwhencol2	0	1	0		子弹穿透的伤害加成	技能id;穿透后伤害增加比例	magic_skilladdition_addpowerwhencol2
+addpowerwhencol3	0	1	0		子弹穿透的伤害加成	技能id;穿透后伤害增加比例	magic_skilladdition_addpowerwhencol3
+addskillhidetime	0	1	0		增加指定技能隐身时间	技能id;隐身帧数增加值	magic_skilladdition_addhidetime
+userdesc_000	0	0	0		技能虚拟脚本id(用于生成子技能或假描述)	技能虚拟脚本的技能id1;技能虚拟脚本的技能id2;技能虚拟脚本的技能id3	magic_only_show_begin
+add_igdefense_p1	0	1	0		增加指定技能忽略敌人基础闪避%	0	magic_skilladdition_ignoredefense_p1
+add_igdefense_p2	0	1	0		增加指定技能忽略敌人基础闪避%	0	magic_skilladdition_ignoredefense_p2
+add_igdefense_p3	0	1	0		增加指定技能忽略敌人基础闪避%	0	magic_skilladdition_ignoredefense_p3
+add_igdefense_p4	0	1	0		增加指定技能忽略敌人基础闪避%	0	magic_skilladdition_ignoredefense_p4
+add_igdefense_v1	0	1	0		增加指定技能忽略敌人闪避点数	0	magic_skilladdition_ignoredefense_v1
+add_igdefense_v2	0	1	0		增加指定技能忽略敌人闪避点数	0	magic_skilladdition_ignoredefense_v2
+add_igdefense_v3	0	1	0		增加指定技能忽略敌人闪避点数	0	magic_skilladdition_ignoredefense_v3
+add_state_time1	0	1	0		增加技能BUFF持续时间	0	magic_skilladdition_add_state_time1
+add_state_time2	0	1	0		增加技能BUFF持续时间	0	magic_skilladdition_add_state_time2
+add_state_time3	0	1	0		增加技能BUFF持续时间	0	magic_skilladdition_add_state_time3
+add_state_time4	0	1	0		增加技能BUFF持续时间	0	magic_skilladdition_add_state_time4
+add_usebasedmg_p1	0	1	0		增加指定技能攻击力%	0	magic_skilladdition_add_usebasedamage_p1
+add_usebasedmg_p2	0	1	0		增加指定技能攻击力%	0	magic_skilladdition_add_usebasedamage_p2
+add_usebasedmg_p3	0	1	0		增加指定技能攻击力%	0	magic_skilladdition_add_usebasedamage_p3
+add_usebasedmg_p4	0	1	0		增加指定技能攻击力%	0	magic_skilladdition_add_usebasedamage_p4
+add_deadlystrike_v1	0	1	0		增加指定技能会心一击点数	0	magic_skilladdition_add_deadlystrike_v1
+add_deadlystrike_v2	0	1	0		增加指定技能会心一击点数	0	magic_skilladdition_add_deadlystrike_v2
+add_deadlystrike_v3	0	1	0		增加指定技能会心一击点数	0	magic_skilladdition_add_deadlystrike_v3
+add_deadlystrike_v4	0	1	0		增加指定技能会心一击点数	0	magic_skilladdition_add_deadlystrike_v4
+add_deadlydmg_p1	0	1	0		增加指定技能会心伤害%	0	magic_skilladdition_add_deadlydmg_p1
+add_deadlydmg_p2	0	1	0		增加指定技能会心伤害%	0	magic_skilladdition_add_deadlydmg_p2
+add_deadlydmg_p3	0	1	0		增加指定技能会心伤害%	0	magic_skilladdition_add_deadlydmg_p3
+add_deadlydmg_p4	0	1	0		增加指定技能会心伤害%	0	magic_skilladdition_add_deadlydmg_p4
+add_hurt_r	0	1	0		增加指定技能受伤几率,需要原技能有受伤	0	magic_skilladdition_add_spe_r_begin
+add_hurt_t	0	1	0		增加指定技能受伤时间,需要原技能有受伤	0	magic_skilladdition_add_spe_t_begin
+addms_speed1	0	1			增加子弹飞行速度	技能id;子弹速度加成	magic_skilladdition_ms_speed1
+addms_speed2	0	1			增加子弹飞行速度	技能id;子弹速度加成	magic_skilladdition_ms_speed2
+addms_speed3	0	1			增加子弹飞行速度	技能id;子弹速度加成	magic_skilladdition_ms_speed3
+addms_speed4	0	1			增加子弹飞行速度	技能id;子弹速度加成	magic_skilladdition_ms_speed4
+addms_hitnpc_c1	0	1			增加子弹对NPC的攻击数量	技能id;数量加成	magic_skilladdition_ms_hitnpc_c1
+addms_hitnpc_c2	0	1			增加子弹对NPC的攻击数量	技能id;数量加成	magic_skilladdition_ms_hitnpc_c2
+addms_hitnpc_c3	0	1			增加子弹对NPC的攻击数量	技能id;数量加成	magic_skilladdition_ms_hitnpc_c3
+addms_hitplayer_c1	0	1			增加子弹对玩家的攻击数量	技能id;数量加成	magic_skilladdition_ms_hitplayer_c1
+addms_hitplayer_c2	0	1			增加子弹对玩家的攻击数量	技能id;数量加成	magic_skilladdition_ms_hitplayer_c2
+addms_hitplayer_c3	0	1			增加子弹对玩家的攻击数量	技能id;数量加成	magic_skilladdition_ms_hitplayer_c3
+addms_hittotal_c1	0	1			增加子弹对(玩家+NPC)的攻击数量	技能id;数量加成	magic_skilladdition_ms_hittotal_c1
+addms_hittotal_c2	0	1			增加子弹对(玩家+NPC)的攻击数量	技能id;数量加成	magic_skilladdition_ms_hittotal_c2
+addms_hittotal_c3	0	1			增加子弹对(玩家+NPC)的攻击数量	技能id;数量加成	magic_skilladdition_ms_hittotal_c3
+addms_life1	0	1			增加子弹存活时间	技能id;子弹寿命加成	magic_skilladdition_ms_life1
+addms_life2	0	1			增加子弹存活时间	技能id;子弹寿命加成	magic_skilladdition_ms_life2
+addms_life3	0	1			增加子弹存活时间	技能id;子弹寿命加成	magic_skilladdition_ms_life3
+addms_dmg_range1	0	1			增加子弹攻击范围	技能id;半径加成	magic_skilladdition_ms_dmg_range1
+addms_dmg_range2	0	1			增加子弹攻击范围	技能id;半径加成	magic_skilladdition_ms_dmg_range2
+addms_dmg_range3	0	1			增加子弹攻击范围	技能id;半径加成	magic_skilladdition_ms_dmg_range3
+add_shield	0	1			增加护盾敏捷系数	技能id;敏捷系数加成	magic_skilladdition_shield
+add_adddmgbydist	0	1			增加adddamagebydist的伤害系数	技能id;系数加成	magic_skilladdition_adddmgbydist
+add_addstuntimedist	0	1			增加addstuntime_bydist的时间系数	技能id;系数加成	magic_skilladdition_addstuntimedist
+addcall_npclife	0	1			增加召唤npc的血量百分比	召唤宠物的技能id;血量加成	magic_skilladdition_call_npclife_p
+addcall_npcdmg	0	1			增加召唤npc的血量百分比	召唤宠物的技能id;血量加成	magic_skilladdition_call_npcdamage_p
+add_allfaction	1				所有门派技能等级加n	等级加值	magic_skilladdition_add_allfaction_level
+add_metaldamage_v1	0	1			增加技能点数伤害下限	技能id;伤害加值	magic_skilladdition_metaldamage_v1
+add_wooddamage_v1	0	1			增加技能点数伤害下限	技能id;伤害加值	magic_skilladdition_wooddamage_v1
+add_waterdamage_v1	0	1			增加技能点数伤害下限	技能id;伤害加值	magic_skilladdition_waterdamage_v1
+add_firedamage_v1	0	1			增加技能点数伤害下限	技能id;伤害加值	magic_skilladdition_firedamage_v1
+add_earthdamage_v1	0	1			增加技能点数伤害下限	技能id;伤害加值	magic_skilladdition_earthdamage_v1
+add_holydamage_v1	0	1			增加技能点数伤害下限	技能id;伤害加值	magic_skilladdition_holydamage_v1
+add_metaldamage_v2	0	1			增加技能点数伤害参数2(实际无游戏意义)	技能id;伤害加值	magic_skilladdition_metaldamage_v2
+add_wooddamage_v2	0	1			增加技能点数伤害参数2(实际无游戏意义)	技能id;伤害加值	magic_skilladdition_wooddamage_v2
+add_waterdamage_v2	0	1			增加技能点数伤害参数2(实际无游戏意义)	技能id;伤害加值	magic_skilladdition_waterdamage_v2
+add_firedamage_v2	0	1			增加技能点数伤害参数2(实际无游戏意义)	技能id;伤害加值	magic_skilladdition_firedamage_v2
+add_earthdamage_v2	0	1			增加技能点数伤害参数2(实际无游戏意义)	技能id;伤害加值	magic_skilladdition_earthdamage_v2
+add_holydamage_v2	0	1			增加技能点数伤害参数2(实际无游戏意义)	技能id;伤害加值	magic_skilladdition_holydamage_v2
+add_metaldamage_v3	0	1			增加技能点数伤害上限	技能id;伤害加值	magic_skilladdition_metaldamage_v3
+add_wooddamage_v3	0	1			增加技能点数伤害上限	技能id;伤害加值	magic_skilladdition_wooddamage_v3
+add_waterdamage_v3	0	1			增加技能点数伤害上限	技能id;伤害加值	magic_skilladdition_waterdamage_v3
+add_firedamage_v3	0	1			增加技能点数伤害上限	技能id;伤害加值	magic_skilladdition_firedamage_v3
+add_earthdamage_v3	0	1			增加技能点数伤害上限	技能id;伤害加值	magic_skilladdition_earthdamage_v3
+add_holydamage_v3	0	1			增加技能点数伤害上限	技能id;伤害加值	magic_skilladdition_holydamage_v3
+add_skill_max_ms1	0	1			增加技能同时存在子弹数上限	技能id;数量加成	magic_skilladdition_skill_max_ms1
+add_skill_max_ms2	0	1			增加技能同时存在子弹数上限	技能id;数量加成	magic_skilladdition_skill_max_ms2
+add_skill_max_ms3	0	1			增加技能同时存在子弹数上限	技能id;数量加成	magic_skilladdition_skill_max_ms3
+add_skill_max_ms4	0	1			增加技能同时存在子弹数上限	技能id;数量加成	magic_skilladdition_skill_max_ms4
+add_ignore_invin1	0	0			使指定技能无视无敌	技能id;?	magic_skilladdition_ignore_invincible1
+add_ignore_invin2	0	0			使指定技能无视无敌	技能id;?	magic_skilladdition_ignore_invincible2
+add_ignore_invin3	0	0			使指定技能无视无敌	技能id;?	magic_skilladdition_ignore_invincible3
+add_ignore_invin4	0	0			使指定技能无视无敌	技能id;?	magic_skilladdition_ignore_invincible4
+add_ignore_invin5	0	0			使指定技能无视无敌	技能id;?	magic_skilladdition_ignore_invincible5
+add_callnpc_skill	0	0			给召唤npc增加技能	召唤熊猫的buffid,给熊猫的buffid,等级	magic_skilladdition_callnpc_skill
+add_skill_point1	0	1			增加技能最大充能值	技能id;充能上限增加值	magic_skilladdition_skill_point1
+add_skill_point2	0	1			增加技能最大充能值	技能id;充能上限增加值	magic_skilladdition_skill_point2
+add_skill_point3	0	1			增加技能最大充能值	技能id;充能上限增加值	magic_skilladdition_skill_point3
+add_dotdmg_p	0	1			当目标有增加有dot伤害加成,对其伤害增加	dot类型;伤害加成	magic_skilladdition_add_dotdmg_p
+add_dotdshield_p	0	1			dot对护盾的伤害加成	dotType类型;百分比	magic_skilladdition_add_dotdshield_p
+add_att_speed1	0	1			增加指定技能的攻击速度	技能id;攻速加成值	magic_skilladdition_skill_att_speed1
+add_att_speed2	0	1			增加指定技能的攻击速度	技能id;攻速加成值	magic_skilladdition_skill_att_speed2
+add_att_speed3	0	1			增加指定技能的攻击速度	技能id;攻速加成值	magic_skilladdition_skill_att_speed3
+add_att_speed4	0	1			增加指定技能的攻击速度	技能id;攻速加成值	magic_skilladdition_skill_att_speed4
+add_att_speed5	0	1			增加指定技能的攻击速度	技能id;攻速加成值	magic_skilladdition_skill_att_speed5
+add_attackrating_p1	0	1			增加指定技能的基础命中百分比	技能id;命中加成百分比	magic_skilladdition_attackrating_p1
+add_attackrating_p2	0	1			增加指定技能的基础命中百分比	技能id;命中加成百分比	magic_skilladdition_attackrating_p2
+add_attackrating_p3	0	1			增加指定技能的基础命中百分比	技能id;命中加成百分比	magic_skilladdition_attackrating_p3
+add_attackrating_p4	0	1			增加指定技能的基础命中百分比	技能id;命中加成百分比	magic_skilladdition_attackrating_p4
+add_attackrating_v1	0	1			增加指定技能的基础命中点数	技能id;命中加成点数	magic_skilladdition_attackrating_v1
+add_attackrating_v2	0	1			增加指定技能的基础命中点数	技能id;命中加成点数	magic_skilladdition_attackrating_v2
+add_attackrating_v3	0	1			增加指定技能的基础命中点数	技能id;命中加成点数	magic_skilladdition_attackrating_v3
+add_attackrating_v4	0	1			增加指定技能的基础命中点数	技能id;命中加成点数	magic_skilladdition_attackrating_v4
+addcall_npclife1	0	1			增加召唤npc的血量百分比	召唤宠物的技能id;血量加成	magic_skilladdition_call_npclife_p1
+addcall_npclife2	0	1			增加召唤npc的血量百分比	召唤宠物的技能id;血量加成	magic_skilladdition_call_npclife_p2
+addcall_npclife3	0	1			增加召唤npc的血量百分比	召唤宠物的技能id;血量加成	magic_skilladdition_call_npclife_p3
+addcall_npclife4	0	1			增加召唤npc的血量百分比	召唤宠物的技能id;血量加成	magic_skilladdition_call_npclife_p4
+addcall_npcdmg1	0	1			增加召唤npc的攻击百分比	召唤宠物的技能id;攻击加成	magic_skilladdition_call_npcdamage_p1
+addcall_npcdmg2	0	1			增加召唤npc的攻击百分比	召唤宠物的技能id;攻击加成	magic_skilladdition_call_npcdamage_p2
+addcall_npcdmg3	0	1			增加召唤npc的攻击百分比	召唤宠物的技能id;攻击加成	magic_skilladdition_call_npcdamage_p3
+addcall_npcdmg4	0	1			增加召唤npc的攻击百分比	召唤宠物的技能id;攻击加成	magic_skilladdition_call_npcdamage_p4
+add_recdot_type_p	1				增加(迷心蛊)目标受到毒伤害加成buff的加成系数	???	magic_skilladdition_recdot_type_p
+add_dotdamage_metal	0	1	1		增加金系dot伤害	技能ID，增加%，增加点数	magic_skilladdition_dotdamage_metal
+add_dotdamage_wood	0	1	1		增加木系dot伤害	技能ID，增加%，增加点数	magic_skilladdition_dotdamage_wood
+add_dotdamage_water	0	1	1		增加水系dot伤害	技能ID，增加%，增加点数	magic_skilladdition_dotdamage_water
+add_dotdamage_fire	0	1	1		增加火系dot伤害	技能ID，增加%，增加点数	magic_skilladdition_dotdamage_fire
+add_dotdamage_earth	0	1	1		增加水系dot伤害	技能ID，增加%，增加点数	magic_skilladdition_dotdamage_earth
+add_dotdamage_holy	0	1	1		增加神圣系dot伤害	技能ID，增加%，增加点数	magic_skilladdition_dotdamage_holy
+add_callnpc_skill1	0	0	0		给召唤npc增加技能	召唤宠物的的技能id,给宠物的buffid,等级	magic_skilladdition_callnpc_skill1
+add_callnpc_skill2	0	0	0		给召唤npc增加技能	召唤宠物的的技能id,给宠物的buffid,等级	magic_skilladdition_callnpc_skill2
+add_callnpc_skill3	0	0	0		给召唤npc增加技能	召唤宠物的的技能id,给宠物的buffid,等级	magic_skilladdition_callnpc_skill3
+add_callnpc_skill4	0	0	0		给召唤npc增加技能	召唤宠物的的技能id,给宠物的buffid,等级	magic_skilladdition_callnpc_skill4
+add_recdot_alldmg1	0	1			增加技能引爆毒伤害的比例	技能id;引爆系数加成	magic_skilladdition_recdot_alldmg1
+add_recdot_alldmg2	0	1			增加技能引爆毒伤害的比例	技能id;引爆系数加成	magic_skilladdition_recdot_alldmg2
+add_recdot_alldmg3	0	1			增加技能引爆毒伤害的比例	技能id;引爆系数加成	magic_skilladdition_recdot_alldmg3
+add_recdot_alldmg4	0	1			增加技能引爆毒伤害的比例	技能id;引爆系数加成	magic_skilladdition_recdot_alldmg4
+add_dottype_metal_p	0	1			造成的dottype伤害加成	dotType类型id;加成百分比	magic_skilladdition_dottype_metal_p
+add_dottype_wood_p	0	1			造成的dottype伤害加成	dotType类型id;加成百分比	magic_skilladdition_dottype_wood_p
+add_dottype_water_p	0	1			造成的dottype伤害加成	dotType类型id;加成百分比	magic_skilladdition_dottype_water_p
+add_dottype_fire_p	0	1			造成的dottype伤害加成	dotType类型id;加成百分比	magic_skilladdition_dottype_fire_p
+add_dottype_earth_p	0	1			造成的dottype伤害加成	dotType类型id;加成百分比	magic_skilladdition_dottype_earth_p
+addvanishskill1	0	0	0		为技能增加消失事件	技能id;事件技能id;事件技能等级	magic_skilladdition_addvanishskill1
+addvanishskill2	0	0	0		为技能增加消失事件	技能id;事件技能id;事件技能等级	magic_skilladdition_addvanishskill2
+addvanishskill3	0	0	0		为技能增加消失事件	技能id;事件技能id;事件技能等级	magic_skilladdition_addvanishskill3
+addvanishskill4	0	0	0		为技能增加消失事件	技能id;事件技能id;事件技能等级	magic_skilladdition_addvanishskill4
+add_loselife_dmg_p	0	1			加成根据损血量提高伤害系数	技能id;参数1加成系数	magic_skilladdition_loselife_dmg_p
+add_damage_maxlife_p	0	1			加成damage_maxlife_p	技能id;最大生命伤害参数1加成	magic_skilladdition_damage_maxlife_p
+add_damage_curlife_p	0	1			加成damage_curlife_p	技能id;当前生命伤害参数1加成	magic_skilladdition_damage_curlife_p
+lowhp_damage_att_p	1	1			根据损血量提高造成的伤害	损血加成系数;基础加成	
+lowhp_damage_beatt_p	1	1			根据损血量提高受到的伤害	损血加成系数;基础加成	
+add_deadlystrike_p1	0	1			提高指定技能的暴击率(固定百分比)	技能id;百分比	
+add_deadlystrike_p2	0	1			提高指定技能的暴击率(固定百分比)	技能id;百分比	
+add_deadlystrike_p3	0	1			提高指定技能的暴击率(固定百分比)	技能id;百分比	
+add_deadlystrike_p4	0	1			提高指定技能的暴击率(固定百分比)	技能id;百分比	
+add_check_buff_superpose	0	1			加成技能需求buff层数	技能id;层数加值	

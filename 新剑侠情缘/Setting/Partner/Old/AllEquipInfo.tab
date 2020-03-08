@@ -1,0 +1,123 @@
+ItemTemplateId	Desc	FightPower	Attrib1Type	Attrib1Value1	Attrib1Value2	Attrib1Value3	Attrib2Type	Attrib2Value1	Attrib2Value2	Attrib2Value3	Attrib3Type	Attrib3Value1	Attrib3Value2	Attrib3Value3	Attrib4Type	Attrib4Value1	Attrib4Value2	Attrib4Value3	Attrib5Type	Attrib5Value1	Attrib5Value2	Attrib5Value3	Attrib6Type	Attrib6Value1	Attrib6Value2	Attrib6Value3	Attrib7Type	Attrib7Value1	Attrib7Value2	Attrib7Value3	Attrib8Type	Attrib8Value1	Attrib8Value2	Attrib8Value3	Attrib9Type	Attrib9Value1	Attrib9Value2	Attrib9Value3	Attrib10Type	Attrib10Value1	Attrib10Value2	Attrib10Value3
+137		100	lifemax_p	1			wood_resist_v	100																																		
+138		200	lifemax_p	2			wood_resist_v	110																																		
+139		300	lifemax_p	3			wood_resist_v	120																																		
+140		400	lifemax_p	4			wood_resist_v	130																																		
+141		500	lifemax_p	5			wood_resist_v	140																																		
+142		600	lifemax_p	6			wood_resist_v	150																																		
+143		100	lifemax_p	7			wood_resist_v	160																																		
+144		200	lifemax_p	8			wood_resist_v	170																																		
+145		300	lifemax_p	9			wood_resist_v	180																																		
+146		400	lifemax_p	10			wood_resist_v	190																																		
+147		500	lifemax_p	11			wood_resist_v	200																																		
+148		600	lifemax_p	12			wood_resist_v	210																																		
+137		100	lifemax_p	1			wood_resist_v	100																																		
+138		200	lifemax_p	2			wood_resist_v	110																																		
+139		300	lifemax_p	3			wood_resist_v	120																																		
+140		400	lifemax_p	4			wood_resist_v	130																																		
+141		500	lifemax_p	5			wood_resist_v	140																																		
+142		600	lifemax_p	6			wood_resist_v	150																																		
+143		100	lifemax_p	7			wood_resist_v	160																																		
+144		200	lifemax_p	8			wood_resist_v	170																																		
+145		300	lifemax_p	9			wood_resist_v	180																																		
+146		400	lifemax_p	10			wood_resist_v	190																																		
+147		500	lifemax_p	11			wood_resist_v	200																																		
+148		600	lifemax_p	12			wood_resist_v	210																																		
+603	初级符文·生命	2	lifemax_v	600																																						
+609	初级符文·攻击	2	basic_damage_v	30		30																																				
+615	初级符文·全抗	2	all_series_resist_v	15																																						
+621	初级符文·命中	2	attackrate_v	120																																						
+627	初级符文·闪避	2	defense_v	60																																						
+633	初级符文·会心	2	deadlystrike_v	30																																						
+639	初级符文·忽闪	2	ignore_defense_v	60																																						
+645	初级符文·减会心	2	weaken_deadlystrike_v	30																																						
+651	初级符文·效果	2	add_seriesstate_rate_v	15																																						
+657	初级符文·减效果	2	resist_allseriesstate_rate_v	15																																						
+663	初级符文·回复	2	recover_life_v	120	75																																					
+604	中级符文·生命	10	lifemax_v	800																																						
+610	中级符文·攻击	10	basic_damage_v	40		40																																				
+616	中级符文·全抗	10	all_series_resist_v	20																																						
+622	中级符文·命中	10	attackrate_v	160																																						
+628	中级符文·闪避	10	defense_v	80																																						
+634	中级符文·会心	10	deadlystrike_v	40																																						
+640	中级符文·忽闪	10	ignore_defense_v	80																																						
+646	中级符文·减会心	10	weaken_deadlystrike_v	40																																						
+652	中级符文·效果	10	add_seriesstate_rate_v	20																																						
+658	中级符文·减效果	10	resist_allseriesstate_rate_v	20																																						
+664	中级符文·回复	10	recover_life_v	160	75																																					
+605	高级符文·生命	30	lifemax_v	1200																																						
+611	高级符文·攻击	30	basic_damage_v	60		60																																				
+617	高级符文·全抗	30	all_series_resist_v	30																																						
+623	高级符文·命中	30	attackrate_v	240																																						
+629	高级符文·闪避	30	defense_v	120																																						
+635	高级符文·会心	30	deadlystrike_v	60																																						
+641	高级符文·忽闪	30	ignore_defense_v	120																																						
+647	高级符文·减会心	30	weaken_deadlystrike_v	60																																						
+653	高级符文·效果	30	add_seriesstate_rate_v	30																																						
+659	高级符文·减效果	30	resist_allseriesstate_rate_v	30																																						
+665	高级符文·回复	30	recover_life_v	240	75																																					
+727	高级符文·饕餮	50	all_series_resist_v	30			lifemax_v	200																																		
+728	高级符文·帝江	50	attackrate_v	240			basic_damage_v	10		10																																
+729	高级符文·烛龙	50	defense_v	120			lifemax_v	200																																		
+730	高级符文·夔牛	50	deadlystrike_v	60			basic_damage_v	10		10																																
+731	高级符文·穷奇	50	ignore_defense_v	120			basic_damage_v	10		10																																
+732	高级符文·鲲鹏	50	weaken_deadlystrike_v	60			lifemax_v	200																																		
+733	高级符文·腾蛇	50	add_seriesstate_rate_v	30			basic_damage_v	10		10																																
+734	高级符文·貔貅	50	resist_allseriesstate_rate_v	30			lifemax_v	200																																		
+606	强效符文·生命	90	lifemax_v	1600																																						
+612	强效符文·攻击	90	basic_damage_v	80		80																																				
+618	强效符文·全抗	90	all_series_resist_v	40																																						
+624	强效符文·命中	90	attackrate_v	320																																						
+630	强效符文·闪避	90	defense_v	160																																						
+636	强效符文·会心	90	deadlystrike_v	80																																						
+642	强效符文·忽闪	90	ignore_defense_v	160																																						
+648	强效符文·减会心	90	weaken_deadlystrike_v	80																																						
+654	强效符文·效果	90	add_seriesstate_rate_v	40																																						
+660	强效符文·减效果	90	resist_allseriesstate_rate_v	40																																						
+666	强效符文·回复	90	recover_life_v	320	75																																					
+669	强效符文·饕餮	170	all_series_resist_v	40			lifemax_v	400																																		
+670	强效符文·帝江	170	attackrate_v	320			basic_damage_v	20		20																																
+671	强效符文·烛龙	170	defense_v	160			lifemax_v	400																																		
+672	强效符文·夔牛	170	deadlystrike_v	80			basic_damage_v	20		20																																
+673	强效符文·穷奇	170	ignore_defense_v	160			basic_damage_v	20		20																																
+674	强效符文·鲲鹏	170	weaken_deadlystrike_v	80			lifemax_v	400																																		
+675	强效符文·腾蛇	170	add_seriesstate_rate_v	40			basic_damage_v	20		20																																
+676	强效符文·貔貅	170	resist_allseriesstate_rate_v	40			lifemax_v	400																																		
+607	特效符文·生命	360	lifemax_v	2400																																						
+613	特效符文·攻击	360	basic_damage_v	120		120																																				
+619	特效符文·全抗	360	all_series_resist_v	60																																						
+625	特效符文·命中	360	attackrate_v	480																																						
+631	特效符文·闪避	360	defense_v	240																																						
+637	特效符文·会心	360	deadlystrike_v	120																																						
+643	特效符文·忽闪	360	ignore_defense_v	240																																						
+649	特效符文·减会心	360	weaken_deadlystrike_v	120																																						
+655	特效符文·效果	360	add_seriesstate_rate_v	60																																						
+661	特效符文·减效果	360	resist_allseriesstate_rate_v	60																																						
+667	特效符文·回复	360	recover_life_v	480	75																																					
+677	特效符文·玄武	1080	lifemax_v	2400			all_series_resist_v	20																																		
+678	特效符文·青龙	1080	basic_damage_v	120		120	attackrate_v	160																																		
+679	特效符文·凤凰	1080	lifemax_v	2400			defense_v	80																																		
+680	特效符文·白虎	1080	basic_damage_v	120		120	deadlystrike_v	40																																		
+681	特效符文·朱雀	1080	basic_damage_v	120		120	ignore_defense_v	80																																		
+682	特效符文·应龙	1080	lifemax_v	2400			weaken_deadlystrike_v	40																																		
+683	特效符文·白泽	1080	basic_damage_v	120		120	add_seriesstate_rate_v	20																																		
+684	特效符文·麒麟	1080	lifemax_v	2400			resist_allseriesstate_rate_v	20																																		
+608	完美符文·生命	1440	lifemax_v	4000																																						
+614	完美符文·攻击	1440	basic_damage_v	200		200																																				
+620	完美符文·全抗	1440	all_series_resist_v	100																																						
+626	完美符文·命中	1440	attackrate_v	800																																						
+632	完美符文·闪避	1440	defense_v	400																																						
+638	完美符文·会心	1440	deadlystrike_v	200																																						
+644	完美符文·忽闪	1440	ignore_defense_v	400																																						
+650	完美符文·减会心	1440	weaken_deadlystrike_v	200																																						
+656	完美符文·效果	1440	add_seriesstate_rate_v	100																																						
+662	完美符文·减效果	1440	resist_allseriesstate_rate_v	100																																						
+668	完美符文·回复	1440	recover_life_v	800	75																																					
+685	完美符文·玄武	5040	lifemax_v	4000			all_series_resist_v	50																																		
+686	完美符文·青龙	5040	basic_damage_v	200		200	attackrate_v	400																																		
+687	完美符文·凤凰	5040	lifemax_v	4000			defense_v	200																																		
+688	完美符文·白虎	5040	basic_damage_v	200		200	deadlystrike_v	100																																		
+689	完美符文·朱雀	5040	basic_damage_v	200		200	ignore_defense_v	200																																		
+690	完美符文·应龙	5040	lifemax_v	4000			weaken_deadlystrike_v	100																																		
+691	完美符文·白泽	5040	basic_damage_v	200		200	add_seriesstate_rate_v	50																																		
+692	完美符文·麒麟	5040	lifemax_v	4000			resist_allseriesstate_rate_v	50																																		

@@ -1,0 +1,11 @@
+AniName	AniPath	TimeFrame
+at01	Player/Npcs/npc_209B/at01.anim	15
+at02	Player/Npcs/npc_209B/at02.anim	15
+bat	Player/Npcs/npc_209B/bat.anim	6
+die	Player/Npcs/npc_209B/die.anim	20
+jf	Player/Npcs/npc_209B/jf.anim	30
+jfd	Player/Npcs/npc_209B/jfd.anim	16
+run	Player/Npcs/npc_209B/run.anim	12
+st	Player/Npcs/npc_209B/st.anim	20
+sta	Player/Npcs/npc_209B/sta.anim	20
+wlk	Player/Npcs/npc_209B/wlk.anim	16

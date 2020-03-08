@@ -1,0 +1,11 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+NpcTrapToAttack	去襄阳		73	50	1	1	18692	11131	0	-1	0	0		0	0	0	0	0	0	0	0
+NpcTrapToFlield_xsd	去响水洞		73	50	1	1	3796	10714	0	-1	0	0		0	0	0	0	0	0	0	0
+NpcTrapToFlield_dcs	去点苍山		73	50	1	1	3465	3227	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_GateN	北城门		1732	50	1	1	11624	9405	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_GateS	南城门		1732	50	1	1	11648	5092	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_sun	日耀龙柱		1732	50	1	1	13159	7279	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_moon	月华龙柱		1732	50	1	1	14861	10191	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_star	星辉龙柱		1732	50	1	1	14863	4967	0	-1	0	0		0	0	0	0	0	0	0	0
+WallGuard	后营障碍		104	50		1	18476	7480	64	-1	0	0		0	0	0	0	0	0	0	0
+WallGuard	后营障碍		104	50		1	18470	7076	64	-1	0	0		0	0	0	0	0	0	0	0

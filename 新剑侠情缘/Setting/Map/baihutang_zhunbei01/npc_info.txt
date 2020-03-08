@@ -1,0 +1,9 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+wulinetu1	白虎堂引路人·一		933	50	1	99	4487	8027	32	-1	0	0		0	0	0	0	0	0	0	0
+wulinetu2	白虎堂引路人·二		934	50	1	99	4471	6746	0	-1	0	0		0	0	0	0	0	0	0	0
+wulinetu3	白虎堂引路人·三		935	50	1	99	7278	11149	16	-1	0	0		0	0	0	0	0	0	0	0
+wulinetu4	白虎堂引路人·四		936	50	1	99	8962	11165	48	-1	0	0		0	0	0	0	0	0	0	0
+wulinetu5	白虎堂引路人·五		937	50	1	99	11768	7963	32	-1	0	0		0	0	0	0	0	0	0	0
+wulinetu6	白虎堂引路人·六		938	50	1	99	11792	6525	0	-1	0	0		0	0	0	0	0	0	0	0
+wulinetu7	白虎堂引路人·七		939	50	1	99	7404	3592	16	-1	0	0		0	0	0	0	0	0	0	0
+wulinetu8	白虎堂引路人·八		940	50	1	99	8661	3560	48	-1	0	0		0	0	0	0	0	0	0	0

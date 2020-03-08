@@ -1,0 +1,30 @@
+KeyId	HotKey	Action	Desc
+1	W		上
+2	S		下
+3	A		左
+4	D		右
+5	J	Operation.OnGamesirStickClick("A")	技能1
+6	Space	Operation.OnGamesirStickClick("R1")	轻功
+7	U	Operation.OnGamesirStickClick("X")	技能2
+8	I	Operation.OnGamesirStickClick("Y")	技能3
+9	K	Operation.OnGamesirStickClick("R2")	普攻
+10	Z	Operation.OnGamesirStickClick("L1")	打坐
+11	O	Operation.OnGamesirStickClick("B")	技能4
+12	F1	Ui:SwitchWindow("ItemBox")	主背包
+13	F5	Ui:SwitchWindow("MarketStallPanel")	摆摊
+14	F2	Ui:SwitchWindow("SkillPanel")	技能
+15	F6	Ui:SwitchWindow("KinDetailPanel")	家族
+16	F10	Ui:SwitchWindow("CalendarPanel")	活动
+17	F12	Ui:SwitchWindow("AuctionPanel")	拍卖行
+18	F7	Ui:SwitchWindow("HonorLevelPanel")	头衔
+19	F11	Ui:SwitchWindow("Partner")	同伴
+20	F4	Ui:SwitchWindow("WelfareActivity")	福利
+21	F8	Ui:SwitchWindow("CommonShop")	商城
+22	F3	Ui:SwitchWindow("SocialPanel")	社交
+23	`	Ui:SwitchWindow("NewInformationPanel")	最新消息
+24	F9	Ui:SwitchWindow("RankBoardPanel")	排行榜
+25	Q	Operation:OnHorseClick()	上下马
+26	Tab	Ui:SwitchWindow("MiniMap")	地图
+27	F	AutoFight:SwitchState()	自动战斗
+28	Return	Ui.Hotkey:OnReternKeyInput()	聊天输入
+29	Enter	Ui.Hotkey:OnReternKeyInput()	聊天输入

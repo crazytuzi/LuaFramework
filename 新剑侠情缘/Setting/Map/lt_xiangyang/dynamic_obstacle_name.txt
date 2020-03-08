@@ -1,0 +1,8 @@
+dynamic_north
+dynamic_south
+dynamic_west
+dynamic_north_inner
+dynamic_south_inner
+dynamic_west_inner
+dynamic_east_inner
+dynamic_begin

@@ -1,0 +1,9 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2												
+Move	Main	1	45	{-290,410,0}	{-290,410,0}												
+Scalc	Main	1	15	{0,0,0}	{1,1,1}												
+Move	Main	45	60	{-290,410,0}	{-160,0,0}												
+																	
+																	
+																	
+																	
+												Rotation	Main	30	60	{0,30,0}	{0,0,360}

@@ -1,0 +1,21 @@
+Level	PlayerLevel	ShopType	Pool	Count1	Prob1	Count2	Prob2	ReplaceLevel	ReplacePool
+1	1	DrugShop	1	16					
+1	1	DrugShop	2	1	500	2	500		
+1	1	DrugShop	3	4					
+1	50	DrugShop	4	2					
+2	1	DrugShop	1	4					
+2	1	DrugShop	2	0	500	1	500		
+2	1	DrugShop	3	2					
+2	1	DrugShop	4	2					
+3	35	DrugShop	1	2					
+3	35	DrugShop	2	1	500	2	500		
+3	35	DrugShop	3	1					
+4	45	DrugShop	1	0	750	1	250		
+5	55	DrugShop	1	0	750	1	250		
+5	55	DrugShop	2	0	700	1	300		
+6	65	DrugShop	1	0	920	1	80		
+7	75	DrugShop	1	0	950	1	50		
+7	75	DrugShop	2	0	750	1	250		
+7	75	DrugShop	3	0	950	1	50		
+8	85	DrugShop	1	0	500	1	500	5	1
+8	85	DrugShop	2	0	900	1	100	7	1

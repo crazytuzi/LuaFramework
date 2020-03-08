@@ -1,0 +1,10 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Rotation	Main	1	30	{0,0,90}	{0,0,0}
+Move	Main	1	30	null	{0,-100,0}
+Scalc	Main	31	45	{1.2,1.2,1}	{1,1,1}
+Alpha	Main	31	45	1	0.5
+AnchorMove	Main	46	59	{45, 45, 0}	{0,0,0}
+Fill	Bg_01	2	60	{0,0,0}	{1,0,0}
+Commander		60	60	Ui:CloseWindow(self.UI_NAME)	
+Commander				self.pPanel:SetActive("", true)	
+Commander		81	85	Ui.UiManager.SetForbiddenOperation(false)	

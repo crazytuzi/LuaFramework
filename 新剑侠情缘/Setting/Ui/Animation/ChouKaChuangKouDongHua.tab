@@ -1,0 +1,3 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Scalc	Main	0	10	{0,0,0}	{1.2,1.2,1.2}
+Scalc	Main	11	20	{1.2,1.2,1.2}	{1,1,1}

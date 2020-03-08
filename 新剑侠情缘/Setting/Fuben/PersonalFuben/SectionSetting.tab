@@ -1,0 +1,14 @@
+nSectionIdx	nNormalNeedLevel	nEliteNeedLevel	szTitle	szNormalAward_1	szNormalAward_2	szNormalAward_3	szEliteAward_1	szEliteAward_2	szEliteAward_3
+1	1	1	第一章 寻药	Coin|10000	Jade|1000	Gold|100	Coin|10000	PStone0|20	Gold|100
+2	1	1	第二章 查访	Coin|15000	Jade|1500	Gold|150	Coin|15000	PStone0|30	Gold|150
+3	1	1	第三章 问心	Coin|20000	Jade|2000	Gold|200	Coin|20000	PStone0|40	Gold|200
+4	1	1	第四章 真相	Coin|25000	Jade|2500	Gold|250	Coin|25000	PStone1|25	Gold|250
+5	1	1	第五章 哈哈	Coin|30000	Jade|3000	Gold|300	Coin|30000	PStone1|30	Gold|300
+6	1	1	第六章 哈哈	Coin|35000	Jade|3500	Gold|350	Coin|35000	PStone1|35	Gold|350
+7	1	1	第七章 救国	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000
+8	1	1	第八章 纠结	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000
+9	1	1	第九章 清反	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000
+500	1	1	武林大事 临安之秋	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000
+600	1	1	守卫襄阳	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000
+900	1	1	野外修炼	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000
+1000	1	1	支线任务章节	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000	Coin|10000

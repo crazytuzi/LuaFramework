@@ -1,0 +1,26 @@
+--local tbAct      = Activity:GetUiSetting("MonsterNianAct")
+--tbAct.nShowLevel = 10
+--tbAct.szTitle    = "对春联、驱年兽"
+--tbAct.szUiName   = "Normal"
+--tbAct.szContent  = [[
+--[FFFE0D]新年对春联、驱年兽活动开始了！[-]
+--
+--[FFFE0D]活动时间：[-]%s~%s
+--[FFFE0D]参与等级：[-]20级
+--
+--    年兽又称年，是古代汉族神话传说中的恶兽。相传古时候每到年末的午夜，年兽就会进攻村庄，大肆破坏。后来人们发现年兽惧怕红色及放鞭炮，故以此驱赶年兽的进攻。为了防止年兽的再次骚扰，放爆竹、贴春联渐渐成为节日习俗，春节由此成为中华民族的象征之一，潜移默化地沿袭至今以及影响世界各地。
+--    1、对春联
+--    活动期间，家族烤火开始后30秒会在[FFFE0D]家族属地[-]中装点大量的[FFFE0D]大红灯笼[-]，每个灯笼里面都藏着一副对联，成功对出对联的大侠可以获得[11adf6][url=openwnd:烟花爆竹, ItemTips, "Item", nil, 3688][-]。每次烤火期间刷新[FFFE0D]两[-]次灯笼。
+--    [FFFE0D]小窍门[-]：春联中上下联的相同位置的字是不能重复的哦！
+--    2、驱年兽
+--    家族烤火期间[FFFE0D]家族属地[-]会出现捣乱的[FFFE0D]年兽[-]，其有上古戾气护体，传言只能通过燃放[FFFE0D]烟花爆竹[-]对其造成有效伤害并获得积分，请大家在其出现后齐心协力将其赶跑。
+--    年兽被赶跑时，会在附近出现宝箱，但每人每天最多可以采集[FFFE0D]15个[-]宝箱。
+--    活动结束后，年兽掉落的宝物会在家族中进行拍卖，家族总积分越高，年兽掉落的宝物也会越多，参与驱逐年兽活动并获得积分的玩家可以获得[FFFE0D]拍卖分红[-]。
+--    活动结束时当天本家族获得积分最高的玩家会获得限时橙色称号[FFFE0D]年兽终结者[-]！
+--    年兽活动期间，家族答题将暂停，同时烤火经验在家族属地[FFFE0D]全地图[-]均可获得。
+--]]
+--tbAct.FnCustomData = function (szKey, tbData)
+--    local szStart = Lib:TimeDesc10(tbData.nStartTime)
+--    local szEnd   = Lib:TimeDesc10(tbData.nEndTime)
+--    return {string.format(tbAct.szContent, szStart, szEnd)}
+--end

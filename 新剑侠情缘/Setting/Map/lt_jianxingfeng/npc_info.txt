@@ -1,0 +1,4 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+ChuanSong1	巴陵县		73	50	1	1	1307	9973	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong2	忘忧镇		73	50	1	1	15441	6521	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong3	武夷山		73	50	1	1	14758	4299	0	-1	0	0		0	0	0	0	0	0	0	0	

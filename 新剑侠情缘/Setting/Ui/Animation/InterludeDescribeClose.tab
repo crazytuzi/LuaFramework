@@ -1,0 +1,10 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Fill	Describe_04	0	1	{0,0,0}	{1,0,0}
+Fill	Bg_01	0	1	{0,0,0}	{0,0,0}
+Fill	Describe_01	0	1	{0,0,0}	{0,0,0}
+Fill	Bg_02	0	1	{0,0,0}	{0,0,0}
+Fill	Describe_02	0	1	{0,0,0}	{0,0,0}
+Fill	Bg_03	0	1	{0,0,0}	{0,0,0}
+Fill	Describe_03	0	1	{0,0,0}	{0,0,0}
+Fill	Bg_04	0	1	{0,0,0}	{0,0,0}
+Fill	Describe_04	0	1	{0,0,0}	{0,0,0}

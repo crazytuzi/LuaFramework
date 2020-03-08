@@ -1,0 +1,37 @@
+Index	NpcName	TitleID	NpcTemplateId	HideTaskId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+nalanzhen	纳兰真		1831		100		99	4984	5807	32	-1	0	0		0	0	0	0	0	0	0	0
+muzhuang_jin	天机制式傀儡-金		2648				100	5825	7584	43	-1	0	0		1	0	0	0	0	0	0	0
+muzhuang_jin	天机制式傀儡-金		2648				100	5663	7473	43	-1	0	0		1	0	0	0	0	0	0	0
+muzhuang_jin	天机制式傀儡-金		2648				100	5650	7278	43	-1	0	0		1	0	0	0	0	0	0	0
+muzhuang_jin	天机制式傀儡-金		2648				100	6016	7462	43	-1	0	0		1	0	0	0	0	0	0	0
+muzhuang_jin	天机制式傀儡-金		2648				100	6032	7245	43	-1	0	0		1	0	0	0	0	0	0	0
+muzhuang_jin	天机制式傀儡-金		2648				100	5823	7363	43	-1	0	0		1	0	0	0	0	0	0	0
+muzhuang_jin	天机制式傀儡-金		2648				100	5821	7148	43	-1	0	0		1	0	0	0	0	0	0	0
+muzhuang_mu	天机制式傀儡-木		2649				100	8256	7551	43	-1	0	0		2	0	0	0	0	0	0	0
+muzhuang_mu	天机制式傀儡-木		2649				100	8035	7409	43	-1	0	0		2	0	0	0	0	0	0	0
+muzhuang_mu	天机制式傀儡-木		2649				100	8033	7150	43	-1	0	0		2	0	0	0	0	0	0	0
+muzhuang_mu	天机制式傀儡-木		2649				100	8501	7442	43	-1	0	0		2	0	0	0	0	0	0	0
+muzhuang_mu	天机制式傀儡-木		2649				100	8473	7160	43	-1	0	0		2	0	0	0	0	0	0	0
+muzhuang_mu	天机制式傀儡-木		2649				100	8256	7318	43	-1	0	0		2	0	0	0	0	0	0	0
+muzhuang_mu	天机制式傀儡-木		2649				100	8261	6994	43	-1	0	0		2	0	0	0	0	0	0	0
+muzhuang_shui	天机制式傀儡-水		2650				100	5845	4299	43	-1	0	0		3	0	0	0	0	0	0	0
+muzhuang_shui	天机制式傀儡-水		2650				100	5654	4173	43	-1	0	0		3	0	0	0	0	0	0	0
+muzhuang_shui	天机制式傀儡-水		2650				100	5666	4416	43	-1	0	0		3	0	0	0	0	0	0	0
+muzhuang_shui	天机制式傀儡-水		2650				100	5845	4610	43	-1	0	0		3	0	0	0	0	0	0	0
+muzhuang_shui	天机制式傀儡-水		2650				100	6051	4233	43	-1	0	0		3	0	0	0	0	0	0	0
+muzhuang_shui	天机制式傀儡-水		2650				100	5877	4045	43	-1	0	0		3	0	0	0	0	0	0	0
+muzhuang_shui	天机制式傀儡-水		2650				100	6017	4452	43	-1	0	0		3	0	0	0	0	0	0	0
+muzhuang_huo	天机制式傀儡-火		2651				100	7044	6106	43	-1	0	0		4	0	0	0	0	0	0	0
+muzhuang_huo	天机制式傀儡-火		2651				100	6775	5934	43	-1	0	0		4	0	0	0	0	0	0	0
+muzhuang_huo	天机制式傀儡-火		2651				100	6767	5655	43	-1	0	0		4	0	0	0	0	0	0	0
+muzhuang_huo	天机制式傀儡-火		2651				100	7039	5407	43	-1	0	0		4	0	0	0	0	0	0	0
+muzhuang_huo	天机制式傀儡-火		2651				100	7054	5774	43	-1	0	0		4	0	0	0	0	0	0	0
+muzhuang_huo	天机制式傀儡-火		2651				100	7289	5630	43	-1	0	0		4	0	0	0	0	0	0	0
+muzhuang_huo	天机制式傀儡-火		2651				100	7309	5973	43	-1	0	0		4	0	0	0	0	0	0	0
+muzhuang_tu	天机制式傀儡-土		2652				100	8305	4281	43	-1	0	0		5	0	0	0	0	0	0	0
+muzhuang_tu	天机制式傀儡-土		2652				100	8061	4124	43	-1	0	0		5	0	0	0	0	0	0	0
+muzhuang_tu	天机制式傀儡-土		2652				100	8579	4124	43	-1	0	0		5	0	0	0	0	0	0	0
+muzhuang_tu	天机制式傀儡-土		2652				100	8052	3875	43	-1	0	0		5	0	0	0	0	0	0	0
+muzhuang_tu	天机制式傀儡-土		2652				100	8605	3864	43	-1	0	0		5	0	0	0	0	0	0	0
+muzhuang_tu	天机制式傀儡-土		2652				100	8319	3763	43	-1	0	0		5	0	0	0	0	0	0	0
+muzhuang_tu	天机制式傀儡-土		2652				100	8330	4026	43	-1	0	0		5	0	0	0	0	0	0	0

@@ -1,0 +1,128 @@
+szMagicAttrib	szMagicDesc	szMagicDescFunc
+vitality_v	体质  +{1}	
+dexterity_v	敏捷  +{1}	
+strength_v	力量  +{1}	
+energy_v	灵巧  +{1}	
+lifemax_v	生命  +{1}	
+lifemax_p	基础生命  +{1}%	
+lifecurmax_p	当前生命  +{1}%	
+recover_life_v	生命回复  +{1}	
+lifereplenish_p	回复效率  +{1}%	
+runspeed_p	移动速度  +{1}	
+runspeed_v	移动速度  +{1}	
+physical_damage_v	属性伤害  +{1}	
+physics_potentialdamage_p	基础攻击力  +{1}%	
+basic_damage_v	攻击力  +{1}	
+physical_metaldamage_v	金系伤害  +{1}	
+physical_wooddamage_v	木系伤害  +{1}	
+physical_waterdamage_v	水系伤害  +{1}	
+physical_firedamage_v	火系伤害  +{1}	
+physical_earthdamage_v	土系伤害  +{1}	
+metal_resist_v	金系抗性  +{1}	
+wood_resist_v	木系抗性  +{1}	
+water_resist_v	水系抗性  +{1}	
+fire_resist_v	火系抗性  +{1}	
+earth_resist_v	土系抗性  +{1}	
+all_series_resist_v	全系抗性  +{1}	
+all_series_resist_p	基础全系抗性  +{1}%	
+ignore_metal_resist_v	忽略金系抗性  +{2}	
+ignore_wood_resist_v	忽略木系抗性  +{2}	
+ignore_water_resist_v	忽略水系抗性  +{2}	
+ignore_fire_resist_v	忽略火系抗性  +{2}	
+ignore_earth_resist_v	忽略土系抗性  +{2}	
+ignore_all_resist_v	忽略全系抗性  +{2}	
+ignore_all_resist	忽略最终抗性  +{2}%	
+attackspeed_v	攻击速度  +{1}	
+attackrate_v	命中  +{1}	
+attackrate_p	基础命中  +{1}%	
+defense_v	闪避  +{1}	
+defense_p	基础闪避  +{1}%	
+miss_alldmg_v	完全闪避  +{1}	
+ignore_defense_v	忽略闪避  +{1}	
+ignore_defense_p	忽略最终闪避几率  +{1}%	
+ignore_defense_vp	忽略基础闪避  +{1}%	
+ignore_all_resist_vp	忽略基础全抗  +{1}%	
+ignore_deadlystrike_vp	忽略基础会心几率  +{1}%	
+deadlystrike_v	会心几率  +{1}	
+deadlystrike_p	基础会心几率  +{1}%	
+deadlystrike_damage_p	会心伤害  +{1}%	
+weaken_deadlystrike_v	抗会心几率  +{1}	
+weaken_deadlystrike_damage_p	会心免伤  +{1}%	
+state_hurt_attackrate	受伤几率  +{1}	
+state_stun_attackrate	眩晕几率  +{1}	
+state_slowall_attackrate	迟缓几率  +{1}	
+state_zhican_attackrate	致缠几率   +{1}	
+state_palsy_attackrate	麻痹几率  +{1}	
+state_hurt_attacktime	受伤时间  +{1}	
+state_stun_attacktime	眩晕时间  +{1}	
+state_slowall_attacktime	迟缓时间  +{1}	
+state_zhican_attacktime	致缠时间   +{1}	
+state_palsy_attacktime	麻痹时间  +{1}	
+add_seriesstate_rate_v	属性效果几率  +{1}	
+add_seriesstate_time_v	属性效果时间  +{1}	
+add_allspecialstate_rate_v	负面效果几率  +{1}	
+add_allspecialstate_time_v	负面效果时间  +{1}	
+state_hurt_resistrate	抗受伤几率  +{1}	
+state_stun_resistrate	抗眩晕几率  +{1}	
+state_slowall_resistrate	抗迟缓几率  +{1}	
+state_zhican_resistrate	抗致缠几率  +{1}	
+state_palsy_resistrate	抗麻痹几率  +{1}	
+state_hurt_resisttime	抗受伤时间  +{1}	
+state_stun_resisttime	抗眩晕时间  +{1}	
+state_slowall_resisttime	抗迟缓时间  +{1}	
+state_zhican_resisttime	抗致缠时间  +{1}	
+state_palsy_resisttime	抗麻痹时间  +{1}	
+resist_allseriesstate_rate_v	抗属性效果几率  +{1}	
+resist_allseriesstate_time_v	抗属性效果时间  +{1}	
+resist_allspecialstate_rate_v	抗负面效果几率  +{1}	
+resist_allspecialstate_time_v	抗负面效果时间  +{1}	
+ignore_series_state	清除并免疫属性效果	
+ignore_abnor_state	清除并免疫负面效果	
+steallife_p	吸取生命  +{1}%	
+steallife_resist_v	吸血抗性  +{1}	
+steallife_resist_p	吸血抗性  +{1}%	
+meleedamagereturn_p	反弹近程伤害  +{1}%	
+rangedamagereturn_p	反弹远程伤害  +{1}%	
+meleedamagereturn_v	反弹近程伤害  +{1}	
+rangedamagereturn_v	反弹远程伤害  +{1}	
+return_resist_p	反弹免伤  +{1}%	
+fightpower_v1	战力  +{1}	
+series_enhance_v	五行相克强化  +{1}	
+series_abate_v	五行相克弱化  +{1}	
+add_allfaction	门派技能等级  +{1}	
+add_skillflaglevel		AddFlagLevel
+enhance_final_damage_p	最终伤害放大  +{1}%	
+reduce_final_damage_p	最终伤害抵消  +{1}%	
+melee_dmg_p	近战伤害抗性  +{1}%	
+remote_dmg_p	远程伤害抗性  +{1}%	
+damage4npc_p	对怪物伤害  +{1}%	
+damage4player_p	对玩家伤害  +{1}%	
+playerdmg_npc_p	抵挡角色伤害  +{1}%	
+userdesc_000		
+state_hurt_ignore	清除并免疫受伤	
+state_confuse_ignore	清除并免疫混乱	
+state_knock_ignore	清除并免疫击退	
+state_drag_ignore	清除并免疫拉回	
+state_float_ignore	清除并免疫浮空	
+state_freeze_ignore	清除并免疫冻结	
+state_selffreeze_ignore	清除冻结效果	
+state_sleep_ignore	清除并免疫睡眠	
+state_burn_ignore	清除并免疫灼烧	
+state_weak_ignore	清除并免疫虚弱	
+state_silence_ignore	清除并免疫沉默	
+state_slowrun_ignore	清除并免疫缓慢	
+state_fixed_ignore	清除并免疫定身	
+state_zhican_ignore	清除并免疫致缠	
+state_stun_ignore	清除并免疫眩晕	
+state_slowall_ignore	清除并免疫迟缓	
+state_palsy_ignore	清除并免疫麻痹	
+protected	PK保护状态	
+userdesc_101	太一真气	
+userdesc_102	两仪剑法	
+userdesc_103	剑气纵横	
+userdesc_104	血月之影	
+userdesc_105	逆转九阴	
+userdesc_106	真武七截	
+userdesc_107	枯木逢春/涅槃重生	
+userdesc_108	涅槃重生	
+userdesc_109	门派技能等级  +1	

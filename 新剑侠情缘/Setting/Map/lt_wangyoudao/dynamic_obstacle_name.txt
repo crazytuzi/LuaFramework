@@ -1,0 +1,4 @@
+dynamic_begin
+dynamic_north
+dynamic_south
+dynamic_west

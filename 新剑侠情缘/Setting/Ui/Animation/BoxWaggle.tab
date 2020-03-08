@@ -1,0 +1,6 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Rotation	StarAwardsTipsBox	1	9	{0,0,0}	{0,0,30}
+Rotation	StarAwardsTipsBox	10	19	{0,0,-30}	{0,0,30}
+Rotation	StarAwardsTipsBox	20	29	{0,0,30}	{0,0,-30}
+Rotation	StarAwardsTipsBox	30	39	{0,0,-30}	{0,0,30}
+Rotation	StarAwardsTipsBox	40	45	{0,0,30}	{0,0,0}

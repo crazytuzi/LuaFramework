@@ -1,0 +1,4 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Rotation	BtnFold	1	15	{0,0,0}	{0,0,-135}
+Scalc	BtnFoldRedmark	30	32	{0,0,0}	{0.7,0.7,0.7}
+Scalc	BtnFoldRedmark	32	34	{0.7,0.7,0.7}	{0.5,0.5,0.5}

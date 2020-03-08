@@ -1,0 +1,16 @@
+shouwei	3670	4526
+boss	3600	3446
+wall	3495	1868
+wall	3791	1865
+chongsheng	2586	4565
+chongsheng	3047	4576
+chongsheng	4241	4583
+chongsheng	4793	4544
+chongsheng	2450	2194
+chongsheng	2960	2208
+chongsheng	4454	2219
+chongsheng	4901	2212
+chongsheng	2504	3702
+chongsheng	2511	3203
+chongsheng	4793	3635
+chongsheng	4804	3221

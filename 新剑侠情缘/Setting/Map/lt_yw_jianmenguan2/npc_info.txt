@@ -1,0 +1,9 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+NpcTrapToJJC	去江津村		73	50	1	1	11801	4971	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_sun	日耀龙柱		1732	50	1	1	7924	7658	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_defense	守方大营		1732	50	1	1	11222	6807	48	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack1	征战营地·天		1732	50	1	1	11212	10947	40	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack2	征战营地·地		1732	50	1	1	4633	11122	32	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack3	征战营地·人		1732	50	1	1	5109	4242	16	-1	0	0		0	0	0	0	0	0	0	0
+WallGuard	后营障碍		104	50		1	11220	6943	64	-1	0	0		0	0	0	0	0	0	0	0
+WallGuard	后营障碍		104	50		1	11215	6679	64	-1	0	0		0	0	0	0	0	0	0	0

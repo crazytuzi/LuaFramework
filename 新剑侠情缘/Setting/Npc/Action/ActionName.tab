@@ -1,0 +1,49 @@
+ActId	ActName	RideActName	RideActName1	RideActName2	RideActName3	RideActName4	HideWeapon	RideHideWeapon	Des
+1	st	hst	wst	est	bst	cst		1	15到50的ID是给技能配置动作
+2	run	hrun	wrun	erun	brun	crun		1	
+3	die	die	die	die	die	die		1	
+4	jt	hst	wst	est	bst	cst		1	击退动作
+5	bat	hst	wst	est	bst	cst		1	拉的动作
+6	qg	hrun	wrun	erun	brun	crun		1	
+7	sta	hst	wst	est	bst	cst		1	战斗站立
+8	bat	hst	wst	est	bst	cst		1	浮空动作
+9	bat	hst	wst	est	bst	cst		1	受伤动作
+10	wlk	run	run	run	run	run		1	散步动作
+11	zx	hst	wst	est	bst	cst	1	1	坐下
+12	zst	hst	wst	est	bst	cst	1	1	打坐
+13	st01	hst	wst	est	bst	cst		1	非战斗特殊站立
+14	st02	hst	wst	est	bst	cst		1	非战斗特殊站立
+15	at	hst	wst	est	bst	cst		1	
+16	at01	hst	wst	est	bst	cst		1	
+17	at02	hst	wst	est	bst	cst		1	
+18	at03	hst	wst	est	bst	cst		1	
+19	at04	hst	wst	est	bst	cst		1	
+20	jfd	hst	wst	est	bst	cst		1	死亡击飞
+21	jn01	hst	wst	est	bst	cst		1	
+22	jn02	hst	wst	est	bst	cst		1	
+23	jn03	hst	wst	est	bst	cst		1	
+24	jn04	hst	wst	est	bst	cst		1	
+25	jn05	hst	wst	est	bst	cst		1	
+26	jf	hst	wst	est	bst	cst		1	击飞
+27	jn02b	hst	wst	est	bst	cst		1	
+28	jn02a	hst	wst	est	bst	cst		1	
+29	qg01	hrun	wrun	erun	brun	crun		1	
+30	qg02	hrun	wrun	erun	brun	crun		1	
+31	jsrun	hrun	wrun	erun	brun	crun		1	加速跑
+32	qg03	hrun	wrun	erun	brun	crun		1	
+33	qg04	hrun	wrun	erun	brun	crun		1	
+34	qg05	hrun	wrun	erun	brun	crun		1	
+35	dz	hst	wst	est	bst	cst	1	1	打坐
+36	ts01	hst	wst	est	bst	cst		1	特殊动作1
+37	ts02	hst	wst	est	bst	cst		1	特殊动作2
+38	ts03	hst	wst	est	bst	cst		1	特殊动作3
+39	sit	hst	wst	est	bst	cst	1	1	坐
+40	jn01a	hst	wst	est	bst	cst		1	
+41	at01_g	hst	wst	est	bst	cst		1	
+42	at02_g	hst	wst	est	bst	cst		1	
+43	at03_g	hst	wst	est	bst	cst		1	
+44	at04_g	hst	wst	est	bst	cst		1	
+45	jn01_g	hst	wst	est	bst	cst		1	
+46	jn02_g	hst	wst	est	bst	cst		1	
+47	jn03_g	hst	wst	est	bst	cst		1	
+48	jn04_g	hst	wst	est	bst	cst		1	

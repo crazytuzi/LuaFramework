@@ -1,0 +1,121 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	NameColor	DefaultDialog	WalkSpeed	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	IsNotShowShadow	FixExperience	IsNotBYStealLife	SyncFirst
+Fb_Team_boss_1	51	卓非凡	0	1	FubenDeath		425				405	1496	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/20fb_boss.ini			1	18	2								6										
+Fb_Team_boss_2	56	张琳心	0	1	FubenDeath		461				405	1332	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/40fb_boss.ini	1	Setting/Npc/DropFile/TeamFuben/zhanglinxin.tab	1	20	2							1	6										
+Fb_Team_boss_3	61	南宫灭	0	1	FubenDeath		129				405	21	1	91	1			1500	1500	Setting/Npc/Ai/random/nangongmie.ini	1	Setting/Npc/DropFile/TeamFuben/nangongmie.tab	1	18	2							1	6										
+Fb_Team_boss_4	66	黑熊	0	1	FubenDeath		630				405	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2								6										
+Fb_Team_leader_1	959	紫轩	0	1	FubenDeath		408				404	1468	1	91	1	2466	1	1500	1500	Setting/Npc/Ai/teamfb/20fb_sl1.ini			1	17	2								5										
+Fb_Team_leader_2	960	蔷薇	0	1	FubenDeath		454				404	167	1	91	1	2466	1	1500	1500	Setting/Npc/Ai/random/qiangwei.ini			1	18	2								5										
+Fb_Team_leader_3	961	张如梦	0	1	FubenDeath		409				404	1340	1	91	1	2466	1	1500	1500	Setting/Npc/Ai/teamfb/20fb_sl2.ini			1	18	2								5										
+Fb_Team_leader_4	962	南宫彩虹	0	1	FubenDeath		455				404	1335	1	91	1	2466	1	1500	1500	Setting/Npc/Ai/teamfb/20fb_boss.ini			1	18	2								5										
+Fb_Team_leader_5	963	张风	0	1	FubenDeath		452				404	2923	1	91	1			1500	1500	Setting/Npc/Ai/random/zhangfeng.ini	1	Setting/Npc/DropFile/TeamFuben/zhangfeng.tab	1	18	2							1	5										
+Fb_Team_leader_6	964	方勉	0	1	FubenDeath		464				404	2922	1	91	1			600	600	Setting/Npc/Ai/teamfb/fangmian.ini	1	Setting/Npc/DropFile/TeamFuben/fangmian.tab	1	18	2							1	5										
+Fb_Team_leader_7	965	黑熊	0	1	FubenDeath		116				404	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1								5										
+Fb_Team_leader_8	966	黑熊	0	1	FubenDeath		116				404	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1								5										
+Fb_Team_xiyou_1	1492	月明瑶	0	0	FubenDeath		118				405	21	1	2382	1	2455	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	30	2								6										
+Fb_Team_xiyou_2	1493	封玉书	0	1	FubenDeath		478				405	2951	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/40fb_xiyou.ini	1	Setting/Npc/DropFile/TeamFuben/fengyushu.tab	1	20	2							1	6										
+Fb_Team_xiyou_3	1494	曲霞	0	0	FubenDeath		1106				405	21	1	2382	1	2455	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	1								5										
+Fb_Team_xiyou_4	1495	黑熊	0	1	FubenDeath		116				405	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	2								6										
+Fb_Team_enemy_1	967	庄丁	0	1	FubenDeath		101				401	21	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_2	968	庄丁头目	0	1	FubenDeath		142				403	166	1	1518	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1			1533	1				3										
+Fb_Team_enemy_3	969	山庄护卫	0	1	FubenDeath		120				401	167	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	20	1								1										
+Fb_Team_enemy_4	970	山庄高手	0	1	FubenDeath		155				403	168	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/20fb_jy1.ini			1	18	1								3										
+Fb_Team_enemy_5	971	武林人士	0	1	FubenDeath		174				401	169	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_6	972	武林高手	0	1	FubenDeath		174				403	23	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/20fb_jy2.ini			1	20	1								3										
+Fb_Team_enemy_7	973	武林高手	0	1	FubenDeath		174				403	23	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/20fb_jy2.ini			1	20	1			2404	1				3										
+Fb_Team_enemy_8	974	武林高手	0	1	FubenDeath		174				403	23	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/20fb_jy2.ini			1	20	1			1535	1				3										
+Fb_Team_enemy_9	975	藏剑弟子	0	1	FubenDeath		135				401	22	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_10	976	藏剑精英	0	1	FubenDeath		135				403	37	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/20fb_jy3.ini			1	18	1								3										
+Fb_Team_enemy_11	977	金兵	0	1	FubenDeath		180				401	21	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_12	978	百夫长	0	1	FubenDeath		181				403	23	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/20fb_jy4.ini			1	18	1								3										
+Fb_Team_enemy_13	958	弩车	0	1	FubenDeath		480	995			400	1498	1	1518	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								5										
+Fb_Team_enemy_14	957	弩车	2	0	AddBuffer	1,开启中,2215,1,200	480	995			402	182	1	1500	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	0	1								5										
+Fb_Team_enemy_15	979	五色教弟子	0	1	FubenDeath		174				401	168	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_16	980	五色教头目	0	1	FubenDeath		174				403	196	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/40fb_jy1.ini			1	20	1								3										
+Fb_Team_enemy_17	981	十夫长	0	1	FubenDeath		181				403	21	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/40fb_jy2.ini			1	20	1								3										
+Fb_Team_enemy_18	985	五色教弟子	0	1	FubenDeath		178				401	167	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_19	986	五色教头领	0	1	FubenDeath		178				403	37	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/40fb_jy3.ini			1	20	1								3										
+Fb_Team_enemy_20	987	神秘刺客	0	1	FubenDeath		124				401	169	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_21	988	刺客头目	0	1	FubenDeath		124				403	169	1	1518	1			1000	1000	Setting/Npc/Ai/teamfb/40fb_jy4.ini			1	20	1								3										
+Fb_Team_enemy_22	993	山庄侍女	0	1	FubenDeath		104				401	39	1	1518	1			800	800	Setting/Npc/Ai/RangeActive.ini			1	18	1								1										
+Fb_Team_enemy_23	994	神射手	0	1	FubenDeath		159				401	182	1	1518	1			800	800	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_24	995	神秘刺客	0	1	FubenDeath		124				401	169	1	1518	1			800	800	Setting/Npc/Ai/RangeActive.ini			1	18	1								1										
+Fb_Team_enemy_25	1319	内堂弟子	0	1	FubenDeath		106				401	22	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_26	1320	贴身护卫	0	1	FubenDeath		142				403	37	1	91	1			1000	1000	Setting/Npc/Ai/teamfb/20fb_jy3.ini			1	18	1								3										
+Fb_Team_enemy_27	1633	东瀛忍者	0	1	FubenDeath		124				401	1811	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								3										
+Fb_Team_enemy_28	1634	五色教弟子	0	1	FubenDeath		134				401	21	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_29	1635	五色教刺客	0	1	FubenDeath		174				401	21	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_30	1636	五色教头目	0	1	FubenDeath		142				403	1807	1	91	1			1000	1000	Setting/Npc/Ai/fuben/Boss17.ini			1	20	1								3										
+Fb_Team_enemy_31	1637	傀儡机关人	0	1	FubenDeath		157				401	22	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_32	1638	机关战车	0	1	FubenDeath		154				401	1874	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_33	1639	强力机关人	0	1	FubenDeath		465				403	21	1	2380	1	91	1	1000	1000	Setting/Npc/Ai/CommonSkill.ini			1	18	1								3										
+Fb_Team_enemy_34	1640	制式机关人	0	1	FubenDeath		190				401	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_35	1641	劲弩手	0	1	FubenDeath		165				401	182	1	91	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_enemy_36	1642	玄天武机	0	1	FubenDeath		20	995			403	2393	1	2461	1	91	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	18	1								5										
+Fb_Team_enemy_37	1643	玄天武机	2	0	AddBuffer	1,开启中,2216,1,200	20	995			403	21	1	1500	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	0	1								5										
+Fb_Team_enemy_38	1645	影分身	0	1	FubenDeath		124				401	21	1	1518	1			1000	1000	Setting/Npc/Ai/CommonActive.ini			1	18	1								1										
+Fb_Team_Xiyou_enemy_1	1601	无忧刺客	0	1	FubenDeath		365				404	1811	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss18.ini	1	Setting/Npc/DropFile/TeamFuben/yuemingyao.tab	1	18	2							1	5										
+Fb_Team_Xiyou_enemy_2	1663	五色教堂主	0	1	FubenDeath		121				405	1342	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss5.ini	1	Setting/Npc/DropFile/TeamFuben/quxia.tab	1	18	2							1	5										
+Fb_Team_Temporary_1	989	独孤剑	0	0	FubenDeath		175				405	21	1	2455	1	91	1	1500	1500	Setting/Npc/Ai/CommonActive4.ini			1	30	1								6										
+Fb_Team_Temporary_2	990	蔷薇	4	0	FubenDeath		454				404							1000	1000	Setting/Npc/Ai/Stay.ini			1	18	2								5										
+Fb_Team_Temporary_3	991	卓非凡	4	0	FubenDeath		425				405							1000	1000	Setting/Npc/Ai/Stay.ini			1	20	2								6										
+Fb_Team_Temporary_4	996	张如梦	4	0	FubenDeath		409				404							1000	1000	Setting/Npc/Ai/Stay.ini			1	18	2								5										
+Fb_Team_Temporary_5	997	张琳心	0	0	FubenDeath		1100				405	21	1	2455	1	91	1	1000	1000	Setting/Npc/Ai/CommonActive4.ini			1	30	2								6										
+TeamFuben_jiguan	983	吊桥机关	0	1	FubenDeath		358				401			1516	1			1000	1000				1		1	1																	
+TeamFuben_wuzixiang	992	五色教物资箱	4	0	FubenDeath		352				405	21	1					1000	1000	Setting/Npc/Ai/CommonActive.ini			1	25	1								6										
+TeamFuben_Gouhuo	1610	篝火	4	0	GouHuoNpc	teamfuben|3000|6|3000|0|10	380																	0																			
+TeamFuben_SkillNpc	1644	放技能	6	1	FubenDeath		469				405							1500	1500	Setting/Npc/Ai/CommonActive.ini			1	0	1								1										
+Fb80_jinguowushi_gw	1898	金国武士	0	1	FubenDeath		136				401	168	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb80_jinguogaoshou_gw	1899	金国高手	0	1	FubenDeath		436				401	1894	1	1874	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb80_huweigongshou_jy	1900	护卫弓手	0	1	FubenDeath		159				403	2725	1	91	1	2383	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb80_yelbpili_sl	1901	耶律辟离	0	1	FubenDeath		122				404	40	1	91	1			1500	1500	Setting/Npc/Ai/random/pilihuo.ini	1	Setting/Npc/DropFile/TeamFuben/80fb_boss1.tab	1	22	2							1	4										
+Fb80_tiefutuo_gw1	1902	铁浮陀	0	1	FubenDeath		378				403	91	1					1500	1500	Setting/Npc/Ai/random/D2_Yunshi.ini			1	22	1								3										
+Fb80_anyingshashou_gw	1903	暗影刺客	0	1	FubenDeath		124				401	166	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb80_xionghanshuizei_gw	1904	凶悍水贼	0	1	FubenDeath		123				401	1893	1	29	1			1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								1										
+Fb80_shashoutoumu_jy	1905	刺客头目	0	1	FubenDeath		124				403	2714	1	91	1	2736	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb80_wunu_sl	1906	无怒	0	1	FubenDeath		631				404	21	1	91	1	2439	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	2								5										
+Fb80_wuyu_sl	1907	无欲	0	1	FubenDeath		642				403	2710	1	91	1	2457	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	2								4										
+Fb80_wuwang_sl	1908	无妄	0	1	FubenDeath		121				403	56	1	91	1	2433	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	2								4										
+Fb80_wuchi_sl	1909	无痴	0	1	FubenDeath		643				403	2717	1	91	1	2758	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	2								4										
+Fb80_hufadizi_gw	1910	护法弟子	0	1	FubenDeath		174				401	2720	1	2443	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb80_hufajingying_jy	1911	护法精英	0	1	FubenDeath		178				403	57	1	91	1	2427	1	1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1		3001	1533	5				3										
+Fb80_qiuyishui_boss	1912	秋依水	0	1	FubenDeath		516				405	55	1	91	1			1500	1500	Setting/Npc/Ai/random/qiuyishui.ini	1	Setting/Npc/DropFile/TeamFuben/80fb_boss3.tab	1	22	2							1	6										
+Fb80_tangying_hs	1913	唐影	0	0	FubenDeath		644				404	2718	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	3								2										
+Fb80_tangying1_hs	1914	重伤的唐影	0	0	FubenDeath		644				404	2718	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	3								2										
+Fb80_tianrengs_xy	1940	天忍高手	0	1	FubenDeath		365				404	2716	1	91	1			1500	1500	Setting/Npc/Ai/fuben/Boss18.ini	1	Setting/Npc/DropFile/TeamFuben/80fb_xiyou.tab	1	22	2							1	5										
+Fb80_yanruoxue_xy	1941	燕若雪	0	0	FubenDeath		1129				404	55	1	91	1			1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	2								2										
+Fb100_guaiwu1	2258	阴郁剑客	0	1	FubenDeath		124				401	1892	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb100_guaiwu2	2259	愤怒武者	0	1	FubenDeath		123				401	1894	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb100_guaiwu3	2260	失魂的傀儡	0	1	FubenDeath		136				401	2715	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb100_guaiwu4	2261	丧胆的高手	0	1	FubenDeath		134				401	23	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb100_guaiwu5	2262	污衣浪客	0	1	FubenDeath		143				401	40	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb100_guaiwu6	2263	净衣铁面	0	1	FubenDeath		155				401	168	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb100_guaiwu7	2264	苦难行者	0	1	FubenDeath		170				401	56	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb100_jingying1	2265	怨灵	0	1	FubenDeath		483				403	35	1	91	1	45	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb100_jingying2	2266	怒灵	0	1	FubenDeath		481				403	2720	1	91	1	2375	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb100_jingying3	2267	牵线人	0	1	FubenDeath		137				403	2718	1	91	1	2745	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb100_jingying4	2268	掌灯人	0	1	FubenDeath		138				403	38	1	91	1	2433	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb100_jingying5	2269	冷面执棒客	0	1	FubenDeath		151				403	106	1	91	1	2758	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb100_jingying6	2270	独臂拳师	0	1	FubenDeath		101				403	166	1	91	1	2357	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb100_jingying7	2271	托钵者	0	1	FubenDeath		163				403	55	1	91	1	2763	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb100_boss1	2272	唐仇	0	1	FubenDeath		632				404	3642	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/100fb_tangchou.ini	1	Setting/Npc/DropFile/TeamFuben/100fb_boss1.tab	1	22	2		3010					1	4										
+Fb100_boss2	2273	黑面郎君	0	1	FubenDeath		17				404	3657	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/100fb_heimianlangjun.ini	1	Setting/Npc/DropFile/TeamFuben/100fb_boss2.tab	1	22	2		3010					1	4										
+Fb100_boss3	2274	何人我	0	1	FubenDeath		633				405	3651	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/100fb_herenwo.ini	1	Setting/Npc/DropFile/TeamFuben/100fb_boss3.tab	1	22	2		3010					1	6										
+Fb100_shouling_xy	2275	玄天道人	0	1	FubenDeath		16				405	2719	1	91	1			1500	1500	Setting/Npc/Ai/random/sumoyun.ini			1	22	2		3010						5										
+Fb120_boss1	2454	尹筱雨	0	1	FubenDeath		634				405	3144	1	91	1			1500	1500	Setting/Npc/Ai/random/yinhanyan.ini	1	Setting/Npc/DropFile/TeamFuben/120fb_boss1.tab	1	22	2		3010					1	5										
+Fb120_boss2	2455	宋秋石	0	1	FubenDeath		620				405	3150	1	91	1			1500	1500	Setting/Npc/Ai/random/xuanjizi.ini	1	Setting/Npc/DropFile/TeamFuben/120fb_boss2.tab	1	22	2		3010					1	5										
+Fb120_boss3	2456	古嫣然	0	1	FubenDeath		619				405	3718	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/120fb_guyanran.ini	1	Setting/Npc/DropFile/TeamFuben/120fb_boss3.tab	1	22	2		3010					1	6										
+Fb120_shouling_xy	2457	石轩辕	0	1	FubenDeath		635				405	3651	1	91	1			1500	1500	Setting/Npc/Ai/teamfb/100fb_herenwo.ini			1	22	2		3010						5										
+Fb120_jingying1	2458	十夫长	0	1	FubenDeath		181				403	54	1	91	1	2357	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb120_jingying2	2459	江湖高手	0	1	FubenDeath		155				403	1893	1	91	1	2384	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb120_jingying3	2460	降卒军官	0	1	FubenDeath		150				403	170	1	91	1	2730	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb120_jingying4	2461	护卫头领	0	1	FubenDeath		176				403	34	1	91	1	2742	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb120_jingying5	2462	武夫头目	0	1	FubenDeath		136				403	37	1	91	1	2487	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb120_jingying6	2463	控尸人	0	1	FubenDeath		138				403	166	1	91	1	2760	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb120_guaiwu1	2464	凶恶金兵	0	1	FubenDeath		431				401	166	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb120_guaiwu2	2465	江湖人士	0	1	FubenDeath		134				401	2717	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb120_guaiwu3	2466	宋军降卒	0	1	FubenDeath		151				401	2712	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb120_guaiwu4	2467	贴身护卫	0	1	FubenDeath		104				401	39	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb120_guaiwu5	2468	失节武夫	0	1	FubenDeath		174				401	57	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb120_guaiwu6	2469	五毒行者	0	1	FubenDeath		137				401	41	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										
+Fb120_jingying7	2470	刺客头目	0	1	FubenDeath		365				403	2720	1	91	1	2484	1	1500	1500	Setting/Npc/Ai/CommonSkill.ini			1	22	1								3										
+Fb120_guaiwu7	2471	阴险刺客	0	1	FubenDeath		124				401	196	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	22	1								1										

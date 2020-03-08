@@ -1,0 +1,9 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+NpcTrapToDXC	去稻香村		73	50	1	1	14051	5675	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_Longzhu_sun	日耀龙柱		1732	50	1	1	10593	7625	0	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_defense	守方大营		1732	50	1	1	13155	7748	40	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack1	征战营地·天		1732	50	1	1	13286	12059	34	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack2	征战营地·地		1732	50	1	1	6885	11257	24	-1	0	0		0	0	0	0	0	0	0	0
+ZY_YD_attack3	征战营地·人		1732	50	1	1	5660	8656	16	-1	0	0		0	0	0	0	0	0	0	0
+WallGuard	后营障碍		104	50		1	13041	7798	56	-1	0	0		0	0	0	0	0	0	0	0
+WallGuard	后营障碍		104	50		1	13188	7630	56	-1	0	0		0	0	0	0	0	0	0	0

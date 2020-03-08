@@ -1,0 +1,4 @@
+LinkMapID	TotalMapCount	MaxOneNpcCount	TotalNpcCount	TrueNpcCount	TrueNpcGroupIndex	FalseNpcGroupIndex	ShowMsg
+1	3	2	3	1	1	2	出现地图：1个真身2个分身随机出现于黑狱废墟、长坂废墟、禁谷废墟当中
+2	3	1	1	0	1	2	出现地图：[FFFE0D]1个真身出现在幻境地图中；2个分身分别出现在废墟地图和幻境地图中[-]
+3	3	1	2	1	1	2	出现地图：[FFFE0D]1个真身出现在幻境地图中；2个分身分别出现在废墟地图和幻境地图中[-]

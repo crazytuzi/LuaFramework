@@ -1,0 +1,32 @@
+GuideId	LoginStart	SaveFinish	ActionType	Param	PointerOffset	DescType	DescInfo	FinishCheck	CheckParam
+1	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnSkill", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/01-B.voice")				CheckAniFinish	TopButton|GuideBtnSkill
+1			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]4[-]级！新功能[FFFE0D]「技能」[-]开启了哦！快去升级和查看自己门派独特的武功招式吧！	CheckClickScreen	
+2	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnLoginAward", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/02-A.voice")				CheckAniFinish	TopButton|GuideBtnLoginAward
+2			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]5[-]级！新功能[FFFE0D]「登录领奖」[-]开启了哦！快去领取第一份奖励吧！	CheckClickScreen	
+3	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnCompanion", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/04-B.voice");				CheckAniFinish	TopButton|GuideBtnCompanion
+3			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]9[-]级！新功能[FFFE0D]「同伴」[-]开启了哦！快去看看和自己共同闯荡江湖的同伴吧！	CheckClickScreen	
+4	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnActivity", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/03-B.voice")				CheckAniFinish	TopButton|GuideBtnActivity
+4			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]8[-]级！新功能[FFFE0D]「福利」[-]开启了哦！快去领取自己的专属福利吧！	CheckClickScreen	
+5	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnSocial", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/05-B.voice")				CheckAniFinish	TopButton|GuideBtnSocial
+5			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]10[-]级！新功能[FFFE0D]「社交」[-]开启了哦！快去添加好友共闯武林吧！	CheckClickScreen	
+9	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnShop", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/08-B.voice")				CheckAniFinish	TopButton|GuideBtnShop
+9			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]14[-]级！新功能[FFFE0D]「商城」[-]开启了哦！前往商城购买所需物品吧！	CheckClickScreen	
+6	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnFamily", false, false, {})				CheckAniFinish	TopButton|GuideBtnFamily
+7	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnAuction", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/06-A.voice")				CheckAniFinish	TopButton|GuideBtnAuction
+7			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]11[-]级！新功能[FFFE0D]「家族」[-]和[FFFE0D]「拍卖行」[-]开启了哦！加入「家族」后可以与其他侠士一同笑傲江湖，「拍卖行」则会在特定活动结束后进行珍贵物品的拍卖哦！	CheckClickScreen	
+8	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnCalendar", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/07-A.voice")				CheckAniFinish	TopButton|GuideBtnCalendar
+8			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]13[-]级！江湖中的第一个[FFFE0D]「活动」[-]开启了哦！可以前去参加啦！	CheckClickScreen	
+10	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnStronger", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/09-B.voice")				CheckAniFinish	TopButton|GuideBtnStronger
+10			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]15[-]级！新功能[FFFE0D]「变强」[-]开启了哦！快去看看如何能够让自己变得更厉害吧！	CheckClickScreen	
+11	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnRanking", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/11-B.voice")				CheckAniFinish	TopButton|GuideBtnRanking
+11			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]19[-]级！新功能[FFFE0D]「排行榜」[-]开启了哦！快去看看当前武林的侠士排名吧！	CheckClickScreen	
+12	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnHonorLevel", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/10-B.voice")				CheckAniFinish	TopButton|GuideBtnHonorLevel
+12			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]18[-]级！新功能[FFFE0D]「头衔」[-]开启了哦！快去获取第一个头衔，成为武林中的有名人士吧！	CheckClickScreen	
+13	1	1	Commander	Ui("TopButton").pPanel:PlayUiAnimation("GuideBtnMarketStall", false, false, {});ChatMgr.PlayHelpVoice("Setting/NpcVoice/12-A.voice")				CheckAniFinish	TopButton|GuideBtnMarketStall
+13			LockWnd			NpcDown	恭喜大侠升到[FFFE0D]20[-]级！新功能[FFFE0D]「摆摊」[-]开启了哦！可以将自己暂时不需要的东西卖出或购买需要的东西哦！	CheckClickScreen	
+46		1	LockWnd			NpcDown	[FFFE0D]「门客系统」[-]开启了哦！点击[FFFE0D]已招募[-]的同伴，在打开的[FFFE0D]同伴详情[-]页面，可以点击[FFFE0D]门客招揽[-]按钮，获得该同伴对应的门客！	CheckClickScreen	
+47		1	LockWnd			NpcDown	恭喜大侠获得了一个新的门客，点击门客可以查看[FFFE0D]门客详情[-]，并且可以做[FFFE0D]上阵[-]和[FFFE0D]入住家园[-]的操作，快去看看吧！	CheckClickScreen	
+48		1	LockWnd			NpcDown	恭喜大侠获得了一件华美外装，在[FFFE0D]背包[-]里点击使用即可穿上，定能使大侠光彩照人！	CheckClickScreen	
+49		1	LockWnd			NpcDown	大侠已成功穿上外装，点击[FFFE0D]外观[-]按钮即可进行查看，快去试试吧！	CheckClickScreen	
+50		1	LockWnd			NpcDown	在这里就可以查看已经穿上的外装了哦！	CheckClickScreen	
+51		1	LockWnd			NpcDown	恭喜大侠获得一件天工秘宝，快点击聊天框上方的[FFFE0D]天工匣[-]按钮查看和使用秘宝吧！	CheckClickScreen	

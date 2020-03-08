@@ -1,0 +1,6 @@
+trap1
+trap2
+trap3
+trap4
+gopoint2
+gopoint3

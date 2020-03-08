@@ -1,0 +1,11 @@
+AniName	AniPath	TimeFrame
+bq01	Player/Npcs/npc_184b/bq01.anim	48
+bq02	Player/Npcs/npc_184b/bq02.anim	55
+bq03	Player/Npcs/npc_184b/bq03.anim	17
+bq04	Player/Npcs/npc_184b/bq04.anim	20
+bq05	Player/Npcs/npc_184b/bq05.anim	52
+bq06	Player/Npcs/npc_184b/bq06.anim	96
+bq07	Player/Npcs/npc_184b/bq07.anim	41
+run	Player/Npcs/npc_184b/run.anim	12
+st	Player/Npcs/npc_184b/st.anim	25
+wlk	Player/Npcs/npc_184b/wlk.anim	18

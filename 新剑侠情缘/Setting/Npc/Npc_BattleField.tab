@@ -1,0 +1,73 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	AuraSkillId	AuraSkillLevel	StartActEvent	TitleID	BigFaceID	DefaultDialog	DropType	Tag	WalkSpeed	NameColor	Experience	GouHuoRate	TransBossNpcTID	TransBossRate	IsNotShowShadow	FixExperience	IsNotBYStealLife	SyncFirst
+DOTA_Soldier_A1	160	宋军护卫	0	0	BattleNpc		394			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_A2	161	宋军护卫	0	0	BattleNpc		393			131	40	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_A3	162	宋军士兵	0	0	BattleNpc		150			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_A4	163	宋军士兵	0	0	BattleNpc		150			131	40	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_A5	164	宋军士兵	0	0	BattleNpc		150			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_A6	165	宋军大将	0	0	BattleNpc		1114			138	40	1	91	1			800	800	Setting/Npc/Ai/battle/leader.ini			1	15	2	0	197	1																
+DOTA_Soldier_A7	166	邵宏渊	0	0	BattleNpc		1113			139	21	1	91	1			800	800	Setting/Npc/Ai/battle/leader.ini			1	15	2	0	197	1		202														
+DOTA_Soldier_A8	167	李显忠	0	0	BattleNpc		1113			139	21	1	91	1			800	800	Setting/Npc/Ai/battle/leader.ini			1	15	2	0	197	1		202														
+DOTA_Soldier_B1	168	金军护卫	0	0	BattleNpc		394			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_B2	169	金军护卫	0	0	BattleNpc		393			131	40	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_B3	170	金军士兵	0	0	BattleNpc		151			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_B4	171	金军士兵	0	0	BattleNpc		151			131	40	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_B5	172	金军士兵	0	0	BattleNpc		151			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	0																		
+DOTA_Soldier_B6	173	金军大将	0	0	BattleNpc		181			138	40	1	91	1			800	800	Setting/Npc/Ai/battle/leader.ini			1	15	2	0	197	1																
+DOTA_Soldier_B7	174	白彦敬	0	0	BattleNpc		180			139	21	1	91	1			800	800	Setting/Npc/Ai/battle/leader.ini			1	15	2	0	197	1		204														
+DOTA_Soldier_B8	175	徒单克宁	0	0	BattleNpc		180			139	21	1	91	1			800	800	Setting/Npc/Ai/battle/leader.ini			1	15	2	0	197	1		204														
+DOTA_Tower_A1	176	宋军外塔	0	0	BattleNpc		353			132	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+DOTA_Tower_A2	177	宋军中塔	0	0	BattleNpc		353			132	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+DOTA_Tower_A3	178	宋军内塔	0	0	BattleNpc		353			132	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+DOTA_Tower_A4	179	宋军箭塔	0	0	BattleNpc		353			132	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+DOTA_Tower_B1	180	金军外塔	0	0	BattleNpc		353			132	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+DOTA_Tower_B2	181	金军中塔	0	0	BattleNpc		353			132	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+DOTA_Tower_B3	182	金军内塔	0	0	BattleNpc		353			132	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+DOTA_Tower_B4	183	金军箭塔	0	0	BattleNpc		353			132	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+DOTA_Wild_1	184	火狐·攻击加持	0	0	BattleNpc		110			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	1																		
+DOTA_Wild_2	185	灵猴·生命加持	0	0	BattleNpc		117			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	1																		
+DOTA_Wild_3	186	巨熊·抗性加持	0	0	BattleNpc		116			131	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1	1																		
+Battle_Home_1	670	宋军箭塔	0	0	BattleNpc		353			136	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+Battle_Home_2	671	金军箭塔	0	0	BattleNpc		353			134	1704	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+Flag1	703	领旗	0	0	BattleNpc		412			132	91	1					800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+Flag2	704	领旗	0	0	BattleNpc		412			132	91	1					800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+Flag3	705	领旗	0	0	BattleNpc		412			132	91	1					800	800				1	15	2	1																		
+Battle_Cannon_1	1007	宋军炮车	0	0	BattleNpc		378			137	34	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+Battle_Cannon_2	1008	金军炮车	0	0	BattleNpc		378			137	34	1	91	1			800	800	Setting/Npc/Ai/battle/tower.ini			1	15	2	1																		
+Battle_Gouhuo	1305	篝火	4	0	GouHuoNpc	all|10000|6|5|0|300	380																								NoTurn												
+Battle_Gouhuo_2	1306	篝火	4	0			380																								NoTurn												
+Transport	1448	通往大营	4	0			8			132	91	1					800	800				1	15	2	1																		
+MOBA_Soldier_1	2431	宋军士兵	0	0	BattleNpc		150			140	3755	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_2	2432	宋军劲弩车	0	0	BattleNpc		946			140	3756	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_3	2433	金军士兵	0	0	BattleNpc		1127			140	3755	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_4	2434	金军劲弩车	0	0	BattleNpc		946			140	3756	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_B1	2478	宋军士兵	0	0	BattleNpc		150			141	3755	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_B2	2479	宋军劲弩车	0	0	BattleNpc		946			141	3756	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_B3	2480	金军士兵	0	0	BattleNpc		1127			141	3755	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_B4	2481	金军劲弩车	0	0	BattleNpc		946			141	3756	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_C1	2482	宋军士兵	0	0	BattleNpc		150			142	3755	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_C2	2483	宋军劲弩车	0	0	BattleNpc		946			142	3756	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_C3	2484	金军士兵	0	0	BattleNpc		1127			142	3755	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Soldier_C4	2485	金军劲弩车	0	0	BattleNpc		946			142	3756	1	91	1			800	800	Setting/Npc/Ai/battle/MobaSoldier.ini			1	15	1	0																	1	
+MOBA_Wild_1	2435	灰狼	0	0	BattleNpc		115			149	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1																		1	
+MOBA_Wild_2	2436	蛮熊	0	0	BattleNpc		116			149	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1																		1	
+MOBA_Wild_B1	2501	灰狼	0	0	BattleNpc		115			150	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1																		1	
+MOBA_Wild_B2	2502	蛮熊	0	0	BattleNpc		116			150	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1																		1	
+MOBA_Wild_C1	2503	灰狼	0	0	BattleNpc		115			151	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1																		1	
+MOBA_Wild_C2	2504	蛮熊	0	0	BattleNpc		116			151	21	1					800	800	Setting/Npc/Ai/battle/soldier.ini			1	15	1																		1	
+MOBA_paota_1	2439	宋军守卫塔	5	0			949			131							800	800	Setting/Npc/Ai/Stay.ini			1	15	3	1								NoTurn									1	
+MOBA_paotakou_1	2440	宋军守卫塔	0	0	BattleNpc		950			143	3751	6	91	1			800	800	Setting/Npc/Ai/battle/MobaTower.ini			1	15	2	1																	1	
+MOBA_paota_2	2441	金军守卫塔	5	0			947			131							800	800	Setting/Npc/Ai/Stay.ini			1	15	3	1								NoTurn									1	
+MOBA_paotakou_2	2442	金军守卫塔	0	0	BattleNpc		948			143	3751	6	91	1			800	800	Setting/Npc/Ai/battle/MobaTower.ini			1	15	2	1																	1	
+MOBA_paotakou_B1	2486	宋军守卫塔	0	0	BattleNpc		950			144	3751	6	91	1			800	800	Setting/Npc/Ai/battle/MobaTower.ini			1	15	2	1																	1	
+MOBA_paotakou_B2	2487	金军守卫塔	0	0	BattleNpc		948			144	3751	6	91	1			800	800	Setting/Npc/Ai/battle/MobaTower.ini			1	15	2	1																	1	
+MOBA_paotakou_C1	2488	宋军守卫塔	0	0	BattleNpc		950			145	3751	6	91	1			800	800	Setting/Npc/Ai/battle/MobaTower.ini			1	15	2	1																	1	
+MOBA_paotakou_C2	2489	金军守卫塔	0	0	BattleNpc		948			145	3751	6	91	1			800	800	Setting/Npc/Ai/battle/MobaTower.ini			1	15	2	1																	1	
+MOBA_daying_1	2443	宋军大营	0	0	BattleNpc		952			143	91	1					800	800	Setting/Npc/Ai/Stay.ini			1	15	2	1								NoTurn									1	
+MOBA_daying_2	2444	金军大营	0	0	BattleNpc		951			143	91	1					800	800	Setting/Npc/Ai/Stay.ini			1	15	2	1								NoTurn									1	
+MOBA_daying_B1	2490	宋军大营	0	0	BattleNpc		952			144	91	1					800	800	Setting/Npc/Ai/Stay.ini			1	15	2	1								NoTurn									1	
+MOBA_daying_B2	2491	金军大营	0	0	BattleNpc		951			144	91	1					800	800	Setting/Npc/Ai/Stay.ini			1	15	2	1								NoTurn									1	
+MOBA_daying_C1	2492	宋军大营	0	0	BattleNpc		952			145	91	1					800	800	Setting/Npc/Ai/Stay.ini			1	15	2	1								NoTurn									1	
+MOBA_daying_C2	2493	金军大营	0	0	BattleNpc		951			145	91	1					800	800	Setting/Npc/Ai/Stay.ini			1	15	2	1								NoTurn									1	
+MOBA_BOSS	2448	战地熊皇	0	0	BattleNpc		37	9023		146	3757	1	91	1	195	1			Setting/Npc/Ai/battle/moba_xiongwang.ini			1	25	2																		1	
+MOBA_BOSS_B	2495	战地熊皇	0	0	BattleNpc		37	9023		147	3757	1	91	1	195	1			Setting/Npc/Ai/battle/moba_xiongwang.ini			1	25	2																		1	
+MOBA_BOSS_C	2496	战地熊皇	0	0	BattleNpc		37	9023		148	3757	1	91	1	195	1			Setting/Npc/Ai/battle/moba_xiongwang.ini			1	25	2																		1	

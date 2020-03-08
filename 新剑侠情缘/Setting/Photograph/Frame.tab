@@ -1,0 +1,12 @@
+nId	szName	szAtlas	szIcon	szTexture
+1	结婚现场	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame02	UI/Textures/Photograph/jiehunxianchang.png
+2	铲屎官	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame01	UI/Textures/Photograph/chanshiguan.png
+3	今日头条	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame03	UI/Textures/Photograph/jinritoutiao.png
+4	荧幕	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame04	UI/Textures/Photograph/yingmu.png
+5	特别关心	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame05	UI/Textures/Photograph/tebieguanxin.png
+6	摄影	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame06	UI/Textures/Photograph/paizhao.png
+7	网红	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame07	UI/Textures/Photograph/wanghong.png
+8	富豪	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame08	UI/Textures/Photograph/fuhao.png
+9	烈焰	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame09	UI/Textures/Photograph/lieyan.png
+10	春风	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame10	UI/Textures/Photograph/chunfeng.png
+11	星光大道	UI/Atlas/Item/Item/PhotoItem01.prefab	Frame11	UI/Textures/Photograph/hongditan.png

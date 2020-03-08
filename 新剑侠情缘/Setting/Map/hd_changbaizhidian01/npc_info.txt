@@ -1,0 +1,18 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+zhangai1			104	0		80	8566	3056	23	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai2			104	0		80	8158	3095	7	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai3			104	0		80	4185	4560	23	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai4			104	0		80	3200	8199	32	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai5			104	0		80	4385	11008	7	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai6			104	0		80	8386	12924	15	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai7			104	0		80	12561	11353	21	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai8			104	0		80	13087	7826	32	-1	0	0		0	0	0	0	0	0	0	0	
+zhangai9			104	0		80	12063	4786	5	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong1			3677	0		80	8355	3100	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong2			3677	0		80	4118	4487	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong3			3677	0		80	3079	8201	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong4			3677	0		80	4282	11079	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong5			3677	0		80	8376	13050	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong6			3677	0		80	12673	11447	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong7			3677	0		80	13219	7830	0	-1	0	0		0	0	0	0	0	0	0	0	
+chuansong8			3677	0		80	12129	4736	0	-1	0	0		0	0	0	0	0	0	0	0	

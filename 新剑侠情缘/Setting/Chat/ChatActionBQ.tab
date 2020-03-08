@@ -1,0 +1,24 @@
+NpcType	ChatID	Sort	Name	ActionID	ActionEvent	ActionLoop	Content	Icon	IconAtlas
+0	1	1	问好	1	10002	1	在下「$M」，请多指教！	Action5	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+0	2	2	大笑	2	10002	1	哈哈哈~	Action6	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+0	3	3	愤怒	3	10002	1	哼~岂有此理！	Action7	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+0	4	4	跪拜	4	10001	1	是在下输了！	Action8	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+0	5	5	干杯	5	10002	1	来来来~干杯！	Action9	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+0	6	6	哭泣	6	10002	1	实在是太过分了，呜呜呜……	Action11	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+0	7	7	跳舞	7	10002	1	跟着我的音乐，跟着我的节奏，动次打次…动次打次…	Action10	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+0	8	8	躺下	102	10083	1	躺下歇息片刻~	Action19	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+2353|2354|2355|2356|2357|2358|2359|2360|2361	1	1	问好	1	10002	1	在下「$M」，请多指教！	Action5	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+2353|2354|2355|2356|2357|2358|2359|2360|2361	2	2	大笑	2	10002	1	哈哈哈~	Action6	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+2353|2354|2355|2356|2357|2358|2359|2360|2361	3	3	跪拜	3	10005	1	是在下输了！	Action8	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+2353|2354|2355|2356|2357|2358|2359|2360|2361	4	4	干杯	5	10002	1	来来来~干杯！	Action9	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+2353|2354|2355|2356|2357|2358|2359|2360|2361	5	5	跳舞	6	10002	1	跟着我的音乐，跟着我的节奏，动次打次…动次打次…	Action10	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+2353|2354|2355|2356|2357|2358|2359|2360|2361	6	6	作揖	7	10002	1	在下「$M」，请多指教！	Action5	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+2353|2354|2355|2356|2357|2358|2359|2360|2361	7	7	躺下	102	10084	1	躺下歇息片刻~	Action19	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+-1	1	1	踏歌	9	10016	1		Action12	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+-1	2	1	海草舞	10	10020	1		Action13	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+-1	3	1	秋叶流歌	13	10063	1		Action14	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+-1	4	1	寒冬热舞	14	10067	1		Action15	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+-1	5	1	翩燕流云	15	10069	1		Action16	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+-1	6	1	风华绝代	101	10079	1		Action17	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+-1	7	1	故梦星辰	111	10085	1		Action20	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab
+-1	8	1	翩翩似锦	112	10089	1		Action21	UI/Atlas/NewAtlas/ActionEmotions/ActionEmotions.prefab

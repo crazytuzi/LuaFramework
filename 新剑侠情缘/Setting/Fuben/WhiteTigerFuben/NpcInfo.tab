@@ -1,0 +1,58 @@
+TemplateId	BuffProbability	Time	Level	DropFile	Treasure1	Treasure2	Treasure3	DropType
+931	3500	OpenDay1	30	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Normal_lv30-50.tab	1			
+931	3500	OpenLevel49	40	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Normal_lv30-50.tab	1			
+931	3500	OpenLevel59	50	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Normal_lv30-50.tab	1			
+931	3850	OpenLevel69	60	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Normal_lv60-100.tab	1			
+931	3850	OpenLevel79	70	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Normal_lv60-100.tab	1			
+931	3850	OpenLevel89	80	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Normal_lv60-100.tab	1			
+931	3850	OpenLevel99	90	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Normal_lv60-100.tab	1			
+709	3500	OpenDay1	30	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Normal_lv30-50.tab	1			
+709	3500	OpenLevel49	40	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Normal_lv30-50.tab	1			
+709	3500	OpenLevel59	50	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Normal_lv30-50.tab	1			
+709	3250	OpenLevel69	60	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Normal_lv60-100.tab	1			
+709	3250	OpenLevel79	70	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Normal_lv60-100.tab	1			
+709	3250	OpenLevel89	80	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Normal_lv60-100.tab	1			
+709	3250	OpenLevel99	90	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Normal_lv60-100.tab	1			
+710	2500	OpenDay1	30	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Normal_lv30-50.tab	1			
+710	2500	OpenLevel49	40	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Normal_lv30-50.tab	1			
+710	2500	OpenLevel59	50	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Normal_lv30-50.tab	1			
+710	2250	OpenLevel69	60	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Normal_lv60-100.tab	1			
+710	2250	OpenLevel79	70	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Normal_lv60-100.tab	1			
+710	2250	OpenLevel89	80	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Normal_lv60-100.tab	1			
+710	2250	OpenLevel99	90	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Normal_lv60-100.tab	1			
+711	2000	OpenDay1	30	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Normal_lv30-50.tab	1			
+711	2000	OpenLevel49	40	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Normal_lv30-50.tab	1			
+711	2000	OpenLevel59	50	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Normal_lv30-50.tab	1			
+711	2150	OpenLevel69	60	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Normal_lv60-100.tab	1			
+711	2150	OpenLevel79	70	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Normal_lv60-100.tab	1			
+711	2150	OpenLevel89	80	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Normal_lv60-100.tab	1			
+711	2150	OpenLevel99	90	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Normal_lv60-100.tab	1			
+932		OpenDay1	30	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Boss_lv30.tab	5	3	2	
+932		OpenLevel49	40	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Boss_lv40.tab	5	3	2	
+932		OpenLevel59	50	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Boss_lv50.tab	5	3	2	
+932		OpenLevel69	60	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Boss_lv60.tab	5	3	2	
+932		OpenLevel79	70	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Boss_lv70.tab	5	3	2	
+932		OpenLevel89	80	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Boss_lv80.tab	5	3	2	
+932		OpenLevel99	90	Setting/Npc/DropFile/WhiteTigerFuben/Floor1Boss_lv90.tab	5	3	2	
+712		OpenDay1	30	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Boss_lv30.tab	5	3	2	
+712		OpenLevel49	40	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Boss_lv40.tab	5	3	2	
+712		OpenLevel59	50	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Boss_lv50.tab	5	3	2	
+712		OpenLevel69	60	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Boss_lv60.tab	5	3	2	
+712		OpenLevel79	70	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Boss_lv70.tab	5	3	2	
+712		OpenLevel89	80	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Boss_lv80.tab	5	3	2	
+712		OpenLevel99	90	Setting/Npc/DropFile/WhiteTigerFuben/Floor2Boss_lv90.tab	5	3	2	
+713		OpenDay1	30	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Boss_lv30.tab	5	3	2	
+713		OpenLevel49	40	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Boss_lv40.tab	5	3	2	
+713		OpenLevel59	50	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Boss_lv50.tab	5	3	2	
+713		OpenLevel69	60	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Boss_lv60.tab	5	3	2	
+713		OpenLevel79	70	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Boss_lv70.tab	5	3	2	
+713		OpenLevel89	80	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Boss_lv80.tab	5	3	2	
+713		OpenLevel99	90	Setting/Npc/DropFile/WhiteTigerFuben/Floor3Boss_lv90.tab	5	3	2	
+714		OpenDay1	30	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Boss_lv30.tab	5	3	2	
+714		OpenLevel49	40	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Boss_lv40.tab	5	3	2	
+714		OpenLevel59	50	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Boss_lv50.tab	5	3	2	
+714		OpenLevel69	60	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Boss_lv60.tab	5	3	2	
+714		OpenLevel79	70	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Boss_lv70.tab	5	3	2	
+714		OpenLevel89	80	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Boss_lv80.tab	5	3	2	
+714		OpenLevel99	90	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Boss_lv90.tab	5	3	2	
+714		OpenLevel109	100	Setting/Npc/DropFile/WhiteTigerFuben/Floor4Boss_lv100.tab	5	3	2	

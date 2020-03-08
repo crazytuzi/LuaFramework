@@ -1,0 +1,6 @@
+trap1
+trap2
+trap3
+trappos1
+trappos2
+trappos3

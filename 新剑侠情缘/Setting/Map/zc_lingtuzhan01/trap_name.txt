@@ -1,0 +1,17 @@
+TrapToFight1
+TrapToPeace1
+BackCampOut
+TrapToDXC
+TrapToBLX
+TrapToJJC
+TrapToYLZ
+TrapOutN
+TrapOutM
+TrapOutS
+BackCampIn
+TrapToFight2
+TrapToPeace2
+TrapToFight3
+TrapToPeace3
+TrapToFight4
+TrapToPeace4

@@ -1,0 +1,61 @@
+GameFormat	MinRank	MaxRank	MinJoin	BaoDiJoin	BaoDiAllAward	AllAward	MailConent
+1	1	1	4			BasicExp|1000;HSLJHonor|50000;AddTimeTitle|7004|2592000;Item|3357|1	恭喜您所在战队获得了本届华山论剑[FFFE0D]冠军[-]，武林盟特发来丰厚奖励，请查收！
+1	2	2	4			BasicExp|900;HSLJHonor|40000;AddTimeTitle|7003|2592000	恭喜您所在战队获得了本届华山论剑[FFFE0D]亚军[-]，武林盟特发来丰厚奖励，请查收！
+1	3	3	4			BasicExp|850;HSLJHonor|32000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]季军[-]，武林盟特发来丰厚奖励，请查收！
+1	4	4	4			BasicExp|800;HSLJHonor|28000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]殿军[-]，武林盟特发来丰厚奖励，请查收！
+1	5	8	4			BasicExp|750;HSLJHonor|24000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前8强[-]，武林盟特发来丰厚奖励，请查收！
+1	9	20	4			BasicExp|700;HSLJHonor|20000;AddTimeTitle|7002|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前20强[-]，武林盟特发来丰厚奖励，请查收！
+1	21	50	4			BasicExp|650;HSLJHonor|18000;AddTimeTitle|7001|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前50强[-]，武林盟特发来丰厚奖励，请查收！
+1	51	100	4			BasicExp|600;HSLJHonor|16000;AddTimeTitle|7000|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前100强[-]，武林盟特发来丰厚奖励，请查收！
+1	101	200	4			BasicExp|550;HSLJHonor|14000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+1	201	500	4			BasicExp|500;HSLJHonor|12000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+1	501	1000	4			BasicExp|480;HSLJHonor|10000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+1	1001	100000	4	8	BasicExp|480;HSLJHonor|10000	BasicExp|480;HSLJHonor|8000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+2	1	1	4			BasicExp|1000;HSLJHonor|50000;AddTimeTitle|7004|2592000;Item|3357|1	恭喜您所在战队获得了本届华山论剑[FFFE0D]冠军[-]，武林盟特发来丰厚奖励，请查收！
+2	2	2	4			BasicExp|900;HSLJHonor|40000;AddTimeTitle|7003|2592000	恭喜您所在战队获得了本届华山论剑[FFFE0D]亚军[-]，武林盟特发来丰厚奖励，请查收！
+2	3	3	4			BasicExp|850;HSLJHonor|32000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]季军[-]，武林盟特发来丰厚奖励，请查收！
+2	4	4	4			BasicExp|800;HSLJHonor|28000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]殿军[-]，武林盟特发来丰厚奖励，请查收！
+2	5	8	4			BasicExp|750;HSLJHonor|24000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前8强[-]，武林盟特发来丰厚奖励，请查收！
+2	9	16	4			BasicExp|700;HSLJHonor|20000;AddTimeTitle|7002|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前16强[-]，武林盟特发来丰厚奖励，请查收！
+2	17	40	4			BasicExp|650;HSLJHonor|18000;AddTimeTitle|7001|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前40强[-]，武林盟特发来丰厚奖励，请查收！
+2	41	80	4			BasicExp|600;HSLJHonor|16000;AddTimeTitle|7000|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前80强[-]，武林盟特发来丰厚奖励，请查收！
+2	81	160	4			BasicExp|550;HSLJHonor|14000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+2	161	320	4			BasicExp|500;HSLJHonor|12000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+2	321	640	4			BasicExp|480;HSLJHonor|10000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+2	641	100000	4	8	BasicExp|480;HSLJHonor|10000	BasicExp|480;HSLJHonor|8000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+3	1	1	4			BasicExp|1000;HSLJHonor|50000;AddTimeTitle|7004|2592000;Item|3357|1	恭喜您所在战队获得了本届华山论剑[FFFE0D]冠军[-]，武林盟特发来丰厚奖励，请查收！
+3	2	2	4			BasicExp|900;HSLJHonor|40000;AddTimeTitle|7003|2592000	恭喜您所在战队获得了本届华山论剑[FFFE0D]亚军[-]，武林盟特发来丰厚奖励，请查收！
+3	3	3	4			BasicExp|850;HSLJHonor|32000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]季军[-]，武林盟特发来丰厚奖励，请查收！
+3	4	4	4			BasicExp|800;HSLJHonor|28000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]殿军[-]，武林盟特发来丰厚奖励，请查收！
+3	5	8	4			BasicExp|750;HSLJHonor|24000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前8强[-]，武林盟特发来丰厚奖励，请查收！
+3	9	16	4			BasicExp|700;HSLJHonor|20000;AddTimeTitle|7002|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前16强[-]，武林盟特发来丰厚奖励，请查收！
+3	17	40	4			BasicExp|650;HSLJHonor|18000;AddTimeTitle|7001|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前40强[-]，武林盟特发来丰厚奖励，请查收！
+3	41	80	4			BasicExp|600;HSLJHonor|16000;AddTimeTitle|7000|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前80强[-]，武林盟特发来丰厚奖励，请查收！
+3	81	160	4			BasicExp|550;HSLJHonor|14000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+3	161	320	4			BasicExp|500;HSLJHonor|12000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+3	321	640	4			BasicExp|480;HSLJHonor|10000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+3	641	100000	4	8	BasicExp|480;HSLJHonor|10000	BasicExp|480;HSLJHonor|8000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+4	1	1	4			BasicExp|1000;HSLJHonor|50000;AddTimeTitle|7004|2592000;Item|3357|1	恭喜您获得了本届华山论剑[FFFE0D]冠军[-]，武林盟特发来丰厚奖励，请查收！
+4	2	2	4			BasicExp|950;HSLJHonor|40000;AddTimeTitle|7003|2592000	恭喜您获得了本届华山论剑[FFFE0D]亚军[-]，武林盟特发来丰厚奖励，请查收！
+4	3	3	4			BasicExp|900;HSLJHonor|36000;AddTimeTitle|7003|2592000	恭喜您进入了本届华山论剑[FFFE0D]季军[-]，武林盟特发来丰厚奖励，请查收！
+4	4	4	4			BasicExp|850;HSLJHonor|32000;AddTimeTitle|7003|2592000	恭喜您进入了本届华山论剑[FFFE0D]殿军[-]，武林盟特发来丰厚奖励，请查收！
+4	5	8	4			BasicExp|800;HSLJHonor|28000;AddTimeTitle|7003|2592000	恭喜您进入了本届华山论剑[FFFE0D]前8强[-]，武林盟特发来丰厚奖励，请查收！
+4	9	16	4			BasicExp|750;HSLJHonor|24000;AddTimeTitle|7002|2592000	恭喜您进入了本届华山论剑[FFFE0D]前16强[-]，武林盟特发来丰厚奖励，请查收！
+4	17	50	4			BasicExp|700;HSLJHonor|20000;AddTimeTitle|7001|2592000	恭喜您进入了本届华山论剑[FFFE0D]前50强[-]，武林盟特发来丰厚奖励，请查收！
+4	51	100	4			BasicExp|650;HSLJHonor|18000;AddTimeTitle|7000|2592000	恭喜您进入了本届华山论剑[FFFE0D]前100强[-]，武林盟特发来丰厚奖励，请查收！
+4	101	300	4			BasicExp|600;HSLJHonor|16000	本届华山论剑结束了，根据您的表现，武林盟特发来丰厚奖励，请查收！
+4	301	600	4			BasicExp|550;HSLJHonor|14000	本届华山论剑结束了，根据您的表现，武林盟特发来丰厚奖励，请查收！
+4	601	1000	4			BasicExp|500;HSLJHonor|12000	本届华山论剑结束了，根据您的表现，武林盟特发来丰厚奖励，请查收！
+4	1001	100000	4	8	BasicExp|500;HSLJHonor|12000	BasicExp|480;HSLJHonor|9000	本届华山论剑结束了，根据您的表现，武林盟特发来丰厚奖励，请查收！
+5	1	1	4			BasicExp|1000;HSLJHonor|50000;AddTimeTitle|7004|2592000;Item|3357|1	恭喜您所在战队获得了本届华山论剑[FFFE0D]冠军[-]，武林盟特发来丰厚奖励，请查收！
+5	2	2	4			BasicExp|900;HSLJHonor|40000;AddTimeTitle|7003|2592000	恭喜您所在战队获得了本届华山论剑[FFFE0D]亚军[-]，武林盟特发来丰厚奖励，请查收！
+5	3	3	4			BasicExp|850;HSLJHonor|32000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]季军[-]，武林盟特发来丰厚奖励，请查收！
+5	4	4	4			BasicExp|800;HSLJHonor|28000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]殿军[-]，武林盟特发来丰厚奖励，请查收！
+5	5	8	4			BasicExp|750;HSLJHonor|24000;AddTimeTitle|7003|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前8强[-]，武林盟特发来丰厚奖励，请查收！
+5	9	20	4			BasicExp|700;HSLJHonor|20000;AddTimeTitle|7002|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前20强[-]，武林盟特发来丰厚奖励，请查收！
+5	21	50	4			BasicExp|650;HSLJHonor|18000;AddTimeTitle|7001|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前50强[-]，武林盟特发来丰厚奖励，请查收！
+5	51	100	4			BasicExp|600;HSLJHonor|16000;AddTimeTitle|7000|2592000	恭喜您所在战队进入了本届华山论剑[FFFE0D]前100强[-]，武林盟特发来丰厚奖励，请查收！
+5	101	200	4			BasicExp|550;HSLJHonor|14000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+5	201	500	4			BasicExp|500;HSLJHonor|12000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+5	501	1000	4			BasicExp|480;HSLJHonor|10000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！
+5	1001	100000	4	8	BasicExp|480;HSLJHonor|10000	BasicExp|480;HSLJHonor|8000	本届华山论剑结束了，根据您所在战队的表现，武林盟特发来丰厚奖励，请查收！

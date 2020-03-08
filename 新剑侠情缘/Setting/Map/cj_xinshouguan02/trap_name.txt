@@ -1,0 +1,7 @@
+zhiyin1
+zhiyin2
+trap1
+trap2
+qinggong
+npc
+boss

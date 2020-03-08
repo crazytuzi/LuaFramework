@@ -1,0 +1,44 @@
+EventType	Des	EventName	EventParam1	EventParam2	EventParam3	EventParam4	EventParam5	EventParamStr
+1表示开始	是否技能，玩家攻速若提升，则按照释放时间比例进行自动调整（注意不能有动作技能填写）	CastSkill	技能ID（不填代表原释放的技能ID）	技能等级（不填代表原释放的技能等级）				
+2表示帧	播放自身特效	PlayEffect	资源ID(不填代表是技能的CastEffectRestId)	是否循环	是否不跟动作缩放播放速度	插槽的位置	释放技能结束延迟删除的帧数(-1是动作结束不打断)	
+3表示结束	播放自身特效，若是循环的，则不会关掉重新播	PlayEffectNoClear	资源ID(不填代表是技能的CastEffectRestId)	是否循环	是否不跟动作缩放播放速度	插槽的位置	释放技能结束延迟删除的帧数(-1是动作结束不打断)	
+	删除特效	ClearEffect	资源ID	是否移除Npc关联				
+	解除绑定身上的特效不会跟随NPC	UnbindEffect	资源ID					
+	播放震动	PlayShake	上下的波动（1代表1cm）	上下的波动的速度	次数	是否前后	是否强制	
+	停止震动	StopShake	是否强制					
+	（放在开始事件）初始连招事件（技能ID:1到3表示从高到底优先级，例如1号学，2号学则会释放1号。1号没学，2号学则释放2号）	LinkSkillInit	最后有效判定帧	技能ID :1	技能ID :2	技能ID :3		
+	释放连招	CastLinkSkill	是否有移动就打断动作					
+	立即转方向	InstantDir	旋转的角度 度/每帧（此帧为渲染帧，45帧1秒）					
+	动作过度	CrossFade	过度值（万分值 10000等于1）	过度值 / （动作帧数 * 帧数）	最大的过度值			
+	移动（动作技能无效）	MovePos	移动的长度cm	速度cm/帧	目标多少范围不再移动cm	加速度		
+	使用最后一个动作的帧（注意结束事件最后一定要添加上去参数填0）	UseLastAct	是否使用最后一个动作	是否使用当前帧	是否使用最后动作的帧			
+	播放场景特效	PlaySceneEffect	资源ID					
+	改变自己大小（注意事件结束要恢复NpcChangeSize参数1:100）	NpcChangeSize	大小（百分比）	速度（百分比）（不填立即改变）				
+	场景变暗（注意一定要事件结束加入CloseSceneGray）	OpenSceneGray						
+	恢复场景变暗	CloseSceneGray	延迟多少帧后关闭					
+	播放声音	PlaySound	声音ID					
+	停止声音	StopSound	声音ID	动作打断后声音保留多长时间的帧数				
+	改变Npc亮度（注意事件结束一定要加入ClearBright）	ChangeBright	百分值（100 = 1）					
+	清除Npc亮度	ClearBright						
+	改变动作（注意放在开头）	ChangeAct	动作ID	动作的帧数(没有就默认的NpcRes帧数)	玩家动作ID（如果没有就取参数1）			
+	向后移动	MoveBack	移动的长度	移动的速度	加速度			
+	显示影子（注意事件结束要加入ShadowActive参数1代表显示出来）	ShadowActive	是否显示影子					
+	能够移动	CanDoRun						
+	重新更新位置	RetsetPos						
+	执行通用的动作	DoCommonAct	动作ID	动作的事件ID	是否循环	动作的帧数（默认是NpcRes的帧数）	资源动画类型(1表情，不填默认)	
+	能够切换其他或自身技能（注意不能够放在开始事件）	CanDoSkill	0或空白:新技能优先级＞当前技能优先级方可释放;1:新技能优先级≥当前技能优先级即可释放					
+	设置公共cd时长	SetCanDoSkillFrame	时长(受攻速影响,只能设在eventtype=2里)	x帧内新技能优先级＞此公共cd技能优先级方可释放(0或默认为>,1时为≥),一般设完gcd还需要技能1帧设更高(0)优先级技能candoskill,然后x帧后设同(0)优先级技能candoskill				
+	保护	Protected	是否保护					
+	显示头顶UI	HeadUIVisable	是否显示UI					
+	显示身体	BodyVisable	是否显示身体					
+	是否忽略异常状态	IgnoreSpeState	是否忽略					
+	移除BUFF	RemoveBuff	技能ID					
+	设置技能CD（注意只能比第一次CastSkill前 默认是第一次CastSkil）	SetSkillCD	技能ID					
+	受到伤害动作被打断	ReceiveDmgBreakAct						
+	预加载动作	PreLoadAni	动作资源类型（1表情，不填默认）	动作ID				
+	触发AutoSkill	CastAutoSkill						
+	隐藏Model特效	ModelEffectVisible	是否显示					
+	设置事件是否循环默认不循环	SetEventLoop	是否循环					
+	执行脚本	DoCallScript	类型					
+	结束当前动作	EndActionFrame						
+	切换动作子状态	SwithActionModeFlag						

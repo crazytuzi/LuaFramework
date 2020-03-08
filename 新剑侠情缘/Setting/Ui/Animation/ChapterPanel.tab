@@ -1,0 +1,7 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Alpha	Main	1	190	1	1
+Alpha	Main	190	240	1	0
+Alpha	ChapterTitle	1	20	0	0
+Alpha	ChapterTitle	20	30	0	1
+Alpha	ChapterTitle	30	105	1	1
+Alpha	ChapterTitle	105	140	1	0

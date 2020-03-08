@@ -1,0 +1,5 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Scalc	Label_Number	1	6	{1,1,1}	{1.5,1.5,1.5}
+Scalc	Label_Number	6	7	{1.5,1.5,1.5}	{1.7,1.7,1.7}
+Scalc	Label_Number	7	10	{1.7,1.7,1.7}	{1.5,1.5,1.5}
+Scalc	Label_Number	10	13	{1.5,1.5,1.5}	{1,1,1}

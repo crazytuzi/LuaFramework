@@ -1,0 +1,4 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme	HideTaskId
+ChuanSong1	大邑县		3683	50	1	1	15569	3761	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong2	夜郎废墟		73	50	1	1	2591	2780	0	-1	0	0		0	0	0	0	0	0	0	0	
+ChuanSong3	昆虚脉藏		73	50	1	1	2661	15142	0	-1	0	0		0	0	0	0	0	0	0	0	

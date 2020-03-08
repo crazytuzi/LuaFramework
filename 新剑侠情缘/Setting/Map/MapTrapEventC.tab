@@ -1,0 +1,6 @@
+MapTID	TrapName	Type	Param
+1000	taskqg1_1	ChangeCamera	XRoate|5;YRoate|32;ZRoate|0;CameraDis|12;RoateSpeed|1.5;NotCanSkill|1
+1000	taskqg2_1	ChangeCamera	CameraDis|23;NotCanSkill|1
+1000	taskqg2_1	ChangeCamera	XRoate|35;YRoate|45;ZRoate|0;RoateSpeed|2.4;DelayTime|10;NotCanSkill|1
+1000	taskqg1_1	SceneObjActive	Name|/Main Camera/camera_bg;Active|0;NotCanSkill|1
+1000	taskqg2_1	SceneObjActive	Name|/Main Camera/camera_bg;Active|1;NotCanSkill|1

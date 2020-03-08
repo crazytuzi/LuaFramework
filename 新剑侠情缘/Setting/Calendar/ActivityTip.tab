@@ -1,0 +1,61 @@
+Key	HelpKey	Type	Time	Desc
+ActivityQuestion	ActivityQuestionHelp	单人	全天	每天答题可获得丰厚的奖励，简单又轻松，不要忘记参加噢！
+Battle	BattleHelp	单人	每天[FFFE0D]16:30~17:00；20:30~21:00；22:30~23:00[-]	大型多人实时在线的真人群战活动！活动中，你将代表宋方或者金方，与本方其他玩家一起，对抗另一方的玩家。
+Boss	BossHelp	单人	每天中午[FFFE0D]12：30~13：00[-]，晚上[FFFE0D]19：30~20：00[-]	与武林盟主切磋获得积分，最终根据排名决定奖励，还可以抢夺其他参与侠士的积分！
+CangBaoTu		单人	全天	每一张藏宝图纸上都可能记录着神秘宝藏的藏宝信息。
+ChuanGong		单人	全天	传功后双方可以获得大量的经验，双方等级差需≥[FFFE0D]3级[-]；也可以找[FFFE0D]家族总管[-]消耗被传功次数打坐修炼，修炼完毕后可获得经验。
+CommerceTask		单人	全天	完成万金财委托的商会任务可以获得丰厚的奖励。
+ExplorationFuben		单人	全天	丰厚的宝藏奖励，等待着各位侠士前往探索！
+FieldBoss	FieldBossHelp	单人	每天[FFFE0D]15:30[-]，[FFFE0D]22:00[-]时在名将所属禁地刷新	前往名将所属禁地击杀历代名将，将获得丰厚奖励！每日首次攻击历代名将会获得一份额外奖励！
+FieldCrossBoss	FieldBossHelp	单人	每周一晚[FFFE0D]22:00[-]时在名将所属禁地刷新	前往名将所属禁地击杀历代名将，将获得丰厚奖励！每日首次攻击历代名将会获得一份额外奖励！
+FieldLeader		单人/组队	[FFFE0D]20级以上[-]野外地图每天[FFFE0D]10:00[-]、[FFFE0D]14:00[-]、[FFFE0D]18:00[-]、[FFFE0D]23:00[-]刷新	20级以上野外地图，会刷新多个野外首领，将其击败，可获丰厚奖励！每日完成首次击杀，将获额外奖励！
+KinGather		单人	每天[FFFE0D]19:15~19:25[-]	答题、烤火，欢乐的家族相聚时间，不但可以和家族成员相聚，更可以轻松获得奖励哦。
+Pray		单人	周一至周四[FFFE0D]11：00~12：00[-]	通过祈福来获得一些特殊的能力加成，对各种活动都是不可多得的助力哦！
+PunishTask		组队	全天	[FFFE0D]20级[-] 以上的野外地图有武林恶徒出没，专门打家劫舍、无恶不作，组成 [FFFE0D]3人及以上[-] 的队伍剿灭他们，有丰厚的奖励哦！
+QunYingHui		单人/组队	周四[FFFE0D]21:00~21:27[-]	双人跨服无差别实时匹配竞技玩法，所有侠士[FFFE0D]不携带同伴、拥有相同的实力[-]。摆脱装备和等级的桎梏，感受纯操作的竞技快感！
+RandomFuben	RandomFubenHelp	组队	全天	江湖中传闻凌绝峰不仅有最庞大的宝藏，而且有最顶尖的武林高手，只是危机与机遇并存，少侠是否能够闯过重重险关？
+Rank	RankHelp	单人	全天	可以一次携带四名同伴进行战斗，通过挑战榜单上的其他侠士来提升自己的排名，排名越高奖励越高！
+TeamFuben	TeamFubenHelp	组队	全天	与武林中志同道合的侠士结成队伍，一同挑战强力的敌人，更有机会获得丰厚的奖励哦！
+TianJiMiZhen	TianJiMiZhenHelp	组队	全天	前世高人所留奇阵，乾坤暗藏，等待侠士前往一探，获取丰厚奖励！
+WarOfIceAndFire	WarOfIceAndFire	单人	每天[FFFE0D]13:30、16:00、20:00[-]	单人报名，进入昆仑之巅，和其他玩家进行一场水火大战吧！
+AdventureFuben		组队	全天	讨伐无恶不作的山贼，维护武林秩序，更有机会获得丰厚的奖励！
+HeroChallenge		单人	全天	与10名英雄进行挑战。获胜可得丰厚奖励。每位英雄有2次挑战机会，失败2次后，就不能再继续挑战了
+KinBattle		组队	周三、周五[FFFE0D]20:50~21:30[-]	家族与家族的对战活动
+FactionBattle	FactionBattleHelp	单人	[FFFE0D]周三、周日21:00[-]开启	本门派内部的对战竞技比赛。分晋级赛（群战）和淘汰赛（单挑）2个阶段。最终冠军，荣膺本门派的[FFFE0D]新人王[-]！
+WhiteTigerFuben	WhiteTigerFubenHelp	单人/组队	11:00、13:00、15:00\n17:00、20:00、24:00	最凶残的实时群战活动，你只有1次生存机会！白虎堂共4层，击败每层首领就可以进入到下一层。每多进一层，就越有可能遇到其他玩家来抢夺
+KinEscort		单人/组队	周二、周四、周六\n[FFFE0D]20:00~22:00[-]	家族成员一起共同护送镖车。护送至终点后，可获得奖励。镖车颜色越好，奖励越高。护送过程中，小心敌对家族的人前来劫镖！
+KinFokuAct		单人/组队	每天[FFFE0D]20:00[-]开启	家族跨服集体挑战，为抢夺龙门秘宝[FFFE0D]天龙珠[-]而战！
+TeamBattle	TeamBattleHelp	组队	周一、周四、周六\n[FFFE0D]21:00[-]、[FFFE0D]23:00[-]开启	三人组队的小队竞技对战活动
+XiuLian		单人/组队	全天	组上一队侠士，前往 [FFFE0D]野外地图[-] 击杀野怪可以获得经验奖励。开启修炼后更可获得 [FFFE0D]10倍[-] 的打怪经验哦！
+KinFuben		单人	[FFFE0D]周二、周五21:00[-]开启	家族集体挑战活动。成员一起前往试炼地图内进行挑战！
+SeriesFuben		单人	全天	和江湖中的知名人物进行试炼挑战。获胜后可获得经验以及对应的镶嵌魂石！
+FactionMonkey		单人	00:00~24:00	月度门派大师兄/大师姐评选，给你心中门派候选人投票吧！不同头衔对应的票数权重不同
+DomainBattle	DomainHelp	单人/组队	[FFFE0D]周二、周六21:00~21:45[-]	家族集体群体对抗活动，成员一起为争夺家族领地、成为襄阳城主而战。
+CardCollection_1	CardCollection_1Help	组队	全天	参加凌绝峰活动，通过各种挑战后会获得各种卡片作为凭证。收集起来进行为期一个月的排行，最终根据名次获得高额奖励。
+ChangBaiZhiDian	ChangbaiHelp	单人/组队	每天[FFFE0D]13:30、16:00、20:00[-]	双人公平竞技，按队伍积分排名发奖，谁能问鼎长白之巅？
+HuaShanLunJian	HuaShanLunJianHelp	单人/组队	每月7~27日周一、周三、周五、周日\n[FFFE0D]21:00[-]开启	成立战队，参加华山论剑预选赛，根据积分排行，前八进入决赛。通过决赛的残酷战斗，最终登顶华山之巅，成为武林至尊！
+HuaShanLunJian1	HuaShanLunJianHelp	单人/组队	每月28日\n[FFFE0D]21:00[-]开启	华山论剑决赛即将开始，谁将最终登顶华山之巅，成为武林至尊？请拭目以待！
+ImperialTomb	ImperialTombHelp	组队	10:00~24:00	组队前往秦始皇陵清除复活的秦朝士兵，有机会找到其中的密室争夺宝藏！秦始皇陵内毒雾弥漫，不能常驻其中！
+ImperialTombEmperor	ImperialTombEmperorHelp	组队	[FFFE0D]周四、周日22:00[-]开启	秦始皇再次现身于世，与家族一同前往，将之击败，夺取大秦王朝千百年累积下来的珍宝！
+WeekendQuestion		组队		和异性角色组队，根据线索寻找指定的武林侠客，进行愉快轻松的答题吧！
+IdiomsAct		组队	周六、周日	和异性角色组队，通过击败小怪，进行名字的成语接龙！
+DefendAct		组队		和异性角色组队，守护张如梦，击退不断出现的死士！
+InDifferBattle	InDifferBattleHelp	单人/组队	周二、周四、周六	3人组队跨服无差别竞技，所有侠士[FFFE0D]固定80级、不携带同伴、初始拥有相同的战力水平[-]。摆脱装备和等级的桎梏，感受纯操作的竞技快感！
+InDifferBattleJuedi	InDifferBattleJueDiHelp	单人/组队	周二、周四、周六	心魔幻境另一模式，3人组队跨服无差别竞技，摆脱装备和等级的桎梏，感受纯操作的竞技快感！
+DaXueZhang	DaXueZhang	单人	每天[FFFE0D]13:30、16:00、20:00[-]	单人报名，进入飞雪飘飞的山崖，利用雪球和其他玩家一起战斗吧！
+Muse	MuseHelp	单人	全天	冥想可以获得大量元气，元气可用于凝聚真元。
+ImperialTombFemaleEmperor	ImperialTombFemaleHelp	组队	[FFFE0D]周四、周日22:00[-]开启	女帝武则天复苏，欲重现大周王朝的光辉，与家族成员一同前往，将之击败，让他们能够再度安息！
+ZhenFaTask		组队	全天	和 [FFFE0D]侠侣、情缘、师徒、结拜、好友 [-]等关系的侠士组队，挑战阵法试炼，夺取高额奖励！协助他人试炼也会获得 [FFFE0D]援助奖励 [-]（每日限20个）哦！
+CrossDomainBattle	CrossDomainHelp	单人/组队	[FFFE0D]每隔两周周日21:00~21:40[-]	家族跨服集体对抗活动，成员一起为争夺临安城王座，成为临安城主而战。
+DaMoCave	DaMoCave	单人/组队	每天[FFFE0D]周三22:00[-]开启	达摩再次现身于世，与家族成员一同前往，将之击败，夺取洞内千百年累积下来的珍宝！
+DanceAct		单人	每天[FFFE0D]12:45、15:00、20:00[-]	单人报名，与其他玩家一起以舞会友，同台竞技！
+KinSecretFuben	KinSecretFubenHelp	单人/组队	[FFFE0D]周五21:00[-]开启	家族集体挑战活动。成员一起前往家族秘境中挑战历任武林盟主！
+LingJueFengWeek	LingJueFengWeekHelp	组队	全天	无差别挑战，职业搭配，登顶山巅！每周不限次数挑战，单日最多可以失败两次，全服竞速论英豪，还有丰厚奖励等你来拿！
+LingTuZhan	LTZHelp	单人/组队	[FFFE0D]周二21:05[-]开启	家族跨服集体对抗活动，成员一起为争夺更多的领土而战。
+KeyQuestFuben	KeyQuestFubenHelp	组队	[FFFE0D]周一、周三19:50[-]开启	小队形式的寻宝活动，寻找进入遗迹深处的传送符文，获取隐藏在遗迹中的宝藏吧！
+KinEncounterAct	KinEncounterHelp	单人/组队	活动期间[FFFE0D]周一、周三、周五、周日20:59[-]开启	跨服与实力相近的家族斗智斗力，为了家族荣耀而战！
+PartnerCardTask		单人	全天	每天可以选定一个门客，完成其发布的5个门客任务，获取该门客的友好度！
+LoverTask	LoverTaskHelp	组队	全天	和异性一同前往[FFFE0D]燕若雪[-]处领取情缘任务，每周可完成[FFFE0D]2次[-]，但只能领取[FFFE0D]1次奖励[-]！
+KinDefendFuben	KinDefendHelp	单人/组队	[FFFE0D]周五21:00[-]开启	家族集体挑战活动。成员一起抵御完颜宗翰的进攻！
+BossHome		单人/组队	全天	[FFFE0D]神之墓地[-]每天9:00,13:30,18:30,22:30可进入,每次最大时间半小时.
+BossHomeLeft		单人/组队	全天	[FFFE0D]神之墓地[-]每天9:00,13:30,18:30,22:30可进入,每次最大时间半小时.

@@ -1,0 +1,69 @@
+Key	ID	Name	Type	MaxNum	MaxSaveNum	TimeFrame	Tips	Sub	ActivityType	NoShowInMaiPanel	nIndex
+ZhongQiuJie	19	中秋节祭月榜	0	500	10000		中秋节祭月榜		ZhongQiuJie		1
+CardCollection_2	20	锦绣山河	0	500	10000		国庆锦绣山河活动		JinXiuShanHe		2
+SendBless	21	普天同庆	0	100	10000		国庆普天同庆活动		SendBlessAct		3
+NewYearChris	37	许愿积分榜	0	500	10000		许愿符积分		NewYearChris		4
+MedalFightAct	39	奖章争夺战	0	500	10000		奖章争夺战		MedalFightAct		5
+DanceAct	41	舞动江湖	0	500	10000		舞动江湖		DanceAct		6
+WorldCupAct	42	世界杯	0	500	10000		世界杯		WorldCupAct		7
+ActJueDi	43	绝地试炼	0	1000	10000		绝地试炼		ActJueDiHide		8
+KinActivityRankAct	51	家族活跃排行	0	500	10000		家族所有成员活跃度之和排名		KinActivityRankAct		9
+MaterialCollectAct	52	酿酒	0	1000	10000		酿酒排行		MaterialCollectAct		10
+YinXingJiQingAct	54	银杏寄情	0	500	10000		银杏寄情		YinXingJiQingAct	1	11
+DaXueZhangRank	55	打雪仗	0	1000	10000		打雪仗积分		DaXueZhang		12
+DumplingBanquetAct	56	饺子宴	0	30	100		饺子宴积分		DumplingBanquetAct		13
+DongRiJiAct	57	师徒礼盒	0	500	10000		师徒礼盒积分		DongRiJiAct		14
+LingJueFengWeekRank	59	决战凌绝峰	0	1000	10000		决战凌绝峰		LingJueFengWeek		15
+DrinkToDreamAct	60	大醉江湖梦一场	0	500	10000		大醉江湖梦一场点赞		DrinkToDreamAct	1	16
+ArborDayCure	61	情缘节活动	0	500	10000		520活动甜蜜度		ArborDayCure		17
+AnniversaryJiYuAct	62	周年寄语活动	0	500	10000		周年寄语活动愿力值		AnniversaryJiYuAct	1	18
+ChangBaiZhiDian	66	长白之巅	0	500	10000		长白之巅积分排行		ChangBaiZhiDian		19
+WarOfIceAndFireRankFire	63	火娃	0	500	10000		灭火大作战火娃积分排行	灭火大作战	WarOfIceAndFire		20
+WarOfIceAndFireRankIce	64	水娃	0	500	10000		灭火大作战水娃积分排行	灭火大作战	WarOfIceAndFire		21
+TianJiMiZhen	68	天机迷阵	0	1000	10000		天机迷阵		TianJiMiZhen		22
+kin	1	家族	0	30	100		按家族威望排名				23
+FightPower	2	本服战力	0	500	500		根据角色的战力	战力			24
+FightPower_1	5	天王	0	500	500		根据天王角色的战力	战力			25
+FightPower_2	6	峨嵋	0	500	500		根据峨嵋角色的战力	战力			26
+FightPower_3	7	桃花	0	500	500		根据桃花角色的战力	战力			27
+FightPower_4	8	逍遥	0	500	500		根据逍遥角色的战力	战力			28
+FightPower_5	9	武当	0	500	500		根据武当角色的战力	战力			29
+FightPower_6	10	天忍	0	500	500		根据天忍角色的战力	战力			30
+FightPower_7	17	少林	0	500	500		根据少林角色的战力	战力			31
+FightPower_8	18	翠烟	0	500	500		根据翠烟角色的战力	战力			32
+FightPower_9	22	唐门	0	500	500		根据唐门角色的战力	战力			33
+FightPower_10	23	昆仑	0	500	500		根据昆仑角色的战力	战力			34
+FightPower_11	24	丐帮	0	500	500		根据丐帮角色的战力	战力			35
+FightPower_12	25	五毒	0	500	500		根据五毒角色的战力	战力			36
+FightPower_13	31	藏剑	0	500	500		根据藏剑角色的战力	战力			37
+FightPower_14	32	长歌	0	500	500		根据长歌角色的战力	战力			38
+FightPower_15	34	天山	0	500	500		根据天山角色的战力	战力			39
+FightPower_16	38	霸刀	0	500	500		根据霸刀角色的战力	战力			40
+FightPower_17	44	华山	0	500	500		根据华山角色的战力	战力			41
+FightPower_18	53	明教	0	500	500		根据明教角色的战力	战力			42
+FightPower_19	58	段氏	0	500	500		根据段氏角色的战力	战力			43
+FightPower_20	65	万花	0	500	500		根据万花角色的战力	战力			44
+Level	4	等级	0	500	500		根据角色等级	个人展示			45
+Charm	35	魅力	0	500	500		根据角色魅力值排名	个人展示			46
+AchievementPoint	47	成就	0	500	10000		根据已完成成就的总成就点排名	个人展示			47
+House	26	家园	0	500	500	OpenDay15	根据家园舒适度	个人展示			48
+WulinHonor	30	武林荣誉	0	500	500	OpenLevel69	武林荣誉	个人展示		1	49
+FightPower_Equip	11	装备基础	0	500	500		装备上随机属性的总战力值排名	装备			50
+FightPower_Strengthen	12	强化	0	500	500		装备强化所加的总战力值排名	装备			51
+FightPower_Skill	48	技能点	0	500	500		技能点对应战力	技能			52
+FightPower_Stone	13	镶嵌	0	500	500		装备镶嵌所加的总战力值排名	装备			53
+FightPower_Horse	28	坐骑	0	500	500		坐骑和坐骑装备的总战力值排名	装备			54
+FightPower_ZhenYuan	29	真元	0	500	500	OpenLevel69	真元的战力值排名	装备			55
+FightPower_PiFeng	69	披风	0	500	500	OpenLevel119	披风的战力值排名	装备			56
+FightPower_Partner	14	同伴	0	500	500		所有上阵同伴加的总战力值排名	装备			57
+FightPower_PartnerCard	46	门客	0	500	500	OpenLevel109	同伴上阵门客战力	装备			58
+FightPower_MagicBowl	40	聚宝盆	0	500	500	OpenDay33	根据聚宝盆战力	装备			59
+FightPower_SeriesStone	45	五行石	0	500	500	OpenDay720	装备五行石所加的总战力值排名	装备			60
+FightPower_SkillBook	49	秘籍	0	500	500		秘籍对应战力	技能			61
+FightPower_JueXue	50	绝学	0	500	500		绝学对应战力	技能			62
+FightPower_JingMai	33	经脉	0	500	500	OpenLevel79	根据经脉增加的战斗力	技能			63
+FightPower_ZhenFa	36	阵法	0	500	500	OpenLevel89	阵法相关	技能			64
+CardCollection_1	15	凌绝峰收集榜	0	500	10000	OpenLevel59	凌绝峰卡牌收集排行榜	挑战			65
+LunJianRank	16	华山论剑	1	1000	10000	HuaShanLunJian	华山论剑	挑战			66
+qunyinghui	3	群英会	0	500	500	NotOpen	群英会的排名	挑战			67
+FightPower_21	67	杨门	0	500	500		根据杨门角色的战力	战力			68

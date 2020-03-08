@@ -1,0 +1,18 @@
+nFubenLevel	szType	SubType	nItemId	nCount	nAwardLevel	nRate	bCritAward	bFirst	nSpecialRate	bStarAward
+1			604	1	2				0.8	
+1			222	1	1	2500				
+1			212	1	1	15300				
+1			786	1	1	9400				
+1			785	1	1	4700				
+1	Coin			100	1	426600				
+1			601	1	1	493600				
+1			1105	1		-1				1
+2	PartnerFamiliar	73		10		-1	1			
+2	PStone0			1	1	213300				
+2			222	1	1	1000				
+2			212	1	1	8500				
+2			786	1	1	4400				
+2			785	1	1	2200				
+2	Coin			70	1	305200				
+2			601	1	1	440700				
+2			1035	1		-1				1

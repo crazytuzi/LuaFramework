@@ -1,0 +1,83 @@
+Event	Name	OpenDay	OpenTime	NewMaxLevel	BeShow	Description
+OpenLevel39	39级上限	1	0	39		
+OpenDay1	家族烤火	1	1000			
+OpenDay1A	武林盟主武功提升、宋金战场	1	1900			
+OpenDay2D	离线托管、战力前十聊天前缀	2	0			
+OpenDay2	家族传功、商会任务、凌绝峰	2	1000			
+OpenDay2A	武林盟主武功提升	2	1200			
+OpenDay2B		2	1800			
+OpenDay2C	武林盟主武功提升	2	1900			
+OpenDay3C	20级野外首领白眉猴王、大地狼王、寒玉鹿王	3	0			
+OpenDay3	白虎堂、英雄挑战	3	1000			
+OpenDay3A	武林盟主武功提升	3	1200			
+OpenDay3B	武林盟主武功提升	3	1900			
+OpenDay4	门派竞技、家族试炼、通天塔	4	1000			
+OpenDay4A	经验加成第一档位	4	400			
+OpenDay5	家族战、家族运镖	5	1000			
+OpenDay5A	经验加成第二档位	5	400			
+OpenLevel49	49级上限	6	400	49		
+OpenDay6	群英会、40级野外首领双首异兽、奔焰豹王、九尾狐王	6	1000			
+OpenDay7	40级历代名将鳌拜、袁承志、韩世忠、哲别、高长恭、秦良玉	7	1000			
+OpenDay8		8	1000			
+OpenDay10		10	400			
+OpenDay12		12	1000			
+OpenLevel59	59级上限	15	400	59		
+OpenDay15		15	1000			
+OpenDay16		16	1000			
+OpenDay20	新马每日礼包奖励提升①	20	400			
+OpenLevel69	69级上限	33	400	69		
+OpenDay33	家园等级（1、2级）、家具制作（1、2级）	33	1000			
+OpenDay35	60级野外首领定海金刚、金翅鹏皇、银角犀皇	35	1000			
+OpenDay36		36	1000			
+OpenDay39		39	1000			
+OpenDay42	武林盟主奖励变更	42	1000			
+OpenDay45		45	1000			
+OpenDay52	60级历代名将荆轲、虞姬、岳飞	52	1000			
+OpenDay67	新马每日礼包奖励提升②	67	400			
+OpenLevel79	79级上限	69	400	79		
+OpenDay69	家园等级（3级）	69	1000			
+OpenDay70		70	400			
+OpenDay72		72	400			
+OpenDay89	秦始皇陵	89	1000			
+OpenDay90		84	400			
+OpenImperialTomb		150	1000			
+OpenDay99	家具制作（3级）	99	1000			
+OpenDay100		100	400			
+OpenLevel89	89级上限	114	400	89		
+OpenDay114	家园等级（4级）	114	1000			
+OpenDay116	80级野外首领撼天熊皇、赤睛虎皇、紫背鳄皇	116	1000			
+OpenDay118	心魔幻境	118	1000			
+OpenDay128	80级历代名将李广、赵云、李元霸	128	1000			
+OpenDay130		130	400			
+OpenDay141		141	1000			
+OpenDay143		143	400			
+OpenDay145		145	400			
+OpenDay153	秦始皇陵奖励提升	153	400			
+OpenDay159	开放同伴觉醒	159	1000			
+OpenDay160		160	400			
+OpenDay180		164	400			
+OpenLevel99	99级上限	174	400	99		
+OpenDay174	家园等级（5级）	174	1000			
+OpenDay188	开放无双头衔	188	400			
+OpenDay204	秦始皇陵掉落sss级秦始皇同伴	204	400			
+OpenDay208		208	400			
+OpenDay221		221	400			
+OpenDay224	家具制作（4级）	224	1000			
+OpenDay234	秦始皇陵掉落本命武器	234	400			
+OpenLevel109	109级上限，武林盟主唐简	249	400	109		
+OpenDay249	家园等级（6级）	249	1000			
+OpenDay251	100级野外首领冰鳞蜥皇、银钩蝎皇、狂鬃獒皇	251	1000			
+OpenDay279	开放SSS级同伴完颜洪烈	279	1000			
+OpenDay285		285	1000			
+OpenDay290		290	1000			
+OpenDay309		309	400			
+OpenLevel119	119级上限	339	400	119		
+OpenDay353	110级历代名将项羽	353	1000			
+OpenDay399	家具制作（5级）	399	1000			
+OpenDay360		334	400			
+OpenLevel129	129级上限	429	400	129		
+OpenDay489		489	400			
+OpenDay720	暂无用途，仅用于隐藏头衔不让玩家过早接触	720	400			
+OpenDomainBattle	攻城战开启	15	400			
+HuaShanLunJian	华山论剑开放	33	400			
+OpenCrossDomainBattle	跨服攻城战	999	400			

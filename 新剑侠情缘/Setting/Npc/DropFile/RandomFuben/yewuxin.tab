@@ -1,0 +1,15 @@
+AwardType	AwardValue1	AwardValue2	AwardValue3	RandRate	WorldNotify	Name
+PartnerFamiliar	42	10		-1		熟悉度
+PStone0	1			277800		魂石
+item	230	1		17363		1级生命宝石
+item	240	1		17363		1级攻击宝石
+item	250	1		10417		1级抗性宝石
+item	260	1		10417		1级忽抗宝石
+item	270	1		13890		1级闪避宝石
+item	280	1		13890		1级忽闪宝石
+item	290	1		10417		1级会心宝石
+item	300	1		10417		1级抗会心宝石
+item	310	1		17363		1级效果宝石
+item	320	1		17363		1级减效果宝石
+item	792	1		34700		古旧箱子
+item	925	1		130000		凌绝峰4级令牌

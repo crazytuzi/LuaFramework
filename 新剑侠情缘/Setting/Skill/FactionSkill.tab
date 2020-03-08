@@ -1,0 +1,323 @@
+Faction	SkillId	Desc	GainLevel	IsBaseSkill	WeaponType	SwitchSkill	BtnName	IconAltlas	BtnIcon	SortInUI	IsAnger	LevelUpGroup	ShowParam
+1	201	天王锤法	1	1			Attack	UI/Atlas/SkillIcon/TW_Skill.prefab	TianwangSkill_01	1		1	
+1	214	日月山河碎	1				Skill5	UI/Atlas/SkillIcon/TW_Skill.prefab	Tianwang_nq01		1	13	
+1	206	野蛮冲撞	1				Skill2	UI/Atlas/SkillIcon/TW_Skill.prefab	TianwangSkill_02	2		2	
+1	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+1	1045	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+1	210	血战八方	4				Skill1	UI/Atlas/SkillIcon/TW_Skill.prefab	TianwangSkill_04	3		3	
+1	213	金钟罩	10				Skill3	UI/Atlas/SkillIcon/TW_Skill.prefab	TianwangSkill_03	4		4	
+1	209	天王战意	20					UI/Atlas/SkillIcon/TW_Skill.prefab	Tianwang_bd01	5		5	
+1	208	霸王怒吼	30				Skill4	UI/Atlas/SkillIcon/TW_Skill.prefab	TianwangSkill_05	6		6	
+1	224	一骑当千	40					UI/Atlas/SkillIcon/TW_Skill.prefab	Tianwang_bd07	7		7	
+1	229	锤法进阶	50					UI/Atlas/SkillIcon/TW_Skill.prefab	Tianwang_bd05	8		8	
+1	240	惊雷破天	60					UI/Atlas/SkillIcon/TW_Skill.prefab	Tianwang_bd08	9		9	
+1	218	破釜沉舟	70					UI/Atlas/SkillIcon/TW_Skill.prefab	Tianwang_bd03	10		10	
+1	242	天王本生	80					UI/Atlas/SkillIcon/TW_Skill.prefab	Tianwang_bd04	11		11	
+1	246	气盖八荒	90					UI/Atlas/SkillIcon/TW_Skill.prefab	Tianwang_bd09	12		12	
+2	301	峨嵋剑法	1	1			Attack	UI/Atlas/SkillIcon/EM_Skill.prefab	EmeiSkill_01	1		1	
+2	346	冰魄红莲劫	1				Skill5	UI/Atlas/SkillIcon/EM_Skill.prefab	Emei_nq01		1	13	
+2	310	江海凝波	1				Skill2	UI/Atlas/SkillIcon/EM_Skill.prefab	EmeiSkill_04	2		2	
+2	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+2	1046	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+2	312	天舞宝轮	4				Skill1	UI/Atlas/SkillIcon/EM_Skill.prefab	EmeiSkill_05	3		3	
+2	306	慈航普度	10				Skill3	UI/Atlas/SkillIcon/EM_Skill.prefab	EmeiSkill_02	4		4	
+2	309	剑心通明	20					UI/Atlas/SkillIcon/EM_Skill.prefab	Emei_bd01	5		5	
+2	308	白露凝霜	30				Skill4	UI/Atlas/SkillIcon/EM_Skill.prefab	EmeiSkill_03	6		6	
+2	345	冰心云裳	40					UI/Atlas/SkillIcon/EM_Skill.prefab	Emei_bd07	7		7	
+2	323	剑法进阶	50					UI/Atlas/SkillIcon/EM_Skill.prefab	Emei_bd05	8		8	
+2	341	佛心慈佑	60					UI/Atlas/SkillIcon/EM_Skill.prefab	Emei_bd02	9		9	
+2	317	绵里藏针	70					UI/Atlas/SkillIcon/EM_Skill.prefab	Emei_bd06	10		10	
+2	343	佛法无边	80					UI/Atlas/SkillIcon/EM_Skill.prefab	Emei_bd03	11		11	
+2	357	清心普善	90					UI/Atlas/SkillIcon/EM_Skill.prefab	Emei_bd08	12		12	
+3	401	桃花箭术	1	1			Attack	UI/Atlas/SkillIcon/TH_Skill.prefab	TaohuaSkill_01	1		1	
+3	427	落花焚星焱	1				Skill5	UI/Atlas/SkillIcon/TH_Skill.prefab	Taohua_nq01		1	13	
+3	407	飞火流星	1				Skill2	UI/Atlas/SkillIcon/TH_Skill.prefab	TaohuaSkill_03	2		2	
+3	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+3	1047	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+3	410	九曜连珠	4				Skill1	UI/Atlas/SkillIcon/TH_Skill.prefab	TaohuaSkill_04	3		3	
+3	406	火凤燎原	10				Skill3	UI/Atlas/SkillIcon/TH_Skill.prefab	TaohuaSkill_02	4		4	
+3	409	流风回雪	20					UI/Atlas/SkillIcon/TH_Skill.prefab	Taohua_bd01	5		5	
+3	412	穿云破月	30				Skill4	UI/Atlas/SkillIcon/TH_Skill.prefab	TaohuaSkill_05	6		6	
+3	443	逆转九阴	40					UI/Atlas/SkillIcon/TH_Skill.prefab	Taohua_bd03	7		7	
+3	420	百步穿杨	50					UI/Atlas/SkillIcon/TH_Skill.prefab	Taohua_bd05	8		8	
+3	441	轻云蔽月	60					UI/Atlas/SkillIcon/TH_Skill.prefab	Taohua_bd04	9		9	
+3	425	浴火重生	70					UI/Atlas/SkillIcon/TH_Skill.prefab	Taohua_bd07	10		10	
+3	442	凤羽霓裳	80					UI/Atlas/SkillIcon/TH_Skill.prefab	Taohua_bd02	11		11	
+3	462	月落星沉	90					UI/Atlas/SkillIcon/TH_Skill.prefab	Taohua_bd08	12		12	
+4	501	逍遥枪法	1	1			Attack	UI/Atlas/SkillIcon/XY_Skill.prefab	XiaoyaoSkill_01	1		1	
+4	527	寰宇逍遥游	1				Skill5	UI/Atlas/SkillIcon/XY_Skill.prefab	Xiaoyao_nq01		1	13	
+4	510	白虹贯日	1				Skill2	UI/Atlas/SkillIcon/XY_Skill.prefab	XiaoyaoSkill_04	2		2	
+4	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+4	1048	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+4	507	七探蛇盘	4				Skill1	UI/Atlas/SkillIcon/XY_Skill.prefab	XiaoyaoSkill_03	3		3	
+4	506	斗转星移	10				Skill3	UI/Atlas/SkillIcon/XY_Skill.prefab	XiaoyaoSkill_02	4		4	
+4	509	小无相功	20					UI/Atlas/SkillIcon/XY_Skill.prefab	Xiaoyao_bd01	5		5	
+4	513	风卷残云	30				Skill4	UI/Atlas/SkillIcon/XY_Skill.prefab	XiaoyaoSkill_05	6		6	
+4	522	三元归一	40					UI/Atlas/SkillIcon/XY_Skill.prefab	Xiaoyao_bd07	7		7	
+4	532	枪法进阶	50					UI/Atlas/SkillIcon/XY_Skill.prefab	Xiaoyao_bd05	8		8	
+4	516	凌波微步	60					UI/Atlas/SkillIcon/XY_Skill.prefab	Xiaoyao_bd06	9		9	
+4	541	逍遥御风	70					UI/Atlas/SkillIcon/XY_Skill.prefab	Xiaoyao_bd02	10		10	
+4	543	唯我独尊	80					UI/Atlas/SkillIcon/XY_Skill.prefab	Xiaoyao_bd03	11		11	
+4	561	悲酥清风	90					UI/Atlas/SkillIcon/XY_Skill.prefab	Xiaoyao_bd08	12		12	
+5	601	武当剑法	1	1			Attack	UI/Atlas/SkillIcon/WD_Skill.prefab	WudangSkill_01	1		1	
+5	631	万剑封天诀	1				Skill5	UI/Atlas/SkillIcon/WD_Skill.prefab	Wudang_nq01		1	13	
+5	609	无我无剑	1				Skill2	UI/Atlas/SkillIcon/WD_Skill.prefab	WudangSkill_02	2		2	
+5	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+5	1049	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+5	615	天地无极	4				Skill1	UI/Atlas/SkillIcon/WD_Skill.prefab	WudangSkill_05	3		3	
+5	613	坐忘无我	10				Skill3	UI/Atlas/SkillIcon/WD_Skill.prefab	WudangSkill_04	4		4	
+5	614	迷踪幻影	20					UI/Atlas/SkillIcon/WD_Skill.prefab	Wudang_bd01	5		5	
+5	611	人剑合一	30				Skill4	UI/Atlas/SkillIcon/WD_Skill.prefab	WudangSkill_03	6		6	
+5	645	真武七截	40					UI/Atlas/SkillIcon/WD_Skill.prefab	Wudang_bd04	7		7	
+5	619	高级剑法	50					UI/Atlas/SkillIcon/WD_Skill.prefab	Wudang_bd03	8		8	
+5	617	太一真气	60					UI/Atlas/SkillIcon/WD_Skill.prefab	Wudang_bd02	9		9	
+5	630	玄天心法	70					UI/Atlas/SkillIcon/WD_Skill.prefab	Wudang_bd07	10		10	
+5	644	太极无意	80					UI/Atlas/SkillIcon/WD_Skill.prefab	Wudang_bd06	11		11	
+5	665	七星诀	90					UI/Atlas/SkillIcon/WD_Skill.prefab	Wudang_bd08	12		12	
+6	701	天忍刺杀术	1	1			Attack	UI/Atlas/SkillIcon/TR_Skill.prefab	TianrenSkill_01	1		1	
+6	740	千魔影幻杀	1				Skill5	UI/Atlas/SkillIcon/TR_Skill.prefab	Tianren_nq01		1	13	
+6	708	死亡回旋	1				Skill2	UI/Atlas/SkillIcon/TR_Skill.prefab	TianrenSkill_03	2		2	
+6	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+6	1050	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+6	705	魔焰在天	4				Skill1	UI/Atlas/SkillIcon/TR_Skill.prefab	TianrenSkill_02	3		3	
+6	711	血月之影	10				Skill3	UI/Atlas/SkillIcon/TR_Skill.prefab	TianrenSkill_04	4		4	
+6	721	幻影飞狐	20					UI/Atlas/SkillIcon/TR_Skill.prefab	Tianren_bd01	5		5	
+6	722	摄魂乱心	30				Skill4	UI/Atlas/SkillIcon/TR_Skill.prefab	TianrenSkill_05	6		6	
+6	742	魔焰七杀	40					UI/Atlas/SkillIcon/TR_Skill.prefab	Tianren_bd02	7		7	
+6	728	高级刺杀术	50					UI/Atlas/SkillIcon/TR_Skill.prefab	Tianren_bd03	8		8	
+6	745	破碎虚空	60					UI/Atlas/SkillIcon/TR_Skill.prefab	Tianren_bd05	9		9	
+6	736	圣火焚心	70					UI/Atlas/SkillIcon/TR_Skill.prefab	Tianren_bd06	10		10	
+6	748	天魔解体	80					UI/Atlas/SkillIcon/TR_Skill.prefab	Tianren_bd07	11		11	
+6	770	飞鸿无迹	90					UI/Atlas/SkillIcon/TR_Skill.prefab	Tianren_bd08	12		12	
+7	261	少林棍法	1	1			Attack	UI/Atlas/SkillIcon/SL_Skill.prefab	ShaolinSkill_01	1		1	
+7	283	如影随形灭	1				Skill5	UI/Atlas/SkillIcon/SL_Skill.prefab	Shaolin_nq01		1	13	
+7	266	降龙棍	1				Skill2	UI/Atlas/SkillIcon/SL_Skill.prefab	ShaolinSkill_02	2		2	
+7	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+7	1073	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+7	268	大力金刚指	4				Skill1	UI/Atlas/SkillIcon/SL_Skill.prefab	ShaolinSkill_03	3		3	
+7	270	金刚伏魔	10				Skill3	UI/Atlas/SkillIcon/SL_Skill.prefab	ShaolinSkill_04	4		4	
+7	271	达摩武经	20					UI/Atlas/SkillIcon/SL_Skill.prefab	Shaolin_bd01	5		5	
+7	272	十二擒龙手	30				Skill4	UI/Atlas/SkillIcon/SL_Skill.prefab	ShaolinSkill_05	6		6	
+7	273	罗汉阵	40					UI/Atlas/SkillIcon/SL_Skill.prefab	Shaolin_bd02	7		7	
+7	276	棍法进阶	50					UI/Atlas/SkillIcon/SL_Skill.prefab	Shaolin_bd03	8		8	
+7	278	立地成佛	60					UI/Atlas/SkillIcon/SL_Skill.prefab	Shaolin_bd04	9		9	
+7	280	金刚怒目	70					UI/Atlas/SkillIcon/SL_Skill.prefab	Shaolin_bd05	10		10	
+7	282	易筋经	80					UI/Atlas/SkillIcon/SL_Skill.prefab	Shaolin_bd06	11		11	
+7	298	罗汉金身	90					UI/Atlas/SkillIcon/SL_Skill.prefab	Shaolin_bd07	12		12	
+8	801	翠烟御伞诀	1	1			Attack	UI/Atlas/SkillIcon/CY_Skill.prefab	CuiyanSkill_01	1		1	
+8	837	霜天百华散	1				Skill5	UI/Atlas/SkillIcon/CY_Skill.prefab	Cuiyan_nq01		1	13	
+8	806	璇玑罗舞	1				Skill2	UI/Atlas/SkillIcon/CY_Skill.prefab	CuiyanSkill_02	2		2	
+8	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+8	1081	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+8	808	雨打梨花	4				Skill1	UI/Atlas/SkillIcon/CY_Skill.prefab	CuiyanSkill_03	3		3	
+8	810	召唤啵啵	10				Skill3	UI/Atlas/SkillIcon/CY_Skill.prefab	CuiyanSkill_04	4		4	
+8	815	冰心倩影	20					UI/Atlas/SkillIcon/CY_Skill.prefab	Cuiyan_bd01	5		5	
+8	816	冰踪无影	30				Skill4	UI/Atlas/SkillIcon/CY_Skill.prefab	CuiyanSkill_05	6		6	
+8	818	雪影	40					UI/Atlas/SkillIcon/CY_Skill.prefab	Cuiyan_bd02	7		7	
+8	820	高级御伞诀	50					UI/Atlas/SkillIcon/CY_Skill.prefab	Cuiyan_bd03	8		8	
+8	822	护体寒冰	60					UI/Atlas/SkillIcon/CY_Skill.prefab	Cuiyan_bd04	9		9	
+8	824	冰肌玉骨	70					UI/Atlas/SkillIcon/CY_Skill.prefab	Cuiyan_bd05	10		10	
+8	827	冰骨雪心	80					UI/Atlas/SkillIcon/CY_Skill.prefab	Cuiyan_bd06	11		11	
+8	841	浮云散雪	90					UI/Atlas/SkillIcon/CY_Skill.prefab	Cuiyan_bd07	12		12	
+9	4001	唐门暗器	1	1			Attack	UI/Atlas/SkillIcon/TM_Skill.prefab	TangmenSkill_01	1		1	
+9	4032	千机孔雀翎	1				Skill5	UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_nq01		1	13	
+9	4006	缠身刺	1				Skill2	UI/Atlas/SkillIcon/TM_Skill.prefab	TangmenSkill_02	2		2	
+9	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+9	3433	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+9	4008	暴雨梨花	4				Skill1	UI/Atlas/SkillIcon/TM_Skill.prefab	TangmenSkill_03	3		3	
+9	4010	迷影纵	10				Skill3	UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_bd03	4		4	
+9	4011	心魄	20					UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_bd05	5		5	
+9	4012	九宫飞星	30				Skill4	UI/Atlas/SkillIcon/TM_Skill.prefab	TangmenSkill_04	6		6	
+9	4015	淬毒术	40					UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_bd01	7		7	
+9	4017	高级暗器	50					UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_bd02	8		8	
+9	4019	心眼	60					UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_bd06	9		9	
+9	4027	移形换影	70					UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_bd07	10		10	
+9	4024	心魔	80					UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_bd04	11		11	
+9	4060	追星逐电	90					UI/Atlas/SkillIcon/TM_Skill.prefab	Tangmen_bd08	12		12	
+10	4101	昆仑剑法	1	1			Attack	UI/Atlas/SkillIcon/KL_Skill.prefab	KunlunSkill_01	1		1	
+10	4128	昆虚坠无锋	1				Skill5	UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_nq01		1	13	
+10	4106	仙人指路	1				Skill2	UI/Atlas/SkillIcon/KL_Skill.prefab	KunlunSkill_02	2		2	
+10	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+10	3441	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+10	4110	啸风三连击	4				Skill1	UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_bd04	3		3	
+10	4108	混沌剑阵	10				Skill3	UI/Atlas/SkillIcon/KL_Skill.prefab	KunlunSkill_03	4		4	
+10	4111	醉仙错骨	20					UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_bd06	5		5	
+10	4112	雷动九天	30				Skill4	UI/Atlas/SkillIcon/KL_Skill.prefab	KunlunSkill_04	6		6	
+10	4115	御风行	40					UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_bd05	7		7	
+10	4116	高级剑法	50					UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_bd01	8		8	
+10	4118	混元乾坤	60					UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_bd02	9		9	
+10	4130	一气三清	70					UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_bd07	10		10	
+10	4124	霜傲昆仑	80					UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_bd03	11		11	
+10	4152	天清地浊	90					UI/Atlas/SkillIcon/KL_Skill.prefab	Kunlun_bd08	12		12	
+11	4201	丐帮掌法	1	1			Attack	UI/Atlas/SkillIcon/GB_Skill.prefab	GaibangSkill_01	1		1	
+11	4232	降龙十八掌	1				Skill5	UI/Atlas/SkillIcon/GB_Skill.prefab	Gaibang_nq01		1	13	
+11	4206	亢龙有悔	1				Skill2	UI/Atlas/SkillIcon/GB_Skill.prefab	GaibangSkill_02	2		2	
+11	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+11	3467	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+11	4208	困龙功	4				Skill1	UI/Atlas/SkillIcon/GB_Skill.prefab	GaibangSkill_04	3		3	
+11	4211	醉蝶狂舞	10				Skill3	UI/Atlas/SkillIcon/GB_Skill.prefab	GaibangSkill_05	4		4	
+11	4212	化险为夷	20					UI/Atlas/SkillIcon/GB_Skill.prefab	Gaibang_bd05	5		5	
+11	4213	龙战于野	30				Skill4	UI/Atlas/SkillIcon/GB_Skill.prefab	GaibangSkill_03	6		6	
+11	4218	霸王卸甲	40					UI/Atlas/SkillIcon/GB_Skill.prefab	Gaibang_bd06	7		7	
+11	4220	高级掌法	50					UI/Atlas/SkillIcon/GB_Skill.prefab	Gaibang_bd07	8		8	
+11	4222	游龙决	60					UI/Atlas/SkillIcon/GB_Skill.prefab	Gaibang_bd01	9		9	
+11	4225	金蝉脱壳	70					UI/Atlas/SkillIcon/GB_Skill.prefab	Gaibang_bd04	10		10	
+11	4228	天下无狗	80					UI/Atlas/SkillIcon/GB_Skill.prefab	Gaibang_bd03	11		11	
+11	4229	偷天换日	90					UI/Atlas/SkillIcon/GB_Skill.prefab	Gaibang_bd02	12		12	
+12	4301	五毒笛咒	1	1			Attack	UI/Atlas/SkillIcon/WDu_Skill.prefab	WuduSkill_01	1		1	
+12	4354	五圣噬心蛊	1				Skill5	UI/Atlas/SkillIcon/WDu_Skill.prefab	Wudu_nq01		1	13	
+12	4309	阴风蚀骨	1				Skill2	UI/Atlas/SkillIcon/WDu_Skill.prefab	WuduSkill_05	2		2	
+12	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+12	3475	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+12	4312	召唤毒虫	4				Skill1	UI/Atlas/SkillIcon/WDu_Skill.prefab	WuduSkill_02	3		3	
+12	4334	迷心蛊	10				Skill3	UI/Atlas/SkillIcon/WDu_Skill.prefab	WuduSkill_04	4		4	
+12	4338	驭毒术	20					UI/Atlas/SkillIcon/WDu_Skill.prefab	Wudu_bd04	5		5	
+12	4339	万蛊蚀心	30				Skill4	UI/Atlas/SkillIcon/WDu_Skill.prefab	WuduSkill_03	6		6	
+12	4341	百毒穿心	40					UI/Atlas/SkillIcon/WDu_Skill.prefab	Wudu_bd05	7		7	
+12	4343	高级笛咒	50					UI/Atlas/SkillIcon/WDu_Skill.prefab	Wudu_bd06	8		8	
+12	4345	无形蛊	60					UI/Atlas/SkillIcon/WDu_Skill.prefab	Wudu_bd01	9		9	
+12	4347	回魂秘咒	70					UI/Atlas/SkillIcon/WDu_Skill.prefab	Wudu_bd07	10		10	
+12	4349	万毒心法	80					UI/Atlas/SkillIcon/WDu_Skill.prefab	Wudu_bd03	11		11	
+12	4350	五毒奇经	90					UI/Atlas/SkillIcon/WDu_Skill.prefab	Wudu_bd02	12		12	
+13	4401	藏剑剑法	1	1			Attack	UI/Atlas/SkillIcon/CJ_Skill.prefab	CangjianSkill_01	1		1	
+13	4433	云飞玉皇斩	1				Skill5	UI/Atlas/SkillIcon/CJ_Skill.prefab	Cangjian_nq01		1	13	
+13	4406	断潮	1				Skill2	UI/Atlas/SkillIcon/CJ_Skill.prefab	CangjianSkill_03	2		2	
+13	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+13	3530	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+13	4410	心剑	4				Skill1	UI/Atlas/SkillIcon/CJ_Skill.prefab	CangjianSkill_05	3		3	
+13	4408	玉泉鱼跃	10				Skill3	UI/Atlas/SkillIcon/CJ_Skill.prefab	CangjianSkill_04	4		4	
+13	4412	惊涛	20					UI/Atlas/SkillIcon/CJ_Skill.prefab	Cangjian_bd01	5		5	
+13	4413	峰插云景	30				Skill4	UI/Atlas/SkillIcon/CJ_Skill.prefab	CangjianSkill_02	6		6	
+13	4417	鹤归孤山	40					UI/Atlas/SkillIcon/CJ_Skill.prefab	Cangjian_bd02	7		7	
+13	4420	高级剑法	50					UI/Atlas/SkillIcon/CJ_Skill.prefab	Cangjian_bd03	8		8	
+13	4422	映波锁澜	60					UI/Atlas/SkillIcon/CJ_Skill.prefab	Cangjian_bd04	9		9	
+13	4424	云栖松	70					UI/Atlas/SkillIcon/CJ_Skill.prefab	Cangjian_bd05	10		10	
+13	4427	风来吴山	80					UI/Atlas/SkillIcon/CJ_Skill.prefab	Cangjian_bd06	11		11	
+13	4428	黄龙吐翠	90					UI/Atlas/SkillIcon/CJ_Skill.prefab	Cangjian_bd07	12		12	
+14	4501	长歌扇诀	1	1			Attack	UI/Atlas/SkillIcon/CG_Skill.prefab	ChanggeSkill_01	1		1	
+14	4544	霓裳羽衣舞	1				Skill5	UI/Atlas/SkillIcon/CG_Skill.prefab	Changge_nq01		1	13	
+14	4506	平沙雁落	1				Skill2	UI/Atlas/SkillIcon/CG_Skill.prefab	ChanggeSkill_04	2		2	
+14	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+14	3538	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+14	4508	云生结海	4				Skill1	UI/Atlas/SkillIcon/CG_Skill.prefab	ChanggeSkill_03	3		3	
+14	4512	清音长啸	10				Skill3	UI/Atlas/SkillIcon/CG_Skill.prefab	ChanggeSkill_05	4		4	
+14	4517	天音知脉	20					UI/Atlas/SkillIcon/CG_Skill.prefab	Changge_bd01	5		5	
+14	4518	江逐月天	30				Skill4	UI/Atlas/SkillIcon/CG_Skill.prefab	ChanggeSkill_02	6		6	
+14	4522	夜引风岚	40					UI/Atlas/SkillIcon/CG_Skill.prefab	Changge_bd07	7		7	
+14	4525	高级扇诀	50					UI/Atlas/SkillIcon/CG_Skill.prefab	Changge_bd03	8		8	
+14	4527	魔音缠绕	60					UI/Atlas/SkillIcon/CG_Skill.prefab	Changge_bd05	9		9	
+14	4529	回梦逐光	70					UI/Atlas/SkillIcon/CG_Skill.prefab	Changge_bd04	10		10	
+14	4538	银烛清韵	80					UI/Atlas/SkillIcon/CG_Skill.prefab	Changge_bd06	11		11	
+14	4539	阳春白雪	90					UI/Atlas/SkillIcon/CG_Skill.prefab	Changge_bd02	12		12	
+15	4601	天山琴曲	1	1			Attack	UI/Atlas/SkillIcon/TS_Skill.prefab	TianshanSkill_01	1		1	
+15	4616	天音镇魂曲	1				Skill5	UI/Atlas/SkillIcon/TS_Skill.prefab	Tianshan_nq01		1	13	
+15	4606	飞燕凌波	1				Skill2	UI/Atlas/SkillIcon/TS_Skill.prefab	TianshanSkill_02	2		2	
+15	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+15	1081	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+15	4608	银瓶玉碎	4				Skill1	UI/Atlas/SkillIcon/TS_Skill.prefab	TianshanSkill_03	3		3	
+15	4611	空山凝云	10				Skill3	UI/Atlas/SkillIcon/TS_Skill.prefab	TianshanSkill_04	4		4	
+15	4612	双弹如一	20					UI/Atlas/SkillIcon/TS_Skill.prefab	Tianshan_bd01	5		5	
+15	4613	水龙吟	30				Skill4	UI/Atlas/SkillIcon/TS_Skill.prefab	TianshanSkill_05	6		6	
+15	4619	凤栖梧桐	40					UI/Atlas/SkillIcon/TS_Skill.prefab	Tianshan_bd03	7		7	
+15	4622	吹云劲	50					UI/Atlas/SkillIcon/TS_Skill.prefab	Tianshan_bd02	8		8	
+15	4624	水幕天华	60					UI/Atlas/SkillIcon/TS_Skill.prefab	Tianshan_bd04	9		9	
+15	4626	逆水寒	70					UI/Atlas/SkillIcon/TS_Skill.prefab	Tianshan_bd07	10		10	
+15	4629	剑胆琴心	80					UI/Atlas/SkillIcon/TS_Skill.prefab	Tianshan_bd06	11		11	
+15	4634	琴瑟和鸣	90					UI/Atlas/SkillIcon/TS_Skill.prefab	Tianshan_bd05	12		12	
+16	5001	霸刀刀诀	1	1			Attack	UI/Atlas/SkillIcon/BD_Skill.prefab	BadaoSkill_01	1		1	
+16	5020	千锋断岳斩	1				Skill5	UI/Atlas/SkillIcon/BD_Skill.prefab	Badao_nq01		1	13	
+16	5005	化血劫光	1				Skill2	UI/Atlas/SkillIcon/BD_Skill.prefab	BadaoSkill_02	2		2	
+16	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+16	1045	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+16	5008	挟山超海	4				Skill1	UI/Atlas/SkillIcon/BD_Skill.prefab	BadaoSkill_03	3		3	
+16	5011	逆血截脉	10				Skill3	UI/Atlas/SkillIcon/BD_Skill.prefab	BadaoSkill_04	4		4	
+16	5023	铁索横江	20					UI/Atlas/SkillIcon/BD_Skill.prefab	Badao_bd01	5		5	
+16	5015	浴血蹈锋	30				Skill4	UI/Atlas/SkillIcon/BD_Skill.prefab	BadaoSkill_05	6		6	
+16	5024	残阳映血	40					UI/Atlas/SkillIcon/BD_Skill.prefab	Badao_bd05	7		7	
+16	5025	刀法进阶	50					UI/Atlas/SkillIcon/BD_Skill.prefab	Badao_bd03	8		8	
+16	5026	避实就虚	60					UI/Atlas/SkillIcon/BD_Skill.prefab	Badao_bd06	9		9	
+16	5028	否极泰来	70					UI/Atlas/SkillIcon/BD_Skill.prefab	Badao_bd02	10		10	
+16	5031	乾元镇海诀	80					UI/Atlas/SkillIcon/BD_Skill.prefab	Badao_bd04	11		11	
+16	5032	乘胜逐北	90					UI/Atlas/SkillIcon/BD_Skill.prefab	Badao_bd07	12		12	
+17	5201	华山剑法	1	1			Attack	UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShanSkill_01	1		1	
+17	5230	华山怒气	1				Skill5	UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShan_nq01		1	13	
+17	5206	萧史乘龙	1				Skill2	UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShanSkill_02	2		2	
+17	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+17	1049	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+17	5209	天绅倒悬	4				Skill1	UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShanSkill_03	3		3	
+17	5212	朝阳一气剑	10				Skill3	UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShanSkill_04	4		4	
+17	5219	抱元劲	20					UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShan_bd01	5		5	
+17	5215	风送紫霞	30				Skill4	UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShanSkill_05	6		6	
+17	5220	识破	40					UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShan_bd02	7		7	
+17	5223	高级剑法	50					UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShan_bd03	8		8	
+17	5224	紫霞神功	60					UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShan_bd04	9		9	
+17	5225	云天弧光	70					UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShan_bd05	10		10	
+17	5227	混元功	80					UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShan_bd06	11		11	
+17	5228	天光云影	90					UI/Atlas/SkillIcon/HS_Skill.prefab	HuaShan_bd07	12		12	
+18	5501	明教御环诀	1	1			Attack	UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiaoSkill_01	1		1	
+18	5521	明教怒气	1				Skill5	UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiao_nq01		1	13	
+18	5506	焚山噬川	1				Skill2	UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiaoSkill_02	2		2	
+18	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+18	3467	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+18	5508	电光石火	4				Skill1	UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiaoSkill_03	3		3	
+18	5511	火光残影	10				Skill3	UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiaoSkill_04	4		4	
+18	5514	光明引	20					UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiao_bd01	5		5	
+18	5515	毁天灭地	30				Skill4	UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiaoSkill_05	6		6	
+18	5524	圣火滔天	40					UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiao_bd02	7		7	
+18	5526	高级剑法	50					UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiao_bd03	8		8	
+18	5527	引火烧身	60					UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiao_bd04	9		9	
+18	5530	星火燎原	70					UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiao_bd05	10		10	
+18	5533	明尊圣体	80					UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiao_bd06	11		11	
+18	5534	火舞凌天	90					UI/Atlas/SkillIcon/MJ_Skill.prefab	MingJiao_bd07	12		12	
+19	5601	段氏扇诀	1	1			Attack	UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShiSkill_01	1		1	
+19	5631	瀚海百丈冰	1				Skill5	UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShi_nq01		1	13	
+19	5606	一阳指	1				Skill2	UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShiSkill_02	2		2	
+19	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+19	1081	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+19	5608	五罗轻烟	4				Skill1	UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShiSkill_03	3		3	
+19	5611	六脉神剑	10				Skill3	UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShiSkill_04	4		4	
+19	5625	段氏心法	20					UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShi_bd01	5		5	
+19	5626	水龙狱	30				Skill4	UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShiSkill_05	6		6	
+19	5633	妙谛指	40					UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShi_bd03	7		7	
+19	5635	高级扇诀	50					UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShi_bd02	8		8	
+19	5637	画地为牢	60					UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShi_bd04	9		9	
+19	5642	枯荣禅功	70					UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShi_bd07	10		10	
+19	5645	天龙神功	80					UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShi_bd06	11		11	
+19	5646	北冥神功	90					UI/Atlas/SkillIcon/DS_Skill.prefab	DuanShi_bd05	12		12	
+20	5801	万花笔法	1	1			Attack	UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHuaSkill_01	1		1	
+20	5820	执笔画江山	1				Skill5	UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHuashan_nq01		1	13	
+20	5805	执颖点墨	1				Skill2	UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHuaSkill_02	2		2	
+20	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation				
+20	1081	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge				
+20	5808	兰摧玉折	4				Skill1	UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHuaSkill_03	3		3	
+20	5810	墨虎如生	10				Skill3	UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHuaSkill_04	4		4	
+20	5824	万花心法	20					UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHua_bd01	5		5	
+20	5812	绘虎点睛	30				Skill4	UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHuaSkill_05	6		6	
+20	5831	墨守成规	40					UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHua_bd02	7		7	
+20	5835	高级普攻	50					UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHua_bd03	8		8	
+20	5837	与虎添翼	60					UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHua_bd04	9		9	
+20	5844	虎啸山林	70					UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHua_bd05	10		10	
+20	5849	清心静气	80					UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHua_bd06	11		11	
+20	5850	墨染失色	90					UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHua_bd07	12		12	
+20	5839	绘虎点睛	9999				Skill4	UI/Atlas/SkillIcon/WHua_Skill.prefab	WanHua_bd04_jn04				5838
+21	5901	杨门箭术	1	1	1		Attack	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Arch_01	1		1
+21	5912	杨门枪术	1	1			Attack	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Halberd_01	1		1
+21	5924	杨门怒气	1				Skill5	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMen_nq01		1	13
+21	5905	流光绝影	1		1		Skill2	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Arch_02	2		2
+21	5916	奔狼枪	1				Skill2	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Halberd_02	2		2
+21	5911	弓切枪	1		1	1	Skill4	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Arch_05			
+21	5922	枪切弓	1			1	Skill4	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Halberd_05			
+21	1013	打坐	9				BtnDazuo	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Meditation			
+21	1081	轻功	3				SkillDodge	UI/Atlas/SkillIcon/SkillIcon.prefab	Skill_Dodge			
+21	5908	啸风诀	4		1		Skill1	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Arch_03	3		3
+21	5918	奇门盾	4				Skill1	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Halberd_03	3		3
+21	5907	碎金箭术	10		1		Skill3	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Arch_04	4		4
+21	5921	横扫千军	10				Skill3	UI/Atlas/SkillIcon/YM_Skill.prefab	YangMenSkill_Halberd_04	4		4
+21	5927	铁血心法	20					UI/Atlas/SkillIcon/YM_Skill.prefab	WanHua_bd01	5		5
+21	5928	枪联弓映	30					UI/Atlas/SkillIcon/YM_Skill.prefab	WanHua_bd01	6		6
+21	5931	万夫不当	40					UI/Atlas/SkillIcon/YM_Skill.prefab	WanHua_bd02	7		7
+21	5933	普攻进阶	50					UI/Atlas/SkillIcon/YM_Skill.prefab	WanHua_bd03	8		8
+21	5936	后发制人	60					UI/Atlas/SkillIcon/YM_Skill.prefab	WanHua_bd04	9		9
+21	5939	否极阳回	70					UI/Atlas/SkillIcon/YM_Skill.prefab	WanHua_bd05	10		10
+21	5942	杨门本生	80					UI/Atlas/SkillIcon/YM_Skill.prefab	WanHua_bd06	11		11
+21	5943	两级反转	90					UI/Atlas/SkillIcon/YM_Skill.prefab	WanHua_bd07	12		12

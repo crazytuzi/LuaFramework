@@ -1,0 +1,113 @@
+MainFrame	SubFrame	Name	DurationDays	OpenDay	OpenTime	NewMaxLevel
+OpenLevel39		39级上限	2		0	39
+	OpenDay1	家族烤火		1	1000
+	OpenDay1A	武林盟主武功提升、宋金战场		1	1900
+	OpenDay2D	离线托管、战力前十聊天前缀		1	0
+	OpenDay2	家族传功、商会任务、凌绝峰		1	1000
+	OpenDay2A	武林盟主武功提升		1	1200
+	OpenDay2B			1	1800
+	OpenDay2C	武林盟主武功提升		1	1900
+	OpenDay3C	20级野外首领白眉猴王、大地狼王、寒玉鹿王		1	0
+	OpenDay3	白虎堂、英雄挑战		1	1000
+	OpenDay3A	武林盟主武功提升		1	1200
+	OpenDay3B	武林盟主武功提升		1	1900
+	OpenDay4A	经验加成第一档位		1	400
+	OpenDay4	门派竞技、家族试炼、通天塔		1	1000
+	OpenDay5A	经验加成第二档位		1	400
+	OpenDay5	家族战、家族运镖		1	1000
+OpenLevel49		49级上限	2		400	49
+	OpenDay6	群英会、40级野外首领双首异兽、奔焰豹王、九尾狐王		1	1000
+	OpenDay7	40级历代名将鳌拜、袁承志、韩世忠、哲别、高长恭、秦良玉		1	1000
+	OpenDay8			1	1000
+	OpenDay10			1	400
+	OpenDay12			1	1000
+OpenLevel59		59级上限	3		400	59
+	OpenDay15	家园等级（1、2级）、家具制作（1、2级）		1	1000
+	OpenDomainBattle	开放攻城战		1	400
+	OpenDay16			1	1000
+	OpenDay20	新马每日礼包奖励提升①		1	400
+OpenLevel69		69级上限	4		400	69
+	OpenDay33			1	1000
+	HuaShanLunJian	开放华山论剑		1	400
+	OpenDay35	60级野外首领定海金刚、金翅鹏皇、银角犀皇		1	1000
+	OpenDay36			1	1000
+	OpenDay118	心魔幻境		1	1000
+	OpenDay39			1	1000
+	OpenDay42	武林盟主奖励变更		1	1000
+	OpenDay45			1	1000
+	OpenDay52	60级历代名将荆轲、虞姬、岳飞		1	1000
+OpenLevel79		79级上限	6		400	79
+	OpenDay67	新马每日礼包奖励提升②		1	400
+	OpenDay69	家园等级（3级）		1	1000
+	OpenDay70			1	400
+	OpenDay72			1	400
+	OpenDay90			1	400
+	OpenDay89	秦始皇陵		1	1000
+	OpenDay99	家具制作（3级）		1	1000
+	OpenDay100			1	400
+OpenLevel89		89级上限	8		400	89
+	OpenDay114	家园等级（4级）		1	1000
+	OpenDay116	80级野外首领撼天熊皇、赤睛虎皇、紫背鳄皇		1	1000
+	OpenDay118	心魔幻境		1	1000
+	OpenDay128	80级历代名将李广、赵云、李元霸		1	1000
+	OpenDay130			1	400
+	OpenDay141			1	1000
+	OpenDay143			1	400
+	OpenDay145			1	400
+	OpenImperialTomb	开放秦始皇陵		1	1000
+	OpenDay153	秦始皇陵奖励提升		1	400
+	OpenDay159	开放同伴觉醒		1	1000
+	OpenDay160			1	400
+	OpenDay180			1	400
+OpenLevel99		99级上限	8		400	99
+	OpenDay174	家园等级（5级）		1	1000
+	OpenKeyQuestFuben	开放遗迹寻宝		1	400
+	OpenDay188	开放无双头衔		1	400
+	OpenDay204	秦始皇陵掉落sss级秦始皇同伴		1	400
+	OpenDay208			1	400
+	OpenDay221			1	400
+	OpenDay224	家具制作（4级）		1	1000
+	OpenDay234	秦始皇陵掉落本命武器		1	400
+OpenLevel109		109级上限，武林盟主唐简	11		400	109
+	OpenDay249	家园等级（6级）		1	1000
+	OpenDay251	100级野外首领冰鳞蜥皇、银钩蝎皇、狂鬃獒皇		1	1000
+	OpenDay279	开放SSS级同伴完颜洪烈		1	1000
+	OpenDay285			1	1000
+	OpenDay290			1	1000
+	OpenDay309			1	400
+	OpenDay360			1	400
+OpenLevel119		119级上限	11		400	119
+	OpenCrossDomainBattle	开放跨服攻城战		1	400
+	OpenDay353	110级历代名将项羽		1	1000
+	OpenDay369	绝学第二区域开放		1	1000
+	OpenDay399	家具制作（5级）		1	1000
+OpenLevel129		129级上限	16		400	129
+	OpenLevel129Add10	开放武则天		1	400
+	OpenLevel129Add30	武则天产出新黄金装备		1	400
+	OpenLevel129Add45			1	400
+	OpenDay489			1	400
+	OpenDay492			1	400
+OpenLevel139		139级上限	16		400	139
+	OpenLevel139Add30	开放139级上限30天		1	400
+	OpenLevel139Add39	开放叶无心魂石摆摊		1	400
+	OpenLevel139Add60	开放139级上限60天		1	400
+	OpenLevel139Add86	每日礼包开放张承素魂石		1	400
+	OpenLevel139Add90	开放139级上限90天		1	400
+OpenLevel149		149级上限	21		400	149
+	OpenLevel149Add9	开放云浩然魂石摆摊		1	400
+	OpenLevel149Add65	每日礼包开放杨继周魂石		1	400
+	OpenLevel149Add90	开放149级上限90天		1	400
+	OpenDay617	开放本相魂石摆摊		1	400
+OpenLevel159		159级上限	21		400	159
+	OpenLevel159Add89	开放张承素魂石摆摊		1	400
+	OpenLevel159Add90	开放159级上限90天		1	400
+OpenLevel169		169级上限	31		400	169
+	OpenLevel169Add68	开放杨继周魂石摆摊		1	400
+	OpenLevel169Add90	开放169级上限90天		1	400
+OpenLevel179		179级上限	111		400	179
+	OpenLevel179Add90	开放179级上限90天		1	400
+OpenLevel189		189级上限	111		400	189
+	OpenLevel189Add90	开放189级上限90天		1	400
+OpenLevel199		199级上限	121		400	199
+	OpenDay720	暂无用途，仅用于隐藏头衔不让玩家过早接触		292	400
+	OpenSecretFuben			999	400

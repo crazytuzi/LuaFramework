@@ -1,0 +1,101 @@
+ResId	ResFile	ResAttribID	ResSlot	Desc	Scale	IsOrgColorValue	MinCastValue	SlotName1	SlotGray1	SlotMinCast1	Slot1Color1	Slot1Light1	Slot1Color2	Slot1Light2	Slot1Color3	Slot1Light3	SlotName2	SlotGray2	SlotMinCast2	Slot2Color1	Slot2Light1	Slot2Color2	Slot2Light2	Slot2Color3	Slot2Light3	SlotName3	SlotGray3	SlotMinCast3	Slot3Color1	Slot3Light1	Slot3Color2	Slot3Light2	Slot3Color3	Slot3Light3
+1	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.8	1		Back001	0		228|223|223|255		255|255|255|255		255|255|255|255																			
+2	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.8			Back001	1		48|203|255|34		48|39|39|255		230|159|127|182																			
+3	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.8			Back001	1		255|203|69|18		159|108|69|157		131|179|127|164																			
+4	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.8			Back001	1		253|98|165|59		123|123|123|157		143|214|232|164																			
+5	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.8			Back001	1		71|198|98|5		93|58|35|157		226|202|138|169																			
+11	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.6	1		Back001	0		228|223|223|255		255|255|255|255		255|255|255|255																			
+12	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.6			Back001	1		48|203|255|34		48|39|39|255		230|159|127|182																			
+13	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.6			Back001	1		255|203|69|18		159|108|69|157		131|179|127|164																			
+14	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.6			Back001	1		253|98|165|59		123|123|123|157		143|214|232|164																			
+15	Player/Doodads/Back/Prefabs/Back001.prefab		back	狗篮子	0.6			Back001	1		71|198|98|5		93|58|35|157		226|202|138|169																			
+21	Player/Doodads/Back/Prefabs/Back002.prefab		back	兔篮子	0.8	1		Back002	0		219|201|190|255		255|255|255|255		255|255|255|255																			
+22	Player/Doodads/Back/Prefabs/Back002.prefab		back	兔篮子	0.8			Back002	1		42|169|221|0		61|64|82|255		236|155|119|255																			
+23	Player/Doodads/Back/Prefabs/Back002.prefab		back	兔篮子	0.8			Back002	1		221|171|42|0		203|142|77|179		160|215|144|255																			
+24	Player/Doodads/Back/Prefabs/Back002.prefab		back	兔篮子	0.8			Back002	1		241|98|161|19		255|204|197|217		187|168|130|105																			
+31	Player/Doodads/Back/Prefabs/Back002.prefab		back	兔篮子	0.6	1		Back002	0		219|201|190|255		255|255|255|255		255|255|255|255																			
+32	Player/Doodads/Back/Prefabs/Back002.prefab		back	兔篮子	0.6			Back002	1		42|169|221|0		61|64|82|255		236|155|119|255																			
+33	Player/Doodads/Back/Prefabs/Back002.prefab		back	兔篮子	0.6			Back002	1		221|171|42|0		203|142|77|179		160|215|144|255																			
+34	Player/Doodads/Back/Prefabs/Back002.prefab		back	兔篮子	0.6			Back002	1		241|98|161|19		255|204|197|217		187|168|130|105																			
+41	Player/Doodads/Back/Prefabs/Back002_A.prefab		back	圣诞袜子	0.8	1		Back002_A	0		255|255|255|255		255|255|255|255		255|255|255|255																			
+42	Player/Doodads/Back/Prefabs/Back002_A.prefab		back	圣诞袜子	0.8			Back002_A	1		228|133|255|62		20|167|255|102		255|131|169|123																			
+43	Player/Doodads/Back/Prefabs/Back002_A.prefab		back	圣诞袜子	0.8			Back002_A	1		255|89|89|29		255|112|180|35		155|242|255|177																			
+44	Player/Doodads/Back/Prefabs/Back002_A.prefab		back	圣诞袜子	0.8			Back002_A	1		31|227|255|62		255|243|89|64		253|81|135|129																			
+51	Player/Doodads/Back/Prefabs/Back002_A.prefab		back	圣诞袜子	0.6	1		Back002_A	0		255|255|255|255		255|255|255|255		255|255|255|255																			
+52	Player/Doodads/Back/Prefabs/Back002_A.prefab		back	圣诞袜子	0.6			Back002_A	1		228|133|255|62		20|167|255|102		255|131|169|123																			
+53	Player/Doodads/Back/Prefabs/Back002_A.prefab		back	圣诞袜子	0.6			Back002_A	1		255|89|89|29		255|112|180|35		155|242|255|177																			
+54	Player/Doodads/Back/Prefabs/Back002_A.prefab		back	圣诞袜子	0.6			Back002_A	1		31|227|255|62		255|243|89|64		253|81|135|129																			
+61	Player/Doodads/Back/Prefabs/Back002_B.prefab		back	圣诞袜子	0.8	1		Back002_B	0		255|255|255|255		255|255|255|255		255|249|249|255																			
+62	Player/Doodads/Back/Prefabs/Back002_B.prefab		back	圣诞袜子	0.8			Back002_B	1		110|255|255|40		0|139|255|143		234|239|240|164																			
+63	Player/Doodads/Back/Prefabs/Back002_B.prefab		back	圣诞袜子	0.8			Back002_B	1		255|214|84|29		247|63|63|83		196|240|180|164																			
+64	Player/Doodads/Back/Prefabs/Back002_B.prefab		back	圣诞袜子	0.8			Back002_B	1		23|128|232|50		247|218|54|37		215|95|3|201																			
+71	Player/Doodads/Back/Prefabs/Back002_B.prefab		back	圣诞袜子	0.6	1		Back002_B	0		255|255|255|255		255|255|255|255		255|249|249|255																			
+72	Player/Doodads/Back/Prefabs/Back002_B.prefab		back	圣诞袜子	0.6			Back002_B	1		110|255|255|40		0|139|255|143		234|239|240|164																			
+73	Player/Doodads/Back/Prefabs/Back002_B.prefab		back	圣诞袜子	0.6			Back002_B	1		255|214|84|29		247|63|63|83		196|240|180|164																			
+74	Player/Doodads/Back/Prefabs/Back002_B.prefab		back	圣诞袜子	0.6			Back002_B	1		23|128|232|50		247|218|54|37		215|95|3|201																			
+81	Player/Doodads/Back/Prefabs/Back003.prefab		back	新年金猪	0.9	1		Back003	0		219|219|219|255		255|255|255|255		219|219|219|255																			
+82	Player/Doodads/Back/Prefabs/Back003.prefab		back	新年金猪	0.9			Back003	1		255|82|82|28		255|203|157|198		146|20|25|82																			
+83	Player/Doodads/Back/Prefabs/Back003.prefab		back	新年金猪	0.9			Back003	1		255|111|33|0		198|133|36|130		255|195|0|0																			
+84	Player/Doodads/Back/Prefabs/Back003.prefab		back	新年金猪	0.9			Back003	1		140|207|255|0		255|215|222|255		208|163|255|0																			
+91	Player/Doodads/Back/Prefabs/Back003.prefab		back	新年金猪	0.7	1		Back003	0		219|219|219|255		255|255|255|255		219|219|219|255																			
+92	Player/Doodads/Back/Prefabs/Back003.prefab		back	新年金猪	0.7			Back003	1		255|82|82|28		255|203|157|198		146|20|25|82																			
+93	Player/Doodads/Back/Prefabs/Back003.prefab		back	新年金猪	0.7			Back003	1		255|111|33|0		198|133|36|130		255|195|0|0																			
+94	Player/Doodads/Back/Prefabs/Back003.prefab		back	新年金猪	0.7			Back003	1		140|207|255|0		255|215|222|255		208|163|255|0																			
+101	Player/Doodads/Back/Prefabs/Back004.prefab		back	金鱼	0.8	1		Back004	0		255|253|215|188		247|209|209|174		210|100|129|206																			
+102	Player/Doodads/Back/Prefabs/Back004.prefab		back	金鱼	0.8			Back004	1		255|255|255|117		255|224|144|172		0|255|223|125																			
+103	Player/Doodads/Back/Prefabs/Back004.prefab		back	金鱼	0.8			Back004	1		255|138|218|55		143|247|243|161		255|33|139|94																			
+104	Player/Doodads/Back/Prefabs/Back004.prefab		back	金鱼	0.8			Back004	1		255|166|248|13		44|185|213|155		29|31|255|126																			
+111	Player/Doodads/Back/Prefabs/Back004.prefab		back	金鱼	0.6	1		Back004	0		255|253|215|188		247|209|209|174		210|100|129|206																			
+112	Player/Doodads/Back/Prefabs/Back004.prefab		back	金鱼	0.6			Back004	1		255|255|255|117		255|224|144|172		0|255|223|125																			
+113	Player/Doodads/Back/Prefabs/Back004.prefab		back	金鱼	0.6			Back004	1		255|138|218|55		143|247|243|161		255|33|139|94																			
+114	Player/Doodads/Back/Prefabs/Back004.prefab		back	金鱼	0.6			Back004	1		255|166|248|13		44|185|213|155		29|31|255|126																			
+121	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺		1		Back005	0		255|255|255|255		255|255|255|227		170|170|170|226																			
+122	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺				Back005	1		255|190|52|204		247|253|255|164		56|255|246|192																			
+123	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺				Back005	1		63|191|255|174		255|240|213|176		167|106|255|93																			
+124	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺		1		Back005	0		255|255|255|255		255|221|178|152		253|24|28|74																			
+125	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺				Back005	1		243|55|160|220		255|251|225|174		125|137|255|129																			
+131	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺	0.8	1		Back005	0		255|255|255|255		255|255|255|227		170|170|170|226																			
+132	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺	0.8			Back005	1		255|190|52|204		247|253|255|164		56|255|246|192																			
+133	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺	0.8			Back005	1		63|191|255|174		255|240|213|176		167|106|255|93																			
+134	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺	0.8	1		Back005	0		255|255|255|255		255|221|178|152		253|24|28|74																			
+135	Player/Doodads/Back/Prefabs/Back005.prefab		back	莺	0.8			Back005	1		243|55|160|220		255|251|225|174		125|137|255|129																			
+141	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝		1		Back006	0		255|255|255|12	1	255|255|255|15	1	255|245|241|13	1																		
+142	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝				Back006	1		108|242|255|23	1	255|138|174|29	1	255|255|255|19	1																		
+143	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝				Back006	1		255|246|236|26	1	37|157|82|39	1	241|214|154|19	1																		
+144	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝				Back006	1		255|184|78|41	1	247|229|209|18	1	109|241|255|45	1																		
+145	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝				Back006	1		193|95|255|41	1.23	13|2|148|18	1	94|178|228|61	1																		
+146	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝				Back006	1		255|243|151|41	1	163|0|23|18	1	255|238|250|61	1																		
+147	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝				Back006	1		234|252|255|41	1	108|72|200|18	1	148|26|114|61	1																		
+148	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝				Back006	1		28|245|255|15	1	247|254|255|18	1	255|213|39|21	1																		
+151	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝	0.8	1		Back006	0		255|255|255|12	1	255|255|255|15	1	255|245|241|13	1																		
+152	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝	0.8			Back006	1		108|242|255|23	1	255|138|174|29	1	255|255|255|19	1																		
+153	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝	0.8			Back006	1		255|246|236|26	1	37|157|82|39	1	241|214|154|19	1																		
+154	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝	0.8			Back006	1		255|184|78|41	1	247|229|209|18	1	109|241|255|45	1																		
+155	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝	0.8			Back006	1		193|95|255|41	1.23	13|2|148|18	1	94|178|228|61	1																		
+156	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝	0.8			Back006	1		255|243|151|41	1	163|0|23|18	1	255|238|250|61	1																		
+157	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝	0.8			Back006	1		234|252|255|41	1	108|72|200|18	1	148|26|114|61	1																		
+158	Player/Doodads/Back/Prefabs/Back006.prefab		back	蝴蝶风筝	0.8			Back006	1		28|245|255|15	1	247|254|255|18	1	255|213|39|21	1																		
+161	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.9	1		npc_back007	0		255|255|255|82	1	255|255|255|13	1	234|234|232|29	1																		
+162	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.9			npc_back007	1		255|201|121|147	1	7|154|202|196	1	15|0|48|40	1																		
+163	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.9			npc_back007	1		255|220|131|121	1	255|22|65|29	1	253|249|250|0	1																		
+164	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.9			npc_back007	1		80|198|159|139	1	255|255|255|0	1	247|247|247|16	1																		
+165	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.9			npc_back007	1		255|220|154|168	1	255|233|56|24	1	240|231|231|0	1																		
+166	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.9			npc_back007	1		255|213|104|153	1	67|59|59|86	1	193|193|193|5	1																		
+167	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.9			npc_back007	1		255|255|255|169	1	255|255|255|35	1	5|151|189|37	1																		
+168	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.9			npc_back007	1		255|236|176|193	1	255|0|31|62	1	21|19|24|90	1																		
+171	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.6	1		npc_back007	0		255|255|255|82	1	255|255|255|13	1	234|234|232|29	1																		
+172	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.6			npc_back007	1		255|201|121|147	1	7|154|202|196	1	15|0|48|40	1																		
+173	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.6			npc_back007	1		255|220|131|121	1	255|22|65|29	1	253|249|250|0	1																		
+174	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.6			npc_back007	1		80|198|159|139	1	255|255|255|0	1	247|247|247|16	1																		
+175	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.6			npc_back007	1		255|220|154|168	1	255|233|56|24	1	240|231|231|0	1																		
+176	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.6			npc_back007	1		255|213|104|153	1	67|59|59|86	1	193|193|193|5	1																		
+177	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.6			npc_back007	1		255|255|255|169	1	255|255|255|35	1	5|151|189|37	1																		
+178	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.6			npc_back007	1		255|236|176|193	1	255|0|31|62	1	21|19|24|90	1																		
+181	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.4	1		npc_back007	0		255|255|255|82	1	255|255|255|13	1	234|234|232|29	1																		
+182	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.4			npc_back007	1		255|201|121|147	1	7|154|202|196	1	15|0|48|40	1																		
+183	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.4			npc_back007	1		255|220|131|121	1	255|22|65|29	1	253|249|250|0	1																		
+184	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.4			npc_back007	1		80|198|159|139	1	255|255|255|0	1	247|247|247|16	1																		
+185	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.4			npc_back007	1		255|220|154|168	1	255|233|56|24	1	240|231|231|0	1																		
+186	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.4			npc_back007	1		255|213|104|153	1	67|59|59|86	1	193|193|193|5	1																		
+187	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.4			npc_back007	1		255|255|255|169	1	255|255|255|35	1	5|151|189|37	1																		
+188	Player/Npcs/Prefabs/npc_back007.prefab		back	木制翅膀	0.4			npc_back007	1		255|236|176|193	1	255|0|31|62	1	21|19|24|90	1																		

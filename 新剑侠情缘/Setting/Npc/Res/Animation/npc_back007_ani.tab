@@ -1,0 +1,5 @@
+AniName	AniPath	TimeFrame
+close	Player/Npcs/npc_back007/close.anim	5
+open	Player/Npcs/npc_back007/open.anim	5
+closest	Player/Npcs/npc_back007/closest.anim	15
+openst	Player/Npcs/npc_back007/openst.anim	15

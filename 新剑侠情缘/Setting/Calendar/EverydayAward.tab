@@ -1,0 +1,33 @@
+StringKey	Name	LevelMin1	LevelMax1	Times1	Count1	LevelMin2	LevelMax2	Times2	Count2	LevelMin3	LevelMax3	Times3	Count3	LevelMin4	LevelMax4	Times4	Count4	LevelMin5	LevelMax5	Times5	Count5
+Rank	武神殿	20	29	3	10	30	39	3	10	40	49	3	10	50	69	3	10	70	200	3	10
+ActivityQuestion	每日答题	20	29			30	39			40	49			50	69			70	200		
+CangBaoTu	藏宝图	20	29	2	10	30	39	2	10	40	49			50	69			70	200		
+EquipEnhance	装备强化	20	29	5	10	30	39			40	49			50	69			70	200		
+TeamFuben	组队秘境	20	29	1	10	30	39			40	49			50	69			70	200		
+PunishTask	惩恶任务	20	29	3	10	30	39	3	10	40	49	3	10	50	69	3	10	70	200	3	10
+ExplorationFuben	宝藏探索	20	29	5	10	30	39	5	10	40	49	5	10	50	68	5	10	70	200		
+Boss	挑战武林盟主	20	29	1	10	30	39	1	10	40	49	1	10	50	69	1	10	70	200	1	10
+RandomFuben	凌绝峰	20	29			30	39	1	10	40	49	1	10	50	69	1	10	70	200	1	10
+Battle	战场	20	29			30	39	1	10	40	49	1	10	50	69	1	10	70	200	1	10
+CommerceTask	商会任务	20	29			30	39			40	49	1	10	50	69	1	10	70	200	1	10
+KinDonate	家族捐献	20	29	5	10	30	39	5	10	40	49	5	10	50	69	5	10	70	200	5	10
+ChuanGong	家族传功	20	29			30	39	1	10	40	49	1	10	50	69			70	200		
+EquipRefinement	装备洗练	20	29	5	10	30	39	2	10	40	49			50	69			70	200		
+XiuLian	野外修炼	20	29	1	10	30	39	1	10	40	49			50	69			70	200		
+WhiteTigerFuben	白虎堂	20	29			30	39			40	49	1	10	50	69	1	10	70	200	1	10
+FieldBoss	历代名将	20	29			30	39			40	49			50	69			70	200		
+KinGiftBox	家族礼盒	20	29			30	39			40	49			50	69			70	200		
+KinGather	家族烤火	20	29	1	10	30	39	1	10	40	49	1	10	50	69	1	10	70	200	1	10
+EquipStone	魂石镶嵌	20	29	2	10	30	39			40	49			50	69			70	200		
+TeamBattle	通天塔	20	29			30	39			40	49	1	20	50	69	1	20	70	200	1	20
+KinFuben	家族试炼	20	29			30	39			40	49	1	20	50	69	1	20	70	200	1	20
+FactionBattle	门派竞技	20	29			30	39			40	49	1	20	50	69	1	20	70	200	1	20
+RechargeGift	领取7日或30日礼包奖励	20	29	1	10	30	39	1	10	40	49	1	10	50	69	1	10	70	200	1	10
+DailyRechargeGift	购买任意每日礼包	20	29	1	10	30	39	1	10	40	49	1	10	50	69	1	10	70	200	1	10
+DomainBattle	攻城战	20	29			30	39			40	49			50	69	1	20	70	200	1	20
+HeroChallenge	英雄挑战	20	29			30	39			40	49			69	69	3	10	70	200	3	10
+InDifferBattle	心魔幻境	20	29			30	39			40	49			50	69	1	10	70	200	1	10
+Muse	打坐冥想	20	29			30	39			40	49			50	69	1	10	70	200	1	10
+QunYingHui	群英会	20	29			30	39			40	49			50	69			80	200	1	20
+KinSecretFuben	家族秘境	20	29			30	39			40	49			50	69			70	200	1	20
+KinDefendFuben	家族保卫战	20	29			30	39			40	49			50	69			80	200	1	20

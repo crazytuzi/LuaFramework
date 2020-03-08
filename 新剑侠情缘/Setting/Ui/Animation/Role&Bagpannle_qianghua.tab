@@ -1,0 +1,23 @@
+Type	Target	StartFrame	EndFrame	Value1	Value2
+Move	texiao_tuowei0	1	30	{-62,216,0}	{-62,216,0}
+Move	texiao_tuowei0	30	60	{-62,216,0}	{-153,153,0}
+Move	texiao_tuowei1	1	30	{-61,133,0}	{-61,133,0}
+Move	texiao_tuowei1	30	60	{-61,133,0}	{-153,153,0}
+Move	texiao_tuowei2	1	30	{-62,-26,0}	{-62,-26,0}
+Move	texiao_tuowei2	30	60	{-62,-26,0}	{-153,153,0}
+Move	texiao_tuowei3	1	30	{28,216,0}	{28,216,0}
+Move	texiao_tuowei3	30	60	{28,216,0}	{-153,153,0}
+Move	texiao_tuowei4	1	30	{-62,-107,0}	{-62,-107,0}
+Move	texiao_tuowei4	30	60	{-62,-107,0}	{-153,153,0}
+Move	texiao_tuowei5	1	30	{-62,55,0}	{-62,55,0}
+Move	texiao_tuowei5	30	60	{-62,55,0}	{-153,153,0}
+Move	texiao_tuowei	1	30	{28,-107,0}	{28,-107,0}
+Move	texiao_tuowei	30	60	{28,-107,0}	{-153,153,0}
+Move	texiao_tuowei7	1	30	{28,55,0}	{28,55,0}
+Move	texiao_tuowei7	30	60	{28,55,0}	{-153,153,0}
+Move	texiao_tuowei8	1	30	{28,136,0}	{28,136,0}
+Move	texiao_tuowei8	30	60	{28,136,0}	{-153,153,0}
+Move	texiao_tuowei9	1	30	{28,-26,0}	{28,-26,0}
+Move	texiao_tuowei9	30	60	{28,-26,0}	{-153,153,0}
+Commander		60	60	@1	
+Commander		70	70	@2	

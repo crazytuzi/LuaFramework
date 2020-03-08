@@ -1,0 +1,54 @@
+TemplateId	Name	Kind	ShowType	ItemType	DetailType	Level	RequireLevel	RealLevel	Icon	BigIcon	ObjID	Intro	Price	Quality	ItemValue	Sellable	ClassName	ResEffect	FightPower	Attrib1Type	Attrib1Value1	Attrib1Value2	Attrib1Value3	Attrib2Type	Attrib2Value1	Attrib2Value2	Attrib2Value3	Attrib3Type	Attrib3Value1	Attrib3Value2	Attrib3Value3	Attrib4Type	Attrib4Value1	Attrib4Value2	Attrib4Value3	Attrib5Type	Attrib5Value1	Attrib5Value2	Attrib5Value3	Attrib6Type	Attrib6Value1	Attrib6Value2	Attrib6Value3	Attrib7Type	Attrib7Value1	Attrib7Value2	Attrib7Value3	Attrib8Type	Attrib8Value1	Attrib8Value2	Attrib8Value3	Attrib9Type	Attrib9Value1	Attrib9Value2	Attrib9Value3	Attrib10Type	Attrib10Value1	Attrib10Value2	Attrib10Value3	Attrib9Value1	Attrib9Value2	Attrib9Value3	Attrib10Type	Attrib10Value1	Attrib10Value2	Attrib10Value3	HoleCount	InsetLevel	FactionLimit
+7933	灵犬行箧	T1_BackShow_Q1	100001	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+8381	灵犬行箧	T1_BackShow_Q2	100002	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+8382	灵犬行箧	T1_BackShow_Q3	100003	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+8383	灵犬行箧	T1_BackShow_Q4	100004	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+8395	灵犬行箧	T1_BackShow_Q5	100005	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9718	灵犬行箧	T1_BackShow_Q1_time	100001	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]不可染色[-]	15000	51	15000	1	waiyi																																																				
+9488	玉兔行箧	T2_BackShow_Q1	100007	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9489	玉兔行箧	T2_BackShow_Q2	100008	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9490	玉兔行箧	T2_BackShow_Q3	100009	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9491	玉兔行箧	T2_BackShow_Q4	100010	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9716	玉兔行箧	T2_BackShow_Q1_time	100007	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]不可染色[-]	15000	51	15000	1	waiyi																																																				
+9825	圣诞袜子A	T3_BackShow_Q1	100011	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9826	圣诞袜子A	T3_BackShow_Q2	100012	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9827	圣诞袜子A	T3_BackShow_Q3	100013	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9828	圣诞袜子A	T3_BackShow_Q4	100014	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9829	圣诞袜子B	T3B_BackShow_Q1	100015	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9830	圣诞袜子B	T3B_BackShow_Q2	100016	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9831	圣诞袜子B	T3B_BackShow_Q3	100017	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+9832	圣诞袜子B	T3B_BackShow_Q4	100018	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+10241	珠光宝气	T4_BackShow_Q1	100019	20		1	1	1	10241	10241		[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+10242	珠光宝气	T4_BackShow_Q2	100020	20		1	1	1	10242	10242		[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+10243	珠光宝气	T4_BackShow_Q3	100021	20		1	1	1	10243	10243		[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+10244	珠光宝气	T4_BackShow_Q4	100022	20		1	1	1	10244	10244		[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+10245	珠光宝气	T4_BackShow_Q1_time	100019	20		1	1	1	10241	10241		[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]不可染色[-]	15000	51	15000	1	waiyi																																																				
+10455	赤麟纸鸢	T5_BackShow_Q1	100023	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+10456	赤麟纸鸢	T5_BackShow_Q2	100024	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+10457	赤麟纸鸢	T5_BackShow_Q3	100025	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+10458	赤麟纸鸢	T5_BackShow_Q4	100026	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11764	赤麟纸鸢	T5_BackShow_Q1_time	100023	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]不可染色[-]	15000	51	15000	1	waiyi																																																				
+11247	燕鸣枝头	T6_BackShow_Q1	100027	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11248	燕鸣枝头	T6_BackShow_Q2	100028	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11249	燕鸣枝头	T6_BackShow_Q3	100029	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11250	燕鸣枝头	T6_BackShow_Q4	100030	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11251	燕鸣枝头	T6_BackShow_Q5	100031	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11765	燕鸣枝头	T6_BackShow_Q1_time	100027	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]不可染色[-]	15000	51	15000	1	waiyi																																																				
+11648	翩跹汝梦	T7_BackShow_Q1	100032	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11649	翩跹汝梦	T7_BackShow_Q2	100033	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11650	翩跹汝梦	T7_BackShow_Q3	100034	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11651	翩跹汝梦	T7_BackShow_Q4	100035	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11652	翩跹汝梦	T7_BackShow_Q5	100036	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11756	翩跹汝梦	T7_BackShow_Q6	100037	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11757	翩跹汝梦	T7_BackShow_Q7	100038	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11758	翩跹汝梦	T7_BackShow_Q8	100039	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11766	翩跹汝梦	T7_BackShow_Q1_time	100032	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]不可染色[-]	15000	51	15000	1	waiyi																																																				
+11805	翅膀	T8_BackShow_Q1	100040	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11806	翅膀	T8_BackShow_Q2	100041	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11807	翅膀	T8_BackShow_Q3	100042	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11808	翅膀	T8_BackShow_Q4	100043	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11809	翅膀	T8_BackShow_Q5	100044	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11810	翅膀	T8_BackShow_Q6	100045	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11811	翅膀	T8_BackShow_Q7	100046	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11812	翅膀	T8_BackShow_Q8	100047	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]可用染色剂改变颜色[-]	15000	51	15000	1	waiyi																																																				
+11813	翅膀	T8_BackShow_Q1_time	100040	20		1	1	1				[FFFE0D]所有门派可用[-]\n\n使用后能在背部展示出来\n[FFFE0D]不可染色[-]	15000	51	15000	1	waiyi																																																				

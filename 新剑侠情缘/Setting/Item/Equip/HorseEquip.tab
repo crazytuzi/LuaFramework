@@ -1,0 +1,61 @@
+TemplateId	Name	Kind	ShowType	ItemType	DetailType	Level	RequireLevel	RealLevel	Icon	BigIcon	ObjID	Intro	Price	Quality	ItemValue	Sellable	ClassName	ResEffect	FightPower	Attrib1Type	Attrib1Value1	Attrib1Value2	Attrib1Value3	Attrib2Type	Attrib2Value1	Attrib2Value2	Attrib2Value3	Attrib3Type	Attrib3Value1	Attrib3Value2	Attrib3Value3	Attrib4Type	Attrib4Value1	Attrib4Value2	Attrib4Value3	Attrib5Type	Attrib5Value1	Attrib5Value2	Attrib5Value3	Attrib6Type	Attrib6Value1	Attrib6Value2	Attrib6Value3	Attrib7Type	Attrib7Value1	Attrib7Value2	Attrib7Value3	Attrib8Type	Attrib8Value1	Attrib8Value2	Attrib8Value3	Attrib9Type	Attrib9Value1	Attrib9Value2	Attrib9Value3	Attrib10Type	Attrib10Value1	Attrib10Value2	Attrib10Value3	HoleCount	InsetLevel
+3415	紫电凌云绳	T1_jiangsheng		15	1	1	80	1	28101	28101		紫电驱雷云四方，陌上轻狂趁马蹄	10000	4	1500000	1	horse_equip		1500	basic_damage_v	70		70	enhance_final_damage_p	3																																				
+3416	苍虹降龙绳	T2_jiangsheng		15	1	2	80	2	28102	28102		灭景追风平日月，浮光掠影跨春秋	50000	5	6000000	1	horse_equip		6000	basic_damage_v	100		100	enhance_final_damage_p	6																																				
+3445	赤金驭天绳	T3_jiangsheng		15	1	3	80	3	28103	28103		麒麟金龙争驰逐，九州八水一日还	50000	6	30000000	1	horse_equip		30000	basic_damage_v	200		200	enhance_final_damage_p	10																																				
+3446	云蛟驰霄绳	T4_jiangsheng		15	1	4	80	4	28104	28104		龙门百尺一朝跃，云霄千丈万年行	50000	6	60000000	1	horse_equip		60000	basic_damage_v	320		320	enhance_final_damage_p	13																																				
+3447	金虬蹈海绳	T5_jiangsheng		15	1	5	80	5	28105	28105		北海戏珠惊鲲鲵，南溟舞浪骇蛟螭	50000	6	105000000	1	horse_equip		105000	basic_damage_v	440		440	enhance_final_damage_p	16																																				
+3448	冥鲲腾渊绳	T6_jiangsheng		15	1	6	80	6	28106	28106		翻江倒海气势宏，乘风破浪谁能敌	50000	7	150000000	1	horse_equip		150000	basic_damage_v	560		560	enhance_final_damage_p	18																																				
+3449	灵鹏翱天绳	T7_jiangsheng		15	1	7	80	7	28107	28107		一步如过万重山，一跃宛若破九霄	50000	7	195000000	1	horse_equip		195000	basic_damage_v	700		700	enhance_final_damage_p	20																																				
+3417	紫电凌云鞍	T1_maan		16	1	1	80	1	28201	28201		紫电驱雷云四方，陌上轻狂趁马蹄	10000	4	1200000	1	horse_equip		1200	resist_allspecialstate_rate_v	50			defense_p	20			all_series_resist_p	20																																
+3418	苍虹降龙鞍	T2_maan		16	1	2	80	2	28202	28202		灭景追风平日月，浮光掠影跨春秋	50000	5	4800000	1	horse_equip		4800	resist_allspecialstate_rate_v	100			defense_p	40			all_series_resist_p	40																																
+3450	赤金驭天鞍	T3_maan		16	1	3	80	3	28203	28203		麒麟金龙争驰逐，九州八水一日还	50000	6	24000000	1	horse_equip		24000	resist_allspecialstate_rate_v	220			defense_p	60			all_series_resist_p	60																																
+3451	云蛟驰霄鞍	T4_maan		16	1	4	80	4	28204	28204		龙门百尺一朝跃，云霄千丈万年行	50000	6	48000000	1	horse_equip		48000	resist_allspecialstate_rate_v	280			defense_p	80			all_series_resist_p	80																																
+3452	金虬蹈海鞍	T5_maan		16	1	5	80	5	28205	28205		北海戏珠惊鲲鲵，南溟舞浪骇蛟螭	50000	6	84000000	1	horse_equip		84000	resist_allspecialstate_rate_v	340			defense_p	100			all_series_resist_p	100																																
+3453	冥鲲腾渊鞍	T6_maan		16	1	6	80	6	28206	28206		翻江倒海气势宏，乘风破浪谁能敌	50000	7	120000000	1	horse_equip		120000	resist_allspecialstate_rate_v	400			defense_p	120			all_series_resist_p	120																																
+3454	灵鹏翱天鞍	T7_maan		16	1	7	80	7	28207	28207		一步如过万重山，一跃宛若破九霄	50000	7	156000000	1	horse_equip		156000	resist_allspecialstate_rate_v	460			defense_p	140			all_series_resist_p	140																																
+3419	紫电凌云蹬	T1_jiaodeng		17	1	1	80	1	28301	28301		紫电驱雷云四方，陌上轻狂趁马蹄	10000	4	900000	1	horse_equip		900	lifemax_v	800			reduce_final_damage_p	3																																				
+3420	苍虹降龙蹬	T2_jiaodeng		17	1	2	80	2	28302	28302		灭景追风平日月，浮光掠影跨春秋	50000	5	3600000	1	horse_equip		3600	lifemax_v	1200			reduce_final_damage_p	6																																				
+3455	赤金驭天蹬	T3_jiaodeng		17	1	3	80	3	28303	28303		麒麟金龙争驰逐，九州八水一日还	50000	6	18000000	1	horse_equip		18000	lifemax_v	2400			reduce_final_damage_p	10																																				
+3456	云蛟驰霄蹬	T4_jiaodeng		17	1	4	80	4	28304	28304		龙门百尺一朝跃，云霄千丈万年行	50000	6	36000000	1	horse_equip		36000	lifemax_v	3800			reduce_final_damage_p	13																																				
+3457	金虬蹈海蹬	T5_jiaodeng		17	1	5	80	5	28305	28305		北海戏珠惊鲲鲵，南溟舞浪骇蛟螭	50000	6	63000000	1	horse_equip		63000	lifemax_v	4500			reduce_final_damage_p	16																																				
+3458	冥鲲腾渊蹬	T6_jiaodeng		17	1	6	80	6	28306	28306		翻江倒海气势宏，乘风破浪谁能敌	50000	7	90000000	1	horse_equip		90000	lifemax_v	5500			reduce_final_damage_p	18																																				
+3459	灵鹏翱天蹬	T7_jiaodeng		17	1	7	80	7	28307	28307		一步如过万重山，一跃宛若破九霄	50000	7	117000000	1	horse_equip		117000	lifemax_v	7000			reduce_final_damage_p	20																																				
+11068	青龙舞空绳	T8_jiangsheng		15	1	8	80	8	111068	111068		闪烁青鳞如闪电，灵光今古应无变	50000	7	240000000	1	horse_equip		240000	basic_damage_v	840		840	enhance_final_damage_p	22
+11069	T9绳子	T9_jiangsheng		15	1	9	80	9	111069	111069			50000	7	195000000	1	horse_equip		195000	basic_damage_v	700		700	enhance_final_damage_p	20
+11070	T10绳子	T10_jiangsheng		15	1	10	80	10	111070	111070			50000	7	195000000	1	horse_equip		195000	basic_damage_v	700		700	enhance_final_damage_p	20
+11071	青龙舞空鞍	T8_maan		16	1	8	80	8	111071	111071		闪烁青鳞如闪电，灵光今古应无变	50000	7	192000000	1	horse_equip		192000	resist_allspecialstate_rate_v	520			defense_p	160			all_series_resist_p	160
+11072	T9马鞍	T9_maan		16	1	9	80	9	111072	111072			50000	7	156000000	1	horse_equip		156000	resist_allspecialstate_rate_v	460			defense_p	140			all_series_resist_p	140
+11073	T10马鞍	T10_maan		16	1	10	80	10	111073	111073			50000	7	156000000	1	horse_equip		156000	resist_allspecialstate_rate_v	460			defense_p	140			all_series_resist_p	140
+11074	青龙舞空蹬	T8_jiaodeng		17	1	8	80	8	111074	111074		闪烁青鳞如闪电，灵光今古应无变	50000	7	144000000	1	horse_equip		144000	lifemax_v	8500			reduce_final_damage_p	22
+11075	T9脚蹬	T9_jiaodeng		17	1	9	80	9	111075	111075			50000	7	117000000	1	horse_equip		117000	lifemax_v	7000			reduce_final_damage_p	20
+11076	T10脚蹬	T10_jiaodeng		17	1	10	80	10	111076	111076			50000	7	117000000	1	horse_equip		117000	lifemax_v	7000			reduce_final_damage_p	20
+999101	真•云蛟驰霄绳Lv1	T4_jiangsheng999101		15	1	1	1	1	28104	28104		真•云蛟驰霄绳Lv1	50000	7	80000000	1	horse_equip		80000	basic_damage_v	400		400	enhance_final_damage_p	15																																				
+999102	真•云蛟驰霄绳Lv2	T4_jiangsheng999102		15	1	2	1	2	28104	28104		真•云蛟驰霄绳Lv2	50000	7	100000000	1	horse_equip		100000	basic_damage_v	500		500	enhance_final_damage_p	17																																				
+999103	真•云蛟驰霄绳Lv3	T4_jiangsheng999103		15	1	3	1	3	28104	28104		真•云蛟驰霄绳Lv3	50000	7	120000000	1	horse_equip		120000	basic_damage_v	600		600	enhance_final_damage_p	19																																				
+999104	真•云蛟驰霄绳Lv4	T4_jiangsheng999104		15	1	4	1	4	28104	28104		真•云蛟驰霄绳Lv4	50000	7	68000000	1	horse_equip		68000	basic_damage_v	700		700	enhance_final_damage_p	21																																				
+999105	真•云蛟驰霄绳Lv5	T4_jiangsheng999105		15	1	5	1	5	28104	28104		真•云蛟驰霄绳Lv5	50000	7	70000000	1	horse_equip		70000	basic_damage_v	800		800	enhance_final_damage_p	23																																				
+999106	真•云蛟驰霄绳Lv6	T4_jiangsheng999106		15	1	6	1	6	28104	28104		真•云蛟驰霄绳Lv6	50000	7	72000000	1	horse_equip		72000	basic_damage_v	900		900	enhance_final_damage_p	25																																				
+999107	真•云蛟驰霄绳Lv7	T4_jiangsheng999107		15	1	7	1	7	28104	28104		真•云蛟驰霄绳Lv7	50000	7	74000000	1	horse_equip		74000	basic_damage_v	1000		1000	enhance_final_damage_p	27																																				
+999108	真•云蛟驰霄绳Lv8	T4_jiangsheng999108		15	1	8	1	8	28104	28104		真•云蛟驰霄绳Lv8	50000	7	76000000	1	horse_equip		76000	basic_damage_v	1100		1100	enhance_final_damage_p	29																																				
+999109	真•云蛟驰霄绳Lv9	T4_jiangsheng999109		15	1	9	1	9	28104	28104		真•云蛟驰霄绳Lv9	50000	7	78000000	1	horse_equip		78000	basic_damage_v	1200		1200	enhance_final_damage_p	31																																				
+999110	真•云蛟驰霄绳Lv10	T4_jiangsheng999110		15	1	10	1	10	28104	28104		真•云蛟驰霄绳Lv10	50000	7	80000000	1	horse_equip		80000	basic_damage_v	1300		1300	enhance_final_damage_p	33																																				
+999201	真•云蛟驰霄鞍Lv1	T4_maan999201		16	1	1	1	1	28204	28204		真•云蛟驰霄鞍Lv1	50000	7	72000000	1	horse_equip		72000	resist_allspecialstate_rate_v	340			defense_p	90			all_series_resist_p	90																																
+999202	真•云蛟驰霄鞍Lv2	T4_maan999202		16	1	2	1	2	28204	28204		真•云蛟驰霄鞍Lv2	50000	7	96000000	1	horse_equip		96000	resist_allspecialstate_rate_v	380			defense_p	100			all_series_resist_p	100																																
+999203	真•云蛟驰霄鞍Lv3	T4_maan999203		16	1	3	1	3	28204	28204		真•云蛟驰霄鞍Lv3	50000	7	120000000	1	horse_equip		120000	resist_allspecialstate_rate_v	420			defense_p	110			all_series_resist_p	110																																
+999204	真•云蛟驰霄鞍Lv4	T4_maan999204		16	1	4	1	4	28204	28204		真•云蛟驰霄鞍Lv4	50000	7	56000000	1	horse_equip		56000	resist_allspecialstate_rate_v	360			defense_p	100			all_series_resist_p	100																																
+999205	真•云蛟驰霄鞍Lv5	T4_maan999205		16	1	5	1	5	28204	28204		真•云蛟驰霄鞍Lv5	50000	7	58000000	1	horse_equip		58000	resist_allspecialstate_rate_v	380			defense_p	105			all_series_resist_p	105																																
+999206	真•云蛟驰霄鞍Lv6	T4_maan999206		16	1	6	1	6	28204	28204		真•云蛟驰霄鞍Lv6	50000	7	60000000	1	horse_equip		60000	resist_allspecialstate_rate_v	400			defense_p	110			all_series_resist_p	110																																
+999207	真•云蛟驰霄鞍Lv7	T4_maan999207		16	1	7	1	7	28204	28204		真•云蛟驰霄鞍Lv7	50000	7	62000000	1	horse_equip		62000	resist_allspecialstate_rate_v	420			defense_p	115			all_series_resist_p	115																																
+999208	真•云蛟驰霄鞍Lv8	T4_maan999208		16	1	8	1	8	28204	28204		真•云蛟驰霄鞍Lv8	50000	7	64000000	1	horse_equip		64000	resist_allspecialstate_rate_v	440			defense_p	120			all_series_resist_p	120																																
+999209	真•云蛟驰霄鞍Lv9	T4_maan999209		16	1	9	1	9	28204	28204		真•云蛟驰霄鞍Lv9	50000	7	66000000	1	horse_equip		66000	resist_allspecialstate_rate_v	460			defense_p	125			all_series_resist_p	125																																
+999210	真•云蛟驰霄鞍Lv10	T4_maan999210		16	1	10	1	10	28204	28204		真•云蛟驰霄鞍Lv10	50000	7	68000000	1	horse_equip		68000	resist_allspecialstate_rate_v	480			defense_p	130			all_series_resist_p	130																																
+999301	真•云蛟驰霄蹬Lv1	T4_jiaodeng999301		17	1	1	1	1	28304	28304		真•云蛟驰霄蹬Lv1	50000	7	54000000	1	horse_equip		54000	lifemax_v	5000			reduce_final_damage_p	15																																				
+999302	真•云蛟驰霄蹬Lv2	T4_jiaodeng999302		17	1	2	1	2	28304	28304		真•云蛟驰霄蹬Lv2	50000	7	72000000	1	horse_equip		72000	lifemax_v	6200			reduce_final_damage_p	17																																				
+999303	真•云蛟驰霄蹬Lv3	T4_jiaodeng999303		17	1	3	1	3	28304	28304		真•云蛟驰霄蹬Lv3	50000	7	90000000	1	horse_equip		90000	lifemax_v	7400			reduce_final_damage_p	19																																				
+999304	真•云蛟驰霄蹬Lv4	T4_jiaodeng999304		17	1	4	1	4	28304	28304		真•云蛟驰霄蹬Lv4	50000	7	44000000	1	horse_equip		44000	lifemax_v	8600			reduce_final_damage_p	21																																				
+999305	真•云蛟驰霄蹬Lv5	T4_jiaodeng999305		17	1	5	1	5	28304	28304		真•云蛟驰霄蹬Lv5	50000	7	46000000	1	horse_equip		46000	lifemax_v	9800			reduce_final_damage_p	23																																				
+999306	真•云蛟驰霄蹬Lv6	T4_jiaodeng999306		17	1	6	1	6	28304	28304		真•云蛟驰霄蹬Lv6	50000	7	48000000	1	horse_equip		48000	lifemax_v	11000			reduce_final_damage_p	25																																				
+999307	真•云蛟驰霄蹬Lv7	T4_jiaodeng999307		17	1	7	1	7	28304	28304		真•云蛟驰霄蹬Lv7	50000	7	50000000	1	horse_equip		50000	lifemax_v	12200			reduce_final_damage_p	27																																				
+999308	真•云蛟驰霄蹬Lv8	T4_jiaodeng999308		17	1	8	1	8	28304	28304		真•云蛟驰霄蹬Lv8	50000	7	52000000	1	horse_equip		52000	lifemax_v	13400			reduce_final_damage_p	29																																				
+999309	真•云蛟驰霄蹬Lv9	T4_jiaodeng999309		17	1	9	1	9	28304	28304		真•云蛟驰霄蹬Lv9	50000	7	54000000	1	horse_equip		54000	lifemax_v	14600			reduce_final_damage_p	31																																				
+999310	真•云蛟驰霄蹬Lv10	T4_jiaodeng999310		17	1	10	1	10	28304	28304		真•云蛟驰霄蹬Lv10	50000	7	56000000	1	horse_equip		56000	lifemax_v	15800			reduce_final_damage_p	33																																				

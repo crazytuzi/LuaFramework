@@ -1,0 +1,14 @@
+Index	TemplateID	Name	Kind	Camp	ClassName	ScriptParam	NpcResID	FaceID	BigFaceID	ReviveFrame	NpcAttribID	NormalSkill1	NormalSkillLevel1	NormalSkill2	NormalSkillLevel2	NormalSkill3	NormalSkillLevel3	VisionRadius	ActiveRadius	AiFile	Treasure	DropFile	FightMode	RunSpeed	BloodStyle	ForbitMove	TitleID	AuraSkillId	AuraSkillLevel	StartActEvent	Tag	DropType	DefaultDialog	WalkSpeed	NameColor
+QYMJ_Enemy_1	635	劣质机关人	0	1	FubenDeath		157	200	300		901	22	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1										
+QYMJ_Enemy_2	636	江湖败类	0	1	FubenDeath		173	200	300		901	166	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1										
+QYMJ_Enemy_3	637	武林恶徒	0	1	FubenDeath		123	200	300		901	22	1					1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1										
+QYMJ_Gear	638	龙威(天王)	2	0	AdventureAnger	1|3|1000|开启中|下一波敌人即将出现，各位侠士请做好准备！	410	995				1676	1											1		1					NoTurn				
+QYMJ_Gear_2	674	龙威(峨眉)	2	0	AdventureAnger	2|3|1000|开启中|下一波敌人即将出现，各位侠士请做好准备！	410	995				1677	1											1		1					NoTurn				
+QYMJ_Gear_3	675	龙威	2	0	AdventureAnger	-1|3|1000|开启中|下一波敌人即将出现，各位侠士请做好准备！	410	995				1678	1											1		1					NoTurn				
+QYMJ_Gear_4	676	龙威(逍遥)	2	0	AdventureAnger	4|3|1000|开启中|下一波敌人即将出现，各位侠士请做好准备！	410	995				1679	1											1		1					NoTurn				
+QYMJ_Captain	639	马贼	0	1	FubenDeath		165	200	300		904	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini	1	Setting/Npc/DropFile/chengemijing/hufa.tab	1	18	2							1			
+QYMJ_Boss	640	沫天然	0	1	FubenDeath		370	200	300		905	22	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini	1	Setting/Npc/DropFile/chengemijing/shouhuzhe.tab	1	18	2		26					1			
+QYMJ_Baoxiang	642	秘境宝箱	2	1	AdventureBox	3|19	352																	1		1					NoTurn				
+MYKD_Enemy_1	665	矿工	0	1	FubenDeath		139	200	300		901	22	1	91	1			1500	1500	Setting/Npc/Ai/KeepMoving.ini			1	18	1									10	
+MYKD_Enemy_2	666	矿洞监工	0	1	FubenDeath		142	200	300		901	21	1	91	1			1500	1500	Setting/Npc/Ai/CommonActive.ini			1	18	1										
+MYKD_Ore_1	667	秘银矿石	0	1	FubenDeath		390				901	91	1										1	18	1	1					NoTurn				

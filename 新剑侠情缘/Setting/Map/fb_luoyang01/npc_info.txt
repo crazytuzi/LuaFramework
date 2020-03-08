@@ -1,0 +1,9 @@
+Index	NpcName	TitleID	NpcTemplateId	WalkNearLength	CanAutoPath	NpcLevel	XPos	YPos	StandDir	Quantity	NpcType	NpcCamp	NpcDroprate	NpcSeriesAuto	NpcSeriesMetal	NpcSeriesWood	NpcSeriesWater	NpcSeriesFire	NpcSeriesEarth	Removewhendeath	ChangeColorScheme
+chuansong	沧海	传送	73		1	99	13095	8812	0	-1	0	0		0	0	0	0	0	0	0	0
+yehao	叶浩	百晓公子	88		1	99	11265	4725	0	-1	0	0		0	0	0	0	0	0	0	0
+xueyinyao	薛银药	素手医仙	90		1	99	12020	5160	49	-1	0	0		0	0	0	0	0	0	0	0
+wangchao	王朝	皇城守卫	89		1	99	7700	2190	62	-1	0	0		0	0	0	0	0	0	0	0
+tiejiang	欧冶子	锻造大师	15		1	99	4047	5837	0	-1	0	0		0	0	0	0	0	0	0	0
+tiejiang	叶羽柔		36		1	99	13210	6125	16	-1	0	0		0	0	0	0	0	0	0	0
+shouwei	皇城守卫		36		1	99	12295	8562	48	-1	0	0		0	0	0	0	0	0	0	0
+shouwei	皇城守卫				1	99	12291	9077	48	-1	0	0		0	0	0	0	0	0	0	0
