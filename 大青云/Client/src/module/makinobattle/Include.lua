@@ -1,0 +1,7 @@
+_dofile 'src/module/makinobattle/MakinoBattleView.lua'
+_dofile 'src/module/makinobattle/MakinoBattleModel.lua'
+_dofile 'src/module/makinobattle/MakinoBattleController.lua'
+_dofile 'src/module/makinobattle/MakinoBattleUtils.lua'
+_dofile 'src/module/makinobattle/MakinoBattleInfo.lua'
+_dofile 'src/module/makinobattle/MakinoBattleResult.lua'
+_dofile 'src/module/makinobattle/MakinoBattleSkillView.lua'

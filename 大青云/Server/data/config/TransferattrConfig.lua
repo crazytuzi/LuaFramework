@@ -1,0 +1,42 @@
+TransferattrConfig={
+	['1']={
+		['id'] = 1,
+		['limit'] = 150,
+		['attr'] = "att,500#def,250#hp,5000",
+		['dungeonquestID'] = 8050001,
+		['item'] = 151000019,
+		['consume'] = "180700011,1",
+	},
+	['2']={
+		['id'] = 2,
+		['limit'] = 200,
+		['attr'] = "att,1320#def,660#hp,13200",
+		['dungeonquestID'] = 8050002,
+		['item'] = 0,
+		['consume'] = "180700011,3",
+	},
+	['3']={
+		['id'] = 3,
+		['limit'] = 250,
+		['attr'] = "att,2100#def,1050#hp,21000",
+		['dungeonquestID'] = 8050003,
+		['item'] = 180900002,
+		['consume'] = "180700011,5",
+	},
+	['4']={
+		['id'] = 4,
+		['limit'] = 400,
+		['attr'] = "att,2630#def,1315#hp,26300",
+		['dungeonquestID'] = 8050004,
+		['item'] = 0,
+		['consume'] = "180700011,10",
+	},
+	['5']={
+		['id'] = 5,
+		['limit'] = 500,
+		['attr'] = "att,3940#def,1970#hp,39400",
+		['dungeonquestID'] = 8050005,
+		['item'] = 0,
+		['consume'] = "180700011,15",
+	},
+};

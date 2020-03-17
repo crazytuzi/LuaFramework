@@ -1,0 +1,72 @@
+﻿_G.unionCityWarbuilding = {
+	[1] = {
+		id = 10000021,
+		name = "青龙",
+		type = "ql",
+		x = -743,
+		y = 676,
+		dir = 0,
+		buff = 1000000,
+	},
+	[2] = {
+		id = 10000022,
+		name = "白虎",
+		type = "bh",
+		x = -94,
+		y = 234,
+		dir = 0,
+		buff = 1000001,
+	},
+	[3] = {
+		id = 10000023,
+		name = "朱雀",
+		type = "zq",
+		x = 849,
+		y = -661,
+		dir = 0,
+		buff = 1000002,
+	},
+	[4] = {
+		id = 10000024,
+		name = "玄武",
+		type = "xw",
+		x = 829,
+		y = 169,
+		dir = 0,
+		buff = 1000003,
+	},
+	[5] = {
+		id = 10000025,
+		name = "王座",
+		type = "wz",
+		x = -560,
+		y = -714,
+		dir = 1.9786762,
+	},
+};
+_G.unioncityWarlifePoint = {
+	[1] = {
+		name = "青龙",
+		type = "pql",
+		x = -728,
+		y = 568,
+	},
+	[2] = {
+		name = "白虎",
+		type = "pbh",
+		x = -55,
+		y = 204,
+	},
+	[3] = {
+		name = "朱雀",
+		type = "pzq",
+		x = 829,
+		y = -534,
+	},
+	[4] = {
+		name = "玄武",
+		type = "pxw",
+		x = 753,
+		y = 210,
+	},
+};

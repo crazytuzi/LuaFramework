@@ -1,0 +1,6 @@
+﻿_dofile "src/module/zhuansheng/ZhuanController.lua"
+_dofile "src/module/zhuansheng/ZhuanModel.lua"
+_dofile "src/module/zhuansheng/ZhuanView.lua"
+_dofile "src/module/zhuansheng/ZhuanWindowView.lua"
+_dofile "src/module/zhuansheng/ZHuanResult.lua"
+_dofile "src/module/zhuansheng/ZhuanshengOpenView.lua"

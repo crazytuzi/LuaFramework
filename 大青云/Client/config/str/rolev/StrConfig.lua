@@ -1,0 +1,4 @@
+﻿StrConfig:Add(
+{
+} 	
+);

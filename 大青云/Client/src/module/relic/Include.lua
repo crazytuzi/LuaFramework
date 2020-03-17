@@ -1,0 +1,5 @@
+_dofile 'src/module/relic/RelicController.lua'
+_dofile 'src/module/relic/RelicUtil.lua'
+_dofile 'src/module/relic/RelicView.lua'
+_dofile 'src/module/relic/MainRelicNewTips.lua'
+_dofile 'src/module/relic/RelicNewTipsManager.lua'

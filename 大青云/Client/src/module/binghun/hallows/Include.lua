@@ -1,0 +1,5 @@
+﻿_dofile 'src/module/binghun/hallows/HallowsView.lua'
+_dofile 'src/module/binghun/hallows/HallowsModel.lua'
+_dofile 'src/module/binghun/hallows/HallowsController.lua'
+_dofile 'src/module/binghun/hallows/HallowsVO.lua'
+_dofile 'src/module/binghun/hallows/HallowsBgView.lua'

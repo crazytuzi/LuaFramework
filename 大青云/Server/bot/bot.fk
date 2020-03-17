@@ -1,0 +1,50 @@
+const sendinter = 3
+
+const test_bot_time_id = 0
+const rand_move_bot_id = 1
+
+func check_do_something(bot, name, time, f)
+
+	if bot:get_time(name) > time then
+	
+		f(bot)
+		bot:reset_time(name)
+		
+	end
+
+end
+
+func test_bot(bot)
+
+	--print(bot:acc(), " is online")
+
+end
+
+func Heartbeat(bot)
+
+	check_do_something(bot, test_bot_time_id, 5, "test_bot")
+	check_do_something(bot, rand_move_bot_id, sendinter, "rand_move_bot")
+
+	return 0
+	
+end
+
+func rand_move_bot(bot)
+
+	bot:start_msg()
+	bot:push_double(bot:x())
+	bot:push_double(bot:y())
+	var rx = bot:rand() % 10
+	var ry = bot:rand() % 10
+	var destx = bot:x() - rx + rx / 2 
+	var desty = bot:y() - ry + ry / 2
+	bot:push_double(destx)
+	bot:push_double(desty)
+	bot:send_push_msg(3004)
+	
+	--print(bot:acc(), " mov to ", destx, ",", desty)
+
+	bot:setx(destx)
+	bot:sety(desty)
+	
+end

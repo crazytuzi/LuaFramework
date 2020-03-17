@@ -1,0 +1,6 @@
+_dofile 'src/module/activity/xianyuanCave/XianYuanCaveView.lua'
+-- _dofile 'src/module/activity/xianyuanCave/ActivityXianYuanCave.lua'
+_dofile 'src/module/activity/xianyuanCave/XianYuanCaveInfoView.lua'
+_dofile 'src/module/activity/xianyuanCave/XianYuanBossTip.lua'
+_dofile 'src/module/activity/xianyuanCave/ActivityXianYuanCaveDIF.lua'
+_dofile 'src/module/activity/xianyuanCave/XianYuanUtil.lua'

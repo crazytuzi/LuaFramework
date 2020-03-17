@@ -1,0 +1,5 @@
+_dofile 'src/module/fumo/FumoController.lua'
+_dofile 'src/module/fumo/FumoModel.lua'
+_dofile 'src/module/fumo/FumoUtil.lua'
+_dofile 'src/module/fumo/FumoView.lua'
+_dofile 'src/module/fumo/Fumo.lua'

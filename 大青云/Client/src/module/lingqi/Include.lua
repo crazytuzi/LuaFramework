@@ -1,0 +1,11 @@
+_dofile "src/module/lingqi/LingQiConsts.lua"
+_dofile "src/module/lingqi/LingQiUtils.lua"
+_dofile "src/module/lingqi/LingQiModel.lua"
+_dofile "src/module/lingqi/LingQiController.lua"
+_dofile 'src/module/lingqi/LingQiView.lua'
+_dofile 'src/module/lingqi/LingQiShowView.lua'
+_dofile 'src/module/lingqi/LingQiBagShortcutView.lua'
+_dofile 'src/module/lingqi/LingQiSkillLvlUpView.lua'
+_dofile 'src/module/lingqi/LingQiFigureController.lua'
+_dofile 'src/module/lingqi/LingQiFigure.lua'
+_dofile 'src/module/lingqi/LingQiMainView.lua'

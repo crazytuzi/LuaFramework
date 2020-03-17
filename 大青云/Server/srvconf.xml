@@ -1,0 +1,98 @@
+﻿<?xml version="1.0"?>
+
+<srvconf>
+	<group_id>1</group_id>											<!-- 服务器组ID -->
+	<old_group_id>1</old_group_id>									<!-- 合服前组ID -->
+	<gkey>dqy</gkey>												<!-- 游戏名称 -->
+	<gid>97</gid>													<!-- 游戏ID -->
+	<login_type>0</login_type>										<!-- 是否平台登陆 -->
+	<platform>youxi</platform>  									<!-- 平台ID -->
+	<dept>263</dept>												<!-- GM平台ID -->
+	<login_key>XZC3LnPyuV7ZWgPM3LsJ60r17kQvblBE</login_key>			<!-- 登录 Key -->
+	<charge_key>Icr9YZy2QWRJyB7tPm5ws7TKKwD9rS48</charge_key>		<!-- 充值Key -->
+	<gm_key>662a01a9af2e910b83412eb1427a2c39</gm_key>				<!-- GM Key -->
+
+	<conn>
+		<name>connsrv</name>
+		<addr1>172.19.212.155</addr1>
+  		<port1>6000</port1>
+		<export1>9200</export1>
+  		<num>1</num>
+		<thread>4</thread>
+	</conn>
+	
+ 	<login>
+  		<name>loginsrv</name>
+  		<addr1>172.19.212.155</addr1>
+ 		<port1>6100</port1>
+ 		<num>1</num>
+ 	</login>
+
+	<world>
+		<name>worldsrv</name>
+		<domain>172.19.212.155</domain>
+		<addr1>172.19.212.155</addr1>
+  		<port1>6200</port1>
+  		<num>1</num>
+  		<concross_switch>1</concross_switch>
+	</world>
+	
+	<scene>
+		<name>scenesrv</name>
+		<addr1>172.19.212.155</addr1>
+  		<port1>6300</port1>
+		<addr2>172.19.212.155</addr2>
+  		<port2>6301</port2>
+  		<num>2</num>
+	</scene>
+	
+	<data>
+		<name>datasrv</name>
+		<addr1>172.19.212.155</addr1>
+  		<port1>6400</port1>
+  		<num>1</num>
+	</data>  
+	
+	<cross>
+		<name>crosssrv</name>
+		<addr1>172.19.212.155</addr1>
+  		<port1>6500</port1>
+  		<num>1</num>
+	</cross>
+	
+	<log>
+		<name>logsrv</name>
+		<addr1>172.19.212.155</addr1>
+  		<port1>6800</port1>
+  		<num>1</num>
+		<switch>1</switch>
+	</log>
+	
+	<platform>
+		<dns_open>0</dns_open>
+		<actcode_ip>172.19.212.155</actcode_ip>
+  		<actcode_port>8801</actcode_port>
+		<card_ip>172.19.212.155</card_ip>
+  		<card_port>8802</card_port>
+		<gmoper_open>0</gmoper_open>
+  		<gmoper_port>9210</gmoper_port>
+		<platform_open>0</platform_open>
+  		<platform_port>9220</platform_port>
+		<center_addr>172.19.212.155</center_addr>
+		<center_port>8806</center_port>
+		<plugin_addr>172.19.212.155</plugin_addr>
+		<plugin_port>8803</plugin_port>
+		<app_open>0</app_open>
+		<app_port>4444</app_port>
+	</platform>
+
+	<database>
+		<dbname>venus</dbname>
+		<host>127.0.0.1</host>
+		<port>3306</port>
+		<user>root</user>
+		<pwd>123456</pwd>
+		<version>71</version>
+		<maxthread>5</maxthread>
+	</database> 
+</srvconf>

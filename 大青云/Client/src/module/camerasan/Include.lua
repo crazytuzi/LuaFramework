@@ -1,0 +1,5 @@
+﻿_dofile 'src/module/camerasan/CameraBase.lua'
+_dofile 'src/module/camerasan/CameraSan.lua'
+_dofile 'src/module/camerasan/CameraCircle.lua'
+_dofile 'src/module/camerasan/CameraConsts.lua'
+_dofile 'src/module/camerasan/CameraControl.lua'

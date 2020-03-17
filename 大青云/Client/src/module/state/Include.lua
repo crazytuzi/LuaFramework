@@ -1,0 +1,6 @@
+_dofile 'src/module/state/BaseState.lua'
+_dofile 'src/module/state/IdleState.lua'
+_dofile 'src/module/state/PrepState.lua'
+_dofile 'src/module/state/ChanState.lua'
+_dofile 'src/module/state/ComboState.lua'
+_dofile 'src/module/state/StateMachine.lua'

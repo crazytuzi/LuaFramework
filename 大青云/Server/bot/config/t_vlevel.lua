@@ -1,0 +1,42 @@
+_G.t_vlevel={
+	[1]={
+		['level'] = 1,
+		['dailyreward'] = "13,50#10,200000",
+		['yearreward'] = "110220019,2",
+		['zhekou'] = 90,
+		['monthAttr'] = "att,20",
+		['yearAttr'] = "att,40",
+	},
+	[2]={
+		['level'] = 2,
+		['dailyreward'] = "140621038,8#140621044,8#140621050,8",
+		['yearreward'] = "110220019,2",
+		['zhekou'] = 80,
+		['monthAttr'] = "att,30",
+		['yearAttr'] = "att,60",
+	},
+	[3]={
+		['level'] = 3,
+		['dailyreward'] = "140621039,3#140621037,8#110220019,1#14,100000",
+		['yearreward'] = "110220019,2",
+		['zhekou'] = 80,
+		['monthAttr'] = "att,40",
+		['yearAttr'] = "att,80",
+	},
+	[4]={
+		['level'] = 4,
+		['dailyreward'] = "140621039,5#140620006,3#140621037,18#110220019,1",
+		['yearreward'] = "110220019,2",
+		['zhekou'] = 50,
+		['monthAttr'] = "att,50",
+		['yearAttr'] = "att,100",
+	},
+	[5]={
+		['level'] = 5,
+		['dailyreward'] = "140621039,8#140620007,2#140621037,28#110220019,1",
+		['yearreward'] = "110220019,2",
+		['zhekou'] = 50,
+		['monthAttr'] = "att,60",
+		['yearAttr'] = "att,120",
+	},
+};

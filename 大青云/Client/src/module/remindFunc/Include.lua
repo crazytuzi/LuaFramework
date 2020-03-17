@@ -1,0 +1,6 @@
+﻿_dofile 'src/module/remindFunc/RemindFuncConsts.lua'
+_dofile 'src/module/remindFunc/RemindFuncController.lua'
+_dofile 'src/module/remindFunc/RemindFuncBase.lua'
+_dofile 'src/module/remindFunc/RemindFuncManager.lua'
+_dofile 'src/module/remindFunc/RemindFuncView.lua'
+_dofile 'src/module/remindFunc/RemindFuncConditionUtil.lua'

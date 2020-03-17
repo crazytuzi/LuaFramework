@@ -1,0 +1,1 @@
+﻿_dofile (ClientConfigPath .. 'Config/loading/LoadingTipsCfg.lua')

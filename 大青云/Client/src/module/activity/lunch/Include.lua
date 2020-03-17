@@ -1,0 +1,7 @@
+_dofile 'src/module/activity/lunch/ActivityLunch.lua'
+_dofile 'src/module/activity/lunch/ActivityLunchRightView.lua'
+_dofile 'src/module/activity/lunch/ActivityLunchUtil.lua'
+_dofile 'src/module/activity/lunch/ActivityLunchInfo.lua'
+_dofile 'src/module/activity/lunch/ActivityLunchModel.lua'
+_dofile 'src/module/activity/lunch/ActivityLunchConst.lua'
+_dofile 'src/module/activity/lunch/ActivityLunchAnnounce.lua'

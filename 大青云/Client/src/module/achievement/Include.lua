@@ -1,0 +1,6 @@
+_dofile 'src/module/achievement/AchievementModel.lua'
+_dofile 'src/module/achievement/AchievementConsts.lua'
+_dofile 'src/module/achievement/AchievementVO.lua'
+_dofile 'src/module/achievement/AchievementController.lua'
+_dofile 'src/module/achievement/AchievementView.lua'
+_dofile 'src/module/achievement/AchievementTipView.lua'

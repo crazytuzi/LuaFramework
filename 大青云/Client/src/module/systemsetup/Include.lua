@@ -1,0 +1,8 @@
+_dofile 'src/module/systemsetup/SetSystemController.lua'
+_dofile 'src/module/systemsetup/SystemBasicView.lua'
+_dofile 'src/module/systemsetup/SetSystemView.lua'
+_dofile 'src/module/systemsetup/SetFuncView.lua'
+_dofile 'src/module/systemsetup/SetSkillView.lua'
+_dofile 'src/module/systemsetup/SetSystemModel.lua'
+_dofile 'src/module/systemsetup/SetSystemVO.lua'
+_dofile 'src/module/systemsetup/SetSystemConsts.lua'

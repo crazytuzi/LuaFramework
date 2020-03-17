@@ -1,0 +1,5 @@
+_dofile 'src/module/goddynastydungeon/GodDynastyDungeonView.lua'
+_dofile 'src/module/goddynastydungeon/GodDynastyDungeonModel.lua'
+_dofile 'src/module/goddynastydungeon/GodDynastyDungeonController.lua'
+_dofile 'src/module/goddynastydungeon/GodDynastyDungeonInfo.lua'
+_dofile 'src/module/goddynastydungeon/GodDynastyDungeonResultView.lua'

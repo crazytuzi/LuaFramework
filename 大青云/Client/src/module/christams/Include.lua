@@ -1,0 +1,6 @@
+﻿_dofile 'src/module/christams/ChristmasBasicView.lua'
+_dofile 'src/module/christams/ChristmasDonateVIew.lua'
+_dofile 'src/module/christams/ChristmasController.lua'
+_dofile 'src/module/christams/ChristmasModel.lua'
+_dofile 'src/module/christams/ChristmasIntrusion.lua'
+_dofile 'src/module/christams/ChristmasExchange.lua'

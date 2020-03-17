@@ -1,0 +1,51 @@
+_G.t_sevenmodel={
+	[10010001]={
+		['lookid'] = 10010001,
+		['name'] = "主宰神剑碎片",
+		['skl'] = "canjian03.skl",
+		['skn'] = "canjian03.skn",
+		['follow_idle'] = "canjian03.san",
+	},
+	[10010002]={
+		['lookid'] = 10010002,
+		['name'] = "战翼之魂",
+		['skl'] = "cb_huihuangzhiyi.skl",
+		['skn'] = "cb_huihuangzhiyi.skn",
+		['follow_idle'] = "cb_huihuangzhiyi_ui_daiji.san",
+	},
+	[10010003]={
+		['lookid'] = 10010003,
+		['name'] = "角色技能",
+		['skl'] = "seven_jinengshu.skl",
+		['skn'] = "seven_jinengshu.skn",
+		['follow_idle'] = "seven_jinengshu.san",
+	},
+	[10010004]={
+		['lookid'] = 10010004,
+		['name'] = "狼",
+		['skl'] = "zq_lang.skl",
+		['skn'] = "zq_lang.skn",
+		['follow_idle'] = "zq_lang_chujidaiji.san",
+	},
+	[10010005]={
+		['lookid'] = 10010005,
+		['name'] = "传说宝藏图",
+		['skl'] = "seven_cbt.skl",
+		['skn'] = "seven_cbt.skn",
+		['follow_idle'] = "seven_cbt.san",
+	},
+	[10010006]={
+		['lookid'] = 10010006,
+		['name'] = "灵兽皮肤",
+		['skl'] = "ls_bingjingshou.skl",
+		['skn'] = "ls_bingjingshou.skn",
+		['follow_idle'] = "ls_bingjingshou_daiji.san",
+	},
+	[10010007]={
+		['lookid'] = 10010007,
+		['name'] = "3阶2卓饰品",
+		['skl'] = "seven_zhuoyeshiping.skl",
+		['skn'] = "seven_zhuoyeshiping.skn",
+		['follow_idle'] = "seven_zhuoyeshiping.san",
+	},
+};

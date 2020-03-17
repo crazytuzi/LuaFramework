@@ -1,0 +1,42 @@
+HomepupilskillrangeConfig={
+	['1']={
+		['id'] = 1,
+		['pupilQuality'] = 0,
+		['skillNumRange'] = "1000,1000,200,1",
+		['skillValue'] = 10,
+		['questRateAdd'] = 0,
+		['price'] = "10,50000#10,100000#10,200000#10,400000#10,600000#10,800000",
+	},
+	['2']={
+		['id'] = 2,
+		['pupilQuality'] = 1,
+		['skillNumRange'] = "0,1000,200,1",
+		['skillValue'] = 20,
+		['questRateAdd'] = 0,
+		['price'] = "10,50000#10,100000#10,200000#10,400000#10,600000#10,800000",
+	},
+	['3']={
+		['id'] = 3,
+		['pupilQuality'] = 2,
+		['skillNumRange'] = "0,200,500,5",
+		['skillValue'] = 30,
+		['questRateAdd'] = 0,
+		['price'] = "10,50000#10,100000#10,200000#10,400000#10,600000#10,800000",
+	},
+	['4']={
+		['id'] = 4,
+		['pupilQuality'] = 3,
+		['skillNumRange'] = "0,200,500,10",
+		['skillValue'] = 40,
+		['questRateAdd'] = 0,
+		['price'] = "10,50000#10,100000#10,200000#10,400000#10,600000#10,800000",
+	},
+	['5']={
+		['id'] = 5,
+		['pupilQuality'] = 4,
+		['skillNumRange'] = "0,0,500,10",
+		['skillValue'] = 50,
+		['questRateAdd'] = 0,
+		['price'] = "10,50000#10,100000#10,200000#10,400000#10,600000#10,800000",
+	},
+};

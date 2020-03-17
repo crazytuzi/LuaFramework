@@ -1,0 +1,51 @@
+_G.t_sevenmodel={
+	[10010001]={
+		['lookid'] = 10010001,
+		['name'] = "100万银币",
+		['skl'] = "v_qiri_baoxiang.skl",
+		['skn'] = "v_qiri_baoxiang_fmt.skn",
+		['follow_idle'] = "v_qiri_baoxiang_daiji.san",
+	},
+	[10010002]={
+		['lookid'] = 10010002,
+		['name'] = "戒指",
+		['skl'] = "v_qiri_jiezhi_1.skl",
+		['skn'] = "v_qiri_jiezhi_1_fmt.skn",
+		['follow_idle'] = "v_qiri_jiezhi_1_daiji.san",
+	},
+	[10010003]={
+		['lookid'] = 10010003,
+		['name'] = "角色技能",
+		['skl'] = "seven_jinengshu.skl",
+		['skn'] = "seven_jinengshu.skn",
+		['follow_idle'] = "seven_jinengshu.san",
+	},
+	[10010004]={
+		['lookid'] = 10010004,
+		['name'] = "升级丹",
+		['skl'] = "v_qiri_shengjidan.skl",
+		['skn'] = "v_qiri_shengjidan_fmt.skn",
+		['follow_idle'] = "v_qiri_shengjidan_daiji.skl",
+	},
+	[10010005]={
+		['lookid'] = 10010005,
+		['name'] = "传说宝藏图",
+		['skl'] = "seven_cbt.skl",
+		['skn'] = "seven_cbt.skn",
+		['follow_idle'] = "seven_cbt.san",
+	},
+	[10010006]={
+		['lookid'] = 10010006,
+		['name'] = "灵兽皮肤",
+		['skl'] = "ls_bingjingshou.skl",
+		['skn'] = "ls_bingjingshou.skn",
+		['follow_idle'] = "ls_bingjingshou_daiji.san",
+	},
+	[10010007]={
+		['lookid'] = 10010007,
+		['name'] = "3阶2卓饰品",
+		['skl'] = "seven_zhuoyeshiping.skl",
+		['skn'] = "seven_zhuoyeshiping.skn",
+		['follow_idle'] = "seven_zhuoyeshiping.san",
+	},
+};

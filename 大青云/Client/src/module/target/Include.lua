@@ -1,0 +1,12 @@
+
+_dofile 'src/module/target/TargetConsts.lua'
+_dofile 'src/module/target/TargetManager.lua'
+_dofile 'src/module/target/TargetModel.lua'
+_dofile 'src/module/target/TargetBase.lua'
+_dofile 'src/module/target/TargetPlayerView.lua'
+_dofile 'src/module/target/TargetMonsterView.lua'
+_dofile 'src/module/target/TargetBossView.lua'
+_dofile 'src/module/target/TargetUtils.lua'
+_dofile 'src/module/target/TargetDropInfoView.lua'
+_dofile 'src/module/target/TargetDropInfoDetailView.lua'
+_dofile 'src/module/target/TargetController.lua'

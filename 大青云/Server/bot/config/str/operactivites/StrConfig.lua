@@ -1,0 +1,45 @@
+﻿StrConfig:Add
+{
+	['operactivites1'] = '活动剩余时间:',
+	['operactivites2'] = '累计充值:',
+	['operactivites3'] = '进度:',
+	['operactivites4'] = '领取次数:',
+	['operactivites5'] = '兑换消耗:',
+	['operactivites6'] = '%s天%s小时%s分钟',
+	['operactivites7'] = '%s小时%s分钟',
+	['operactivites8'] = '等马大鹏配',
+	['operactivites9'] = '虚位以待',
+	['operactivites10'] = '购买需要花费%s元宝',	
+	['operactivites11'] = '需要该团购全服累计售出%s次以上',
+	['operactivites12'] = '需要您达成首冲',
+	['operactivites13'] = '需要您已购买%s次',
+	['operactivites14'] = '尚未达成领取条件<br/>',
+	['operactivites15'] = '已经领取过该奖励',
+	['operactivites16'] = "达成首充",
+	['operactivites17'] = "自己购买%s次",
+	['operactivites18'] = "购买次数已达上限",
+	['operactivites19'] = "剩余结算时间：",
+	['operactivites20'] = "剩余领奖时间：",
+	['operactivites21'] = "剩余活动时间：",
+	['operactivites22'] = "份",
+	['operactivites23'] = "次",
+	['operactivites24'] = "均可领取",
+	['operactivites25'] = "级",
+	['operactivites26'] = "帮主信息为空",
+	['operactivites27'] = "成员信息为空",
+	
+	['operactivites28'] = "等级：",
+	['operactivites29'] = "战斗力：",
+	['operactivites30'] = "坐骑等阶：",
+	['operactivites31'] = "境界等阶：",
+	['operactivites32'] = "灵兽等阶：",
+	['operactivites33'] = "灵阵等阶：",
+	['operactivites34'] = "神兵等阶：",
+	['operactivites35'] = "需要成为",
+	['operactivites36'] = "需要vip达到",
+	['operactivites37'] = "活动未开启",
+}
+	
+	
+	
+	

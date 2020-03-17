@@ -1,0 +1,8 @@
+﻿_G.Storynpclist = {}
+Storynpclist.qq1001003_npctianchi=1
+Storynpclist.qq1001003_npcxieyaoren=2
+Storynpclist.qq1001003_npcxunshanxiaoyao=3
+Storynpclist.q1001023_npcxieyaoren=4
+Storynpclist.q1001023_npcbeilao=5
+Storynpclist.q1001011_npclinfeng=6
+Storynpclist.dun1001001_npcbailonghufa=7

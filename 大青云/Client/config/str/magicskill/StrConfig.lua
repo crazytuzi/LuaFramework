@@ -1,0 +1,31 @@
+﻿StrConfig:Add(
+{
+	['magicski1'] =  "<font color='#E7D6B5'>修炼消耗:</font><u><font color='#2fe00D'>%sX%s</font></u>",  --'#cc0000'><u>%s</u>(%s)</font>",
+	['magicski2'] = "<font color='#E7D6B5'>修炼消耗:</font><u><font color='#cc0000'>%sX%s</font></u>",  --'#cc0000'><u>%s</u>(%s)</font>",
+	['magicskill1'] = "<font color='#2fe00D'>%s</font>)",  --"<font color='#2fe00D'><u>%s</u>(%s)</font>",
+	['magicskill2'] = "<font color='#cc0000'>%s</font>)",  --'#cc0000'><u>%s</u>(%s)</font>",
+	['magicskill12'] = "*%s", 
+	['magicskill3'] = "消耗: ",
+	['magicskill4'] = "(拥有: ",
+	['magicskill5'] = "条件不足",
+	['magicskill6'] = "被动技能无展示",
+	['magicskill7'] = "<font color='#00ff00' >学习技能成功</font>",   --- add:houxudong date:2016/5/16 17:58:00
+	['magicskill8'] = "学习技能失败",
+	['magicskill9'] = "<font color='#00ff00' >升级技能成功</font>",
+	['magicskil20'] = "升级技能失败",
+	['magicskil21'] = "<font color='#00ff00' >突破技能成功</font>",
+	['magicskil22'] = "突破技能失败",
+	['magicskil23'] = "银两不足",
+	['quicklyskill'] = "暂不能快速升级",
+	['quicklyskil2'] ="升级技能物品不足",
+	['quicklyskil3'] ="技能已存在",
+	['quicklyskil4'] ="已经学到最大等级",
+	['quicklyskil5'] ="等级不够",
+	['quicklyskil6'] ="坐骑等阶限制",
+	['quicklyskil7'] ="宝夹等阶限制",
+	['quicklyskil8'] ="骑战等阶限制",
+	['quicklyskil9'] ="神武等阶限制",
+	['quicklyskil10'] ="玩家等级不够",
+	['quicklyskil11'] ="快速升级技能失败",
+}
+)

@@ -1,0 +1,7 @@
+_dofile 'src/module/extremitChallenge/ExtremitChallengeModel.lua'
+_dofile 'src/module/extremitChallenge/ExtremitChallengeController.lua'
+_dofile 'src/module/extremitChallenge/ExtremitChallengeInfoView.lua'
+_dofile 'src/module/extremitChallenge/ExtremitChallengeResult.lua'
+_dofile 'src/module/extremitChallenge/ExtremitChallengeView.lua'
+_dofile 'src/module/extremitChallenge/ExtremitChallengeRankRewardView.lua'
+_dofile 'src/module/extremitChallenge/ExtremitChallengeShopView.lua'

@@ -1,0 +1,5 @@
+_dofile "src/module/monster/MonsterAvatar.lua"
+_dofile "src/module/monster/Monster.lua"
+_dofile "src/module/monster/MonsterModel.lua"
+_dofile "src/module/monster/MonsterController.lua"
+_dofile "src/module/monster/MonsterConsts.lua"

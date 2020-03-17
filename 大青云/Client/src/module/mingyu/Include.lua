@@ -1,0 +1,11 @@
+_dofile "src/module/mingyu/MingYuConsts.lua"
+_dofile "src/module/mingyu/MingYuUtils.lua"
+_dofile "src/module/mingyu/MingYuModel.lua"
+_dofile "src/module/mingyu/MingYuController.lua"
+_dofile 'src/module/mingyu/MingYuView.lua'
+_dofile 'src/module/mingyu/MingYuShowView.lua'
+_dofile 'src/module/mingyu/MingYuBagShortcutView.lua'
+_dofile 'src/module/mingyu/MingYuSkillLvlUpView.lua'
+_dofile 'src/module/mingyu/MingYuFigureController.lua'
+_dofile 'src/module/mingyu/MingYuFigure.lua'
+_dofile 'src/module/mingyu/MingYuMainView.lua'

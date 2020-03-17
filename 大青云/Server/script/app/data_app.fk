@@ -1,0 +1,788 @@
+include "json.fk"
+
+func query_app_role_info(sqp, dbconn, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return ""
+	end
+	
+	var sid = j["server_id"]
+	var acc = j["account_id"]
+	app_log("rec role info "..acc)
+	
+	var sql = "select * from tb_player_info, tb_account where tb_player_info.charguid = tb_account.charguid and account='"..acc.."' and groupid = "..sid
+	
+	var dbres = query_db(sqp, dbconn, sql)
+	
+	var retj = map()
+	
+	var n = query_res_size(dbres)
+	if n > 0 then
+		
+		retj["errno"] = 0
+		retj["message"] = "成功"
+		
+		var data = map()
+		var base = map()
+		
+		var guid = query_res_get(dbres, 0, "charguid")
+		base["name"] = query_res_get(dbres, 0, "name")
+		base["level"] = query_res_getn(dbres, 0, "level")
+		base["power"] = query_res_getn(dbres, 0, "power")
+		base["icon"] = query_res_getn(dbres, 0, "iconid")
+		base["money"] = query_res_getn(dbres, 0, "unbindmoney") + query_res_getn(dbres, 0, "other_money")
+		base["bindmoney"] = query_res_getn(dbres, 0, "bindmoney")
+		base["gold"] = query_res_getn(dbres, 0, "unbindgold")
+		
+		var getexp, var getgold = query_app_total_unget(sqp, dbconn, guid, base["power"])
+		
+		base["bind_gold"] = query_res_getn(dbres, 0, "bindgold") + getgold
+		base["cur_exp"] = query_res_getd(dbres, 0, "exp") + getexp
+		base["need_exp"] = 0
+		
+		data["base"] = base
+		
+		var model = map()
+		model["model_id"] = 1001
+		
+		data["model"] = model
+		
+		var equip = map()
+		
+		var equipsql = "select * from tb_player_equips where charguid = "..guid
+		var dbequipres = query_db(sqp, dbconn, equipsql)		
+		var equipn = query_res_size(dbequipres)		
+		for var i = 0 -> equipn, 1 then
+		
+			var itemslot = query_res_getn(dbequipres, i, "slot_id")
+			var itemid = query_res_getn(dbequipres, i, "item_tid")
+			
+			var item = map()
+			item["id"] = itemid
+			
+			equip["pos_"..itemslot] = item
+			
+		end
+		query_res_free(dbequipres)
+		
+		data["equip"] = equip
+		
+		retj["data"] = data
+		
+	else
+		retj["errno"] = -1
+		retj["message"] = "没人"
+	end
+	
+	query_res_free(dbres)
+	
+	var ret = json.jsontostring(retj)
+	return ret
+	
+end
+
+
+func query_app_role_detail(sqp, dbconn, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return ""
+	end
+	
+	var sid = j["server_id"]
+	var acc = j["account_id"]
+	app_log("rec role detail "..acc)
+	
+	var sql = "select * from tb_player_info, tb_account, tb_arena_att where tb_player_info.charguid = tb_account.charguid and tb_arena_att.charguid = tb_account.charguid and account='"..acc.."' and groupid = "..sid
+	
+	var dbres = query_db(sqp, dbconn, sql)
+	
+	var retj = map()
+	
+	var n = query_res_size(dbres)
+	if n > 0 then
+
+		retj["errno"] = 0
+		retj["message"] = "成功"
+		
+		var data = map()
+		
+		var base = map()
+		
+		var guid = query_res_get(dbres, 0, "charguid")
+		base["name"] = query_res_get(dbres, 0, "name")
+		base["level"] = query_res_getn(dbres, 0, "level")
+		base["honor"] = query_res_getn(dbres, 0, "honor")
+		base["pk_value"] = query_res_getn(dbres, 0, "pk_evil")
+		
+		var curpower = query_res_getn(dbres, 0, "power")
+		var getexp, var getgold = query_app_total_unget(sqp, dbconn, guid, curpower)
+		
+		base["cur_exp"] = query_res_getd(dbres, 0, "exp") + getexp
+		
+		var guildsql = "select tb_guild.name from tb_guild, tb_guild_mem where tb_guild.gid = tb_guild_mem.gid and charguid="..guid
+		var guilddbres = query_db(sqp, dbconn, guildsql)
+		if query_res_size(guilddbres) > 0 then
+			base["guild"] = query_res_get(guilddbres, 0, "name")
+		else
+			base["guild"] = ""
+		end
+		query_res_free(guilddbres)
+		
+		var spousesql = "select name from tb_player_info where charguid=(select mateguid from tb_player_marry_info where charguid="..guid..")"
+		var spousedbres = query_db(sqp, dbconn, spousesql)
+		if query_res_size(spousedbres) > 0 then
+			base["spouse"] = query_res_get(spousedbres, 0, "name")
+		else
+			base["spouse"] = ""
+		end
+		query_res_free(spousedbres)
+		
+		data["base"] = base
+		
+		var detail = map()
+		
+		detail["atk"] = query_res_getd(dbres, 0, "atk")
+		detail["def"] = query_res_getd(dbres, 0, "def")
+		detail["max_hp"] = query_res_getd(dbres, 0, "hp")
+		detail["hit"] = query_res_getd(dbres, 0, "hit")
+		detail["abs"] = query_res_getd(dbres, 0, "absatk")
+		detail["dodge"] = query_res_getd(dbres, 0, "dodge")
+		detail["parry_rate"] = query_res_getd(dbres, 0, "parryrate")
+		detail["cri"] = query_res_getd(dbres, 0, "cri")
+		detail["parry_value"] = query_res_getd(dbres, 0, "parryvalue")
+		detail["def_cri"] = query_res_getd(dbres, 0, "defcri")
+		detail["dmg_add"] = query_res_getd(dbres, 0, "dmgadd")
+		detail["cri_value"] = query_res_getd(dbres, 0, "crivalue")
+		detail["dmg_sub"] = query_res_getd(dbres, 0, "dmgsub")
+		detail["sub_cri"] = query_res_getd(dbres, 0, "subcri")
+		detail["super"] = query_res_getd(dbres, 0, "parryrate")
+		detail["sub_def"] = query_res_getd(dbres, 0, "supper")
+		detail["super_velue"] = query_res_getd(dbres, 0, "suppervalue")
+		
+		data["detail"] = detail
+	
+		retj["data"] = data
+		
+	else
+		retj["errno"] = -1
+		retj["message"] = "没人"
+	end
+	
+	query_res_free(dbres)
+	
+	var ret = json.jsontostring(retj)
+	return ret
+	
+end
+
+func query_app_hang_map(sqp, dbconn, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return ""
+	end
+	
+	var sid = tonumber(j["server_id"])
+	var acc = j["account_id"]
+	app_log("rec role hang map "..acc)
+	
+	var sql = "select * from tb_player_info, tb_account where tb_player_info.charguid = tb_account.charguid and account='"..acc.."' and groupid = "..sid
+	
+	var dbres = query_db(sqp, dbconn, sql)
+	
+	var n = query_res_size(dbres)
+	if n > 0 then
+	
+		var guid = query_res_get(dbres, 0, "charguid")
+		j["level"] = query_res_getn(dbres, 0, "level")
+		
+		var curpower = query_res_getn(dbres, 0, "power")
+		var getexp, var getgold = query_app_total_unget(sqp, dbconn, guid, curpower)
+		
+		j["cur_exp"] = query_res_getd(dbres, 0, "exp") + getexp
+		
+	else
+		j["exp"] = 0
+	end
+	
+	var ret = json.jsontostring(j)
+	return ret
+	
+end
+
+func query_app_hang(sqp, dbconn, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return ""
+	end
+	
+	var sid = tonumber(j["server_id"])
+	var acc = j["account_id"]
+	var oper = tonumber(j["oper"])
+	var mapid = tonumber(j["map"])
+	var index = tonumber(j["index"])
+	var hang_time = tonumber(j["hang_time"])
+	app_log("rec role hang "..acc)
+	
+	var sql = "select tb_player_info.charguid from tb_player_info, tb_account where tb_player_info.charguid = tb_account.charguid and account='"..acc.."' and groupid = "..sid
+	
+	var dbres = query_db(sqp, dbconn, sql)
+	
+	var retj = map()
+	
+	var n = query_res_size(dbres)
+	if n > 0 then
+	
+		var now = now_time()
+	
+		var guid = query_res_get(dbres, 0, "charguid")
+
+		var hangsql = "select charguid from tb_app_hang where tb_app_hang.charguid = "..guid.." and end > "..now
+	
+		var hangdbres = query_db(sqp, dbconn, hangsql)
+		var hangn = query_res_size(hangdbres)
+		if hangn > 0 then
+		
+			retj["errno"] = -4
+			retj["message"] = "上次还没结束"
+			
+		else
+		
+			retj["errno"] = 0
+			retj["message"] = "成功"
+			
+			var taskid = tostring(make_guid(sid))
+			
+			var formatstr = "insert into tb_app_hang(charguid, taskid, mapid, monsterid, start, end) values(%, %, %, %, %, %) on duplicate key update taskid = %, mapid = %, monsterid = %, start = %, end = %"
+			var endtime = now + hang_time
+			var insertsql = format(formatstr, guid, taskid, mapid, index, now, endtime, taskid, mapid, index, now, endtime)
+			execute_db(sqp, dbconn, insertsql)
+		
+			var data = map()
+			data["task_id"] = taskid
+			data["hang_time"] = hang_time
+			
+			var cfg = get_hangmapcfg(mapid)
+			data["map_name"] = cfg:get_name()
+			
+			var msize = cfg:get_monstersize()
+			for var z = 0, z < msize, z++ then
+
+				var mcfg = cfg:get_monstercfg(z)
+
+				var mid = mcfg:get_id()
+				if mid == index then
+					data["monster"] = mcfg:get_name()
+					break
+				end
+				
+			end			
+			data["start"] = now
+			data["last_time"] = 0
+			data["status"] = 0
+		
+			retj["data"] = data
+		
+		end
+	
+		query_res_free(hangdbres)
+		
+	else 
+		retj["errno"] = -3
+		retj["message"] = "没人"
+	end
+	
+	query_res_free(dbres)
+	
+	var ret = json.jsontostring(retj)
+	return ret
+	
+end
+
+func query_app_stop_hang(sqp, dbconn, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return ""
+	end
+	
+	var sid = tonumber(j["server_id"])
+	var acc = j["account_id"]
+	var taskid = j["task_id"]
+	app_log("rec role stop hang "..acc)
+	
+	var sql = "select tb_player_info.charguid, tb_player_info.power from tb_player_info, tb_account where tb_player_info.charguid = tb_account.charguid and account='"..acc.."' and groupid = "..sid
+	
+	var dbres = query_db(sqp, dbconn, sql)
+	
+	var retj = map()
+	
+	var n = query_res_size(dbres)
+	if n > 0 then
+	
+		var now = now_time()
+	
+		var guid = query_res_get(dbres, 0, "charguid")
+		var power = query_res_getn(dbres, 0, "power")
+
+		var hangsql = "select * from tb_app_hang where charguid="..guid.." and taskid="..taskid
+		
+		var hangdbres = query_db(sqp, dbconn, hangsql)
+		var hangn = query_res_size(hangdbres)
+		if hangn <= 0 then
+		
+			retj["errno"] = -5
+			retj["message"] = "没有此挂机"
+			
+		else
+		
+			var endtime = query_res_getn(hangdbres, 0, "end")
+			var status = query_res_getn(hangdbres, 0, "status")
+			
+			if now < endtime and status == 0 then
+			
+				retj["errno"] = 0
+				retj["message"] = "成功"
+				
+				var data = map()
+				data["task_id"] = taskid
+			
+				data["hang_time"] = endtime - query_res_getn(hangdbres, 0, "start")
+				
+				var mapid = query_res_getn(hangdbres, 0, "mapid")
+				var monsterid = query_res_getn(hangdbres, 0, "monsterid")
+				
+				var cfg = get_hangmapcfg(mapid)
+				
+				data["map_name"] = cfg:get_name()
+				
+				var msize = cfg:get_monstersize()
+				for var z = 0, z < msize, z++ then
+
+					var mcfg = cfg:get_monstercfg(z)
+
+					var mid = mcfg:get_id()
+					if mid == monsterid then
+						data["monster"] = mcfg:get_name()
+						break
+					end
+					
+				end			
+				
+				data["start"] = query_res_getn(hangdbres, 0, "start")
+				
+				data["last_time"] = now - data["start"]
+				
+				data["status"] = 2
+				
+				var getexp, var getgold, var getitem = query_app_unget(sqp, dbconn, guid, power, hangdbres)
+				
+				data["exp"] = getexp
+				
+				data["bind_gold"] = getgold
+			
+				ok, var itemj, err = json.parse_string(getitem)
+				if is ok then
+					data["item"] = itemj
+				else
+					data["item"] = array()
+				end				
+				
+				retj["data"] = data
+			
+				var updatesql = "update tb_app_hang set end = "..now..", status=2 where charguid="..guid.." and taskid="..taskid
+				execute_db(sqp, dbconn, updatesql)
+			
+			else
+				retj["errno"] = -4
+				retj["message"] = "已经结束了"
+			end
+		
+		end
+	
+		query_res_free(hangdbres)
+	
+	else 
+		retj["errno"] = -3
+		retj["message"] = "没人"
+	end
+	
+	query_res_free(dbres)
+	
+	var ret = json.jsontostring(retj)
+	return ret
+	
+end
+
+func query_app_hang_list(sqp, dbconn, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return ""
+	end
+	
+	var sid = tonumber(j["server_id"])
+	var acc = j["account_id"]
+	app_log("rec role hang list "..acc)
+	
+	var sql = "select tb_player_info.charguid from tb_player_info, tb_account where tb_player_info.charguid = tb_account.charguid and account='"..acc.."' and groupid = "..sid
+	
+	var dbres = query_db(sqp, dbconn, sql)
+	
+	var retj = map()
+	
+	var n = query_res_size(dbres)
+	if n > 0 then
+	
+		retj["errno"] = 0
+		retj["message"] = "成功"
+		
+		var now = now_time()
+	
+		var guid = query_res_get(dbres, 0, "charguid")
+
+		var hangsql = "select * from tb_app_hang where charguid="..guid
+		var hangdbres = query_db(sqp, dbconn, hangsql)
+		var hangn = query_res_size(hangdbres)
+	
+		var data = array()
+	
+		for var i = 0 -> hangn, 1 then
+		
+			var ele = map()
+			
+			ele["task_id"] = query_res_get(hangdbres, i, "taskid")
+			ele["hang_time"] = query_res_getn(hangdbres, i, "end") - query_res_getn(hangdbres, i, "start")
+			
+			var mapid = query_res_getn(hangdbres, i, "mapid")
+			var monsterid = query_res_getn(hangdbres, i, "monsterid")
+			
+			var cfg = get_hangmapcfg(mapid)
+			
+			ele["map_name"] = cfg:get_name()
+			
+			var msize = cfg:get_monstersize()
+			for var z = 0, z < msize, z++ then
+
+				var mcfg = cfg:get_monstercfg(z)
+
+				var mid = mcfg:get_id()
+				if mid == monsterid then
+					ele["monster"] = mcfg:get_name()
+					break
+				end
+				
+			end			
+			
+			ele["start"] = query_res_getn(hangdbres, i, "start")
+			var endtime = query_res_getn(hangdbres, i, "end")
+			
+			if endtime > now then
+				ele["last_time"] = now - ele["start"]
+			else
+				ele["last_time"] = endtime - ele["start"]
+			end
+			
+			ele["status"] = query_res_getn(hangdbres, i, "status")
+		
+			if ele["status"] == 0 then
+				if endtime < now then
+					ele["status"] = 1
+				end			
+			end
+			
+			data[size(data)] = ele
+		
+		end
+		
+		retj["data"] = data
+	
+	else
+		retj["errno"] = -1
+		retj["message"] = "没人"
+	end
+	
+	query_res_free(dbres)
+	
+	var ret = json.jsontostring(retj)
+	return ret
+	
+end
+
+func query_app_hang_status(sqp, dbconn, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return ""
+	end
+	
+	var sid = tonumber(j["server_id"])
+	var acc = j["account_id"]
+	var taskid = j["task_id"]
+	app_log("rec role hang status "..acc)
+	
+	var sql = "select tb_player_info.charguid, tb_player_info.power from tb_player_info, tb_account where tb_player_info.charguid = tb_account.charguid and account='"..acc.."' and groupid = "..sid
+	
+	var dbres = query_db(sqp, dbconn, sql)
+	
+	var retj = map()
+	
+	var n = query_res_size(dbres)
+	if n > 0 then
+	
+		retj["errno"] = 0
+		retj["message"] = "成功"
+		
+		var now = now_time()
+	
+		var guid = query_res_get(dbres, 0, "charguid")
+		var power = query_res_getn(dbres, 0, "power")
+
+		var hangsql = "select * from tb_app_hang where charguid="..guid.." and taskid="..taskid
+		var hangdbres = query_db(sqp, dbconn, hangsql)
+		var hangn = query_res_size(hangdbres)
+		if hangn > 0 then
+	
+			var data = map()
+		
+			data["task_id"] = taskid
+			data["hang_time"] = query_res_getn(hangdbres, 0, "end") - query_res_getn(hangdbres, 0, "start")
+			
+			var mapid = query_res_getn(hangdbres, 0, "mapid")
+			var monsterid = query_res_getn(hangdbres, 0, "monsterid")
+			
+			var cfg = get_hangmapcfg(mapid)
+			
+			data["map_name"] = cfg:get_name()
+			
+			var msize = cfg:get_monstersize()
+			for var z = 0, z < msize, z++ then
+
+				var mcfg = cfg:get_monstercfg(z)
+
+				var mid = mcfg:get_id()
+				if mid == monsterid then
+					data["monster"] = mcfg:get_name()
+					break
+				end
+				
+			end			
+			
+			data["start"] = query_res_getn(hangdbres, 0, "start")
+			
+			var endtime = query_res_getn(hangdbres, 0, "end")
+			
+			if endtime > now then
+				data["last_time"] = now - data["start"]
+			else
+				data["last_time"] = endtime - data["start"]
+			end
+			
+			data["status"] = query_res_getn(hangdbres, 0, "status")
+		
+			if data["status"] == 0 then
+				if endtime < now then
+					data["status"] = 1
+				end			
+			end
+			
+			var getexp, var getgold, var getitem = query_app_unget(sqp, dbconn, guid, power, hangdbres)
+			
+			data["exp"] = getexp
+			
+			data["bind_gold"] = getgold
+		
+			ok, var itemj, err = json.parse_string(getitem)
+			if is ok then
+				data["item"] = itemj
+			else
+				data["item"] = array()
+			end			
+			
+			retj["data"] = data
+		
+		else
+			retj["errno"] = -2
+			retj["message"] = "没有此挂机"
+		end
+	else
+		retj["errno"] = -1
+		retj["message"] = "没人"
+	end
+	
+	query_res_free(dbres)
+	
+	var ret = json.jsontostring(retj)
+	return ret
+	
+end
+
+func query_app_total_unget(sqp, dbconn, guid, power)
+
+	var exp = 0
+	var gold = 0
+	
+	var now = now_time()
+		
+	var hangsql = "select * from tb_app_hang where isget=0 and charguid="..guid
+			
+	var hangdbres = query_db(sqp, dbconn, hangsql)
+	var hangn = query_res_size(hangdbres)
+	for var i = 0, i < hangn, i++ then
+	
+		var getexp, var getgold, var getitem = query_app_unget(sqp, dbconn, guid, power, hangdbres)
+		
+		exp += getexp
+		gold += getgold
+		
+	end
+
+	query_res_free(hangdbres)
+	
+	return exp, gold
+
+end
+
+func query_app_unget(sqp, dbconn, guid, power, hangdbres)
+
+	var now = now_time()
+		
+	var taskid = query_res_get(hangdbres, 0, "taskid")
+	var mapid = query_res_get(hangdbres, 0, "mapid")
+	var monsterid = query_res_getn(hangdbres, 0, "monsterid")
+	var starttime = query_res_getn(hangdbres, 0, "start")
+	var endtime = query_res_getn(hangdbres, 0, "end")
+	var getexp = query_res_getd(hangdbres, 0, "exp")
+	var getgold = query_res_getd(hangdbres, 0, "gold")
+	var getitem = query_res_get(hangdbres, 0, "item")
+	var lastchecktime = query_res_getn(hangdbres, 0, "lastchecktime")
+	
+	if lastchecktime == 0 then
+		lastchecktime = starttime
+	end
+	
+	var theendtime = 0
+	if now > endtime then
+		theendtime = endtime
+	else
+		theendtime = now
+	end
+	
+	var difftime = theendtime - lastchecktime
+	var min = difftime / 60
+	
+	if min >= 1 then
+		lastchecktime = theendtime - (difftime % 60)
+		
+		var killnum = cal_monster_num(monsterid, power)
+		
+		getexp += cal_hang_exp(monsterid, power, min, killnum)
+		getgold += cal_hang_gold(monsterid, power, min, killnum)
+		getitem = cal_hang_item(monsterid, power, min, killnum, getitem)
+		
+		var updatesql = "update tb_app_hang set exp="..getexp..", gold="..getgold..", item='"..getitem.."', lastchecktime="..lastchecktime.." where charguid="..guid.." and taskid="..taskid
+		execute_db(sqp, dbconn, updatesql)
+	end
+	
+	return getexp, getgold, getitem
+	
+end
+
+func cal_hang_exp(monsterid, power, min, killnum)
+
+	var cfg = get_hangmapmonstercfg(monsterid)
+	if not cfg then
+		return 0
+	end
+	
+	return cfg:get_exp() * min * killnum
+	
+end
+
+func cal_monster_num(monsterid, power)
+
+	var cfg = get_hangmapmonstercfg(monsterid)
+	if not cfg then
+		return 0
+	end
+	
+	if power < cfg:get_fight1() then
+	
+		power = cfg:get_fight1()
+	
+	end
+	
+	if power > cfg:get_fight2() then
+	
+		power = cfg:get_fight2()
+	
+	end
+	
+	if power < cfg:get_fight0() then
+	
+		return cfg:get_no1() + (power - cfg:get_fight1()) / (cfg:get_fight0() - cfg:get_fight1()) * (cfg:get_no0() - cfg:get_no1())
+	
+	else
+		
+		return cfg:get_no0() + (power - cfg:get_fight0()) / (cfg:get_fight2() - cfg:get_fight0()) * (cfg:get_no2() - cfg:get_no0())
+		
+	end
+	
+end
+
+func on_user_login(sqp, dbconn, guid, power)
+
+	on_user_login_stop_all(sqp, dbconn, guid)
+	
+	query_app_total_unget(sqp, dbconn, guid, power)
+	
+	return 0
+
+end
+
+func on_user_login_stop_all(sqp, dbconn, guid)
+
+	var now = now_time()
+		
+	var hangsql = "select * from tb_app_hang where isget=0 and charguid="..guid
+			
+	var hangdbres = query_db(sqp, dbconn, hangsql)
+	var hangn = query_res_size(hangdbres)
+	for var i = 0, i < hangn, i++ then
+	
+		var endtime = query_res_getn(hangdbres, 0, "end")
+		var status = query_res_getn(hangdbres, 0, "status")
+		var taskid = query_res_get(hangdbres, 0, "taskid")
+		
+		if status == 0 then
+		
+			if now < endtime then
+			
+				var updatesql = "update tb_app_hang set end = "..now..", status=3 where charguid="..guid.." and taskid="..taskid
+				execute_db(sqp, dbconn, updatesql)
+				
+			else
+			
+				var updatesql = "update tb_app_hang set end = "..now..", status=1 where charguid="..guid.." and taskid="..taskid
+				execute_db(sqp, dbconn, updatesql)
+				
+			end
+			
+		end
+		
+	end
+
+	query_res_free(hangdbres)
+	
+	return 0
+end

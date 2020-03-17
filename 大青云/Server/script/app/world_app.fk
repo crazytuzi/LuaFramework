@@ -1,0 +1,403 @@
+include "json.fk"
+
+func on_app_cmd_role_info(conn, content)
+
+	var operid = app_save_conn(conn, "on_app_cmd_role_info_ret")
+	
+	app_send_to_db(operid, "query_app_role_info", content)
+	
+	return 0
+	
+end
+
+func on_app_cmd_role_info_ret(conn, operid, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return 0
+	end
+	
+	if j["errno"] == 0 then
+
+		var data = j["data"]
+		
+		var base = data["base"]
+		
+		var lvupexp = get_lvup_need_exp(base["level"])
+		while base["cur_exp"] >= lvupexp then
+			base["level"]++
+			base["cur_exp"] -= lvupexp
+			lvupexp = get_lvup_need_exp(base["level"])
+		end
+		
+		var equip = data["equip"]
+	
+		for var i = 0, i < size(equip), i++ then
+			
+			var k, var v = range(equip, i)
+			var itemid = v["id"]
+		
+			var cfg = get_itemcfg(itemid)
+			if is cfg then
+			
+				var icon = cfg:get_icon()
+				var name = cfg:get_name()
+				var quality = cfg:get_quality()
+				
+				v["pic"] = icon
+				v["quality"] = quality
+				v["name"] = name
+				
+			end
+		
+		end
+	
+	end
+	
+	var ret = json.jsontostring(j)
+	
+	app_response(conn, ret)
+	
+	app_del_conn(operid)
+	
+	return 0
+	
+end
+
+func on_app_cmd_role_detail(conn, content)
+
+	var operid = app_save_conn(conn, "on_app_cmd_role_detail_ret")
+	
+	app_send_to_db(operid, "query_app_role_detail", content)
+	
+	return 0
+	
+end
+
+func on_app_cmd_role_detail_ret(conn, operid, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return 0
+	end
+	
+	if j["errno"] == 0 then
+	
+		var data = j["data"]
+		
+		var base = data["base"]
+		
+		var lvupexp = get_lvup_need_exp(base["level"])
+		while base["cur_exp"] >= lvupexp then
+			base["level"]++
+			base["cur_exp"] -= lvupexp
+			lvupexp = get_lvup_need_exp(base["level"])
+		end
+		
+	end
+	
+	var ret = json.jsontostring(j)
+	
+	app_response(conn, ret)
+	
+	app_del_conn(operid)
+	
+	return 0
+end
+
+func on_app_cmd_hang_map(conn, content)
+
+	var operid = app_save_conn(conn, "on_app_cmd_hang_map_ret")
+	
+	app_send_to_db(operid, "query_app_hang_map", content)
+	
+end
+
+func on_app_cmd_hang_map_ret(conn, operid, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return 0
+	end
+	
+	var lvupexp = get_lvup_need_exp(j["level"])
+	while j["cur_exp"] >= lvupexp then
+		j["level"]++
+		j["cur_exp"] -= lvupexp
+		lvupexp = get_lvup_need_exp(j["level"])
+	end
+	
+	var level = j["level"]
+	
+	var retj = map()
+
+	retj["errno"] = 0
+	retj["message"] = "成功"
+	
+	var data = array()
+		
+	var sz = get_hangmap_size()
+	for var i = 0, i < sz, i++ then
+
+		var cfg = get_hangmapcfg_at(i)
+		
+		var mapdata = map()
+		mapdata["map_id"] = cfg:get_id()
+		mapdata["map_name"] = cfg:get_name()
+		var needlevelstr = cfg:get_rcmdlevel()
+		mapdata["map_level"] = needlevelstr
+		
+		var needlevel = 999
+		ok, var needlevelpos = string.find(needlevelstr, 0, "~")
+		if is ok then
+			needlevel = tonumber(string.substr(needlevelstr, 0, needlevelpos))
+		end
+		
+		if level >= needlevel then
+			mapdata["available"] = 1
+		else
+			mapdata["available"] = 0
+		end
+		
+		var point = array()
+		var msize = cfg:get_monstersize()
+		for var z = 0, z < msize, z++ then
+
+			var mcfg = cfg:get_monstercfg(z)
+
+			var monsterdata = map()
+			monsterdata["monster"] = mcfg:get_name()
+			monsterdata["level"] = mcfg:get_level()
+			monsterdata["index"] = mcfg:get_id()
+			
+			point[size(point)] = monsterdata
+			
+		end
+		
+		mapdata["point"] = point
+		
+		var hangtime = array()
+		hangtime[size(hangtime)] = 1800
+		hangtime[size(hangtime)] = 3600
+		hangtime[size(hangtime)] = 7200
+		
+		mapdata["hangtime"] = hangtime
+		
+		data[size(data)] = mapdata
+	
+	end
+
+	retj["data"] = data
+	var ret = json.jsontostring(retj)
+		
+	app_response(conn, ret)
+	
+	app_del_conn(operid)
+	
+	return 0
+
+end
+
+func on_app_cmd_hang(conn, content)
+
+	ok, j, err := json.parse_string(content)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return 0
+	end
+	
+	var sid = tonumber(j["server_id"])
+	var acc = j["account_id"]
+	var mapid = tonumber(j["map"])
+	var index = tonumber(j["index"])
+	var hang_time = tonumber(j["hang_time"])
+	
+	var retj = map()
+
+	retj["errno"] = 0
+	retj["message"] = "成功"
+	
+	var cfg = get_hangmapcfg(mapid)
+	if not cfg then
+	
+		retj["errno"] = -1
+		retj["message"] = "无地图"
+		
+		var ret = json.jsontostring(retj)
+		app_response(conn, ret)
+		return 0
+	
+	end
+	
+	var havemid = false
+
+	var msize = cfg:get_monstersize()
+	for var z = 0, z < msize, z++ then
+
+		var mcfg = cfg:get_monstercfg(z)
+		var mid = mcfg:get_id()
+		if mid == index then
+			havemid = true
+			break
+		end
+		
+	end
+
+	if not havemid then
+	
+		retj["errno"] = -2
+		retj["message"] = "无挂机点"
+	
+		var ret = json.jsontostring(retj)
+		app_response(conn, ret)
+		return 0
+	
+	end
+
+	var human = get_human_by_acc(acc, sid)
+	if is human then
+		
+		kick_human(human, 15)
+	
+	end
+	
+	var operid = app_save_conn(conn, "on_app_cmd_hang_ret")
+	
+	app_send_to_db(operid, "query_app_hang", content)
+	
+	return 0
+
+end
+
+func on_app_cmd_hang_ret(conn, operid, msg)
+
+	app_response(conn, msg)
+	
+	app_del_conn(operid)
+	
+	return 0
+end
+
+func on_app_cmd_hang_list(conn, content)
+
+	var operid = app_save_conn(conn, "on_app_cmd_hang_list_ret")
+	
+	app_send_to_db(operid, "query_app_hang_list", content)
+	
+end
+
+func on_app_cmd_hang_list_ret(conn, operid, msg)
+
+	app_response(conn, msg)
+	
+	app_del_conn(operid)
+	
+	return 0
+end
+
+func on_app_cmd_hang_status(conn, content)
+
+	var operid = app_save_conn(conn, "on_app_cmd_hang_status_ret")
+	
+	app_send_to_db(operid, "query_app_hang_status", content)
+	
+end
+
+func on_app_cmd_hang_status_ret(conn, operid, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return 0
+	end
+	
+	if j["errno"] == 0 then
+	
+		var data = j["data"]
+		var item = data["item"]
+
+		for var i = 0, i < size(item), i++ then
+	
+			var ele = item[i]
+			var itemid = ele["item_id"]
+			
+			var cfg = get_itemcfg(itemid)
+			if is cfg then
+			
+				var icon = cfg:get_icon()
+				var name = cfg:get_name()
+				var quality = cfg:get_quality()
+				
+				ele["pic"] = icon
+				ele["item_quality"] = quality
+				ele["item_name"] = name
+			
+			end
+		
+		end
+	
+	end
+	
+	var ret = json.jsontostring(j)
+	
+	app_response(conn, ret)
+	
+	app_del_conn(operid)
+	
+	return 0
+end
+
+func on_app_cmd_stop_hang(conn, content)
+
+	var operid = app_save_conn(conn, "on_app_cmd_stop_hang_ret")
+	
+	app_send_to_db(operid, "query_app_stop_hang", content)
+	
+end
+
+func on_app_cmd_stop_hang_ret(conn, operid, msg)
+
+	ok, j, err := json.parse_string(msg)
+	if not ok then
+		app_error_log("json parse fail "..err)
+		return 0
+	end
+	
+	if j["errno"] == 0 then
+	
+		var data = j["data"]
+		var item = data["item"]
+
+		for var i = 0, i < size(item), i++ then
+	
+			var ele = item[i]
+			var itemid = ele["item_id"]
+			
+			var cfg = get_itemcfg(itemid)
+			if is cfg then
+			
+				var icon = cfg:get_icon()
+				var name = cfg:get_name()
+				var quality = cfg:get_quality()
+				
+				ele["pic"] = icon
+				ele["item_quality"] = quality
+				ele["item_name"] = name
+			
+			end
+		
+		end
+	
+	end
+	
+	var ret = json.jsontostring(j)
+	
+	app_response(conn, ret)
+	
+	app_del_conn(operid)
+	
+	return 0
+end

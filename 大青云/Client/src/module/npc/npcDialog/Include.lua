@@ -1,0 +1,9 @@
+_dofile "src/module/npc/npcDialog/NpcDialogBaseView.lua"
+_dofile "src/module/npc/npcDialog/NpcDialogBoxView.lua"
+_dofile "src/module/npc/npcDialog/NpcQuestView.lua"
+_dofile 'src/module/npc/npcDialog/DungeonDialogBoxView.lua'
+_dofile "src/module/npc/npcDialog/RandomDungeonNpcView.lua"
+_dofile "src/module/npc/npcDialog/RandomQuestNpcView.lua"
+_dofile "src/module/npc/npcDialog/SWYJNpcView.lua"
+_dofile "src/module/npc/npcDialog/TaoFaQuestNpcView.lua"
+_dofile "src/module/npc/npcDialog/AgoraQuestNpcView.lua"

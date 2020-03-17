@@ -1,0 +1,26 @@
+_G.t_zhuoyueguide={
+	[1]={
+		['id'] = 1,
+		['order'] = 2,
+		['superNum'] = 2,
+		['equipNum'] = 11,
+		['link'] = "全套2阶及以上2卓越装备",
+		['reward'] = "7,100000000#14,500000",
+		['name'] = "二卓越",
+		['index'] = 1,
+		['attr'] = "attx,15#reflex,10#subdamage,20#dodge_rate,4#super,2#supervalue,30",
+		['text'] = "星光璀璨：<br/><font size='14'>获得星光璀璨特殊外观，闪耀天下</font><br/><br/>卓越一击：<br/><font size='14'>几率对目标造成多倍无视防御伤害</font>",
+	},
+	[2]={
+		['id'] = 2,
+		['order'] = 3,
+		['superNum'] = 3,
+		['equipNum'] = 11,
+		['link'] = "全套3阶及以上3卓越装备",
+		['reward'] = "7,300000000#14,1000000",
+		['name'] = "三卓越",
+		['index'] = 2,
+		['attr'] = "attx,36#reflex,24#subdamage,39#dodge_rate,12#super,6#supervalue,75",
+		['text'] = "雷霆耀辉：<br/><font size='14'>全身被雷霆特效包围，举世瞩目</font><br/><br/>卓越一击：<br/><font size='14'>几率对目标造成多倍无视防御伤害</font>",
+	},
+};

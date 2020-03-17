@@ -1,0 +1,5 @@
+﻿_dofile "src/module/collection/Collection.lua"
+_dofile "src/module/collection/CollectionAvatar.lua"
+_dofile "src/module/collection/CollectionModel.lua"
+_dofile "src/module/collection/CollectionController.lua"
+_dofile "src/module/collection/CollectionShowView.lua"

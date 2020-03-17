@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<conf>
+	<switch>0</switch>
+	<allow>
+		<ip>203.100.95.153</ip>  <!-- qyun -->
+		<ip>218.30.116.3</ip>
+		<ip>218.30.116.8</ip>
+		<ip>172.19.212.155</ip>
+	</allow>
+	<allowMac>
+	</allowMac>
+	<blackswitch>0</blackswitch>
+	<black>
+		<ip>124.127.138.35</ip>	<!-- 趣游 -->
+	</black>
+</conf>

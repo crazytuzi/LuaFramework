@@ -1,0 +1,28 @@
+LovelypetConfig={
+	['1']={
+		['id'] = 1,
+		['showPT'] = "",
+		['limit_time'] = 30,
+		['activetype'] = 1,
+		['gettype'] = 1,
+		['getcondition'] = "47",
+		['attr'] = "att,220#def,80#hp,2200#adddamagemonx,0.1",
+		['buff_id'] = 1011998,
+		['exp_max'] = 15,
+		['renewconstom'] = "1,12,88#2,151500006,1",
+		['renew_time'] = 43200,
+	},
+	['2']={
+		['id'] = 2,
+		['showPT'] = "",
+		['limit_time'] = -1,
+		['activetype'] = 0,
+		['gettype'] = 2,
+		['getcondition'] = "151500002,1",
+		['attr'] = "att,616#def,224#hp,6160#adddamagemonx,0.2",
+		['buff_id'] = 1011999,
+		['exp_max'] = 35,
+		['renewconstom'] = "1,12,888#2,151500002,1",
+		['renew_time'] = 0,
+	},
+};

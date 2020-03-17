@@ -1,0 +1,5 @@
+_dofile "src/module/xiuweiPool/XiuweiPoolController.lua"
+_dofile "src/module/xiuweiPool/XiuweiPoolModel.lua"
+_dofile "src/module/xiuweiPool/XiuweiPoolView.lua"
+_dofile "src/module/xiuweiPool/ManinXiuwei.lua"
+_dofile "src/module/xiuweiPool/MainXiuweiEffect.lua"

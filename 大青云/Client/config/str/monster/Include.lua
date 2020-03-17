@@ -1,0 +1,1 @@
+﻿_dofile (ClientConfigPath .. "config/str/monster/StrConfig.lua")

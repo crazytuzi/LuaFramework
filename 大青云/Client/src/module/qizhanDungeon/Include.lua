@@ -1,0 +1,12 @@
+﻿_dofile "src/module/qizhanDungeon/QiZhanDungeonController.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonModel.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonView.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonResult.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonUtil.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonInfo.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonTeamConfirm.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonDieTip.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonTip.lua"
+_dofile "src/module/qizhanDungeon/QiZhanDungeonConst.lua"  -- add by:houxudong date:2016/6/28
+_dofile "src/module/qizhanDungeon/QiZhanWallAvatar.lua"
+_dofile "src/module/qizhanDungeon/QiZhanWallView.lua"

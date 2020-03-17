@@ -1,0 +1,6 @@
+
+StrConfig:Add(
+{
+	['operAct101'] = '',	
+}
+)

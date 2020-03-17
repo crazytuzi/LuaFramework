@@ -1,0 +1,1 @@
+﻿--玩家选中目标的光圈_G.LockRoundConfig = {	--不能攻击时的圈	friend = 10017,	--可以攻击时的圈	monster = 10016, -- 小怪	boss = 10018, -- boss	npc = 10019, --npc	difang_player = 10030, --敌方玩家	youfang_player = 10032, --友方玩家};

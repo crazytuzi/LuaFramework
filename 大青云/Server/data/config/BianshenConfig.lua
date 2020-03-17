@@ -1,0 +1,38 @@
+BianshenConfig={
+	['1']={
+		['id'] = 1,
+		['act_level'] = 10,
+		['act_item'] = {151801001,10},
+		['charge'] = 8,
+		['charge_less'] = 40,
+		['charge_full'] = 120,
+		['charge_rise'] = 1,
+	},
+	['2']={
+		['id'] = 2,
+		['act_level'] = 100,
+		['act_item'] = {151801002,10},
+		['charge'] = 8,
+		['charge_less'] = 40,
+		['charge_full'] = 120,
+		['charge_rise'] = 1,
+	},
+	['4']={
+		['id'] = 4,
+		['act_level'] = 140,
+		['act_item'] = {151801005,10},
+		['charge'] = 8,
+		['charge_less'] = 40,
+		['charge_full'] = 120,
+		['charge_rise'] = 1,
+	},
+	['5']={
+		['id'] = 5,
+		['act_level'] = 160,
+		['act_item'] = {151801005,10},
+		['charge'] = 8,
+		['charge_less'] = 40,
+		['charge_full'] = 120,
+		['charge_rise'] = 1,
+	},
+};

@@ -1,0 +1,1 @@
+_dofile "src/module/rankList/AllTheServer/AllTheServerRankView.lua"

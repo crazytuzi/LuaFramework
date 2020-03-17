@@ -1,0 +1,11 @@
+_dofile "src/module/armor/ArmorConsts.lua"
+_dofile "src/module/armor/ArmorUtils.lua"
+_dofile "src/module/armor/ArmorModel.lua"
+_dofile "src/module/armor/ArmorController.lua"
+_dofile 'src/module/armor/ArmorView.lua'
+_dofile 'src/module/armor/ArmorShowView.lua'
+_dofile 'src/module/armor/ArmorBagShortcutView.lua'
+_dofile 'src/module/armor/ArmorSkillLvlUpView.lua'
+_dofile 'src/module/armor/ArmorFigureController.lua'
+_dofile 'src/module/armor/ArmorFigure.lua'
+_dofile 'src/module/armor/ArmorMainView.lua'

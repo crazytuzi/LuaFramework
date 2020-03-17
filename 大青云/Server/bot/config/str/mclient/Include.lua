@@ -1,0 +1,1 @@
+_dofile (ClientConfigPath .. "config/str/mclient/StrConfig.lua")

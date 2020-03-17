@@ -1,0 +1,42 @@
+_G.t_kuafudanlianyun={
+	[1]={
+		['dan'] = 1,
+		['danName'] = "钻石段位",
+		['base'] = 10,
+		['lowest'] = 3,
+		['winExploit'] = 100,
+		['loseExploit'] = 50,
+	},
+	[2]={
+		['dan'] = 2,
+		['danName'] = "白金段位",
+		['base'] = 10,
+		['lowest'] = 3,
+		['winExploit'] = 80,
+		['loseExploit'] = 40,
+	},
+	[3]={
+		['dan'] = 3,
+		['danName'] = "黄金段位",
+		['base'] = 10,
+		['lowest'] = 3,
+		['winExploit'] = 60,
+		['loseExploit'] = 30,
+	},
+	[4]={
+		['dan'] = 4,
+		['danName'] = "白银段位",
+		['base'] = 10,
+		['lowest'] = 3,
+		['winExploit'] = 40,
+		['loseExploit'] = 20,
+	},
+	[5]={
+		['dan'] = 5,
+		['danName'] = "青铜段位",
+		['base'] = 10,
+		['lowest'] = 3,
+		['winExploit'] = 20,
+		['loseExploit'] = 10,
+	},
+};

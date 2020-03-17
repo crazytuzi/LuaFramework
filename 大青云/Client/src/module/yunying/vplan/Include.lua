@@ -1,0 +1,18 @@
+_dofile "src/module/yunying/vplan/VplanConsts.lua"
+_dofile "src/module/yunying/vplan/VplanController.lua"
+_dofile "src/module/yunying/vplan/VplanModel.lua"
+_dofile "src/module/yunying/vplan/VplanMainView.lua"
+_dofile "src/module/yunying/vplan/VplanPrivilegeView.lua"
+_dofile "src/module/yunying/vplan/VplanNoviceBagView.lua"
+_dofile "src/module/yunying/vplan/VplanTitleView.lua"
+_dofile "src/module/yunying/vplan/VplanPowerView.lua"
+_dofile "src/module/yunying/vplan/VplanLevelGiftView.lua"
+_dofile "src/module/yunying/vplan/VplanDailyReward.lua"
+_dofile "src/module/yunying/vplan/VplanYearVipView.lua"
+_dofile "src/module/yunying/vplan/VplanBuyGiftView.lua"
+_dofile "src/module/yunying/vplan/VplanShopView.lua"
+_dofile "src/module/yunying/vplan/VplanMyInfoView.lua"
+_dofile "src/module/yunying/vplan/VplanTitleViewNew.lua"
+_dofile "src/module/yunying/vplan/VplanPowerViewNew.lua"
+
+ 

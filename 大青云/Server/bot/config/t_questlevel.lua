@@ -1,0 +1,22 @@
+_G.t_questlevel={
+	[2000001]={
+		['id'] = 2000001,
+		['minLevel'] = 45,
+		['name'] = "日环任务",
+		['group'] = 1,
+		['kind'] = 123,
+		['questGoals'] = "2",
+		['last'] = 0,
+		['unFinishLink'] = "日环完成2环",
+		['finishLink'] = "领取奖励",
+		['deleteLv'] = 0,
+		['expReward'] = 3600000,
+		['moneyReward'] = 0,
+		['zhenqiReward'] = 0,
+		['prof1Reward'] = "",
+		['prof2Reward'] = "",
+		['prof3Reward'] = "",
+		['prof4Reward'] = "",
+		['otherReward'] = "",
+	},
+};

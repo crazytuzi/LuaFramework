@@ -1,0 +1,7 @@
+﻿
+UIStrConfig:Add(
+{
+	
+
+}
+)

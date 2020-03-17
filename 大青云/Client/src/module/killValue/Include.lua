@@ -1,0 +1,8 @@
+_dofile 'src/module/killValue/KillValueConsts.lua'
+_dofile 'src/module/killValue/KillValueUtils.lua'
+_dofile 'src/module/killValue/KillValueModel.lua'
+_dofile 'src/module/killValue/KillValueController.lua'
+_dofile 'src/module/killValue/KillValueView.lua'
+_dofile 'src/module/killValue/KillValueDetailView.lua'
+_dofile 'src/module/killValue/KillValueTipsView.lua'
+_dofile 'src/module/killValue/KillValueAttrAddView.lua'

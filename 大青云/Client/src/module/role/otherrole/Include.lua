@@ -1,0 +1,10 @@
+﻿_dofile 'src/module/role/otherrole/OtherRoleModel.lua'
+_dofile 'src/module/role/otherrole/OtherRoleUtil.lua'
+--_dofile 'src/module/role/otherrole/OtherSpiritsDrawController.lua'
+_dofile 'src/module/role/otherrole/OtherRoleConsts.lua'
+
+_dofile 'src/module/role/otherrole/OtherRoleInfoView.lua'
+_dofile 'src/module/role/otherrole/OtherRoleBasicView.lua'
+_dofile 'src/module/role/otherrole/OtherMountBasicView.lua'
+_dofile 'src/module/role/otherrole/OtherSpiritsView.lua'
+_dofile 'src/module/role/otherrole/OtherRoleView.lua'

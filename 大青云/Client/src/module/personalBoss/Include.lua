@@ -1,0 +1,13 @@
+
+_dofile "src/module/personalBoss/PersonalBossController.lua"
+_dofile "src/module/personalBoss/PersonalBossModel.lua"
+_dofile "src/module/personalBoss/PersonalBossUtil.lua"
+_dofile "src/module/personalBoss/PersonalBossView.lua"
+_dofile "src/module/personalBoss/PersonalBossInfo.lua"
+_dofile "src/module/personalBoss/PersonalResult.lua"
+_dofile "src/module/personalBoss/PersonalBossAutoBtn.lua"
+_dofile "src/module/personalBoss/BossBasicView.lua"
+_dofile "src/module/personalBoss/PersonalCaveBossView.lua"
+_dofile "src/module/personalBoss/FieldBossView.lua"
+_dofile "src/module/personalBoss/PersonalCaveBossInfoView.lua"
+_dofile "src/module/personalBoss/PalaceBossView.lua"

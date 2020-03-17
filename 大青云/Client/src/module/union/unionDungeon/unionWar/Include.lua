@@ -1,0 +1,8 @@
+_dofile 'src/module/union/unionDungeon/unionWar/UnionWarController.lua'
+_dofile 'src/module/union/unionDungeon/unionWar/UnionWarModel.lua'
+_dofile 'src/module/union/unionDungeon/unionWar/UnionWarView.lua'
+_dofile 'src/module/union/unionDungeon/unionWar/UnionWarRightView.lua'
+_dofile 'src/module/union/unionDungeon/unionWar/UnionWarMapView.lua'
+_dofile 'src/module/union/unionDungeon/unionWar/UnionWarNpcHangTip.lua'
+_dofile 'src/module/union/unionDungeon/unionWar/UnionWarRewardView.lua'
+_dofile 'src/module/union/unionDungeon/unionWar/UnionWarNocView.lua'

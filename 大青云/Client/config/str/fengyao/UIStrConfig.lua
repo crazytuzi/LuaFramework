@@ -1,0 +1,33 @@
+﻿
+UIStrConfig:Add(
+{
+	['fengyao1'] = '银两领取',
+	['fengyao2'] = '元宝刷新',
+	['fengyao3'] = '领取任务',
+	['fengyao4'] = '放弃任务',
+	['fengyao5'] = '领取',
+	['fengyao6'] = '本轮已完成',
+	['fengyao7'] = '屠魔',
+	['fengyao8'] = '积分奖励',
+	['fengyao9'] = '本轮已完成',
+	['fengyao10'] = '银两刷新',
+	['fengyao11'] = '领取奖励',
+	['fengyao12'] = '双倍领取',
+	['fengyao13'] = '三倍领取',
+	['fengyao14'] = '提示',
+	['fengyao15'] = '本次登录不再提示',
+	['fengyao16'] = '确定',
+	['fengyao17'] = '取消',
+	['fengyao18'] = '屠魔',
+	['fengyao19'] = '可接取',
+	['fengyao20'] = '屠魔奖励',
+	['fengyao21'] = '海量经验，主要升级途径',
+	['fengyao22'] = '<u>前往</u>',
+	['fengyao23'] = '10-22点每半点时刷新任务',
+	['fengyao24'] = "<u>放弃任务</u>",
+	['fengyao25'] = "<u>世界求助</u>",
+	['fengyao26'] = '<u>状态刷新</u>',
+	['fengyao27'] = '元宝领取',
+	['fengyao28'] = '查看屠魔任务',
+}
+)

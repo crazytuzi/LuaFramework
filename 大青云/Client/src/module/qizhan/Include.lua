@@ -1,0 +1,10 @@
+_dofile "src/module/qizhan/QiZhanModel.lua"
+_dofile "src/module/qizhan/QiZhanConsts.lua"
+_dofile "src/module/qizhan/QiZhanUtils.lua"
+_dofile "src/module/qizhan/QiZhanController.lua"
+_dofile 'src/module/qizhan/QiZhanView.lua'
+_dofile 'src/module/qizhan/QiZhanLvlUpView.lua'
+_dofile 'src/module/qizhan/QiZhanShowView.lua'
+_dofile 'src/module/qizhan/QiZhanSkillLvlUpView.lua'
+_dofile 'src/module/qizhan/qiyin/Include.lua'
+_dofile 'src/module/qizhan/QiZhanMainView.lua'

@@ -1,0 +1,6 @@
+_dofile 'src/module/taofa/TaoFaController.lua'
+_dofile 'src/module/taofa/UITaoFaView.lua'
+_dofile 'src/module/taofa/TaoFaModel.lua'
+_dofile 'src/module/taofa/TaoFaUtil.lua'
+_dofile 'src/module/taofa/TaoFaInfo.lua'  
+_dofile 'src/module/taofa/TaoFaDungeonResult.lua'

@@ -1,0 +1,7 @@
+_dofile 'src/module/autobattle/AutoBattleView.lua'
+_dofile 'src/module/autobattle/AutoBattleIndicatorView.lua'
+_dofile 'src/module/autobattle/AutoBattleModel.lua'
+_dofile 'src/module/autobattle/AutoBattleController.lua'
+_dofile 'src/module/autobattle/AutoBattleUtils.lua'
+_dofile 'src/module/autobattle/AutoBattleConsts.lua'
+_dofile 'src/module/autobattle/AutoRunIndicatorView.lua'

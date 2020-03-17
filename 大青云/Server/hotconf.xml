@@ -1,0 +1,218 @@
+﻿<?xml version="1.0"?>
+<const>
+	<Default_Line>0</Default_Line>						<!--默认登录线, 0:动态分配-->
+	<MaxHuman_PerLine>500</MaxHuman_PerLine> 			<!--每条线最大人数-->
+	<MaxHuman_PerScene>3000</MaxHuman_PerScene> 			<!--每个场景最大人数-->
+	<RMB2Yuanbao>10</RMB2Yuanbao>						<!--人民币换算元宝-->
+	<Compress_Threshold>256</Compress_Threshold>		<!--消息包压缩阈值-->
+	<MaxHuman_PerView>500</MaxHuman_PerView>			<!--最大广播人数-->
+	<BuildStatic>10</BuildStatic>						<!--属性变化计算帧数-->
+	<MaxEvBufferSize>102400</MaxEvBufferSize>			<!--conn单个evbuffer最大发包缓冲区大小-->
+	<MaxThreadQueueSize>102400</MaxThreadQueueSize>		<!--线程消息队列大小-->
+	<ShowMsgSwitch>0</ShowMsgSwitch>					<!--打印消息开关-->
+	<ShowHumanInfoSwitch>0</ShowHumanInfoSwitch>		<!--打印玩家数据开关-->
+	<CheckMsgSwitch>0</CheckMsgSwitch>					<!--检查消息版本号开关-->
+	<SendFullKickSwitch>1</SendFullKickSwitch>			<!--缓冲区满踢人开关-->
+	<UserSaveInteral>180</UserSaveInteral>				<!--玩家数据保存间隔-->
+	<RankInteral>600</RankInteral>						<!--排行榜刷新间隔-->
+	<ClickHost>127.0.0.1</ClickHost>			<!-- 点击日志服务器地址 -->
+	<ClickPort>8808</ClickPort> 						<!-- 点击日志服务器端口 -->
+	<ClickLogSwitch>1</ClickLogSwitch> 					<!-- 点击日志开关 -->
+	<html_url>http://admin.dqy.g.yx-g.cn/html/dqy.html</html_url>  				<!-- 微端自登陆url -->
+	<wan_html_url>http://admin.w360.dqy.ate.cn/html/dqy.html</wan_html_url>  	<!-- 微端自登陆url -->
+	<Vplan_Open>1</Vplan_Open> 							<!--V计划开关 -->
+	<Vplan_Addr>127.0.0.1</Vplan_Addr> 			<!--V计划请求地址 -->
+	<Vplan_Port>80</Vplan_Port> 						<!--V计划请求端口 -->
+	<Vplan_Url>/vplan_youxi</Vplan_Url> 				<!--V计划Url -->
+	<WanVplan_Addr>127.0.0.1</WanVplan_Addr> 		<!--WanV计划请求地址 -->
+	<WanVplan_Port>80</WanVplan_Port> 					<!--WanV计划请求端口 -->
+	<WanVplan_Url>/vplan_wan</WanVplan_Url> 			<!--WanV计划Url -->
+	<PushLevelSkipBegin>0</PushLevelSkipBegin> 			<!--推送跳过开始 -->
+	<PushLevelSkipEnd>999</PushLevelSkipEnd> 				<!--推送跳过结束 -->
+	<PushChat>2</PushChat> 								<!--推送聊天,0关闭，1单条，2批处理 -->
+	<PushChatBatNum>2</PushChatBatNum> 					<!--推送聊天批处理条数 -->
+	<MaxHumanOnline>2000</MaxHumanOnline> 				<!--最大在线 -->
+	<DNSUpdateInteal>3600</DNSUpdateInteal> 			<!--域名IP信息刷新间隔-->
+	<PartyReloadTime>23:00:00</PartyReloadTime> 		<!--活动固定刷新时间-->
+	<PartyReloadValidTime>23:59:55</PartyReloadValidTime> 		<!--活动固定刷新生效时间-->
+	<PackMsgSwitch>0</PackMsgSwitch> 					<!--消息打包开关-->
+	<PackMsgInter>10</PackMsgInter> 					<!--消息打包间隔-->
+	<MoveSyncThreshold>999999</MoveSyncThreshold>			<!--移动记数阈值-->
+	<MoveSyncCount>999999</MoveSyncCount>					<!--移动计数-->
+	<WorldChatNum>500</WorldChatNum>					<!--世界聊天发言限制-->
+	<HBMsgCount>30</HBMsgCount> 						<!--心跳消息1分钟最大总数-->
+	<HBMsgKickSwitch>1</HBMsgKickSwitch> 				<!--心跳异常踢人开关-->
+	<Game_GM_Switch>1</Game_GM_Switch>					<!--游戏内GM开关-->
+	<MessageUserSwitch>0</MessageUserSwitch>			<!--协议 玩家删除标志开关-->
+	<CrossPvpRankInteral>300</CrossPvpRankInteral>		<!--跨服PVP排行榜刷新汇总时间秒-->
+	<CrossBossSrvGroupCnt>10</CrossBossSrvGroupCnt> 	<!--跨服BOSS服务器组-->
+	<CrossBossMinSrvCnt>3</CrossBossMinSrvCnt> 			<!--跨服BOSS最小服务器组-->
+	<CrossRankInteral>3600</CrossRankInteral> 			<!--跨服排行榜刷新间隔-->
+	<CrossRankInteralCnt>3</CrossRankInteralCnt> 		<!--跨服排行榜同步间隔-->
+	<WanGckUrl>127.0.0.1</WanGckUrl> 				<!--兄弟招募-->
+	<YouxiGckUr>127.0.0.1</YouxiGckUr> 				<!--兄弟招募-->
+</const>
+
+<weishi>
+	<weishi_url>127.0.0.1</weishi_url>			<!--卫士特权请求地址-->
+	<aid>2866</aid>
+	<gkey>dzz</gkey>
+	<privkey>360dzz_SDFSKDZBNVXVUW</privkey>
+	<type>privi</type>
+	<channel>521870014</channel>						<!--卫士特权渠道ID-->
+</weishi>
+
+<func>
+	<func1>1</func1>
+	<actcode>1</actcode><!--激活码-->
+	<addicted>0</addicted><!--防沉迷系统-->	
+	<dbaddicted>1</dbaddicted><!--客户端发来的 防沉迷标识无效-->
+	<gm>1</gm><!--GM开启-->
+	<cross_match1>0</cross_match1><!--跨服1V1-->
+	<cross_rank>0</cross_rank><!--跨服排行-->
+	<cross_chat>0</cross_chat><!--跨服聊天-->
+	<cross_boss>0</cross_boss><!--跨服BOSS-->	
+	<cross_arena>0</cross_arena><!--跨服擂台赛-->	
+	<invita_code>1</invita_code><!--兄弟招募-->	
+	<marry>1</marry><!--结婚-->	
+	<cross_task>0</cross_task><!--跨服场景-->
+</func>
+
+<funcopen>
+	<dupl>1</dupl>
+</funcopen>	
+
+<report>
+	<Open>1</Open>					<!-- 是否开启上报功能 -->
+	<Host>127.0.0.1</Host>		<!-- 上报服务器地址 -->
+	<Port>8018</Port> 				<!-- 上报服务器端口 -->
+	<Key>JyB7tPmYwD9rS485ws7TIcr9</Key>
+</report>
+
+<safe>
+	
+	<is_open>1</is_open><!--是否开启-->
+	<safe_day>7</safe_day><!--开服后多少天-->
+	
+	<have_yuanbao>5000000</have_yuanbao><!--角色拥有最大元宝-->
+	<consume_yuanbao>2000000</consume_yuanbao><!--角色单日消耗元宝-->
+	<get_yuanbao>1000000</get_yuanbao><!--角色单日获得元宝-->
+	
+	<have_yinliang>100000000</have_yinliang><!--角色拥有最大银两-->
+	<consume_yinliang>50000000</consume_yinliang><!--角色单日消耗银两-->
+	<get_yinliang>20000000</get_yinliang><!--角色单日获得银两-->
+	
+	<get_exp>10000000000</get_exp><!--角色单日获得经验-->
+	<per_get_exp>2000000000</per_get_exp><!--角色单次获得经验-->
+	
+	<get_lingli>1</get_lingli><!--角色单日获得灵力-->
+	
+	<get_lijin>100000</get_lijin><!--角色单日获得礼金-->
+	
+	<get_zhanyi>100</get_zhanyi><!--角色单日获得战翼之魂-->
+	
+	<get_vipdazhao>0</get_vipdazhao><!--角色单日获得vip打造材料-->
+	
+	<get_shuxingdan>1000</get_shuxingdan><!--角色单日获得二阶及以上属性丹-->
+	
+	<get_hongbao>60</get_hongbao><!--角色单日获得红宝-->
+	<get_yuanbaodai>50</get_yuanbaodai><!--元宝带-->
+	<get_yuanbaohongbao>20</get_yuanbaohongbao><!--元宝红宝-->
+	
+	<get_lianyushendan>18</get_lianyushendan><!--炼狱神丹-->
+	<get_baiwanlibao>5</get_baiwanlibao><!--百万灵力礼包-->
+	<get_zhanyilibao>5</get_zhanyilibao><!--战翼礼包-->
+	<get_zuoqilibao>2</get_zuoqilibao><!--坐骑变强礼包-->
+	<get_jinyandan2>20</get_jinyandan2><!--经验丹(2倍)-->
+	<get_jinyandan3>10</get_jinyandan3><!--经验丹(3倍)-->
+	<get_jinyandan5>5</get_jinyandan5><!--经验丹(5倍)-->
+	<get_jinyandan10>3</get_jinyandan10><!--经验丹(10倍)-->
+	<get_lingjuanzou>100</get_lingjuanzou><!--灵·随机附加卷轴-->
+	<get_wangjuanzou>20</get_wangjuanzou><!--王·随机附加卷轴-->
+	<get_dijuanzou>20</get_dijuanzou><!--帝·随机附加卷轴-->
+	<get_yunluo1>50</get_yunluo1><!--殒落源丹(1级)-->
+	<get_yunluo2>25</get_yunluo2><!--殒落源丹(2级)-->
+	<get_yunluo3>25</get_yunluo3><!--殒落源丹(3级)-->
+	<get_yunluo>25</get_yunluo><!--殒落源丹(4级)-->
+	<get_jinyanzaizhan>3</get_jinyanzaizhan><!--经验副本再战券-->
+	
+	<doupo_shuxingdan>30</doupo_shuxingdan><!--斗破苍穹的那个属性丹 单日消耗-->
+	<vip_jinyandan>30</vip_jinyandan><!--vip奖励里面的4种经验丹 单日消耗-->
+	<shengjidan>1</shengjidan><!--升级丹 单日消耗-->
+	<chaoji_shengjidan>1</chaoji_shengjidan><!--超级升级丹 单日消耗-->
+	<shengqi_shuxingdan>1</shengqi_shuxingdan><!--神奇属性丹 单日消耗-->
+	
+</safe>	
+
+<!--需要关闭的消息id-->
+<msg_off>
+	<!--<msg>1001</msg>-->
+</msg_off>	
+
+<lianyun>
+	<platform>duowan</platform>
+	<platform>swjoy</platform>
+	<platform>kugou</platform>
+	<platform>feihuo</platform>
+	<platform>wblygame5</platform>
+	<platform>xunlei</platform>
+	<platform>37wan</platform>
+	<platform>602</platform>
+	<platform>51</platform>
+	<platform>52xiyou</platform>
+	<platform>pps</platform>
+	<platform>teeqee</platform>
+	<platform>2144</platform>
+	<platform>qidian</platform>
+	<platform>yeyou8</platform>
+	<platform>2217</platform>
+	<platform>51wan</platform>
+	<platform>youxi567</platform>
+	<platform>9377</platform>
+	<platform>game2</platform>
+	<platform>v1</platform>
+	<platform>huya</platform>
+	<platform>gyyx</platform>
+	<platform>265g</platform>
+	<platform>kukewan</platform>
+	<platform>ccttx</platform>
+	<platform>sogou</platform>
+	<platform>8090yxs</platform>
+	<platform>hly</platform>
+	<platform>77313</platform>
+	<platform>pptv</platform>
+	<platform>cnwan</platform>
+	<platform>6998</platform>
+	<platform>sina</platform>
+	<platform>ccjoy</platform>
+	<platform>kxwan</platform>
+	<platform>yuanlai</platform>
+	<platform>ufojoy</platform>
+	<platform>i8you</platform>
+	<platform>97971</platform>
+	<platform>511wan</platform>
+	<platform>16768</platform>
+	<platform>59yx</platform>
+	<platform>45wan</platform>
+	<platform>883</platform>
+	<platform>360uu</platform>
+	<platform>wywan</platform>
+	<platform>97971</platform>
+	<platform>9211</platform>
+	<platform>ku25</platform>
+	<platform>u8wan</platform>
+	<platform>yilewan</platform>
+	<platform>34560</platform>
+	<platform>bigzhu</platform>
+	<platform>66you</platform>
+	<platform>17aiwan</platform>
+	<platform>pipi</platform>
+	<platform>369wan</platform>
+	<platform>17lailai</platform>
+	<platform>divorce</platform>
+	<platform>kuwo</platform>
+	<platform>zixia</platform>
+	<platform>160yx</platform>
+	<platform>shenmayx</platform>
+</lianyun>
+<!-- OMG Powered-->

@@ -1,0 +1,8 @@
+_dofile 'src/module/waterDungeon/WaterDungeonConsts.lua'
+_dofile 'src/module/waterDungeon/WaterDungeonModel.lua'
+_dofile 'src/module/waterDungeon/WaterDungeonView.lua'
+_dofile 'src/module/waterDungeon/WaterDungeonRankView.lua'
+_dofile 'src/module/waterDungeon/WaterDungeonProgressView.lua'
+_dofile 'src/module/waterDungeon/WaterDungeonResultView.lua'
+_dofile 'src/module/waterDungeon/WaterDungeonController.lua'
+_dofile 'src/module/waterDungeon/WaterDungeonEnterTips.lua'

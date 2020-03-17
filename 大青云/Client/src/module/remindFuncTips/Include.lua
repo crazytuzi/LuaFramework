@@ -1,0 +1,5 @@
+﻿_dofile 'src/module/remindFuncTips/RemindFuncTipsView.lua'
+_dofile 'src/module/remindFuncTips/RemindFuncTipsFrame.lua'
+_dofile 'src/module/remindFuncTips/RemindFuncTipsConsts.lua'
+_dofile 'src/module/remindFuncTips/RemindFuncTipsController.lua'
+_dofile 'src/module/remindFuncTips/RemindFuncTipsModel.lua'

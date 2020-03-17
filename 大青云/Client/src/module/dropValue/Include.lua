@@ -1,0 +1,6 @@
+_dofile 'src/module/dropValue/DropValueConsts.lua'
+_dofile 'src/module/dropValue/DropValueDetailView.lua'
+_dofile 'src/module/dropValue/DropValueTipsView.lua'
+_dofile 'src/module/dropValue/DropValueSettingView.lua'
+_dofile 'src/module/dropValue/DropValueController.lua'
+_dofile 'src/module/dropValue/DropValueModel.lua'

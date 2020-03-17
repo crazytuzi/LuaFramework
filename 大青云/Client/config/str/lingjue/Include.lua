@@ -1,0 +1,1 @@
+_dofile (ClientConfigPath .. "config/str/lingjue/StrConfig.lua")

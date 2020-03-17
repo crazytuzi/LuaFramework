@@ -1,0 +1,28 @@
+StrConfig:Add(
+{
+	['zhuansheng001'] = "转生成功！",
+	['zhuansheng002'] = "转生失败！",
+	['zhuansheng003'] = "元宝不足！",
+	['zhuansheng004'] = "自动转生",
+	['zhuansheng005'] = "取消自动",
+	['zhuansheng006'] = "<font color='#FF0000'>%s</font>秒后自动退出",
+	['zhuansheng007'] = "进入失败",
+	['zhuansheng008'] = "一键转生消耗元宝：%s",
+	['zhuansheng009'] = "您确定消耗元宝转生吗？",
+	['zhuansheng010'] = "达到%s级后可转生！",
+	['zhuansheng011'] = "您已经在转生中了，无法一键完成。",
+	['zhuansheng012'] = "您已在活动中",
+	['zhuansheng013'] = "激活圣器",
+	['zhuansheng014'] = "激活炼体",
+	['zhuansheng015'] = "灵兽骑乘",
+	['zhuansheng016'] = "转生未开启！",
+	['zhuansheng017'] = "等级不足！",
+	['zhuansheng018'] = "当前处于PK状态，无法进入！",
+	['zhuansheng019'] = "当前正在活动中，无法前往！",
+	['zhuansheng020'] = "您正在队伍中，无法进入单人副本！",
+	['zhuansheng021'] = "跨服进行中，无法进入副本！",
+	['zhuansheng022'] = "收起转生",
+	['zhuansheng023'] = "显示转生",
+	['zhuansheng024'] = "",
+}
+)

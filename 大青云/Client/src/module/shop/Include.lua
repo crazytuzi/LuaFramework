@@ -1,0 +1,25 @@
+_dofile 'src/module/shop/ShopConsts.lua'
+_dofile 'src/module/shop/ShopUtils.lua'
+_dofile 'src/module/shop/MallUtils.lua'
+
+_dofile 'src/module/shop/ShopVO.lua'
+_dofile 'src/module/shop/ShopExchangeVO.lua'
+_dofile 'src/module/shop/ShopXmasExchangeVO.lua'
+_dofile 'src/module/shop/ShopBuyBackVO.lua'
+
+_dofile 'src/module/shop/ShopController.lua'
+_dofile 'src/module/shop/ShopModel.lua'
+
+_dofile 'src/module/shop/ShopCarryOnView.lua'
+-- _dofile 'src/module/shop/ShopCarryOnConsumeView.lua'
+-- _dofile 'src/module/shop/ShopCarryOnBuyBackView.lua'
+
+_dofile 'src/module/shop/ShopBuyConfirmView.lua'
+_dofile 'src/module/shop/ShopQuickBuyView.lua'
+-- _dofile 'src/module/shop/ShopHonorView.lua'
+_dofile 'src/module/shop/ShoppingMallView.lua'
+_dofile 'src/module/shop/ShoppingMallTehuiView.lua'
+-- _dofile 'src/module/shop/ShopGongxunView.lua'
+_dofile 'src/module/shop/ShopExchangeView.lua'
+_dofile 'src/module/shop/ShopXmasExchangeView.lua'
+_dofile 'src/module/shop/QuickBuyConfirm.lua'

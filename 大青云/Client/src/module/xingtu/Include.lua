@@ -1,0 +1,5 @@
+_dofile "src/module/xingtu/XingtuView.lua"
+_dofile "src/module/xingtu/XingtuController.lua"
+_dofile "src/module/xingtu/XingtuModel.lua"
+_dofile "src/module/xingtu/XingtuUtil.lua"
+_dofile "src/module/xingtu/XingtuStarPos.lua"

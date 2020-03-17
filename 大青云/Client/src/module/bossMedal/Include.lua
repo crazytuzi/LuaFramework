@@ -1,0 +1,6 @@
+_dofile "src/module/bossMedal/BossMedalConsts.lua"
+_dofile "src/module/bossMedal/BossMedalUtils.lua"
+_dofile "src/module/bossMedal/BossMedalModel.lua"
+_dofile "src/module/bossMedal/BossMedalView.lua"
+_dofile "src/module/bossMedal/BossMedalTipsView.lua"
+_dofile "src/module/bossMedal/BossMedalController.lua"

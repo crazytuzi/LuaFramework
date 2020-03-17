@@ -1,0 +1,31 @@
+﻿
+UIStrConfig:Add(
+{
+	['fengyao1'] = '银两刷新',
+	['fengyao2'] = '元宝提品',
+	['fengyao3'] = '领取任务',
+	['fengyao4'] = '放弃任务',
+	['fengyao5'] = '领取奖励',
+	['fengyao6'] = '本轮已完成',
+	['fengyao7'] = '悬赏',
+	['fengyao8'] = '积分奖励',
+	['fengyao9'] = '本轮已完成',
+	['fengyao10'] = '前往',
+	['fengyao11'] = '单倍领取',
+	['fengyao12'] = '双倍领取',
+	['fengyao13'] = '三倍领取',
+	['fengyao14'] = '提示',
+	['fengyao15'] = '本次登录不再提示',
+	['fengyao16'] = '确定',
+	['fengyao17'] = '取消',
+	['fengyao18'] = '悬赏',
+	['fengyao19'] = '可接取',
+	['fengyao20'] = '悬赏奖励',
+	['fengyao21'] = '海量经验，主要升级途径',
+	['fengyao22'] = '<u>前往</u>',
+	['fengyao23'] = '10-22点每半点时刷新任务',
+	['fengyao24'] = "<u>放弃任务</u>",
+	['fengyao25'] = "<u>世界求助</u>",
+	['fengyao26'] = '<u>状态刷新</u>',
+}
+)
