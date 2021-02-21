@@ -1,0 +1,520 @@
+local PanelWing = {}
+local var = {}
+local TEXT_COLOR = {
+	ENABLED = cc.c4b(20, 160, 20, 255),
+	DISABLED = cc.c4b(255, 0, 0, 255)
+}
+local MAX_WING_LV = 16
+local despTable = {
+	"<font color=#E7BA52 size=18>翅膀升阶说明</font>",
+	"<font color=#f1e8d0>1.翅膀升阶失败后会产生祝福值,提高下次升阶成功率，</font>",
+	"<font color=#ff0000>2.祝福值每天早上6点清空(1、2、3阶翅膀升级祝福值不清零)</font>",
+	"<font color=#f1e8d0>3.祝福值越高,翅膀升阶的成功率越高,当祝福值达到满值时,翅膀升阶将100%成功</font>"
+}
+
+function PanelWing.initView()
+		var = {
+			xmlPanel,
+			wingIndex,
+			panelData,
+			wingbg,
+			attrModMap,
+			loadingbar,
+			winglv,
+			btn_usevcoin,
+			btn_upgrade_ato,
+			act_flag = 0,
+			isupgrade_ato = false,
+			isInit = false,
+			levelupAction = false,
+			isUsevcoin = false,
+			xmlPanel = UILuaLoader.load("uilayout/PanelWing.uif")
+		}
+
+		if var.xmlPanel then
+			util.asyncload(var.xmlPanel, "img_panel_bg", "needload/bg_max1.png")
+			util.asyncload(var.xmlPanel, "img_leftbg", "needload/PanelWing/wing_left.png")
+			util.asyncload(var.xmlPanel, "img_rightbg", "needload/PanelWing/wing_right.png")
+			cc.EventProxy.new(NetClient, var.xmlPanel):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelWing.handlePanelData)
+
+			return var.xmlPanel
+		end
+	end
+	
+function PanelWing.onPanelOpen()
+		if not var.isInit then
+			PanelWing.initPageChiBang()
+
+			var.isInit = true
+			var.act_flag = 0
+		end
+
+		NetClient:PushLuaTable("gui.PanelWing.onPanelData", util.encode({
+			actionid = "panel"
+		}))
+	end
+	
+function PanelWing.initPageChiBang()
+		var.xmlPanel:getWidgetByName("btn_upgrade"):addClickEventListener(function (sender)
+			NetClient:PushLuaTable("gui.PanelWing.onPanelData", util.encode({
+				actionid = "upgrade",
+				param = var.isUsevcoin
+			}))
+		end)
+
+		local btnDesp = var.xmlPanel:getWidgetByName("Button_ask")
+
+		btnDesp:setTouchEnabled(true)
+		btnDesp:addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelWing.Desp()
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				LayerAlert.handleAlertClose()
+			end
+		end)
+
+		function RunAction(  )
+			if var.isupgrade_ato then
+				NetClient:PushLuaTable("gui.PanelWing.onPanelData", util.encode({
+					actionid = "upgrade",
+					param = var.isUsevcoin
+				}))
+
+				if var.panelData.nostuff == 1 then
+					var.isupgrade_ato = not var.isupgrade_ato
+
+					var.btn_upgrade_ato:setTitleText(not var.isupgrade_ato and "自动培养" or "停止培养")
+
+					return
+				end
+
+				var.btn_upgrade_ato:runAction(cca.seq({
+					cca.delay(0.3),
+					cca.cb(RunAction)
+				}))
+			end
+		end
+
+		var.btn_upgrade_ato = var.xmlPanel:getWidgetByName("btn_upgrade_ato")
+
+		var.btn_upgrade_ato:addClickEventListener(function (sender)
+			var.isupgrade_ato = not var.isupgrade_ato
+
+			sender:setTitleText(not var.isupgrade_ato and "自动培养" or "停止培养")
+			RunAction()
+		end)
+
+		var.btn_usevcoin = var.xmlPanel:getWidgetByName("btn_usevcoin")
+
+		var.btn_usevcoin:addClickEventListener(function (sender)
+			var.isUsevcoin = not var.isUsevcoin
+
+			sender:loadTextureNormal(var.isUsevcoin and "btn_checkbox_big_sel" or "btn_checkbox_big", ccui.TextureResType.plistType)
+		end)
+
+		local imgView = {
+			var.xmlPanel:getWidgetByName("img_wing_view1"):setScale(1),
+			var.xmlPanel:getWidgetByName("img_wing_view2"):setScale(0.8)
+		}
+
+		var.xmlPanel:getWidgetByName("right_attr_bg"):setOpacity(160)
+
+		var.loadingbar = var.xmlPanel:getWidgetByName("progressBar"):setLabelVisible(false)
+	end
+	
+function PanelWing.handlePanelData(event)
+		if event.type == "PanelWing" then
+			var.panelData = util.decode(event.data)
+
+			if var.panelData.cmd == "update" then
+				PanelWing.updatePageChiBang()
+			end
+		end
+	end
+	
+function PanelWing.successAnimate()
+		cc.Sprite:create():addTo(var.xmlPanel):pos(260, 390):setScale(1.2):runAction(cca.seq({
+			cca.rep(cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, 60015, 4, 3), 1),
+			cca.removeSelf()
+		}))
+	end
+	
+function PanelWing.updatePageChiBang()
+		if var.xmlPanel and var.panelData then
+			if var.winglv ~= var.panelData.wingLv then
+				var.isupgrade_ato = false
+
+				var.btn_upgrade_ato:setTitleText(not var.isupgrade_ato and "自动培养" or "停止培养")
+			end
+
+			if var.act_flag == 1 and var.panelData.isaction == 1 then
+				PanelWing.successAnimate()
+			end
+
+			var.act_flag = 1
+			var.winglv = var.panelData.wingLv
+
+			PanelWing.showWingAnimation(var.winglv)
+
+			local value = var.panelData.blessvalue
+			local maxValue = var.panelData.maxValue
+
+			var.xmlPanel:getWidgetByName("progressBar"):setVisible(true)
+			var.xmlPanel:getWidgetByName("btn_upgrade"):setVisible(true)
+			var.xmlPanel:getWidgetByName("label_progressbar"):setString(value .. "/" .. maxValue)
+			var.xmlPanel:getWidgetByName("Txt_lingyu"):setString(var.panelData.num_of_lingyu .. "/" .. var.panelData.need_num_of_lingyu)
+			var.loadingbar:setPercent(value < maxValue and value or maxValue, maxValue, nil)
+
+			local attr = var.panelData.wingAttr
+			local nAttr = var.panelData.nextAttr
+			local arrowTag = var.panelData.arrowTag
+
+			var.xmlPanel:getWidgetByName("txt_mdc_now"):setString(attr[1])
+			var.xmlPanel:getWidgetByName("txt_mhp_now"):setString(attr[2])
+			var.xmlPanel:getWidgetByName("txt_mac_now"):setString(attr[4])
+			var.xmlPanel:getWidgetByName("txt_mmac_now"):setString(attr[5])
+			var.xmlPanel:getWidgetByName("txt_mdc_next"):setString(var.panelData.nextAttr[1] == "" and "已满级" or nAttr[1])
+			var.xmlPanel:getWidgetByName("txt_mhp_next"):setString(attr[2] == "" and "已满级" or nAttr[2])
+			var.xmlPanel:getWidgetByName("txt_mac_next"):setString(nAttr[4] == "" and "已满级" or nAttr[4])
+			var.xmlPanel:getWidgetByName("txt_mmac_next"):setString(nAttr[5] == "" and "已满级" or nAttr[5])
+
+			local img_left = var.xmlPanel:getWidgetByName("img_left")
+			local img_right =var.xmlPanel:getWidgetByName("img_right")
+		
+			var.xmlPanel:getWidgetByName("img_left"):setVisible(true)
+
+			local wing_Table = {
+				[0] = {
+					img2 = "yan",
+					img1 = "ti"
+				},
+				{
+					img3 = "wing_1_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_1"
+				},
+				{
+					img3 = "wing_2_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_2"
+				},
+				{
+					img3 = "wing_3_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_3"
+				},
+				{
+					img3 = "wing_4_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_4"
+				},
+				{
+					img3 = "wing_5_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_5"
+				},
+				{
+					img3 = "wing_6_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_6"
+				},
+				{
+					img3 = "wing_7_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_7"
+				},
+				{
+					img3 = "wing_8_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_8"
+				},
+				{
+					img3 = "wing_9_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_9"
+				},
+				{
+					img3 = "wing_10_r",
+					img2 = "jie",
+					img4 = "jie_r",
+					img1 = "wing_10"
+				},
+				{
+					img5 = "wing_1_r",
+					img2 = "wing_1",
+					img1 = "wing_11",
+					img3 = "jie",
+					img4 = "wing_10_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_2_r",
+					img2 = "wing_2",
+					img1 = "wing_12",
+					img3 = "jie",
+					img4 = "wing_11_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_3_r",
+					img2 = "wing_3",
+					img1 = "wing_13",
+					img3 = "jie",
+					img4 = "wing_12_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_4_r",
+					img2 = "wing_4",
+					img1 = "wing_14",
+					img3 = "jie",
+					img4 = "wing_13_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_5_r",
+					img2 = "wing_5",
+					img1 = "wing_15",
+					img3 = "jie",
+					img4 = "wing_14_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_6_r",
+					img2 = "wing_6",
+					img1 = "wing_16",
+					img3 = "jie",
+					img4 = "wing_15_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_7_r",
+					img2 = "wing_7",
+					img1 = "wing_17",
+					img3 = "jie",
+					img4 = "wing_16_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_8_r",
+					img2 = "wing_8",
+					img1 = "wing_18",
+					img3 = "jie",
+					img4 = "wing_17_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_9_r",
+					img2 = "wing_9",
+					img1 = "wing_19",
+					img3 = "jie",
+					img4 = "wing_18_r",
+					img6 = "jie_r"
+				},
+				{
+					img5 = "wing_10_r",
+					img2 = "wing_10",
+					img1 = "wing_20",
+					img3 = "jie",
+					img4 = "wing_19_r",
+					img6 = "jie_r"
+				}
+			}
+			local Level = var.panelData.levelName
+			local nextLv = Level + 1
+
+			if Level == 0 then
+				img_left:setVisible(false)
+			elseif Level > 0 then
+				img_left:loadTexture("a_sw_stage_" .. Level, ccui.TextureResType.plistType)
+			elseif Level > 10 then
+				img_left:loadTexture("a_sw_stage_" .. Level, ccui.TextureResType.plistType)
+			end
+
+			if nextLv >= 0 and nextLv <= 20 then
+				img_right:loadTexture("a_sw_stage_" .. nextLv, ccui.TextureResType.plistType)
+			elseif nextLv > 20 then
+				var.xmlPanel:getWidgetByName("right_bg"):hide()
+			end
+
+			var.xmlPanel:getWidgetByName("clean_tip"):hide()
+
+			if var.winglv > 3 and value > 0 and false then
+				local clean_tip = var.xmlPanel:getWidgetByName("clean_tip"):show()
+				local last_time = nil
+
+				if tonumber(os.date("%H")) < 6 then
+					last_time = os.time({
+						hour = 6,
+						second = 0,
+						minute = 0,
+						day = tonumber(os.date("%d")),
+						month = tonumber(os.date("%m")),
+						year = tonumber(os.date("%Y"))
+					}) - os.time()
+				else
+					print(tonumber(os.date("%d")))
+
+					last_time = os.time({
+						hour = 24,
+						second = 0,
+						minute = 0,
+						day = tonumber(os.date("%d")),
+						month = tonumber(os.date("%m")),
+						year = tonumber(os.date("%Y"))
+					}) - os.time() + os.time({
+						hour = 6,
+						second = 0,
+						minute = 0,
+						day = tonumber(os.date("%d")),
+						month = tonumber(os.date("%m")),
+						year = tonumber(os.date("%Y"))
+					}) - os.time({
+						hour = 0,
+						second = 0,
+						minute = 0,
+						day = tonumber(os.date("%d")),
+						month = tonumber(os.date("%m")),
+						year = tonumber(os.date("%Y"))
+					})
+				end
+
+				clean_tip:setString("祝福值清理倒计时:" .. util.setTimeFormat(last_time * 1000))
+				cc.Director:getInstance():getActionManager():removeAllActionsFromTarget(clean_tip)
+				clean_tip:runAction(cca.rep(cca.seq({
+					cca.delay(1),
+					cca.cb(function ()
+						last_time = last_time - 1
+
+						if last_time < 0 then
+							if tonumber(os.date("%H")) < 6 then
+								last_time = os.time({
+									hour = 6,
+									second = 0,
+									minute = 0,
+									day = tonumber(os.date("%d")),
+									month = tonumber(os.date("%m")),
+									year = tonumber(os.date("%Y"))
+								}) - os.time()
+							else
+								print(tonumber(os.date("%d")))
+
+								last_time = os.time({
+									hour = 24,
+									second = 0,
+									minute = 0,
+									day = tonumber(os.date("%d")),
+									month = tonumber(os.date("%m")),
+									year = tonumber(os.date("%Y"))
+								}) - os.time() + os.time({
+									hour = 6,
+									second = 0,
+									minute = 0,
+									day = tonumber(os.date("%d")),
+									month = tonumber(os.date("%m")),
+									year = tonumber(os.date("%Y"))
+								}) - os.time({
+									hour = 0,
+									second = 0,
+									minute = 0,
+									day = tonumber(os.date("%d")),
+									month = tonumber(os.date("%m")),
+									year = tonumber(os.date("%Y"))
+								})
+							end
+						end
+
+						clean_tip:setString("祝福值清理倒计时:" .. util.setTimeFormat(last_time * 1000))
+					end)
+				}), 10000))
+			end
+		end
+	end
+	
+function PanelWing.showWingAnimation(level)
+		local data_wing = {
+			50000,
+			50001,
+			50002,
+			50003,
+			50004,
+			50005,
+			50006,
+			50007,
+			50008,
+			50009,
+			50010,
+			50011,
+			50012,
+			50013,
+			50014,
+			50015,
+			50016,
+			50017,
+			50018,
+			50019,
+			50020
+		}
+
+		local img_wingl = var.xmlPanel:getWidgetByName("img_wing_view1"):getChildByName("img_wing")
+	if not img_wingl then
+		img_wingl = cc.Sprite:create()
+		img_wingl:addTo(var.xmlPanel:getWidgetByName("img_wing_view1")):align(display.CENTER, 23, 23):setName("img_wing")
+	end
+
+	local imgWingEffect = img_wingl:getChildByName("wingEffect")
+	if not imgWingEffect then
+		util.addEffect(img_wingl, "wingEffect", GROUP_TYPE.WING, data_wing[level + 1], {x=0, y=0}, nil, true)
+	else
+		util.updateEffect(img_wingl, "wingEffect", data_wing[level + 1], GROUP_TYPE.WING)
+	end
+
+	local img_wingr = var.xmlPanel:getWidgetByName("img_wing_view2"):getChildByName("img_wingr")
+	if not img_wingr then
+		img_wingr = cc.Sprite:create()
+		img_wingr:addTo(var.xmlPanel:getWidgetByName("img_wing_view2")):align(display.CENTER, 23, 23):setName("img_wingr")
+	end
+	imgWingEffect = img_wingr:getChildByName("wingEffect")
+	if data_wing[level+2] then
+		if not imgWingEffect then
+			util.addEffect(img_wingr, "wingEffect", GROUP_TYPE.WING,  data_wing[level + 2], {x=0, y=0}, nil, true)
+		else
+			util.updateEffect(img_wingr, "wingEffect",  data_wing[level + 2], GROUP_TYPE.WING)
+		end
+	else
+		if imgWingEffect then
+			imgWingEffect:stopAllActions()
+			imgWingEffect:removeFromParent()
+		end
+	end
+
+end
+
+function PanelWing.Desp()
+		NetClient:dispatchEvent({
+			panel = "tips",
+			visible = true,
+			name = Notify.EVENT_PANEL_ON_ALERT,
+			infoTable = despTable
+		})
+	end
+	
+function PanelWing.onPanelClose()	
+		var.curJie = -1
+		var.curXing = -1
+		var.levelupAction = false
+		var.act_flag = 0
+		var.isupgrade_ato = false
+
+		var.btn_upgrade_ato:setTitleText("自动培养")
+	end
+return PanelWing

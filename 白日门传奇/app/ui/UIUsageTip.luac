@@ -1,0 +1,398 @@
+local UIUsageTip={}
+local var = {}
+
+local autoUseTime = 7; -- 推送展示时间
+
+local ACTION = {
+	SCHEDULER = 100,
+}
+
+--是否新手期
+local function checkNewPeriod()
+	if MainRole._mainAvatar then
+		if MainRole._mainAvatar:NetAttr(Const.net_level) <= 80 and MainRole._mainAvatar:NetAttr(Const.net_zslevel) == 0 then
+			return true
+		end
+	end
+	return false
+end
+
+local function checkStopAutoClean()
+	if (#var.betterItems + #var.fakeShowItems) <= 1 and var.uiBetterItem:getActionByTag(ACTION.SCHEDULER) then
+		var.uiBetterItem:stopAllActions()
+	end
+end
+
+--每秒检测是否更好物品
+local function checkAutoCleanItem()
+	--遍历var.betterItems
+	--print("/////////////////////////checkAutoCleanItem///////////////////////")
+	local showItem, clean
+	local curTime = os.time()
+	--local isNewPeriod = checkNewPeriod()
+
+	for i = #var.betterItems, 1, -1 do
+		showItem = var.betterItems[i]
+		if showItem.startTime + autoUseTime <= curTime then
+			if showItem.mTypeID and game.IsEquipment(showItem.mTypeID) then--and isNewPeriod then
+				NetClient:BagUseItem(showItem.itemPos, showItem.mTypeID, 1)
+			end
+			var.betterItems[i] = "remove"
+		else
+			break;
+		end
+	end
+	table.removebyvalue(var.betterItems, "remove", true)
+
+	for i = #var.fakeShowItems, 1, -1 do
+		showItem = var.fakeShowItems[i]
+		if showItem.startTime + autoUseTime <= curTime then
+			var.fakeShowItems[i] = "remove"
+		else
+			break;
+		end
+	end
+	table.removebyvalue(var.fakeShowItems, "remove", true)
+
+	checkStopAutoClean()
+end
+
+-- 推送不自动使用
+
+-- 清理过期信息，返回是否清理第一项
+local function cleanBetterItems()
+	-- print("cleanBetterItems11111", util.encode(var.betterItems))
+	local netItem, clean, cleanFirst
+	for i,v in ipairs(var.betterItems) do
+		netItem = NetClient:getNetItem(v.itemPos)
+		if not netItem then -- 物品不存在
+			--print(0000000011111)
+			var.betterItems[i] = "remove"
+			clean = true
+		elseif netItem.mTypeID ~= v.mTypeID then -- 物品改变
+			--print(0000000022222)
+			var.betterItems[i] = "remove"
+			clean = true
+		elseif game.IsEquipment(v.mTypeID) and not NetClient:check_better_item(v.itemPos) then -- 不再是更好的装备
+			-- print(3333333333333)
+			var.betterItems[i] = "remove"
+			clean = true
+		end
+		if i == 1 and clean then
+			cleanFirst = true
+		end
+	end
+	-- print("cleanBetterItems2222222", util.encode(var.betterItems))
+	if clean then
+		table.removebyvalue(var.betterItems, "remove", true)
+		checkStopAutoClean()
+	end
+	-- print("cleanBetterItems333333333", util.encode(var.betterItems))
+	return cleanFirst
+end
+
+-- 按钮回调
+local function pushUseItemButton(pSender)
+	-- print("//////////////////pushUseItemButton//////////////////", pSender.itemPos, pSender.mTypeID)
+	if pSender.itemPos and pSender.mTypeID then
+		local  num = 1
+		local netItem = NetClient:getNetItem(pSender.itemPos)
+		if netItem then
+			num = netItem.mNumber
+		end
+
+		NetClient:BagUseItem(pSender.itemPos, pSender.mTypeID, num)
+		table.remove(var.betterItems, 1)
+		UIUsageTip.showBoxBetterItem(6)
+	elseif pSender.mTypeID then
+		pSender.mTypeID = nil
+		table.remove(var.fakeShowItems, 1)
+		UIUsageTip.showBoxBetterItem(1)
+	end
+end
+
+local function pushNotTipButton(pSender )
+	if not Const.SHOW_PROP_TIP then
+		Const.SHOW_PROP_TIP = true
+	end
+	var.boxBetterItem:hide()
+end
+
+--清理过期显示
+local function cleanOverDueItem(pSender)
+	-- if pSender.itemPos and pSender.mTypeID then
+	-- 	table.remove(var.betterItems, 1)
+	-- elseif pSender.mTypeID then
+	-- 	table.remove(var.fakeShowItems, 1)
+	-- end
+	checkAutoCleanItem()
+	pSender.mTypeID = nil
+	pSender.itemPos = nil
+	UIUsageTip.showBoxBetterItem(2)
+end
+
+local function buildEquipAttr(itemDef)
+	local attrs = {}
+	local mJob =  MainRole._mainAvatar:NetAttr(Const.net_job)
+	if mJob == Const.JOB_ZS and itemDef.mDCMax > 0 then
+		table.insert(attrs, {pre = "物理攻击：", value = itemDef.mDC.."-"..itemDef.mDCMax})
+	elseif mJob == Const.JOB_FS and itemDef.mMCMax > 0 then
+		table.insert(attrs, {pre = "魔法攻击：", value = itemDef.mMC.."-"..itemDef.mMCMax})
+	elseif mJob == Const.JOB_DS and itemDef.mSCMax > 0 then
+		table.insert(attrs, {pre = "道术攻击：", value = itemDef.mSC.."-"..itemDef.mSCMax})
+	end
+	if itemDef.mACMax > 0 then
+		table.insert(attrs, {pre = "物理防御：", value = itemDef.mAC.."-"..itemDef.mACMax})
+	end
+	if itemDef.mMACMax > 0 then
+		table.insert(attrs, {pre = "魔法防御：", value = itemDef.mMAC.."-"..itemDef.mMACMax})
+	end
+	if itemDef.mMACMax > 0 then
+		table.insert(attrs, {pre = "魔法防御：", value = itemDef.mMAC.."-"..itemDef.mMACMax})
+	end
+	if itemDef.mMaxHp > 0 then
+		table.insert(attrs, {pre = "生命上限：", value = "+"..itemDef.mMaxHp})
+	end
+	return attrs
+end
+
+-- 更好装备属性
+local function updateEquipAttr(itemDef)
+	var.boxEquipAttr:show()
+	local lblAttrPre, lblAttr, imgAttrUpFlag
+	local attrs = buildEquipAttr(itemDef)
+	for i=1,3 do
+		lblAttrPre = var.boxBetterItem:getWidgetByName("lbl_attr_pre_"..i):hide():setString("")
+		lblAttr = var.boxBetterItem:getWidgetByName("lbl_attr_"..i):hide():setString("")
+		if attrs[i] then
+			lblAttrPre:setString(attrs[i].pre):show()
+			lblAttr:setString(attrs[i].value):show()
+			imgAttrUpFlag = lblAttr:getChildByName("img_attr_up_flag")
+			--imgAttrUpFlag:setPositionX(lblAttr:getContentSize().width + 32)
+		end
+	end
+end
+
+-- 特殊道具描述
+local function updatePropDesp(itemDef)
+	var.boxPropDesp:show()
+	local lblPropDesp = var.boxBetterItem:getWidgetByName("lbl_prop_desp"):setString("")
+	local pSize = lblPropDesp:getContentSize()
+	local richDesp = lblPropDesp:getChildByName("richDesp")
+	if not richDesp then
+		richDesp = UIRichLabel.new({size = cc.size(pSize.width, pSize.height), space=0,name = "richDesp"})
+		richDesp:align(display.LEFT_TOP, 0, pSize.height):addTo(lblPropDesp)
+	end
+	richDesp:setRichLabel("<font color=#B2A58B>"..itemDef.mDesp.."</font>", "tips_desp", 16)
+end
+
+local function showBoxBetterItem(tag)
+	-- 刷新前先重置
+	--print("//////////////showBoxBetterItem/////////////////", tag, util.encode(var.betterItems))
+	-- checkAutoCleanItem()
+	
+	var.boxBetterItem:hide()
+
+	var.btnUseItem.itemPos = nil
+	var.btnUseItem.mTypeID = nil
+	-- btnUseItem.num = nil
+
+	local itemPos, mTypeID, startTime--, num
+	if var.fakeShowItems and #var.fakeShowItems > 0 then
+		--print("/////////////var.fakeShowItems/////////////", util.encode(var.fakeShowItems))
+		mTypeID = var.fakeShowItems[1].mTypeID
+		startTime = var.fakeShowItems[1].startTime
+	elseif var.betterItems and #var.betterItems > 0 then
+		--print(111111)
+		local showItem = var.betterItems[1] -- 队列的首个物品
+		if not showItem then return end
+		--print(2222222)
+		itemPos = showItem.itemPos
+		mTypeID = showItem.mTypeID
+		startTime = showItem.startTime
+		local netItem = NetClient:getNetItem(itemPos)
+		if not (netItem and netItem.mTypeID == mTypeID) then -- 物品队列错误，需要清理
+			cleanBetterItems()
+			--print(33333333333)
+			return
+		end
+		-- num = netItem.mNumber
+	else
+		return
+	end
+
+	
+	local itemDef = NetClient:getItemDefByID(mTypeID)
+	if not itemDef then return end  -- 没有物品描述信息，不刷新
+
+	var.boxBetterItem:show()
+	var.boxEquipAttr:hide()
+	var.boxPropDesp:hide()
+
+	var.itemName:setString(itemDef.mName)
+
+	-- local imgIconBg = var.boxBetterItem:getWidgetByName("img_icon_bg")
+
+	-- local param = {
+	-- 	parent=imgIconBg,
+	-- 	typeId=mTypeID,
+	-- 	iconType = Const.ICONTYPE.NOTIP,
+	-- 	num=1
+	-- }
+	-- if itemPos then
+	-- 	param = {
+	-- 		parent=imgIconBg,
+	-- 		pos = itemPos,
+	-- 		iconType = Const.ICONTYPE.NOTIP,
+	-- 	}
+	-- end
+
+	-- UIItem.getItem(param)
+
+	-- 更新图片信息
+
+	local iconRes = nil
+	if itemDef then iconRes = itemDef.mIconID end
+	if iconRes then
+		local path = "picicon/"..iconRes..".png"
+		local filepath = string.format("picicon/iconbg%s.png", itemDef.mItemBg)
+		var.itemIcon:getChildByName("icon"):loadTexture(path)
+		local num = 1
+		if itemPos then
+			num = NetClient:getNetItem(itemPos).mNumber
+		end
+		var.itemIcon:loadTexture(filepath)
+		var.itemIcon:getChildByName("num"):setString(num)
+	end
+
+	-- if game.isEquipMent(itemDef.SubType) then -- 装备
+		-- var.panelTitle:setString("更换装备")
+		-- var.btnUseItem:setTitleText("装备")
+		-- updateEquipAttr(itemDef)
+	-- else -- 道具
+		-- var.panelTitle:setString("道具使用")
+		-- var.btnUseItem:setTitleText("使用")
+		-- updatePropDesp(itemDef)
+	-- end
+	
+	if not game.isEquipMent(itemDef.SubType) then -- 装备
+		var.panelTitle:setString("道具使用")
+		var.btnUseItem:setTitleText("使用")
+		updatePropDesp(itemDef)
+
+	else -- 道具
+		var.panelTitle:setString("更换装备")
+		var.btnUseItem:setTitleText("装备")
+		updateEquipAttr(itemDef)
+
+	end
+
+	-- 7秒延时
+	var.btnUseItem.itemPos = itemPos
+	var.btnUseItem.mTypeID = mTypeID
+	-- btnUseItem.num = num
+	var.boxBetterItem:stopAllActions()
+	if Const.SHOW_PROP_TIP then
+		autoUseTime = 0 
+	else	
+		autoUseTime = 7	
+	end
+
+	local actionTime = startTime + autoUseTime - os.time()
+	if actionTime > 0 and not Const.SHOW_PROP_TIP then
+		var.boxBetterItem:runAction(cca.seq({
+			cca.delay(actionTime),
+			cca.cb(function ()
+				-- print("////////////autoUseItem//////////////")
+				cleanOverDueItem(var.btnUseItem)
+			end)
+		}))
+	else
+		cleanOverDueItem(var.btnUseItem)
+	end
+end
+
+local function handleBetterItem(event)
+	-- print("////////////////////////handleBetterItem////////////////////////", event.itemPos, event.mTypeID);
+	if event then
+		if event.itemPos then -- 真提示
+			table.insert(var.betterItems, 1, {itemPos = event.itemPos, mTypeID = event.mTypeID, startTime = os.time()})
+			showBoxBetterItem(3)
+		elseif event.mTypeID then -- 假提示
+			table.insert(var.fakeShowItems, 1, {mTypeID = event.mTypeID, startTime = os.time()})
+			showBoxBetterItem(4)
+		end
+		if (#var.betterItems + #var.fakeShowItems) > 1 then
+			local actionScheduler = var.uiBetterItem:getActionByTag(ACTION.SCHEDULER)
+			if not actionScheduler then
+				--print("////////////////***************************************actionScheduler****************************//////////////////")
+				actionScheduler = cca.repeatForever(cca.seq({cca.delay(2), cca.callFunc(checkAutoCleanItem)}))
+				actionScheduler:setTag(ACTION.SCHEDULER)
+				var.uiBetterItem:runAction(actionScheduler)
+			end
+		end
+	end
+end
+
+-- itemchange的时候清理
+local function handleItemChange(event)
+	local cleanFirst = cleanBetterItems()
+	if cleanFirst then showBoxBetterItem(5) end
+	-- print("UIUsageTip handleItemChange", util.encode(var.betterItems))
+end
+
+
+-- 方便调用
+UIUsageTip.showBoxBetterItem = showBoxBetterItem
+
+-- 更换装备界面
+function UIUsageTip.init(scene)
+	var = {
+		uiBetterItem,
+		boxBetterItem,
+		boxEquipAttr,
+		boxPropDesp,
+		panelTitle,
+		itemIcon,
+		itemName,
+
+		btnUseItem,
+		notTipBtn,
+
+		tipsType = nil, -- "equip" or "prop"
+		betterItems = {}, -- 提示物品列表
+
+		uiNewSkill,
+
+		fakeShowItems = {}, -- 假提示物品
+	}
+
+	if scene then
+		var.uiBetterItem = UILuaLoader.load("uilayout/UIBetterItem.uif")
+		if var.uiBetterItem then
+
+			-- 背景
+			util.asyncload(var.uiBetterItem, "tipsbg", "needload/img_kuan_bg.png")
+
+			var.uiBetterItem:align(display.LEFT_BOTTOM, 0, 0):addTo(scene, 305)
+			var.boxBetterItem = var.uiBetterItem:getWidgetByName("box_better_item"):setTouchEnabled(true):hide()
+			var.boxEquipAttr = var.boxBetterItem:getWidgetByName("box_equip_attr"):hide()
+			var.boxPropDesp = var.boxBetterItem:getWidgetByName("box_prop_desp"):hide()
+			var.itemName = var.boxBetterItem:getWidgetByName("lbl_item_name")
+			var.panelTitle = var.boxBetterItem:getWidgetByName("panelTtitle")
+			-- util.asyncload(var.uiBetterItem, "img_better_item_bg", "needload/img_better_item_bg.png")
+			var.itemIcon = var.boxBetterItem:getWidgetByName("item_icon")
+			var.btnUseItem = var.boxBetterItem:getWidgetByName("btn_use_item")
+			var.notTipBtn = var.boxBetterItem:getWidgetByName("not_tip_btn")
+			
+			UIRedPoint.addUIPoint(var.btnUseItem, pushUseItemButton)
+			UIRedPoint.addUIPoint(var.notTipBtn, pushNotTipButton)
+
+			cc.EventProxy.new(NetClient, var.uiBetterItem)
+				:addEventListener(Notify.EVENT_BETTER_ITEM, handleBetterItem)
+				:addEventListener(Notify.EVENT_ITEM_CHANGE, handleItemChange)
+		end
+	end
+end
+
+return UIUsageTip

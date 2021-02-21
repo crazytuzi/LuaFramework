@@ -1,0 +1,357 @@
+local PanelQuickSet={}
+local var = {}
+
+-- 界面 技能界面
+
+local function pushToSelectContent(sender)
+	if var.imgSelected then var.imgSelected:hide() end
+	var.imgSelected=sender:getWidgetByName("imgSelected"):show()
+	var.curSelected = sender.tag
+end
+
+local function getSelectedSkillId()
+	local shortCut = NetClient.mShortCut[var.curSelected]
+	if shortCut and shortCut.param > 0 then
+		return shortCut.param
+	end
+end
+
+function PanelQuickSet.initView(extend)
+	var = {
+		xmlPanel,
+		curSelected=nil,--当前选中的需要设置快捷栏
+		imgSelected=nil,
+		curType=1,--默认是技能
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelQuickSet.uif");
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel, "img_bg", "needload/bg_max1.png")
+
+		var.imgSelected=var.xmlPanel:getWidgetByName("imgSelect")
+		PanelQuickSet.initSkillList()
+		PanelQuickSet.initBtnClick()
+		PanelQuickSet.initBagItems()	
+		PanelQuickSet.skillSelect()
+		PanelQuickSet.updateRightSkill()
+		PanelQuickSet.initYaoList()
+
+
+		local richtext=UIRichLabel.new({size=cc.size(350,0), space=3, name="richWidget"})
+		richtext:addTo(var.xmlPanel):pos(170,96)
+		local text = "<font color=#b2a58b>点击</font><font color=#39d45a>物品</font><font color=#b2a58b>或</font><font color=#39d45a>技能</font><font color=#b2a58b>将其放入右侧快捷栏</font>"
+		richtext:setRichLabel(text,"PanelQuickSet",16)
+	end
+	return var.xmlPanel
+end
+
+function PanelQuickSet.onPanelData(event)
+	
+end
+
+--extend.mParam.type=1:打开技能设置 extend.mParam.type=2：打开药品设置
+function PanelQuickSet.onPanelOpen(extend)
+	if extend and extend.mParam and extend.mParam.type==2 then
+		PanelQuickSet.changeDaoJu(nil)
+		var.curType=2
+	else
+		PanelQuickSet.changeDaoJu("skill")
+	end
+end
+
+function PanelQuickSet.onPanelClose()
+	var.curSelected = nil
+end
+
+function PanelQuickSet.initBtnClick()
+	local btnArr = {"btnSkill","btnDaoJu","btnClearSet","btnFanHui"}
+	local function prsBtnClick(sender)
+		local btnName = sender:getName()
+		if btnName=="btnSkill" then
+			PanelQuickSet.changeDaoJu("skill")
+			var.curType=1
+		elseif btnName=="btnDaoJu" then
+			PanelQuickSet.changeDaoJu(nil)
+			var.curType=2
+		elseif btnName=="btnClearSet" then
+			PanelQuickSet.clearAllSet(type)
+		elseif btnName=="btnFanHui" then
+			local skillId = getSelectedSkillId()
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_skill",  skillId = skillId})
+		end
+	end
+	for i=1,#btnArr do
+		local btn = var.xmlPanel:getWidgetByName(btnArr[i]):setPressedActionEnabled(true)
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+--初始化左侧道具列表
+function PanelQuickSet.initYaoList()
+	local function prsContentClick(sender)
+		if var.imgSelected then var.imgSelected:hide() end
+		var.imgSelected=sender:getWidgetByName("imgSelected"):show()
+		var.curSelected = sender.tag
+	end
+	local function updatePropList(item)
+		item:setTouchEnabled(true)
+		UIRedPoint.addUIPoint(item, pushToSelectContent)
+		local skillIcon = item:getWidgetByName("skillIcon"):show()
+		local shortCut = NetClient.mShortCut[item.tag + Const.SHORT_SKILL_END]
+		if shortCut and shortCut.param > 0 then
+			skillIcon:loadTexture("picicon/"..shortCut.param..".png")
+		else
+			skillIcon:hide()
+		end
+		item:getWidgetByName("imgNum"):loadTexture((item.tag),ccui.TextureResType.plistType)
+		item:setName("item_quick"..item.tag)
+	end
+	local listYao = var.xmlPanel:getWidgetByName("listYao"):setSliderVisible(false):setTouchEnabled(false)
+	listYao:reloadData(4,updatePropList)
+end
+
+--左侧技能列表
+function PanelQuickSet.initSkillList()
+	local function prsContentClick(sender)
+		PanelQuickSet.setShortCutSkill(sender.skill_id)
+	end
+
+	local skillsDesp = {}
+	for k,v in pairs(NetClient.m_skillsDesp) do
+		if v.skill_id ~= Const.SKILL_TYPE_YiBanGongJi then
+			table.insert(skillsDesp, v)
+		end
+	end
+	
+	local function sortF(nsd1, nsd2)
+		return nsd1.mOrderID < nsd2.mOrderID
+	end
+	table.sort(skillsDesp, sortF)
+
+	local netSkill, path
+	local function updateSkillList(item)
+		if item.tag>#skillsDesp then
+			item:hide()
+			return
+		else
+			item:show()
+		end
+		local skillIcon = item:getWidgetByName("skillIcon")
+		local nsd=skillsDesp[item.tag]
+		netSkill = NetClient.m_netSkill[nsd.skill_id]
+
+		path = "picicon/skill"..nsd.skill_id..".png"
+		if netSkill and netSkill.mLevel > 10 then
+			path = "picicon/skill"..nsd.skill_id.."_angry.png"
+		end
+		
+		
+		skillIcon:loadTexture(path)
+		skillIcon:setScale(1.1)
+		item:getWidgetByName("skillBg"):setScale(0.9)
+		--skillIcon:setScale((item:getWidgetByName("skillBg"):getContentSize().width-9)/(skillIcon:getContentSize().width-18),(item:getWidgetByName("skillBg"):getContentSize().height-9)/(skillIcon:getContentSize().height-18))
+		
+		item:getWidgetByName("skillName"):setString(nsd.mName)
+		item.skill_id = nsd.skill_id
+		item:setTouchEnabled(true)
+		UIRedPoint.addUIPoint(item,prsContentClick)
+	end
+	local listSkill = var.xmlPanel:getWidgetByName("listSkill"):setSliderVisible(false)
+	listSkill:reloadData(#skillsDesp,updateSkillList)
+
+
+end
+
+--点击左侧技能时的设置操作
+function PanelQuickSet.setShortCutSkill(value)
+	if var.curSelected and var.curSelected >= 1 and var.curSelected <= 8 then
+		if game.IsPassiveSkill(value) then
+			return NetClient:alertLocalMsg("被动技能不可设置", "alert")
+		end
+
+		-- PanelQuickSet.checkSameKey(value)
+		local shortCut
+		-- 去重
+		for i=1,Const.SHORT_SKILL_END do
+			shortCut = NetClient.mShortCut[i]
+			if shortCut and shortCut.param == value then
+				NetClient.mShortCut[i] = nil
+			end
+		end
+		--设置
+		shortCut = {}
+		shortCut.cut_id = var.curSelected
+		shortCut.type = 2
+		shortCut.param = value
+		shortCut.itemnum = 1
+		NetClient.mShortCut[shortCut.cut_id] = shortCut
+		-- print(var.curSelected,value,shortCut,"===========00000=============")
+		-- 保存
+		NetClient:SaveShortcut()
+		PanelQuickSet.updateRightSkill()
+	else
+		NetClient:alertLocalMsg("请先选中右侧需要设置的位置！", "alert")
+	end
+end
+
+--刷新右侧技能显示
+function PanelQuickSet.updateRightSkill()
+	local netSkill, nsd
+	for i=1,Const.SHORT_SKILL_END do
+		local path = "picicon/null.png"
+		local shortCut = NetClient.mShortCut[i]
+		local contentSkill = var.xmlPanel:getWidgetByName("content"..i)
+		local skillIcon = contentSkill:getWidgetByName("skillIcon")
+		if NetClient.mShortCut[i] then
+
+			netSkill = NetClient.m_netSkill[shortCut.param]
+			path = "picicon/skill"..shortCut.param..".png"
+			if netSkill and netSkill.mLevel > 10 then
+				path = "picicon/skill"..shortCut.param.."_angry.png"
+			end
+		end
+		skillIcon:loadTexture(path):setPosition(34, 34)
+		contentSkill:getWidgetByName("imgSelected"):setPosition(34, 34)
+	end
+end
+
+--背包内可设置的物品
+function PanelQuickSet.initBagItems()
+	local result = PanelQuickSet.getNeedItems()
+	local function updateBagList(item)
+		local itemPos = result[item.tag]
+		local netItem = NetClient:getNetItem(itemPos)
+		local subItem = item:getWidgetByName("imgIcon")
+		if item.tag>Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd then
+			subItem:hide()
+		else
+			subItem:show()
+		end
+		local param = {
+			parent = item,
+			pos = itemPos,
+			iconType = Const.ICONTYPE.NOTIP,
+			-- iconType = Const.ICONTYPE.BAG,
+			callBack = function ()
+				PanelQuickSet.setShortCutProp(netItem.mTypeID)
+			end,
+			doubleCall = function ()
+				-- PanelQuickSet.setShortCutProp(netItem.mTypeID)
+			end,
+		}
+		UIItem.getItem(param)
+
+		if item.tag == 1 then
+			item:setName("item_drug");
+		else
+			item:setName("");
+		end
+
+	end
+	local geNum = 25
+	if #result>25 then geNum=#result end
+	local listBag = var.xmlPanel:getWidgetByName("listBag")
+	-- listBag:reloadData(math.ceil((geNum)/5)*5,updateBagList)
+	listBag:reloadData(100, updateBagList)
+end
+
+--筛选能设置到快捷栏的物品
+function PanelQuickSet.getNeedItems()
+	-- local maxNum = Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd 
+	local maxNum = 100
+	local result = {}
+	for i=0, maxNum-1 do
+		local netItem = NetClient:getNetItem(i)
+		if netItem and game.checkShortCutItem(netItem.mTypeID) then
+			table.insert(result, netItem.position)
+		end
+	end
+	return result
+end
+
+--点击道具切花操作
+function PanelQuickSet.changeDaoJu(type)
+	local listBag = var.xmlPanel:getWidgetByName("listBag")
+	local listSkill = var.xmlPanel:getWidgetByName("listSkill")
+	local listYao = var.xmlPanel:getWidgetByName("listYao")
+	local contentSkill = var.xmlPanel:getWidgetByName("contentSkill")
+	local btnClearSet = var.xmlPanel:getWidgetByName("btnClearSet")
+	local btnFanHui = var.xmlPanel:getWidgetByName("btnFanHui")
+
+	if type=="skill" then
+		listBag:hide() listYao:hide() listSkill:show() contentSkill:show()
+		btnClearSet:setPositionX(535)
+		btnFanHui:show()
+		local skillBg = var.xmlPanel:getWidgetByName("content1")
+		pushToSelectContent(skillBg)
+	else
+		listBag:show() listYao:show() listSkill:hide() contentSkill:hide()
+		btnClearSet:setPositionX(620)
+		btnFanHui:hide()
+		local listYao = var.xmlPanel:getWidgetByName("listYao")
+		local itemModel = listYao:getModelByIndex(1)
+		pushToSelectContent(itemModel)
+	end
+end
+
+--选中需要设置的技能快捷栏
+function PanelQuickSet.skillSelect()
+	local function prsContentClick(sender)
+		if var.imgSelected then var.imgSelected:hide() end
+		var.imgSelected=sender:getWidgetByName("imgSelected"):show()
+		var.curSelected = sender.key
+	end
+	for i=1,8 do
+		local skillBg = var.xmlPanel:getWidgetByName("content"..i)
+		skillBg:setTouchEnabled(true)
+		skillBg.tag = i--对应本地保存的键
+		UIRedPoint.addUIPoint(skillBg, pushToSelectContent)
+	end
+end
+
+--点击左侧药品或者技能时的设置操作
+function PanelQuickSet.setShortCutProp(value)
+	-- print("setShortCutProp",var.curSelected,value)
+	if var.curSelected and var.curSelected >= 1 and var.curSelected <= 4 then
+		-- PanelQuickSet.checkSameKey(value)
+		local shortCut
+		-- 去重
+		for i=1,4 do
+			shortCut = NetClient.mShortCut[Const.SHORT_SKILL_END + i]
+			if shortCut and shortCut.param == value then
+				NetClient.mShortCut[Const.SHORT_SKILL_END + i] = nil
+			end
+		end
+		--设置
+		shortCut = {}
+		shortCut.cut_id = Const.SHORT_SKILL_END + var.curSelected
+		shortCut.type = 1
+		shortCut.param = value
+		shortCut.itemnum = 1
+		NetClient.mShortCut[shortCut.cut_id] = shortCut
+		-- 保存
+		NetClient:SaveShortcut()
+		PanelQuickSet.initYaoList()
+	else
+		NetClient:alertLocalMsg("请先选中右侧需要设置的位置！", "alert")
+	end
+end
+
+--清空设置type==1：清空技能设置  type==2：清空药品设置
+function PanelQuickSet.clearAllSet()
+	print(var.curType)
+	if var.curType==1 then
+		for i=1,Const.SHORT_SKILL_END do
+			NetClient.mShortCut[i] = nil
+		end
+		NetClient:SaveShortcut()
+		PanelQuickSet.updateRightSkill()
+	else
+		for i=1,4 do
+			NetClient.mShortCut[Const.SHORT_SKILL_END + i] = nil
+		end
+		NetClient:SaveShortcut()
+		PanelQuickSet.initYaoList()
+	end
+end
+
+return PanelQuickSet

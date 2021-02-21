@@ -1,0 +1,247 @@
+local PanelDepot = {}
+
+
+local function pushTabButtons(psender)
+	local opened, level, funcName
+	opened = true
+	local tag = psender:getTag()
+	if tag==1 then
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar"})
+	elseif tag==2 then
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar", tab = 2, mParam = {tab=2,index=2}})		
+	elseif tag==3 then
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar", tab = 3, mParam = {tab=3,index=3}})		
+	elseif tag==4 then
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar", tab = 4, mParam = {tab=4,index=4}})		
+	elseif tag==5 then
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar", tab = 5, mParam = {tab=5,index=5}})		
+	elseif tag==6 then
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar", tab = 6, mParam = {tab=6,index=6}})		
+	elseif tag==7 then
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar", tab = 7, mParam = {tab=7,index=7}})		
+
+
+
+
+
+
+
+	end
+
+	-- if not opened then
+		-- var.boxTab:setTabSelected(var.lastTabIndex)
+		-- NetClient:alertLocalMsg(funcName.."功能暂未开放，"..level.."级开放")
+		-- return
+	-- end
+
+	-- showPanelPage(psender:getTag())
+end
+
+
+
+--局部变量表
+local var = {}
+local btnSortItem = {
+	["btnSortBag"] 				= {normalTitle = Const.str_tidy,},
+	["btnSortDepot"]			= {normalTitle = Const.str_tidy,},
+	["btnGetAll"]			    = {normalTitle = Const.str_getall,},
+	-- ["btnBatchItemsToBag"]		= {normalTitle = Const.str_take_out, 	selectTitle = Const.str_take_out_canceled,},
+	-- ["btnBatchItemsToDepot"]	= {normalTitle = Const.str_put_in, 		selectTitle = Const.str_put_in_canceled,},
+	-- ["btnKz"]			        = {normalTitle = Const.str_kz,},
+}
+local itemsChangeTab = {
+	["Depot"]	= {name = "仓库",	xmlPanel = "listDepot", begin = Const.ITEM_DEPOT_BEGIN,	titleText = Const.str_take_out,	iconType = Const.ICONTYPE.DEPOT,},
+	["Bag"]		= {name = "包裹",	xmlPanel = "listBag",	begin = Const.ITEM_BAG_BEGIN,	titleText = Const.str_put_in,	iconType = Const.ICONTYPE.DEPOT,},
+}
+
+
+function PanelDepot.initView()
+	-- initView = function ()
+		var = {
+			xmlPanel,
+			xmlTipsBag,
+			xmlTipsDepot,
+			xmlPanel = UILuaLoader.load("uilayout/PanelDepot.uif")
+		}
+
+		if var.xmlPanel then
+		var.boxTab = var.xmlPanel:getWidgetByName("box_tab")
+		var.boxTab:setTabRes("tab2_nor", "tab2_sel", ccui.TextureResType.plistType)-- 设置角色，背包按键和字体横
+		var.boxTab:getParent():setLocalZOrder(10)
+		var.boxTab:setItemMargin(10)
+		var.boxTab:addTabEventListener(pushTabButtons)
+			util.asyncload(var.xmlPanel, "bg", "needload/bg_max2.png")
+			util.asyncload(var.xmlPanel, "bg2", "needload/img_pmh_bg.png")
+			cc.EventProxy.new(NetClient, var.xmlPanel):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelDepot.handlePanelData):addEventListener(Notify.EVENT_FRESH_ITEM_PANEL, PanelDepot.initList)
+		local function pushBagButton(pSender)
+			local btnName = pSender:getName()
+			if btnName == "btnSortBag" then
+				--向服务器发送请求,参数“0”整理背包，“1”整理仓库
+				var.sortType=0
+				NetClient:SortItem(0)
+			elseif btnName == "btnSortDepot" then
+				var.sortType=1
+				NetClient:SortItem(1)
+			elseif btnName == "btnKz" then
+				if (Const.ITEM_DEPOT_SIZE +NetClient.mDepotSlotAdd)>=60 then
+					NetClient:alertLocalMsg("已达当前仓库上线60！", "alert")
+				else
+					NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "reqOpenDepotGe"}))
+				end
+			elseif btnName == "btnGetAll" then--全部取出
+				PanelDepot.getDepotAll()
+			elseif btnName == "btnSortBag1" then--返回背包
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "menu_bag"})
+				NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str = "panel_depot"})
+			end
+		end
+		--取按钮控件
+		for k, v in pairs(btnSortItem) do
+			local btnSort = var.xmlPanel:getWidgetByName(k)
+			btnSort:setTitleText(v.normalTitle)
+			UIRedPoint.addUIPoint(btnSort, pushBagButton)
+		end
+
+			return var.xmlPanel
+		end
+	end
+	
+-- function PanelAvatar.onPanelOpen(extend)
+	-- var.panelExtend = extend
+	-- local opened = NetClient:checkFuncOpenedByID(10015)
+	-- if not opened then
+		-- var.boxTab:hideTab(table.keyof(pageKeys,"gem"))
+	-- end
+
+	-- if extend and extend.mParam and extend.mParam.tab then
+		 -- return var.boxTab:setSelectedTab(extend.mParam.tab)
+	-- end
+
+	-- if extend and extend.tab and util.isNumber(extend.tab) then
+		-- var.boxTab:setSelectedTab(extend.tab)
+	-- elseif extend and extend.index and util.isNumber(extend.index) then
+		-- var.boxTab:setSelectedTab(extend.index)
+	-- else
+		-- var.boxTab:setSelectedTab(1)
+	-- end
+-- end	
+	
+function PanelDepot.onPanelOpen()
+		var.xmlPanel:getWidgetByName("listDepot"):setSliderVisible(false):reloadData(math.ceil((Const.ITEM_DEPOT_SIZE + NetClient.mDepotSlotAdd) / 5) * 5, function (subItem)
+			PanelDepot.updateListByItem(subItem, "Depot")
+		end)
+		var.xmlPanel:getWidgetByName("listBag"):setSliderVisible(false):reloadData(Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd, function (subItem)
+			PanelDepot.updateListByItem(subItem, "Bag")
+		end)
+	end
+	
+function PanelDepot.onPanelClose()
+	
+end
+
+function PanelDepot.handlePanelData(event)
+		if event.type == "PanelDepot" and util.decode(event.data).cmd == "openDepotGeZi" then
+			NetClient:AddDepotSlot()
+		end
+	end
+	
+function PanelDepot.initList()
+	if var.sortType and var.sortType==1 then
+		var.xmlPanel:getWidgetByName("listDepot"):setSliderVisible(false)
+			:reloadData(math.ceil((Const.ITEM_DEPOT_SIZE +NetClient.mDepotSlotAdd)/5)*5,function (subItem)	PanelDepot.updateListByItem(subItem,"Depot") end)
+	end
+	if var.sortType and var.sortType==0 then
+		var.xmlPanel:getWidgetByName("listBag"):setSliderVisible(false)
+			:reloadData(Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd,function (subItem)	PanelDepot.updateListByItem(subItem,"Bag") end)
+	end
+	end
+	
+function PanelDepot.updateListByItem(subItem,style)
+		-- slot2 = slot0.tag - 1 + uv0[slot1].begin
+		-- slot3 = 0
+		local index = subItem.tag -1 + itemsChangeTab[style].begin
+		local maxNum = 0
+		
+		if style == "Depot" then
+			maxNum = Const.ITEM_DEPOT_SIZE + NetClient.mDepotSlotAdd
+		end
+
+		if style == "Bag" then
+			maxNum = Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd
+		end
+
+		if maxNum < subItem.tag then
+			subItem:hide()
+		else
+			subItem:show()
+			UIItem.getItem({
+				parent = subItem,
+				pos = index,
+				titleText = itemsChangeTab[style].titleText,
+				tipsType = Const.TIPS_TYPE.DEPOT,
+				tipsPos = cc.p(display.cx * (style == "Bag" and 0.91 or 1.44), display.height * 0.47),
+				callBack = function ()
+				end,
+				doubleCall = function ()
+					if not NetClient:getNetItem(index) then
+						return
+					end
+
+					PanelDepot.showItemExchange({
+						pos = index
+					}, style == "Bag" and "Depot" or "Bag")
+				end
+			})
+		end
+	end
+	
+function PanelDepot.showItemExchange(event,style)
+	local number = 40
+	if style == "Depot" then
+		number = Const.ITEM_DEPOT_SIZE + NetClient.mDepotSlotAdd
+	elseif style =="Bag" then
+		number = Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd
+	end
+	for i = 0, number-1 do
+		if not NetClient:getNetItem(i + itemsChangeTab[style].begin) then
+			if NetClient:getNetItem(event.pos) then
+				NetClient:ItemPositionExchange(event.pos, i + itemsChangeTab[style].begin)
+				return
+			end
+		end
+	end
+	if style == "Depot" then
+		NetClient:alertLocalMsg(itemsChangeTab[style].name.."空间不足")
+	end
+end
+	
+function PanelDepot.getDepotAll()
+	local left_packnum = NetClient:getLeftBagNum()
+	if left_packnum > 0 then
+		local textInfo=nil
+		local index = 0
+		for i=0,39 do
+			local netItem = NetClient:getNetItem(1000+i)
+			if netItem then
+				NetClient:UndressItem(1000+i)
+				index = index + 1
+			end
+			if index >= left_packnum then
+				NetClient:alertLocalMsg("已成功提取"..index.."个，背包已满无法继续提取！","alert")
+				return
+			else
+				if index == 0 then
+					textInfo = "仓库内没有物品可以提取！"
+				else
+					textInfo = "已成功提取仓库内所有物品！"
+				end
+			end
+		end
+	else
+		textInfo = "背包已满无法提取！"
+	end
+	if textInfo then
+		NetClient:alertLocalMsg(textInfo,"alert")
+	end
+	end
+return PanelDepot

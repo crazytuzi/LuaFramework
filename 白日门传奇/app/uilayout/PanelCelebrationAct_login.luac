@@ -1,0 +1,14 @@
+LUA_RET={
+{n="PanelCelebrationAct_login",v=true,type=0,id=1,parent=0,w=684,h=548,ax=0,ay=0,},
+{n="tabBg",tag=151,v=true,type=1,id=2,parent=1,w=684,h=548,ax=0,ay=0,x=0,y=0,},
+{n="Text_18",tag=59,v=true,type=3,fs=18,text="剩余时间：",id=3,parent=1,ax=0.5,ay=0.5,x=450,y=525,fr="DFYuan.ttf",color="24|209|41",olc="0,0,0,255",},
+{n="Image_6",tag=313,v=false,type=1,id=4,parent=1,w=65,h=18,ax=0.5,ay=0.5,x=448,y=525,res="img_yu_time",},
+{n="labCount",tag=314,v=true,type=3,fs=18,text="00:00:00",vt=1,id=5,parent=1,w=190,h=20,ax=0,ay=0.5,x=490,y=525,color="24|209|41",},
+{n="icon1",tag=406,v=true,type=1,id=6,parent=1,w=76,h=76,ax=0.5,ay=0.5,x=174,y=199,res="img_cell",},
+{n="icon2",tag=407,v=true,type=1,id=7,parent=1,w=76,h=76,ax=0.5,ay=0.5,x=257,y=199,res="img_cell",},
+{n="icon3",tag=408,v=true,type=1,id=8,parent=1,w=76,h=76,ax=0.5,ay=0.5,x=341,y=199,res="img_cell",},
+{n="icon4",tag=409,v=true,type=1,id=9,parent=1,w=76,h=76,ax=0.5,ay=0.5,x=425,y=199,res="img_cell",},
+{n="icon5",tag=410,v=true,type=1,id=10,parent=1,w=76,h=76,ax=0.5,ay=0.5,x=509,y=199,res="img_cell",},
+{n="btnLing",tag=306,v=false,t=true,ud="zoomscale(-0.12)",type=2,fs=14,ss=true,sx=15,sw=147,sh=30,sy=11,id=11,parent=1,w=177,h=52,ax=0.5,ay=0.5,x=342,y=65,tcolor="65|65|70",sel="btn_lingqu",res="btn_lingqu",},
+{n="imgYLQ",tag=86,v=false,type=1,id=12,parent=1,w=102,h=36,ax=0.5,ay=0.5,x=345,y=64,res="img_yilingqu",},
+}

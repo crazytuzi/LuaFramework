@@ -1,0 +1,1833 @@
+UITips = {}
+
+local title2Name = {
+	["更多"] = "btn_tips_more", 
+	["使用"] = "btn_tips_use", 
+	["装备"] = "btn_tips_dress", 
+	["卸下"] = "btn_tips_dress", 
+	["强化"] = "btn_tips_upgrade",
+	["精炼"] = "btn_tips_refine", 
+	["存放"] = "btn_tips_store", 
+	["取出"] = "btn_tips_take", 
+	["出售"] = "btn_tips_sell", 
+	["丢弃"] = "btn_tips_drop", 
+	["交易"] = "btn_tips_trade", 
+	["合成"] = "btn_tips_compound",
+	["拆分"] = "btn_tips_split", 
+	["发送聊天"] = "btn_tips_send_chat",
+	["寄售"] = "btn_tips_consign",
+	["摧毁"] = "btn_tips_destory"
+}
+
+-- 特殊处理，绑定物品丢弃时候提示丢弃即是摧毁
+
+local USE_TYPE = {
+	NULL = 0,
+	USEITEM = 1,
+	DRESSEQUIP = 2,
+	UNDRESSEQUIP = 3,
+	DEPOTIN = 4, --存入仓库
+	DEPOTOUT = 5, --仓库取出
+	TRADEIN = 6, --交易
+	-- DRESSGEM = 7, --镶嵌宝石
+	-- UNDRESSGEM = 8, -- 卸下宝石
+	TREASURE=7,
+	CUSTOM = 10,
+}
+
+-- Const.TIPS_TYPE = {
+-- 	GENERAL = 1,
+-- 	BAG = 2,
+-- 	DEPOT = 3,
+-- 	TRADE = 4,
+-- 	CONSIGN = 5,
+-- 	GEM = 6,
+-- 	UPGRADE = 7,
+-- 	REFINE = 8,
+-- 	GUILD = 9,
+---TREASURE=10
+-- }
+
+-- tips分类依据：
+-- 1 类别枚举；1(通用)，2(背包)，3(仓库)，4(交易)，5(寄售)，6(宝石)，7(强化)，8(精炼)，9(行会)
+-- 2，pos位枚举；1(身上),2(背包)，,3(仓库), 4(寻宝), 5(行会仓库), 6(自定义)
+-- 3，物品类型枚举；0(所有物品),1(装备),2(药品)，3(其他)，4(行会帮主副帮主看的tips)
+-- tag = enmuType * 100 + enumPos * 10 + enmuItemType
+local TIPS_TAG = {
+	GENERAL_DRESSED_EQUIP = 111,
+
+	BAG_BAG_EQUIP = 221,
+	BAG_BAG_DRUG = 222,
+	BAG_BAG_OTHER = 223,
+
+
+	DEPOT_BAG_EQUIP = 321, -- 存放
+	DEPOT_BAG_DRUG = 322, -- 存放， 更多(拆分)
+	DEPOT_BAG_OTHER = 323, -- 存放， 更多(拆分)
+
+	DEPOT_DEPOT_EQUIP = 331, -- 取出
+	DEPOT_DEPOT_DRUG = 332, -- 取出， 更多(拆分)
+	DEPOT_DEPOT_OTHER = 333, -- 取出， 更多(拆分)
+
+	TRADE_BAG_EQUIP = 421, 
+	TRADE_BAG_DRUG = 422,
+	TRADE_BAG_OTHER = 423,
+
+	CONSIGN_BAG_ALL=520,
+
+	GEM_BAG_OTHER = 623,
+
+	
+
+	UPGRADE_BAG_EQUIP = 721,
+
+	HUISHOU_GET_OUT=733,--回收取出
+
+	GEM_GET_OUT=743,--宝石取下
+
+	UPGRADE_IN_EQUIP = 761,
+
+	HUISHOU_GET_IN=763,--回收投入
+
+	GUILD_BAG_ALL = 920,
+	GUILD_GUILD_ALL = 950,
+	GUILD_GUILD_ALL_ADMIN = 954,
+
+	TREASURE_BAG_ALL=1040,
+	
+	-- CONSIGN = 501,
+	-- GEM = 601,
+	-- UPGRADE = 701,
+	-- REFINE = 801,
+}
+
+local buttonsConfig = {
+	[TIPS_TAG.BAG_BAG_EQUIP] = {
+		useTitle = "装备", useType = USE_TYPE.DRESSEQUIP,  more = {"强化", "出售","丢弃","寄售",}
+	},
+	[TIPS_TAG.BAG_BAG_DRUG] = {
+		useTitle = "使用", useType = USE_TYPE.USEITEM, more = {"出售","丢弃","拆分","寄售",}
+	},
+	[TIPS_TAG.BAG_BAG_OTHER] = {
+		useTitle = "使用", useType = USE_TYPE.USEITEM, more = {"出售","丢弃","拆分"}
+	},
+	[TIPS_TAG.GENERAL_DRESSED_EQUIP] = {
+		useTitle = "卸下", useType = USE_TYPE.UNDRESSEQUIP,
+	},
+	[TIPS_TAG.DEPOT_BAG_EQUIP] = {
+		useTitle = "存放", useType = USE_TYPE.DEPOTIN, more = {"强化", "出售",	"丢弃",}
+	},
+	[TIPS_TAG.DEPOT_BAG_DRUG] = {
+		useTitle = "存放", useType = USE_TYPE.DEPOTIN, more = {"出售", "丢弃", "拆分"}
+	},
+	[TIPS_TAG.DEPOT_BAG_OTHER] = {
+		useTitle = "存放", useType = USE_TYPE.DEPOTIN, more = {"出售", "丢弃", "拆分"}
+	},
+	[TIPS_TAG.DEPOT_DEPOT_EQUIP] = {
+		useTitle = "取出", useType = USE_TYPE.DEPOTOUT,
+	},
+	[TIPS_TAG.DEPOT_DEPOT_DRUG] = {
+		useTitle = "取出", useType = USE_TYPE.DEPOTOUT,
+	},
+	[TIPS_TAG.DEPOT_DEPOT_OTHER] = {
+		useTitle = "取出", useType = USE_TYPE.DEPOTOUT,
+	},
+	[TIPS_TAG.TRADE_BAG_EQUIP] = {
+		useTitle = "放入", useType = USE_TYPE.CUSTOM,
+	},
+	[TIPS_TAG.TRADE_BAG_DRUG] = {
+		useTitle = "放入", useType = USE_TYPE.CUSTOM, --more = {"拆分"}
+	},
+	[TIPS_TAG.TRADE_BAG_OTHER] = {
+		useTitle = "放入", useType = USE_TYPE.CUSTOM, --more = {"拆分"}
+	},
+	[TIPS_TAG.GEM_BAG_OTHER] = {
+		useTitle = "镶嵌", useType = USE_TYPE.CUSTOM,
+	},
+	[TIPS_TAG.UPGRADE_BAG_EQUIP] = {
+		useTitle = "放入", useType = USE_TYPE.CUSTOM
+	},
+	[TIPS_TAG.TREASURE_BAG_ALL] = {
+		useTitle = "取出", useType = USE_TYPE.TREASURE
+	},
+
+	[TIPS_TAG.CONSIGN_BAG_ALL] = {
+		useTitle = "寄售", useType = USE_TYPE.CUSTOM
+	},
+	[TIPS_TAG.GUILD_BAG_ALL] = {
+		useTitle = "投入", useType = USE_TYPE.CUSTOM
+	},
+	[TIPS_TAG.GUILD_GUILD_ALL] = {
+		useTitle = "兑换", useType = USE_TYPE.CUSTOM
+	},
+	[TIPS_TAG.GUILD_GUILD_ALL_ADMIN] = {
+		useTitle = "兑换", useType = USE_TYPE.CUSTOM, more = {"摧毁"}
+	},
+	[TIPS_TAG.UPGRADE_IN_EQUIP] = {
+		useTitle = "取出", useType = USE_TYPE.CUSTOM
+	},
+	[TIPS_TAG.HUISHOU_GET_OUT] = {
+		useTitle = "取出", useType = USE_TYPE.CUSTOM
+	},
+	[TIPS_TAG.HUISHOU_GET_IN] = {
+		useTitle = "投入", useType = USE_TYPE.CUSTOM
+	},
+	[TIPS_TAG.GEM_GET_OUT] = {
+		useTitle = "取下", useType = USE_TYPE.CUSTOM
+	},
+
+}
+
+
+--初始化使用tips		type==1 使用  ==2 其他拆分 丢弃等
+local function showUseTips(typeId, maxNumber, type,callback)
+	if type == 1 then
+		if game.canBatchUse(typeId) ~= true then
+			if callback then
+				callback(1)
+			end
+			return
+		end
+	end
+	local propTips = UILuaLoader.load("uilayout/PropsUseTips.uif")
+					 :align(display.CENTER, display.cx, display.cy)
+	local itemdef  = NetClient:getItemDefByID(typeId)
+
+	if propTips then
+		util.asyncload(propTips, "img_bg", "needload/img_kuan_bg.png")
+		propTips:getChildByName("labName"):setString(itemdef.mName)
+										  :setColor(game.getItemColor(itemdef.mItemBg))
+		
+		local path = "picicon/iconbg"..itemdef.mItemBg..".png"
+		propTips:getWidgetByName("itembg"):loadTexture(path)
+
+		local iconId = itemdef.mIconID
+
+		path = "picicon/"..iconId..".png"
+		propTips:getWidgetByName("itemIcon"):loadTexture(path)
+
+		propTips:getChildByName("costLayout"):hide()
+
+		local itemNum = NetClient:getTypeItemNum(typeId) or 0
+		propTips:getChildByName("labNum"):setString(itemNum)
+
+		local curNum = 1
+		local maxNum = maxNumber and maxNumber or 1
+
+		local useSlider = propTips:getWidgetByName("useSlider")
+		local numEditBox = propTips:getWidgetByName("editNumBox")
+
+		local function onEdit(event,editBox)
+			if event == "began" then
+			elseif event == "changed" then
+			elseif event == "ended" then
+			elseif event == "return" then
+				local msg = tonumber(editBox:getText())
+				if msg then
+					if msg > maxNum then
+						msg = maxNum
+					end 
+					curNum = msg
+					editBox:setString(curNum)
+					--useSlider:setPercent(tonumber(msg))
+				else
+					NetClient:alertLocalMsg("非法字符, 请重新输入!")
+				end
+			end
+		end
+
+		if not numEditBox then
+			local parent = propTips:getWidgetByName("editNum")
+			numEditBox = util.newEditBox({
+				image = "picicon/null.png",
+				size = parent:getContentSize(),
+				listener = onEdit,
+				x = 0,
+				y = 0,
+				placeHolderColor = game.getColor(0x827b6e),
+				placeHolderSize = 22,
+				anchor = cc.p(0,0),
+				fontSize = 22,
+				placeHolder = Const.str_input,
+				inputMode = cc.EDITBOX_INPUT_MODE_NUMERIC,
+			}):setString(curNum):addTo(parent)
+		end
+
+		if not useSlider then
+			-- useSlider = ccui.Slider:create("common_progressbg", "common_slider", ccui.TextureResType.plistType)
+			-- 	:loadProgressBarTexture("common_progress", ccui.TextureResType.plistType)
+			-- 	:setName("useSlider"):addTo(propTips:getWidgetByName("SliderPanel"))
+			-- 	:setMaxPercent(itemNum)
+			-- 	:pos(153, 30)
+			-- 	:setPercent(curNum)
+
+			-- useSlider:addEventListener(function (sender, eventType) 
+			-- 	curNum = sender:getPercent()
+			-- 	numEditBox:setString(curNum)
+			-- end)
+			useSlider = true
+			-- +
+			propTips:getWidgetByName("reduceBtn"):addClickEventListener(function (sender, eventType)
+				if curNum <= 0 then
+					return
+				end
+				curNum = curNum - 1
+				numEditBox:setString(tostring(curNum))
+				--useSlider:setPercent(curNum)
+			end)
+
+			-- -
+			propTips:getWidgetByName("addBtn"):addClickEventListener(function (sender, eventType)
+				if curNum >= maxNum then
+					return
+				end
+				curNum = curNum + 1
+				numEditBox:setString(tostring(curNum))
+				--useSlider:setPercent(curNum)
+			end)
+
+			propTips:getWidgetByName("maxBtn"):addClickEventListener(function (sender, eventType)
+				if curNum >= maxNum then
+					return
+				end
+				curNum = maxNum
+				numEditBox:setString(tostring(curNum))
+			end)
+
+			propTips:getWidgetByName("btnConfrim"):addClickEventListener(function (sender, eventType) 
+				if callback then
+					callback(curNum)
+				end
+			end)
+
+			propTips:getWidgetByName("btnCancel"):addClickEventListener(function (sender, eventType)
+				NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_TIPS, use_isde = true})
+			end)
+
+			propTips:setName("useTips")
+		end
+	end
+
+	return propTips
+end
+
+local function buildEquipDropInfo(itemdef, xmlTips)
+	local dropInfo = ""
+	local netItem = xmlTips.netItem
+	local height = 25
+	local line = 1
+	if netItem then
+	if netItem.role  then
+	    dropInfo = dropInfo.."<font color=#FF7F24>怪物："..netItem.from.."<br></font>"
+		line = line + 1
+	end
+	if netItem.from  then
+		dropInfo = dropInfo.."<font color=#FF7F24>击杀："..netItem.role.."<br></font>"
+		-- dropInfo = dropInfo.."<font color=#FF7F24>地图："..netItem.map.."<br></font>"
+		line = line + 1
+	end
+	if netItem.map  then
+		dropInfo = dropInfo.."<font color=#FF7F24>地图："..netItem.map.."<br></font>"
+		-- dropInfo = dropInfo.."<font color=#FF7F24>角色："..netItem.role.."<br></font>"
+		line = line + 1
+	end
+	
+	if netItem.mCreateTime then
+		dropInfo = dropInfo.."<font color=#FFFF00>时间："..os.date("%Y年%m月%d日%H时%M分%S秒",netItem.mCreateTime).."</font>"
+		line = line + 1
+	end
+	end
+	return dropInfo, height * line
+
+
+--[[	local dropInfo = ""
+	local netItem = xmlTips.netItem
+	local height = 25
+	local line = 1
+
+	if not netItem and xmlTips.otherPlayer then
+		local otherPos = xmlTips.otherPos
+		netItem = NetClient.mOthersItems[otherPos]
+	end
+
+	if netItem or xmlTips.dropSource then
+		local dropSource = xmlTips.dropSource
+		local dropTime = xmlTips.dropTime
+		if netItem then 
+			dropTime = netItem.mCreateTime
+			dropSource = string.split(netItem.mDropSource, ",")
+		else
+			dropSource = string.split(dropSource, ",")
+		end
+
+		if dropSource[1] then
+			if #dropSource <= 1 then
+				dropInfo = dropInfo.."<font color=#00ff00>物品产出: "..dropSource[1].."</font><br>"
+				line = line + 1
+			else
+				dropInfo = dropInfo.."<font color=#00ff00>地图: "..dropSource[1].."</font><br>"
+				line = line + 1
+			end
+		else
+			dropInfo = dropInfo.."<font color=#00ff00>地图: 系统</font><br>"
+			line = line + 1
+		end
+
+		if dropSource[2] then
+			dropInfo = dropInfo.."<font color=#00ff00>怪物: "..dropSource[2].."</font><br>"
+			line = line + 1
+		else
+			-- dropInfo = dropInfo.."<font color=#00ff00>怪物: 系统</font><br>"
+			-- line = line + 1
+		end
+
+		if dropSource[3] then
+			dropInfo = dropInfo.."<font color=#00ff00>击杀: "..dropSource[3].."</font><br>"
+			line = line + 1
+		else
+			-- dropInfo = dropInfo.."<font color=#00ff00>击杀: 系统</font><br>"
+			-- line = line + 1
+		end
+
+		dropInfo = dropInfo.."<font color=#00ff00>时间: "..util.formatDate2(dropTime).."</font><br>"
+		line = line + 1
+	else
+		dropInfo = dropInfo.."<font color=#00ff00>物品产出: "..itemdef.mSource.."</font><br>"
+		line = line + 1
+	end
+	return dropInfo, height * line]]--
+end
+
+local function getTipsTag(xmlTips)
+	
+	local itemPos = xmlTips.itemPos
+	local itemDef = xmlTips.itemDef
+	local typeId = xmlTips.typeId
+	local enmuType = xmlTips.tipsType or 0
+	local enmuPos = xmlTips.enmuPos or 0
+	local enmuItemType = 0
+
+	if xmlTips.enmuItemType then
+		enmuItemType = xmlTips.enmuItemType
+	else
+		if game.IsEquipment(typeId) then
+			enmuItemType = 1
+		elseif game.IsDrug(typeId) then
+			enmuItemType = 2
+		else
+			enmuItemType = 3
+		end
+	end
+
+	if enmuPos == 0 then
+		if game.IsPosInAvatar(itemPos) then
+			enmuPos = 1
+		elseif game.IsPosInBag(itemPos) then
+			enmuPos = 2
+		elseif game.IsPosInDepot(itemPos) then
+			enmuPos = 3
+		elseif game.IsPosInLottoryDepot(itemPos) then -- 寻宝仓库强制为0
+			enmuPos = 4
+		end
+	end
+
+	if enmuType==5 then 
+		enmuPos = 2
+		enmuItemType = 0
+	end
+	-- if enmuType == 9 then
+	-- 	enmuItemType = 0
+	-- end
+	if enmuType == 4 then
+		if game.IsEquipment(typeId) then
+			enmuItemType = 1
+		elseif game.IsDrug(typeId) then
+			enmuItemType = 2
+		else
+			enmuItemType = 3
+		end
+	end
+
+	return enmuType * 100 + enmuPos * 10 + enmuItemType
+end
+
+local function DropBindItem(itemPos, typeId)
+	local mParam = {
+		name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = "绑定物品丢弃即摧毁(确认丢弃)",
+		btnConfirm = "确定", btnCancel = "取消",
+		confirmCallBack = function ()
+			NetClient:DestoryItem(itemPos, typeId)
+		end
+	}
+	NetClient:dispatchEvent(mParam)
+end
+
+local itemsChangeTab = {
+	["depot"]	= {name = "仓库", begin = Const.ITEM_DEPOT_BEGIN,	size = Const.ITEM_DEPOT_SIZE, add = "mDepotSlotAdd"},
+	["bag"]		= {name = "背包", begin = Const.ITEM_BAG_BEGIN,	size = Const.ITEM_BAG_SIZE, add = "mBagSlotAdd"},
+	["treasure"]= {name = "背包", begin = Const.ITEM_BAG_BEGIN,	size = Const.ITEM_BAG_SIZE, add = "mBagSlotAdd"},
+}
+
+-- 存入和取出
+local function changeItemPosTo(itemPos, slot)
+	-- print("changeItemPosTo", itemPos, slot)
+	local add = 0;
+	local conf = itemsChangeTab[slot]
+	if conf then
+		-- print("has conf")
+		local num = conf.size + NetClient[conf.add]
+		for i = 0, num - 1 do
+			if not NetClient:getNetItem(i + conf.begin) then -- 表示空位
+				if NetClient:getNetItem(itemPos) then
+					NetClient:ItemPositionExchange(itemPos, i + conf.begin, 100)
+					return
+				end
+			end
+		end
+		NetClient:alertLocalMsg(conf.name.."空间不足")
+	end
+end
+
+-- tips列表按钮的回调函数
+local function pushTipsButtons(sender)
+	local btnName = sender:getName()
+	local xmlTips = sender.xmlTips
+	local itemPos = xmlTips.itemPos
+	local typeId = xmlTips.typeId
+	local netItem = xmlTips.netItem
+	local itemDef = xmlTips.itemDef
+
+	-- print("pushTipsButtons", btnName, xmlTips, itemPos, typeId)
+	if btnName == "btn_tips_split" then
+		NetClient:SplitItem(itemPos, typeId, 1)
+	elseif btnName == "btn_tips_upgrade" then --强化
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="main_forge"})
+	elseif btnName == "btn_tips_refine" then --精炼
+
+	elseif btnName == "btn_tips_sell" then
+		local num = game.checkBatchSell(typeId) and netItem.mNumber or 1
+		NetClient:NPCSell(100, itemPos, typeId, num, 200)
+	elseif btnName == "btn_tips_drop" then
+		if bit.band(netItem.mItemFlags, Const.ITEM_FLAG_BIND) > 0 then
+			DropBindItem(itemPos, typeId)
+		else
+			NetClient:DropItem(itemPos, typeId, 1)
+		end
+	elseif btnName == "btn_tips_destory" then
+		if xmlTips.destoryCallFunc then
+			xmlTips.destoryCallFunc()
+		else
+			NetClient:DestoryItem(itemPos, typeId)
+		end
+
+		-- NetClient:dispatchEvent({name = Notify.EVENT_DESTORY_ITEM, })
+	elseif btnName == "btn_tips_trade" then
+
+	elseif btnName == "btn_tips_store" then
+		changeItemPosTo(itemPos, "depot")
+	elseif btnName == "btn_tips_take" then
+		changeItemPosTo(itemPos, "bag")
+	elseif btnName == "btn_tips_merge" then
+
+	elseif btnName == "btn_tips_compound" then
+
+	elseif btnName == "btn_tips_send_chat" then
+		if itemDef and netItem then
+			local msg = "<item src=\""..itemDef.mName..","..netItem.mLevel..","..netItem.mZLevel.."\"/>"
+			NetClient:sendChatToLastChannel(msg)
+		end
+	elseif btnName == "btn_tips_consign" then
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="main_consign", tab = 2})
+	end
+	NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_TIPS, visible = false})
+end
+
+-- tips使用按钮的回调函数
+local function pushTipsUseButton(sender)
+	local mUseType = sender.useType
+	local xmlTips = sender.xmlTips
+	local itemPos = xmlTips.itemPos
+	local typeId = xmlTips.typeId
+	if mUseType == USE_TYPE.USEITEM then -- 使用，针对背包非装备
+		if game.IsPosInBag(itemPos) then
+			if game.canBatchUse(typeId) then
+				local netItem = xmlTips.netItem
+				local num = netItem.mNumber
+				NetClient:BagUseItem(itemPos, typeId, num)
+			else
+				NetClient:BagUseItem(itemPos, typeId)
+			end
+		end
+	elseif mUseType == USE_TYPE.DRESSEQUIP then
+		if game.IsPosInBag(itemPos) then
+			NetClient:BagUseItem(itemPos, typeId)
+		end
+	elseif mUseType == USE_TYPE.UNDRESSEQUIP then
+		if game.IsPosInAvatar(itemPos) then
+			NetClient:UndressItem(itemPos)
+		end
+	elseif mUseType == USE_TYPE.DEPOTIN then
+		if game.IsPosInBag(itemPos) then
+			changeItemPosTo(itemPos, "depot")
+		end
+	elseif mUseType == USE_TYPE.DEPOTOUT then
+		if game.IsPosInDepot(itemPos) then
+			changeItemPosTo(itemPos, "bag")
+		end
+	elseif mUseType == USE_TYPE.TREASURE then
+		if game.IsPosInLottoryDepot(itemPos) then
+			if NetClient:takeItemFromLottory(itemPos) then 
+				NetClient:takeItemFromLottory(itemPos)
+			else
+				NetClient:alertLocalMsg("背包空间不足")
+			end 	
+			--changeItemPosTo(itemPos, "treasure")
+		end
+	elseif mUseType == USE_TYPE.CUSTOM then
+		if xmlTips.customCallFunc then
+			xmlTips.customCallFunc()
+		end
+
+	end
+	NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_TIPS, visible = false})
+end
+-- tips列表按钮的回调函数
+--[[local function pushTipsButtons(sender)
+	local btnName = sender:getName()
+	local xmlTips = sender.xmlTips
+	local itemPos = xmlTips.itemPos
+	local typeId = xmlTips.typeId
+	local netItem = xmlTips.netItem
+	local itemDef = xmlTips.itemDef
+
+	local isBang = false
+	if btnName == "btn_tips_drop" then
+		if bit.band(netItem.mItemFlags, Const.ITEM_FLAG_BIND) > 0 then
+			isBang = true
+			DropBindItem(itemPos, typeId)
+		end
+	end
+	if isBang == false then
+		local useTip = showUseTips(typeId, netItem.mNumber, 2,function(curNum)
+			if btnName == "btn_tips_split" then
+				NetClient:SplitItem(itemPos, typeId, curNum)
+			elseif btnName == "btn_tips_upgrade" then --强化
+				NetClient:alertLocalMsg("请注意，不可强化神炉四件套！")
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="main_forge"})
+			elseif btnName == "btn_tips_refine" then  --精炼
+	
+			elseif btnName == "btn_tips_sell" then	  --出售
+				-- local num = game.checkBatchSell(typeId) and curNum or 1
+				NetClient:NPCSell(100, itemPos, typeId, curNum, 200)
+			elseif btnName == "btn_tips_drop" then	  --丢弃
+				NetClient:DropItem(itemPos, typeId, curNum)
+			elseif btnName == "btn_tips_destory" then
+				if xmlTips.destoryCallFunc then
+					xmlTips.destoryCallFunc()
+				else
+					NetClient:DestoryItem(itemPos, typeId)
+				end
+	
+				-- NetClient:dispatchEvent({name = Notify.EVENT_DESTORY_ITEM, })
+			elseif btnName == "btn_tips_trade" then
+	
+			elseif btnName == "btn_tips_store" then
+				changeItemPosTo(itemPos, "depot")
+			elseif btnName == "btn_tips_take" then
+				changeItemPosTo(itemPos, "bag")
+			elseif btnName == "btn_tips_merge" then
+	
+			elseif btnName == "btn_tips_compound" then
+	
+			elseif btnName == "btn_tips_send_chat" then
+				if itemDef and netItem then
+					local msg = "<item src=\""..itemDef.mName.."||"..netItem.mLevel.."||"..netItem.mZLevel.."\"/>"
+					NetClient:sendChatToLastChannel(msg)
+				end
+			elseif btnName == "btn_tips_consign" then
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="main_consign", tab = 2})
+			end
+			
+			NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_TIPS, use_isde = true})
+		end)
+		if useTip then
+			useTip:addTo(cc.Director:getInstance():getRunningScene(), 9999)
+		end
+	end
+	-- print("pushTipsButtons", btnName, xmlTips, itemPos, typeId)
+	NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_TIPS, visible = false})
+end
+
+-- tips使用按钮的回调函数
+local function pushTipsUseButton(sender)
+	local mUseType = sender.useType
+	local xmlTips = sender.xmlTips
+	local itemPos = xmlTips.itemPos
+	local typeId = xmlTips.typeId
+	local maxNumber = 0
+	if xmlTips.netItem then
+		maxNumber = xmlTips.netItem.mNumber
+	end
+
+	local useTip = showUseTips(typeId, maxNumber, 1, function(curNum)
+		if mUseType == USE_TYPE.USEITEM then -- 使用，针对背包非装备
+			if game.IsPosInBag(itemPos) then
+				if curNum > 1 then
+					local netItem = xmlTips.netItem
+					local num = curNum > netItem.mNumber and netItem.mNumber or curNum
+					NetClient:BagUseItem(itemPos, typeId, num)
+				else
+					NetClient:BagUseItem(itemPos, typeId)
+				end
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_TIPS, use_isde = true})
+		elseif mUseType == USE_TYPE.DRESSEQUIP then
+			if game.IsPosInBag(itemPos) then
+				NetClient:BagUseItem(itemPos, typeId)
+			end
+		elseif mUseType == USE_TYPE.UNDRESSEQUIP then
+			if game.IsPosInAvatar(itemPos) then
+				NetClient:UndressItem(itemPos)
+			end
+		elseif mUseType == USE_TYPE.DEPOTIN then
+			if game.IsPosInBag(itemPos) then
+				changeItemPosTo(itemPos, "depot")
+			end
+		elseif mUseType == USE_TYPE.DEPOTOUT then
+			if game.IsPosInDepot(itemPos) then
+				changeItemPosTo(itemPos, "bag")
+			end
+		elseif mUseType == USE_TYPE.TREASURE then
+			if game.IsPosInLottoryDepot(itemPos) then
+				if NetClient:takeItemFromLottory(itemPos) then 
+					NetClient:takeItemFromLottory(itemPos)
+				else
+					NetClient:alertLocalMsg("背包空间不足")
+				end 	
+				--changeItemPosTo(itemPos, "treasure")
+			end
+		elseif mUseType == USE_TYPE.CUSTOM then
+			if xmlTips.customCallFunc then
+				xmlTips.customCallFunc()
+			end
+		end
+	end)
+
+	if useTip then
+		useTip:addTo(cc.Director:getInstance():getRunningScene(), 9999)
+	end
+	NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_TIPS, visible = false})
+end]]--
+
+-- 控制tips列表按钮显隐
+local function handleButtonsListVisible(sender, visible)
+	local xmlTips = sender.xmlTips
+	sender.showMore = visible
+	local listButtons = xmlTips:getWidgetByName("list_buttons")
+	listButtons:setVisible(visible)
+	sender:getWidgetByName("img_more_flag"):setScaleY(visible and -1 or 1);
+end
+
+-- 初始化tips上通用按钮
+local function initTipsButtons(xmlTips)
+
+	local btnTips = xmlTips:getWidgetByName("btn_tips_more")
+	btnTips.showMore = false
+	UIRedPoint.addUIPoint(btnTips, function (sender)
+		handleButtonsListVisible(sender, not sender.showMore)
+	end)
+
+	local btnTipsUse = xmlTips:getWidgetByName("btn_tips_use")
+	btnTipsUse.xmlTips = xmlTips
+	UIRedPoint.addUIPoint(btnTipsUse, pushTipsUseButton)
+
+	local listButtons = xmlTips:getWidgetByName("list_buttons")
+	listButtons:setItemsMargin(3)
+end
+
+-- tips创建函数
+local function newTips(typeId)
+	local xmlTips
+	if game.IsEquipment(typeId) then
+		xmlTips = UILuaLoader.load("uilayout/EquipTips.uif")
+		--xmlTips:getWidgetByName("list_base_attr"):setGravity(ccui.ListViewGravity.left)
+		--xmlTips:getWidgetByName("list_upd_attr"):setGravity(ccui.ListViewGravity.left)
+		xmlTips:getWidgetByName("tips_bg"):setOpacity(230)
+
+		local listBaseAttr = xmlTips:getWidgetByName("list_base_attr")
+		if false then
+			listBaseAttr:setContentSize(listBaseAttr:getContentSize().width, 230)
+			----xmlTips:getWidgetByName("list_upd_attr"):hide()
+		else
+			listBaseAttr:setContentSize(listBaseAttr:getContentSize().width, 360)
+			--xmlTips:getWidgetByName("list_upd_attr"):show()
+		end
+	else
+		xmlTips = UILuaLoader.load("uilayout/PropsTips.uif")
+
+		--xmlTips:getWidgetByName("list_source"):setGravity(ccui.ListViewGravity.left)
+		--xmlTips:getWidgetByName("list_desp"):setGravity(ccui.ListViewGravity.left)
+	end
+	initTipsButtons(xmlTips)
+	return xmlTips
+end
+
+-- tips上的物品图标刷新
+local function updateTipsIcon(xmlTips)
+	local itemDef = xmlTips.itemDef
+	if itemDef then
+		local imgIconFrame = xmlTips:getWidgetByName("img_icon_frame")
+		local iconId = itemDef.mIconID
+		if xmlTips.netItem then
+			local ssItem = NetClient:getSSEquipAttr(xmlTips.netItem.mShengshiId)
+			if ssItem then
+				local tIcon = NetClient:getItemDefByID(ssItem.mNeedItemId).mIconID
+				if tIcon then
+					iconId = tIcon
+				end
+			end
+		end
+
+		local filepath = "picicon/"..iconId..".png"
+		-- imgIconFrame.resLoaded = false
+		-- asyncload_callback("picicon/"..itemDef.mIconID..".png", imgIconFrame, function(filepath, texture)
+		-- 	if util.isObjectExist(xmlTips) and xmlTips.typeId then
+				-- if not imgIconFrame.resLoaded then
+					local imgIcon = imgIconFrame:getWidgetByName("img_icon")
+					imgIcon:loadTexture(filepath)
+					local size = imgIcon:getContentSize()
+					local pSize = imgIconFrame:getContentSize()
+					--imgIcon:setScale(pSize.width / size.width * 0.7)
+				-- end
+			
+				-- local itemdef = NetClient:getItemDefByID(xmlTips.typeId)
+				local img_icon_bg = imgIconFrame:getWidgetByName("img_icon_bg")
+				-- if itemdef and "picicon/"..itemdef.mIconID..".png" == filepath then
+				-- 	imgIconFrame.resLoaded = true
+				-- end
+				if itemDef and itemDef.mItemBg >= 0 then
+					filepath = string.format("picicon/iconbg%s.png", itemDef.mItemBg)
+				else
+					filepath = "picicon/null.png"
+				end
+				img_icon_bg:loadTexture(filepath)
+				
+					
+	end
+end
+
+-- tips上半部分基础信息
+local function updateBasicInfo(xmlTips)
+	local netItem = xmlTips.netItem
+	local itemDef = xmlTips.itemDef
+
+	if itemDef then
+		xmlTips:getWidgetByName("lbl_name"):setString(itemDef.mName):setColor(game.getItemColor(itemDef.mEquipLevel))
+		xmlTips:getWidgetByName("lbl_type"):setString(game.getItemType(itemDef.mTypeID))
+		--itemdef没做mIconDesc
+		if xmlTips:getWidgetByName("lbl_jie") and itemDef.mIconDesc > 0 and itemDef.mTzluck == 3 then
+			xmlTips:getWidgetByName("lbl_jie"):setString("日冕"):setColor(game.getItemColor(itemDef.mEquipLevel))
+		elseif xmlTips:getWidgetByName("lbl_jie") and itemDef.mIconDesc > 0 and itemDef.mTzluck == 2 then
+			xmlTips:getWidgetByName("lbl_jie"):setString("月烛"):setColor(game.getItemColor(itemDef.mEquipLevel))
+		elseif xmlTips:getWidgetByName("lbl_jie") and itemDef.mIconDesc > 0 and itemDef.mTzluck == 1 then
+			xmlTips:getWidgetByName("lbl_jie"):setString("星耀"):setColor(game.getItemColor(itemDef.mEquipLevel))	
+		elseif xmlTips:getWidgetByName("lbl_jie") and itemDef.mIconDesc > 0 then
+			xmlTips:getWidgetByName("lbl_jie"):setString(itemDef.mIconDesc.."阶"):setColor(game.getItemColor(itemDef.mEquipLevel))
+			-- xmlTips:getWidgetByName("lbl_jie"):setString("星耀"):setColor(game.getItemColor(itemDef.mEquipLevel))
+		end
+
+		local lblLevel = xmlTips:getWidgetByName("lbl_level")
+		if itemDef.mNeedZsLevel > 0 then
+			lblLevel:setString(itemDef.mNeedZsLevel.."转")
+			-- lblLevel:setPosition(cc.p(190,315))
+			if itemDef.mNeedZsLevel <= MainRole._mainAvatar:NetAttr(Const.net_zslevel) then
+				lblLevel:setColor(cc.c3b(48,255,0))
+			else
+				lblLevel:setColor(cc.c3b(255,0,0))
+			end
+		elseif itemDef.mNeedParam >= 0 then
+			lblLevel:setString(itemDef.mNeedParam.."级")
+			if itemDef.mNeedParam <= MainRole._mainAvatar:NetAttr(Const.net_level) then
+				lblLevel:setColor(cc.c3b(48,255,0))
+			else
+				lblLevel:setColor(cc.c3b(255,0,0))
+			end
+		end
+	end
+end
+
+-- 装备tips回收收益
+local function buildAdditionalInfo(itemDef)
+	local str = ""
+	if itemDef.mRecycleVcionBind > 0 then
+		str = "回收可获得："..itemDef.mRecycleVcionBind.."元宝<br>"
+	end
+	if itemDef.mRecycleMoney > 0 then
+		str = "回收可获得："..itemDef.mRecycleMoney.."钻石<br>"
+	end
+	-- if itemDef.mRecycleVcionBind > 0 then
+		-- str = "回收可获得："..itemDef.mRecycleVcionBind.."元宝<br>"
+	-- end
+	-- if itemDef.mRecycleXuefu > 0 then
+		-- if str == "" then
+			-- str = "回收可获得："..itemDef.mRecycleXuefu.."玉佩<br>"
+		-- else
+			-- str = str.."                   "..itemDef.mRecycleXuefu.."玉佩<br>"
+		-- end
+	-- end
+	-- if itemDef.mEquipContribute > 0 then
+		-- str = str.."捐献行会可获得："..itemDef.mEquipContribute.."贡献值"
+	-- end
+	str = "<font color=#88BD07>"..str.."</font>"
+	return str
+end
+
+-- 物品tips描述和产出
+local function updateItemDespTips(xmlTips)--mxwx 产出有问题等待修复
+	local netItem = xmlTips.netItem
+	local itemDef = xmlTips.itemDef
+
+	if itemDef then
+		local listDesp = xmlTips:getWidgetByName("list_desp")
+		if listDesp then
+			local size = listDesp:getInnerContainerSize()
+			local richLabelDesp = xmlTips:getWidgetByName("richLabel_desp")
+			richLabelDesp:setRichLabel("<font color=#B2A58B>"..itemDef.mDesp.."</font>", "tips_desp", 15)
+			listDesp:requestDoLayout()
+		end
+
+		-- local listSource = xmlTips:getWidgetByName("list_source")
+		-- size = listSource:getInnerContainerSize()
+		-- local richLabelSource = xmlTips:getWidgetByName("richLabel_source")
+		-- richLabelSource:setRichLabel("<font color=#B2A58B>"..itemDef.mSource.."</font>", "tips_src", 16)
+		-- listSource:requestDoLayout()
+		-- 掉落来源
+		local listBaseAttr = xmlTips:getWidgetByName("list_source")
+		if listBaseAttr then
+			listBaseAttr:removeAllItems()
+			local subItemModel = xmlTips:getWidgetByName("dropInfo"):clone():show()
+			local dropInfo,height = buildEquipDropInfo(itemDef, xmlTips)
+			subItemModel:setContentSize(360, height + 10)
+			offy = height - 48
+			layout = subItemModel:getChildByName("layout")
+			local richLabelDropInfo = layout:getWidgetByName("richLabel_dropinfo")
+			if not richLabelDropInfo and dropInfo ~= "" and height > 0 then
+				richLabelDropInfo = UIRichLabel.new({size = cc.size(360, height), space=2,name = "richLabel_dropinfo"}):addTo(layout):pos(0, 38):setAnchorPoint(0, 1)
+				richLabelDropInfo:setRichLabel("<font color=#B2A58B>"..itemDef.mSource.."</font>", "tips_src", 16)
+				listBaseAttr:pushBackCustomItem(subItemModel)
+			end
+			layout:setPositionY(offy)
+			listBaseAttr:requestDoLayout()
+		end
+		local strAdditionalInfo = buildAdditionalInfo(itemDef)
+		if strAdditionalInfo then
+			local richLabelAdditionalInfo = xmlTips:getWidgetByName("richLabel_additional_info")
+			if richLabelAdditionalInfo then
+				richLabelAdditionalInfo:setRichLabel(strAdditionalInfo, "tips_additional", 15)
+			end
+		end
+	end
+end
+
+-- 装备tips基础属性(包含强化加成)
+-- 显示物防，魔防，物攻，法攻，道攻，血，暴击免伤,暴击，内功，字号16
+
+local MIN_VALUE = 0
+
+local function buildEquipBaseAttr(itemDef, xmlTips)
+	local mUpdLevel = xmlTips.mUpdLevel
+	local baseAttrs = {
+		{key = "物理攻击：", value = {min = itemDef.mDC, max = itemDef.mDCMax}},
+		-- {key = "魔法攻击：", value = {min = itemDef.mMC, max = itemDef.mMCMax}},
+		-- {key = "道术攻击：", value = {min = itemDef.mSC, max = itemDef.mSCMax}},
+		{key = "物理防御：", value = {min = itemDef.mAC, max = itemDef.mACMax}},
+		{key = "魔法防御：", value = {min = itemDef.mMAC, max = itemDef.mMACMax}},
+		{key = "生命恢复：", value = itemDef.mHpRecover},
+		-- {key = "内功恢复：", value = itemDef.mPowerHuifu},
+		{key = "生命加成：", value = itemDef.mMaxHpPres},
+		-- {key = "魔法加成：", value = itemDef.mMaxMpPres},
+		{key = "生命上限：", value = itemDef.mMaxHp},
+		-- {key = "暴击免伤：", value = itemDef.mBaojiMS},
+		{key = "暴击机率：", value = itemDef.mBaojiProb},
+		{key = "暴击伤害：", value = itemDef.mBaojiPres},
+		{key = "闪	 避：", value = itemDef.mDodge},
+		{key = "准	 确：", value = itemDef.mAccuracy},
+		{key = "诅	 咒：", value = itemDef.mCurse},
+		{key = "内   功：",  value = itemDef.mAddPower},
+		{key = "幸 运 值：", value = itemDef.mLuck},
+	}
+
+	local netItem = xmlTips.netItem
+	if not netItem and xmlTips.otherPlayer then
+		local otherPos = xmlTips.otherPos
+		netItem = NetClient.mOthersItems[otherPos]
+	end
+	if netItem then
+		baseAttrs[13].value = baseAttrs[13].value + netItem.mLuck
+		-- baseAttrs[10].value = 100
+	end
+
+
+	local updAttrs = {}
+	if mUpdLevel and mUpdLevel > 0 then
+		local updId = itemDef.mJob*10000+itemDef.mEquipType*100+mUpdLevel
+		local uid = NetClient.mUpgradeDesp[updId]
+		-- print("//////////////////buildEquipBaseAttr//////////////////", updId, uid)
+		if uid then
+			-- print("//////////////////buildEquipBaseAttr//////////////////", util.encode(uid))
+			updAttrs = {
+				{min = uid.mDC, max = uid.mDCMax},
+				-- {min = uid.mMC, max = uid.mMCMax},
+				-- {min = uid.mSC, max = uid.mSCMax},
+				{min = uid.mAC, max = uid.mACMax},
+				-- {min = uid.mMAC, max = uid.mMACMax},
+			}
+		end
+	end
+
+	local str = ""
+	local height = 0
+	local normalHeight = 25
+	for i,v in ipairs(baseAttrs) do
+		if util.isTable(v.value) then
+			if v.value.max > MIN_VALUE then
+				str = str..v.key..v.value.min.."-"..v.value.max
+				if updAttrs[i] and updAttrs[i].max > 0 then
+					str = str.."<font color=#BC813A> 强化+("..updAttrs[i].min.."-"..updAttrs[i].max..")</font>"
+				end
+				str = str.."<br>"
+				height = height + normalHeight
+			end
+		elseif v.value > MIN_VALUE then
+			str = str.."<font color=#0088EA>"
+			if v.key == "生命恢复："  then--or v.key == "暴击免伤：" then
+				v.value = (v.value / 100).."%"
+				-- str = str..v.key..v.value.."<br>"
+			-- height = height + normalHeight
+			end
+			-- str = str..v.key..v.value.."<br>"
+			-- height = height + normalHeight
+			str = str.."<font color=#0088EA>"
+			if  v.key== "生命加成："  then--or v.key == "暴击免伤：" then
+				v.value = (v.value / 100).."%"
+				-- str = str..v.key..v.value.."<br>"
+			-- height = height + normalHeigh
+			end
+			str = str..v.key..v.value.."<br>"
+			height = height + normalHeight
+		end
+	end
+	
+	str = "<font color=#B2A58B>"..str.."</font>"
+	return str, height
+end
+
+-- 获取手镯戒指四件套是否存在
+function getEquipFour(typeid)
+	for i=0, 3 do
+		local netItem = NetClient:getNetItem(Const.ITEM_GLOVE1_POSITION - i)
+		if netItem and netItem.mTypeID == typeid then
+			return netItem
+		end
+	end
+	return nil
+end
+
+-- 装备套装属性
+local function buildEquipSuitAttr(itemDef, subItem)
+	local height = 25
+	local line = 1
+	local tzGroup = 2
+
+
+	local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+	local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+	local equips = NetClient:getEquipByGroup(itemDef.mEquipGroup, itemDef.mJob, gender)
+
+	local i = 0
+	local isHave = 0
+	local taozl = 0
+	local descInfo = ""
+	local attrInfo = ""
+	local tzitemGroup = {}		--保存当前遍历过的套装组，防止戒指
+	for k, v in pairs(equips) do
+		local netItem = NetClient:getNetItem(v.ePos)
+		if not netItem and v.fPos then
+			netItem = NetClient:getNetItem(v.fPos)
+		end
+
+		if itemDef.mEquipType == 5 or itemDef.mEquipType == 6 then
+			netItem = getEquipFour(v.mTypeID)
+		end
+
+		if netItem then
+			local idef = NetClient:getItemDefByID(netItem.mTypeID)
+			if netItem.mTypeID == v.mTypeID or v.noType then
+				taozl = taozl + 1
+				if taozl < 3 and tzGroup > 2 then
+					descInfo = descInfo.."<font color=#00ff00>"..idef.mName.."  "
+				else
+					descInfo = descInfo.."<font color=#00ff00>"..idef.mName.."<br>"
+					taozl = 0
+					line = line + 1
+				end
+				isHave = isHave + 1
+			else
+				taozl = taozl + 1
+				idef = NetClient:getItemDefByID(v.mTypeID)
+				if taozl < 3 and tzGroup > 2 then
+					descInfo = descInfo.."<font color=#696969>"..idef.mName.."  "
+				else
+					descInfo = descInfo.."<font color=#696969>"..idef.mName.."<br>"
+					taozl = 0
+					line = line + 1
+				end
+			end
+		else
+			local idef = NetClient:getItemDefByID(v.mTypeID)
+			taozl = taozl + 1
+			if taozl < 3 and tzGroup > 2 then
+				descInfo = descInfo.."<font color=#696969>"..idef.mName.."  "
+			else
+				descInfo = descInfo.."<font color=#696969>"..idef.mName.."<br>"
+				taozl = 0
+				line = line + 1
+			end
+		end	
+	end
+	--属性写死
+	if itemDef.mTzdc > 0 then--写死
+		descInfo =  descInfo.."<font color=#7F7F7F>物理攻击： ".. itemDef.mTzdc.."<br>"
+		line = line + 1
+	end
+	if itemDef.mTzac > 0 then--写死
+		descInfo =  descInfo.."<font color=#7F7F7F>物理防御： ".. itemDef.mTzac.."<br>"
+		line = line + 1
+	end
+	if itemDef.mTzhp > 0 then--写死
+		descInfo =  descInfo.."<font color=#7F7F7F>生命加成： ".. itemDef.mTzhp.."<br>"
+		line = line + 1
+	end
+	if itemDef.mTzbaoji > 0 then--写死
+		descInfo =  descInfo.."<font color=#7F7F7F>暴击伤害： ".. itemDef.mTzbaoji.."<br>"
+		line = line + 1
+	end
+	if itemDef.mTzdamage > 0 then--写死
+		descInfo =  descInfo.."<font color=#7F7F7F>神圣攻击： ".. itemDef.mTzdamage.."<br>"
+		line = line + 1
+	end
+	if itemDef.mTzacjian > 0 then--写死
+		descInfo =  descInfo.."<font color=#7F7F7F>物理减伤比例： ".. (itemDef.mTzacjian/100).."%<br>"
+		line = line + 1
+	end
+	if itemDef.mTzaccuracy > 0 then--写死
+		descInfo =  descInfo.."<font color=#7F7F7F>暴击几率： ".. (itemDef.mTzaccuracy/100).."%<br>"
+		line = line + 1
+	end
+	if itemDef.mTzdodge > 0 then--写死
+		descInfo =  descInfo.."<font color=#7F7F7F>伤害加成： ".. (itemDef.mTzdodge/100).."%<br>"
+		line = line + 1
+	end
+	-- if itemDef.mTzluck > 0 then--写死
+		-- descInfo =  descInfo.."<font color=#7F7F7F>幸 运 值： ".. itemDef.mTzluck.."<br>"
+		-- line = line + 1
+	-- end
+	subItem:show()
+	return descInfo, height * line
+	-- xmlTips:getWidgetByName("noSuitAttr"):show()
+	-- xmlTips:getWidgetByName("suitLayout"):hide()
+
+	--xmlTips:getWidgetByName("lbl_title"):setString("☆ 套装属性 ☆")
+end
+
+-- 装备tips强化可激活属性
+local function buildEquipActivateAttr(itemDef, mUpdLevel)
+	local str = ""
+	if not (mUpdLevel and mUpdLevel > 0) then
+		return str 
+	end
+	-- uid.mJob*10000+uid.mEquipType*100+uid.mLevel
+	local updId = itemDef.mJob*10000+itemDef.mEquipType*100+mUpdLevel
+	local uid = NetClient.mUpgradeDesp[updId]
+	if not uid then 
+		return str 
+	end
+
+	local activeAttrs = {
+		{key = "物理攻击：", value = {min = uid.mDC, max = uid.mDCMax}},
+		{key = "魔法攻击：", value = {min = uid.mMC, max = uid.mMCMax}},
+		{key = "道士攻击：", value = {min = uid.mSC, max = uid.mSCMax}},
+		{key = "物理防御：", value = {min = uid.mAC, max = uid.mACMax}},
+		{key = "魔法防御：", value = {min = uid.mMAC, max = uid.mMACMax}},
+	}
+
+	for i,v in ipairs(activeAttrs) do
+		if v.value.max > MIN_VALUE then
+			str = str..v.key
+			if v.value and v.value.max > 0 then
+				str = str.."<font color=#BC813A> 强化+"..mUpdLevel.."("..v.value.min.."-"..v.value.max..")</font>"
+			end
+			str = str.."<br>"
+		end
+	end
+	str =  "<font color=#B2A58B>"..str.."</font>"
+	return str
+end
+
+local function buildCSInfo(itemdef, xmlTips)
+	local csInfo = ""
+	local netItem = xmlTips.netItem
+	local itemDef = xmlTips.itemDef
+	local shengshiId = 0
+	-- if netItem then
+		-- shengshiId = netItem.mShengshiId
+	-- end
+	 
+	-- if xmlTips.shengshiId and xmlTips.shengshiId > 0 then
+		-- shengshiId = xmlTips.shengshiId
+	-- end
+	local height = 25
+	local line = 1
+	-- local ssItem = NetClient:getSSEquipAttr(shengshiId)
+	-- if ssItem then
+	if itemDef.mTzluck > 0 then
+		csInfo = csInfo..itemDef.mDesp
+		line = line + 6
+	end
+	return csInfo, line*height
+end
+
+local function buildAttrInfo(itemdef, xmlTips)
+	local attrInfo = ""
+	local height = 25
+	local line = 1
+
+	-- if itemdef.mBeiGongPres > 0 then
+		-- attrInfo = attrInfo.."倍功增加："..(itemdef.mBeiGongPres/100).."倍<br>"
+		-- line = line + 1
+	-- end
+	-- if itemdef.mBeiXuePres > 0 then
+		-- attrInfo = attrInfo.."倍血增加："..(itemdef.mBeiXuePres/100).."倍<br>"
+		-- line = line + 1
+	-- end
+	-- if itemdef.mBeiFangPres > 0 then
+		-- attrInfo = attrInfo.."倍防增加："..(itemdef.mBeiFangPres/100).."倍<br>"
+		-- line = line + 1
+	-- end
+	if itemdef.mPkIncrement > 0 then
+		attrInfo = attrInfo.."PK增伤："..(itemdef.mPkIncrement/100).."%<br>"
+		line = line + 1
+	end
+	if itemdef.mMovespeed > 0  then  --移动速度
+		attrInfo = attrInfo.."速度：提示跑动速度"..(itemdef.mMovespeed/100).."%<br>"
+		line = line + 1	
+	end	
+	if itemdef.mBeiGong_prob > 0 and itemdef.mBeiGong_dura > 0 then ---倍攻
+		attrInfo = attrInfo.."倍攻:"..(itemdef.mBeiGong_prob/100).."%几率提升击杀攻击力1"..(itemdef.mBeiGong_dura/100).."0%<br>"
+		line = line + 1
+	end	
+	if itemdef.mBurstRate > 0  then--增加掉落几率
+		attrInfo = attrInfo.."爆率：击杀BOSS爆率提升"..(itemdef.mBurstRate/100).."%<br>"
+		line = line + 1
+		
+	end	
+
+	if itemdef.mMabiProb > 0  then--增加掉落几率
+		attrInfo = attrInfo.."麻痹：攻击时"..(itemdef.mMabiProb/100).."%几率麻痹"..itemdef.mMabiDura.."秒<br>"
+		line = line + 1
+		
+	end
+	
+	if itemdef.mFangmabi > 0  then  --移动速度
+		attrInfo = attrInfo.."防麻：防麻几率"..(itemdef.mFangmabi/100).."%<br>"
+		line = line + 1	
+	end	
+
+	if itemdef.mBingdong_prob > 0  then--增加掉落几率
+		attrInfo = attrInfo.."冰冻：攻击时"..(itemdef.mBingdong_prob/100).."%几率冰冻"..itemdef.mBingdong_pres.."秒<br>"
+		line = line + 1	
+	end		
+	 -- if itemdef.mDingShen_prob > 0 and itemdef.mDingShen_dura > 0 then
+		-- attrInfo = attrInfo.."定身伤害:"..itemdef.mDingShen_dura.."<br>"
+		-- line = line + 1
+	-- end
+	
+	if itemdef.mXishouProb > 0 then
+		attrInfo = attrInfo.."防御：被攻击时有"..(itemdef.mXishouProb/100).."%概率免疫"..(itemdef.mXishouPres/100).."%技能伤害<br>"
+		line = line + 1
+	end
+	-- if itemdef.mMXishouProb > 0 then
+		-- attrInfo = attrInfo.."被攻击时有"..(itemdef.mMXishouProb/100).."%概率魔法吸收所受"..(itemdef.mMxishouPres/100).."伤害<br>"
+		-- line = line + 1
+	-- end
+	 -- if itemdef.mhuoyan_prob > 0 and itemdef.mhuoyan_dura > 0 then
+		-- attrInfo = attrInfo.."火焰伤害："..itemdef.mhuoyan_dura.."<br>"
+		-- line = line + 1
+			
+	-- end	
+		
+	 -- if itemdef.mbingdun_prob > 0 and itemdef.mbingdun_dura > 0 then
+		-- attrInfo = attrInfo.."冰冻伤害："..itemdef.mbingdun_dura.."<br>"
+		-- line = line + 1
+	-- end	
+	if itemdef.mFantanProb > 0 then
+		attrInfo = attrInfo.."反伤：被攻击时有"..(itemdef.mFantanProb/100).."%概率反弹受到伤害"..(itemdef.mFantanPres/100).."%给敌方<br>"
+		line = line + 1
+	end
+	if itemdef.mBaojiProb > 0 then
+		attrInfo = attrInfo.."暴击：攻击时有"..(itemdef.mBaojiProb/100).."%概率暴击"..(itemdef.mBaojiPres/100).."%伤害给敌方<br>"
+		line = line + 1
+	end
+	if itemdef.mXixueProb > 0 then
+		attrInfo = attrInfo.."吸血：攻击时有"..(itemdef.mXixueProb/100).."%概率触发吸血，恢复本次伤害"..itemdef.mXixuePres.."%的生命值<br>"
+		line = line + 1
+	end
+	if itemdef.mFuyuanCd > 0 then
+		attrInfo = attrInfo.."复活：死亡时立即复活，恢复生命上限"..(itemdef.mFuyuanPres/100).."%，冷却"..(itemdef.mFuyuanCd).."秒<br>"
+		line = line + 1
+	end
+	-- if itemdef.mFMabi > 0 then
+		-- attrInfo = attrInfo.."防麻：被攻击时降低"..(itemdef.mFMabi/100).."%被麻痹概率<br>"
+		-- line = line + 1
+	-- end
+	-- if itemdef.mShenLiProb > 0 then
+		-- attrInfo = attrInfo.."神力：攻击时有"..(itemdef.mShenLiProb/100).."%概率使技能伤害提高"..(itemdef.mShenLiPres/100).."%，持续"..itemdef.mShenLiDura.."秒<br>"
+		-- line = line + 1
+	-- end
+	-- if itemdef.mSkillReduceDam > 0 then
+		-- attrInfo = attrInfo.."防御：被攻击时有"..(itemdef.mSkillReduceDam/100).."%概率免疫"..(itemdef.mSkillReducePres/100).."%技能伤害，持续"..itemdef.mSkillReduceDura.."秒<br>"
+		-- line = line + 1
+	-- end
+	-- if itemdef.mPkIncrement > 0 then
+		-- attrInfo = attrInfo.."PK增伤："..(itemdef.mPkIncrement/100).."%<br>"
+		-- line = line + 1
+	-- end
+	-- if itemdef.mPkReduce > 0 then
+		-- attrInfo = attrInfo.."PK减伤："..(itemdef.mPkReduce/100).."%<br>"
+		-- line = line + 1
+	-- end
+	-- if itemdef.mDropItemProb > 0 then
+		-- attrInfo = attrInfo.."爆率：击杀BOSS爆率提升"..(itemdef.mDropItemProb/100).."%<br>"
+		-- line = line + 1
+	-- end
+
+	return attrInfo, line*height + 10
+end
+
+local function updateEquipUpdStar(xmlTips)
+	local mUpdLevel = xmlTips.mUpdLevel
+	local isYang = false
+	local imgUpgradeStar
+	local starLight = "img_star_light"
+	local starGray = "img_star_gray"
+	local starGray1= "point_orange"
+	if mUpdLevel and mUpdLevel > 10 and mUpdLevel <=20  then
+		starLight = "img_yang_light"
+		starGray = "img_yang_gray"
+		mUpdLevel = mUpdLevel - 10
+		isYang = true	
+	elseif 	mUpdLevel and mUpdLevel > 20 then
+	starLight = "img_yang_light1"
+	starGray = "img_yang_gray1"
+		mUpdLevel = mUpdLevel - 20
+		isYang = true	
+	end
+	-- if mUpdLevel and mUpdLevel > 20  then
+		-- starLight = "img_yang_light"
+		-- starGray = "img_yang_gray"
+		-- mUpdLevel = mUpdLevel - 10
+		-- isYang = true	
+	-- end
+	for i=1,10 do
+		imgUpgradeStar = xmlTips:getWidgetByName("img_upgrade_star"..i)
+		if isYang then
+			imgUpgradeStar:setPositionY(13)
+		else
+			imgUpgradeStar:setPositionY(10)
+		end
+		if mUpdLevel and i <= mUpdLevel then
+			imgUpgradeStar:loadTexture(starLight, ccui.TextureResType.plistType)
+		else
+			imgUpgradeStar:loadTexture(starGray, ccui.TextureResType.plistType)
+		end
+	end
+end
+
+-- 装备tips刷新函数 
+local function updateEquipTips(xmlTips)--mxwx 有问题等待调整
+
+	local netItem = xmlTips.netItem
+	local itemDef = xmlTips.itemDef
+
+	--xmlTips:getWidgetByName("lbl_bind"):setString("453455")
+	xmlTips:getWidgetByName("img_equip_state"):hide()
+
+	xmlTips:getWidgetByName("lbl_upd_level"):setString("")
+	if (xmlTips.mUpdLevel and xmlTips.mUpdLevel > 0) then
+		xmlTips:getWidgetByName("lbl_upd_level"):setString("+"..xmlTips.mUpdLevel)
+	end
+
+	if netItem then
+		if netItem.position < 0 then
+			xmlTips:getWidgetByName("img_equip_state"):show()
+		else
+			xmlTips:getWidgetByName("img_equip_state"):hide()
+		end
+	end
+
+	if game.IsViceEquipment(nil, itemDef) and game.IsFurnaceEquipment(nil, itemDef) then
+		xmlTips:getWidgetByName("lbl_upgrade_pre"):hide()
+		xmlTips:getWidgetByName("box_upgrade_bg"):hide()
+		xmlTips:getWidgetByName("img_tips_line3"):hide()
+	else
+		xmlTips:getWidgetByName("lbl_upgrade_pre"):show()
+		xmlTips:getWidgetByName("box_upgrade_bg"):show()
+		xmlTips:getWidgetByName("img_tips_line3"):show()
+		updateEquipUpdStar(xmlTips)
+	end
+
+	if itemDef then
+		xmlTips:getWidgetByName("img_bar"):loadTexture("img_top_bar"..itemDef.mItemBg, ccui.TextureResType.plistType)
+		local node_effect = xmlTips:getChildByName("node_effect")
+		if itemDef.mBeiJing and itemDef.mBeiJing > 0 then
+			if not node_effect then
+				util.addEffect(xmlTips, "node_effect", GROUP_TYPE.EFFECT, itemDef.mBeiJing, {x=210, y=268}, nil, true):setScale(1.17):setLocalZOrder(-1)
+			else
+				util.updateEffect(xmlTips, "node_effect", itemDef.mBeiJing, GROUP_TYPE.EFFECT)
+			end
+		else
+			if node_effect then
+				node_effect:stopAllActions()
+				node_effect:removeFromParent()
+				node_effect = nil
+			end
+		end
+
+		local node_effect2 = xmlTips:getChildByName("node_effect2")
+		if (netItem and netItem.mShengshiId and netItem.mShengshiId > 0) or (xmlTips.shengshiId and xmlTips.shengshiId > 0) then
+			local shengshiId = 0
+			if netItem and netItem.mShengshiId > 0 then
+				shengshiId = netItem.mShengshiId
+			end
+			if xmlTips.shengshiId and xmlTips.shengshiId > 0 then
+				shengshiId = xmlTips.shengshiId
+			end
+			if shengshiId > 0 then
+				local effectId = NetClient:getSSEquipAttr(shengshiId).mEffectId
+				if effectId > 0 then
+					if not node_effect2 then
+						util.addEffect(xmlTips, "node_effect2", GROUP_TYPE.EFFECT, effectId, {x=220, y=268}, nil, true, false, 3.5, 1):setScale(1.17):setLocalZOrder(-1)
+					else
+						util.updateEffect(xmlTips, "node_effect2", effectId, GROUP_TYPE.EFFECT)
+					end
+				end
+			end
+		else
+			if node_effect2 then
+				node_effect2:stopAllActions()
+				node_effect2:removeFromParent()
+				node_effect2 = nil
+			end
+		end
+
+		-- 职业 lbl_job
+		-- local lblJob = xmlTips:getWidgetByName("lbl_job")
+		-- if itemDef.mJob ~= 0 then
+		-- 	if itemDef.mJob == Const.JOB_ZS then
+		-- 		lblJob:setString(Const.str_zs)
+		-- 	elseif itemDef.mJob == Const.JOB_FS then
+		-- 		lblJob:setString(Const.str_fs)
+		-- 	elseif itemDef.mJob == Const.JOB_DS then
+		-- 		lblJob:setString(Const.str_ds)
+		-- 	end
+		-- 	if itemDef.mJob == MainRole._mainAvatar:NetAttr(Const.net_job) then
+		-- 		lblJob:setColor(cc.c3b(48,255,0))
+		-- 	else
+		-- 		lblJob:setColor(cc.c3b(255,0,0))
+		-- 	end
+		-- else
+		-- 	lblJob:setString("通用")
+		-- 	lblJob:setColor(cc.c3b(48,255,0))
+		-- end
+
+		-- 性别 lbl_gender
+		-- local lblGender = xmlTips:getWidgetByName("lbl_gender")
+		-- if itemDef.mGender ~= 0 then
+		-- 	if itemDef.mGender == Const.GENDER_MALE then
+		-- 		lblGender:setString(Const.str_male)
+		-- 	elseif itemDef.mGender == Const.GENDER_FEMALE then
+		-- 		lblGender:setString(Const.str_female)
+		-- 	end
+		-- 	if itemDef.mGender == MainRole._mainAvatar:NetAttr(Const.net_gender) then
+		-- 		lblGender:setColor(cc.c3b(48,255,0))
+		-- 	else
+		-- 		lblGender:setColor(cc.c3b(255,0,0))
+		-- 	end
+		-- else
+		-- 	lblGender:setString("通用")
+		-- 	lblGender:setColor(cc.c3b(48,255,0))
+		-- end
+		local boxBase = xmlTips:getWidgetByName("box_base")
+
+		-- 基础属性
+		local listBaseAttr = boxBase:getWidgetByName("list_base_attr")
+		listBaseAttr:removeAllItems()
+
+		local size = listBaseAttr:getInnerContainerSize()
+		local subItemModel = boxBase:getWidgetByName("normalInfo"):clone():show()
+		local strBaseAttr, height = buildEquipBaseAttr(itemDef, xmlTips)
+		local offy = height + 40 - 100
+		subItemModel:setContentSize(400, height + 40)
+
+		local layout = subItemModel:getChildByName("layout")
+		local richLabelBaseAttr = layout:getWidgetByName("richLabel_base_attr")
+		if not richLabelBaseAttr and strBaseAttr ~= "" then
+			richLabelBaseAttr = UIRichLabel.new({size = cc.size(400, height), space=3,name = "richLabel_base_attr"}):addTo(layout):pos(10, 70):setAnchorPoint(0, 1)
+			richLabelBaseAttr:setRichLabel(strBaseAttr, "tips_base_attr", 15)
+			listBaseAttr:pushBackCustomItem(subItemModel)
+		end
+		
+		layout:setPositionY(offy)
+
+		if not game.IsViceEquipment(nil, itemDef) then
+			-- 调整布局位置
+			xmlTips:getWidgetByName("tips_bg"):setContentSize(410, 583):pos(0, 0):setLocalZOrder(-2)
+			xmlTips:getWidgetByName("box_other"):show()
+			xmlTips:getWidgetByName("box_base"):pos(8, 240)
+			xmlTips:getWidgetByName("box_buttons"):pos(405, 0)
+
+			xmlTips:getWidgetByName("img_tips_line1"):setPositionY(175)
+			--xmlTips:getWidgetByName("lbl_desp_pre"):setPositionY(135)
+			xmlTips:getWidgetByName("list_base_attr"):setPositionY(168)
+			subItemModel = boxBase:getWidgetByName("suitInfo"):clone():show()
+			-- 强化可激活
+			--local listUpdAttr = xmlTips:getWidgetByName("list_upd_attr")
+			--size = listUpdAttr:getInnerContainerSize()
+			-- local strActiveAttr = buildEquipActivateAttr(itemDef, xmlTips.mUpdLevel and xmlTips.mUpdLevel + 1 or 1)
+			local strActiveAttr,height = buildEquipSuitAttr(itemDef, subItemModel)
+			subItemModel:setContentSize(400, height)
+			offy = height - 100
+			local layout = subItemModel:getChildByName("layout")
+			local richLabelSuitAttr = layout:getWidgetByName("richLabel_base_attr")
+			if not richLabelSuitAttr and strActiveAttr ~= "" and height > 0 then
+				richLabelSuitAttr = UIRichLabel.new({size = cc.size(400, height), space=3,name = "richLabel_base_attr"}):addTo(layout):pos(10, 70):setAnchorPoint(0, 1)
+				richLabelSuitAttr:setRichLabel(strActiveAttr, "tips_base_attr", 15)
+				listBaseAttr:pushBackCustomItem(subItemModel)
+			end
+			layout:setPositionY(offy)
+		else
+			xmlTips:getWidgetByName("tips_bg"):setContentSize(410, 340):pos(0, 120):setLocalZOrder(-2)
+			xmlTips:getWidgetByName("box_other"):hide()
+			xmlTips:getWidgetByName("box_base"):pos(8, 110)
+			xmlTips:getWidgetByName("box_buttons"):pos(405, 130)
+
+			if game.IsFurnaceEquipment(nil, itemDef) then
+				xmlTips:getWidgetByName("img_tips_line1"):setPositionY(175) --126
+				--xmlTips:getWidgetByName("lbl_desp_pre"):setPositionY(131) --111
+				xmlTips:getWidgetByName("list_base_attr"):setPositionY(150) --85
+			else
+				xmlTips:getWidgetByName("img_tips_line1"):setPositionY(146) --126
+				--xmlTips:getWidgetByName("lbl_desp_pre"):setPositionY(131) --111
+				xmlTips:getWidgetByName("list_base_attr"):setPositionY(142) --85
+			end
+
+		end
+
+		--特殊属性
+		subItemModel = xmlTips:getWidgetByName("attrInfo"):clone():show()
+		local attrInfo,height = buildAttrInfo(itemDef, xmlTips)
+		subItemModel:setContentSize(400, height)
+		offy = height - 100
+
+		local layout = subItemModel:getChildByName("layout")
+		local richLabelAttrInfo = layout:getWidgetByName("richLabel_attrInfo")
+		if not richLabelAttrInfo and attrInfo ~= "" and height > 0 then
+			richLabelAttrInfo = UIRichLabel.new({size = cc.size(400, height), space=3,name = "richLabel_attrInfo"}):addTo(layout):pos(10, 70):setAnchorPoint(0, 1)
+			richLabelAttrInfo:setRichLabel("<font color=EA00FF>"..attrInfo.."</font>", "tips_base_attr", 15)
+			listBaseAttr:pushBackCustomItem(subItemModel)
+		end
+		layout:setPositionY(offy)
+
+		--创世
+		subItemModel = xmlTips:getWidgetByName("csInfo"):clone():show()
+		local attrInfo,height = buildCSInfo(itemdef, xmlTips)
+		subItemModel:setContentSize(400, height)
+		offy = height - 100
+
+		local layout = subItemModel:getChildByName("layout")
+		local richLabelSSInfo = layout:getWidgetByName("richLabel_csInfo")
+		if not richLabelSSInfo and attrInfo ~= "" and height > 0 then
+			richLabelSSInfo = UIRichLabel.new({size = cc.size(400, height), space=0, name="richLabel_csInfo"}):addTo(layout):pos(10, 70):setAnchorPoint(0, 1)
+			richLabelSSInfo:setRichLabel(attrInfo, "tips_base_attr", 15)
+			listBaseAttr:pushBackCustomItem(subItemModel)
+		end
+		layout:setPositionY(offy)
+
+		-- 掉落来源
+		subItemModel = xmlTips:getWidgetByName("dropInfo"):clone():show()
+		local dropInfo,height = buildEquipDropInfo(itemDef, xmlTips)
+		subItemModel:setContentSize(400, height + 10)
+		offy = height - 100
+		layout = subItemModel:getChildByName("layout")
+		local richLabelDropInfo = layout:getWidgetByName("richLabel_dropinfo")
+		if not richLabelDropInfo and dropInfo ~= "" and height > 0 then
+			richLabelDropInfo = UIRichLabel.new({size = cc.size(400, height), space=3,name = "richLabel_dropinfo"}):addTo(layout):pos(10, 70):setAnchorPoint(0, 1)
+			richLabelDropInfo:setRichLabel(dropInfo, "tips_base_attr", 15)
+			listBaseAttr:pushBackCustomItem(subItemModel)
+		end
+		layout:setPositionY(offy)
+		listBaseAttr:requestDoLayout()
+	end
+end
+
+-- 刷新tips按钮列表
+local function updateTipsButtons(xmlTips)
+	
+	local listButtons = xmlTips:getWidgetByName("list_buttons")
+	listButtons:removeAllItems()
+
+	local tipsTag = getTipsTag(xmlTips)
+	local conf = buttonsConfig[tipsTag]
+	local btnTipsUse = xmlTips:getWidgetByName("btn_tips_use")
+	btnTipsUse.useType = USE_TYPE.NULL
+	local btnTipsMore = xmlTips:getWidgetByName("btn_tips_more")
+	if conf then
+		if conf.useTitle then
+			btnTipsUse:setTitleText(conf.useTitle):show()
+			btnTipsUse.useType = conf.useType or USE_TYPE.NULL
+		else
+			btnTipsUse:hide()
+			btnTipsUse.useType = USE_TYPE.NULL
+		end
+
+		if conf.more then
+			local btnName
+			for i,v in ipairs(conf.more) do
+				btnTips = btnTipsUse:clone()
+				btnName = title2Name[v] or "btn_tips_default"
+				btnTips:setName(btnName)
+				btnTips:setTitleText(v)
+				listButtons:pushBackCustomItem(btnTips)
+				UIRedPoint.addUIPoint(btnTips, pushTipsButtons)
+				btnTips.xmlTips = xmlTips
+			end
+			btnTipsMore:show()
+			-- local innerSize = listButtons:getInnerContainerSize()
+			local pSize = listButtons:getContentSize()
+			local pMargin = listButtons:getItemsMargin()
+			pSize.height = (34 + pMargin) * #conf.more - pMargin
+			-- if innerSize.height > 
+			listButtons:setContentSize(pSize)
+		else
+			btnTipsMore:hide()
+		end
+	else
+		btnTipsUse:hide()
+		btnTipsMore:hide()
+	end
+end
+
+-- tips刷新函数 
+local function updateTips(xmlTips, betterState)
+	if xmlTips.typeId then
+		local netItem = xmlTips.netItem
+		--非自己的物品操作按钮不显示
+		xmlTips:getWidgetByName("box_buttons"):setVisible(netItem and true or false)
+		if xmlTips.enmuPos == 5 then
+			xmlTips:getWidgetByName("box_buttons"):show()
+		end
+
+		if netItem then
+			if bit.band(netItem.mItemFlags, Const.ITEM_FLAG_BIND) > 0 then
+				xmlTips:getWidgetByName("lbl_bind"):setString("已绑定")
+			else
+				if netItem.mProtect > 0 then
+					xmlTips:getWidgetByName("lbl_bind"):setString("保护中")
+				else
+					xmlTips:getWidgetByName("lbl_bind"):setString("未绑定")
+				end
+			end
+		end
+
+		local betteFlag
+		local worseFlag
+		if betterState == nil or betterState == Const.ITEM_UNUSE_SELF or betterState == Const.ITEM_UNUSE_SELF then
+			betteFlag = false
+			worseFlag = false
+		elseif betterState == Const.ITEM_BETTER_SELF then
+			betteFlag = true
+			worseFlag = false
+		elseif betterState == Const.ITEM_WORSE_SELF then
+			betteFlag = false
+			worseFlag = true
+		end
+		local img_better_flag = xmlTips:getWidgetByName("img_better_flag")
+		local img_worse_flag = xmlTips:getWidgetByName("img_worse_flag")
+		if img_better_flag and img_worse_flag then
+			img_better_flag:hide()--:setVisible(betteFlag)
+			img_worse_flag:hide()--:setVisible(worseFlag)
+		end
+
+		updateTipsIcon(xmlTips)
+		updateBasicInfo(xmlTips)
+		updateTipsButtons(xmlTips)
+
+		if game.IsEquipment(xmlTips.typeId) then
+			updateEquipTips(xmlTips)
+		end
+
+		updateItemDespTips(xmlTips)
+	end
+end
+
+-- 物品tips描述和产出
+
+
+local function addComparetips(xmlTips, typeId, itemPos, param)
+	local showTable = {
+		Const.EQUIP_TYPE_WEAPON,
+		Const.EQUIP_TYPE_CLOTH,
+		Const.EQUIP_TYPE_HAT,
+		Const.EQUIP_TYPE_NICKLACE,
+		Const.EQUIP_TYPE_GLOVE,
+		Const.EQUIP_TYPE_RING,
+		Const.EQUIP_TYPE_BELT,
+		Const.EQUIP_TYPE_BOOT,
+		Const.EQUIP_TYPE_MIRROR_ARMOUR,
+		Const.EQUIP_TYPE_DRAGON_BONE,
+		Const.EQUIP_TYPE_FACE_CLOTH,
+		Const.EQUIP_TYPE_CATILLA
+	}
+	local itemDef = NetClient:getItemDefByID(typeId)
+	local equipType = itemDef.mEquipType
+	-- print("addComparetips", equipType, table.indexof(showTable, equipType))
+	local index = table.indexof(showTable, equipType)
+	if not (index and index > 0) then
+		return
+	end
+
+	local pos = -2 * equipType
+	local selfEquip = NetClient:getNetItem(pos)
+	if selfEquip then
+		if game.IsRing(selfEquip.mTypeID) or game.IsGlove(selfEquip.mTypeID) then
+			local other = NetClient:getNetItem(pos - 1)
+			if other then
+				if NetClient:getItemDefByID(other.mTypeID).mNeedParam > NetClient:getItemDefByID(selfEquip.mTypeID).mNeedParam then
+					selfEquip = other
+				end
+			end
+		end
+
+		local selfEquipDef = NetClient:getItemDefByID(selfEquip.mTypeID)
+		local betterState = game.CompareItem(itemPos, pos, itemDef)
+		if betterState ~= Const.ITEM_UNUSE_SELF then
+			local selfEquiptip = newTips(selfEquip.mTypeID)
+			if selfEquiptip then
+				selfEquiptip:addTo(xmlTips):pos(-selfEquiptip:getContentSize().width + 1, 0):setName("selfEquiptip")
+				selfEquiptip.netItem = selfEquip
+				selfEquiptip.itemDef = selfEquipDef
+				selfEquiptip.itemPos = pos
+				selfEquiptip.typeId = selfEquip.mTypeID
+				selfEquiptip.tipsType = param.tipsType
+				selfEquiptip.mUpdLevel = selfEquip.mLevel
+				updateTips(selfEquiptip)
+				selfEquiptip:getWidgetByName("box_buttons"):hide()
+			end
+		end
+		return betterState
+	end
+end
+
+-- 暴露给外部使用函数
+--[[function UITips.showTips(param)
+	local xmlTips
+	local itemPos = param.itemPos
+	local typeId = param.typeId
+	local mUpdLevel = param.mUpdLevel
+	local netItem = NetClient:getNetItem(itemPos)
+	if netItem then 
+		typeId = netItem.mTypeID
+		mUpdLevel = netItem.mLevel
+	elseif param.mLevel then
+		mUpdLevel = param.mLevel --外部传值
+	end
+	if typeId then
+		local itemDef = NetClient:getItemDefByID(typeId)
+		if itemDef then
+			xmlTips = param.tips or newTips(typeId)
+			if xmlTips then
+				xmlTips.netItem = netItem
+				xmlTips.itemDef = itemDef
+				xmlTips.itemPos = itemPos
+				xmlTips.typeId = typeId
+				xmlTips.tipsType = param.tipsType
+				xmlTips.mUpdLevel = mUpdLevel
+				xmlTips.customCallFunc = param.customCallFunc
+				xmlTips.destoryCallFunc = param.destoryCallFunc
+				xmlTips.enmuPos = param.enmuPos
+				xmlTips.enmuItemType = param.enmuItemType
+				xmlTips.otherPlayer = param.otherPlayer
+				xmlTips.otherPos = param.otherPos
+				xmlTips.dropTime = param.dropTime
+				xmlTips.dropSource = param.dropSource
+				xmlTips.shengshiId = param.shengshiId
+
+				xmlTips:removeChildByName("selfEquiptip")
+				local betterState
+				if param.compare then
+					betterState = addComparetips(xmlTips, typeId, itemPos, param)
+				end
+
+				updateTips(xmlTips, betterState)
+				local btnTipsMore = xmlTips:getWidgetByName("btn_tips_more")
+				btnTipsMore.xmlTips = xmlTips
+				handleButtonsListVisible(btnTipsMore, false)
+			end
+		end
+	end
+	return xmlTips
+end]]--
+function UITips.showTips(param)
+	local xmlTips
+	local itemPos = param.itemPos
+	local typeId = param.typeId
+	local mUpdLevel = param.mUpdLevel
+	local netItem = NetClient:getNetItem(itemPos)
+	if netItem then 
+		typeId = netItem.mTypeID
+		mUpdLevel = netItem.mLevel
+	elseif param.mLevel then
+		mUpdLevel = param.mLevel --外部传值
+	end
+	if typeId then
+		local itemDef = NetClient:getItemDefByID(typeId)
+		if itemDef then
+			xmlTips = param.tips or newTips(typeId)
+			if xmlTips then
+				xmlTips.netItem = netItem
+				xmlTips.itemDef = itemDef
+				xmlTips.itemPos = itemPos
+				xmlTips.typeId = typeId
+				xmlTips.tipsType = param.tipsType
+				xmlTips.mUpdLevel = mUpdLevel
+				xmlTips.customCallFunc = param.customCallFunc
+				xmlTips.destoryCallFunc = param.destoryCallFunc
+				xmlTips.enmuPos = param.enmuPos
+				xmlTips.enmuItemType = param.enmuItemType
+
+				xmlTips:removeChildByName("selfEquiptip")
+				local betterState
+				if param.compare then
+					betterState = addComparetips(xmlTips, typeId, itemPos, param)
+				end
+
+				updateTips(xmlTips, betterState)
+				local btnTipsMore = xmlTips:getWidgetByName("btn_tips_more")
+				btnTipsMore.xmlTips = xmlTips
+				handleButtonsListVisible(btnTipsMore, false)
+			end
+		end
+	end
+	return xmlTips
+end
+

@@ -1,0 +1,666 @@
+local PanelWuHun={}
+local var = {}
+local attrStr = {
+	{name = "最大生命值:",	img = "maxhp",	x1 = 1000,			pos = 5},
+	{name = "物理攻击:",	img = "dc",		x1 = 1004,x2 = 1005,pos = 1},
+	{name = "魔法攻击:",	img = "mc",		x1 = 1006,x2 = 1007,pos = 1},
+	{name = "道术攻击:",	img = "sc",		x1 = 1008,x2 = 1009,pos = 1},
+	{name = "物理防御:",	img = "ac",		x1 = 1010,x2 = 1011,pos = 2},
+	{name = "暴击伤害:",	img = "mac",	x1 = 1015,			pos = 3},
+	{name = "神圣攻击:",	img = "holydamage",		x1 = 1019,	pos = 4},
+}
+local despTable ={
+	[1]="<font color=#E7BA52 size=18>规则说明：</font>",
+	[2]="<font color=#f1e8d0>1、求签每天可求签3次</font>",
+    [3]="<font color=#f1e8d0>2、求签每天可免费改运10次</font>",
+    [4]="<font color=#f1e8d0>3、免费改运次数用完之后，可以消耗钻石继续改运</font>",
+    [5]="<font color=#f1e8d0>4、求签求到鸿运签才能获得奖励</font>",
+    [6]="<font color=#f1e8d0>5、鸿运签个数越多，获得的奖励越丰厚</font>",
+	[7]="<font color=#f1e8d0>6、鸿运签每天24：00整重置，请及时领取奖励</font>",
+	[8]="<font color=#ff0000>7、一键求满消耗10万钻石求签次数1次直接获得满武魂值</font>",
+}
+function PanelWuHun.initView()
+	var = {
+		xmlPanel,
+		box_tab,
+		huweiPage,
+
+		tablisth,
+		xmlYYL,
+		xmlQiuQian,
+		qqdata,
+		curTab,
+		testArr={0,0,0,0,0,0},
+		sixNum=0,--记录6的个数
+		actArr={},--存放6个动画骰子对象
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelWuHun.uif");
+	if var.xmlPanel then
+		var.box_tab = var.xmlPanel:getWidgetByName("box_tab")
+		var.box_tab:addTabEventListener(PanelWuHun.pushTabsButton)
+		var.box_tab:setTabRes("tab2_nor", "tab2_sel", ccui.TextureResType.plistType)
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelWuHun.handlePanelData)
+
+		util.asyncload(var.xmlPanel, "img_bg", "needload/bg_max2.png")
+		
+	end
+	return var.xmlPanel
+end
+
+function PanelWuHun.onPanelOpen()
+	var.box_tab:setSelectedTab(1)
+
+	NetClient:PushLuaTable("gui.PanelWuHun.handlePanelData",util.encode({actionid = "checkRedPoint"}))
+end
+
+function PanelWuHun.onPanelClose()
+end
+
+function PanelWuHun.pushTabsButton(tab)
+	if tab:getTag() == 1 then
+		if util.isObjectExist(var.huweiPage) then
+			var.huweiPage:hide()
+		end
+		--var.curTab = PanelWuHun.initYaoYaoLe()
+		var.curTab = PanelWuHun.initQiuqian()
+	elseif tab:getTag() == 2 then
+		if util.isObjectExist(var.curTab) then
+			var.curTab:hide()
+		end
+		if not util.isObjectExist(var.huweiPage) then
+			var.huweiPage = UILuaLoader.load("uilayout/PanelWuHun_wuhun.uif");
+			var.huweiPage:addTo(var.xmlPanel):align(display.LEFT_BOTTOM, 35, 9)
+
+			util.asyncload(var.xmlPanel, "img_wuhun_bg", "needload/img_wuhun_bg.png")
+			local lblgetvalue = var.huweiPage:getWidgetByName("lblgetvalue"):setTouchEnabled(true)
+			lblgetvalue:addClickEventListener(function (sender)
+				var.box_tab:setSelectedTab(1)
+			end)
+			var.xmlPanel:getWidgetByName("wuhun_progressbar"):hide()
+			local attrlayer = var.huweiPage:getWidgetByName("attrlayer")
+			local jobId = MainRole._mainAvatar:NetAttr(Const.net_job)
+			
+			attrlayer:getWidgetByName("attr1"):setString(attrStr[jobId-98].name)
+			-- attrlayer:getWidgetByName("attr1"):loadTexture(attrStr[jobId-98].img, ccui.TextureResType.plistType)
+			
+
+			local preShowLayer = var.huweiPage:getWidgetByName("preShowLayer"):hide():setLocalZOrder(5)
+			for i=1,7 do
+				var.huweiPage:getWidgetByName("circle"..i):setPressedActionEnabled(true):setLocalZOrder(2):addClickEventListener(function (sender)
+					if sender.up then
+						NetClient:PushLuaTable("gui.PanelWuHun.handlePanelData",util.encode({actionid = "upwuhun"}))
+						return
+					end
+					local attrType,attrData = sender.attrType,sender.attrData
+					if attrType and attrData then
+						local sx,sy = sender:getPosition()
+						local x = i<=3 and sx+30 or (i==4 and sx-78 or sx-180)
+						local y = i==4 and sy-30 or sy
+						preShowLayer:show():setPosition(x,y)
+						preShowLayer:stopAllActions():runAction(cca.seq({
+							cca.delay(3),
+							cca.hide()
+						}))
+						local p1,p2
+						for i,v in ipairs(attrStr) do
+							if not v.x2 then
+								p1 = table.indexof(attrType, v.x1)
+								if p1 then
+									preShowLayer:getWidgetByName("preShowAttrStr"):setString(v.name)
+									preShowLayer:getWidgetByName("preShowAttr"):setString(attrData[p1])
+								end
+							elseif v.x1 and v.x2 then
+								p1 = table.indexof(attrType, v.x1)
+								p2 = table.indexof(attrType, v.x2)
+								if p1 and p2 then
+									preShowLayer:getWidgetByName("preShowAttrStr"):setString(v.name)
+									preShowLayer:getWidgetByName("preShowAttr"):setString(attrData[p1].."-"..attrData[p2])
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+		var.huweiPage:show()
+		NetClient:PushLuaTable("gui.PanelWuHun.handlePanelData",util.encode({actionid = "freshwuhun"}))
+	end
+end
+
+--服务器响应
+function PanelWuHun.handlePanelData(event)
+	if event.type ~= "PanelWuHun" then return end
+	local data = util.decode(event.data)
+	if data.cmd =="freshwuhun" then
+		PanelWuHun.freshPageWuhun(data)
+	elseif data.cmd =="checkRedPoint" then
+		var.box_tab:getItemByIndex(2):setRedPointVisible(data.red)
+		if var.box_tab:getItemByIndex(2):getChildByName("redPoint") then
+			var.box_tab:getItemByIndex(2):getChildByName("redPoint"):setPosition(100, 35)
+		end
+	-------------------------------------------------------------
+	elseif data.cmd =="updateTimesShow" then
+		--PanelWuHun.updateTimesShow(data)
+		PanelWuHun.updateQiuqianTimesShow(data)
+	elseif data.cmd=="updateShowInfo" then
+		--PanelWuHun.updateEndShow(data)
+		PanelWuHun.updateQiuqianShow(data, false)
+	elseif data.cmd=="hideLingBox" then
+		-- var.xmlYYL:getWidgetByName("box_yaoshai"):setVisible(false)
+		--PanelWuHun.setDespShow(false)
+		-- var.xmlYYL:getWidgetByName("labGetWuHun"):setString("+0")
+		-- var.xmlYYL:getWidgetByName("imgTitle"):loadTexture("img_six0", ccui.TextureResType.plistType)
+		local normalPage = var.xmlQiuQian:getWidgetByName("normalPage"):setVisible(true)
+		local animalPage = var.xmlQiuQian:getWidgetByName("animalPage"):setVisible(false)
+
+		var.xmlQiuQian:getWidgetByName("labWuHun"):setString(data.wuHunNum)
+		var.xmlQiuQian:getWidgetByName("labSzNum"):setString(data.yuTimes)
+		var.sixNum=0
+		var.testArr={0,0,0,0,0,0}
+		-- local btnWuHun = normalPage:getWidgetByName("btnWuHun")
+		-- if data.isShowBtn then
+		-- 	btnWuHun:setVisible(true)
+		-- 	util.addHaloToButton(btnWuHun, "qiuqianBtn_sel"):setScale(0.8)
+		-- else
+		-- 	btnWuHun:setVisible(false)
+		-- 	btnWuHun:removeChildByName("img_bln")
+		-- end
+		local btnQiuqian = normalPage:getWidgetByName("btnQiuqian"):setVisible(true)
+		if data.yuTimes>0 then
+			util.addHaloToButton(btnQiuqian, "qiuqianBtn_sel"):setScale(0.8)
+		else
+			util.removeHaloFromButton(btnQiuqian)
+		end
+		animalPage:getWidgetByName("btnLing"):removeChildByName("img_bln")
+	elseif data.cmd=="startYaoAction" then	
+		-- local target = var.xmlYYL:getWidgetByName("box_yaoshai"):setVisible(true)
+		-- PanelWuHun.setDespShow(true)
+		PanelWuHun.startActReqResult(target, "shouci")
+		-- PanelWuHun.startAction()
+		-- PanelWuHun.startRandom()
+		PanelWuHun.startQiuQian(target, "shouci")
+		
+	elseif data.cmd=="startGaiYunAction" then	
+		-- local target = var.xmlYYL:getWidgetByName("box_yaoshai"):setVisible(true)
+		-- PanelWuHun.setDespShow(true)
+		PanelWuHun.startActReqResult(target, "gaiyun")
+		-- PanelWuHun.startAction()
+		-- PanelWuHun.agianRandom()
+		PanelWuHun.startQiuQian()
+		
+	elseif data.cmd=="setBtnEnable" then
+		--PanelWuHun.setBtnState(true)
+	end
+end
+-------------------------------------------------------天机------------------------------------------------------------
+
+function PanelWuHun.runAmination(target,name,animateId,times,callBack)
+	local times = checknumber(times)
+	local anchor =cc.p(0.5,0.5)
+	local sprite = target:getChildByName(name) 
+	if not sprite then
+		sprite = cc.Sprite:create()
+			:addTo(target)
+			:setName(name)
+			:setLocalZOrder(6)
+	end
+	sprite:align(display.CENTER,target:getContentSize().width/2,target:getContentSize().height/2)
+	sprite:stopAllActions():hide()
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,animateId,4)
+	if animate then
+		if times ==0 then
+			sprite:show()
+			sprite:runAction(cca.repeatForever(animate))
+		else
+			sprite:runAction(cca.seq({
+				cca.rep(animate,times),
+				cca.cb(function()
+					if type(callBack) == "function" then callBack() end
+				end),
+				cca.removeSelf()
+			}))
+		end
+	end
+end
+
+function PanelWuHun.freshPageWuhun(data)
+	--默认1阶0级
+	var.xmlPanel:getWidgetByName("lblneedvalue"):setString(data.score)
+	-- for k,v in pairs(data) do
+	-- 	print("----",k,v)
+	-- end
+	local level = data.level
+	local jie = data.jie --math.ceil((data.level+1)/7)
+	local ji = data.ji-- data.level >0 and (data.level%7 == 0 and 7 or data.level%7) or 1
+	local nextji = data.nextji-- data.level%7==0 and 1 or data.level%7+1
+
+	local wuhun_jie = var.xmlPanel:getWidgetByName("wuhun_jie")
+	wuhun_jie:loadTexture("img_jie"..jie, ccui.TextureResType.plistType)
+	local wuhun_progressbar = var.xmlPanel:getWidgetByName("wuhun_progressbar")
+	local progressBar = var.huweiPage:getChildByName("progressBar")
+	if not progressBar then
+		progressBar = cc.ProgressTimer:create(wuhun_progressbar:getVirtualRenderer():getSprite():clone())
+		progressBar:setType(cc.PROGRESS_TIMER_TYPE_RADIAL)
+		progressBar:addTo(var.huweiPage):align(display.CENTER, 440.22, 240)
+		progressBar:setLocalZOrder(1):setRotation(-120)
+		progressBar:setMidpoint(cc.p(0.5,0.5))--设置旋转中心点
+		progressBar:setName("progressBar")
+	end
+	local percent = util.bound(0, data.percentage, 100)
+	progressBar:setPercentage(percent*240/360)
+
+	local circleAttrLayer = var.huweiPage:getWidgetByName("circleAttrLayer"):setLocalZOrder(4):hide()
+	local attrlayer = var.huweiPage:getWidgetByName("attrlayer")
+	local circle = var.huweiPage:getWidgetByName("circle"..1)
+	PanelWuHun.runAmination(circle,"effect",0)
+
+	for i=1,7 do
+		circle = var.huweiPage:getWidgetByName("circle"..i)
+		circle.attrType = data.attrTotal[i].attrType
+		circle.attrData = data.attrTotal[i].attrData
+		circle.up = nextji == i
+		local texture = ""
+		if i<nextji then
+			circle:setBright(true)
+		else
+			circle:setBright(false)
+		end
+		-- 呼吸灯
+		-- circle:loadTextures(texture,texture,texture, ccui.TextureResType.plistType)
+
+		-- if level == 49 then
+		-- 	PanelWuHun.runAmination(circle,"effect",6542000)
+		-- elseif i == 7 then
+		-- 	PanelWuHun.runAmination(circle,"effect",6543000)
+		-- elseif i <= nextji then
+		-- 	PanelWuHun.runAmination(circle,"effect",6542000)
+		-- else
+		-- 	PanelWuHun.runAmination(circle,"effect",0)			
+		-- end
+		util.removeHaloFromButton(circle)
+	end
+	if data.needValue then
+		circleAttrLayer:getWidgetByName("needwuhun"):setString(data.needValue):setColor(data.needValue>data.score and game.getColor(0xff0000) or game.getColor(0x00ff00))
+		local circle = var.huweiPage:getWidgetByName("circle"..nextji)
+		if data.needValue<=data.score then
+			util.addHaloToButton(circle, "img_wuhun_guangquan")
+		end
+	end
+
+	local attrv = data.attrTotal[nextji]
+	if attrv then
+		local circle = var.huweiPage:getWidgetByName("circle"..nextji)
+		circleAttrLayer:show():setPosition(circle:getPositionX()-18, circle:getPositionY()+12)
+		local attrType = attrv.attrType
+		local attrData = attrv.attrData
+		local p1,p2
+		for i,v in ipairs(attrStr) do
+			if not v.x2 then
+				p1 = table.indexof(attrType, v.x1)
+				if p1 then
+					circleAttrLayer:getWidgetByName("attrstr"):setString(v.name)
+					circleAttrLayer:getWidgetByName("attrdata"):setString(attrData[p1])
+				end
+			elseif v.x1 and v.x2 then
+				p1 = table.indexof(attrType, v.x1)
+				p2 = table.indexof(attrType, v.x2)
+				if p1 and p2 then
+					circleAttrLayer:getWidgetByName("attrstr"):setString(v.name)
+					circleAttrLayer:getWidgetByName("attrdata"):setString(attrData[p1].."-"..attrData[p2])
+				end
+			end
+		end
+	end
+
+	local p1,p2
+	for i,v in ipairs(attrStr) do
+		local attr = attrlayer:getWidgetByName("attr"..v.pos)
+		local attrNum = attrlayer:getWidgetByName("attrNum"..v.pos)--:setString("999-999")
+		if data.attrTypeAll and data.attrDataAll then
+			if not v.x2 then
+				p1 = table.indexof(data.attrTypeAll, v.x1)
+				if p1 then
+					attr:setString(v.name)
+					-- attr:loadTexture(v.img, ccui.TextureResType.plistType)
+					attrNum:setString(data.attrDataAll[p1])
+				end
+			elseif v.x1 and v.x2 then
+				p1 = table.indexof(data.attrTypeAll, v.x1)
+				p2 = table.indexof(data.attrTypeAll, v.x2)
+				if p1 and p2 then
+					attr:setString(v.name)
+					-- attr:loadTexture(v.img, ccui.TextureResType.plistType)
+					attrNum:setString(data.attrDataAll[p1].."-"..data.attrDataAll[p2])
+				end
+			end
+		end
+	end
+
+end
+
+--------------------------------------------------------求 签------------------------------------------------------------
+local normalPage = nil
+local animalPage = nil
+local isAnimEnd = false
+
+-- 当前大签每个坐标
+local itemPos = {
+	{x=415,y=407,s=0.6},
+	{x=545,y=385,s=0.7},
+	{x=670,y=249.49,s=0.8},
+	{x=415,y=158.09,s=0.9},
+	{x=160,y=249.49,s=0.8},
+	{x=285,y=385,s=0.7},
+}
+
+function PanelWuHun.initQiuqian()
+	if not var.xmlQiuQian then
+		var.xmlQiuQian = UILuaLoader.load("uilayout/PanelWuHun_qiuqian.uif")
+							:addTo(var.xmlPanel)
+							:align(display.LEFT_BOTTOM, 35, 9)
+   							:show()
+   		util.asyncload(var.xmlQiuQian, "qiuqianBg", "needload/img_qiuqian_bg.png")
+		
+		normalPage = var.xmlPanel:getWidgetByName("normalPage")
+		animalPage = var.xmlPanel:getWidgetByName("animalPage")
+
+		--初始化求签里面的位置与坐标
+		for i=1,6 do
+			local img = animalPage:getWidgetByName("imgAct"..i)
+			local simg = animalPage:getWidgetByName("s_imgAct"..i)
+			if img then
+				img:setPosition(itemPos[i].x, itemPos[i].y):setScale(itemPos[i].s)
+				simg:setScale(0.3)
+			end			
+		end
+
+		local labDesp = var.xmlQiuQian:getWidgetByName("labDesp")
+		labDesp:setTouchEnabled(true)
+		labDesp:addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelWuHun.yaoYaoDesp()
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+				LayerAlert.handleAlertClose()
+			end
+		end)
+
+		--求签按钮
+		normalPage:getWidgetByName("btnQiuqian"):addClickEventListener(function (sender)
+			if isAnimEnd == true then return end
+			isAnimEnd = true
+			NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "reqStartYao"}))
+		end)
+
+		--一键求满按钮
+		normalPage:getWidgetByName("btnFull"):addClickEventListener(function (sender) 
+			NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "reqStartFull"}))
+		end)
+
+		--改运按钮
+		animalPage:getWidgetByName("btnGaiYun"):addClickEventListener(function (sender)
+			if isAnimEnd == true then return end
+			isAnimEnd = true
+			NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "reqStartGaiYun"}))
+		end)
+
+		--领取魂植
+		animalPage:getWidgetByName("btnLing"):addClickEventListener(function (sender)
+			if var.sixNum<6 then
+				local mParam = {
+					name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = "当前天机不是最佳值是否领取？",
+					btnConfirm = "是", btnCancel = "否",
+					confirmCallBack = function ()
+						NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "reqLingWuHun"}))
+					end
+				}
+				NetClient:dispatchEvent(mParam)
+			else
+				NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "reqLingWuHun"}))
+			end
+		end)
+
+		NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "reqYaoYaoLeTimes",}))
+	end
+end
+
+-- 播放求签动画结束收尾动作
+function playQiuQianAnimEnd()
+	local imgAct = animalPage:getWidgetByName("imgAct4")
+	if imgAct then
+		local sImgAct = animalPage:getWidgetByName("s_imgAct"..1)
+		local imglbl = imgAct:getChildByName("imglbl")
+		local oPos = cc.p(imglbl:getPositionX(), imglbl:getPositionY())
+		local tPos = imgAct:convertToNodeSpace(cc.p(sImgAct:getPositionX(), sImgAct:getPositionY()))
+		
+		imgAct:runAction(cca.seq({
+			cca.scaleTo(0.5, 0.1, 0.9),
+			cca.callFunc(function() 
+				imglbl:setVisible(true)
+				imgAct:loadTexture("qianbg", ccui.TextureResType.plistType)
+				if var.qqdata then
+					imglbl:loadTexture("lbl_qian_"..var.qqdata.curNum, ccui.TextureResType.plistType)
+				end
+			end),
+			cca.scaleTo(0.5, 0.9, 0.9),
+			cca.delay(1),
+			cca.callFunc(function ()
+				if var.qqdata then
+					isAnimEnd = false
+					PanelWuHun.updateQiuqianShow(var.qqdata, true)
+				end
+				imgAct:loadTexture("no_qianbg", ccui.TextureResType.plistType)
+				imglbl:setVisible(false)
+			end)
+		}))
+	end
+	-- for i =1,6 do
+	-- 	local imgAct = animalPage:getWidgetByName("imgAct"..i)
+	-- 	if imgAct then
+	-- 		local sImgAct = animalPage:getWidgetByName("s_imgAct"..i)
+	-- 		local imglbl = imgAct:getChildByName("imglbl")
+	-- 		local oPos = cc.p(imglbl:getPositionX(), imglbl:getPositionY())
+	-- 		local tPos = imgAct:convertToNodeSpace(cc.p(sImgAct:getPositionX(), sImgAct:getPositionY()))
+	-- 		imglbl:setVisible(true)
+	-- 		imglbl:runAction(cca.seq({
+	-- 			cca.fadeIn(0.3),
+	-- 			cca.fadeOut(0.3),
+	-- 			cca.fadeIn(0.3),
+	-- 			cca.moveTo(0.3, tPos),
+	-- 			cca.fadeOut(0.3),
+	-- 			cca.moveTo(0.1, oPos),
+	-- 			cca.callFunc(function ()
+	-- 				if var.qqdata then
+	-- 					isAnimEnd = false
+	-- 					if i == 6 then
+	-- 						PanelWuHun.updateQiuqianShow(var.qqdata, true)
+	-- 					end
+	-- 				end
+					
+	-- 				imglbl:setVisible(false)
+	-- 			end)
+	-- 		}))
+	-- 	end
+	-- end
+end
+
+-- 播放求签动画
+local animEndTime = 3
+function playQiuQianAnim(moveScaleSpeed)
+	local count = 0
+	for i=1, 6 do
+		local imgAct = animalPage:getWidgetByName("imgAct"..i)
+		if imgAct then
+			local tag = imgAct:getTag()
+			if tag then
+				tag = tag == -1 and i or tag
+				imgAct:setTag(tag)
+			else
+				tag = i
+				imgAct:setTag(i)
+			end
+			local t = tag + 1
+			local x = itemPos[t > 6 and 1 or t].x
+			local y = itemPos[t > 6 and 1 or t].y
+			local s = itemPos[t > 6 and 1 or t].s
+			imgAct:setTag(t > 6 and 1 or t)
+			imgAct:runAction(cca.seq({
+				cca.spawn({
+					cca.moveTo(moveScaleSpeed, x, y),
+					cca.scaleTo(moveScaleSpeed, s)
+				}),
+				cca.callFunc(function()
+					count = count + 1
+					if count >= 6 then
+						animEndTime = animEndTime - 0.5
+						if animEndTime <= 0 then
+							animEndTime = 3
+							imgAct:stopAllActions()
+							playQiuQianAnimEnd()
+						else
+							playQiuQianAnim(moveScaleSpeed)
+						end
+					end
+				end)}
+			))
+		end
+	end
+end
+
+-- 抽签首次返回
+function PanelWuHun.startActReqResult(target, type)
+	if type=="shouci" then
+		NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "startYaoShaiZi",}))
+		--NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "startYaoShaiZi",}))
+	elseif type=="gaiyun" then
+		NetClient:PushLuaTable("gui.PanelYaoYaoLe.handlePanelData", util.encode({actionid = "startGaiYun",}))
+	end
+end
+
+--更新抽签结果
+function PanelWuHun.updateQiuqianShow(data, isShow)
+	if isShow == false then
+		var.qqdata = data
+		return
+	end
+
+	var.testArr=data.curResult
+	--PanelWuHun.endRandom()
+	var.xmlQiuQian:getWidgetByName("labSzNum"):setString(data.yuTimes)
+	var.xmlQiuQian:getWidgetByName("labGetWuHun"):setString("+"..data.curWnNum)
+	var.xmlQiuQian:getWidgetByName("labYunNum"):setString(data.mfgyTimes)
+	if data.mfgyTimes > 0 then
+		normalPage:getWidgetByName("Panel_10"):setVisible(false)
+		animalPage:getWidgetByName("btnGaiYun"):setTitleText("免费改运")
+		util.addHaloToButton(animalPage:getWidgetByName("btnGaiYun"), "qiuqianBtn_sel"):setScale(0.8)
+		animalPage:getWidgetByName("costVcoin"):setVisible(false)
+	else
+		normalPage:getWidgetByName("Panel_10"):setVisible(true)
+		animalPage:getWidgetByName("btnGaiYun"):setTitleText("钻石改运")
+		animalPage:getWidgetByName("btnGaiYun"):removeChildByName("img_bln")
+		animalPage:getWidgetByName("costVcoin"):setVisible(true):setString("消耗钻石: "..data.needDiamond)
+	end
+	local btnQiuqian = normalPage:getWidgetByName("btnQiuqian")
+	if data.yuTimes>0 then
+		util.addHaloToButton(btnQiuqian, "qiuqianBtn_sel"):setScale(0.8)
+	else
+		util.removeHaloFromButton(btnQiuqian)
+	end
+
+	--更新左下角的签
+	for i=1,#var.testArr do
+		local sImg = animalPage:getWidgetByName("s_imgAct"..i)
+		
+		local imglbl = sImg:getChildByName("imglbl")
+		if var.testArr[i] > 0 then
+			imglbl:setVisible(true)
+			imglbl:loadTexture("lbl_qian_"..var.testArr[i], ccui.TextureResType.plistType)
+			sImg:loadTexture("qianbg", ccui.TextureResType.plistType)
+		else
+			imglbl:setVisible(false)
+			sImg:loadTexture("no_qianbg", ccui.TextureResType.plistType)
+		end
+	end
+
+	var.sixNum = var.qqdata.sixNum
+	local btnLing = var.xmlQiuQian:getWidgetByName("btnLing")
+	local btnGaiYun = var.xmlQiuQian:getWidgetByName("btnGaiYun")
+	if var.sixNum == 6 then
+		util.addHaloToButton(btnLing, "btn_normal_light3")
+		btnGaiYun:setEnabled(false)
+		btnGaiYun:removeChildByName("img_bln")
+	else
+		util.removeHaloFromButton(btnLing)
+		btnGaiYun:setEnabled(true)
+	end
+end
+
+function PanelWuHun.startQiuQian()
+	normalPage:setVisible(false)
+	animalPage:setVisible(true)
+
+	playQiuQianAnim(0.1)
+end
+
+--刷新求签次数显示
+function PanelWuHun.updateQiuqianTimesShow(data)
+	var.testArr=data.curResult
+
+	var.xmlQiuQian:getWidgetByName("labSzNum"):setString(data.yuTimes)
+	var.xmlQiuQian:getWidgetByName("labYunNum"):setString(data.mfgyTimes)
+	var.xmlQiuQian:getWidgetByName("labWuHun"):setString(data.wuHunNum)
+	if data.curWnNum>0 then
+		--normalPage:getWidgetByName("box_yaoshai"):setVisible(true)
+		--PanelWuHun.setDespShow(true)
+		animalPage:show()
+		normalPage:hide()
+		if data.mfgyTimes>0 then
+			normalPage:getWidgetByName("Panel_10"):setVisible(false)
+			animalPage:getWidgetByName("btnGaiYun"):setTitleText("免费改运")
+			util.addHaloToButton(animalPage:getWidgetByName("btnGaiYun"), "qiuqianBtn_sel"):setScale(0.8)
+			animalPage:getWidgetByName("costVcoin"):setVisible(false)
+		else
+			normalPage:getWidgetByName("Panel_10"):setVisible(true)
+			animalPage:getWidgetByName("btnGaiYun"):setTitleText("钻石改运") 
+			util.removeHaloFromButton(animalPage:getWidgetByName("btnGaiYun"))
+			animalPage:getWidgetByName("costVcoin"):setVisible(true):setString("消耗钻石: "..data.needDiamond)
+		end
+		
+		--PanelWuHun.endRandom()
+	else
+		--normalPage:getWidgetByName("box_yaoshai"):setVisible(false)
+		--PanelWuHun.setDespShow(false)
+	end
+	animalPage:getWidgetByName("labGetWuHun"):setString("+"..data.curWnNum)
+	-- local btnWuHun = normalPage:getWidgetByName("btnWuHun")
+	-- if data.isShowBtn then
+	-- 	btnWuHun:setVisible(true)
+	-- 	util.addHaloToButton(btnWuHun, "qiuqianBtn_sel"):setScale(0.8)
+	-- else
+	-- 	btnWuHun:setVisible(false)
+	-- 	btnWuHun:removeChildByName("img_bln")
+	-- end
+	local btnQiuqian = normalPage:getWidgetByName("btnQiuqian"):setVisible(true)
+	if data.yuTimes>0 then
+		util.addHaloToButton(btnQiuqian, "qiuqianBtn_sel"):setScale(0.8)
+	else
+		util.removeHaloFromButton(btnQiuqian)
+	end
+
+	--更新左下角的签
+	for i=1,#var.testArr do
+		local sImg = animalPage:getWidgetByName("s_imgAct"..i)
+		
+		local imglbl = sImg:getChildByName("imglbl")
+		if var.testArr[i] > 0 then
+			imglbl:setVisible(true)
+			imglbl:loadTexture("lbl_qian_"..var.testArr[i], ccui.TextureResType.plistType)
+			sImg:loadTexture("qianbg", ccui.TextureResType.plistType)
+		else
+			imglbl:setVisible(false)
+			sImg:loadTexture("no_qianbg", ccui.TextureResType.plistType)
+		end
+	end
+end
+
+return PanelWuHun

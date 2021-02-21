@@ -1,0 +1,12 @@
+LUA_RET={
+{n="PanelSuperVip",v=true,type=0,id=1,parent=0,w=790.0000,h=607.0000,},
+{n="bg",tag=84,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=790.0000,h=607.0000,color="255|255|255",},
+{n="title",tag=320,fs=20,text="超级会员",ht=1,v=true,type=3,id=3,parent=1,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=400.5573,y=581.4396,color="255|165|0",fr="DFYuan.ttf",},
+{n="panel_close",tag=321,t=true,fs=14,ss=true,sx=7,sw=7,sh=11,sy=11,v=true,type=2,id=4,parent=1,w=24.0000,h=24.0000,ax=0.5000,ay=0.5000,x=772.1027,y=579.3242,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="btn_close",},
+{n="img_border",tag=113,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=5,parent=1,w=735.0000,h=537.0000,ax=0.5000,ay=0.5000,x=401.2273,y=292.6555,color="255|255|255",},
+{n="btn_charge",ud="outline(3d0e00,1);zoomscale(-0.12)",tag=114,t=true,fs=22,text="立即充值",ss=true,sx=66,sw=66,sh=40,sy=11,v=true,type=2,id=6,parent=1,w=203.0000,h=55.0000,ax=0.5000,ay=0.5000,x=616.9868,y=75.2380,color="255|255|255",tcolor="255|220|136",res="backButton",},
+{n="lblinfo",tag=117,fs=18,text="nnnn",v=true,type=3,id=7,parent=1,w=293.0000,h=230.0000,ay=1.0000,x=443.2740,y=365.5598,color="253|223|174",fr="DFYuan.ttf",},
+{n="lblqq",tag=119,fs=20,text="累计充值2000元显示QQ",v=true,type=3,id=8,parent=1,w=204.0000,h=22.0000,ax=0.5000,ay=0.5000,x=228.0011,y=112.0002,color="255|234|0",fr="DFYuan.ttf",},
+{n="lblcheckinfo1",tag=120,fs=18,text="验证填写信息：角色名，服务器，充值金额。",v=true,type=3,id=9,parent=1,w=354.0000,h=20.0000,ay=0.5000,x=43.0000,y=67.0000,color="212|179|125",fr="DFYuan.ttf",},
+{n="lblcheckinfo2",tag=121,fs=18,text="QQ验证成功后，即可享受贴心服务！",v=true,type=3,id=10,parent=1,w=280.0000,h=20.0000,ay=0.5000,x=43.0000,y=44.0000,color="212|179|125",fr="DFYuan.ttf",},
+}

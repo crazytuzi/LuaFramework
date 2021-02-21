@@ -1,0 +1,466 @@
+local PanelYuanshen={}
+local lblhint = {
+	"<font color=#E7BA52 size=18>元神提升/突破</font>",
+	'<font color=#00ff00>1.元神提升:</font>使用元神珠提升元神可获得属性加成',
+	'<font color=#00ff00>2.元神获取:</font>元神塔、BOSS爆出、商城购买',
+	'<font color=#00ff00>3.元神突破:</font>元神升阶后点击升级球可转到元神突破，使用元神令突破可获得属性加成！',
+	'<font color=#00ff00>4.超级属性:</font>提升元神后点击切换旁边的红色按钮可加神圣之力4-10秒，CD时间30秒',
+}
+
+function PanelYuanshen.initView(event)
+	var = {
+		xmlPanel,
+		preTab,
+		pageIndex = 1,
+		towerLV = 1,
+		preBtn,
+		pressed = 1,
+		xmlBuy,
+		buyData=nil,
+		--xmlYuanShen,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelYuanshen.uif")
+	if var.xmlPanel then
+		var.xmlPanel:align(display.BOTTOM_LEFT, 0, 0)
+		--PanelYuanshen.initYSBtns()
+		local ysBg = var.xmlPanel:getWidgetByName("ysBg")
+		for i=1,10 do
+			local point = ysBg:getWidgetByName("circle"..i):hide()
+			point:setAnchorPoint(0.5,0.5)
+			point:setLocalZOrder(3)
+			local size = point:getContentSize()
+			local selfX,selfY = point:getPosition()
+			point:setPosition(cc.pSub(cc.p(selfX,selfY),cc.p(-size.width/2,size.height/2)))
+			local action = cc.Sprite:create()
+				:setName("ys_action")
+				:addTo(point)
+				:align(display.CENTER,0,46)
+				:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+			if i<10 then
+				local nextPoint = ysBg:getWidgetByName("circle"..(i+1))
+				local otherX,otherY= nextPoint:getPosition()
+				local imgProgress = ccui.ImageView:create("img_progress-bar",ccui.TextureResType.plistType)
+				:addTo(ysBg,2)
+				:align(display.CENTER, selfX+size.width/2,selfY-size.height/2)
+				:setName("progressBar"..i)
+
+				local rotation = math.deg(cc.pToAngleSelf(cc.pSub(cc.p(selfX,selfY),cc.p(otherX,otherY))))
+				local length = cc.pGetLength(cc.pSub(cc.p(selfX,selfY),cc.p(otherX,otherY)))
+				imgProgress:setScale9Enabled(true)
+				imgProgress:setCapInsets(cc.rect(5,5,274,1))
+				imgProgress:setContentSize(length,11)
+				imgProgress:setRotation(-rotation)
+				imgProgress:setAnchorPoint(1,0.5)
+				imgProgress:hide()
+			end
+		end
+		ysBg:hide()
+		local pageView = var.xmlPanel:getWidgetByName("pageView")
+
+		local pushButtons = function(sender)
+			if sender:getName() == "btn_allattr" then--总属性按钮(屏蔽了)
+				var.pressed = 1 - var.pressed
+				sender:setBrightStyle(1-var.pressed)
+				var.xmlPanel:getWidgetByName("box_singleattr"):setVisible(var.pressed == 1)--主页面
+				var.xmlPanel:getWidgetByName("box_allattr"):setVisible(var.pressed == 0)--副页面
+			elseif sender:getName() == "btn_upgrade" then
+				NetClient:PushLuaTable("gui.PanelYuanshen.onPanelData",util.encode({ actionid = "promote"}))
+			elseif sender:getName() == "btn_getyuanshen" then
+				NetClient:PushLuaTable("gui.PanelYuanshen.onPanelData",util.encode({actionid = "yuanshen",}))
+				NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str = "menu_spirit"})
+			elseif sender:getName() == "BtnLeft" then
+				local pageIndex = pageView:getCurPageIndex()
+				local maxNum = #pageView:getPages()
+				if pageIndex>0 then
+					pageIndex = pageIndex-1
+					pageView:scrollToPage(pageIndex)
+				end
+			elseif sender:getName() == "BtnRight" then
+				local pageIndex = pageView:getCurPageIndex()
+				local maxNum = #pageView:getPages()
+				if pageIndex < maxNum-1 then
+					pageIndex = pageIndex+1
+					pageView:scrollToPage(pageIndex)
+				end
+			elseif sender:getName() == "BtnJiaose" then
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar"})
+				NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str = "menu_spirit"})
+			elseif sender:getName() == "btnBuyTu" then
+				NetClient:PushLuaTable("gui.PanelYuanshen.onPanelData", util.encode({actionid = "reqBuyData",params={}}))
+			end
+		end
+		local btns = {
+			[1] ={name = "btn_allattr",	text="",},--总属性按钮(屏蔽了)
+			[2] ={name = "btn_upgrade",	text=Const.str_promote_yuanshen,},
+			[3] ={name = "btn_getyuanshen",	text="元神塔",},
+			[4] ={name = "BtnLeft",		text="",},
+			[5] ={name = "BtnRight",	text="",},
+			[6] ={name = "BtnJiaose",	text="返回角色",},
+			[7] ={name = "btnBuyTu",	text="购买",}
+		}
+		for k,v in pairs(btns) do
+			local btn = var.xmlPanel:getWidgetByName(v.name)
+			btn:addClickEventListener(pushButtons)
+			btn:setTitleText(v.text)
+		end
+		var.xmlPanel:getWidgetByName("BtnLeft"):setBright(false)
+		local img_zongyuanshen = var.xmlPanel:getWidgetByName("img_zongyuanshen")
+		local imgSize = img_zongyuanshen:getContentSize()
+		var.ysExp = ccui.TextAtlas:create("0123456789", "fonts/www.png", 20, 31, "0")--power3.png
+			:addTo(img_zongyuanshen)
+			:align(display.CENTER_LEFT, imgSize.width,imgSize.height/2+3)
+		var.ysExp:setString("0")
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA,PanelYuanshen.onPanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelYuanshen.updateGameMoney)
+
+		local tips = var.xmlPanel:getWidgetByName("topoTips")
+		tips:setTouchEnabled(true)
+		tips:addClickEventListener(function(sender)
+			tips:hide()
+		end)
+		tips:getWidgetByName("Btn_up"):addClickEventListener(function(sender)
+			tips:hide()
+			NetClient:PushLuaTable("gui.PanelYuanshen.onPanelData",util.encode({ actionid = "tpUprade"}))
+		end)
+
+		--元神说明
+		local btn_info = var.xmlPanel:getWidgetByName("btn_info")
+		btn_info:setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+			if eventType == ccui.TouchEventType.began then
+				NetClient:dispatchEvent({
+				name = Notify.EVENT_PANEL_ON_ALERT, panel = "tips", visible = true, infoTable = lblhint,
+					})
+			elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled  then
+				NetClient:dispatchEvent({
+				name = Notify.EVENT_PANEL_ON_ALERT, panel = "all", visible = false })
+			end
+		end)
+		--元神特效----------------------------------------------------------------
+		local yuanshenEff = var.xmlPanel:getWidgetByName("imgyuanshen"):getChildByName("yuanshenEff")
+		var.xmlPanel:getWidgetByName("imgyuanshen"):setTouchEnabled(true)
+		if not yuanshenEff then
+			yuanshenEff = cc.Sprite:create()
+			yuanshenEff:setName("yuanshenEff")
+			yuanshenEff:setPosition(278,260)
+					:setTouchEnabled(false)
+					:addTo(var.xmlPanel)
+			local animate = cc.AnimManager:getInstance():getPlistAnimate(4,87005, 4, 5)
+			yuanshenEff:runAction(cca.repeatForever(animate))
+		end	
+		PlayAudio.play("sound/MallWellCome.mp3")
+		return var.xmlPanel
+	end
+end
+
+function PanelYuanshen.onPanelOpen()
+	PanelYuanshen.updateGameMoney(nil)
+	NetClient:PushLuaTable("gui.PanelYuanshen.onPanelData",util.encode({ actionid = "fresh"}))
+	NetClient:PushLuaTable("gui.PanelYuanshen.onPanelData",util.encode({actionid = "checkRedPoint"}))
+end
+
+function PanelYuanshen.initPageview(ysLv,ystpLv)
+	local ysBg = var.xmlPanel:getWidgetByName("ysBg")
+	local pageView = var.xmlPanel:getWidgetByName("pageView")
+	-- pageView:removeAllPages()
+	for i = 1,ysLv do
+		local layout = pageView:getPage(i-1)
+		if not layout then
+			layout = ccui.Layout:create()
+			layout:setContentSize(pageView:getContentSize())
+			local clonePage = ysBg:clone():show()
+			clonePage:setPosition(cc.p(0,0))
+			layout:addChild(clonePage)
+			pageView:addPage(layout)
+		end
+	end
+	pageView:addEventListener(function(sender,eventType)
+		if eventType == ccui.PageViewEventType.turning then
+			PanelYuanshen.updatePageView(pageView:getCurPageIndex())
+		end
+	end)
+end
+
+function PanelYuanshen.initTips(tipsData)
+	local topoTableView = var.xmlPanel:getWidgetByName("topoTableView")
+	local function updatetopoTableView(subItem)
+		subItem:getWidgetByName("Text_info"):setString(tipsData[subItem.tag])
+	end
+	--print("#tipsData=",#tipsData)
+	topoTableView:reloadData(#tipsData, updatetopoTableView,0,false)
+	topoTableView:setSliderVisible(false)
+end
+
+function PanelYuanshen.updatePageView(pageIndex)
+	local Jie = pageIndex+1
+	local pageView = var.xmlPanel:getWidgetByName("pageView")
+	local maxNum = #pageView:getPages()
+	var.xmlPanel:getWidgetByName("BtnLeft"):setBright(pageIndex>0)
+	var.xmlPanel:getWidgetByName("BtnRight"):setBright(pageIndex<maxNum-1)
+
+	var.xmlPanel:getWidgetByName("img_jie_level"):loadTexture("img_order"..Jie,ccui.TextureResType.plistType)
+	var.xmlPanel:getWidgetByName("img_jie_level"):setVisible(Jie>0 and Jie<=20)
+	local tips = var.xmlPanel:getWidgetByName("topoTips")
+	local function showUpTips(sender)
+		tips:show()
+		local tag = sender.tag
+		local innerTips = tips:getWidgetByName("innerTips")
+		local Btn_skip = tips:getWidgetByName("Btn_skip")
+		innerTips:setVisible(tag == 0)
+		innerTips:setPosition(cc.p(sender:getPositionX(),sender:getPositionY()-90))
+
+		Btn_skip:setVisible(tag == 1)
+		Btn_skip:setPosition(cc.p(sender:getPositionX()+20,sender:getPositionY()+20))
+		Btn_skip:addClickEventListener(function(sender)
+			pageView:scrollToPage(var.tpJie-1)
+			tips:hide()
+		end)
+		--print("var.yslAttr=",var.yslAttr)
+		PanelYuanshen.initTips(var.yslAttr)	
+	end
+	local page = pageView:getPage(pageIndex)
+	if var.jie>0 and var.jie<=20 then
+		for i=1,10 do
+			local circleIndex = pageIndex*10 + i
+			local curYSIndex = (var.jie-1)*10+ var.xing
+			curYSIndex = curYSIndex<0 and 0 or curYSIndex
+			local curTPIndex = (var.tpJie-1)*10+ var.tpXing
+			curTPIndex = curTPIndex<0 and 0 or curTPIndex
+			if i<10 then
+				local progressBar = page:getWidgetByName("progressBar"..i)
+				progressBar:setVisible(pageIndex<var.jie-1 or i<var.xing-1)
+				local barimgres = circleIndex<curTPIndex and "img_progressbar_red" or "img_progress-bar"
+				progressBar:loadTexture(barimgres,ccui.TextureResType.plistType)
+				progressBar:setScale9Enabled(true)
+				progressBar:setCapInsets(cc.rect(5,5,274,1))
+			end
+			local circleVisible = pageIndex < var.jie-1 or i <= var.xing
+			local circle = page:getWidgetByName("circle"..i):setVisible(circleVisible)
+			circle.tag = -1
+
+			if circleIndex == curTPIndex + 1 or curTPIndex < 1 and circleIndex ==1 and curYSIndex>0 then
+				circle.tag = 0	--upgrade
+			elseif circleIndex > curTPIndex+1 and circleIndex <= curYSIndex and curYSIndex>0 then
+				circle.tag = 1	--skip
+			end
+			local touched = circleIndex==1 and curTPIndex<1 or circleIndex >= curTPIndex+1
+			circle:setTouchEnabled(touched)
+			if touched then
+				circle:addClickEventListener(showUpTips)
+			end
+			local ys_action = circle:getChildByName("ys_action")
+			if not ys_action then
+				ys_action = cc.Sprite:create()
+				:setName("ys_action")
+				:addTo(circle)
+				:align(display.CENTER,0,46)
+				:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+			end
+			ys_action:stopAllActions()
+			local actionVisible =  circleIndex < curYSIndex and circleIndex ~= curTPIndex+1 --or circleIndex == 1 and curTPIndex <1
+			if circleIndex == 1 and curTPIndex < 1 then
+				actionVisible = false
+			end
+			local animId =  circleIndex<curTPIndex and 50001 or 50027
+			if actionVisible then
+				cc.AnimManager:getInstance():getPlistAnimateAsync(ys_action,4,animId,0,0,0,true)
+			end
+			ys_action:setVisible(actionVisible)
+			local circleImg
+			if circleIndex <= curTPIndex then
+				circleImg = "img_tp_reach_cur"
+			elseif circleIndex == curTPIndex + 1 or circleIndex ==1 and curTPIndex<1 then
+				circleImg = "img_tp_reach"
+			elseif circleIndex < curYSIndex then
+				circleImg = "img_current target"
+			else
+				circleImg = "img_Goal-has-been-reached"
+			end
+
+			circle:loadTexture(circleImg,ccui.TextureResType.plistType)
+			if var.jie==20 and var.xing == 10 then
+				page:getWidgetByName("circle9"):show()
+				page:getWidgetByName("circle10"):loadTexture("img_Goal-has-been-reached",ccui.TextureResType.plistType)			
+			end
+		end
+	end
+end
+
+function PanelYuanshen.onPanelData(event)
+	if event.type == "PanelYuanshen" then
+		local pData = util.decode(event.data)
+		--print("pData.cmd=====",pData.cmd)
+		if pData and pData.cmd =="update" then
+			var.jie = pData.ysJie
+			var.xing = pData.ysXing
+			var.tpJie = pData.tpJie
+			var.tpXing = pData.tpXing
+			var.yslAttr = pData.yslAttr
+
+			if var.jie ==0 then var.jie=1 end
+			if var.xing ==0 then var.xing=1 end
+			if var.tpJie ==0 then var.tpJie=1 end
+			if var.tpXing ==0 then var.tpXing=1 end
+			if var.xing >10 then var.xing = 1; var.jie = var.jie+1 end
+			if var.jie >20 then var.jie=20; var.xing=10 end
+
+			PanelYuanshen.initPageview(var.jie,var.tpJie)
+			local pageView = var.xmlPanel:getWidgetByName("pageView")
+			local pageIndex = pData.pageIndex and pData.pageIndex -1 or var.jie-1
+
+			pageView:scrollToPage(pageIndex)
+			var.xmlPanel:getWidgetByName("lbl_1"):setString(pData.chenghao)
+			--var.xmlPanel:getWidgetByName("lbl_jie"):setString(pData.ysJie.."阶")--阶位
+			var.xmlPanel:getWidgetByName("lbl_xing"):setString(pData.ysXing.."星")
+			var.xmlPanel:getWidgetByName("lbl_2"):setString("魂魄："..pData.xingName)
+			--var.xmlPanel:getWidgetByName("lbl_jie_name"):setString(pData.chenghao)--副页面境界
+			--var.xmlPanel:getWidgetByName("lbl_detail_jie"):setString(pData.ysJie.."阶")--副页面阶位
+			if pData.ysJie>=20 and pData.ysXing >=10 then
+				var.xmlPanel:getWidgetByName("btn_upgrade"):hide()--满级隐藏升级按钮
+				--var.xmlPanel:getWidgetByName("btn_getyuanshen"):hide()--满级隐藏元神塔按钮
+				var.xmlPanel:getWidgetByName("lbl_5"):setString("已升至最高阶")
+				--var.xmlPanel:getWidgetByName("lbl_4"):hide()
+			else
+				var.ysExp:setString(pData.xwExp)
+				var.xmlPanel:getWidgetByName("lbl_5"):setString("本次提升需:"..pData.needexp..Const.str_yuanshen)
+			end
+			local lblattr = {"累计物攻","累计物防","累计魔防"}--,"生命"
+			local attack = {"累计物攻","累计魔攻","累计道攻"}
+			local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+			local ysLevel = (pData.ysJie-1)*10+pData.ysXing+1
+			-- local index = ysLevel%3>0 and ysLevel%3 or 3;
+			-- local attrPre = "";
+			-- if index == 1 then
+				-- attrPre = attack[job - Const.JOB_ZS + 1];
+			-- else
+				-- attrPre = lblattr[index];
+			-- end
+			print("pData.ysXing=====",pData.ysXing)
+			if pData.curAttr and  pData.curAttr~="" then
+				--var.xmlPanel:getWidgetByName("lbl_4"):setString(attrPre..":+"..pData.curAttr)
+				for i=1,3 do
+					var.xmlPanel:getWidgetByName("labCur"..i):setString(pData.curAttr[i])
+				end
+			elseif pData.ysJie>=20 and pData.ysXing >10 then
+				--var.xmlPanel:getWidgetByName("lbl_4"):setString(attrPre..":+"..pData.attrTable[var.xing%3>0 and var.xing%3 or 3])
+				for i=1,3 do
+					var.xmlPanel:getWidgetByName("labCur"..i):setString(pData.curAttr[i])
+				end
+			end
+			local width = 0
+			--print("pData.ysJie=",pData.ysJie)
+			if pData.ysJie >0 then
+				for i=1,3 do
+					local lbl_attr = var.xmlPanel:getWidgetByName("lbl_attr"..i)
+					if i == 1 then
+						lbl_attr:setString(attack[job - Const.JOB_ZS + 1]..":+"..pData.attrTable[i+3])
+					else
+						lbl_attr:setString(lblattr[i]..":+"..pData.attrTable[i+3])
+					end
+					if lbl_attr:getContentSize().width > width then 
+						width = lbl_attr:getContentSize().width
+					end
+				end
+				for i=1,3 do
+					var.xmlPanel:getWidgetByName("lbl_attr"..i):setPositionX((316-width)/2)
+				end
+			end
+		elseif pData.cmd =="senderysData" then
+			PanelYuanshen.initBuy(pData)
+		elseif pData.cmd =="checkRedPoint" then	
+		
+		end
+	end
+end
+
+function PanelYuanshen.getBlockedArea()
+	return {"pageView"}
+end
+
+function PanelYuanshen.onPanelClose()
+	var.xing 	= 0
+	var.jie 	= 0
+	var.tpJie 	= 0
+	var.tpXing 	= 0
+	var.yslAttr = {}
+	var.xmlPanel:getWidgetByName("topoTips"):hide()
+end
+
+-----------------------------------------元神购买-----------------------------------------------
+function PanelYuanshen.initBuy(data)
+	--print("data=",data)
+	if not var.xmlBuy then
+		var.xmlBuy = UILuaLoader.load("uilayout/PanelYuanshen_buy.uif")
+				:addTo(var.xmlPanel):align(display.CENTER, 706, 243)
+				:show()
+		local function prsBtnItem(sender)
+			var.xmlBuy:hide()
+		end
+		UIRedPoint.addUIPoint(var.xmlBuy:getWidgetByName("btnback"), prsBtnItem)
+		var.xmlBuy:getWidgetByName("btnChongZhi"):setTouchEnabled(true):addClickEventListener(function ()
+   			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+   		end)
+
+	else
+		var.xmlBuy:show()
+	end
+	var.buyData=data.data
+	local listBuy = var.xmlBuy:getWidgetByName("listBuy")
+	listBuy:reloadData(#var.buyData,PanelYuanshen.updateBuy):setSliderVisible(false)
+	var.xmlBuy:getWidgetByName("lblbindcoin"):setString(var.curBVcion)
+	var.xmlBuy:getWidgetByName("lblcoin"):setString(var.curVcion)
+	
+end
+
+function PanelYuanshen.updateBuy(item)
+	local itemData = var.buyData[item.tag]
+	--print("itemData=",itemData)
+	--print("item.tag============",item.tag)
+	item:getWidgetByName("labName"):setString(itemData.name)
+	item:getWidgetByName("labPrice"):setString(itemData.vcion)
+	local awardItem=item:getWidgetByName("icon")
+	--local param={parent=awardItem , typeId=itemData.id}
+	local param={parent=awardItem, typeId=itemData.id, num=itemData.num}
+	UIItem.getItem(param)
+	--print("sender=======",sender)
+	local function prsBtnItem(sender)
+		NetClient:PushLuaTable("gui.PanelYuanshen.onPanelData",util.encode({actionid = "reqBuyys",params={index=item.tag}}))
+	end
+
+	local btnBuy = item:getWidgetByName("btnBuy")
+	btnBuy.index=item.tag
+	UIRedPoint.addUIPoint(btnBuy , prsBtnItem)
+	UILuaLoader.attachEffect(btnBuy,"outline(0e0600,1)")
+end
+
+--更新元宝和绑元变化
+function PanelYuanshen.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		var.curVcion=mainrole.mVCoin or 0
+		var.curBVcion=mainrole.mVCoinBind or 0
+		var.curMoney=mainrole.mGameMoney or 0
+		if var.xmlBuy then
+			var.xmlBuy:getWidgetByName("lblVcoin"):setString(var.curVcion)
+			var.xmlBuy:getWidgetByName("lblMoney"):setString(var.curMoney)
+		end
+	end
+end
+
+--点击购买按钮操作
+local btnArrs2 = {"btn_getyuanshen","btnBuyTu"}
+function PanelYuanshen.initYSBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if senderName=="btnBuyTu" then
+			NetClient:PushLuaTable("gui.PanelYuanshen.onPanelData", util.encode({actionid = "reqBuyData",params={}}))
+		end
+	end
+	for i=1,#btnArrs2 do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs2[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+return PanelYuanshen

@@ -1,0 +1,96 @@
+--[[
+--护送唐僧功能
+--]]
+
+local PanelDart={}
+local var = {}
+local desp = "<font color=#B2A58B>1.只有在护送唐僧周围，唐僧才会前进<br>2.护送的唐僧被攻击后不会停止<br>3.唐僧被打碎会导致护送失败，获得部分奖励<br>4.放弃押镖没有任何奖励<br>5.护送成功后，可领取多倍奖励<br>6.打劫别人的唐僧可以获得镖银奖励<br></font><font color=#FF3E3E>友情提示：当你被攻击时，可以向帮会或是好友求助！！！</font>"
+-- local desp = "<font color=#B2A58B>如果你还不会取经的话，那就找群主吧！群主可是看过好多遍西游记的人。<br>梦想无限<br><br><br></font><font color=#FF3E3E>友情提示：当你被攻击时，可能是有人想吃唐僧肉...！！！</font>"
+-- local desp = "<font color=#B2A58B>1.只有在押送镖车周围，镖车才会前进<br>2.押送的镖车被攻击后不会停止<br>3.镖车被打碎会导致押送失败，获得部分奖励<br>4.放弃押镖没有任何奖励<br>5.押送成功后，可领取多倍奖励<br>6.打劫别人的镖车可以获得镖银奖励<br></font><font color=#FF3E3E>友情提示：当你被攻击时，可以向帮会或是好友求助！！！</font>"
+
+function PanelDart.initView()
+	var = {
+		xmlPanel,
+
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelDart.uif");
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelDart.handlePanelData)
+			-- asyncload_callback("needload/bg_max2.png", var.xmlPanel:getWidgetByName("panel_bg"), function (filepath, texture)
+				-- var.xmlPanel:getWidgetByName("panel_bg"):loadTexture(filepath)
+			-- end)
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max2.png")
+		PanelDart.initBtns()
+		PanelDart.initDartList()
+		var.xmlPanel:getWidgetByName("labDesp"):setRichLabel(desp,"PanelDartHelp",16)
+	end
+
+	return var.xmlPanel
+end
+
+function PanelDart.onPanelOpen()
+		NetClient:PushLuaTable("gui.PanelDart.handlePanelData",util.encode({actionid = "reqDartData",params={}}))
+end
+
+function PanelDart.onPanelClose()
+	
+end
+
+function PanelDart.handlePanelData(event)
+	if event.type ~= "PanelDart" then return end
+	-- print(event.data)
+	local data = util.decode(event.data)
+	if data.cmd =="updateDart" then
+		 PanelDart.updatePanel(data)
+	elseif data.cmd=="" then
+
+	end
+end
+
+--刷新唐僧面板数据
+function PanelDart.updatePanel(data)
+	var.xmlPanel:getWidgetByName("labTime"):setString(data.curData.limitTime.."分钟")
+	var.xmlPanel:getWidgetByName("labAward"):setString(data.curData.awardDesp)
+	var.xmlPanel:getWidgetByName("lanExp"):setString(data.curData.moneyNum)
+	var.xmlPanel:getWidgetByName("labMoney"):setString(data.curData.expNum)  
+	-- var.xmlPanel:getWidgetByName("labYuFree"):setString(data.times)
+	var.xmlPanel:getWidgetByName("labYuTimes"):setString(data.yuTimes)
+	PanelDart.initDartList(data.curData.dartLev)
+end
+
+--初始化唐僧列表
+function PanelDart.initDartList(level)
+	local function updateListDart(item)
+		item:getWidgetByName("renderBg"):loadTexture("img_dart_"..item.tag,ccui.TextureResType.plistType)
+		if level and level==item.tag then
+			item:getWidgetByName("selectBg"):setVisible(true)
+		else
+			item:getWidgetByName("selectBg"):setVisible(false)
+		end
+	end
+
+	local listDart = var.xmlPanel:getWidgetByName("listDart")
+	listDart:reloadData(4,updateListDart):setSliderVisible(false):setTouchEnabled(false)
+end
+
+-----------------------------------------按钮操作-----------------------------------------------
+local btnArrs = {"btnRefreshDart","btnStartDart"}
+function PanelDart.initBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if senderName=="btnRefreshDart" then
+			NetClient:PushLuaTable("gui.PanelDart.handlePanelData",util.encode({actionid = "reqRefreshDart",params={}}))
+		elseif senderName=="btnStartDart" then
+			NetClient:PushLuaTable("gui.PanelDart.handlePanelData",util.encode({actionid = "reqStartDart",params={}}))
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+
+
+return PanelDart

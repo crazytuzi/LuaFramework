@@ -1,0 +1,70 @@
+-- 物品过滤界面
+
+local TipsGetWp = {}
+
+-- 拾取过滤配置
+local sqConfig = 
+{
+	{name="等级丹(初级)", con = "AutoDJD1", 		show = "ShowDJD1", 		type = "道具"},
+	{name="等级丹(中级)", con = "AutoDJD2", 		show = "ShowDJD2", 		type = "道具"},
+	{name="等级丹(高级)", con = "AutoDJD3", 		show = "ShowDJD3", 		type = "道具"},
+	{name="等级丹(终级)", con = "AutoDJD4", 		show = "ShowDJD4", 		type = "道具"},
+	{name="等级丹(究极)", con = "AutoDJD5", 		show = "ShowDJD5", 		type = "道具"},
+	{name="1-10阶装备",   con = "AutoEP10", 	show = "ShowEP10",  	type = "装备"},
+	{name="11-15阶装备",  con = "AutoEP15", 	show = "ShowEP15",  	type = "装备"},
+	{name="16-20阶装备",  con = "AutoEP20", 	show = "ShowEP20",  	type = "装备"},
+	{name="21-25阶装备",  con = "AutoEP25", 	show = "ShowEP25",  	type = "装备"},
+	{name="26-30阶装备",  con = "AutoEP30", 	show = "ShowEP30",  	type = "装备"},
+	{name="100元宝",   	  con = "AutoVcoin100",  show = "ShowVcoin100",   type = "货币"},
+	{name="500元宝",   	  con = "AutoVcoin500",  show = "ShowVcoin500",   type = "货币"},
+	{name="1000元宝",     con = "AutoVcoin1000",  show = "ShowVcoin1000",   type = "货币"},
+	{name="5000元宝",     con = "AutoVcoin5000", show = "ShowVcoin5000",  type = "货币"},
+	{name="玉佩碎片(小)",     con = "AutoYP1", show = "ShowYP1",  type = "道具"},
+	{name="玉佩碎片(中)",     con = "AutoYP2", show = "ShowYP2",  type = "道具"},
+	{name="玉佩碎片(大)",     con = "AutoYP3", show = "ShowYP3",  type = "道具"},
+	{name="暗器碎片(小)",     con = "AutoHD1", show = "ShowHD1",  type = "道具"},
+	{name="暗器碎片(中)",     con = "AutoHD2", show = "ShowHD2",  type = "道具"},
+	{name="暗器碎片(大)",     con = "AutoHD3", show = "ShowHD3",  type = "道具"},
+	{name="魂珠碎片(小)",     con = "AutoHZ1", show = "ShowHZ1",  type = "道具"},
+	{name="魂珠碎片(中)",     con = "AutoHZ2", show = "ShowHZ2",  type = "道具"},
+	{name="战鼓碎片(小)",     con = "AutoZG1", show = "ShowZG1",  type = "道具"},
+	{name="战鼓碎片(中)",     con = "AutoZG2", show = "ShowZG2",  type = "道具"},
+	{name="初级转生丹",       con = "AutoZSD1", show = "ShowZSD1",  type = "道具"},
+	{name="中级转生丹",       con = "AutoZSD2", show = "ShowZSD2",  type = "道具"},
+	{name="高级转生丹",       con = "AutoZSD3", show = "ShowZSD3",  type = "道具"},
+	{name="怪物内丹(小)",     con = "AutoGND1", show = "ShowGND1",  type = "道具"},
+	{name="怪物内丹(中)",     con = "AutoGND2", show = "ShowGND2",  type = "道具"},
+	{name="副本卷轴",     	  con = "AutoFBJZ", show = "ShowFBJZ",  type = "卷轴"},
+}
+
+function TipsGetWp:initView()
+	if self.xmlTips then
+		local click = function( sender )
+			UserConfig.setConf(sender.con,sender:isSelected())
+		end
+		local function updateItem(subItem)
+			local d = sqConfig[subItem.tag]
+			if not d then return end
+			subItem:getChildByName("lbl_name"):setString(d.name)
+			local jbox = subItem:getChildByName("j_checkbox")
+			jbox.con = d.con
+			jbox:setSelected(UserConfig.getConf(d.con))
+			local xbox = subItem:getChildByName("x_checkbox")
+			xbox.con = d.show
+			xbox:setSelected(UserConfig.getConf(d.show))
+			subItem:getChildByName("lbl_type"):setString(d.type)
+			jbox:addClickEventListener(click)
+			xbox:addClickEventListener(click)
+		end
+		-- 加载背景
+		util.asyncload(self.xmlTips, "img_bg", "needload/img_kuan_bg.png")
+
+		self.xmlTips:getWidgetByName("sqList"):reloadData(#sqConfig, updateItem)
+
+		self.xmlTips:getWidgetByName("enterBtn"):addClickEventListener(function (sender)
+			NetClient:dispatchEvent({name=Notify.EVENT_HIDE_TIPS, str = "tips_wpgl"})
+		end)
+	end
+end
+
+return TipsGetWp

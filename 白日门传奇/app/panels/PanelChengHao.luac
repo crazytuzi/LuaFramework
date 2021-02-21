@@ -1,0 +1,390 @@
+local PanelChengHao = {}
+local var = {}
+
+local fashionPos = {
+	Const.ITEM_FASHION_CLOTH_POSITION,
+}
+
+local attrData = {
+	{str = "物理攻击：",x1 = "mDC",x2 = "mDCMax"},
+	{str = "魔法攻击：",x1 = "mMC",x2 = "mMCMax"},
+	{str = "道术攻击：",x1 = "mSC",x2 = "mSCMax"},
+	{str = "物理防御：",x1 = "mAC",x2 = "mACMax"},
+	{str = "魔法防御：",x1 = "mMAC",x2 = "mMACMax"},
+}
+function PanelChengHao.onPanelOpen(extend)
+	
+end
+
+function PanelChengHao.onPanelClose()
+	
+end
+
+
+
+--------------------------------------时装--------------------------------------
+function PanelChengHao.initView()
+	var = {
+		boxTab,
+		xmlChengHao,
+
+		curWeaponId,
+
+		shopData = {},
+
+		fashion_data={},
+		fashion_preview={},
+		fashion_list_cells={},
+		curFashionListIndex=1,
+	}
+
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelChengHao.uif")
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient, var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelChengHao.handlePanelData)
+		PanelChengHao.initPageFashion()
+		return var.xmlPanel
+	end
+end
+
+function PanelChengHao.initPageFashion()
+	local function updateInnerLooks()
+		PanelChengHao.tryOnFashion()
+	end
+	var.xmlChengHao = var.xmlPanel;
+	if var.xmlChengHao then
+		util.asyncload(var.xmlChengHao, "page_role_bg", "needload/page_role_bg.jpg")
+		--util.asyncload(var.xmlChengHao, "page_fashion_bg", "needload/img_fashion_bg.jpg")
+		
+		local tabhfashion = var.xmlChengHao:getWidgetByName("tabhfashion")
+		tabhfashion:setItemMargin(0):setTabColor(game.getColor4(0xefddca),game.getColor4(0xefddca)):setTabRes("btn_fashion", "btn_fashion_sel", ccui.TextureResType.plistType)
+		tabhfashion:addTabEventListener(PanelChengHao.ckickFashionTab)
+		
+	
+	--翅膀加进来 begin
+	local img_wing = var.xmlChengHao:getChildByName("img_wing")
+	--设置翅膀内观
+	if not img_wing then
+		img_wing = cc.Sprite:create()
+		img_wing:addTo(var.xmlChengHao):align(display.CENTER, 306, 330):setName("img_wing"):setLocalZOrder(0)
+	end
+	local wingDef
+	if typeId then
+		wingDef = NetClient:getItemDefByID(typeId)
+	else
+		wingDef = {mIconID = MainRole._mainAvatar:NetAttr(Const.net_wing)}
+	end
+	if wingDef then
+		print("wingDef---------------"..wingDef.mIconID)
+		if wingDef.mIconID ~= img_wing.curwingId then
+			local filepath = "vipassana/wing/"..wingDef.mIconID-20000-1 ..".png"
+			asyncload_callback(filepath, img_wing, function(filepath, texture)
+				img_wing:setVisible(true)
+				img_wing:setTexture(filepath)
+			end)
+			img_wing.curwingId = wingDef.mIconID
+		end
+	else
+		img_wing:setTexture(nil)
+		img_wing:setVisible(false)
+		img_wing.curwingId=nil
+	end
+	
+	--翅膀加进来 END
+	PanelChengHao.initCloth()
+	NetClient:PushLuaTable("gui.PanelChengHao.onOpenPanel",util.encode({actionid = "fresh"}))
+	updateInnerLooks()
+	cc.EventProxy.new(NetClient, var.xmlChengHao)
+		:addEventListener(Notify.EVENT_PUSH_PANEL_DATA,PanelChengHao.setFashiondata)
+	end
+	
+end
+
+
+function PanelChengHao.initCloth()
+	
+	--武器
+	local img_weapon = var.xmlChengHao:getChildByName("img_weapon")
+	--设置武器内观
+	if not img_weapon then
+		img_weapon = cc.Sprite:create()
+		img_weapon:addTo(var.xmlChengHao):align(display.CENTER, 306, 370):setName("img_weapon"):setLocalZOrder(3)
+	end
+	local weaponDef
+	if not typeId and not NetClient:getItemDefByPos(Const.ITEM_FASHION_CLOTH_POSITION) then
+		weaponDef = NetClient:getItemDefByPos(Const.ITEM_WEAPON_POSITION)
+	end
+	if weaponDef then
+		if weaponDef.mIconID~=img_weapon.curWeaponId then
+			local filepath = "vipassana/weapon/"..weaponDef.mIconID..".png"
+			asyncload_callback(filepath, img_weapon, function(filepath, texture)
+				img_weapon:setVisible(true)
+				img_weapon:setTexture(filepath)
+			end)
+			img_weapon.curWeaponId=weaponDef.mIconID
+		end
+	else
+		img_weapon:setTexture(nil)
+		img_weapon:setVisible(false)
+		img_weapon.curWeaponId=nil
+	end
+	--衣服
+	local img_role = var.xmlChengHao:getChildByName("img_role")
+	--设置衣服内观
+	if not img_role then
+		img_role = cc.Sprite:create()
+		img_role:addTo(var.xmlChengHao):align(display.CENTER, 306, 370):setName("img_role"):setLocalZOrder(2)
+	end
+	local clothDef,clothId
+	local isFashion = false
+	if typeId then
+		--试穿
+		clothDef = NetClient:getItemDefByID(typeId)
+		if clothDef then
+			isFashion = true
+			clothId = clothDef.mIconID
+		end
+	else
+		local fashion = MainRole._mainAvatar:NetAttr(Const.net_fashion)
+		local cloth = MainRole._mainAvatar:NetAttr(Const.net_cloth)
+		if fashion >0 then
+			clothId = fashion
+			isFashion = true
+		else
+			clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+			if clothDef then
+				clothId = clothDef.mIconID
+			end
+		end
+	end
+	if not clothId then
+		local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+		local luoti= gender==200 and  10000000 or 10000001
+		clothId = luoti
+	end
+
+	if typeId and var.fashion_data then
+		local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+		for i=1,#var.fashion_data do
+			if typeId==var.fashion_data[i].id then
+				if gender == 200 then
+					clothId =var.fashion_data[i].male
+				else
+					clothId =var.fashion_data[i].female
+				end
+				break
+			end
+		end
+
+	end
+	if clothId~=img_role.curClothId then
+		local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashion" or "cloth",clothId)
+		--print(filepath)
+		asyncload_callback(filepath, img_role, function(filepath, texture)
+			img_role:setTexture(filepath)
+		end)
+		img_role.curClothId = clothId
+	end
+	
+
+end
+
+
+function PanelChengHao.setFashiondata(event)
+
+	local data = util.decode(event.data)
+	if data.cmd == "getFashionPreview" then
+		var.fashion_preview = data.Data;
+		var.has= data.Has;
+	end
+	local tabhfashion = var.xmlChengHao:getWidgetByName("tabhfashion")
+	tabhfashion:setSelectedTab(1)
+end
+
+--显示已装备时装属性
+function PanelChengHao.freshFashionAttr(event)
+	local attrList = var.xmlChengHao:getWidgetByName("attrList"):removeAllItems()
+	local model = var.xmlChengHao:getWidgetByName("model")
+	local fashionItems = {}
+	for k,v in pairs(fashionPos) do
+		local netItem = NetClient:getNetItem(v)
+		if netItem then
+			local itemDef = NetClient:getItemDefByID(netItem.mTypeID)
+			if itemDef then
+				table.insert(fashionItems,itemDef)
+			end
+		end
+	end
+	for i=1,5 do
+		local modeli = model:clone()
+		modeli:getWidgetByName("attrName"):setString(attrData[i].str)
+		local a1,a2 = 0,0
+		for k,v in pairs(fashionItems) do
+			a1 = a1 + v[attrData[i].x1]
+			a2 = a2 + v[attrData[i].x2]
+		end
+		modeli:getWidgetByName("attrValue"):setString(string.format("%d-%d",a1,a2))
+		attrList:pushBackCustomItem(modeli)
+	end
+end
+
+--显示称号
+function PanelChengHao.tryOnFashion(typeId)
+	
+	
+	--称号
+	local role_bg_eff = var.xmlChengHao:getWidgetByName("role_bg_eff")
+	if typeId then
+		var.xmlChengHao:removeChildByName("role_bg_eff");
+		local filepath = "vipassana/chenghao/"..typeId.."00.png"
+		if not role_bg_eff then
+			role_bg_eff = cc.Sprite:create():setName("role_bg_eff");
+			role_bg_eff:addTo(var.xmlChengHao):align(display.CENTER, 302,500):setTexture(filepath)
+		end
+	end
+	
+	
+	
+	--[[
+	if not role_bg_eff then
+		var.xmlChengHao:removeChildByName("role_bg_eff");
+		if typeId then
+			role_bg_eff = cc.Sprite:create()
+			role_bg_eff:setName("role_bg_eff")
+			role_bg_eff:setPosition(302,300)
+					:setTouchEnabled(false)
+					:addTo(var.xmlChengHao)
+					:setLocalZOrder(1)
+			local animate = cc.AnimManager:getInstance():getPlistAnimate(4, typeId, 4, 5)
+			role_bg_eff:runAction(cca.repeatForever(animate))
+		end
+	end
+	]]
+end
+
+--穿戴称号
+function PanelChengHao.ckickDressFashionButton( sender )
+	--print("var.curTab"..var.curTab..var.has[var.curFashionListIndex].id)
+	if var.curFashionListIndex>0 and var.curTab==1 then
+		NetClient:PushLuaTable("gui.PanelChengHao.onOpenPanel",util.encode({actionid = "use",id=var.has[var.curFashionListIndex]}))
+	end
+	NetClient:PushLuaTable("gui.PanelChengHao.onOpenPanel",util.encode({actionid = "fresh"}))
+end
+
+--购买称号
+function PanelChengHao.ckickBuyFashionButton( sender )
+	print("var.curTab"..var.curTab)
+	if var.curFashionListIndex>0 and var.curTab==2 then
+		NetClient:PushLuaTable("gui.PanelChengHao.onOpenPanel",util.encode({actionid = "buy",id=var.fashion_preview[var.curFashionListIndex]}))
+	end
+	NetClient:PushLuaTable("gui.PanelChengHao.onOpenPanel",util.encode({actionid = "fresh"}))
+end
+
+
+--刷新称号列表
+function PanelChengHao.ckickFashionTab(tab)
+	
+	PanelChengHao.tryOnFashion();
+	local function pushSelectItem(item)
+		if item and item.tagFashionId > 0 then
+			PanelChengHao.TryFashionShow(item.tagFashionId,item.tag);
+		end
+	end
+	local tag = tab:getTag()
+	var.fashion_list_cells={};
+	var.curFashionListIndex = 0;
+	
+	local btn_off = var.xmlChengHao:getWidgetByName("btn_off")
+	btn_off:addClickEventListener(function(sender)
+		NetClient:PushLuaTable("gui.PanelChengHao.onOpenPanel",util.encode({actionid = "off"}))
+	end)
+	btn_off:setVisible(false)
+	
+	local btn_buy = var.xmlChengHao:getWidgetByName("btn_buy")
+	btn_buy:addClickEventListener(PanelChengHao.ckickBuyFashionButton)
+	btn_buy:setVisible(false)
+	
+	local btn_dress = var.xmlChengHao:getWidgetByName("btn_dress")
+	btn_dress:addClickEventListener(PanelChengHao.ckickDressFashionButton)
+	btn_dress:setVisible(false)
+	if tag == 1 then
+		var.curTab=1
+		btn_dress:setVisible(true)
+		btn_off:setVisible(true)
+		local fashionList = var.xmlChengHao:getWidgetByName("fashionList")
+		var.ch_data=var.has;
+		fashionList:reloadData(#var.has,function(subItem)
+			local previewdata = var.has[subItem.tag]
+			local icon=subItem:getWidgetByName("icon");
+			
+			local img_ch = icon:getChildByName("img_ch")
+			local filepath = "vipassana/chenghao/"..previewdata.id.."00.png"
+			if not img_ch then
+				img_ch = cc.Sprite:create():setName("img_ch");
+				img_ch:addTo(icon):align(display.CENTER, 0, 0):setTexture(filepath)
+			
+			end
+			img_ch:setTexture(filepath)
+			subItem:getWidgetByName("img_selected"):setVisible(false);
+			subItem:getWidgetByName("hasDress"):setVisible(false)
+			subItem.tagFashionId = previewdata.id;
+			subItem:setTouchEnabled(true)
+			UIRedPoint.addUIPoint(subItem, pushSelectItem)
+			local needCellpre = var.fashion_list_cells[subItem.tag];
+			if not needCellpre then
+				needCellpre = subItem;
+				needCellpre:setName(subItem:getName()..subItem.tag);
+			end
+			--print("previewdata.id--------"..previewdata.id.."--"..previewdata.attr)
+			var.fashion_list_cells[subItem.tag] = needCellpre;
+		end)
+	elseif tag == 2 then
+		var.curTab=2
+		var.ch_data=var.fashion_preview;
+		btn_buy:setVisible(true)
+		btn_off:setVisible(false)
+		var.xmlChengHao:getWidgetByName("fashionList"):reloadData(#var.fashion_preview,function(subItem)
+			local previewdata = var.fashion_preview[subItem.tag]
+			local icon=subItem:getWidgetByName("icon");
+
+			local img_ch = icon:getChildByName("img_ch")
+			local filepath = "vipassana/chenghao/"..previewdata.id.."00.png"
+			if not img_ch then
+				img_ch = cc.Sprite:create():setName("img_ch");
+				img_ch:addTo(icon):align(display.CENTER, 0, 0):setTexture(filepath)
+			end
+			img_ch:setTexture(filepath)
+			subItem:getWidgetByName("img_selected"):setVisible(false);
+			subItem:getWidgetByName("hasDress"):setVisible(false)
+			subItem.tagFashionId = previewdata.id;
+			subItem:setTouchEnabled(true)
+			UIRedPoint.addUIPoint(subItem, pushSelectItem)
+
+			local needCellpre = var.fashion_list_cells[subItem.tag];
+			if not needCellpre then
+				needCellpre = subItem;
+				needCellpre:setName(subItem:getName()..subItem.tag);
+			end
+			--print("previewdata.id--------"..previewdata.id.."--"..subItem:getName().."---"..subItem.tag)
+			var.fashion_list_cells[subItem.tag] = needCellpre;
+		end)
+	end
+end
+
+function PanelChengHao.TryFashionShow(fashionid,listindex)
+	print("------------TryFashionShow--"..fashionid.."  "..listindex)
+	PanelChengHao.tryOnFashion(fashionid);
+	if var.curFashionListIndex > 0 and var.fashion_list_cells[var.curFashionListIndex] then
+		var.fashion_list_cells[var.curFashionListIndex]:getWidgetByName("img_selected"):setVisible(false)
+	end
+	
+	var.fashion_list_cells[listindex]:getWidgetByName("img_selected"):setVisible(true)
+	local rich_test = var.xmlChengHao:getWidgetByName("buy_rich_text")
+	local rich_attr=var.ch_data[listindex].attr;
+	rich_test:setRichLabel(rich_attr, "tips_ch_attr", 16)
+	var.curFashionListIndex = listindex;
+end
+
+
+return PanelChengHao

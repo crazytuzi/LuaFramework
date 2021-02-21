@@ -1,0 +1,185 @@
+SceneUpdate = class("SceneUpdate", function()
+    return display.newScene("SceneUpdate")
+end)
+
+function requireAll()
+	package.loaded["app.scenes.SceneRequire"] = nil
+
+	require("app.scenes.SceneRequire")
+end
+
+function SceneUpdate:ctor()
+end
+
+function SceneUpdate:onEnter()
+	cc.CacheManager:getInstance():loadImage("uipic/SceneUpdate.png")
+	cc.SpriteFrameCache:getInstance():addSpriteFrames("uipic/SceneUpdate.plist")
+
+	self._widgetUI = UILuaLoader.load("uilayout/SceneUpdate.uif")
+
+	if self._widgetUI then
+		self._widgetUI:size(cc.size(display.width, display.height)):align(display.CENTER, display.cx, display.cy)
+		self:addChild(self._widgetUI)
+		self._widgetUI:getWidgetByName("Image_Bg"):align(display.CENTER, display.cx, display.cy):loadTexture("needload/2.png"):scale(cc.MAX_SCALE)
+
+		self.panelBar = self._widgetUI:getWidgetByName("Panel_1"):align(display.CENTER, display.cx, display.height * 0.12)
+		self.labLoading = self._widgetUI:getWidgetByName("Text_Loading")
+		self.loadingBar = self.panelBar:getWidgetByName("LoadingBar")
+
+		self.loadingBar:setPercent(0)
+		self.panelBar:setVisible(false)
+
+		self.labInit = self._widgetUI:getWidgetByName("Text_Init"):align(display.CENTER, display.cx, display.height * 0.12):setVisible(true)
+
+		self.labInit:setString("正在初始化...")
+	end
+
+    --self:checkUpdate()
+
+    if device.platform=="windows" then
+        self:successCallBack()
+        -- local url = "http://192.168.231.89/";
+        -- local platformid = 888;
+        -- local zipfilename = "update";
+        -- local versionname = "version2018.manifest";
+        -- local projectname = "project2018.manifest";
+        -- self:updateGame(url, platformid, zipfilename, versionname, projectname);
+    else
+        --self:checkUpdate()
+    end
+end
+
+function SceneUpdate:onExit()
+end
+
+function SceneUpdate:checkUpdate()
+	if device.platform == "android" or device.platform == "ios" then
+		self:getUpdateVersion()
+	else
+		self:successCallBack()
+	end
+end
+
+function SceneUpdate:getUpdateVersion( )
+    local update_url=""
+    if device.platform=="android" or device.platform=="ios" then
+        update_url=PlatformTool.getCenterUrl().."getVersion/platform/"..PlatformTool.getPlatformId()
+    end
+    print("--------------------更新地址:", update_url)
+
+    if self.labInit then self.labInit:setString("正在获取版本更新") end
+    local http=cc.XMLHttpRequest:new()
+    http.responseType = cc.XMLHTTPREQUEST_RESPONSE_JSON
+    http:open("GET", update_url)
+    local function callback()
+        local state=http.status
+        print("-------state = "..state)
+        if state==200 then
+            local response=http.response
+            print("response: "..response)
+            local json=string.gsub(utilapp.unicode_to_utf8(response),"\\","")
+            json=utilapp.decode(json)
+            if type(json)=="table" and json.result and PlatformTool then
+                if tonumber(json.status) == 1 then
+                    local info = json.result
+                    if (device.platform=="android" or device.platform=="ios") then
+                        self:updateGame(info[1]['url'], info[1]['platformid'], info[1]['zipfilename'], info[1]['versionname'], info[1]['projectname'])
+                    end
+                else
+                    self:successCallBack()
+                end
+            end
+        else
+            print("获取包体下载路径失败")
+            if self.labInit then self.labInit:setString("获取版本更新失败") end
+            self:getUpdateVersion()
+        end
+    end
+    http:registerScriptHandler(callback)
+    http:send()
+end
+
+function SceneUpdate:updateGame( url, platformid, zip_file_name, version_file_name, project_file_name )
+    local params = {}
+
+    params.onFindNewVersion = function ( am)
+        self:findNewVersionCallBack(am)
+    end
+
+    params.onProgress = function (per)
+       self:progressCallBack(per)
+    end
+
+    params.onSuccess = function ()
+        self:successCallBack()
+    end
+
+    params.onAlreadyUpdate = function ()
+        self:successCallBack()
+    end
+
+    params.onError = function (msg)
+       self:errorCallBack(msg);
+    end
+
+    local rootpath = "legend";
+    local appVersion = PlatformTool.getConfigString("version");
+    
+    if (appVersion) then
+        rootpath = rootpath..appVersion.."/";
+    end
+
+    local packageUrl = url..platformid.."/"
+    params.rootPath = rootpath;
+    params.packageUrl = packageUrl
+    params.updateName = zip_file_name   -- 解压后的文件夹名称
+    params.versionFileName = version_file_name
+    params.projectFileName = project_file_name;
+    params.localManifest = "res/manifest/update.manifest"
+
+    UpdateManager.create():update(params)
+end
+
+function SceneUpdate:findNewVersionCallBack(am)
+	print("-----------findNewVersionCallBack--------------")
+	am:update()
+	self.panelBar:setVisible(true)
+	self.labInit:setVisible(false)
+end
+
+function SceneUpdate:progressCallBack( per )
+	local currPer = math.floor(per)
+
+	self.loadingBar:setPercent(currPer)
+
+	if math.floor(currPer) ~= 100 then
+		self.labLoading:setString("正在下载文件 " .. string.format("%.2f", slot1) .. "%")
+	else
+		self.labLoading:setString("正在解压文件...")
+	end
+end
+
+function SceneUpdate:successCallBack( )
+	requireAll()
+
+	if PlatformTool then
+		game.gameKey = PlatformTool.getAccount()
+		game.loginKey = PlatformTool.getToken()
+
+		local centerurl=PlatformTool.getCenterUrl()
+		if PlatformTool.getCenterUrl() then
+			game.centerUrl = centerurl .. "/"
+		end
+	end
+
+	asyncload_frames("uipic/SceneSelectServer", ".png", function ()
+		display.replaceScene(SceneLogin.new())
+	end)
+end
+
+function SceneUpdate:errorCallBack( msg )
+    self.labLoading:setString(msg)
+end
+
+
+return SceneUpdate

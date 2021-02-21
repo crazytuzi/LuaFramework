@@ -1,0 +1,11 @@
+LUA_RET={
+{n="PanelHuWei_newSkill",v=true,type=0,id=1,parent=0,w=931,h=599,ax=0,ay=0,},
+{n="imgBg",tag=135,v=true,type=1,ss=true,sx=16,sw=18,sh=18,sy=16,id=2,parent=1,w=931,h=599,ax=0,ay=0,x=0,y=0,res="bg_4",},
+{n="box_new_skill",tag=136,t=true,v=true,type=0,id=3,parent=1,w=476,h=92,ax=0.5,ay=0.5,x=465,y=320,},
+{n="img_new_skill_inner_3",tag=137,v=true,type=1,ss=true,sx=25,sw=26,sh=30,sy=27,id=4,parent=3,w=460,h=84,ax=0.5,ay=0.5,x=238,y=46,res="img_new_skill_inner",},
+{n="img_new_skill_bg_5",tag=138,v=true,type=1,ss=true,sx=33,sw=34,sh=40,sy=30,id=5,parent=3,w=476,h=100,ax=0.5,ay=0.5,x=238,y=46,res="img_wk",},
+{n="skillIcon",tag=140,v=true,type=1,id=6,parent=3,w=68,h=68,ax=0.5,ay=0.5,x=72,y=46,res="hw_skill_2",},
+{n="lbl_skill_tips1_2",tag=141,v=true,type=3,fs=20,text="您的护卫学会了新技能",ht=1,vt=1,id=7,parent=3,ax=0,ay=0.5,x=120,y=63,fr="DFYuan.ttf",color="208|190|163",olc="0,0,0,255",},
+{n="skillName",tag=142,v=true,type=3,fs=20,text="【】",ht=1,vt=1,id=8,parent=3,ax=0,ay=0.5,x=328,y=63,fr="DFYuan.ttf",color="48|255|0",olc="0,0,0,255",},
+{n="lbl_skill_tips2_6",tag=143,v=true,type=3,fs=20,text="点击后关闭",ht=1,vt=1,id=9,parent=3,ax=0.5,ay=0.5,x=248,y=28,fr="DFYuan.ttf",color="239|181|99",olc="0,0,0,255",},
+}

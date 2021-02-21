@@ -1,0 +1,2890 @@
+local PanelAvatar = {}
+local var = {}
+local pageKeys = {
+	"role", "bag","innerPower","official", "reborn", "gem",
+}
+
+--背包按钮表，按钮名做key,normalTitle按钮常态文本，selectTitle按钮选中态文本
+local bagButtons = {
+	["btnTidy"] 		= {normalTitle = Const.str_tidy},
+	["btnHuiShou"] 		= {normalTitle = Const.str_huishou},
+	["btnKnapsack"] 	= {normalTitle = Const.str_title_depot},
+	["img_bag"]			= {normalTitle = ""}
+}
+
+local itemsChangeTab = {
+	["Depot"]	= {name = "仓库",	xmlPanel = "listDepot", begin = Const.ITEM_DEPOT_BEGIN,	titleText = Const.str_take_out,	iconType = Const.ICONTYPE.DEPOT,},
+	["Bag"]		= {name = "包裹",	xmlPanel = "listBag",	begin = Const.ITEM_BAG_BEGIN,	titleText = Const.str_put_in,	iconType = Const.ICONTYPE.DEPOT,},
+}
+
+local recyleConfig = {
+	{name = "1-10阶装备",  minparam=1,	maxparam = 10, usercon = 0,con = "recyleCheck10"},
+	{name = "11-15阶装备", minparam=11, maxparam = 15, usercon = 0,con = "recyleCheck15"},
+	{name = "16-20阶装备", minparam=16, maxparam = 20, usercon = 0,con = "recyleCheck20"},
+	{name = "21-25阶装备", minparam=21,	maxparam = 25, usercon = 0,con = "recyleCheck25"},
+	{name = "26-30阶装备", minparam=26, maxparam = 30, usercon = 0,con = "recyleCheck30"},
+	{name = "31-35阶装备", minparam=31,	maxparam = 35, usercon = 0,con = "recyleCheck35"},
+	{name = "36-40阶装备", minparam=36,	maxparam = 40, usercon = 0,con = "recyleCheck40"},
+	{name = "41-43阶装备", minparam=41,	maxparam = 43, usercon = 0,con = "recyleCheck42"},
+	{name = "特殊装备", minparam=20,	maxparam = 43, usercon = 1,con = "recyleCheck50"},
+}
+
+
+--角色 时装 官职 内功 转生 宝石
+
+-- 玩家角色界面
+
+local equip_info = {
+	{pos = Const.ITEM_WEAPON_POSITION,	etype = Const.EQUIP_TAG.WEAPON},
+	{pos = Const.ITEM_CLOTH_POSITION,	etype = Const.EQUIP_TAG.CLOTH},
+	{pos = Const.ITEM_GLOVE1_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING1_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BOOT_POSITION,	etype = Const.EQUIP_TAG.BOOT},
+
+	{pos = Const.ITEM_HAT_POSITION,		etype = Const.EQUIP_TAG.HAT},
+	{pos = Const.ITEM_NICKLACE_POSITION,etype = Const.EQUIP_TAG.NECKLACE},
+	{pos = Const.ITEM_GLOVE2_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING2_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BELT_POSITION,	etype = Const.EQUIP_TAG.BELT},
+
+	{pos = Const.ITEM_SHEN_CLOCK_POSITION,		},	--noTipsBtn = true},		--	--神器*钟
+	{pos = Const.ITEM_SHEN_QIN_POSITION,		},	--noTipsBtn = true},
+	{pos = Const.ITEM_MIRROR_ARMOUR_POSITION,	},
+	{pos = Const.ITEM_FACE_CLOTH_POSITION,		},
+	{pos = Const.ITEM_SHEN_FU_POSITION,		    },	--noTipsBtn = true},
+	{pos = Const.ITEM_SHEN_CHUI_POSITION,			},	--noTipsBtn = true},
+	{pos = Const.ITEM_DRAGON_BONE_POSITION,		},
+	{pos = Const.ITEM_CATILLA_POSITION,			},
+	--仙器*武器
+	{pos = Const.ITEM_XIAN_WEPON_POSITION,	},		--19孔位
+	--仙器*衣服
+	{pos = Const.ITEM_XIAN_CLOTH_POSITION,	},
+	--仙器*头盔
+	{pos = Const.ITEM_XIAN_HELMET_POSITION,	},
+	--仙器*项链
+	{pos = Const.ITEM_XIAN_NECKLACE_POSITION,	},
+	--仙器*护肩
+	{pos = Const.ITEM_XIAN_SHOULDER_POSITION,	},
+	--仙器*盾牌
+	{pos = Const.ITEM_XIAN_SHIELD_POSITION,	},
+	--仙器*神坠
+	{pos = Const.ITEM_XIAN_PENDANT_POSITION,	},
+	--仙器*斗笠
+	{pos = Const.ITEM_XIAN_HAT_POSITION,	},
+	--坐骑
+	{pos = Const.ITEM_MOUNT_POSITION,     },
+	--斗笠
+	{pos = Const.ITEM_BAMBOOHAT_POSITION,	},
+
+	--灵宝
+	{pos = Const.ITEM_LBSW_POSITION,	},
+	{pos = Const.ITEM_LBSS_POSITION,	},
+	{pos = Const.ITEM_LBSZ_POSITION,	},
+	{pos = Const.ITEM_LBXL_POSITION,	},
+
+	--传世
+	{pos = Const.ITEM_CS_WEPON_POSITION			,effectid = 35000,scale=0.83,p={x=72,y=75}},
+	{pos = Const.ITEM_CS_CLOTH_POSITION			,effectid = 35001,scale=0.9,p={x=65,y=75}},
+	{pos = Const.ITEM_CS_HELMET_POSITION		,effectid = 35002,scale=0.8,p={x=65,y=68}},
+	{pos = Const.ITEM_CS_NECKLACE_POSITION		,effectid = 35003,scale=1.0,p={x=75,y=82}},
+	{pos = Const.ITEM_CS_SHOULDER_POSITION		,effectid = 35004,scale=0.7,p={x=58,y=50}},
+	{pos = Const.ITEM_CS_GLOVE_POSITION			,effectid = 35004,scale=0.7,p={x=55,y=55}},
+	{pos = Const.ITEM_CS_CATILLA_POSITION		,effectid = 35005,scale=0.8,p={x=60,y=52}},		--戒指
+	{pos = Const.ITEM_CS_BELT_POSITION			,effectid = 35006,scale=0.6,p={x=70,y=58}},		--鞋子
+	{pos = Const.ITEM_CS_BOOT_POSITION			,effectid = 35007,scale=1,p={x=68,y=65}},	    --腰带
+	-- {pos = Const.ITEM_SHIELD_POSITION,        noTipsBtn = true	},
+	-- {pos = Const.ITEM_QIEGE_POSITION,         noTipsBtn = true	},
+	-- {pos = Const.ITEM_MOUNT_SWITCH_POSITION, 	 noTipsBtn = true	},
+
+	{pos = Const.ITEM_XZ1_POSITION,	 etype = Const.EQUIP_TAG.ALL},   --42孔位 以此类推
+	{pos = Const.ITEM_XZ2_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ3_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ4_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ5_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ6_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ7_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ8_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ9_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ10_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ11_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ12_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_SHIELDD_POSITION,        noTipsBtn = true	},
+	{pos = Const.ITEM_QIEGE_POSITION,         noTipsBtn = true	},
+	{pos = Const.ITEM_MOUNT_SWITCH_POSITION, 	 noTipsBtn = true	},
+
+}
+local fashionPos = {
+	--Const.ITEM_FASHION_WEAPON_POSITION,
+	Const.ITEM_FASHION_CLOTH_POSITION,
+	--Const.ITEM_FASHION_WING_POSITION,
+}
+local attrData = {
+	{str = "物理攻击：",x1 = "mDC",x2 = "mDCMax"},
+	{str = "魔法攻击：",x1 = "mMC",x2 = "mMCMax"},
+	{str = "道术攻击：",x1 = "mSC",x2 = "mSCMax"},
+	{str = "物理防御：",x1 = "mAC",x2 = "mACMax"},
+	{str = "魔法防御：",x1 = "mMAC",x2 = "mMACMax"},
+}
+
+-- 属性
+local attrDesp = {
+	"<font color=#E7BA52>神圣攻击：</font>对目标造成真实伤害",
+	"<font color=#E7BA52>冰冻：</font>将目标冰冻使其无法移动和攻击，并且不能使用任何道具，包括回城随机",
+	"<font color=#E7BA52>幸运：</font>全身幸运+9时可触发隐藏属性刀刀上限攻击，最高可至幸运+12，触发更多隐藏属性",
+	"<font color=#E7BA52>无敌：</font>持续时间内免疫一切攻击伤害以及状态效果",
+	"<font color=#E7BA52>神力：</font>持续时间内可提升技能伤害",
+	"<font color=#E7BA52>防御：</font>持续时间内可减少来自技能的伤害",
+	"<font color=#E7BA52>吸血：</font>对目标造成伤害的同时吸取对方生命补充自己",
+	"<font color=#E7BA52>反弹：</font>反弹伤害给予对自己造成伤害的目标",
+	"<font color=#E7BA52>复活：</font>死亡时可立刻复活一次",
+	"<font color=#E7BA52>麻痹：</font>将目标麻痹使其无法移动和攻击",
+	"<font color=#E7BA52>禁锢：</font>使其目标无法移动",
+	"<font color=#E7BA52>破甲：</font>降低目标一定防御力",
+	"<font color=#E7BA52>防止麻痹：</font>使自己被麻痹的概率降低",
+	"<font color=#E7BA52>防爆减免：</font>使自己死亡时装备被爆出的概率降低"
+}
+
+-- 官位
+local despGW ={
+	[1]="<font color=#E7BA52 size=18>一 名望获得途径：</font>",
+	[2]="<font color=#f1e8d0>   1. Boss掉落任务</font>",
+	[3]="<font color=#f1e8d0>   2. 名望兑换</font>",
+	[4]="<font color=#f1e8d0>   3. 商城购买</font>",
+    [5]="<font color=#f1e8d0>    </font>",
+	[6]="<font color=#E7BA52 size=18>二 每日俸禄发放：</font>",
+	[7]="<font color=#f1e8d0>   每天22:00,通过邮件发放对应官位俸禄</font>",
+}
+
+local despGY ={
+	[1]="<font color=#E7BA52 size=18>官印说明：</font>",
+	[2]="<font color=#f1e8d0>1.官职达到相应等级,可使用功勋值兑换官印</font>",
+	[3]="<font color=#f1e8d0>2.每次兑换的官印可以使用7天</font>",
+	[4]="<font color=#f1e8d0>3.功勋值可以通过在定时活动获得</font>",
+	[5]="<font color=#f1e8d0>4.官印兑换后效果持续7天</font>",
+	[6]="<font color=#f1e8d0>5.兑换多个官印时替换掉当前的效果</font>",
+}
+
+local btnTabName = {
+	"btn_tab_post", "btn_tab_chop"
+}
+
+local function hideAllPages()
+	local pageName
+	for i,v in ipairs(pageKeys) do
+		pageName = "xmlPage"..string.ucfirst(v)
+		if var[pageName] then
+			var[pageName]:hide()
+		end
+	end
+end
+
+local function showPanelPage(index)
+	local key = pageKeys[index]
+	if not (key and table.indexof(pageKeys, key))then return end
+	var.lastTabIndex = index
+	var.curPageName = key
+	hideAllPages()
+	local pageName = "xmlPage"..string.ucfirst(key)
+	local initFunc = "initPage"..string.ucfirst(key)
+	local openFunc = "openPage"..string.ucfirst(key)
+	if not var[pageName] and PanelAvatar[initFunc] then
+		PanelAvatar[initFunc]()
+	end
+	if var[pageName] then
+		if PanelAvatar[openFunc] then
+			PanelAvatar[openFunc]()
+		end
+		var[pageName]:show()
+		var.isDepotPanelOpen = false
+		var.isRecylePanelOpen = false
+		if key ~= "bag" and key ~= "role" then
+			var.xmlRolePanel:hide()
+			var.xmlKnapsackPanel:hide()
+			var.xmlRecylePanel:hide()
+		else
+			var.xmlRolePanel:show()
+			var.xmlKnapsackPanel:hide()
+			var.xmlRecylePanel:hide()
+		end
+	end
+end
+
+local function pushTabButtons(sender)
+	local opened, level, funcName
+	opened = true
+	local tag = sender:getTag()
+	if pageKeys[tag] == "reborn" then
+		opened, level, funcName = NetClient:checkFuncOpenedByID(10014)
+	elseif pageKeys[tag] == "gem" then
+		opened, level, funcName = NetClient:checkFuncOpenedByID(10015)
+	end
+
+	if not opened then
+		var.boxTab:setTabSelected(var.lastTabIndex)
+		NetClient:alertLocalMsg(funcName.."功能暂未开放，"..level.."级开放")
+		return
+	end
+
+	showPanelPage(sender:getTag())
+end
+
+local btnGwArrs = {
+	"btnJump",
+	"btnGwUp"
+}
+local btnGyArrs = {
+	"btnDH",
+	"btnGetRy",
+	"btnUp",
+	"btnDown"
+}
+local tableShop = {
+	{
+		id = 25010001,
+		name = "攻击宝石",
+		vcoin = 100
+	},
+	{
+		id = 25020001,
+		name = "物防宝石",
+		vcoin = 100
+	},
+	{
+		id = 25030001,
+		name = "魔防宝石",
+		vcoin = 100
+	},
+	{
+		id = 25040001,
+		name = "生命宝石",
+		vcoin = 100
+	},
+	{
+		id = 25050001,
+		name = "魔法宝石",
+		vcoin = 100
+	}
+}
+local gemConf = {
+	{
+		offSet = Const.GEM_ATTACK_OFFSET_POSITION,
+		gemType = Const.GEM_TYPE_ATTACK
+	},
+	{
+		offSet = Const.GEM_HP_OFFSET_POSITION,
+		gemType = Const.GEM_TYPE_HP
+	},
+	{
+		offSet = Const.GEM_MP_OFFSET_POSITION,
+		gemType = Const.GEM_TYPE_MP
+	},
+	{
+		offSet = Const.GEM_AC_OFFSET_POSITION,
+		gemType = Const.GEM_TYPE_AC
+	},
+	{
+		offSet = Const.GEM_MAC_OFFSET_POSITION,
+		gemType = Const.GEM_TYPE_MAC
+	},
+	{
+		offSet = Const.GEM_SPECIAL_OFFSET_POSITION,
+		gemType = {
+			Const.GEM_TYPE_HOLY,
+			Const.GEM_TYPE_CRI_PROB,
+			Const.GEM_TYPE_CRI
+		}
+	}
+}
+--对应部位需要的嫦娥重数
+local openNeed = {}
+local nSLevel = 0--嫦娥重数
+local noShowTip=false
+local gemDespTable = {
+	[1.0] = "<font color=#E7BA52 size=18>宝石总属性：</font>"
+}
+
+	--显隐人物内观
+function PanelAvatar.showInnerLooks(isVisible)
+	local img_role = var.xmlRolePanel:getChildByName("img_role")
+	local img_wing = var.xmlRolePanel:getChildByName("img_wing")
+	local img_weapon = var.xmlRolePanel:getChildByName("img_weapon")
+	local img_hair = var.xmlRolePanel:getChildByName("img_hair")
+	
+	img_role:setVisible(isVisible)
+	img_wing:setVisible(isVisible)
+	img_weapon:setVisible(isVisible)
+	img_hair:setVisible(isVisible)
+end
+
+function PanelAvatar.updateInnerLooks()
+		local img_role = var.xmlRolePanel:getChildByName("img_role")
+		local img_wing = var.xmlRolePanel:getChildByName("img_wing")
+		local img_weapon = var.xmlRolePanel:getChildByName("img_weapon")
+		local img_hair = var.xmlRolePanel:getChildByName("img_hair")
+		local img_shield = var.xmlRolePanel:getChildByName("img_shield")
+
+			--设置翅膀内观
+	if not img_wing then
+		img_wing = cc.Sprite:create()
+		img_wing:addTo(var.xmlRolePanel):align(display.CENTER, 220, 220):setName("img_wing"):setScale(0.75)
+	end
+	
+	--设置翅膀内观
+	local wing = NetClient:getItemDefByPos(Const.ITEM_FASHION_WING_POSITION)
+	if wing then
+		wing = MainRole._mainAvatar:NetAttr(Const.net_fabao) - 19000
+	else
+		wing = MainRole._mainAvatar:NetAttr(Const.net_fabao) - 20001
+	end
+
+	if wing then
+	--print(wing)
+		if wing ~= img_wing.curwingId then
+			local imgWingEffect = img_wing:getChildByName("wingEffect")
+			if not imgWingEffect then
+				util.addEffect(img_wing, "wingEffect", GROUP_TYPE.WING, wing, {x=0, y=0}, nil, true)
+				img_wing.curwingId = wing
+			else
+				util.updateEffect(img_wing, "wingEffect", wing, GROUP_TYPE.WING)
+			end
+		end
+	end
+
+	--设置衣服内观
+	if not img_role then
+		img_role = cc.Sprite:create()
+		img_role:addTo(var.xmlRolePanel):align(display.CENTER, 215, 230):setName("img_role")
+	end
+	local clothDef,clothId
+	local isFashion = false
+	-- if  NetClient:getNetItem(Const.ITEM_MOUNT_POSITION) then 
+		-- NetClient:alertLocalMsg("【骑战模式】无法更改时装内观")
+		-- clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+		-- else
+		-- clothDef=  NetClient:getItemDefByPos(Const.ITEM_FASHION_CLOTH_POSITION)
+		
+	-- end
+	
+	-- clothDef = NetClient:getItemDefByPos(Const.ITEM_FASHION_CLOTH_POSITION)
+	-- if clothDef then
+		-- clothId = clothDef.mIconID
+		-- isFashion = true
+	-- else
+		clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+		if clothDef then
+			clothId = clothDef.mIconID
+		end
+	-- end
+
+	if not clothId then
+		local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+		local luoti= gender==200 and  11100002 or 11100002
+		clothId = luoti
+	end
+
+	if clothId~=img_role.curClothId then
+		local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashion" or "cloth",clothId)
+		asyncload_callback(filepath, img_role, function(filepath, texture)
+			img_role:setTexture(filepath)
+		end)
+		img_role.curClothId = clothId
+	end
+
+	--设置武器内观
+	if not img_weapon then
+		img_weapon = cc.Sprite:create()
+		img_weapon:addTo(var.xmlRolePanel):align(display.CENTER, 215, 230):setName("img_weapon")
+	end
+	local weaponDef, weaponId
+	local isFashion = false
+
+	weaponDef = NetClient:getItemDefByPos(Const.ITEM_FASHION_WEAPON_POSITION)
+	if weaponDef then
+		weaponId = weaponDef.mIconID
+		isFashion = true
+	else
+		weaponDef = NetClient:getItemDefByPos(Const.ITEM_WEAPON_POSITION)
+		if weaponDef then
+			isFashion = false
+			weaponId = weaponDef.mIconID
+		end
+	end
+
+	if weaponId then
+		if weaponId ~= img_weapon.curWeaponId then
+			local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashionweapon" or "weapon", weaponId)
+			-- print(filepath)
+			asyncload_callback(filepath, img_weapon, function(filepath, texture)
+				img_weapon:setTexture(filepath)
+			end)
+			img_weapon.curWeaponId = weaponId
+		end
+	else
+		img_weapon:setSpriteFrame("null")
+		img_weapon.curWeaponId = nil
+	end
+
+	--设置斗笠内观
+	if not img_hair then
+		img_hair = cc.Sprite:create()
+		img_hair:addTo(var.xmlRolePanel):align(display.CENTER, 215, 230):setName("img_hair")
+	end
+	local hairDef, hairId
+	local isFashion = false
+
+	hairDef = NetClient:getItemDefByPos(Const.ITEM_BAMBOOHAT_POSITION)
+	if hairDef then
+		hairId = hairDef.mIconID
+	end
+
+	if hairId then
+		if hairId ~= img_hair.curHairId then
+			local filepath = string.format("vipassana/hair/%d.png", hairId)
+			asyncload_callback(filepath, img_hair, function(filepath, texture)
+				img_hair:setTexture(filepath)
+			end)
+			img_hair.curHairId = hairId
+		end
+	else
+		img_hair:setSpriteFrame("null")
+		img_hair.curHairId = nil
+	end
+
+	--设置盾牌
+			-- weaponDef = NetClient:getItemDefByPos(Const.ITEM_WEAPON_POSITION)
+		-- if weaponDef then
+			-- isFashion = false
+			-- weaponId = weaponDef.mIconID
+		-- end
+
+	if not img_shield then
+		img_shield = cc.Sprite:create()
+		img_shield:addTo(var.xmlRolePanel):align(display.CENTER, 300, 230):setName("img_shield"):setScale(0.75)
+	end
+
+	local shieldDef = NetClient:getItemDefByPos(Const.ITEM_SHIELDD_POSITION)
+	if shieldDef then
+		shieldId = shieldDef.mIconID-1
+
+	end
+	
+	if shieldId then
+	--print("守护"..shieldId)
+		if shieldId ~= img_shield.curShieldId then
+			local imgShieldEffect = img_shield:getChildByName("shieldEffect")
+			if not imgShieldEffect then
+				util.addEffect(img_shield, "shieldEffect", GROUP_TYPE.WING, shieldId, {x=0, y=0}, nil, true)
+				img_shield.curShieldId = shieldId
+			else
+				util.updateEffect(img_shield, "shieldEffect", shieldId, GROUP_TYPE.WING)
+			end
+		end
+	end
+		-- if not img_shield then
+		-- img_shield = cc.Sprite:create()
+		-- img_shield:addTo(var.xmlRolePanel):align(display.CENTER, 300, 230):setName("img_shield")
+	-- end
+	
+	
+	-- local wing = NetClient:getItemDefByPos(Const.ITEM_FASHION_WING_POSITION)
+	-- if wing then
+		-- wing = MainRole._mainAvatar:NetAttr(Const.net_wing)
+	-- else
+		-- wing = MainRole._mainAvatar:NetAttr(Const.net_wing)
+	-- end
+
+	-- if wing then
+	-- print(wing)
+		-- if wing ~= img_shield.curwingId then
+			-- local imgWingEffect = img_shield:getChildByName("shieldEffect")
+			-- if not imgWingEffect then
+				-- util.addEffect(img_shield, "shieldEffect", GROUP_TYPE.WING, wing, {x=0, y=0}, nil, true)
+				-- img_shield.curwingId = wing
+			-- else
+				-- util.updateEffect(img_shield, "shieldEffect", wing, GROUP_TYPE.WING)
+			-- end
+		-- end
+	-- end
+end
+
+function PanelAvatar.updateEquips()
+			local idx = 0			--记录当前索引值
+	for i = 1, #equip_info do
+		local isXZ = false
+		idx = i
+		local equip_block = var.xmlRolePanel:getWidgetByName("equip_"..idx)
+		if not equip_block then
+			idx = idx - 42 + 1
+			equip_block = var.xmlRolePanel:getWidgetByName("xz_"..idx)
+			isXZ = true
+		end
+		
+		if equip_block then
+			equip_block.etype = equip_info[i].etype
+			local tTitle = nil
+			if isXZ == true then
+				tTitle	= Const.XzDesc[idx]
+			end
+			--print("idx: ",idx, equip_info[i].pos)
+			local param = {
+				parent			= equip_block,
+				pos				= equip_info[i].pos,--左边的装备tips显示在右边，反之亦然
+				tipsPos			= cc.p(display.cx-var.xmlRolePanel:getContentSize().width/2+(i<=5 and 290 or 0), display.cy-var.xmlRolePanel:getContentSize().height/2),
+				tipsAnchor		= cc.p(0,0),
+				title 			= tTitle,
+				mShowEquipFlag  = true,
+				tipsType = not equip_info[i].noTipsBtn and Const.TIPS_TYPE.GENERAL or nil,
+			}
+
+			if equip_info[i].effectid then
+				param.effectId = equip_info[i].effectid
+				local effectSprite = UIItem.getItem(param):setScale(equip_info[i].scale):getChildByName("iconSprite")
+				if effectSprite then
+					effectSprite:setPositionX(equip_info[i].p.x)
+					effectSprite:setPositionY(equip_info[i].p.y)
+				end
+			else
+				UIItem.getItem(param)
+			end
+		end
+	end
+end
+
+function PanelAvatar.getDepotAll()
+	local textInfo="无可提取物品！"
+	--全部取出
+	local left_packnum = NetClient:getLeftBagNum()
+	if left_packnum > 0 then
+		local index = 0
+		for i=0, Const.ITEM_DEPOT_SIZE - 1 do
+			local netItem = NetClient:getNetItem(1000+i)
+			if netItem then
+				NetClient:UndressItem(1000+i)
+				index = index + 1
+			end
+			if index >= left_packnum then
+				NetClient:alertLocalMsg("已成功提取"..index.."个，背包已满无法继续提取！","alert")
+				return
+			else
+				if index == 0 then
+					textInfo = "仓库内没有物品可以提取！"
+				else
+					textInfo = "已成功提取仓库内所有物品！"
+				end
+			end
+		end
+	else
+		textInfo = "背包已满无法提取！"
+	end
+	if textInfo then
+		NetClient:alertLocalMsg(textInfo,"alert")
+	end
+end
+	
+function PanelAvatar.lookDiamondInfo(sender, eventType)
+	if eventType == ccui.TouchEventType.began then
+		local mParam = {
+		name = Notify.EVENT_PANEL_ON_ALERT,
+		panel = "InfoTips",
+		visible = true,
+		}
+		NetClient:dispatchEvent(mParam)
+	elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled then
+		LayerAlert.handleAlertClose()
+	end
+end
+
+function PanelAvatar.initView(extend)
+		var = {
+			boxTab,
+			xmlPanel,
+			xmlPageGem,
+			xmlPageRole,
+			xmlPageBag,
+			xmlPageOfficial,
+			xmlPageReborn,
+			xmlPageFashion,
+			xmlPageInnerPower,
+			xmlRolePanel,
+			xmlKnapsackPanel,
+			xmlRecylePanel,
+			bagSize,
+			powerNum,
+			curClothId,
+			curWeaponId,
+			curPageName,
+			barHp,
+			barMp,
+			barPower,
+			zsLevel,
+			fightNum,
+			imgEquipSelected,
+			curEquipIndex,
+			mSelectedEquip,
+			mShowMainEquips,
+			isDepotPanelOpen = false,
+			curFashionListIndex = 1,
+			recyleItems = {},
+			shopData = {},
+			fashion_data = {},
+			fashion_preview = {},
+			fashion_list_cells = {},
+			xmlPanel = UILuaLoader.load("uilayout/PanelAvatar.uif")
+		}
+
+		if var.xmlPanel then
+			var.xmlRolePanel = var.xmlPanel:getWidgetByName("roleLayout")
+			local boxMainEquips = var.xmlRolePanel:getWidgetByName("box_main_equips")
+			local boxViceEquips = var.xmlRolePanel:getWidgetByName("box_vice_equips")
+			local boxXZEquips = var.xmlRolePanel:getWidgetByName("box_xz_equips")
+			local boxLbEquips = var.xmlRolePanel:getWidgetByName("box_lb_equips")
+			local boxCsEquips = var.xmlRolePanel:getWidgetByName("box_cs_equips")
+			local ts_panel = var.xmlRolePanel:getWidgetByName("ts_panel")
+
+			function updateBoxEquips()
+				var.xmlRolePanel:getWidgetByName("btn_switch_equips"):loadTextureNormal(var.mShowMainEquips and "btn_role_fu" or "btn_role_zhu", ccui.TextureResType.plistType)
+				var.xmlRolePanel:getWidgetByName("box_role"):setLocalZOrder(4)
+
+				if var.mShowMainEquips then
+					boxMainEquips:show()
+					ts_panel:hide()
+					boxViceEquips:hide()
+					boxXZEquips:hide()
+					boxLbEquips:hide()
+					boxCsEquips:hide()
+					PanelAvatar.showInnerLooks(true)
+				else
+					ts_panel:show()
+					boxMainEquips:hide()
+					boxViceEquips:show()
+				end
+			end
+
+			asyncload_callback("needload/bg_max2.png", var.xmlPanel:getWidgetByName("bg_wai"), function (filepath, texture)
+				var.xmlPanel:getWidgetByName("bg_wai"):loadTexture(filepath)
+			end)
+			
+			asyncload_callback("effect/3166200_wu.png", var.xmlPanel:getWidgetByName("Image_2_22"), function (filepath, texture)
+				var.xmlPanel:getWidgetByName("Image_2_22"):loadTexture(filepath)
+			end)
+			-- asyncload_callback("fonts/spering14.png", var.xmlPanel:getWidgetByName("Image_2_23"), function (filepath, texture)
+				-- var.xmlPanel:getWidgetByName("Image_2_23"):loadTexture(filepath)
+			-- end)
+			-- asyncload_callback("map/v520_r4_c7.png", var.xmlPanel:getWidgetByName("Image_2_24"), function (filepath, texture)
+				-- var.xmlPanel:getWidgetByName("Image_2_24"):loadTexture(filepath)
+			-- end)
+
+			var.boxTab = var.xmlPanel:getWidgetByName("box_tab")
+
+			var.boxTab:setTabRes("tab2_nor", "tab2_sel", ccui.TextureResType.plistType)
+			var.boxTab:getParent():setLocalZOrder(10)
+			var.boxTab:setItemMargin(10)
+			var.boxTab:addTabEventListener(pushTabButtons)
+			util.asyncload(var.xmlPanel, "page_role_bg", "needload/PanelAvatar/img_ditu2.png")
+			util.asyncload(var.xmlPanel, "box_xz_equips", "needload/PanelAvatar/img_ditu7.png")
+			util.asyncload(var.xmlPanel, "box_lb_equips", "needload/PanelAvatar/img_ditu8.png")
+			util.asyncload(var.xmlPanel, "box_cs_equips", "needload/PanelAvatar/img_ditu10.png")
+
+			var.xmlKnapsackPanel = var.xmlPanel:getWidgetByName("knapsack_bg")
+			var.xmlRecylePanel = var.xmlPanel:getWidgetByName("recylebg")
+			local equipPage = var.xmlPanel:getWidgetByName("box_role"):show()
+
+			var.xmlRolePanel:getWidgetByName("sq_look"):addClickEventListener(function ()
+				if not boxViceEquips:isVisible() then
+					boxMainEquips:hide()
+					boxXZEquips:hide()
+					boxLbEquips:hide()
+					boxCsEquips:hide()
+					boxViceEquips:show()
+					PanelAvatar.showInnerLooks(true)
+				end
+			end)
+			var.xmlRolePanel:getWidgetByName("xz_look"):addClickEventListener(function ()
+				if not boxXZEquips:isVisible() then
+					boxMainEquips:hide()
+					boxViceEquips:hide()
+					boxLbEquips:hide()
+					boxCsEquips:hide()
+					boxXZEquips:show()
+					PanelAvatar.showInnerLooks(false)
+				end
+			end)
+			var.xmlRolePanel:getWidgetByName("lb_look"):addClickEventListener(function ()
+				if not boxLbEquips:isVisible() then
+					boxMainEquips:hide()
+					boxXZEquips:hide()
+					boxViceEquips:hide()
+					boxCsEquips:hide()
+					boxLbEquips:show()
+					PanelAvatar.showInnerLooks(false)
+				end
+			end)
+			var.xmlRolePanel:getWidgetByName("cs_look"):addClickEventListener(function ()
+				if not boxCsEquips:isVisible() then
+					boxMainEquips:hide()
+					boxXZEquips:hide()
+					boxViceEquips:hide()
+					boxLbEquips:hide()
+					boxCsEquips:show()
+					PanelAvatar.showInnerLooks(false)
+				end
+			end)
+			var.xmlRolePanel:getWidgetByName("btn_switch_equips"):setPressedActionEnabled(true):addClickEventListener(function (sender)
+				var.mShowMainEquips = not var.mShowMainEquips
+
+				updateBoxEquips()
+			end)
+
+			var.mShowMainEquips = true
+
+		local function suitAttrLook(info)
+			local mParam = {
+			name = Notify.EVENT_PANEL_ON_ALERT,
+			panel = "SuitTips",
+			infoTable = info,
+			visible = true,
+			}
+			NetClient:dispatchEvent(mParam)
+		end
+
+		--套装属性查看
+		for i = 1, 3 do
+			local suitBtn = var.xmlRolePanel:getWidgetByName("suitBtn_"..i):setTag(i):addTouchEventListener(function(sender, touchType)
+				local info = {}
+				if touchType == ccui.TouchEventType.began then
+					info.tag = i
+					info.equipGroup = NetClient.mCharacter.equipGroup
+					if info.equipGroup == "" then
+						NetClient:alertLocalMsg("当前未穿戴任何套装！")
+						return
+					end
+					info.job = MainRole._mainAvatar:NetAttr(Const.net_job)
+					info.gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+					info.otherPlayer = false
+					suitAttrLook(info)
+				elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+					LayerAlert.handleAlertClose()
+					end	
+				end)
+			end
+
+		PanelAvatar.updateInnerLooks()
+		PanelAvatar.updateEquips()
+
+		updateBoxEquips()
+		-- 初始化仓库相关信息
+		--按钮调用函数
+		local function pushDepotButton(sender)
+			local btnName = sender:getName()
+			if btnName == "btnSort" then	--整理 1整理仓库 0背包
+				NetClient:SortItem(1)
+			elseif btnName == "btnGetAll" then
+				PanelAvatar.getDepotAll()
+			end
+		end
+
+		UIRedPoint.addUIPoint(var.xmlKnapsackPanel:getWidgetByName("btnSort"), pushDepotButton)
+		UIRedPoint.addUIPoint(var.xmlKnapsackPanel:getWidgetByName("btnGetAll"), pushDepotButton)
+		
+		-- var.boxTab:setSelectedTab(1)
+		local opened = NetClient:checkFuncOpenedByID(10015)
+		if not opened then
+			var.boxTab:hideTab(table.keyof(pageKeys,"gem"))
+		end
+
+			local guild_name = MainRole._mainAvatar:NetAttr(Const.net_guild_name)
+			if not guild_name or guild_name == "" then
+				guild_name = "暂无行会"
+			end
+
+			var.xmlRolePanel:getWidgetByName("lbl_guild_name"):setString(MainRole._mainAvatar:NetAttr(Const.net_guild_name))
+			var.xmlRolePanel:getWidgetByName("lbl_role_name"):setString(MainRole._mainAvatar:NetAttr(Const.net_name))
+			var.xmlRolePanel:getWidgetByName("img_Job"):loadTexture(({
+				"img_role_zhan",
+				"img_role_fa",
+				"img_role_dao"
+			})[MainRole._mainAvatar:NetAttr(Const.net_job) - 99], ccui.TextureResType.plistType)
+			cc.EventProxy.new(NetClient, var.xmlPanel):addEventListener(Notify.EVENT_AVATAR_CHANGE, PanelAvatar.updateInnerLooks):addEventListener(Notify.EVENT_INNERPOWER_CHANGE, PanelAvatar.updateInnerPower)
+
+			return var.xmlPanel
+		end
+	end
+	
+function PanelAvatar.getEquipTableWithoutAdded()
+	local selectIdx = {}
+	var.recyleItems = {}
+	for k, v in pairs(recyleConfig) do
+		if UserConfig.getConf(v.con) then
+			table.insert(selectIdx, v)
+		end
+	end
+
+	for i=0,(Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd) do
+		local nItem = NetClient:getNetItem(i)
+		if nItem then
+			local itemDef = NetClient:getItemDefByID(nItem.mTypeID)--and game.IsEquipment(nItem.mTypeID)
+			if not table.keyof(var.recyleItems, i) and itemDef.mEquipGroup > 0 and game.isEquipMent(itemDef.SubType) then
+			-- if not table.keyof(var.recyleItems, i) and itemDef.mEquipGroup > 0 and itemDef.mUserCon == 1 and game.isEquipMent(itemDef.SubType) then
+				local pinJie = tonumber(itemDef.mIconDesc)
+				local UserCon = tonumber(itemDef.mUserCon)
+				if pinJie and pinJie > 0 then
+					local isAdd = false
+					for k, v in pairs(selectIdx) do
+						if pinJie >= v.minparam and pinJie <= v.maxparam and UserCon ==v.usercon and not isAdd then --mxwx 设置recyleconfig的usercon值为特殊装备使用
+							isAdd = true
+							table.insert( var.recyleItems, #var.recyleItems+1, i)
+						end
+					end
+				end
+			end 
+	 	end
+	end
+end
+
+--计算价格
+function PanelAvatar.CalculPrice()
+	local recyleVcoinAward = var.xmlRecylePanel:getWidgetByName("recyleVcoinAward")
+	local recyleDiamondAward = var.xmlRecylePanel:getWidgetByName("recyleDiamondAward")
+	if not var.recyleItems or #var.recyleItems <= 0 then 
+		recyleVcoinAward:setVisible(false)
+		recyleDiamondAward:setVisible(false)
+		return 
+	end
+
+	local vcoin,vcoin_bind,money,money_bind = 0,0,0,0
+	for k,v in pairs(var.recyleItems) do
+		local nItem = NetClient:getNetItem(v)
+		if nItem then
+			nItem = NetClient:getItemDefByID(nItem.mTypeID)
+			vcoin = vcoin + nItem.mRecycleMoney--钻石
+			vcoin_bind = vcoin_bind + nItem.mRecycleVcionBind
+		end
+	end
+
+		if vcoin_bind > 0 then
+			recyleVcoinAward:show()
+			recyleVcoinAward:getWidgetByName("lbl_vcoin"):setString(vcoin_bind)
+			print(vcoin_bind)
+		end
+
+		if vcoin > 0 then
+			recyleDiamondAward:show()
+			recyleDiamondAward:getWidgetByName("lbl_diamond"):setString(vcoin)
+		end
+	end
+	
+function PanelAvatar.initRecyle()
+	local updateListByItem = function(subItem)
+		local recyleData = recyleConfig[subItem.tag]
+		subItem:getChildByName("name"):setString(recyleData.name)
+		local cellbg = subItem:getChildByName("cellbg"):setTouchEnabled(true)
+		cellbg.data = recyleData
+		local checkbox = subItem:getChildByName("checkbox")
+		checkbox.data = recyleData
+		checkbox:setSelected(UserConfig.getConf(recyleData.con))
+		checkbox:addClickEventListener(function(sender) 
+			UserConfig.setConf(sender.data.con, checkbox:isSelected())
+			PanelAvatar.getEquipTableWithoutAdded()
+			PanelAvatar.CalculPrice()
+			PanelAvatar.freshBagList()
+			NetClient:PushLuaTable("gui.PanelLingchong.handlePanelData", util.encode({actionid="autoCast", pinjie=sender.data.maxparam, state=checkbox:isSelected()}))
+		end)
+		cellbg:addClickEventListener(function(sender)
+			if checkbox:isSelected() then
+				checkbox:setSelected(false)
+			else
+				checkbox:setSelected(true)
+			end
+			UserConfig.setConf(sender.data.con, checkbox:isSelected())
+			PanelAvatar.getEquipTableWithoutAdded()
+			PanelAvatar.CalculPrice()
+			PanelAvatar.freshBagList()
+			local data = util.encode({actionid="autoCast", pinjie=sender.data.maxparam, state=checkbox:isSelected()})
+			NetClient:PushLuaTable("gui.PanelLingchong.handlePanelData", data)
+		end)
+	end
+		--初始化仓库列表
+	var.xmlRecylePanel:getWidgetByName("recyleList")
+		:reloadData(#recyleConfig,function (subItem)	
+			updateListByItem(subItem)
+		end
+	)
+
+	-- 默认根据上次配置检查当前可回收装备
+	PanelAvatar.getEquipTableWithoutAdded()
+	PanelAvatar.CalculPrice()
+
+	-- 一键回收
+	local btn_all_recyle1 = var.xmlRecylePanel:getWidgetByName("btn_all_recyle1")
+	btn_all_recyle1:addClickEventListener(function(sender) 
+			NetClient:PushLuaTable("item.chuansong.luaitem","zdhuishou2")
+			-- sender:setSelected(false)
+		end)
+	local btn_all_recyle = var.xmlRecylePanel:getWidgetByName("btn_all_recyle")
+	btn_all_recyle:addClickEventListener(function(sender) 
+		if var.recyleItems and #var.recyleItems > 0 then
+			local param = {
+				actionid = "huishou",
+				param = var.recyleItems,
+			}
+			local isUpgraded = false
+			for k,v in pairs(var.recyleItems) do
+				local nItem = NetClient:getNetItem(v)
+				if nItem then
+					if nItem.mLevel>0 or nItem.mZLevel>0 then
+						isUpgraded = true
+
+						break
+					end
+				end
+			end
+			if isUpgraded then
+				local mParam = {
+					name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = Const.str_has_upgraded_recycle,
+					confirmCallBack = function ()
+						var.recyleItems = {}
+						NetClient.mSortFlag = 0
+						NetClient:PushLuaTable("gui.PanelUpgrade.onPanelData", util.encode(param))
+					end
+				}
+				NetClient:dispatchEvent(mParam)
+			else
+				if #var.recyleItems > 0 then
+					local mParam = {
+						name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = "是否确认本次回收？",
+						confirmCallBack = function ()
+							var.recyleItems = {}
+							NetClient.mSortFlag = 0
+
+							NetClient:PushLuaTable("gui.PanelUpgrade.onPanelData", util.encode(param))
+						end
+					}
+					NetClient:dispatchEvent(mParam)
+				end
+			end
+		else
+			NetClient:alertLocalMsg("当前没有可回收装备！")
+		end
+	end)
+end
+
+--物品存入取出
+function PanelAvatar.showItemExchange(event, style)
+	local number = 102
+	if style == "Depot" then
+		number = Const.ITEM_DEPOT_SIZE + NetClient.mDepotSlotAdd
+	elseif style =="Bag" then
+		number = Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd
+	end
+	for i = 0, number-1 do
+		if not NetClient:getNetItem(i + itemsChangeTab[style].begin) then
+			if NetClient:getNetItem(event.pos) then
+				NetClient:ItemPositionExchange(event.pos, i + itemsChangeTab[style].begin, 100)
+				return
+			end
+		end
+	end
+	if style == "Depot" then
+		NetClient:alertLocalMsg(itemsChangeTab[style].name.."空间不足")
+	end
+end
+
+function PanelAvatar.initKnapsack()
+	local updateListByItem = function(subItem, style)
+		local index = subItem.tag -1 + itemsChangeTab[style].begin
+		local maxNum = 0
+		if style=="Depot" then 
+			maxNum=Const.ITEM_DEPOT_SIZE + NetClient.mDepotSlotAdd 
+		end
+
+		if subItem.tag > maxNum  then
+			subItem:hide()
+		else
+			subItem:show()
+			local paramBag = {
+				--物品框容器
+				parent = subItem,
+				--物品逻辑位置
+				pos = index ,
+				--传入Tips按钮名
+				titleText = itemsChangeTab[style].titleText,
+				-- iconType = itemsChangeTab[style].iconType,
+				tipsType = Const.TIPS_TYPE.DEPOT,
+				--传入Tips的位置
+				tipsPos = cc.p(display.cx*(style == "Bag" and 0.91 or 1.44), display.height*0.47),
+				--物品框点击回调
+				callBack = function ()
+					--获取物品信息
+					-- local netItem = NetClient:getNetItem(index)
+					-- if not netItem then return end
+					--调用函数进行物品存入
+					-- PanelDepot.showItemExchange({pos = index},style == "Bag" and "Depot" or "Bag")
+				end,
+				doubleCall = function ()
+					local netItem = NetClient:getNetItem(index)
+					if not netItem then return end
+					PanelAvatar.showItemExchange({pos = index}, "Bag")
+				end,
+			}
+			UIItem.getItem(paramBag)
+		end
+	end
+		--初始化仓库列表
+	var.xmlKnapsackPanel:getWidgetByName("knapList"):setSliderVisible(false)
+		:reloadData(math.ceil((Const.ITEM_DEPOT_SIZE + NetClient.mDepotSlotAdd)/5)*5,
+		function (subItem)	
+			updateListByItem(subItem,"Depot") 
+		end
+	)
+end
+
+function PanelAvatar.onPanelOpen(extend)
+	var.panelExtend = extend
+	local opened = NetClient:checkFuncOpenedByID(10015)
+	if not opened then
+		var.boxTab:hideTab(table.keyof(pageKeys,"gem"))
+	end
+
+		if extend and extend.mParam and extend.tab then
+			var.boxTab:setSelectedTab(extend.tab)
+
+			if extend.mParam == "recyle" then
+				var.xmlRolePanel:setVisible(false)
+				var.xmlKnapsackPanel:setVisible(false)
+
+				if not var.xmlRecylePanel:isVisible() then
+					var.xmlRecylePanel:setVisible(true)
+					PanelAvatar.initRecyle()
+					PanelAvatar.freshBagList()
+				end
+
+				var.isDepotPanelOpen = false
+				var.isRecylePanelOpen = true
+			end
+
+			return
+		end
+
+		if extend and extend.tab and util.isNumber(extend.tab) then
+			var.boxTab:setSelectedTab(extend.tab)
+		elseif extend and extend.index and util.isNumber(extend.index) then
+			var.boxTab:setSelectedTab(extend.index)
+		else
+			var.boxTab:setSelectedTab(1)
+		end
+	end
+	
+function PanelAvatar.onPanelClose()
+
+	end
+	
+function PanelAvatar.lookAttrDesp(desp)
+	local mParam = {
+		name = Notify.EVENT_PANEL_ON_ALERT,
+		panel = "tips",
+		infoTable = desp,
+		visible = true,
+		}
+	NetClient:dispatchEvent(mParam)	
+end
+
+function PanelAvatar.initPageRole()
+	--刷新战力
+	local function updateFightPoint()
+		var.powerNum:setString(NetClient.mCharacter.mFightPoint)
+	end
+
+	---刷新属性条
+	local function updateHpMp(event)
+		local hp = 		MainRole._mainAvatar:NetAttr(Const.net_hp) or 0
+		local maxhp = 	MainRole._mainAvatar:NetAttr(Const.net_maxhp) or 0
+		local mp =		MainRole._mainAvatar:NetAttr(Const.net_mp) or 0
+		local maxmp = 	MainRole._mainAvatar:NetAttr(Const.net_maxmp) or 0
+
+			if event then
+				var.barHp:setPercentWithAnimation(hp, maxhp)
+				var.barMp:setPercentWithAnimation(mp, maxmp)
+			else
+				local power =      MainRole._mainAvatar:NetAttr(Const.net_power) or 0
+				local maxpower =   MainRole._mainAvatar:NetAttr(Const.net_maxpower) or 0
+				var.barHp:setPercent(hp, maxhp):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+				var.barMp:setPercent(mp, maxmp):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+
+				var.barPower:setPercent(power, maxpower):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+			end
+		end
+
+		local function updateAvatarAttr()
+		local lbl_attrs = {
+			{key="lbl_dc", name="物   攻：", value = NetClient.mCharacter.mDC.." - "..NetClient.mCharacter.mMaxDC},
+			--{key="lbl_mc", name="魔攻：", value = NetClient.mCharacter.mMC.." - "..NetClient.mCharacter.mMaxMC},
+			--{key="lbl_sc", name="道功：", value = NetClient.mCharacter.mSC.." - "..NetClient.mCharacter.mMaxSC},
+			{key="lbl_ac", name="物   防：", value = NetClient.mCharacter.mAC.." - "..NetClient.mCharacter.mMaxAC},
+			{key="lbl_mac", name="魔   防：", value = NetClient.mCharacter.mMAC.." - "..NetClient.mCharacter.mMaxMAC},
+			{key="lbl_accuracy", name="准   确：", value = NetClient.mCharacter.mAccuracy},
+			{key="lbl_dodge", name="闪   避：", value = NetClient.mCharacter.mDodge},
+			{key="labSSSH",  name="神圣伤害：", value = NetClient.mCharacter.holyDam},
+			{key="lbl_crit_prob",    name="暴击概率：", value = (NetClient.mCharacter.critProb/100).."%"},
+			{key="lbl_crit_point", name="暴击伤害：", value = NetClient.mCharacter.critPoint},
+			{key="lbl_tenacity",    name="韧   性：", value = NetClient.mCharacter.tenacity},
+			{key="lbl_luck",    name="幸   运：", value = NetClient.mCharacter.mLuck},
+			{key="lbl_pkvalue",    name="PK   值：", value = MainRole._mainAvatar:NetAttr(Const.net_pkvalue)},
+			-- {key="lbl_damadd", name="内功恢复：", value = NetClient.mCharacter.powerRecover},
+			{key="lbl_damadd", name="生命恢复：", value = NetClient.mCharacter.mHpRecover},
+			-- {key="lbl_damadd", name="伤害加成：", value = (NetClient.mCharacter.addDamage / 100).."%"},
+			-- {key="lbl_damredu", name="伤害减免：", value = (NetClient.mCharacter.reduceDamage / 100).."%"},
+			-- {key="lbl_critms", name="暴击免伤：", value = NetClient.mCharacter.critms},
+			-- {key="lbl_dead", name="防爆减免：", value = (NetClient.mCharacter.reduceDeadEquip / 100).."%"},
+		}
+
+		local function updateList(item)
+			local d = lbl_attrs[item.tag];
+			if not d then return end
+			item:getWidgetByName("lbl_name"):setString(d.name)
+			item:getWidgetByName("lbl_value"):setString(d.value)
+		end
+	
+		var.listAttr:reloadData(#lbl_attrs, updateList):setSliderVisible(false)
+
+		-- local lblAttr
+		-- for i,v in ipairs(lbl_attrs) do
+		-- 	lblAttr = var.xmlPageRole:getWidgetByName(v.key)
+		-- 	-- print("updateAvatarAttr", i, v.key, lblAttr)
+		-- 	if lblAttr then
+		-- 		lblAttr:setString(v.value or 0)
+		-- 	end
+		-- end
+	end
+	
+		function updateInnerPower(event)
+			local power = MainRole._mainAvatar:NetAttr(Const.net_power) or 0
+			local maxpower = MainRole._mainAvatar:NetAttr(Const.net_maxpower) or 0
+
+			if not MainRole._mainAvatar then
+				return
+			end
+
+			if event.srcId == MainRole._mainAvatar:NetAttr(Const.net_id) then
+				var.barPower:setPercentWithAnimation(event.power, event.maxPower)
+				updateFightPoint()
+			end
+		end
+
+		var.xmlPageRole = UILuaLoader.load("uilayout/PanelAvatar_role.uif")
+
+		if var.xmlPageRole then
+			var.xmlPageRole:align(display.LEFT_BOTTOM, 35, 9):addTo(var.xmlPanel)
+
+
+			var.barHp = var.xmlPageRole:getWidgetByName("bar_hp")
+			var.barMp = var.xmlPageRole:getWidgetByName("bar_mp")
+			var.barPower = var.xmlPageRole:getWidgetByName("bar_power")
+			var.listAttr = var.xmlPageRole:getWidgetByName("listAttr")
+
+		var.xmlPageRole:getWidgetByName("downbtn"):setRotation(180)
+
+		-- 属性说明
+		var.xmlPageRole:getWidgetByName("btn_attr_desc"):addTouchEventListener(function(sender, touchType) 
+			if touchType == ccui.TouchEventType.began then
+				PanelAvatar.lookAttrDesp(attrDesp)
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				LayerAlert.handleAlertClose()
+			end
+		end)
+
+		--火特效
+		util.addEffect(var.xmlPageRole, "pointEffect", GROUP_TYPE.EFFECT, 80060):setPosition(670, 30):setScale(1.25)
+
+		var.powerNum = display.newBMFontLabel({font= "fonts/clip_zhandouli_shuzi.fnt"})
+			:addTo(var.xmlPageRole)
+			:align(display.LEFT_CENTER, 615, 40)
+			:setString(0)
+
+		updateFightPoint()
+		updateHpMp()
+		updateAvatarAttr()
+		--updateXZ()
+
+		var.xmlPageRole:getWidgetByName("upbtn"):addClickEventListener(function (sender)
+			var.listAttr:moveToNextItem()
+		end)
+		var.xmlPageRole:getWidgetByName("downbtn"):addClickEventListener(function (sender)
+			var.listAttr:moveToPreItem()
+		end)
+		-- 加强
+		-- var.xmlPageRole:getWidgetByName("btn_strength"):addClickEventListener(function( ... )
+		-- 	NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "extend_strengthen"})
+		-- end)
+		cc.EventProxy.new(NetClient, var.xmlPageRole)
+			:addEventListener(Notify.EVENT_SELF_HPMP_CHANGE, updateHpMp)
+			:addEventListener(Notify.EVENT_ATTRIBUTE_CHANGE, updateAvatarAttr)
+
+		-- local skillEff = var.xmlPageRole:getWidgetByName("imgSkill"):getChildByName("skillEff")
+		-- var.xmlPageRole:getWidgetByName("imgSkill"):setTouchEnabled(true)
+		-- var.xmlPageRole:getWidgetByName("imgSkill"):addClickEventListener(function ( ... )
+		-- 	NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_skill"})
+		-- end)
+		-- if not skillEff then
+		-- 	skillEff = cc.Sprite:create()
+		-- 	skillEff:setName("skillEff")
+		-- 	skillEff:setAnchorPoint(0.5, 0.5)
+		-- 	skillEff:setPosition(102,79)
+		-- 			:setTouchEnabled(false)
+		-- 			:addTo(var.xmlPageRole)
+		-- 			:setLocalZOrder(9)
+		-- 	var.xmlPageRole:getWidgetByName("imgSkill11"):setLocalZOrder(10)
+		-- 	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, 50016, 4, 5)
+		-- 	skillEff:runAction(cca.repeatForever(animate))
+		-- end
+		-- var.xmlPageRole:runAction(cca.seq({
+		-- 	cca.delay(0.01),
+		-- 	cca.cb(function()
+		-- 		if var.xmlPanel:getWidgetByName("tab1"):getChildByName("redPoint") then
+		-- 			var.xmlPageRole:getChildByName("red"):show()
+		-- 		end
+		-- 	end)
+		-- }))	
+	end
+end
+
+--------------------------------------背包--------------------------------------
+	
+function PanelAvatar.freshBagSize()
+		local maxNum = Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd
+		local minNum = 0
+		for i = 0, maxNum-1 do
+			if NetClient:getNetItem(i) then
+				minNum = minNum + 1
+			end
+		end
+
+		var.bagSize:setString(minNum.."/"..maxNum)
+	end
+	
+function PanelAvatar.initPageBag()
+	var.xmlPageBag = UILuaLoader.load("uilayout/PanelAvatar_bag.uif")
+	if var.xmlPageBag then
+		var.xmlPageBag:addTo(var.xmlPanel):align(display.LEFT_BOTTOM, 496, 9)
+		--打开面板后手动刷新金币状态
+		PanelAvatar.updateGameMoney()
+
+		-- 设置背包三个按钮事件
+		for k,v in pairs(bagButtons) do
+			local btnBag = var.xmlPageBag:getWidgetByName(k)
+			if btnBag then
+				if v.normalTitle ~= "" then
+					btnBag:setTitleText(v.normalTitle)
+				end
+				UIRedPoint.addUIPoint(btnBag, PanelAvatar.pushBagButton)
+			end
+			-- if event.btn == k then
+			-- 	PanelAvatar.pushBagButton(btnBag)
+			-- end
+		end
+
+		--福利钻查看
+		var.xmlPageBag:getWidgetByName("lbl1"):setTouchEnabled(true):addTouchEventListener(PanelAvatar.lookDiamondInfo)
+		var.bagSize = var.xmlPageBag:getWidgetByName("bagSize")
+
+		cc.EventProxy.new(NetClient, var.xmlPageBag)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelAvatar.updateGameMoney)
+			:addEventListener(Notify.EVENT_FRESH_ITEM_PANEL, PanelAvatar.onFreshItemPanel)
+			:addEventListener(Notify.EVENT_ITEM_CHANGE, PanelAvatar.freshBagSize)
+	end
+end
+
+function PanelAvatar.openPageBag()
+		PanelAvatar.freshBagList()
+	end
+	
+function PanelAvatar.TidyCallBack(sender)
+	sender:setTitleText(Const.str_tidy)
+	if var.xmlRecylePanel:isVisible() then
+		var.recyleItems = {}
+		PanelAvatar.getEquipTableWithoutAdded()
+		PanelAvatar.CalculPrice()
+	end
+end
+
+function PanelAvatar.pushBagButton(pSender)
+	local btnName = pSender:getName()
+	if btnName == "btnTidy" then
+		if var.recyleItems and #var.recyleItems > 0 then
+			NetClient:alertLocalMsg("当前有回收物品，无法整理！")
+			return
+		end
+		NetClient:SortItem(0)
+		pSender:stopAllActions()
+		util.setCountDown(pSender,Const.BagTidyIntrval, 1, PanelAvatar.TidyCallBack)
+	elseif btnName == "btnHuiShou" then
+		var.xmlRolePanel:setVisible(false)
+		var.xmlKnapsackPanel:setVisible(false)
+		if not var.xmlRecylePanel:isVisible() then
+			var.xmlRecylePanel:setVisible(true)
+			PanelAvatar.initRecyle()
+			PanelAvatar.freshBagList()
+		end
+		var.isDepotPanelOpen = false
+		var.isRecylePanelOpen = true
+	elseif btnName == "btnKnapsack" then
+		if var.xmlRolePanel:isVisible() then
+			var.xmlRolePanel:setVisible(false)
+		end
+		var.xmlRecylePanel:setVisible(false)
+		if not var.xmlKnapsackPanel:isVisible() then
+			var.xmlKnapsackPanel:show()
+			PanelAvatar.initKnapsack()
+			PanelAvatar.freshBagList()
+		end
+		var.isDepotPanelOpen = true
+		var.isRecylePanelOpen = false
+	elseif btnName == "img_bag" then
+		var.xmlRecylePanel:setVisible(false)
+		var.xmlKnapsackPanel:setVisible(false)
+		if not var.xmlRolePanel:isVisible() then
+			var.xmlRolePanel:show()
+			PanelAvatar.freshBagList()
+		end
+		var.isDepotPanelOpen = false
+		var.isRecylePanelOpen = false
+	end
+end
+
+function PanelAvatar.updateGameMoney()
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="lblVcoin",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	,	icon = "icon_coin"},
+			{name="lblBVcoin",	pre=Const.str_vcoinb,	value =	mainrole.mVCoinBind or 0,	icon = "icon_coin_bind"},
+			{name="lblMoney",	pre=Const.str_money,	value =	mainrole.mGameMoney or 0,	icon = "icon_money"},
+			{name="lblBMoney",	pre=Const.str_moneyb,	value =	mainrole.mGameMoneyBind or 0,	icon = "icon_money"},
+		}
+	
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			if var.curPageName == "bag" then
+				var.xmlPageBag:getWidgetByName(v.name):setString(v.value)
+			elseif var.curPageName == "official" then
+				local lblname = var.xmlPageOfficial:getWidgetByName(v.name)
+				if lblname then
+					lblname:setString(v.value)
+				end
+			elseif var.curPageName == "reborn" then
+				local lblname = var.xmlPageReborn:getWidgetByName(v.name)
+				if lblname then
+					lblname:setString(v.value)
+				end
+			-- elseif var.curPageName == "upgrade" then
+				-- local lblname = var.xmlPageUpgrade:getWidgetByName(v.name)
+				-- if lblname then
+					-- lblname:setString(v.value)
+				-- end
+			end
+		end
+	end
+	
+function PanelAvatar.updateBagListByItem(subItem)
+			local itemPos = subItem.tag -1
+	if subItem:getWidgetByName("mark") then
+		subItem:removeChildByName("mark")
+	end
+
+	--背包锁设置
+	subItem:getWidgetByName("black"):hide()
+	-- subItem:getWidgetByName("cell_no_open"):setVisible(subItem.tag>(Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd+1))
+	local tipsType = Const.TIPS_TYPE.BAG
+	local iconType = Const.ICONTYPE.BAG
+	if var.isRecylePanelOpen then
+		tipsType = Const.TIPS_TYPE.RECYLE
+		iconType = Const.ICONTYPE.RECYLE
+	else
+		tipsType = Const.TIPS_TYPE.BAG
+		iconType = Const.ICONTYPE.BAG
+	end
+
+	local select = false
+	for k,v in pairs(var.recyleItems) do
+		if itemPos == v then
+			select = true			
+		end
+	end
+
+	--给每个物品框填充内容
+	local param = {
+		parent = subItem,
+		pos = itemPos,
+		iconType = iconType,
+		tipsType = tipsType,
+		select = select,
+		tipsPos	= cc.p(270, var.xmlPanel:getContentSize().height/2),
+		tipsAnchor = cc.p(0,0.5),
+		hitTest = function(sender)
+		    return util.hitTest(var.xmlPanel:getWidgetByName("listBag"), sender);
+		end,
+		compare = true
+	}
+	if var.isRecylePanelOpen then
+		param.callBack = function(visible, pos)
+			if var.isRecylePanelOpen then
+				if visible then	--说明添加
+					for k,v in pairs(var.recyleItems) do
+						if v == pos then
+							break;
+						end
+					end
+					table.insert( var.recyleItems, #var.recyleItems + 1, pos)
+				else			--删除
+					table.removebyvalue(var.recyleItems, pos)
+				end
+				PanelAvatar.CalculPrice()
+			end
+		end
+	end
+	if(var.isDepotPanelOpen) then
+		param.doubleCall = function ()
+			if var.isDepotPanelOpen then
+				local netItem = NetClient:getNetItem(itemPos)
+				if not netItem then return end
+				PanelAvatar.showItemExchange({pos = itemPos}, "Depot")
+			end
+		end
+	end
+	UIItem.getItem(param)
+	PanelAvatar.freshBagSize()
+	end
+	
+function PanelAvatar.onFreshItemPanel(event)
+	-- print("/////////////////PanelBag.onFreshItemPanel/////////////////", event.flag)
+	if var.curPageName == "bag" and event.flag == 0 then
+		PanelAvatar.freshBagList()
+	elseif event.flag == 1 then
+		if PanelAvatar.initPageHuishou then
+			PanelAvatar.initPageHuishou()
+		end
+	end
+end
+
+function PanelAvatar.freshBagList()
+		if var.xmlPageBag:getWidgetByName("listBag") then
+			var.xmlPageBag:getWidgetByName("listBag"):reloadData(Const.ITEM_BAG_MAX, PanelAvatar.updateBagListByItem, nil, false)
+		end
+	end
+	
+--------------------------------------官职 官位------	
+function PanelAvatar.initPageOfficial()
+		var.xmlPageOfficial = UILuaLoader.load("uilayout/PanelAvatar_official.uif")
+
+		var.xmlPageOfficial:align(display.LEFT_BOTTOM, 35, 9):addTo(var.xmlPanel)
+
+		var.xmlGW = var.xmlPageOfficial:getWidgetByName("guanweiPage")
+
+		var.xmlGW:setVisible(false)
+
+		var.xmlGY = var.xmlPageOfficial:getWidgetByName("guanyinPage")
+
+		var.xmlGY:setVisible(false)
+
+		if var.xmlGW then
+			PanelAvatar.initOfficialTabs()
+			PanelAvatar.updateGameMoney()
+			var.xmlGW:getWidgetByName("curWf"):setVisible(false)
+			var.xmlGW:getWidgetByName("curMf"):setVisible(false)
+			var.xmlGW:getWidgetByName("nextWf"):setVisible(false)
+			var.xmlGW:getWidgetByName("nextMf"):setVisible(false)
+			var.xmlGW:getWidgetByName("curDesp4"):setVisible(false)
+			var.xmlGW:getWidgetByName("curDesp5"):setVisible(false)
+			var.xmlGW:getWidgetByName("nextDesp4"):setVisible(false)
+			var.xmlGW:getWidgetByName("nextDesp5"):setVisible(false)
+
+			local curContent = var.xmlGW:getWidgetByName("curContent")
+
+			curContent:getChildByName("leftbg"):setScale(0.8)
+			curContent:getChildByName("leftbg2"):setScale(0.8):setFlippedX(true)
+
+			local nextContent = var.xmlGW:getWidgetByName("nextContent")
+
+			nextContent:getChildByName("rightbg"):setScale(0.8)
+			nextContent:getChildByName("rightbg2"):setScale(0.8):setFlippedX(true)
+			var.xmlGW:getWidgetByName("jiantou_r"):setScale(0.58)
+			cc.EventProxy.new(NetClient, var.xmlPageOfficial):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, function (event)
+				if event.type ~= "PanelOfficial" then
+					return
+				end
+				
+				local data = util.decode(event.data)
+				if util.decode(event.data).cmd == "senderShopWsData" then
+					var.shopSwData = {}
+					var.shopSwData = data.data
+
+					PanelAvatar.initSwShop()
+				elseif data.cmd == "exchangeSwSucceed" then
+					PanelAvatar.updateExchangeSucceed(data)
+				elseif data.cmd == "updateGuanWei" then
+					PanelAvatar.updateGuanWeiShow(data)
+				elseif data.cmd == "updateGuanYinList" then
+					PanelAvatar.initGuanYinList(data.dataList)
+				elseif data.cmd == "updateGuanYin" then
+					var.gyData = {}
+					var.gyData = data
+					var.buffIndex = data.buffIndex
+
+					PanelAvatar.updateGuanYin(data.dataGy[data.curGyLev == 0 and 1 or data.curGyLev])
+
+					if NetClient.mNetBuff[MainRole.mID] then
+						PanelAvatar.updateGuanYinCount(NetClient.mNetBuff[MainRole.mID][data.buffId])
+					end
+				elseif data.cmd == "senderBuyHonourData" then
+					PanelAvatar.initBuyHonour(data)
+				elseif data.cmd == "showReplaceTip" then
+					PanelAvatar.showReplaceTip()
+				end
+			end):addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelAvatar.updateGameMoney)
+
+			return var.xmlPanel
+		end
+	end
+	
+function PanelAvatar.initBuyHonour(data)
+	if not var.xmlBuyHonour then
+		var.xmlBuyHonour = UILuaLoader.load("uilayout/PanelOfficial_buyHonour.uif")
+				:addTo(var.xmlGY):align(display.CENTER, 650, 270)
+				:show()
+		util.asyncload(var.xmlBuyHonour, "bg", "needload/img_kuan_bg.png")
+		local function prsBtnItem(sender)
+			var.xmlBuyHonour:hide()
+		end
+		UIRedPoint.addUIPoint(var.xmlBuyHonour:getWidgetByName("btnback"), prsBtnItem)
+		var.xmlBuyHonour:getWidgetByName("btnChongZhi"):addClickEventListener(function (sender)
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+		end)
+	else
+		var.xmlBuyHonour:show()
+	end
+	var.xmlBuyHonour:getWidgetByName("lblVcoin"):setString(data.curVcion)
+	var.xmlBuyHonour:getWidgetByName("lblBVcoin"):setString(data.curBVcion)
+
+	local listData = data.data
+	local function updateBuyHonour(item)
+		local itemData = listData[item.tag]
+		item:getWidgetByName("labName"):setString(itemData.name)
+		item:getWidgetByName("labPrice"):setString(itemData.money)
+		local awardItem=item:getWidgetByName("icon")
+		local param={parent=awardItem , typeId=itemData.id}
+		UIItem.getItem(param)
+
+		local function prsBtnItem(sender)
+			NetClient:PushLuaTable("gui.PanelOfficial.onPanelData",util.encode({actionid = "reqBuyHonour",params={index=sender.storeId}}))
+		end
+		local btnBuy = item:getWidgetByName("btnBuy")
+		btnBuy.storeId=itemData.storeId
+		UIRedPoint.addUIPoint(btnBuy , prsBtnItem)
+		UILuaLoader.attachEffect(btnBuy,"outline(0x000000,1)")
+	end
+	local listBuyHonour = var.xmlBuyHonour:getWidgetByName("listBuyHonour")
+	listBuyHonour:reloadData(#listData,updateBuyHonour):setSliderVisible(false)
+end
+	
+function PanelAvatar.showReplaceTip()
+		NetClient:dispatchEvent({
+			btnCancel = "否",
+			lblConfirm = "兑换新的官印将替换掉现有的官印，是否继续？",
+			str = "confirm",
+			btnConfirm = "是",
+			name = Notify.EVENT_SHOW_TIPS,
+			confirmCallBack = function ()
+				NetClient:PushLuaTable("gui.PanelOfficial.onPanelData", util.encode({
+					actionid = "reqShengYin",
+					params = {
+						pass = 1,
+						level = var.curSelectIdx
+					}
+				}))
+			end
+		})
+	end
+	
+function PanelAvatar.updateOfficialShop(item)
+		local itemData = var.shopSwData[item.tag]
+
+		item:getWidgetByName("labName"):setString(itemData.name)
+		item:getWidgetByName("labPrice"):setString(itemData.money)
+		UIItem.getItem({
+			parent = item:getWidgetByName("icon"),
+			typeId = itemData.id
+		})
+
+		local btnBuy = item:getWidgetByName("btnBuy")
+		btnBuy.storeId = itemData.storeId
+
+		UIRedPoint.addUIPoint(btnBuy, function (sender)
+			NetClient:PushLuaTable("gui.PanelOfficial.onPanelData", util.encode({
+				actionid = "swBuy",
+				params = {
+					index = sender.storeId
+				}
+			}))
+		end)
+		UILuaLoader.attachEffect(btnBuy, "outline(0x000000,1)")
+	end
+	
+function PanelAvatar.initSwShop()
+		var.xmlGW:getWidgetByName("listSW"):reloadData(#var.shopSwData, PanelAvatar.updateOfficialShop)
+	end
+	
+function PanelAvatar.updateExchangeSucceed(data)
+		if data.upNeedSw <= data.curSw then
+			var.xmlGW:getWidgetByName("labCurSw"):setString(data.curSw):setColor(game.getColor(11707787))
+
+			if data.curGwLev and data.curGwLev < 19 then
+				util.addHaloToButton(var.xmlGW:getWidgetByName("btnGwUp"), "btn_normal_light4")
+			end
+		else
+			var.xmlGW:getWidgetByName("labCurSw"):setString(data.curSw):setColor(game.getColor(15675136))
+			util.removeHaloFromButton(var.xmlGW:getWidgetByName("btnGwUp"))
+		end
+
+		var.xmlGW:getWidgetByName("labNeedSw"):setString(data.upNeedSw)
+	end
+	
+function PanelAvatar.updateGuanWeiShow(data)
+		PanelAvatar.updateExchangeSucceed(data.dataSw)
+		var.xmlGW:getWidgetByName("curWg"):setString(data.curData.dc .. "-" .. data.curData.dcmax)
+		var.xmlGW:getWidgetByName("curWf"):setString(data.curData.ac .. "-" .. data.curData.acmax)
+		var.xmlGW:getWidgetByName("curMf"):setString(data.curData.mac .. "-" .. data.curData.macmax)
+		-- var.xmlGW:getWidgetByName("curFL"):setString(data.curData.giveVcoin .. "元宝")
+
+		if data.curData.imgName then
+			var.xmlGW:getWidgetByName("imgCurName"):loadTexture(data.curData.imgName, ccui.TextureResType.plistType):setVisible(true):setScale(0.75)
+			var.xmlGW:getWidgetByName("labWu"):setVisible(false)
+		else
+			var.xmlGW:getWidgetByName("imgCurName"):loadTexture(data.curData.imgName, ccui.TextureResType.plistType):setVisible(false):setScale(0.75)
+			var.xmlGW:getWidgetByName("labWu"):setVisible(true)
+		end
+
+		var.xmlGW:getWidgetByName("nextWg"):setString(data.nextData.dc .. "-" .. data.nextData.dcmax)
+		var.xmlGW:getWidgetByName("nextWf"):setString(data.nextData.ac .. "-" .. data.nextData.acmax)
+		var.xmlGW:getWidgetByName("nextMf"):setString(data.nextData.mac .. "-" .. data.nextData.macmax)
+		-- var.xmlGW:getWidgetByName("nextFL"):setString(data.nextData.giveVcoin .. "元宝")
+
+		if data.nextData.imgName then
+			var.xmlGW:getWidgetByName("imgNextName"):loadTexture(data.nextData.imgName, ccui.TextureResType.plistType):setScale(0.75)
+		end
+
+		var.curSelectIdx = math.ceil(data.curGwLev / 2)
+		var.curSelectIdx = util.bound(1, var.curSelectIdx, var.curSelectIdx)
+
+		if data.curGwLev > 0 then
+			var.xmlGW:getWidgetByName("btnJump"):setTitleText(data.curGyName):setVisible(true)
+		else
+			var.xmlGW:getWidgetByName("labWu"):setVisible(true)
+			var.xmlGW:getWidgetByName("imgCurName"):setVisible(false)
+		end
+
+		var.xmlGW:getWidgetByName("nextDH"):setString(data.nextGyName)
+
+		if data.curGwLev >= 20 then
+			var.xmlGW:getWidgetByName("imgNextName"):setVisible(false)
+			var.xmlGW:getWidgetByName("labMax"):setVisible(true):setString("已满级")
+			var.xmlGW:getWidgetByName("nextWg"):setString("已满级")
+			-- var.xmlGW:getWidgetByName("nextMg"):setString("已满级")
+			-- var.xmlGW:getWidgetByName("nextDg"):setString("已满级")
+			-- var.xmlGW:getWidgetByName("nextFL"):setString("已满级")
+			-- var.xmlGW:getWidgetByName("nextDH"):setString("已满级")
+		else
+			var.xmlGW:getWidgetByName("imgNextName"):setVisible(true)
+			var.xmlGW:getWidgetByName("labMax"):setVisible(false)
+		end
+
+		if data.up then
+			cc.Sprite:create():addTo(var.xmlGW):pos(260, 360.2):runAction(cca.seq({
+				cca.rep(cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, 60015, 4), 1),
+				cca.cb(function ()
+				end),
+				cca.removeSelf()
+			}))
+		end
+	end
+	
+function PanelAvatar.initOfficialTabs()
+		var.tablistv = var.xmlPageOfficial:getWidgetByName("tablistv")
+
+		var.tablistv:addTabEventListener(function (sender)
+			if sender:getTag() == 1 then
+				PanelAvatar.initGuanWei()
+			elseif sender:getTag() == 2 then
+				PanelAvatar.initGuanYin()
+			end
+		end)
+		var.tablistv:setSelectedTab(1)
+		var.tablistv:setItemMargin(20)
+
+		-- i = "gybtnup"
+		-- v = ccui.TextureResType.plistType
+
+		var.tablistv:setTabRes("gybtndown","gybtnup",ccui.TextureResType.plistType)	
+		var.tablistv:getParent():setLocalZOrder(10)
+
+		for i, v in ipairs(btnTabName) do
+			var.tablistv:getItemByIndex(i):setName(v)
+		end
+	end
+	
+function PanelAvatar.initGwBtns()
+		for i = 1, #btnGwArrs do
+			UIRedPoint.addUIPoint(var.xmlGW:getWidgetByName(btnGwArrs[i]), function (sender)
+				if sender:getName() == "btnJump" then
+					var.tablistv:setSelectedTab(2)
+				elseif sender:getName() == "btnGwUp" then
+					NetClient:PushLuaTable("gui.PanelOfficial.onPanelData", util.encode({
+						actionid = "reqShengGuan",
+						params = {}
+					}))
+				elseif sender:getName() == "btnDhSw" then
+					NetClient:PushLuaTable("gui.PanelOfficial.onPanelData", util.encode({
+						actionid = "exchangeSw",
+						params = {}
+					}))
+				end
+			end)
+		end
+	end
+	
+function PanelAvatar.initGuanWei()
+		if var.xmlGY:isVisible() then
+			var.xmlGY:hide()
+		end
+
+		if var.xmlBuyHonour then
+			var.xmlBuyHonour:hide()
+		end
+
+		if not var.isInitGW then
+			var.xmlGW:setVisible(true)
+
+			var.isInitGW = true
+
+			PanelAvatar.initGwBtns()
+			var.xmlGW:getWidgetByName("btnDesp"):setTouchEnabled(true)
+			PanelAvatar.initDesp(var.xmlGW, "btnDesp", despGW)
+		else
+			var.xmlGW:show()
+		end
+
+		NetClient:PushLuaTable("gui.PanelOfficial.onPanelData", util.encode({
+			actionid = "reqSwData",
+			params = {}
+		}))
+
+		if var.selectGy then
+			var.selectGy:getWidgetByName("imgSelect"):setVisible(false)
+
+			var.selectGy = nil
+		end
+	end
+	
+function PanelAvatar.initDesp(xmlPanel, btnName, despTable)
+		xmlPanel:getWidgetByName(btnName):addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelAvatar.guanZhiDesp(despTable)
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				LayerAlert.handleAlertClose()
+			end
+		end)
+	end
+	
+function PanelAvatar.guanZhiDesp(despTable)
+		NetClient:dispatchEvent({
+			panel = "tips",
+			visible = true,
+			name = Notify.EVENT_PANEL_ON_ALERT,
+			infoTable = despTable
+		})
+	end
+	
+function PanelAvatar.initGuanYin()
+		if var.xmlGW:isVisible() == true then
+			var.xmlGW:hide()
+		end
+
+		if not var.isGYInit then
+			var.xmlGY:show()
+
+			var.isGYInit = true
+
+			var.xmlGY:getWidgetByName("btnDesp"):setTouchEnabled(true)
+			PanelAvatar.initDesp(var.xmlGY, "btnDesp", despGY)
+			PanelAvatar.initGyBtns()
+
+			var.richNeed = UIRichLabel.new({
+				space = 3,
+				name = "richWidget",
+				size = cc.size(300, 0)
+			})
+
+			var.richNeed:addTo(var.xmlGY):pos(141, 129):setLocalZOrder(1000)
+			var.richNeed:setRichLabel("<font color=#E5DDCA>正八品校尉正八品校尉</font><font color=#30ff00>(未完成)</font>", "PanelOfficial", 20)
+
+			var.richNeed2 = UIRichLabel.new({
+				space = 3,
+				name = "richWidget",
+				size = cc.size(300, 0)
+			})
+
+			var.richNeed2:addTo(var.xmlGY):pos(141, 86):setLocalZOrder(1000)
+			var.richNeed2:setRichLabel("<font color=#E5DDCA>20000/60000</font><font color=#30ff00>(未完成)</font>", "PanelOfficial", 20)
+			var.xmlGY:getWidgetByName("btnDown"):setRotation(180)
+			util.asyncload(var.xmlGY, "imgGY", "needload/img_wuhun_bg.png")
+		else
+			var.xmlGY:show()
+		end
+
+		NetClient:PushLuaTable("gui.PanelOfficial.onPanelData", util.encode({
+			actionid = "reqGyData",
+			params = {}
+		}))
+	end
+	
+function PanelAvatar.initGyBtns()
+		for i = 1, #btnGyArrs do
+			UIRedPoint.addUIPoint(var.xmlGY:getWidgetByName(btnGyArrs[i]), function (sender)
+				if sender:getName() == "btnDH" then
+					NetClient:PushLuaTable("gui.PanelOfficial.onPanelData", util.encode({
+						actionid = "reqShengYin",
+						params = {
+							pass = 0,
+							level = var.curSelectIdx
+						}
+					}))
+				elseif sender:getName() == "btnGetRy" then
+					if var.xmlBuyHonour and var.xmlBuyHonour:isVisible() then
+						var.xmlBuyHonour:hide()
+					else
+						NetClient:PushLuaTable("gui.PanelOfficial.onPanelData", util.encode({
+							actionid = "reqBuyHonourData",
+							params = {}
+						}))
+					end
+				elseif sender:getName() == "btnUp" then
+					var.xmlGY:getWidgetByName("listGY"):moveToNextItem()
+				elseif sender:getName() == "btnDown" then
+					var.xmlGY:getWidgetByName("listGY"):moveToPreItem()
+				end
+			end)
+		end
+	end
+	
+function PanelAvatar.initGuanYinList(data)
+	local function prsBtnClick(sender)
+		var.curSelectIdx = sender.tag
+		if var.gyData and var.gyData.dataGy and var.gyData.dataGy[sender.tag] then
+			PanelAvatar.updateGuanYin(var.gyData.dataGy[sender.tag])
+		end
+		if var.selectGy then
+			var.selectGy:getWidgetByName("imgSelect"):setVisible(false)
+		end
+		sender:getWidgetByName("imgSelect"):setVisible(true)
+		var.selectGy=sender
+		if sender.tag==var.buffIndex then
+			var.xmlGY:getWidgetByName("labBuffDesp"):setVisible(true)
+			var.xmlGY:getWidgetByName("labBuffTime"):setVisible(true)
+		else
+			var.xmlGY:getWidgetByName("labBuffDesp"):setVisible(false)
+			var.xmlGY:getWidgetByName("labBuffTime"):setVisible(false)
+		end
+	end
+
+	local function updateList(item)
+		item:setTouchEnabled(true)
+		UIRedPoint.addUIPoint(item,prsBtnClick)
+		if item.tag == var.curSelectIdx then
+			prsBtnClick(item)
+		end
+		item:getWidgetByName("icon"):loadTexture(tostring(item.tag),ccui.TextureResType.plistType)
+		item:getWidgetByName("imgSelect"):setVisible(var.curSelectIdx==item.tag)
+	end
+
+	local listGY = var.xmlGY:getWidgetByName("listGY")
+	listGY:reloadData(#data,updateList):setSliderVisible(false)
+	var.dataCount = math.ceil(#data/9)
+	listGY:autoMoveToIndex(var.curSelectIdx)
+end
+	
+function PanelAvatar.updateGuanYin(data)
+		if not data then
+			return
+		end
+
+		PanelAvatar.successAnimate(data.effectid)
+		var.xmlGY:getWidgetByName("labName"):setString(data.name)
+		var.xmlGY:getWidgetByName("labDesp"):setString("对BOSS增伤:" .. data.addAct / 100 .. "%")
+		var.xmlGY:getWidgetByName("labJie"):setString("")
+
+		local num = math.ceil(data.gwLevel / 2)
+
+		if data.needRy <= var.gyData.curRy then
+			var.richNeed2:setRichLabel("<font color=#E5DDCA>" .. var.gyData.curRy .. "/" .. data.needRy .. "</font>" .. "<font color=#30ff00>(已达成)</font>", "PanelOfficial", 20)
+		else
+			var.richNeed2:setRichLabel("<font color=#FF3E3E>" .. var.gyData.curRy .. "</font>" .. "<font color=#E5DDCA>/" .. data.needRy .. "</font>" .. "<font color=#FF3E3E>(未达成)</font>", "PanelOfficial", 20)
+		end
+
+		if data.gwLevel <= var.gyData.curGwLev then
+			var.richNeed:setRichLabel("<font color=#E5DDCA>" .. data.gwName .. "</font>" .. "<font color=#30ff00>(已达成)</font>", "PanelOfficial", 20)
+		else
+			var.richNeed:setRichLabel("<font color=#E5DDCA>" .. data.gwName .. "</font>" .. "<font color=#FF3E3E>(未达成)</font>", "PanelOfficial", 20)
+		end
+
+		if var.curSelectIdx and var.curSelectIdx == var.buffIndex then
+			var.xmlGY:getWidgetByName("labBuffDesp"):setVisible(true)
+			var.xmlGY:getWidgetByName("labBuffTime"):setVisible(true)
+		else
+			var.xmlGY:getWidgetByName("labBuffDesp"):setVisible(false)
+			var.xmlGY:getWidgetByName("labBuffTime"):setVisible(false)
+		end
+	end
+	
+function PanelAvatar.successAnimate(id)
+		if id == "" then
+			return
+		end
+
+		if not var.fireworks then
+			var.fireworks = cc.Sprite:create():addTo(var.xmlGY):pos(0, 0)
+		end
+
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,id,4,4)
+		if cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, id, 4, 4) then
+			var.fireworks:pos(390, 210)
+			var.fireworks:stopAllActions()
+			var.fireworks:runAction(cca.seq({
+				cca.rep(animate, 10000),
+				cca.removeSelf()
+			}))
+		end
+	end
+	
+function PanelAvatar.updateGuanYinCount(buffData)
+	if not buffData then
+		var.xmlGY:getWidgetByName("labBuffDesp"):setVisible(false)
+		var.xmlGY:getWidgetByName("labBuffTime"):setVisible(false)
+		return
+	end
+	local time = buffData.timeRemain-(os.time()-buffData.starttime)
+	local labTime=var.xmlGY:getWidgetByName("labBuffTime")
+	if time>0 then
+		labTime:stopAllActions()
+		labTime:setString(util.setTimeFormat(time*1000,8))
+		labTime:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+			time = time-1
+			if time > 0 then
+				labTime:setString(util.setTimeFormat(time*1000,8))
+			else
+				labTime:stopAllActions()
+			end
+		end)})))
+	else
+
+	end
+end
+	
+--------------------------------------转生--------------------------------------
+function PanelAvatar.openPageReborn()
+	NetClient:PushLuaTable("gui.PanelZhuanSheng.handlePanelData",util.encode({actionid = "reqZsData",params={}}))
+end
+function PanelAvatar.initPageReborn()
+	--刷新转生属性
+	local function updateRebornAttr(data)
+		-- print("//////////////updateRebornAttr////////////////", data)
+		local btnUp = var.xmlPageReborn:getWidgetByName("btn_reborn")
+		if not data then return end
+		local lblCostExp = var.xmlPageReborn:getWidgetByName("lbl_cost_exp"):setString(data.ownExp.."/"..data.needExp)
+		if data.ownExp >= data.needExp then
+			lblCostExp:setColor(game.getColor(0xB2A58B))
+			util.addHaloToButton(btnUp, "btn_normal_light4")
+		else
+			lblCostExp:setColor(game.getColor(0xEF2F00))
+			util.removeHaloFromButton(btnUp)
+		end
+		-- var.xmlPageReborn:getWidgetByName("lbl_cur_level"):setString(data.level)
+		-- var.xmlPageReborn:getWidgetByName("lbl_next_level"):setString(data.level-1)
+		-- var.xmlPageReborn:getWidgetByName("lbl_get_exp"):setString(data.exchangeExp)
+		-- var.xmlPageReborn:getWidgetByName("lbl_need_money"):setString(data.needMoney)
+		-- var.xmlPageReborn:getWidgetByName("lbl_times_remain"):setString(data.yuTimes)
+
+		var.xmlPageReborn:getWidgetByName("lbl_cur_dc"):setString(data.curData.dc.."-"..data.curData.dcmax)
+		var.xmlPageReborn:getWidgetByName("lbl_cur_ac"):setString(data.curData.ac.."-"..data.curData.acmax)
+		-- var.xmlPageReborn:getWidgetByName("lbl_cur_sc"):setString(data.curData.sc.."-"..data.curData.scmax)
+		-- var.xmlPageReborn:getWidgetByName("lbl_cur_mc"):setString(data.curData.mc.."-"..data.curData.mcmax)
+		var.xmlPageReborn:getWidgetByName("lbl_cur_mac"):setString(data.curData.mac.."-"..data.curData.macmax)
+
+
+		var.xmlPageReborn:getWidgetByName("lbl_next_dc"):setString(data.nextData.dc.."-"..data.nextData.dcmax)
+		var.xmlPageReborn:getWidgetByName("lbl_next_ac"):setString(data.nextData.ac.."-"..data.nextData.acmax)
+		-- var.xmlPageReborn:getWidgetByName("lbl_next_sc"):setString(data.nextData.sc.."-"..data.nextData.scmax)
+		-- var.xmlPageReborn:getWidgetByName("lbl_next_mc"):setString(data.nextData.mc.."-"..data.nextData.mcmax)
+		var.xmlPageReborn:getWidgetByName("lbl_next_mac"):setString(data.nextData.mac.."-"..data.nextData.macmax)
+
+		local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+		if  job== Const.JOB_ZS then
+			var.xmlPageReborn:getWidgetByName("lbl_cur_maxhp"):setString(data.curData.zHp)
+			var.xmlPageReborn:getWidgetByName("lbl_next_maxhp"):setString(data.nextData.zHp)
+		elseif job== Const.JOB_FS then
+			var.xmlPageReborn:getWidgetByName("lbl_cur_maxhp"):setString(data.curData.fHp)
+			var.xmlPageReborn:getWidgetByName("lbl_next_maxhp"):setString(data.nextData.fHp)
+		else
+			var.xmlPageReborn:getWidgetByName("lbl_cur_maxhp"):setString(data.curData.dHp)
+			var.xmlPageReborn:getWidgetByName("lbl_next_maxhp"):setString(data.nextData.dHp)
+		end
+
+		var.zsLevel:setString(data.curLevel)
+
+		if data.up then
+		--刷新动画对象
+			local fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(300, 390)
+			local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,50015,4)
+			-- print(animate:getAnimation():setDelayPerUnit(36/40))
+			fireworks:runAction(cca.seq({
+				cca.rep(animate, 1),
+				cca.cb(function ()
+					
+				end),
+				cca.removeSelf()
+			}))
+		end
+	end
+	--刷新转生商店
+	local function updateRebornShop()
+		local function pushBuyButton(sender)
+			NetClient:PushLuaTable("gui.PanelZhuanSheng.handlePanelData", util.encode({actionid = "danBuy", params={index=sender.storeId}}))
+		end
+
+		local function updateShop(item)
+			local itemData = var.shopData[item.tag]
+	
+			item:getWidgetByName("lbl_name"):setString(itemData.name)
+			item:getWidgetByName("lbl_price"):setString(itemData.money)
+			local awardItem=item:getWidgetByName("icon")
+			local param={parent=awardItem , typeId=itemData.id}
+			UIItem.getItem(param)
+
+			local btnBuy = item:getWidgetByName("btn_buy")
+			btnBuy.storeId=itemData.storeId
+			UIRedPoint.addUIPoint(btnBuy , pushBuyButton)
+			UILuaLoader.attachEffect(btnBuy,"outline(0e0600,1)")
+
+			if itemData.MoneyKind == 103 then
+				item:getWidgetByName("img_vcoin_flag"):loadTexture("vcoin_bind", ccui.TextureResType.plistType)
+			else
+				item:getWidgetByName("img_vcoin_flag"):loadTexture("vcoin", ccui.TextureResType.plistType)
+			end
+		end
+		local listBuy = var.xmlPageReborn:getWidgetByName("list_buy")
+		listBuy:reloadData(#var.shopData, updateShop)
+	end
+
+	local function onPanelData(event)
+		if event.type == "PanelZhuanSheng" then
+			local data = util.decode(event.data)
+			if data.cmd =="senderShopData" then
+				var.shopData={}
+				var.shopData = data.data
+				updateRebornShop()
+			elseif data.cmd=="updateZhuanSheng" then
+				updateRebornAttr(data)
+			end
+		end
+	end
+
+	local function initRebornButtons()
+		local rebornButtons = {"btn_reborn","btn_convert"}
+		local function pushRebornButtons(sender)
+			local senderName = sender:getName()
+			if senderName=="btn_reborn" then
+				NetClient:PushLuaTable("gui.PanelZhuanSheng.handlePanelData",util.encode({actionid = "reqZhuanSheng",params={}}))
+			elseif senderName=="btn_convert" then
+				NetClient:PushLuaTable("gui.PanelZhuanSheng.handlePanelData",util.encode({actionid = "exchangeExp",params={}}))
+			end
+		end
+		local btnReborn
+		for _,v in ipairs(rebornButtons) do
+			btnReborn = var.xmlPageReborn:getWidgetByName(v)
+			if btnReborn then
+				UIRedPoint.addUIPoint(btnReborn, pushRebornButtons)
+			end
+		end
+	end
+
+	-- 转生等级
+	var.xmlPageReborn = UILuaLoader.load("uilayout/PanelAvatar_reborn.uif")
+	if var.xmlPageReborn then
+		var.xmlPageReborn:align(display.LEFT_BOTTOM, 35, 9):addTo(var.xmlPanel)
+		var.zsLevel= display.newBMFontLabel({font = "fonts/img_zs_num.fnt",})
+			:addTo(var.xmlPageReborn)
+			:align(display.LEFT_BOTTOM, 300, 472)
+			:setString("0")
+
+		util.asyncload(var.xmlPageReborn, "imgGZ", "needload/PanelAvatar/img_ditu6.png")
+
+		PanelAvatar.updateGameMoney()
+
+		initRebornButtons()
+		cc.EventProxy.new(NetClient,var.xmlPageReborn)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, onPanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelAvatar.updateGameMoney)	
+
+		var.xmlPageReborn:getWidgetByName("img_next_flag"):setScale(0.58)
+
+		NetClient:PushLuaTable("gui.PanelZhuanSheng.handlePanelData",util.encode({actionid = "reqDanData",params={}}))
+	end
+end
+
+--------------------------------------内功--------------------------------------
+function PanelAvatar.initPageInnerPower()
+
+	local function runAmination(params)
+		local target = params.target
+		local animateId = params.animateId
+		local times = checknumber(params.times)
+		local callBack = params.callBack
+		local pos = params.pos or cc.p(0,0)
+		local scale = params.scale or 1
+		local anchor = params.anchor or cc.p(0.5,0.5)
+
+		local sprite = target:getChildByName(animateId)
+		if not sprite then
+			sprite = cc.Sprite:create():addTo(target)
+			:setName(animateId)
+		end
+		sprite:setPosition(pos):setScale(scale)
+		sprite:setAnchorPoint(anchor)
+		sprite:stopAllActions()
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,animateId,4)
+		if times ==0 then
+			sprite:runAction(cca.repeatForever(animate))
+		else
+			sprite:runAction(cca.seq({
+				cca.rep(animate,times),
+				cca.cb(function()
+					if type(callBack) == "function" then callBack() end
+				end),
+				cca.removeSelf()
+			}))
+		end
+	end
+
+	local function updateInnerPowerPage(pData)
+		local Data = pData.Data
+		local level = pData.level
+		local expPool =pData.expPool
+		local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+		local val = {"valWarrior","valMage","valPriests"}
+		var.xmlPageInnerPower:getWidgetByName("lbl_power_value"):setString(Data[val[job-99]])
+		--print("updateInnerPower", var.xmlPageInnerPower:getWidgetByName("lbl_reduce_injury"), Data.percent)
+		var.xmlPageInnerPower:getWidgetByName("lbl_reduce_injury"):setString((Data.dtr/100).."%")
+		local lbl_min = var.xmlPageInnerPower:getWidgetByName("lbl_min"):setString(expPool)
+		local lbl_max = var.xmlPageInnerPower:getWidgetByName("lbl_max"):setString(Data.exp)
+
+		local progressBar = var.xmlPageInnerPower:getWidgetByName("progressBar")
+		var.xmlPageInnerPower.runanimate = false
+
+		if var.xmlPageInnerPower.init then
+			progressBar:setPercent(expPool,Data.exp)
+			if expPool>=Data.exp and not pData.up then
+				runAmination({target = progressBar, animateId = 60014, scale = 1.3 }) -- 可以升级特效
+			end
+		elseif pData.up then
+			if progressBar:getChildByName("60014") then
+				progressBar:getChildByName("60014"):removeFromParent()
+			end
+			progressBar:stopAllActions():setPercent(0,Data.exp):setLabelVisible(false)
+			local barwidth = progressBar:getContentSize().width
+			runAmination({
+				target = progressBar,
+				animateId = 60016,
+				pos = cc.p(90-barwidth/2,202),
+				times = 100,
+				anchor = cc.p(0.5,0.5)
+			}) -- 升级特效
+			local animate60016 = progressBar:getChildByName("60016"):hide()
+
+			progressBar:setPerUnitCallBack(function(bar)
+				var.xmlPageInnerPower.runanimate = true
+				animate60016 = progressBar:getChildByName("60016")
+				if animate60016 then
+					local layoutwidth = progressBar:getChildByName("layout"):getContentSize().width
+					local posX = util.bound(-barwidth/2, layoutwidth-barwidth/2+3, barwidth/2-20)
+					animate60016:setPosition(cc.p(posX + 15,0)):setVisible(posX>90-barwidth/2)
+				end
+			end)
+			local animateFather = var.xmlPageInnerPower:getWidgetByName("animateFather")
+			runAmination({target = animateFather,animateId = 60015,times=1});--球上面特效
+			progressBar:setPercentWithAnimation(Data.exp,Data.exp,function()
+				if expPool>=Data.exp then
+					NetClient:PushLuaTable("gui.PanelInnerPower.onOpenPanel",util.encode({actionid = "upgrade"}))
+				else
+					progressBar:setPercent(0, Data.exp)
+					local animate60016 = progressBar:getChildByName("60016")
+					if animate60016 then
+						animate60016:removeFromParent()
+					end
+					progressBar:setPercentWithAnimation(expPool,Data.exp,function()
+					end)
+				end
+			end)
+		else
+			if not progressBar:isRunning() then
+				progressBar:setPercent(expPool,Data.exp)
+				local animate60016 = progressBar:getChildByName("60016")
+				if animate60016 then
+					animate60016:removeFromParent()
+				end
+				if expPool>=Data.exp and not pData.up then
+					runAmination({target = progressBar, animateId = 60014, scale = 1.2 }) -- 可以升级特效
+				end
+			end
+		end
+		local btn_upgrade = var.xmlPageInnerPower:getWidgetByName("btn_upgrade")
+		if expPool>=Data.exp then
+			util.addHaloToButton(btn_upgrade, "btn_normal_light3")
+		else
+			util.removeHaloFromButton(btn_upgrade)
+		end
+		var.xmlPageInnerPower.init = false
+		var.xmlPageInnerPower.lbl_level:setString(level)
+
+	end
+
+	local function onPanelData(event)
+		if event.type =="PanelInnerPower" then
+			local pData = util.decode(event.data)
+			if pData and pData.cmd =="update" then
+				if not var.xmlPageInnerPower then return end
+				updateInnerPowerPage(pData)
+			end
+		end
+	end
+
+	var.xmlPageInnerPower = UILuaLoader.load("uilayout/PanelAvatar_innerPower.uif")
+	if var.xmlPageInnerPower then
+		var.xmlPageInnerPower:align(display.LEFT_BOTTOM, 35, 9):addTo(var.xmlPanel)
+		util.asyncload(var.xmlPageInnerPower, "img_bg", "needload/PanelAvatar/img_ditu5.png")
+		var.xmlPageInnerPower.init = true
+
+		NetClient:PushLuaTable("gui.PanelInnerPower.onOpenPanel",util.encode({actionid = "fresh"}))
+		var.xmlPageInnerPower:getWidgetByName("progressBar"):getLabel():setPositionY(13)
+
+		local btnUpgrade = var.xmlPageInnerPower:getWidgetByName("btn_upgrade")
+		var.xmlPageInnerPower.runanimate = false
+		btnUpgrade:addClickEventListener(function(sender)
+			if not var.xmlPageInnerPower.runanimate then
+				NetClient:PushLuaTable("gui.PanelInnerPower.onOpenPanel",util.encode({actionid = "upgrade"}))
+			end
+		end)
+
+		-- 内功等级
+		if not var.xmlPageInnerPower.lbl_level then
+			var.xmlPageInnerPower.lbl_level = display.newBMFontLabel({font = "fonts/innerpower.fnt",}):addTo(var.xmlPageInnerPower):align(display.CENTER_LEFT,275, 480):setName("lbl_level"):setString("0")
+		end
+
+		var.xmlPageInnerPower:getWidgetByName("progressBar"):setLabelVisible(false)
+		-- local animateFather = var.xmlPageInnerPower:getWidgetByName("animateFather"):setScale(0.75)
+		-- if not animateFather:getChildByName("animate50013") then
+		-- 	runAmination({target = animateFather,animateId = 50013});--球上面特效
+		-- end
+
+
+		cc.EventProxy.new(NetClient,var.xmlPageInnerPower)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, onPanelData)
+
+	end
+end
+
+----宝石
+
+function PanelAvatar.initPageGem()
+	--刷新战力
+	local gemindex = 1
+	local function updateFightNum()
+		var.fightNum:setString(NetClient.mCharacter.mFightPoint)
+	end
+
+	local function updateCheckAutoVcoin()
+		local btnAutoVcoin = var.xmlPageGem:getWidgetByName("btn_auto_vcoin")
+
+		btnAutoVcoin:addClickEventListener(function (sender)
+			sender:loadTextureNormal( (var.gemAutoVcoin and "btn_checkbox_big_sel") or "btn_checkbox_big", ccui.TextureResType.plistType)
+		end)
+		btnAutoVcoin:loadTextureNormal( (var.gemAutoVcoin and "btn_checkbox_big_sel") or "btn_checkbox_big", ccui.TextureResType.plistType)
+	end
+
+	-- 宝石镶嵌
+	local function insetGem(gem_pos)
+		--print("////////////////insetGem////////////////", gem_pos)
+		NetClient:PushLuaTable("gui.PanelGem.onPanelData", util.encode({actionid = "insetGem", equipPos = var.mSelectedEquip, gemPos = gem_pos}))
+	end
+
+	-- 一键镶嵌宝石 （所有要镶嵌的位置表）
+	local function insetAllGem(posTable)
+		 --print("////////////////insetGem////////////////", gem_pos)
+		NetClient:PushLuaTable("gui.PanelGem.onPanelData", util.encode({actionid = "insertAllGem", equipPos = var.mSelectedEquip, gemPosTable = posTable}))	
+	end
+
+	local function undressGem(gem_pos)
+		--print("////////////////undressGem////////////////", gem_pos)
+		NetClient:PushLuaTable("gui.PanelGem.onPanelData", util.encode({actionid = "undressGem", gemPos = gem_pos}))
+	end
+
+	local function gemDesp(data)
+		gemDespTable={
+			[1]="<font color=#E7BA52 size=18>宝石总属性：</font>",
+		}
+		if data then
+			if data[3].wgmax>0 then
+				local str = "<font color=#f1e8d0>物理攻击："..data[3].wgmin.."-"..data[3].wgmax.."</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[4].mgmax>0 then
+				local str = "<font color=#f1e8d0>魔法攻击："..data[4].mgmin.."-"..data[4].mgmax.."</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[5].dgmax>0 then
+				local str = "<font color=#f1e8d0>道术攻击："..data[5].dgmin.."-"..data[5].dgmax.."</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[1].wfmax>0 then
+				local str = "<font color=#f1e8d0>物理防御："..data[1].wfmin.."-"..data[1].wfmax.."</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[2].mfmax>0 then
+				local str = "<font color=#f1e8d0>魔法防御："..data[2].mfmin.."-"..data[2].mfmax.."</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[6].value>0 then
+				local str = "<font color=#f1e8d0>血量上限："..(data[6].value/100).."%</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[7].value>0 then
+				local str = "<font color=#f1e8d0>魔法上限："..(data[7].value/100).."%</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[8].value>0 then
+				local str = "<font color=#f1e8d0>神圣攻击："..data[8].value.."</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[9].value>0 then
+				local str = "<font color=#f1e8d0>暴击几率："..(data[9].value/10000).."%</font>"
+				table.insert(gemDespTable,str)
+			end
+			if data[10].value>0 then
+				local str = "<font color=#f1e8d0>暴击伤害："..data[10].value.."</font>"
+				table.insert(gemDespTable,str)
+			end
+		end
+		local mParam = {
+		name = Notify.EVENT_PANEL_ON_ALERT,
+		panel = "tips",
+		infoTable = gemDespTable,
+		visible = true,
+		}
+		NetClient:dispatchEvent(mParam)
+	end
+
+	local function updateUpgradeGemBox(data)
+		--print("updateUpgradeGem//////////////////////", util.encode(data))
+		local imgNeedGem = var.xmlPageGem:getWidgetByName("img_need_gem")
+		imgNeedGem:loadTexture("null", ccui.TextureResType.plistType)
+		local imgCurGem = var.xmlPageGem:getWidgetByName("img_need_gem_bg")
+		--UIItem.getItem({parent=imgCurGem , typeId=nil})
+		local lblNeedNum = var.xmlPageGem:getWidgetByName("lbl_need_num"):setString("")
+		local imgUpdGemBg = var.xmlPageGem:getWidgetByName("img_upd_gem_bg")
+		local imgUpNeedGem = var.xmlPageGem:getWidgetByName("img_upd_gem")
+		--UIItem.getItem({parent=imgUpdGemBg , typeId=-999})
+		local lblUpdGemName = var.xmlPageGem:getWidgetByName("lbl_upd_gem_name")
+		local lblGemAttr = var.xmlPageGem:getWidgetByName("lbl_gem_attr"):setString("")
+		local lblGemFrom = var.xmlPageGem:getWidgetByName("lbl_attr_from"):setString("")
+		local lblGemTo = var.xmlPageGem:getWidgetByName("lbl_attr_to"):setString("")
+		local lblNeedVcoin = var.xmlPageGem:getWidgetByName("lbl_need_vcoin"):setString("")
+		-- local lblReplaceVcion = var.xmlPageGem:getWidgetByName("lbl_lack_material_tips"):setString("")
+		if data.needId then
+			local itemDef = NetClient:getItemDefByID(data.needId)
+			if itemDef then
+				-- imgNeedGem:loadTexture("picicon/"..itemDef.mIconID..".png")
+				UIItem.getItem({parent=imgCurGem , typeId=data.needId})
+				if tonumber(data.needId)%100==15 then
+					var.xmlPageGem:getWidgetByName("box_upgrade_gem"):hide()
+				end
+			end
+			if data.curGem>=data.needGem then
+				lblNeedNum:setString(data.curGem.."/"..data.needGem):setColor(game.getColor(0x2F9701))
+			else
+				lblNeedNum:setString(data.curGem.."/"..data.needGem):setColor(game.getColor(0xEF2F00))
+			end
+
+			if data.nextGem then
+				var.xmlPageGem:getWidgetByName("lbl_now_gem_name"):setString(itemDef.mName)
+				lblUpdGemName:setString(data.nextGem.name)
+				UIItem.getItem({parent = imgUpNeedGem , typeId=data.nextGem.typeId})
+			end
+			-- lblNeedVcoin:setString(data.needVcoin)
+			-- lblNeedVcoin:setString("消耗钻石：0")
+
+			if data.upgradeAttr then
+				lblGemAttr:setString(data.upgradeAttr.attr)
+				lblGemFrom:setString(data.upgradeAttr.from)
+				lblGemTo:setString(data.upgradeAttr.to)
+				if string.find(data.upgradeAttr.attr,"攻击") then
+					for i=1,2 do
+						var.xmlPageGem:getWidgetByName("lbl_gem_attr_"..i):show()
+						var.xmlPageGem:getWidgetByName("lbl_attr_from_"..i):show():setString(data.upgradeAttr.from)
+						var.xmlPageGem:getWidgetByName("lbl_attr_to_"..i):show():setString(data.upgradeAttr.to)
+						var.xmlPageGem:getWidgetByName("img_upgrade_arrow2_"..i):show()
+					end
+				else
+					for i=1,2 do
+						var.xmlPageGem:getWidgetByName("lbl_gem_attr_"..i):hide()
+						var.xmlPageGem:getWidgetByName("lbl_attr_from_"..i):hide()
+						var.xmlPageGem:getWidgetByName("lbl_attr_to_"..i):hide()
+						var.xmlPageGem:getWidgetByName("img_upgrade_arrow2_"..i):hide()
+					end
+				end
+			end
+			if data.replaceVcion and data.replaceVcion>0 then
+				-- lblReplaceVcion:setString("材料不足需"..data.replaceVcion.."钻石代替")
+				var.replaceVcion=data.replaceVcion
+			else
+				-- lblReplaceVcion:setString("材料不足钻石代替")
+				var.replaceVcion=0
+			end
+
+			if var.gemAutoVcoin then
+				var.xmlPageGem:getWidgetByName("lbl_need_vcoin"):setString("消耗钻石："..var.replaceVcion)
+			else
+				var.xmlPageGem:getWidgetByName("lbl_need_vcoin"):setString("消耗钻石：0")
+			end
+		end
+	end
+
+	local function showUpgradeGemBox(gemPos)
+		local btnUpgradeGem = var.xmlPageGem:getWidgetByName("btn_upgrade_gem")
+		btnUpgradeGem.gemPos = gemPos
+		local netGem = NetClient:getNetItem(gemPos)
+		-- print("showUpgradeGemBox", gemPos, netGem)
+		if netGem then
+			btnUpgradeGem.gemPos = gemPos
+			var.xmlPageGem:getWidgetByName("box_upgrade_gem"):show()
+			NetClient:PushLuaTable("gui.PanelGem.onPanelData", util.encode({actionid = "updateUpgrade", gemPos = gemPos}))
+		end
+		-- var.gemAutoVcoin = false
+		updateCheckAutoVcoin()
+	end
+
+	local function hideUpgradeGemBox()
+		var.gemAutoVcoin = false
+		var.xmlPageGem:getWidgetByName("box_upgrade_gem"):hide()
+	end
+
+	-- 宝石升级按钮
+	local function pushUpgradeButtons(sender)
+		var.curUpgradeGem = sender.gemPos
+		showUpgradeGemBox(sender.gemPos)
+	end
+
+
+	-- 宝石背包刷新
+	local function updateBagGem(item)
+		local mPos, netItem = -999
+		if var.gemTable[item.tag] then
+			netItem = NetClient:getNetItem(var.gemTable[item.tag])
+			if netItem then
+				mPos = netItem.position
+			end
+		end
+
+		local param = {
+			-- iconType = Const.ICONTYPE.DEPOT,
+			parent = item,
+			tipsType = Const.TIPS_TYPE.GEM,
+			pos = mPos,
+			customCallFunc = function()
+				-- print("callBack", mPos)
+				if mPos then
+					insetGem(mPos)
+				end
+			end,
+		}
+
+		UIItem.getItem(param)
+	end
+
+	-- 刷新背包
+	local function updateBagList(gemType)
+		var.curGemType = gemType
+		var.gemTable = game.getGemsAndSort(gemType)
+
+		local listBag = var.xmlPageGem:getWidgetByName("list_bag")
+		listBag:setSliderVisible(false)
+		listBag:reloadData(Const.ITEM_BAG_MAX, updateBagGem, nil, false)
+	end
+
+	local function canGemUpgraded(gemPos)
+		local netItem = NetClient:getNetItem(gemPos)
+		if netItem then
+			local num = NetClient:getTypeItemNum(netItem.mTypeID)
+			if num >= 3 then
+				return true
+			end
+		end
+		return false
+	end
+
+---暂时开启宝石升级
+	local function handleUpgradeGemButton(btnUpgrade, gemPos)
+		if btnUpgrade then
+			-- print("///////////////////handleUpgradeGemButton///////////////////", btnUpgrade:getName(), gemPos)
+			local netGem = NetClient:getNetItem(gemPos)
+			if netGem and tonumber(netGem.mTypeID)%100~=15 then
+				btnUpgrade:setVisible(true)	--屏蔽宝石升级功能
+			else
+				btnUpgrade:setVisible(false)
+				if netGem and tonumber(netGem.mTypeID)%100==15 then
+
+				end
+			end
+			btnUpgrade:show()		--屏蔽宝石快捷升级功能
+		end
+	end
+
+	--更新选中装备的宝石信息
+	local function updateGemInfo()
+		local item, netGem
+		for i,v in ipairs(gemConf) do
+			local mPos = var.mSelectedEquip - v.offSet
+			local btnUpgrade = var.xmlPageGem:getWidgetByName("btn_upgrade_"..i)
+			item = var.xmlPageGem:getWidgetByName("gem_"..i)
+			if item then
+				-- print("updateGemInfo", item, mPos, NetClient:getNetItem(mPos))
+				local param = {
+					-- iconType = Const.ICONTYPE.BAG,
+					-- tipsType = Const.TIPS_TYPE.BAG,
+					parent = item,
+					pos = mPos,
+					tipsType = Const.TIPS_TYPE.UPGRADE,
+					enmuPos = 4,
+					customCallFunc = function()
+						undressGem(mPos)
+					end,
+					callBack = function()
+						-- undressGem(mPos)
+						-- updateBagList(v.gemType)
+					end,
+					doubleCall = function()
+						undressGem(mPos)
+						-- updateBagList(v.gemType)
+					end,
+					updateFunc = function (itemPos)
+						handleUpgradeGemButton(btnUpgrade, itemPos)
+					end
+				}
+				UIItem.getItem(param)
+			end
+			if btnUpgrade then
+				btnUpgrade.gemPos = mPos
+			end
+		end
+	end
+
+	local function onSelectEquip(index)
+		var.curEquipIndex = index
+		var.mSelectedEquip = equip_info[index].pos
+		local equipBg = var.xmlPageGem:getWidgetByName("equip_"..index)
+		var.imgEquipSelected:setPosition(equipBg:getPosition()):show()
+		gemindex = index
+		updateGemInfo()
+	end
+
+	--
+	
+	local function openGemLock(info)
+		local mParam = {
+			name = Notify.EVENT_PANEL_ON_ALERT,
+			panel = "Confirm",
+			infoTable = info,
+			visible = true,
+		}
+		NetClient:dispatchEvent(mParam)
+	end
+
+	--刷新装备
+	local function updateEquips()
+		for i = 1, 10 do
+			local equipBg = var.xmlPageGem:getWidgetByName("equip_"..i)
+			local equipLock = var.xmlPageGem:getWidgetByName("equipLock_"..i)
+			if #openNeed>0 then
+				if equipLock and tonumber(nSLevel)>=tonumber(openNeed[i]) then
+					equipLock:setVisible(false)
+				else
+					equipLock:setVisible(true)
+				end
+			end
+			if equipBg then
+				-- ccui.Widget:create():setContentSize(equipBg:getContentSize()):setName("guideWidget"):align(display.LEFT_BOTTOM, 0, 0):addTo(equipBg)
+				equipBg.etype = equip_info[i].etype
+				local param = {
+					parent			= equipBg,
+					pos				= equip_info[i].pos,--左边的装备tips显示在右边，反之亦然
+					mShowEquipFlag  = true,
+					iconType = Const.ICONTYPE.DEPOT,
+					tipsType = Const.TIPS_TYPE.GENERAL,
+					--物品框点击回调
+					callBack = function ()
+						--获取物品信息
+						if tonumber(nSLevel)>=tonumber(openNeed[i]) then
+							onSelectEquip(i)
+						else
+							local curNum = NetClient:getTypeItemNum(Const.ITEM_OPEN_GEM)
+							local info = {
+
+								desc="需要<font color=#00ff00>"..openNeed[i].needStone.."</font>打孔石才可开启！当前拥有<font color=#FF2BEB>"..curNum.."</font>个打孔石！",
+								openLock=i
+							}
+							openGemLock(info)
+						end
+					end,
+				}
+				UIItem.getItem(param)
+			end
+		end
+	end
+
+	local function pushBuyGemButton(sender)
+		if sender.index and var.gemShopData[sender.index] then
+			local itemData = var.gemShopData[sender.index]
+			local param = {
+				name = Notify.EVENT_SHOW_TIPS,
+				str = "quickBuy",
+				itemId = itemData.id,
+				itemPrice = itemData.vcoin,
+				commitCallFunc = function (buyNum)
+					NetClient:PushLuaTable("gui.PanelGem.onPanelData", util.encode({actionid = "buyGem", index = sender.index, num = buyNum}))
+				end
+			}
+			NetClient:dispatchEvent(param)
+		end
+	end
+
+	-- 刷新宝石商店
+	local function updateGemShop(item)
+		local idx = item.tag
+		local itemData = var.gemShopData[idx]
+
+		item:getWidgetByName("lbl_item_name"):setString(itemData.name)
+		item:getWidgetByName("lbl_item_price"):setString(itemData.vcoin)
+		local awardItem=item:getWidgetByName("item_bg")
+		local param={
+			-- iconType = Const.ICONTYPE.DEPOT,
+			parent = awardItem,
+			typeId = itemData.id,
+		}
+		UIItem.getItem(param)
+
+		local btnBuy = item:getWidgetByName("btn_buy")
+		btnBuy.index = idx
+		UIRedPoint.addUIPoint(btnBuy, pushBuyGemButton)
+	end
+
+	local function initGemShop()
+		local listShop = var.xmlPageGem:getWidgetByName("list_shop")
+		listShop:setSliderVisible(false)
+		listShop:reloadData(#var.gemShopData, updateGemShop)
+	end
+
+	local function onPanelData(event)
+		if event.type ~= "PanelGem" then return end
+		local data=util.decode(event.data)
+		-- print(event.data)
+		if data then
+			if data.actionid == "updateGemBag" then
+				updateFightNum()
+			elseif data.actionid == "updateUpgradeGem" then
+				updateUpgradeGemBox(data)
+			elseif data.actionid == "upgradeSucceed" then
+				showUpgradeGemBox(var.curUpgradeGem)
+			elseif data.actionid == "updateGemShop" then
+				var.gemShopData = data.gemShop
+				initGemShop()
+			elseif data.actionid == "updateGemOpenState" then
+				LayerAlert.handleAlertClose()
+				openNeed=data.openData
+				updateEquips()
+			elseif data.actionid=="updateTipsValue" then
+				if noShowTip then
+					gemDesp(data.tipsData)
+				end
+			end
+		end
+	end
+
+	local function handleItemChange(event)
+		local refresh = false
+		if event.oldType and game.IsGem(event.oldType) then
+			refresh = true
+		elseif game.IsPosInBag(event.pos) then
+			local netItem = NetClient:getNetItem(event.pos)
+			if netItem and game.IsGem(netItem.mTypeID) then
+				refresh = true
+			end
+		end
+		if refresh then
+			updateBagList(var.curGemType)
+		end
+	end
+
+	local function pushGemGroove(sender)
+		local conf = gemConf[sender.tag]
+		if conf then
+			updateBagList(conf.gemType)
+		end
+	end
+
+	--根据老的gemtype 获取新的gemType
+	local function getGemTypeWithOldType(gemType)
+		for k,v in pairs(gemConf) do
+			if v.gemType == gemType then
+				return k
+			end
+		end
+
+		return 6
+	end
+
+	--宝石槽添加点击回调
+	local function initGemGroove()
+		for i,v in ipairs(gemConf) do
+			local item = var.xmlPageGem:getWidgetByName("gem_"..i):setTouchEnabled(true)
+			item.tag = i
+			UIRedPoint.addUIPoint(item, pushGemGroove)
+		end
+	end
+
+	-- 一键镶嵌
+	local function pushAllInsetGem()
+		-- local mPosTable = {}
+		-- local netItem = nil
+		-- local PosTable = {}
+		
+		-- for k, v in pairs(var.gemTable) do
+			-- netItem = NetClient:getNetItem(v)
+			-- if netItem then
+				-- local gemType = game.getGemType(netItem.mTypeID)
+				-- gemType = getGemTypeWithOldType(gemType)
+				
+				-- if mPosTable[gemType] ~= true then
+					-- -- 判断当前的有没有存在的宝石好
+					-- local itemIcon = var.xmlPageGem:getWidgetByName("gem_"..gemType).itemIcon
+					-- if itemIcon.typeId then
+						-- if itemIcon and netItem.mTypeID > itemIcon.typeId then
+							-- mPosTable[gemType] = true
+							-- table.insert( PosTable, netItem.position)
+						-- end
+					-- else
+						-- mPosTable[gemType] = true
+						-- table.insert( PosTable, netItem.position)
+					-- end
+				-- end		
+			-- end
+		-- end
+
+		-- if #PosTable <= 0 then
+		NetClient:PushLuaTable("gui.PanelGem.handlePanelData", util.encode({actionid = "TinsertAll", equipPos = gemindex}))	
+			--NetClient:alertLocalMsg("先测试测试按钮能不能用"..gemindex);
+			-- return
+		-- end
+		
+		-- insetAllGem(PosTable)
+	end
+
+	--升级按钮初始化
+	local function initUpgradeButtons()
+		for i=1,6 do
+			local btnUpgrade = var.xmlPageGem:getWidgetByName("btn_upgrade_"..i):setTouchEnabled(true)
+			UIRedPoint.addUIPoint(btnUpgrade, pushUpgradeButtons)
+		end
+
+		-- local btnUpgrade = var.xmlPageGem:getWidgetByName("btnUpgrade"):setTouchEnabled(true)
+		-- UIRedPoint.addUIPoint(btnUpgrade, pushUpgradeButtons)
+
+		local btnXiangQian = var.xmlPageGem:getWidgetByName("btnXiangQian")
+		UIRedPoint.addUIPoint(btnXiangQian, pushAllInsetGem)
+	end
+
+	var.xmlPageGem = UILuaLoader.load("uilayout/PanelAvatar_gem.uif")
+	if var.xmlPageGem then
+		--util.asyncload(var.xmlPageGem, "page_gem_bg", "needload/page_gem_bg.jpg")
+		var.xmlPageGem:align(display.LEFT_BOTTOM, 35, 9):addTo(var.xmlPanel)
+
+		var.imgEquipSelected = var.xmlPageGem:getWidgetByName("img_equip_selected")
+
+		--var.fightNum = ccui.TextAtlas:create("0123456789", "fonts/img_role_num.png", 27, 36, "0")
+		--	:addTo(var.xmlPageGem)
+		--	:align(display.LEFT_CENTER, 255, 48)
+		--	:setString(0)
+		-- 创建战斗力
+		var.fightNum = display.newBMFontLabel({font = "fonts/clip_zhandouli_shuzi.fnt",})
+			:addTo(var.xmlPageGem:getWidgetByName("bottom"))
+			:align(display.LEFT_CENTER, 110, 90)
+			:setString("0")
+
+		local btnUpgradeGem = var.xmlPageGem:getWidgetByName("btn_upgrade_gem")
+		UIRedPoint.addUIPoint(btnUpgradeGem, function (sender)
+			NetClient:PushLuaTable("gui.PanelGem.onPanelData",util.encode({actionid = "upgradeGem", gemPos = sender.gemPos, autoVcoin = var.gemAutoVcoin}))
+		end)
+
+		local boxUpgradeGem = var.xmlPageGem:getWidgetByName("box_upgrade_gem"):setTouchEnabled(true)
+		UIRedPoint.addUIPoint(boxUpgradeGem, function (sender)
+			hideUpgradeGemBox()
+		end)
+
+		local btnAutoVcoin = var.xmlPageGem:getWidgetByName("btn_auto_vcoin"):setTouchEnabled(true)
+		UIRedPoint.addUIPoint(btnAutoVcoin, function (sender)
+			var.gemAutoVcoin = not var.gemAutoVcoin
+			if var.gemAutoVcoin then
+				var.xmlPageGem:getWidgetByName("lbl_need_vcoin"):setString("消耗钻石："..var.replaceVcion)
+			else
+				var.xmlPageGem:getWidgetByName("lbl_need_vcoin"):setString("消耗钻石：0")
+			end
+			updateCheckAutoVcoin()
+		end)
+
+		--var.xmlPageGem:getWidgetByName("btn_gem_tips"):setTouchEnabled(false)
+		--local btn_gem_tips = var.xmlPageGem:getWidgetByName("btn_gem_tips"):setTouchEnabled(true)
+		--btn_gem_tips:addTouchEventListener(function (pSender, touchType)
+		--	if touchType == ccui.TouchEventType.began then
+		--		noShowTip=true
+		--		NetClient:PushLuaTable("gui.PanelGem.onPanelData", util.encode({actionid = "reqGemTipsAll"}))
+		--	elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+		--		noShowTip=false
+		--		LayerAlert.handleAlertClose()
+		--	end
+		--end)
+
+		var.xmlPageGem:getWidgetByName("img_upgrade_gem_bg"):setTouchEnabled(true)
+
+		hideUpgradeGemBox()
+
+		initGemGroove()
+		initUpgradeButtons()
+		updateFightNum()
+		updateEquips()
+		-- initGemShop()
+		updateBagList()
+
+		-- 默认选中装备
+		onSelectEquip(1)
+
+		NetClient:PushLuaTable("gui.PanelGem.onPanelData", util.encode({actionid = "reqGemShop"}))
+		NetClient:PushLuaTable("gui.PanelGem.handlePanelData", util.encode({actionid = "reqGemOpenState"}))
+		cc.EventProxy.new(NetClient,var.xmlPageGem)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, onPanelData)
+			:addEventListener(Notify.EVENT_ITEM_CHANGE, handleItemChange)
+	end
+end
+
+return PanelAvatar

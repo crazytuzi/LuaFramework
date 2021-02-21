@@ -1,0 +1,139 @@
+UITipsManager = {}
+local var  = {}
+
+local tipsConfig = {
+	["confirm"] 		= {name = "TipsConfirm",		uif = "TipsConfirm"},
+	["alert"] 			= {name = "TipsAlert",			uif = "TipsAlert"},
+	["sendCallFriend"]	= {name = "TipsSendCallFriend",	uif = "TipsSendCallFriend"},
+	["gotCallFriend"]	= {name = "TipsGotCallFriend",	uif = "TipsGotCallFriend"},
+	["addFriend"]		= {name = "TipsAddFriend"	,	uif = "TipsAddFriend"},
+	["revenge"]			= {name = "TipsRevenge"	,		uif = "TipsRevenge"},
+	["enemytrack"]		= {name = "TipsEnemyTrack"	,	uif = "TipsEnemyTrack"},
+	["friendOperate"]	= {name = "TipsFriendOperate",	uif = "TipsPlayerOperate"},
+	["useItem"]			= {name = "TipsUseItem",		uif = "TipsUseItem"},
+	["createGuild"]		= {name = "TipsCreateGuild",	uif = "TipsCreateGuild"},
+	["guildMember"]		= {name = "TipsGuildMember",	uif = "TipsGuildMember"},
+	["quickBuy"]		= {name = "TipsQuickBuy",		uif = "TipsQuickBuy"},
+	["newSkill"]		= {name = "TipsNewSkill",		uif = "TipsNewSkill"},
+	["kingcity"]		= {name = "TipsKingCityStamp",	uif = "TipsKingCityStamp"},
+	["compose"]			= {name = "TipsCompose",		uif = "TipsCompose"},
+	["welcome"]			= {name = "TipsWelcome",		uif = "TipsWelcome"},
+	["taskFly"]			= {name = "TipsFly",			uif = "TipsFly"},
+	["achieveComplete"]	= {name = "TipsAchieveComplete",uif = "TipsAchieveComplete", layerBlock = 1},
+	["defendResult"]	= {name = "TipsDefendResult",	uif = "TipsDefendResult"},
+	["funOpen"]			= {name = "TipsOpenFun",		uif = "TipsOpenFun"},
+	["fristRecharge"]   = {name = "TipsFristRecharge",  uif = "TipsFristRecharge"},
+	["tips_wpgl"]		= {name = "TipsGetWp", 			uif = "TipsGetWp"},				--物品过滤界面
+	["modifyName"]		= {name = "TipsModifyName",     uif = "TipsModifyName"},
+	["tips_selectItem"]	= {name = "TipsSelectItem",     uif = "TipsSelectItem"},		--物品选择界面
+}
+local tipsCached = {}
+local luafile = {}
+local eventQuene = {} --消息队列
+
+function UITipsManager.showNextTips()
+	if #eventQuene >=1 then
+		UITipsManager.showTips(eventQuene[1])
+	else
+		var.layerTips:hide()
+	end
+end
+
+function UITipsManager.clickLayerTips(pSender)
+	if #eventQuene>=1 then
+		if not tipsConfig[eventQuene[1].str].layerBlock then
+			UITipsManager.handleHideTips({str = eventQuene[1].str})
+		end
+	end
+end
+
+function UITipsManager.showTips(event)
+	local str = event.str or ""
+	local params = tipsConfig[str]
+	if params then
+		local tipsfile = require_ex("app.tips."..params.name)
+		var.layerTips:show()
+		if tipsfile then
+			local self = {}
+			self.str = str
+			self.xmlTips = UILuaLoader.load("uilayout/"..params.uif..".uif") -- 布局文件统一叫xmlTips
+			if self.xmlTips then
+				self.xmlTips:align(display.CENTER, display.cx, display.cy)
+					:setName("tips"..params.name)
+					:addTo(var.layerTips)
+					:setTouchEnabled(true)
+					:setSwallowTouches(true)
+					:show()
+			end
+			luafile[str] = tipsfile
+			tipsCached[str] = self
+			tipsfile.initView(self,event)
+		end
+	end
+end
+
+function UITipsManager.handleShowTips(event)
+	if type(event) ~= "table" then return end
+	--预先显示最新的tips，当前的tips存到下一次显示
+	if #eventQuene>= 1 then
+		for k,v in pairs(tipsCached) do
+			if util.isObjectExist(v.xmlTips) then
+				v.xmlTips:removeFromParent()
+			end
+			tipsCached[k] = nil
+		end
+	end
+	table.insert(eventQuene,1,event)
+	UITipsManager.showTips(eventQuene[1])
+end
+
+function UITipsManager.handleHideTips(event)
+	if event.str then
+		if tipsCached[event.str] then
+			local xmlTips = tipsCached[event.str].xmlTips
+			if luafile[event.str] and luafile[event.str].closeCall then
+				luafile[event.str].closeCall(tipsCached[event.str])
+			end
+			if util.isObjectExist(xmlTips) then
+				xmlTips:removeFromParent()
+				xmlTips = nil
+			end
+			tipsCached[event.str] = nil
+			luafile[event.str] = nil
+		end
+		for i=1,#eventQuene do
+			if eventQuene[i].str == event.str then
+				table.remove(eventQuene,i)
+				break
+			end
+		end
+		UITipsManager.showNextTips()
+		
+		--如果玩家不小心点击关闭充值则直接弹出首充界面
+		if event.str == "fristRecharge" then
+			NetClient:dispatchEvent({name=Notify.EVENT_OPEN_PANEL, str="extend_firstPay"})
+		elseif event.str == "tips_wpgl" then
+			UserConfig.save()
+		end
+	end
+end
+
+function UITipsManager.init()
+	var.layerTips = ccui.Widget:create()
+		:setContentSize(cc.size(display.width, display.height))
+		:align(display.CENTER, display.cx, display.cy)
+		:setTouchEnabled(true)
+		:setSwallowTouches(true)
+		:hide()
+		:setName("layerTipsManager")
+	var.layerTips:addClickEventListener(UITipsManager.clickLayerTips)
+	
+	cc.EventProxy.new(NetClient, var.layerTips)
+		:addEventListener(Notify.EVENT_SHOW_TIPS, UITipsManager.handleShowTips)
+		:addEventListener(Notify.EVENT_HIDE_TIPS, UITipsManager.handleHideTips)
+
+	--NetClient:dispatchEvent({name=Notify.EVENT_SHOW_TIPS, str="fristRecharge"})	
+	return var.layerTips
+end
+
+return UITipsManager

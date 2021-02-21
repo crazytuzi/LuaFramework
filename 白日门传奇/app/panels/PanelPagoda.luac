@@ -1,0 +1,271 @@
+local PanelPagoda = {}
+
+--通天塔界面
+local close = function ( str ) NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL,str = str}) end;
+local open = function ( str,tab ) NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str = str,tab = tab or 1}) end;
+function PanelPagoda.initView(extend)
+    var = {
+		xmlPanel,
+		-- curChapter = 1,
+		curSection = 1,		--当前玩家进行到的关卡
+		curSection1 = 1,
+		maxSection = 0,		--当前总关卡
+		pagesNum = 3,
+		sectionData = {},
+		boxIndex = 0,
+		box_baoxiang,
+		ticket = 0,
+		pagoItems = {},		--存放所有塔数据
+    }
+
+    var.xmlPanel = UILuaLoader.load("uilayout/PanelPagoda.uif")
+
+    if var.xmlPanel then
+        util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max2.png")
+        util.asyncload(var.xmlPanel, "leftBg", "needload/PanelPagoda/img_breakup_bg.png")
+
+
+        PanelPagoda.initPanel()
+        cc.EventProxy.new(NetClient,var.xmlPanel)
+        :addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelPagoda.handlePanelData)
+        
+        return var.xmlPanel
+    end
+end
+
+function PanelPagoda.onPanelOpen()
+	var.chapter = 0;
+	var.section = 0;
+	NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "fresh",params = {}}))
+end
+
+function PanelPagoda.initPanel()
+    local btns = {"btn_enter","rankBtn"};--,"btn_first_sure"
+	-- local btns = {"btn_challenge","btn_chart","box_6","box_12","box_18","btn_first_sure","btn_enter","btn_left","btn_right"};
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if senderName == "btn_enter" then
+			NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "enterMap",params = {var.chapter,var.section}}))
+		-- elseif senderName=="btn_challenge" then
+			-- var.layerFirstPass:hide()
+			-- var.layerinfobg:show():setTouchEnabled(true)
+			-- NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "getTaskInfo",params = {var.chapter,var.section}}))
+		elseif senderName=="rankBtn" then		--排行榜
+			close("menu_breakup")
+			open("btn_main_rank",6)
+		-- elseif senderName == "btn_first_sure" then
+			-- if sender:getTitleText() == "领取" then
+				-- if sender.first then
+					-- NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "getfirstbox",params = {sender.boxIndex,sender.chapter}}))
+				-- else
+					-- NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "getbox",params = {sender.boxIndex,sender.chapter}}))
+				-- end
+			-- else
+				-- NetClient:alertLocalMsg("奖励已领取", "alert")
+			-- end
+			-- PanelBreakUp.hideBoxInfo()
+		end
+	end
+	for k,v in pairs(btns) do
+		local btn = var.xmlPanel:getWidgetByName(v)
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+function PanelPagoda.handlePanelData(event)
+	if event.type ~= "PanelBreakUp" then return end
+	local data = util.decode(event.data)
+	if data.cmd == "fresh" then
+		PanelPagoda.initPageView(data)
+	elseif data.cmd == "boxData" then
+		PanelPagoda.showBoxInfo(data)
+	elseif data.cmd == "getTaskInfo" then --getTaskInfo
+		PanelPagoda.updateCurSectionInfo(data.config)
+	elseif data.cmd == "freshBoxData" then
+		PanelPagoda.freshBoxRes(data)
+	end
+end
+
+function PanelPagoda.pagoClickItem(cell)--问题出在这里了
+	NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "getTaskInfo",params = {cell.tag}}))
+end
+
+function PanelPagoda.getBoxClickItem(cell)
+	NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "getfirstbox",params = {cell.tag}}))
+end
+
+function PanelPagoda.freshBoxRes(data)
+	if var.pagoItems[data.section] then
+		local item = var.pagoItems[data.section]
+		local img_box = item:getWidgetByName("img_box"):setTouchEnabled(false)
+		img_box:loadTexture("box_2", ccui.TextureResType.plistType):setFlippedX(true)
+	end
+end
+
+function PanelPagoda.initPageView(data)
+	var.sectionData = data.data
+	var.pagesNum = #var.sectionData
+	var.chapter = data.curChapter or 1
+	var.section = data.curSection or 1
+	var.curChapter = data.curChapter or 1
+	var.curSection = data.curSection or 1
+	var.curSection1 = data.curSection1 or 1  --总层数
+	var.maxSection = #var.sectionData
+	var.ticket = data.ticket
+	var.challengeTimes = data.challengeTimes
+
+	local tempData = {}
+	for i,v in ipairs(var.sectionData) do
+		if i<=var.curChapter or i==var.curChapter+1 and var.curSection == 6 then
+			table.insert(tempData,v)
+		end
+	end
+	
+	local function updateList(item)
+	if var.curSection1 > 30 then
+		NetClient:alertLocalMsg("暂时只开放到此层，请等待开放更多楼层")
+		return 0
+	end	 
+	
+	if data.curSection == 6 then  --爬塔的显示塔
+		 curSection = #var.sectionData - item.tag + 3
+		 curSection1 = #var.sectionData - item.tag + var.curSection1-var.curSection+2
+		-- var.pagoItems[curSection] = item
+	elseif data.curSection == 5 then
+		 curSection = #var.sectionData - item.tag+2
+		 curSection1 = #var.sectionData - item.tag + var.curSection1-var.curSection+1
+		-- var.pagoItems[curSection] = item
+	elseif data.curSection < 5 then
+		 curSection = #var.sectionData - item.tag + 1
+		 curSection1 = #var.sectionData - item.tag + var.curSection1-var.curSection
+		-- var.pagoItems[curSection] = item
+	end	
+		-- local curSection1 = #var.sectionData - item1.tag
+		var.pagoItems[curSection] = item
+-- var.pagoItems[curSection1] = item
+		local itemData = var.sectionData[curSection]
+		local btn = item:getWidgetByName("img_pago")  --img_pago 塔
+
+		if btn then
+			-- local img_box = item:getWidgetByName("img_box"):setScale(0.85)
+			if curSection <= var.curSection + 1 then
+				btn:setTouchEnabled(true)
+				btn.tag = curSection
+				NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "getTaskInfo",params = {var.chapter,var.section}}))
+				btn:loadTexture("ta_nor", ccui.TextureResType.plistType)
+				-- img_box:hide()
+				-- if curSection <= var.curSection then
+					-- img_box:show()
+					-- if tonumber(itemData.firstCon) == 1 then		-- 0 未领取   1领取
+						-- img_box.tag = curSection
+						-- img_box:loadTexture("box_1", ccui.TextureResType.plistType):setTouchEnabled(true):setFlippedX(false)
+						-- UIRedPoint.addUIPoint(img_box, PanelPagoda.getBoxClickItem)
+					-- else
+						-- img_box:loadTexture("box_2", ccui.TextureResType.plistType):setTouchEnabled(false):hide():setFlippedX(true)
+					-- end
+				-- end
+			else
+				btn:setTouchEnabled(false)
+				btn:loadTexture("ta_sel", ccui.TextureResType.plistType)
+				-- img_box:hide()
+			end
+
+			if curSection == var.curSection + 1 then
+				item:getWidgetByName("img_canAct"):show():runAction(
+					cca.repeatForever(cca.seq({cca.fadeOut(0.6), cca.fadeIn(0.6)}))
+				)
+				local cell = {tag = curSection}
+				NetClient:PushLuaTable("gui.PanelBreakUp.onPanelData",util.encode({actionid = "getTaskInfo",params = {var.chapter,var.section}}))
+			else
+				item:getWidgetByName("img_canAct"):hide():stopAllActions()
+			end
+
+			local recommendPower = btn:getChildByName("recommendPower")
+			--创建层数
+			if not recommendPower then
+				recommendPower = display.newBMFontLabel({font = "fonts/font_breakup.fnt",})
+				:align(display.CENTER, btn:getContentSize().width / 2, 67)
+				:setName("recommendPower")
+				:setString("0")
+				:addTo(btn)
+		
+			end
+			recommendPower:setString(curSection1)
+
+		end
+	end
+
+	-- 初始化塔
+	local pagodaList = var.xmlPanel:getWidgetByName("pagodaList")
+	pagodaList:reloadData(#var.sectionData, updateList):setSliderVisible(false)
+
+	if data.curSection <= 1 then
+		local curS = (data.curSection + 1 == 1 and 0 or data.curSection - 1)
+		pagodaList:setContentOffset({x=0, y=-105 * curS})
+	end
+
+	-- 当前拥有的副本卷轴
+	var.xmlPanel:getWidgetByName("lbl_section_info"):setString(var.ticket)
+	-- var.xmlPanel:getWidgetByName("lbl_section_challtime"):setString(var.challengeTimes)
+end
+
+function PanelPagoda.updateCurSectionInfo(sectionData,config)
+	var.section = sectionData.section
+	local awardLayout = var.xmlPanel:getWidgetByName("awardLayout")
+
+	-- 刷新关卡信息
+	local rightBg = var.xmlPanel:getWidgetByName("rightBg")
+	if rightBg then
+		rightBg:getChildByName("imgtaskinfo"):loadTexture(string.format("img_bu_%s", sectionData.name), ccui.TextureResType.plistType)
+		--rightBg:getChildByName("taskimg"):loadTexture(string.format("img_big_%s", sectionData.name), ccui.TextureResType.plistType)
+		rightBg:getChildByName("lblinfo_level"):setString(sectionData.limitlv)
+		rightBg:getChildByName("lblinfo_num"):setString(sectionData.ticket)
+		
+		local con = util.decode(sectionData.con)
+		-- rightBg:getChildByName("lblinfo_task"):setString("挑战次数:"..con.passtimes.."/"..sectionData.challengeTimes):enableOutline(cc.c4b(0, 0, 0, 255),1)
+		
+		-- 战斗力
+		local power = NetClient.mCharacter.mFightPoint
+		rightBg:getWidgetByName("lblinfo_danger"):setPositionX(#tostring(sectionData.power)*19):setVisible(power<sectionData.power)
+		-- rightBg:getWidgetByName("lblinfo_danger"):setPositionX(#tostring(sectionData.power)):setVisible(power < sectionData.power)
+	
+		local lblinfo_power = rightBg:getWidgetByName("lblinfo_power")
+
+		if not var.recommendPower then
+		var.recommendPower = ccui.TextAtlas:create("0123456789","fonts/clip_zhandouli_shuzi.png", 16, 20,"0")
+		:setName("recommendPower")
+		:addTo(var.xmlPanel:getWidgetByName("lblinfo_power"))
+		:align(display.CENTER_LEFT, 0, 10)
+		:setString("0")
+			-- var.recommendPower = ccui.TextAtlas:create("0123456789","fonts/clip_zhandouli_shuzi.png", 15.2, 25,"0")
+			-- :setName("recommendPower")
+			-- :addTo(var.xmlPanel:getWidgetByName("lblinfo_power"))
+			-- :align(display.CENTER_LEFT, -5, 8)
+			-- :setString("0")
+		end
+		var.recommendPower:setString(sectionData.power)
+		local lInfo = sectionData.firstAward and "首次通关奖励" or "通关奖励"
+		local lbl_gInfo = rightBg:getWidgetByName("lbl_gInfo")
+		lbl_gInfo:setString(lInfo)
+
+		-- 刷新奖励
+		local awards = sectionData.firstAward or sectionData.award
+		for i=1, 4 do
+			local awardItem = awardLayout:getChildByName("awardItem"..i)
+			if i <= #awards then
+				awardItem:show()
+				local award = awards[i]
+				UIItem.getItem({parent = awardItem, typeId = award.id, num = award.num})
+			else
+
+				awardItem:hide()
+			end
+		end
+
+		-- 关卡信息
+		local ceng=var.curSection1  --mxwx 修改显示关数字
+		var.xmlPanel:getWidgetByName("lbl_section"):setString("第 "..ceng.. " 层")
+	end
+end
+
+return PanelPagoda

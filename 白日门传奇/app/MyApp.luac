@@ -1,0 +1,180 @@
+
+require("config")
+require("cocos.init")
+require("framework.init")
+
+require("app.init")
+require("app.GlobalDef")
+require("app.Const")
+
+require("app.utilapp")
+require("app.manager.UpdateManager")
+require("app.language.zh_CN")
+
+CCGhostManager = cc.GhostManager:getInstance()
+NetCC = cc.NetClient:getInstance()
+
+PlatformTool = require("app.PlatformTool")
+PlatformCenter = require("app.PlatformCenter")
+Scheduler = require("framework.scheduler")
+UILuaLoader=require("app.ui.UILuaLoader")
+
+game=require("app.game")
+game.initVar()
+game.initSvrVar()
+
+UserConfig = require("app.UserConfig")
+-- UIBtnExtra = require("app.ui.UIBtnExtra")
+
+
+
+__G__TRACKBACK__ = function(msg)
+    print("----------------------------------------")
+    print("LUA ERROR: " .. tostring(msg) .. "\n")
+    print(debug.traceback("", 2))
+    if _G.buglyReportLuaException then
+        buglyReportLuaException(tostring(msg), debug.traceback())
+    end
+    print("----------------------------------------")
+end
+
+local MyApp = class("MyApp", cc.mvc.AppBase)
+
+MAIN_IS_IN_GAME=false
+
+function MyApp:ctor()
+    MyApp.super.ctor(self)
+
+    math.randomseed(cc.SystemUtil:getTime())
+
+    self.key_listener = cc.EventListenerKeyboard:create()
+    self.key_listener:registerScriptHandler(handler(self, self.onKeyReleased), cc.Handler.EVENT_KEYBOARD_RELEASED)
+    cc.Director:getInstance():getEventDispatcher():addEventListenerWithFixedPriority(self.key_listener, 1)
+end
+
+function MyApp:onKeyReleased(keyCode, event)
+    if keyCode == cc.KeyCode.KEY_BACK then
+        print("BACK clicked!")
+        if device.platform=="android" then
+            PlatformTool.doSdkExit()
+        end
+        NetClient:dispatchEvent({name=Notify.EVENT_KEYBOARD_PASSED,key="back"})
+    elseif keyCode == cc.KeyCode.KEY_MENU  then
+        print("MENU clicked!")
+        NetClient:dispatchEvent({name=Notify.EVENT_KEYBOARD_PASSED,key="menu"})
+    end
+end
+
+------------------------------------------------------------------------------------------
+function MyApp:run()
+    cc.FileUtils:getInstance():addSearchPath("res/")
+    cc.FileUtils:getInstance():addSearchPath("src/")
+    -- --热更新修改 muyi5242095
+    -- local url1 = cc.FileUtils:getInstance():getWritablePath().."games" --修改1   改为games
+    -- local url2 = cc.FileUtils:getInstance():getWritablePath().."games/src" --修改2
+    -- local url3 = cc.FileUtils:getInstance():getWritablePath().."games/res"--修改3
+    
+    -- cc.FileUtils:getInstance():addSearchPath(url1, true);
+    -- cc.FileUtils:getInstance():addSearchPath(url2, true);
+    -- cc.FileUtils:getInstance():addSearchPath(url3, true);
+
+    -- if device.platform == "android" then
+        -- cc.DownManager:getInstance():setDownUrl("https://resupdata.oss-cn-shenzhen.aliyuncs.com/xiaozhu/")--修改4   改为oss的更新地址
+    -- elseif device.platform == "ios" then
+        -- cc.DownManager:getInstance():setDownUrl("https://resupdata.oss-cn-shenzhen.aliyuncs.com/xiaozhu/")--修改5
+        -- --
+    -- else
+        -- -- cc.DownManager:getInstance():setDownUrl("http://127.0.0.1/lingtang/res/")
+        -- cc.FileUtils:getInstance():addSearchPath("res-android/")
+        -- cc.FileUtils:getInstance():addSearchPath("net-android/")
+    -- end
+    -- --热更新修改结束 
+    ----games是数据库update里zip_file_name这个名
+    local url1 = cc.FileUtils:getInstance():getWritablePath().."legend/"
+    local url2 = cc.FileUtils:getInstance():getWritablePath().."legend/src/"
+    local url3 = cc.FileUtils:getInstance():getWritablePath().."legend/res/"
+    cc.FileUtils:getInstance():addSearchPath(url1, true);
+    cc.FileUtils:getInstance():addSearchPath(url2, true);
+    cc.FileUtils:getInstance():addSearchPath(url3, true);
+    -- print("==================url1======================= " .. url1)
+    if device.platform == "android" then
+        cc.DownManager:getInstance():setDownUrl("http://cdn.game.lingtang.com/res/")
+    elseif device.platform == "ios" then
+        cc.DownManager:getInstance():setDownUrl("http://cdn.game.lingtang.com/res/")
+    else
+        -- cc.DownManager:getInstance():setDownUrl("http://127.0.0.1/lingtang/res/")
+        cc.FileUtils:getInstance():addSearchPath("res-android/")
+        cc.FileUtils:getInstance():addSearchPath("net-android/")
+    end
+    cc.DownManager:getInstance():setSavePath(cc.FileUtils:getInstance():getWritablePath().."nds/")
+    cc.FileUtils:getInstance():addSearchPath(cc.FileUtils:getInstance():getWritablePath().."nds/")
+
+    --加载texture和plist， 第一个场景不能异步加载， 否则会有黑屏
+    cc.CacheManager:getInstance():loadImage("uipic/SceneUpdate.png")
+    cc.SpriteFrameCache:getInstance():addSpriteFrames("uipic/SceneUpdate.plist")
+
+                asyncload_frames("uipic/SceneUpdate",".png",function ()
+    if device.platform=="android" or device.platform=="ios" then
+        local sceneUpdate = self:enterScene("SceneUpdate")
+
+        function initCallBack (args)
+            print("-----initCallBack-----")
+            sceneUpdate:checkUpdate()
+        end
+
+        function sdkLoginCallBack()
+            if PlatformTool  then
+                print("------sdkLoginCallBack------------")
+                game.gameKey=PlatformTool.getAccount()
+                game.loginKey=PlatformTool.getToken() 
+
+                asyncload_frames("uipic/SceneNotice",".png",function ()
+                    self:enterScene("SceneNotice")
+                end)
+            end
+        end
+
+        function logout ()
+            MAIN_IS_IN_GAME = false
+    
+            --断开socket
+            NetClient:disconnect()
+
+            game.cleanGame()
+            game.initVar()
+            game.initSvrVar()
+        end
+
+        function changeAccount ()
+            --cc.NetClient:getInstance():initClient()
+            
+            asyncload_frames("uipic/SceneSelectServer",".png",function ()
+                self:enterScene("SceneLogin")
+            end)
+        end
+
+        function sessionInvalid ()
+            if NetClient then
+                NetClient:disconnect()
+            end
+            if game then
+                game.cleanGame()
+            end
+            cc.NetClient:getInstance():initClient()
+            self:enterScene("SceneWaiting")
+        end
+
+        PlatformTool.setSDKInitCallBack(initCallBack)
+        PlatformTool.setSDKLoginCallBack(sdkLoginCallBack)
+        PlatformTool.setSDKLoginOutCallBack(logout)
+        PlatformTool.setSDKChangeAccount(changeAccount)
+        PlatformTool.setSDKSessionInvalid(sessionInvalid)
+
+        PlatformTool.setPlatfromListener()
+    else
+        self:enterScene("SceneUpdate")
+    end
+                end)
+end
+
+return MyApp

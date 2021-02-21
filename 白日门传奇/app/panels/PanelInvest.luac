@@ -1,0 +1,380 @@
+local PanelInvest = {}
+local var = {}
+local yr_node = {
+	"lbl_remain",
+	"btn_invest1",
+	"list_award1"
+}
+local my_node = {
+	"btn_invest2",
+	"list_award2"
+}
+local xh_node = {
+	"btn_invest3",
+	"list_award3"
+}
+
+function PanelInvest.initView()
+		var = {
+		xmlPanel,
+		curXmlTab=nil,
+		xmlYaori=nil,
+		yrTabData=nil,
+		xmlMingyue=nil,
+		myTabData=nil,
+		xmlXinghui=nil,
+		xhTabData=nil,
+		needRmb=68,
+			xmlPanel = UILuaLoader.load("uilayout/PanelInvest.uif")
+		}
+
+		if var.xmlPanel then
+			util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max2.png")
+			cc.EventProxy.new(NetClient, var.xmlPanel):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelInvest.handlePanelData)
+			PanelInvest.initTabs()
+
+			return var.xmlPanel
+		end
+	end
+	
+function PanelInvest.initTabs()
+		var.tablisth = var.xmlPanel:getWidgetByName("box_tab")
+
+		var.tablisth:addTabEventListener(function (sender)
+			local tag = sender:getTag()
+
+			if var.curXmlTab then
+				var.curXmlTab:hide()
+			end
+
+			if tag == 1 then
+				var.curXmlTab = PanelInvest.initYr()
+			elseif tag == 2 then
+				var.curXmlTab = PanelInvest.initMy()
+			elseif tag == 3 then
+				var.curXmlTab = PanelInvest.initXh()
+			end
+		end)
+		var.tablisth:setSelectedTab(1)
+		var.tablisth:setScaleEnabled(false)
+		var.tablisth:setTabRes("tab2_nor", "tab2_sel")
+		var.tablisth:setTabColor(game.getColor(12823944), game.getColor(16637870))
+	end
+	
+function PanelInvest.initYr()
+		if not var.xmlYaori then
+			var.xmlYaori = UILuaLoader.load("uilayout/PanelInvest_yr.uif"):addTo(var.xmlPanel:getWidgetByName("tabBox")):align(display.LEFT_BOTTOM, 0, 0):show()
+
+			PanelInvest.createUiTable(var.xmlYaori, yr_node)
+			var.xmlYaori:getWidgetByName("btn_invest1"):addClickEventListener(function (sender)
+				NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+					actionid = "investyr"
+				}))
+			end)
+
+			var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlYaori):align(display.LEFT_CENTER, 301, 435):setString(688888):setScale(0.45)
+
+		else
+			var.xmlYaori:show()
+		end
+
+		NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+			actionid = "initYr"
+		}))
+
+		return var.xmlYaori
+	end
+	
+function PanelInvest.updateYrTab(data,noReplace,remainnum,investstate,profict,needrmb)
+		var.xmlYaori:getWidgetByName("lbl_remain"):setString("" .. remainnum)
+
+		if investstate == 1 then
+			var.xmlYaori:getWidgetByName("btn_invest1"):setTouchEnabled(false):setTitleText("已投资")
+		else
+			var.xmlYaori:getWidgetByName("btn_invest1"):setTouchEnabled(true):setTitleText("立即投资")
+		end
+
+		(var.xmlYaori:getWidgetByName("profictFnt") or ccui.TextAtlas:create("0123456789", "fonts/fightGreen.png", 13, 19, "0"):addTo(var.xmlYaori):align(display.LEFT_BOTTOM, 615, 420):setName("profictFnt"):setScale(1.25)):setString(500)
+
+		if data and util.isTable(data) then
+			var.yrTabData = data
+
+			if not noReplace then
+			var.xmlYaori.ui["list_award1"]:reloadData(table.nums(var.yrTabData),function(subItem)
+					local index = subItem.tag
+					local needData = var.yrTabData[subItem.tag]
+					local levelinfo = "等级达到" .. needData.needlevel .. "级"
+
+					if needData.isZs > 0 then
+						levelinfo = "转生达到" .. needData.needlevel .. "级"
+					end
+
+					subItem:getWidgetByName("lbl_item_name1"):setString(levelinfo)
+
+					local btnAward= subItem:getWidgetByName("btn_getAward1")
+
+					if needData.getState == 1 then
+						btnAward:setTitleText("已领取"):setTouchEnabled(false):setTitleColor(cc.c3b(255, 0, 0))
+						util.removeHaloFromButton(btnAward)
+					else
+						btnAward:setTitleText("领取奖励"):setTouchEnabled(true):addClickEventListener(function (sender)
+							NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+								actionid = "getawardyr",
+								tag = index
+							}))
+						end):setTitleColor(cc.c3b(253, 223, 174))
+
+						local level = MainRole._mainAvatar:NetAttr(Const.net_zslevel)
+						local zlevel = MainRole._mainAvatar:NetAttr(Const.net_zslevel)
+
+
+						if investstate == 1 then
+							if needData.isZs == 0 and needData.needlevel <= MainRole._mainAvatar:NetAttr(Const.net_level) then
+								util.addHaloToButton(btnAward, "btn_normal_light2")
+							elseif needData.isZs > 0 and needData.needlevel <= zlevel then
+								util.addHaloToButton(btnAward, "btn_normal_light2")
+							else
+								util.removeHaloFromButton(btnAward)
+							end
+						else
+							util.removeHaloFromButton(btnAward)
+						end
+					end
+
+					local modelItem = subItem:getWidgetByName("img_item_bg1")
+
+					if needData then
+						needData.parent = modelItem
+
+						UIItem.getItem(needData)
+						modelItem:setSwallowTouches(false)
+						modelItem:show()
+					else
+						modelItem:hide()
+					end
+				end)
+			else
+				var.xmlYaori.ui["list_award1"]:updateCellInView()
+			end
+		end
+	end
+	
+function PanelInvest.initMy()
+		if not var.xmlMingyue then
+			var.xmlMingyue = UILuaLoader.load("uilayout/PanelInvest_my.uif"):addTo(var.xmlPanel:getWidgetByName("tabBox")):align(display.LEFT_BOTTOM, 0, 0):show()
+
+			PanelInvest.createUiTable(var.xmlMingyue, my_node)
+			var.xmlMingyue:getWidgetByName("btn_invest2"):addClickEventListener(function (sender)
+				NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+					actionid = "investmy"
+				}))
+			end)
+
+			var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlMingyue):align(display.LEFT_CENTER, 301, 435):setString(488888):setScale(0.45)
+		else
+			var.xmlMingyue:show()
+		end
+
+		NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+			actionid = "initMy"
+		}))
+
+		return var.xmlMingyue
+	end
+	
+function PanelInvest.updateMyTab(data,noReplace,remainnum,profict)
+		if remainnum > 0 then
+			var.xmlMingyue:getWidgetByName("lbl_my_dateno"):setVisible(true):setString("当前投资第" .. remainnum .. "天")
+			var.xmlMingyue:getWidgetByName("btn_invest2"):setTouchEnabled(false):setTitleText("已投资")
+		else
+			var.xmlMingyue:getWidgetByName("lbl_my_dateno"):setVisible(false)
+			var.xmlMingyue:getWidgetByName("btn_invest2"):setTouchEnabled(true):setTitleText("立即投资")
+		end
+
+		(var.xmlMingyue:getWidgetByName("profictFnt") or ccui.TextAtlas:create("0123456789", "fonts/fightGreen.png", 13, 19, "0"):addTo(var.xmlMingyue):align(display.LEFT_BOTTOM, 615, 420):setName("profictFnt"):setScale(1.25)):setString(550)
+
+		local profictFnt = var.xmlMingyue:getWidgetByName("profictFnt")
+	
+		if data and util.isTable(data) then
+			var.myTabData = data
+
+			if not noReplace then
+				var.xmlMingyue.ui.list_award2:reloadData(table.nums(var.myTabData), function (subItem)
+				local index = subItem.tag
+				local needData = var.myTabData[index];
+				local dayinfo = "投资第"..needData.needdays.."天";
+				subItem:getWidgetByName("lbl_item_name2"):setString(dayinfo)
+					local btnAward = subItem:getWidgetByName("btn_getAward2")
+					if needData.getState == 1 then
+						subItem:getWidgetByName("btn_getAward2"):setTitleText("已领取"):setTouchEnabled(false):setTitleColor(cc.c3b(255, 0, 0))
+					else
+						btnAward:setTitleText("领取奖励"):setTouchEnabled(true):addClickEventListener(function (sender)
+							NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+								actionid = "getawardmy",
+								tag = index
+							}))
+						end):setTitleColor(cc.c3b(253, 223, 174))
+
+						if index <= remainnum then
+							util.addHaloToButton(btnAward, "btn_normal_light2")
+						else
+							util.removeHaloFromButton(btnAward)
+						end
+					end
+
+					local modelItem = subItem:getWidgetByName("img_item_bg2")
+
+					if needData then
+						needData.parent = modelItem
+
+						UIItem.getItem(needData)
+						modelItem:setSwallowTouches(false)
+						modelItem:show()
+					else
+						modelItem:hide()
+					end
+				end)
+			else
+				var.xmlMingyue.ui.list_award2:updateCellInView()
+			end
+		end
+	end
+	
+function PanelInvest.initXh()
+		if not var.xmlXinghui then
+			var.xmlXinghui = UILuaLoader.load("uilayout/PanelInvest_xh.uif"):addTo(var.xmlPanel:getWidgetByName("tabBox")):align(display.LEFT_BOTTOM, 0, 0):show()
+
+			PanelInvest.createUiTable(var.xmlXinghui, xh_node)
+			var.xmlXinghui:getWidgetByName("btn_invest3"):addClickEventListener(function (sender)
+				NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+					actionid = "investxh"
+				}))
+			end)
+
+			var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlXinghui):align(display.LEFT_CENTER, 301, 435):setString(188888):setScale(0.45)
+		else
+			var.xmlXinghui:show()
+		end
+
+		NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+			actionid = "initXh"
+		}))
+
+		return var.xmlXinghui
+	end
+	
+function PanelInvest.updateXhTab(data,noReplace,remainnum, profit)
+		if remainnum > 0 then
+			var.xmlXinghui:getWidgetByName("lbl_xh_dateno"):setVisible(true):setString("当前投资第" .. remainnum .. "天")
+			var.xmlXinghui:getWidgetByName("btn_invest3"):setTouchEnabled(false):setTitleText("已投资")
+		else
+			var.xmlXinghui:getWidgetByName("lbl_xh_dateno"):setVisible(false)
+			var.xmlXinghui:getWidgetByName("btn_invest3"):setTouchEnabled(true):setTitleText("立即投资")
+		end
+
+		(var.xmlXinghui:getWidgetByName("profictFnt") or ccui.TextAtlas:create("0123456789", "fonts/fightGreen.png", 13, 19, "0"):addTo(var.xmlXinghui):align(display.LEFT_BOTTOM, 615, 420):setName("profictFnt"):setScale(1.25)):setString(3000)
+
+		if data and util.isTable(data) then
+			var.xhTabData = data
+
+			if not noReplace then
+				var.xmlXinghui.ui.list_award3:reloadData(table.nums(var.xhTabData), function (subItem)
+					local index = subItem.tag
+					local needData = var.xhTabData[index];
+
+					subItem:getWidgetByName("lbl_item_name3"):setString("投资第" .. needData.needdays .. "天")
+
+					local btnAward = subItem:getWidgetByName("btn_getAward3")
+
+					if needData.getState == 1 then
+						btnAward:setTitleText("已领取"):setTouchEnabled(false):setTitleColor(cc.c3b(253, 0, 0))
+						util.removeHaloFromButton(btnAward)
+					else
+						btnAward:setTitleText("领取奖励"):setTouchEnabled(true):addClickEventListener(function (sender)
+							NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+								actionid = "getawardxh",
+								tag = index
+							}))
+						end):setTitleColor(cc.c3b(253, 223, 174))
+
+						if index <= remainnum then
+							util.addHaloToButton(btnAward, "btn_normal_light2")
+						else
+							util.removeHaloFromButton(btnAward)
+						end
+					end
+
+					local modelItem = subItem:getWidgetByName("img_item_bg3")
+
+					if needData then
+						needData.parent = modelItem
+
+						UIItem.getItem(needData)
+						modelItem:setSwallowTouches(false)
+						modelItem:show()
+					else
+						modelItem:hide()
+					end
+				end)
+			else
+				var.xmlXinghui.ui.list_award3:updateCellInView()
+			end
+		end
+	end
+	
+function PanelInvest.createUiTable(parent,array)
+		parent.ui = {};
+	for _,v in ipairs(array) do
+		local node = parent:getWidgetByName(v);
+		if node then
+			parent.ui[v] = node
+		end
+	end
+	return parent.ui
+	end
+	
+function PanelInvest.onPanelOpen()
+		NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+			actionid = "fresh"
+		}))
+	end
+	
+function PanelInvest.handlePanelData(event)
+		if event.type ~= "PanelInvest" then
+			return
+		end
+		local pdata = util.decode(event.data)
+		if pdata.cmd == "yr" then
+			if pdata.childCmd == "updateList" then
+			PanelInvest.updateYrTab(pdata.table,pdata.noReplace,pdata.remainnum,pdata.investState,pdata.profit,pdata.needrmb);
+			end
+		elseif pdata.cmd == "my" then
+			if pdata.childCmd == "updateList" then
+				PanelInvest.updateMyTab(pdata.table, pdata.noReplace, pdata.buydates, pdata.profit)
+			end
+		elseif pdata.cmd == "xh" and pdata.childCmd == "updateList" then
+			PanelInvest.updateXhTab(pdata.table, pdata.noReplace, pdata.buydates, pdata.profit)
+		end
+	end
+	
+
+function PanelInvest.getAwardByIndex(sender)
+		sender:getVirtualRenderer():setState(sender.bright and 0 or 1)
+		NetClient:PushLuaTable("gui.PanelInvest.handlePanelData", util.encode({
+			actionid = "getaward",
+			index = sender.index
+		}))
+	end
+	
+function PanelInvest.freshPage(svrData)
+	
+end
+
+function PanelInvest.freshPanel(svrData)
+	
+end
+
+function PanelInvest.onPanelClose()
+end
+
+return PanelInvest

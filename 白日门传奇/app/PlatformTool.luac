@@ -1,0 +1,585 @@
+PlatformTool={}
+
+PlatformTool.PLATFORM_TEST_ID =   888	--测试平台的platform_id
+PlatformTool.PLATFORM_GOOGLE_ID = 1001	--google平台id
+PlatformTool.PLATFORM_YH = 889 			--银魂平台
+PlatformTool.PLATFORM_YT = 890			--樱桃平台
+PlatformTool.PLATFORM_YTDJ = 891			--樱桃平台
+PlatformTool.PLATFORM_JW = 666			--简玩平台
+PlatformTool.PLATFORM_YT2 = 667			--樱桃平台2
+PlatformTool.isWaiting = false 			--平台提示api判断
+
+-----------------游戏版本---------------------
+PlatformTool.DDMS = 1
+PlatformTool.TLSD = 2
+PlatformTool.TLXJ = 3
+PlatformTool.DJDZY= 4
+
+----------------上传服务器配置----------------
+PlatformTool.TYPE_SELECT_SERVER = 1 --选服
+PlatformTool.TYPE_CREATOR_ROLE = 2 --创角
+PlatformTool.TYPE_ENTER_GAME = 3 --进入游戏
+PlatformTool.TYPE_LEVEL_UP = 4  --升级
+PlatformTool.TYPE_PAY = 5  --支付
+PlatformTool.TYPE_EXIT_GAME = 6 --退出游戏
+
+---------------------------------------------------------------------
+local platform_ios=false
+local platform_android=false
+local platform_windows = false
+
+local luaoc=nil
+local luaj=nil
+
+local _account=""
+local _token=""		--一个loginkey
+local _platform=""  --渠道名
+local _platformid=0
+local _sku="LEGEND"
+local _deviceOs=""
+local _deviceType=""
+local _deviceVender=""
+local _deviceId=""
+local _centerUrl=""
+local _deviceBattery = 0
+local _deviceNetWork = 0   --1-->2g, 2--->3g, 3-->4g, 5-->wifi
+
+
+
+local _sdkInitCallBackFun=nil   --初始成功
+local _sdkLoginCallBackFun=nil  --sdk登录成功---->开始走正常的登陆流程
+local _sdkLogoutCallBackFun=nil --登出回调
+local _sdkChangeAccount=nil     -- 切换账号
+local _sdkSessionInvalid=nil    --session丢失
+-- ---------------------------------------------
+
+if device.platform == "ios" then
+	luaoc=require("framework.luaoc")
+	platform_ios=true
+elseif device.platform == "android" then
+	luaj=require("framework.luaj")
+	platform_android=true
+else
+	platform_windows=true
+end
+
+local javaClassName = "org/cocos2dx/lua/LuaJavaBridge"
+local ocClassName = "LuaObjectCBridge"
+local ocAppClassName = "AppController"
+
+function platform_listener(param)
+	print("------->platform_listener----,  ",param)
+
+	local paramsTab=string.split(param,"|")
+	local key=nil
+	local value=nil
+	if #paramsTab>0 then
+		key=paramsTab[1]
+		value = paramsTab[2]
+	end
+    if key then
+        if key=="onInit" then -- 设置渠道信息
+            --print(values)
+            -- LuaJavaBridge.pushPlatformFunc(
+            -- "onInit|"          1 方法名
+            -- +platform+"|"      2 渠道名
+            -- +platformid+"|"    3 渠道id
+            -- +sku+"|"           4 中控后台分配的一个名称
+            -- +deviceOs+"|"      5 设备系统
+            -- +deviceVender+"|"  6 设备厂商
+            -- +deviceId+"|"      7 设备ID
+            -- +deviceType+"|"    8 设备
+            -- +centerurl);       9 中控url
+            if paramsTab[2] then _platform=paramsTab[2] end
+            if paramsTab[3] then _platformid=tonumber(paramsTab[3]) end
+            if paramsTab[4] then _sku=paramsTab[4] end
+            if paramsTab[5] then _deviceOs=paramsTab[5] end
+            if paramsTab[6] then _deviceVender=paramsTab[6] end
+            if paramsTab[7] then _deviceId=paramsTab[7] end
+            if paramsTab[8] then _deviceType=paramsTab[8] end
+            if paramsTab[9] then _centerUrl=paramsTab[9] end
+
+            if _sdkInitCallBackFun then
+                _sdkInitCallBackFun()
+            end
+            -- PlatformTool.doSdkInit()
+        end
+        if key=="onAnnc" then
+			game.accountId = value
+			-- if paramsTab[3] then
+			-- 	UserConfig.Data["LastYQM"] = tonumber(paramsTab[3])
+			-- 	PlatformTool.setPlatformId(tonumber(paramsTab[3]))
+			-- 	UserConfig.save()
+			-- end
+			-- print("game.accountId: ", game.accountId)
+        end
+        if key=="onLoadServer" then
+          
+        end
+        if key=="onPay" then
+          -- TODO 充值成功回调,
+        end
+        if key=="onLogin" then
+            _token=string.gsub(param,"onLogin|","")
+			_account=paramsTab[2]
+			
+            if _sdkLoginCallBackFun then
+                _sdkLoginCallBackFun()
+            end
+        end
+        if key=="onLogout" then
+            if  _sdkLogoutCallBackFun then
+                _sdkLogoutCallBackFun()
+            end
+        end
+        if key=="onRelogin" then
+          	if _sdkLoginCallBackFun then
+            	_sdkLogoutCallBackFun()
+          	end
+        end
+        if key=="onChangeAccount" then
+          	--print("-------------------------")
+          	--print("执行SDK的切换账号操作")
+         	-- print("-------------------------")
+          	if _sdkChangeAccount then
+          	  	_sdkChangeAccount()
+          	end
+        end
+        if key=="onSessionInvalid" then
+          	--print("账号Session过期")
+          	if _sdkSessionInvalid then
+            	_sdkSessionInvalid()
+          	end
+        end
+        if key == "onLoginZk" then --准备调用登录post
+        	PlatformCenter.onLoginZk(paramsTab);
+        end
+        if key == "onBattery" then  --电量
+            if value then
+              	_deviceBattery = tonumber(value)
+            end
+        end
+		if key == "onNetwork" then --网络状态
+			if value then
+				_deviceNetWork = tonumber(value)
+			end
+		end
+    end
+end
+
+function PlatformTool.initVar(  )
+	_account=""
+	_token=""		--一个loginkey
+	_platform=""  --渠道名
+	_platformid=0
+	_sku="LEGEND"
+	_deviceOs=""
+	_deviceType=""
+	_deviceVender=""
+	_deviceId=""
+	_centerUrl=""
+end
+
+function PlatformTool.setPlatfromListener()
+	if platform_android then
+		local javaMethodName = "setPlatfromListener"
+		local javaParams = {platform_listener}
+
+		local javaMethodSig = "(I)V"
+		local ok,ret = luaj.callStaticMethod(javaClassName,javaMethodName,javaParams,javaMethodSig)
+		if not ok then
+			print("luaj error:", ret)
+		else
+			print("setPlatfromListener success")
+		end
+	elseif platform_ios then
+		local ocMethodName = "setPlatfromListener"
+		local ocParams = {listener=platform_listener}
+		local ok,ret = luaoc.callStaticMethod(ocClassName,ocMethodName,ocParams)
+		if not ok then
+			print("luaoc error:", ret)
+		else
+			print("setPlatfromListener success")
+		end
+	end
+
+end
+
+function PlatformTool.callListener(params)
+	platform_listener(params)
+end
+
+function PlatformTool.callPlatformFunc(params)
+	if type(params)~="table" then return end
+	print("-----callPlatformFunc: ", utilapp.encode(params))
+
+	if platform_android then
+		local javaMethodName = "callPlatformFunc"
+		local javaParams = {utilapp.encode(params)}
+		local javaMethodSig = "(Ljava/lang/String;)V"
+		local ok,ret = luaj.callStaticMethod(javaClassName,javaMethodName,javaParams,javaMethodSig)
+		if not ok then
+			print("luaj error:", ret)
+		else
+			print("callPlatformFunc success")
+		end
+	elseif platform_ios then
+		local ocMethodName = "callPlatformFunc"
+		local ocParams = params
+		local ok,ret = luaoc.callStaticMethod(ocClassName,ocMethodName,ocParams)
+		if not ok then
+			print("luaoc error:", ret)
+		else
+			print("callPlatformFunc success")
+		end
+	end
+end
+
+function PlatformTool.showMsg(msg,delay)
+	if not msg then return end
+	if not delay then delay=3 end
+
+	if platform_windows then
+		print("----msg----"..msg.."----msg----")
+	elseif platform_android then
+		local javaMethodName = "showToast"
+		local javaParams = {msg,delay}
+		local javaMethodSig = "(Ljava/lang/String;I)V"
+		local ok,ret = luaj.callStaticMethod(javaClassName,javaMethodName,javaParams,javaMethodSig)
+		if not ok then
+			print("luaj error:", ret)
+		else
+			print("showToast success")
+		end
+	elseif platform_ios then
+		local ocMethodName = "showHUDMsg"
+		local ocParams = {msg=msg,delay=delay}
+		local ok,ret = luaoc.callStaticMethod(ocClassName,ocMethodName,ocParams)
+		if not ok then
+			print("luaoc error:", ret)
+		else
+			print("showHUDMsg success")
+		end
+	end
+end
+
+function PlatformTool.hideWaiting()
+	print("hideWaiting")
+	if PlatformTool.wait_delay then
+		Scheduler.unscheduleGlobal(PlatformTool.wait_delay)
+		PlatformTool.wait_delay = nil
+	end
+	if PlatformTool.isWaiting then
+		if platform_android then
+			local javaMethodName = "hideActivityIndicator"
+			local javaParams = {}
+			local javaMethodSig = "()V"
+			local ok,ret = luaj.callStaticMethod(javaClassName,javaMethodName,javaParams,javaMethodSig)
+			if not ok then
+				print("luaj error:", ret)
+			else
+				print("hideActivityIndicator success")
+				PlatformTool.isWaiting=false
+			end
+		elseif platform_ios then
+			local ocMethodName = "hideActivityIndicator"
+			local ok,ret = luaoc.callStaticMethod(ocClassName,ocMethodName)
+			if not ok then
+				print("luaoc error:", ret)
+			else
+				print("hideActivityIndicator success")
+				PlatformTool.isWaiting=false
+			end	
+		end
+	end
+end
+
+function PlatformTool.showWaiting(params)
+	if not params then return end
+	print("isWaiting")
+	if PlatformTool.isWaiting then return end
+	print("showWaiting")
+ 
+	local msg     =	 params.msg 	or "请稍候"
+	local opacity =  params.opacity or 100
+	local delay   =  params.delay   or 10
+	local outtime =  type(params.outtime)=="function" and params.outtime or nil
+
+	PlatformTool.isWaiting=true
+	if platform_android then
+		local javaMethodName = "showActivityIndicator"
+		local javaParams = {msg}
+		local javaMethodSig = "(Ljava/lang/String;)V"
+		local ok,ret = luaj.callStaticMethod(javaClassName,javaMethodName,javaParams,javaMethodSig)
+		if not ok then
+			print("luaj error:", ret)
+		else
+			print("showActivityIndicator success")
+		end
+	elseif platform_ios then
+		local ocMethodName = "showActivityIndicator"
+		local ocParams = {msg=msg,delay=delay}
+		local ok,ret = luaoc.callStaticMethod(ocClassName,ocMethodName,ocParams)
+		if not ok then
+			print("luaoc error:", ret)
+		else
+			print("showActivityIndicator success")
+		end	
+	end
+
+	if delay>0 then
+		local function wait_end(dt)
+			PlatformTool.hideWaiting()
+			if outtime then
+				outtime()
+			else
+				PlatformTool.showMsg("请求超时")
+			end
+			print("ActivityIndicator outtime")
+		end
+		PlatformTool.wait_delay = Scheduler.scheduleGlobal(wait_end,delay)
+	end
+end
+
+-- 获取游戏版本
+function PlatformTool.getGameVersion(channelId)
+	if channelId == PlatformTool.PLATFORM_YH or channelId == PlatformTool.PLATFORM_YT then
+		return PlatformTool.TLSD
+	elseif channelId == PlatformTool.PLATFORM_YT2 then
+		return PlatformTool.TLXJ
+	elseif channelId == PlatformTool.PLATFORM_YTDJ then
+		return PlatformTool.DJDZY
+	elseif channelId == PlatformTool.PLATFORM_YH then
+		return PlatformTool.DDMS
+	end
+end
+
+function PlatformTool.openURL(url)
+	if not url then return end
+
+	if platform_windows then
+		print("open url ",url)
+	elseif platform_android then
+		local javaMethodName = "openURL"
+		local javaParams = {url}
+		local javaMethodSig = "(Ljava/lang/String;)V"
+		local ok,ret = luaj.callStaticMethod(javaClassName,javaMethodName,javaParams,javaMethodSig)
+		if not ok then
+			print("luaj error:", ret)
+		else
+			print("openURL success")
+		end
+	elseif platform_ios then
+		local ocMethodName = "openURL"
+		local ocParams = {url=url}
+		luaoc.callStaticMethod(ocClassName,ocMethodName,ocParams)
+	end
+end
+
+function PlatformTool.getNetState()
+	if platform_windows then
+
+	elseif platform_android then
+		local javaMethodName = "getNetState"
+		local javaParams = {}
+		local javaMethodSig = "()I"
+		local ok,ret = luaj.callStaticMethod(javaClassName,javaMethodName,javaParams,javaMethodSig)
+		if not ok then
+			print("luaj error:", ret)
+		else
+			return ret
+		end
+	elseif platform_ios then
+		local ocMethodName = "getNetState"
+		local ok,ret = luaoc.callStaticMethod(ocClassName,ocMethodName)   
+		if not ok then
+			print("luaoc error:", ret)
+		else
+			return ret
+		end
+	end
+	return 2
+end
+
+function PlatformTool.getConfigString(key)
+	if platform_windows then
+		if key=="version" then
+			return "1.0"
+		end
+	elseif platform_android then
+		local javaMethodName = "getConfigString"
+		local javaParams = {key}
+		local javaMethodSig = "(Ljava/lang/String;)Ljava/lang/String;"
+		local ok,ret = luaj.callStaticMethod(javaClassName,javaMethodName,javaParams,javaMethodSig)
+		if not ok then
+			print("luaj error:", ret)
+		else
+			return ret
+		end
+	elseif platform_ios then
+		local ocMethodName = "getConfigString"
+		local ocParams = {key=key}
+		local ok,ret = luaoc.callStaticMethod(ocClassName,ocMethodName,ocParams)   
+		if not ok then
+			print("luaoc error:", ret)
+		else
+			return ret
+		end
+	end
+	return ""
+end
+
+-- 这一部分是java 及 SDK 方法的回调
+function PlatformTool.setSDKSessionInvalid (fun)
+  	_sdkSessionInvalid=fun
+end
+function PlatformTool.setSDKInitCallBack( fun )
+	_sdkInitCallBackFun=fun
+end
+function PlatformTool.setSDKLoginCallBack( fun )
+ 	_sdkLoginCallBackFun=fun
+end
+function PlatformTool.setSDKLoginOutCallBack( fun )
+ 	_sdkLogoutCallBackFun=fun
+end
+function PlatformTool.setSDKChangeAccount(fun)
+  	_sdkChangeAccount=fun
+end
+
+-- 分发另外动态分配id
+function PlatformTool.setPlatformId (id)
+	_platformid = tonumber(id)
+end
+
+
+-- 获取渠道SDK部分返回的参数
+function PlatformTool.getCenterUrl ()
+  	return _centerUrl
+end
+function PlatformTool.getAccount ()
+  	return _account
+end
+function PlatformTool.getToken ()
+  	return _token
+end
+function PlatformTool.getPlatform ()
+  	return _platform
+end
+function PlatformTool.getPlatformId ()
+  	return _platformid
+end
+function PlatformTool.getSku ()
+  	return _sku
+end
+function PlatformTool.getDeviceId ()
+  	return _deviceId
+end
+function PlatformTool.getDeviceOs ()
+  	return _deviceOs
+end
+function PlatformTool.getDeviceType ()
+  	return _deviceType
+end
+function PlatformTool.getDeviceVender ()
+  	return _deviceVender
+end
+
+--主动调用的相关接口
+function PlatformTool.doSdkInit ()
+  	PlatformTool.callPlatformFunc({
+		func="initSdk"
+	})
+end
+
+function PlatformTool.doTestLogin (ac, pw, yqm)  --测试登陆用的
+	PlatformTool.callPlatformFunc({
+		func="testlogin",
+		account=ac,
+		password=pw,
+		yqm=yqm
+	})
+end
+
+function PlatformTool.doSdkLogin( ... )
+    -- print("通知渠道SDK执行登录")
+    PlatformTool.callPlatformFunc({
+		func="login"
+	})
+end
+
+function PlatformTool.doSdkReLogin ()
+  	PlatformTool.callPlatformFunc({
+		func="relogin"
+	})
+end
+
+function PlatformTool.doSubmitExtendData( subType )
+	print("******************************************")
+	print("---------doSubmitExtendData.subType = "..subType)
+	print("******************************************", game.seedName, game.accountId, game.zoneId)
+	local guildName = ""
+	if MainRole and MainRole._mainAvatar then
+		guildName = MainRole._mainAvatar:NetAttr(Const.net_guild_name)
+	end
+	PlatformTool.callPlatformFunc({
+		func="submitExtendData",
+		subType = subType or 0,
+		roleId = game.roleId,
+		seedName = game.seedName,
+		roleName = game.chrName,
+		roleLevel = game.level,
+		zoneId = game.zoneId,
+		zoneName=game.zoneName,
+		roleGender = game.gender,
+		roleJob = game.job,
+		roleVip = game.vip or 0,
+		accountId = game.accountId,
+		guildId = 0,
+		guildName = guildName,
+		diamond = NetClient.mCharacter.mVCoin or 0,
+		fightPoint = NetClient.mFightPoint or 0,
+		createTime = game.createTime,
+	})
+end
+
+function PlatformTool.doSdkPay (name,price,number,payId)
+  	-- print("----------充值-----------")
+	cc.Application:getInstance():openURL("http://www.8gesy.com/payment/group.html?id=1615493217712A6C")
+end
+
+function  PlatformTool.doSdkExit()
+  	PlatformTool.callPlatformFunc({
+		func="showExit"
+	})
+end
+
+function onStopRecordLua(localpath,time,ext)
+	local result=nil
+	if ext~=nil then
+		result = ext:split("|")
+	end
+	if result~=nil and #result==2 then
+		LayerVoice.voiceCallback({func="voiceRecordStop",filepath = localpath, time=time,send = true,flag=result[2],channel=result[1]})
+	end
+	 
+end
+function onVoiceUploadSucc(spath,ext)
+	local result=nil
+	if ext~=nil then
+		result = ext:split("|")
+	end
+	if result~=nil and #result==2 then
+		LayerVoice.voiceCallback({func="voiceUploadSucc",url = spath, send = true,channel=result[1],flag=result[2]})
+	end
+	 
+end
+function onPlayVoiceFinish(result)
+	LayerVoice.onPlayVoiceFinish(result) 
+end
+-- function string:split(sep)  
+--     local sep, fields = sep or ":", {}  
+--     local pattern = string.format("([^%s]+)", sep)  
+--     self:gsub(pattern, function (c) fields[#fields + 1] = c end)  
+--     return fields  
+-- end 
+return PlatformTool

@@ -1,0 +1,131 @@
+SceneKuaFu = class("SceneKuaFu", function()
+    return display.newScene("SceneKuaFu")
+end)
+
+function SceneKuaFu:ctor()
+	
+	NetClient:disconnect()
+
+	MAIN_IS_IN_GAME=false
+
+	self.maxWaitingTime = 5
+	self._loadUI = nil
+	self._percent = nil
+end
+
+function SceneKuaFu:onExit()
+	print("onExit")
+	self:stopAllActions()
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+function SceneKuaFu:onEnterTransitionFinish()
+
+	-- PlatformTool.logoutRoom()
+	NetClient:init()
+	MainRole.initVar()
+
+	self:runAction(
+		cca.seq({
+			cca.delay(1),
+			cca.cb(function()
+				print("NetClient:connect")
+				if NetClient.kuaFuState then
+					dump(NetClient.kuaFuInfo)
+					NetClient:connect(NetClient.kuaFuInfo.kuafuip, NetClient.kuaFuInfo.kuafuport, 1)
+				else
+					NetClient:connect(game.serverIP, game.serverPort, 2)
+				end
+			end)
+		})
+	)
+
+	cc.EventProxy.new(NetClient,self)
+		:addEventListener(Notify.EVENT_PLATFORM_LOGOUT,handler(self, self.onPlatformLogout))
+end
+
+function SceneKuaFu:onPlatformLogout()
+	game.ExitToRelogin()
+end
+
+function SceneKuaFu:wait()
+	if MAIN_IS_IN_GAME then
+		return
+	end
+	-- print(NetClient._connected)
+	-- dump(NetClient.mNetMap.mMapID)
+	-- if NetClient._connected then
+	-- 	if NetClient.mNetMap.mMapID then
+	-- 		game.noSubmit = true
+			cc.Director:getInstance():replaceScene(cc.SceneGame:create())
+	-- 	end
+	-- else
+		util.showAlert("提示","连接失败，是否需要重试？",{"确定","重新登录"},function (event)
+			if MAIN_IS_IN_GAME then
+				return
+			end
+			if event.buttonIndex == 1 then
+				if NetClient.kuaFuState then
+					dump(NetClient.kuaFuInfo)
+					NetClient:connect(NetClient.kuaFuInfo.kuafuip, NetClient.kuaFuInfo.kuafuport, 1)
+				else
+					NetClient:connect(game.serverIP, game.serverPort, 2)
+				end
+				self:runAction(cca.seq({cca.delay(self.maxWaitingTime), cca.callFunc(handler(self, self.wait))}))
+			elseif event.buttonIndex == 2 then
+				game.ExitToRelogin()
+			end
+		end,self)
+	--end
+end
+
+function SceneKuaFu:onEnter()
+	asyncload_frames("uipic/SceneLoading",".png",function ()
+		self._loadUI = UILuaLoader.load("uilayout/SceneKuaFu.uif")
+		:setContentSize(cc.size(display.width, display.height))
+		:align(display.CENTER, display.cx, display.cy)
+		:addTo(self)
+		local seceneBg = self._loadUI:getWidgetByName("seceneBg")
+		local lbl_hint = self._loadUI:getWidgetByName("labDesp"):align(display.CENTER, display.cx, display.bottom + 100)
+		util.asyncload(self._loadUI, "seceneBg", "needload/2.png")
+		if NetClient.kuaFuState then
+			util.asyncload(self._loadUI, "seceneBg", "needload/2.png")
+			lbl_hint:setString("正在跨服，请稍等")
+		else
+			lbl_hint:setString("正在返回，请稍等")
+		end
+		local size = self._loadUI:getContentSize()
+		seceneBg:align(display.CENTER, size.width/2, size.height/2)
+		if display.height > 640 then
+			seceneBg:scale(display.height/640)
+		end
+
+		local seceneBarBg = self._loadUI:getWidgetByName("seceneBarBg"):align(display.CENTER, display.cx, display.bottom + 60)
+		--local bar = self._loadUI:getWidgetByName("bar"):size(40,31):align(display.LEFT_CENTER, 120, 60)
+		local barLight = self._loadUI:getWidgetByName("bar_light")
+		local mask = self._loadUI:getWidgetByName("mask")
+
+		self._percent = 0;
+		local function runLoading()
+			self._percent = self._percent + 1
+			if self._percent > 100 then
+				self:stopAllActions()
+				self:runAction(cca.seq({cca.delay(self.maxWaitingTime), cca.callFunc(handler(self, self.wait))}))
+			end
+			-- bar:size(self._percent*8.9,31)
+			-- barLight:setPosition(cc.p(70+self._percent*8.9,100))
+
+			local width = math.max(self._percent/3*831/100, 10)
+			mask:size(width + 80,83)
+			barLight:pos(40 + 8.9 * self._percent/3, 30)		
+		end
+		self:runAction(cca.repeatForever(
+			cca.seq({
+				cca.delay(1/40),
+				cca.cb(runLoading)
+			})
+		))
+	end,self)
+end
+
+return SceneKuaFu

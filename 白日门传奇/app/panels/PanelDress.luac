@@ -1,0 +1,1035 @@
+local PanelDress = {}
+local var = {}
+local pageKeys = {
+	"fashion", "weapon", "wing", "foot","mount","title"
+}
+
+--时装 称号
+
+local fashionPos = {
+    Const.ITEM_FASHION_CLOTH_POSITION,
+    Const.ITEM_FASHION_WEAPON_POSITION,
+    Const.ITEM_FASHION_WING_POSITION,
+    Const.ITEM_FASHION_FOOT_POSITION,
+	Const.ITEM_TITLE_POSITION,
+	-- Const.ITEM_MOUNT_POSITION,
+	Const.ITEM_TITLE_CESHI1,
+}
+local attrData = {
+	{str = "物理攻击：",x1 = "mDC",x2 = "mDCMax"},
+	{str = "魔法攻击：",x1 = "mMC",x2 = "mMCMax"},
+	{str = "道术攻击：",x1 = "mSC",x2 = "mSCMax"},
+	{str = "物理防御：",x1 = "mAC",x2 = "mACMax"},
+	{str = "魔法防御：",x1 = "mMAC",x2 = "mMACMax"},
+}
+local lblhint = {
+	"<font color=#E7BA52 size=20>       装扮说明</font>",
+    "1.拥有装扮即可获得该装扮的属性",
+    "2.选中装扮可以预览装扮内关，佩戴后可以改变角色外观"
+}
+
+local lbltitle = {
+    "<br><br><font color=#E7BA52 size=20>       称号说明</font><br>",
+    '1、获得称号即可增加属性，所有已获得的称号属性都会叠加。',
+    '2、称号需要玩家手动卸下或者穿戴，穿戴称号会自动替换当前称号。',
+    '3、称号可通过活动获得或者通过使用道具获得，部分称号是全服唯一，失去资格后将失去属性以及外观显示。'
+}
+
+local btnTabName = {
+	"btn_tab_post", "btn_tab_chop"
+}
+-- end
+local function hideAllPages()
+	local pageName
+	for i,v in ipairs(pageKeys) do
+		pageName = "xmlPage"..string.ucfirst(v)
+		if var[pageName] then
+			var[pageName]:hide()
+		end
+	end
+end
+ -- page变量，初始化函数，刷新函数使用字符窜拼接
+local function showPanelPage(index)
+	local key = pageKeys[index]
+	if not (key and table.indexof(pageKeys, key))then return end
+	var.lastTabIndex = index
+	hideAllPages()
+	local pageName = "xmlPage"..string.ucfirst(key)
+	local initFunc = "initPage"..string.ucfirst(key)
+	local openFunc = "openPage"..string.ucfirst(key)
+	if not var[pageName] and PanelDress[initFunc] then
+		PanelDress[initFunc]()
+    end
+
+    if var.xmlPanel then
+		if PanelDress[openFunc] then
+			PanelDress[openFunc]()
+		end
+	end
+end
+
+-- 点击tab按钮
+local function pushTabButtons(sender)
+	local opened, level, funcName
+	opened = true
+    local tag = sender:getTag()
+
+	showPanelPage(sender:getTag())
+end
+
+
+-- 装备tips基础属性(包含强化加成)
+-- 显示物防，魔防，物攻，法攻，道攻，血，暴击免伤,暴击，内功，字号16
+
+local MIN_VALUE = 0
+
+local function buildEquipBaseAttr(titleData)
+    if not titleData then return "" end
+    if titleData and not titleData.titleCount then return "" end
+    local hKey = "当前拥有时装："
+    if var.boxTab:getCurIndex() == 6 then
+        hKey = "当前拥有称号："
+    end
+	local baseAttrs = {
+		{key = "物理攻击：", value = {min = titleData.mDC, max = titleData.mDCMax}},
+		{key = "魔法攻击：", value = {min = titleData.mMC, max = titleData.mMCMax}},
+		{key = "道术攻击：", value = {min = titleData.mSC, max = titleData.mSCMax}},
+		{key = "物理防御：", value = {min = titleData.mAC, max = titleData.mACMax}},
+		{key = "魔法防御：", value = {min = titleData.mMAC, max = titleData.mMACMax}},
+		{key = "生命加成：", value = titleData.mMaxHpPres},
+		{key = "魔法加成：", value = titleData.mMaxMpPres},
+		{key = "生命上限：", value = titleData.mMaxHp},
+		{key = "暴击免伤：", value = titleData.mBaojiMS},
+		{key = "暴击机率：", value = titleData.mBaojiProb},
+		{key = "暴击伤害：", value = titleData.mBaojiPres},
+		{key = "内   功：", value = titleData.mAddPower},
+        {key = "幸 运 值：", value = titleData.mLuck},
+        {key = hKey, value = titleData.titleCount}
+	}
+
+	local str = ""
+	for i,v in ipairs(baseAttrs) do
+		if util.isTable(v.value) then
+			if v.value.max > MIN_VALUE then
+				str = str.."<font color=#FFE08B>"..v.key..v.value.min.."-"..v.value.max.."</font><br><br>"
+			end
+		-- elseif v.value > MIN_VALUE then
+			-- str = str.."<font color=#0088EA>"
+			-- if v.key == "暴击机率：" or v.key== "生命加成：" or v.key == "魔法加成：" then
+				-- v.value = (v.value / 100).."%"
+			-- end
+			-- str = str..v.key..v.value.."<br>"
+		end
+	end
+
+	str = "<font color=#B2A58B>"..str.."</font>"
+	return str
+end
+
+---------------------------------------以上为内部函数---------------------------------------
+function PanelDress.initView(extend)
+	var = {
+		boxTab,
+        xmlPanel,
+
+        btn_info,
+        btn_info_title,
+
+        box_skill_tip,
+
+		fashion_data={},
+		fashion_preview={},
+		fashion_list_cells={},
+        curFashionListIndex=1,
+        
+        attrLayout = nil,
+        leftAttrLayout = nil,
+        fashionList = nil,
+
+        titleData = {},
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelDress.uif")
+	var.xmlPanel:setPositionY(-30)
+	if var.xmlPanel then
+		-- 加载背景图
+		local panelBg = var.xmlPanel:getWidgetByName("bg_wai")
+		asyncload_callback("needload/bg_max2.png", panelBg, function(filepath, texture)
+			panelBg:loadTexture(filepath)
+        end)
+        
+        util.asyncload(var.xmlPanel, "page_role_bg" ,"needload/PanelAvatar/img_ditu3.png")
+
+		var.boxTab = var.xmlPanel:getWidgetByName("box_tab")
+		var.boxTab:setTabRes("tab2_nor", "tab2_sel", ccui.TextureResType.plistType)
+		--var.boxTab:getParent():setLocalZOrder(10)
+		var.boxTab:setItemMargin(20)
+		var.boxTab:addTabEventListener(pushTabButtons)
+        var.boxTab:setSelectedTab(1)
+
+        var.box_skill_tip = var.xmlPanel:getWidgetByName("box_skill_tip")
+        
+        var.btn_info = var.xmlPanel:getWidgetByName("btn_info")
+        var.btn_info:setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+            if eventType == ccui.TouchEventType.began then
+                NetClient:dispatchEvent({
+                    name = Notify.EVENT_PANEL_ON_ALERT, panel = "tips", visible = true, infoTable = lblhint,
+                })
+            elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled  then
+                NetClient:dispatchEvent({
+                    name = Notify.EVENT_PANEL_ON_ALERT, panel = "all", visible = false })
+            end
+        end)
+
+        var.btn_info_title = var.xmlPanel:getWidgetByName("btn_info_title")
+        var.btn_info_title:setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+            if eventType == ccui.TouchEventType.began then
+                NetClient:dispatchEvent({
+                    name = Notify.EVENT_PANEL_ON_ALERT, panel = "tips", visible = true, infoTable = lblhint,
+                })
+            elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled  then
+                NetClient:dispatchEvent({
+                    name = Notify.EVENT_PANEL_ON_ALERT, panel = "all", visible = false })
+            end
+        end)
+
+        var.attrLayout = var.xmlPanel:getWidgetByName("attrLayout"):hide()
+        var.fashionList = var.xmlPanel:getWidgetByName("fashionList"):show()
+        var.leftAttrLayout = var.xmlPanel:getWidgetByName("leftLayout")
+        var.leftAttrLayout:getChildByName("left_attr_bg"):setOpacity(255 * 0.5)
+        local attrTitle = var.xmlPanel:getWidgetByName("attr_title")
+
+        -- 称号属性切换
+        local btn_attr = var.xmlPanel:getWidgetByName("btn_attr"):addClickEventListener(function (sender)
+            if var.boxTab:getCurIndex() == 1 then
+                attrTitle:setString("时装属性")
+            elseif var.boxTab:getCurIndex() == 2 then
+                attrTitle:setString("幻武属性")
+            elseif var.boxTab:getCurIndex() == 3 then
+                attrTitle:setString("翅膀属性")
+            elseif var.boxTab:getCurIndex() == 4 then
+                attrTitle:setString("足迹属性")
+			elseif var.boxTab:getCurIndex() == 5 then
+                attrTitle:setString("坐骑属性")	
+            else
+                attrTitle:setString("称号属性")
+            end
+            if var.attrLayout:isVisible() == false then
+                var.attrLayout:show()
+                var.fashionList:hide()
+            else
+                var.attrLayout:hide()
+                var.fashionList:show()
+            end
+        end)
+
+        local function updateLooks(event)
+            PanelDress.tryOnFashion(nil, 888)
+            PanelDress.tryOnTitle(event.title)
+        end
+
+        PanelDress.tryOnFashion(nil, 1)
+        PanelDress.tryOnFashion(nil, 2)
+        PanelDress.tryOnFashion(nil, 3)
+        PanelDress.tryOnFashion(nil, 4)
+		PanelDress.tryOnFashion(nil, 5)
+        PanelDress.tryOnTitle()
+
+        var.xmlPanel:getWidgetByName("btn_dress"):addTouchEventListener(PanelDress.ckickDressFashionButton)
+
+        cc.EventProxy.new(NetClient, var.xmlPanel)
+            :addEventListener(Notify.EVENT_ITEM_CHANGE, PanelDress.freshFashionPage)
+            :addEventListener(Notify.EVENT_AVATAR_CHANGE, updateLooks)
+            :addEventListener(Notify.EVENT_PUSH_PANEL_DATA,PanelDress.setFashiondata)
+
+		return var.xmlPanel
+	end
+end
+
+function PanelDress.onPanelOpen(extend)
+
+end
+
+function PanelDress.onPanelClose()
+
+end
+
+function PanelDress.setFashiondata(event)
+	if event.type == "Fashion" then
+        local pData = util.decode(event.data)
+		if pData then
+			if pData.cmd == "dress_fashion" then
+                var.fashion_data = pData.data
+                PanelDress.ckickFashionTab(1)
+                var.btn_info:show()
+                var.btn_info_title:hide()
+            elseif pData.cmd == "dress_weapon" then
+                var.fashion_data = pData.data
+                PanelDress.ckickFashionTab(2)
+                var.btn_info:show()
+                var.btn_info_title:hide()
+            elseif pData.cmd == "dress_wing" then
+                var.fashion_data = pData.data
+                PanelDress.ckickFashionTab(3)
+                var.btn_info:show()
+                var.btn_info_title:hide()
+            elseif pData.cmd == "dress_foot" then
+                var.fashion_data = pData.data
+                PanelDress.ckickFashionTab(4)
+                var.btn_info:show()
+                var.btn_info_title:hide() 
+			 elseif pData.cmd == "dress_mount" then
+                var.fashion_data = pData.data
+                PanelDress.ckickFashionTab(5)
+                var.btn_info:show()
+                var.btn_info_title:hide()	
+            elseif pData.cmd == "dress_title" then
+                var.fashion_data = pData.data
+                PanelDress.clickTitleTab(6)
+                var.btn_info:hide()
+                var.btn_info_title:show()
+            end
+            
+        end
+	elseif event.type == "PanelFashion" then
+		local data = util.decode(event.data)
+		if data.cmd == "getFashionPreview" then
+            var.fashion_preview = data.Data
+        elseif data.cmd == "getTitlePreview" then
+            var.fashion_preview = data.Data
+        end
+    end
+end
+
+-- 刷新右侧所有数据
+function PanelDress.freshFashionPage(event)
+    local tabhfashion = var.xmlPanel:getWidgetByName("tabhfashion")
+	if pageKeys[var.boxTab:getCurIndex()] == "fashion" then         --表示当前打开的是时装界面
+		PanelDress.ckickFashionTab()
+    elseif pageKeys[var.boxTab:getCurIndex()] == "weapon" then
+        PanelDress.ckickFashionTab()
+    elseif pageKeys[var.boxTab:getCurIndex()] == "wing" then
+        PanelDress.ckickFashionTab()
+    elseif pageKeys[var.boxTab:getCurIndex()] == "foot" then
+        PanelDress.ckickFashionTab()
+    elseif pageKeys[var.boxTab:getCurIndex()] == "mount" then
+        PanelDress.ckickFashionTab()
+	elseif pageKeys[var.boxTab:getCurIndex()] == "title" then
+        PanelDress.clickTitleTab()	
+	end
+end
+
+
+-- 当前显示特效
+function PanelDress.TryFashionShow(fashionid, item)
+    local tag = var.boxTab:getCurIndex()
+    local fashion_skill = var.xmlPanel:getWidgetByName("fashion_skill")
+
+    if item.data and item.data.skill then
+        local skill = item.data.skill
+        fashion_skill:show():getChildByName("icon_skill"):loadTextures(skill.icon, skill.icon, skill.icon, ccui.TextureResType.plistType)
+            :addTouchEventListener(function(sender, eventType) 
+                if eventType == ccui.TouchEventType.began then
+                    var.box_skill_tip:show():setPosition(150, 160):setLocalZOrder(1000)
+                    var.box_skill_tip:getChildByName("skillName"):setString(skill.skillname)
+                    var.box_skill_tip:getChildByName("skillIcon"):loadTexture(skill.icon, ccui.TextureResType.plistType):setScale(0.95)
+                    var.box_skill_tip:getChildByName("richLabel_skillDesp"):setRichLabel("<font color=#FFA500>技能描述：</font><font color=#FFE2AD>"..skill.skilldesc.."</font>", "richLabel_skillDesp", 16)
+                    var.box_skill_tip:getChildByName("progress"):setString(skill.killNum.."/"..skill.progress)
+                    var.box_skill_tip:getChildByName("curattr"):setString(skill.killNum * skill.addattr)
+                elseif eventType == ccui.TouchEventType.ended then
+                    var.box_skill_tip:hide()
+                end
+            end)
+    else
+        fashion_skill:hide()
+    end
+
+    if tag >= 1 and tag <= 5 then      --说明是时装
+        PanelDress.tryOnFashion(fashionid, tag);
+    elseif tag == 6 then                          --说明是称号
+        PanelDress.tryOnTitle(fashionid);
+    end
+
+	if var.curFashionListIndex > 0 and var.fashion_list_cells[var.curFashionListIndex] then
+		var.fashion_list_cells[var.curFashionListIndex]:getWidgetByName("img_selected"):setVisible(false)
+    end
+    item:getWidgetByName("img_selected"):setVisible(true)
+    -- var.fashion_list_cells[listindex]:getWidgetByName("img_selected"):setVisible(true)
+    var.curFashionListIndex = item.tag 
+    var.fashion_list_cells[var.curFashionListIndex] = item;
+end
+
+-- 更新穿戴按钮
+function PanelDress.updateDressBtn(data)
+    local btn_dress = var.xmlPanel:getWidgetByName("btn_dress")
+    btn_dress.id = data.id
+    btn_dress.position = data.position
+    btn_dress:setTitleText(data.position < 0 and "卸下" or "穿戴"):setTouchEnabled(data.position ~= 0):setBright(data.position ~= 0)
+end
+
+-- 计算称号总属性
+function CaculTitleAttribute(itemdef)
+    itemdef = NetClient:getItemDefByID(itemdef.id)
+    var.titleData.mDC = (var.titleData.mDC or 0) + itemdef.mDC
+    var.titleData.mDCMax = (var.titleData.mDCMax or 0) + itemdef.mDCMax
+    var.titleData.mMC = (var.titleData.mMC or 0) + itemdef.mMC
+    var.titleData.mMCMax = (var.titleData.mMCMax or 0) + itemdef.mMCMax
+    var.titleData.mSC = (var.titleData.mSC or 0) + itemdef.mSC
+    var.titleData.mSCMax = (var.titleData.mSCMax or 0) + itemdef.mSCMax
+    var.titleData.mAC = (var.titleData.mAC or 0) + itemdef.mAC
+    var.titleData.mACMax = (var.titleData.mACMax or 0) + itemdef.mACMax
+    var.titleData.mMAC = (var.titleData.mMAC or 0) + itemdef.mMAC 
+    var.titleData.mMACMax = (var.titleData.mMACMax or 0) + itemdef.mMACMax
+    var.titleData.mMaxHpPres = (var.titleData.mMaxHpPres or 0) + itemdef.mMaxHpPres
+    var.titleData.mMaxMpPres = (var.titleData.mMaxMpPres or 0) + itemdef.mMaxMpPres
+    var.titleData.mMaxHp = (var.titleData.mMaxHp or 0) + itemdef.mMaxHp
+    -- var.titleData.mBaojiMS = (var.titleData.mBaojiMS or 0) + itemdef.mBaojiMS
+    var.titleData.mBaojiProb = (var.titleData.mBaojiProb or 0) + itemdef.mBaojiProb
+    var.titleData.mBaojiPres = (var.titleData.mBaojiPres or 0) + itemdef.mBaojiPres
+    var.titleData.mAddPower = (var.titleData.mAddPower or 0) + itemdef.mAddPower
+    var.titleData.mLuck = (var.titleData.mLuck or 0) + itemdef.mLuck
+    var.titleData.titleCount = (var.titleData.titleCount or 0) + 1
+end
+
+-- 左侧显示物品属性
+function PanelDress.updateAttr(typeId, netItem)
+    itemdef = NetClient:getItemDefByID(typeId)
+    local richLeftAttr = var.xmlPanel:getWidgetByName("richLeftAttr")
+    if not richLeftAttr then
+        richLeftAttr = UIRichLabel.new({size=cc.size(500, 150), space=0, name="richLeftAttr"})
+            :addTo(var.leftAttrLayout)
+            :align(display.TOP_CENTER, 270, 100)
+    end
+    richLeftAttr:setRichLabel("<font color=#FDDFAE>"..itemdef.mDesp.."</font>", "PanelDress", 16)
+    var.xmlPanel:getWidgetByName("sourceTxt"):setString(itemdef.mSource):setLocalZOrder(1001)
+
+    if netItem then
+        local secTime = var.xmlPanel:getWidgetByName("secTime")
+        if itemdef.mLastTime > 0 and netItem.position ~= 0 then
+            secTime:show()
+            sec = itemdef.mLastTime - os.time() + netItem.createTime
+            util.runCountDown(var.xmlPanel:getWidgetByName("lblTime"), sec, function(target,count)
+                target:setString(util.setTimeFormat(count*1000, 6))
+            end)
+        else
+            secTime:hide()
+        end
+    end
+end
+
+--------------------------------------时装--------------------------------------
+function PanelDress.initPageFashion()   
+    if var.fashionList then 
+        var.fashionList:show()
+        var.attrLayout:hide()
+    end
+    NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",util.encode({actionid = "fresh"}))
+end
+
+function PanelDress.tryOnFashion(typeId, tag)
+	
+    if tag == 1 then
+        --衣服
+        local img_role = var.xmlPanel:getChildByName("img_role")
+        --设置衣服内观
+        if not img_role then
+            img_role = cc.Sprite:create()
+            img_role:addTo(var.xmlPanel):align(display.CENTER, 281, 260):setName("img_role"):setLocalZOrder(2):setScale(0.75)
+        end
+        local clothDef,clothId
+        local isFashion = false
+        if typeId then
+	
+            --试穿
+            clothDef = NetClient:getItemDefByID(typeId)
+                isFashion = true
+                clothId = clothDef.mIconID
+        else
+			if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) then 
+				clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+				NetClient:alertLocalMsg("骑战模式只能显示装备内观，无法显示时装")
+			else
+				clothDef = NetClient:getItemDefByPos(Const.ITEM_FASHION_CLOTH_POSITION)
+			end
+		
+            if clothDef then
+
+					clothId = clothDef.mIconID
+					isFashion = true
+
+						print(clothId)
+            else
+                clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+                if clothDef then
+                    clothId = clothDef.mIconID
+                end
+            end
+        end
+        if not clothId then
+            local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+            local luoti= gender==200 and  11100002 or 11100002
+            clothId = luoti
+        end
+		
+
+        if clothId~=img_role.curClothId then
+            local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashion" or "cloth",clothId)
+            asyncload_callback(filepath, img_role, function(filepath, texture)
+                img_role:setTexture(filepath)
+            end)
+            img_role.curClothId = clothId
+        end
+    elseif tag == 2 then
+        --武器
+        local img_weapon = var.xmlPanel:getChildByName("img_weapon")
+        --设置武器内观
+        if not img_weapon then
+            img_weapon = cc.Sprite:create()
+            img_weapon:addTo(var.xmlPanel):align(display.CENTER, 281, 260):setName("img_weapon"):setLocalZOrder(3):setScale(0.75)
+        end
+        local weaponDef, weaponId
+        local isFashion = false
+        if typeId then
+            --试穿
+            weaponDef = NetClient:getItemDefByID(typeId)
+            if weaponDef then
+                isFashion = true
+                weaponId = weaponDef.mIconID
+            end
+        else
+            weaponDef = NetClient:getItemDefByPos(Const.ITEM_FASHION_WEAPON_POSITION)
+            if weaponDef then
+                weaponId = weaponDef.mIconID
+                isFashion = true
+            else
+                weaponDef = NetClient:getItemDefByPos(Const.ITEM_WEAPON_POSITION)
+                if weaponDef then
+                    isFashion = false
+                    weaponId = weaponDef.mIconID
+                end
+            end
+        end
+        if weaponId then
+            if weaponId ~= img_weapon.curWeaponId then
+                local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashionweapon" or "weapon", weaponId)
+                print(filepath)
+                asyncload_callback(filepath, img_weapon, function(filepath, texture)
+                    img_weapon:setTexture(filepath)
+                end)
+                img_weapon.curWeaponId = weaponId
+            end
+        else
+            img_weapon:setSpriteFrame("null")
+            img_weapon.curWeaponId = nil
+        end
+    elseif tag == 3 then
+        --翅膀
+        local img_wing = var.xmlPanel:getChildByName("img_wing")
+        --设置翅膀内观
+        if not img_wing then
+            img_wing = cc.Sprite:create()
+            img_wing:addTo(var.xmlPanel):align(display.CENTER, 281, 260):setName("img_wing"):setLocalZOrder(1):setScale(0.75)
+        end
+
+        local wing
+        if typeId then
+            --试穿
+            for k,v in pairs(var.fashion_data) do
+                if v.id == typeId then
+                    wing = v.effectId
+                    break
+                end
+            end
+        else
+            local fashionwing = NetClient:getItemDefByPos(Const.ITEM_FASHION_WING_POSITION)
+            if fashionwing then
+                wing = MainRole._mainAvatar:NetAttr(Const.net_wing) - 19000
+            else
+                wing = MainRole._mainAvatar:NetAttr(Const.net_wing) - 20001
+            end
+        end
+
+        if wing then
+            if wing ~= img_wing.curwingId then
+                local imgWingEffect = img_wing:getChildByName("wingEffect")
+                if not imgWingEffect then
+                    util.addEffect(img_wing, "wingEffect", GROUP_TYPE.WING, wing, {x=0, y=0}, nil, true)
+                else
+                    util.updateEffect(img_wing, "wingEffect", wing, GROUP_TYPE.WING)
+                end
+                img_wing.curwingId = wing
+            end
+        end
+    elseif tag == 4 then
+        -- 设置足迹内观
+        local img_foot = var.xmlPanel:getChildByName("img_foot")
+        if not img_foot then
+            img_foot = cc.Sprite:create()
+            img_foot:addTo(var.xmlPanel):align(display.CENTER, 290, 130):setName("img_foot"):setLocalZOrder(1):setScale(1.25)
+        end
+        local foot
+        if typeId then
+            for k,v in pairs(var.fashion_data) do
+                if v.id == typeId then
+                    foot = v.effectId
+                    break
+                end
+            end
+        else
+            foot =  MainRole._mainAvatar:NetAttr(Const.net_step)
+			-- foot =  MainRole._mainAvatar:NetAttr(Const.net_wing)
+        end
+        if foot and foot > 0 then
+            if foot ~= img_foot.curfootId then
+                local footEffect = img_foot:getChildByName("footEffect")
+                if not footEffect then
+                    util.addEffect(img_foot, "footEffect", GROUP_TYPE.EFFECT, foot,{x=0, y= 0},  nil, true)
+                else
+                    print(foot)
+                    util.updateEffect(img_foot, "footEffect", foot)
+                end
+                img_foot.curfootId = foot
+            end
+        end
+	elseif tag == 5 then	
+ --衣服
+        
+    end
+end
+
+-- 穿戴时装 或者称号
+function PanelDress.ckickDressFashionButton( sender, eventType,typeId)
+	local clothDef,clothId
+       
+    if eventType == ccui.TouchEventType.ended then
+        if not sender.position then 
+		
+            NetClient:alertLocalMsg("您当前未选中任何物品，无法穿戴！")
+            return 
+        end
+		
+        if sender.position < 0 then
+		   if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) and (sender.id >=15200002 and sender.id <=15200020) then 
+				NetClient:alertLocalMsg("骑战模式无法更换【时装】，请【下马】操作")
+				 return
+           end
+		   if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) and (sender.id >=15200022 and sender.id <=15200042) then 
+				NetClient:alertLocalMsg("骑战模式无法更换【幻武】，请【下马】操作")
+				 return
+           end
+		   if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) and (sender.id >=18000002 and sender.id <=18000016) then 
+				NetClient:alertLocalMsg("骑战模式无法更换【坐骑】，请【下马】操作")
+				 return
+           end
+            NetClient:UndressItem(sender.position)
+		
+        else
+		   if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) and (sender.id >=15200002 and sender.id <=15200020) then 
+				NetClient:alertLocalMsg("骑战模式无法更换【时装】，请【下马】操作")
+				 return
+           end
+		   if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) and (sender.id >=15200022 and sender.id <=15200042) then 
+				NetClient:alertLocalMsg("骑战模式无法更换【幻武】，请【下马】操作")
+				 return
+           end
+		   if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) and (sender.id >=18000002 and sender.id <=18000016) then 
+				NetClient:alertLocalMsg("骑战模式无法更换【坐骑】，请【下马】操作")
+				 return
+           end
+			-- -衣服
+	        if sender.id==15200002  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth2"}))	
+			end
+			if sender.id==15200004  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth4"}))	
+			end
+			if sender.id==15200006  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth6"}))	
+			end
+			if sender.id==15200008  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth8"}))	
+			end
+			if sender.id==15200010  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth10"}))	
+			end
+			if sender.id==15200012  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth12"}))	
+			end
+			if sender.id==15200014  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth14"}))	
+			end
+			if sender.id==15200016  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth16"}))	
+			end
+			if sender.id==15200028  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth18"}))	
+			end
+			if sender.id==15200020  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatacloth20"}))	
+			end
+			------幻武
+			if sender.id==15200022  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon2"}))	
+			end
+			if sender.id==15200024  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon4"}))	
+			end
+			if sender.id==15200026  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon6"}))	
+			end
+			if sender.id==15200028  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon8"}))	
+			end
+			if sender.id==15200030  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon10"}))	
+			end
+			if sender.id==15200032  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon12"}))	
+			end
+			if sender.id==15200034  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon14"}))	
+			end
+			if sender.id==15200036  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon16"}))	
+			end
+			if sender.id==15200038  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon18"}))	
+			end
+			if sender.id==15200040  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon20"}))	
+			end
+			if sender.id==15200042  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDataweapon22"}))	
+			end
+			----坐骑
+			if sender.id==18000002  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatamount2"}))	
+			end
+			if sender.id==18000004  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatamount4"}))	
+			end
+			if sender.id==18000006  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatamount6"}))	
+			end
+			if sender.id==18000008  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatamount8"}))	
+			end
+			if sender.id==18000010  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatamount10"}))	
+			end
+			if sender.id==18000012  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatamount12"}))	
+			end
+			if sender.id==18000014  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatamount14"}))	
+			end
+			if sender.id==18000016  then
+				NetClient:BagUseItem(sender.position, sender.id)
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="PanelDatamount16"}))	
+			end
+			if sender.id then
+				NetClient:BagUseItem(sender.position, sender.id)
+			end
+
+        end
+    end
+end
+
+--刷新时装列表
+function PanelDress.ckickFashionTab(tag)
+	PanelDress.tryOnFashion(nil, tag);
+    local function pushSelectItem(item)
+		if item and item.tagFashionId > 0 then
+            --PanelDress.tryOnFashion(item.tagFashionId)
+            PanelDress.updateDressBtn(item.data)
+            PanelDress.TryFashionShow(item.tagFashionId, item);
+            PanelDress.updateAttr(item.data.id, item.data.position)
+		end
+	end
+	var.fashion_list_cells = {};
+    var.curFashionListIndex = 0;
+    var.titleData = {}
+    
+    --当前已经穿戴的时装
+    local DressItem = NetClient:getNetItem(fashionPos[tag])
+    for t,f in pairs(var.fashion_preview) do
+        for k,v in pairs(NetClient.mItems) do
+            if f.id == v.mTypeID then               --当前拥有
+                --检查已穿戴
+                if DressItem and f.id == DressItem.mTypeID then
+                    f.position = DressItem.position
+                    PanelDress.updateAttr(f.id)
+                else
+                    f.position = v.position
+                end
+                CaculTitleAttribute(f)
+            end
+        end
+        if not f.position then
+            f.position = 0
+        end
+    end
+
+    local richStr = buildEquipBaseAttr(var.titleData)
+    local richAttr = var.attrLayout:getWidgetByName("richAttrLabel")
+    if not richAttr then
+        richAttr = UIRichLabel.new({size=cc.size(300,400), space=3, name="richAttrLabel"})
+            :addTo(var.attrLayout)
+            :align(display.TOP_CENTER, 180, 400)
+    end
+
+    richAttr:setRichLabel(richStr,"PanelDress", 17)
+
+    table.sort(var.fashion_preview, function(a, b)
+        return a.position > b.position
+    end)
+
+    var.fashionList:reloadData(#var.fashion_preview, function(subItem)
+        local data = var.fashion_preview[subItem.tag]
+        UIItem.getItem({
+            parent = subItem:getWidgetByName("icon"):show(),
+            typeId = data.id,
+            iconType = Const.ICONTYPE.NOTIP,
+            callBack = function()
+                --PanelDress.tryOnFashion(previewdata.id)--点击icon
+                --PanelDress.TryFashionShow(previewdata.mTypeID, subItem.tag);
+            end
+        });
+
+        if data.position ~= 0 then
+        subItem:getWidgetByName("itemname"):setString(data.name.."：可穿戴"):setColor(cc.c3b(0, 255, 0)):show()
+		else 
+		subItem:getWidgetByName("itemname"):setString(data.name):setColor(cc.c3b(255, 0, 0)):show()
+		end 
+        if subItem:getChildByName("effect") then
+            subItem:getChildByName("effect"):hide()
+        end
+        
+        local hasDress = subItem:getWidgetByName("hasDress")        --是否穿戴标志
+        if data ~= nil then
+            hasDress:setVisible(data.position < 0)
+            subItem:getWidgetByName("img_selected"):setVisible(false);
+            subItem:getWidgetByName("lbl_fashion_remark"):setVisible(false)
+            subItem.tagFashionId = data.id;
+            subItem.data = data
+            subItem:setTouchEnabled(true)
+            UIRedPoint.addUIPoint(subItem, pushSelectItem)
+        else
+            hasDress:setVisible(false)
+        end
+	end)
+end
+
+function PanelDress.openPageFashion()
+    --PanelDress.freshFashionAttr()
+	NetClient:PushLuaTable("item.chufa.getfashionlook",util.encode({actionid = "reqfashionData"}))
+end
+
+--------------------------------------------武器----------------------------------------------------
+function PanelDress.initPageWeapon()
+    if var.fashionList then 
+        var.fashionList:show()
+        var.attrLayout:hide()
+    end
+    NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",util.encode({actionid = "freshWeapon"}))
+end
+
+function PanelDress.openPageWeapon()
+    NetClient:PushLuaTable("item.chufa.getFashionWeaponLook",util.encode({actionid = "reqWeaponData"}))
+end
+
+--------------------------------------------翅膀----------------------------------------------------
+function PanelDress.initPageWing()
+    if var.fashionList then 
+        var.fashionList:show()
+        var.attrLayout:hide()
+    end
+    NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",util.encode({actionid = "freshWing"}))
+end
+
+function PanelDress.openPageWing()
+    NetClient:PushLuaTable("item.chufa.getFashionWingLook",util.encode({actionid = "reqWingData"}))
+end
+
+--------------------------------------------足迹----------------------------------------------------
+function PanelDress.initPageFoot()
+    if var.fashionList then 
+        var.fashionList:show()
+        var.attrLayout:hide()
+    end
+    NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",util.encode({actionid = "freshFoot"}))
+end
+
+function PanelDress.openPageFoot()
+    NetClient:PushLuaTable("item.chufa.getFashionFootLook",util.encode({actionid = "reqFootData"}))
+end
+--------------------------------------------坐骑----------------------------------------------------
+function PanelDress.initPageMount()
+    if var.fashionList then 
+        var.fashionList:show()
+        var.attrLayout:hide()
+    end
+    NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",util.encode({actionid = "freshMount"}))
+end
+
+function PanelDress.openPageMount()
+    NetClient:PushLuaTable("item.chufa.getFashionMountLook",util.encode({actionid = "reqMountData"}))
+end
+
+--------------------------------------------称号----------------------------------------------------
+function PanelDress.initPageTitle( )
+    var.fashionList:show()
+    var.attrLayout:hide()
+    NetClient:PushLuaTable("gui.PanelTitle.onOpenPanel",util.encode({actionid = "fresh"}))
+end
+
+function PanelDress.clickTitleTab(tag)
+    local function pushSelectItem(item)
+        if item and item.tagFashionId > 0 then
+            PanelDress.updateDressBtn(item.data)
+            PanelDress.TryFashionShow(item.tagFashionId, item);
+            PanelDress.updateAttr(item.data.id, item.data)
+		end
+	end
+	var.fashion_list_cells = {}
+	var.curFashionListIndex = 0
+    var.titleData = {}
+
+    --当前已经穿戴的时装
+    local DressItem = NetClient:getNetItem(fashionPos[tag])
+    for t,f in pairs(var.fashion_preview) do
+        for k,v in pairs(NetClient.mItems) do
+            if f.id == v.mTypeID then               --当前拥有
+                --检查已穿戴
+                if DressItem and f.id == DressItem.mTypeID then
+                    f.position = DressItem.position
+                    f.createTime = DressItem.mCreateTime
+                else
+                    f.position = v.position
+                    f.createTime = v.mCreateTime
+                end
+                CaculTitleAttribute(f)
+            end
+        end
+        if not f.position then
+            f.position = 0
+        end
+    end
+
+    for k, v in pairs(var.fashion_preview) do
+        for t,f in pairs(var.fashion_data) do
+            if v.id == f.id then
+                v.effectId = f.effectId
+            end
+        end
+    end
+
+    local richStr = buildEquipBaseAttr(var.titleData)
+    local richAttr = var.attrLayout:getWidgetByName("richAttrLabel")
+    if not richAttr then
+        richAttr = UIRichLabel.new({size=cc.size(300,400), space=3, name="richAttrLabel"})
+            :addTo(var.attrLayout)
+            :align(display.TOP_CENTER, 180, 400)
+    end
+
+    richAttr:setRichLabel(richStr,"PanelDress", 17)
+
+    table.sort(var.fashion_preview, function(a, b)
+        return a.position > b.position
+    end)
+
+    var.fashionList:reloadData(#var.fashion_preview, function(subItem)
+        local data = var.fashion_preview[subItem.tag]
+        subItem:getWidgetByName("icon"):setVisible(false)
+        subItem:getWidgetByName("itemname"):setVisible(false)
+
+        local img_title = subItem:getChildByName("effect")
+
+        if not img_title then
+            if data.effectId then
+                util.addEffect(subItem, "effect", GROUP_TYPE.EFFECT, data.effectId):setScale(0.78):setPositionY(40)
+                if data.position == 0 then
+                    util.setSpriteGray(subItem:getChildByName("effect"), true)
+                else
+                    util.setSpriteGray(subItem:getChildByName("effect"), false)
+                end
+            end
+        else
+            if data.effectId and img_title then
+                img_title:show()
+                util.updateEffect(subItem, "effect", data.effectId)
+                if data.position == 0 then
+                    util.setSpriteGray(subItem:getChildByName("effect"), true)
+                else
+                    util.setSpriteGray(subItem:getChildByName("effect"), false)
+                end
+            end
+        end
+
+        local hasDress = subItem:getWidgetByName("hasDress")        --是否穿戴标志
+        if data ~= nil then
+            hasDress:setVisible(data.position < 0)
+            subItem:getWidgetByName("img_selected"):setVisible(false);
+            subItem:getWidgetByName("lbl_fashion_remark"):setVisible(false)
+            subItem.tagFashionId = data.effectId;
+            subItem.data = data
+            subItem:setTouchEnabled(true)
+            UIRedPoint.addUIPoint(subItem, pushSelectItem)
+        else
+            hasDress:setVisible(false)
+        end
+	end)
+end
+
+function PanelDress.tryOnTitle(effectId)
+    if effectId and effectId <= 0 then
+        -- 如果没有特效id的情况下
+        return 
+    end
+    local img_title = var.xmlPanel:getChildByName("img_title")
+    if not img_title then
+        if not effectId then
+           effectId =  MainRole._mainAvatar:NetAttr(Const.net_title)
+            if not effectId or effectId <= 0 then
+                return
+            end
+        end
+        util.addEffect(var.xmlPanel, "img_title", GROUP_TYPE.EFFECT, effectId,{x=290, y= 430},  nil, true):setLocalZOrder(1000)
+    end
+    if effectId and img_title then
+        util.updateEffect(var.xmlPanel, "img_title", effectId)
+    end
+end
+
+function PanelDress.openPageTitle()
+    NetClient:PushLuaTable("item.chufa.getTitlelook",util.encode({actionid = "reqtitleData",params={}}))
+end
+return PanelDress

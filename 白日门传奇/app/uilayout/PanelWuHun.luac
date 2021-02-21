@@ -1,0 +1,7 @@
+LUA_RET={
+{n="PanelWuHun",v=true,type=0,id=1,parent=0,w=997.0000,h=576.0000,},
+{n="img_bg",tag=216,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=997.0000,h=576.0000,color="255|255|255",res="bg_max2",},
+{n="Image_17",tag=649,sx=27,sw=27,sh=15,sy=15,v=true,type=1,id=3,parent=1,w=64.0000,h=29.0000,ax=0.5000,ay=0.5000,x=498.5917,y=545.2814,color="255|255|255",res="qiuqian",},
+{n="panel_close",tag=216,t=true,fs=14,sx=7,sw=7,sh=11,sy=11,v=true,type=2,id=4,parent=1,w=33.0000,h=32.0000,ax=0.5000,ay=0.5000,x=949.6003,y=543.9506,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="btn_close",},
+{n="box_tab",ud="tabv(抽签,天机)",tag=216,t=true,c=false,v=true,type=0,id=5,parent=1,w=100.0000,h=300.0000,ax=1.0000,x=971.5977,y=220.8087,color="255|255|255",},
+}

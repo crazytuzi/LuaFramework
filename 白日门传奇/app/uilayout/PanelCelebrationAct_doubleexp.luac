@@ -1,0 +1,5 @@
+LUA_RET={
+{n="PanelCelebrationAct_doubleexp",v=true,type=0,id=1,parent=0,w=835.0000,h=510.0000,},
+{n="tabBg",tag=151,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=835.0000,h=507.0000,color="255|255|255",},
+{n="labCount",tag=314,fs=18,text="00:00:00",vt=1,v=true,type=3,id=3,parent=1,w=300.0000,h=30.0000,ay=0.5000,x=540.0000,y=474.0000,color="24|209|41",fr="DFYuan.ttf",},
+}

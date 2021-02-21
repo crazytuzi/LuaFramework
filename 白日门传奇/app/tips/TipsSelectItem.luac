@@ -1,0 +1,43 @@
+local TipsSelectItem = {}
+
+function TipsSelectItem:initView(extend)
+	if self.xmlTips then
+		local data = extend.param.data
+		local boxId = extend.param.boxId
+		if not data or not boxId then return end
+		self.curTypeId = data[1]
+		self.curItem = nil
+        util.asyncload(self.xmlTips, "img_bg", "needload/img_kuan_bg.png")
+		self.xmlTips:getWidgetByName("itemList"):reloadData(#data, function(subItem) 
+			local typeId = data[subItem.tag]
+			local itemBg = subItem:getWidgetByName("itemBg")
+			UIItem.getItem({
+				parent = itemBg,
+				typeId = typeId,
+				doubleCall = function()
+					if self.curItem and self.curTypeId ~= typeId then
+						self.curItem:getWidgetByName("itemSelect"):hide()
+					end
+					self.curTypeId = typeId
+					self.curItem = subItem
+					subItem:getWidgetByName("itemSelect"):show()
+				end,
+			})
+			if subItem.tag == 1 then
+				self.curItem = subItem:getWidgetByName("itemSelect"):show()
+			else
+				subItem:getWidgetByName("itemSelect"):hide()
+			end
+		end)
+
+		self.xmlTips:getWidgetByName("cancelBtn"):addClickEventListener(function(sender) 
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = "tips_selectItem", }) 
+		end)
+
+		self.xmlTips:getWidgetByName("enterBtn"):addClickEventListener(function(sender)
+			NetClient:PushLuaTable("item.chufa.selectBox", util.encode({actionId="selectBox", id=boxId, selectId=self.curTypeId}))
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = "tips_selectItem", }) 
+		end)
+	end
+end
+return TipsSelectItem

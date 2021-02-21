@@ -1,0 +1,59 @@
+local TipsModifyName = {}
+
+-- 修改玩家名
+function TipsModifyName:initView(extend)
+    if self.xmlTips then
+        self.xmlTips:getWidgetByName("Button_1"):addClickEventListener(function (sender)
+            NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = extend.str})
+        end)
+
+        self.xmlTips:getWidgetByName("tipsbg"):loadTexture("needload/img_kuan_bg.png")
+        local nameText = nil
+        function initEditbox(parent)
+            local function onEdit(event,editBox)
+                if event == "began" then
+                elseif event == "changed" then
+                elseif event == "ended" then
+                elseif event == "return" then
+                    local msg = editBox:getText()
+                    if msg == "" then return end
+                    nameText:setString(msg)
+                end
+            end
+            if not parent:getChildByTag(100) then
+                nameText = util.newEditBox({
+                    image = "picicon/null.png",
+                    size = parent:getContentSize(),
+                    listener = onEdit,
+                    x = 0,
+                    y = 0,
+                    placeHolderColor = game.getColor(0x827b6e),
+                    placeHolderSize = 22,
+                    anchor = cc.p(0,0),
+                    fontSize = 22,
+                    placeHolder = Const.str_input,
+                    -- inputMode = cc.EDITBOX_INPUT_MODE_ANY,
+                })
+                parent:addChild(nameText,1,100)
+            else
+                nameText = parent:getChildByTag(100)
+                nameText:setString("")
+            end
+        end
+
+        initEditbox(self.xmlTips:getWidgetByName("Image_1"))
+        self.xmlTips:getWidgetByName("btn_confirm"):addClickEventListener(function (sender)
+            if nameText:getText() == "" then 
+                NetClient:alertLocalMsg("不能为空！")
+                return 
+            end
+            NetClient:ModifyName(nameText:getText(), game.seedName)
+        end)
+    end
+end
+
+function TipsModifyName:close()
+	NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = self.str})
+end
+
+return TipsModifyName

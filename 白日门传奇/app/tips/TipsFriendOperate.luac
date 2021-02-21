@@ -1,0 +1,162 @@
+local TipsFriendOperate = {}
+
+function TipsFriendOperate:initView(extend)
+	if self.xmlTips then
+		self.str = extend.str
+		self.btnType = extend.btnType
+		local data = {}
+		if util.isString(extend.data) then
+			data = NetClient:getPlayerInfo(extend.data)
+		elseif util.isTable(extend.data) then
+			data = extend.data
+			if NetClient:getRelation(data.name)==0 then
+				NetClient.mFriends = NetClient.mFriends or {}
+				NetClient.mFriends[data.name] = {}
+				NetClient.mFriends[data.name].name = data.name
+				NetClient.mFriends[data.name].gender = data.gender
+				NetClient.mFriends[data.name].job = data.job
+				NetClient.mFriends[data.name].level = data.lv or data.level
+				NetClient.mFriends[data.name].title = 0;--陌生人关系
+				NetClient.mFriends[data.name].guild = data.guild or ""
+				NetClient.mFriends[data.name].online_state = data.online_state or 1
+			end
+		end
+		-- self.playerInView = false
+		-- if NetCC:findGhostByName(data.name) then
+		-- 	self.playerInView = true
+		-- end
+		if not data or data.name == game.chrName then
+			TipsFriendOperate.close(self)
+		end
+		if data then
+		util.asyncload(self.xmlTips,"imgTipsBg", "needload/img_kuan_bg.png")
+			self.xmlTips:getWidgetByName("labName"):setString(data.name or "")
+			self.xmlTips:getWidgetByName("labLevel"):setString(data.level or data.lv or "")
+			local relation = NetClient:getRelation(data.name)
+			self.xmlTips:getWidgetByName("lbl_title"):setString(Const.friendRelation[relation])
+			if data.job and Const.job_name[data.job] then
+				self.xmlTips:getWidgetByName("labJob"):setString(Const.job_name[data.job])
+			end
+			self.xmlTips:getWidgetByName("labGuild"):setString(data.guild~="" and data.guild or "暂无帮会")
+			TipsFriendOperate.initOperateBtn(self,data)
+		else
+			NetClient:alertLocalMsg("玩家不在线,无法私聊", "alert")
+		end
+	end
+end
+
+function TipsFriendOperate:initOperateBtn(data)
+	if not self.xmlTips then return end
+	local releation = NetClient:getRelation(data.name)
+	local btnNames = {
+		["btnSee"] = "观察",
+		["btnSL"] = "私聊",
+		["btnZD"] = "邀请组队",
+		["btnJY"] = "交易",
+		["btnSH"] = "送花",
+		["btnJHY"] = "加为好友",
+		["btnJCR"] = "加为仇人",
+		["btnHMD"] = "加黑名单",
+		["btnSHY"] = "删除好友",
+		["btnJB"] = "举报",
+		["btnRD"] = "入队申请",
+		["btnSCR"] = "移除仇人",
+		["btnSHMD"] = "解除屏蔽",
+		["btnCALL"] = "好友召唤",
+	}
+	local btnArrs
+	if PLATFORM_BANSHU then
+		btnArrs = {
+			[0] = {"btnSee","btnSL","btnZD","btnJY","btnJHY"},
+			[100] = {"btnSee","btnSL","btnZD","btnJY","btnSHY","btnJB"},
+			[101] = {"btnSee","btnSL","btnZD","btnJY","btnJHY",},
+			[102] = {"btnSee","btnSL","btnZD","btnJY","btnJHY","btnSHMD"},
+			["call"] = {"btnSee","btnSL","btnZD","btnSHY","btnCALL"},
+			-- ["panelGroup"]={"btnSee","btnSL","btnZD","btnJY","btnJHY"},
+		}
+	else
+		btnArrs = {
+			[0] = {"btnSee","btnSL","btnZD","btnJY","btnJHY","btnJCR","btnHMD"},
+			[100] = {"btnSee","btnSL","btnZD","btnJY","btnSHY","btnJCR","btnHMD","btnJB"},
+			[101] = {"btnSee","btnSL","btnZD","btnJY","btnJHY","btnHMD","btnSCR"},
+			[102] = {"btnSee","btnSL","btnZD","btnJY","btnJHY","btnJCR","btnSHMD"},
+			["call"] = {"btnSee","btnSL","btnZD","btnSHY","btnJCR","btnHMD","btnCALL"},
+			-- ["panelGroup"]={"btnSee","btnSL","btnZD","btnJY","btnJHY","btnJCR","btnHMD"},
+		}
+	end
+
+	if not self.btnType then
+		self.btnType = checkint(releation)
+	end
+	local curData = btnArrs[self.btnType]
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		-- if not self.playerInView then
+		-- 	return NetClient:alertLocalMsg("玩家不在线,无法私聊", "alert")
+		-- end
+		if senderName=="btnSee" then
+				NetClient:CheckPlayerEquip(data.name)
+		elseif senderName=="btnZD" then
+			if checkint(NetClient.mCharacter.mGroupID) ~= 0 then
+				NetClient:InviteGroup(data.name)
+			else
+				NetClient:alertLocalMsg("你还没有队伍！", "alert")
+			end
+		elseif senderName=="btnJHY" then
+			NetClient:FriendChange(data.name,100)
+		elseif senderName=="btnHMD" then
+			NetClient:FriendChange(data.name,102)
+		elseif senderName=="btnSL" then
+			-- if then
+				NetClient:addChatRecentPlayer(data.name)
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str = "main_friend",tab = 1})
+			-- else
+				-- NetClient:alertLocalMsg("玩家不在线或不在附近,无法私聊", "alert")
+			-- end
+		elseif senderName=="btnJY" then
+			NetClient:TradeInvite(data.name)
+		elseif senderName=="btnJCR" then
+			NetClient:FriendChange(data.name,101)
+		elseif senderName=="btnSH" then
+
+		elseif senderName=="btnSHY" then
+			NetClient:FriendChange(data.name,0)
+		elseif senderName=="btnJB" then
+
+		elseif senderName=="btnRD" then
+
+		elseif senderName=="btnSCR" then
+			NetClient:FriendChange(data.name,0)
+		elseif senderName=="btnSHMD" then
+			NetClient:FriendChange(data.name,0)
+		end
+		TipsFriendOperate.close(self)
+		if senderName=="btnCALL" then
+			NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str = "sendCallFriend",playerName = data.name,vcoin = 1000})
+		end
+	end
+	-- for i=1,#btnArrs do
+	-- 	local btn = self.xmlTips:getWidgetByName(btnArrs[i])
+	-- 	UIRedPoint.addUIPoint(btn,prsBtnClick)
+	-- end
+
+	self.xmlTips:getWidgetByName("imgTipsBg"):setTouchEnabled(true)
+	local function updateItem(item)
+		local btnName = curData[item.tag]
+		local btn = item:getWidgetByName("btnMode")
+			:setTitleText(btnNames[btnName])
+			:setName(btnName)
+			:setPressedActionEnabled(true)
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+		UILuaLoader.attachEffect(btn,"outline(0e0600,1)")
+	end
+	local listBtn=self.xmlTips:getWidgetByName("listBtn")
+	listBtn:setAnimateEnabled( true ):setSliderVisible(false):setTouchEnabled(false)
+	listBtn:reloadData(#curData,updateItem,0,false)
+end
+
+function TipsFriendOperate:close()
+	NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = self.str})
+end
+
+return TipsFriendOperate

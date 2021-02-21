@@ -1,0 +1,159 @@
+--部分资源下载界面， 下载完成获取奖励， 现在不需要了， 
+
+local PanelDownLoad = {}
+local var ={}
+
+function PanelDownLoad.initView(extend)
+	var = {
+		xmlPanel,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelDownLoad.uif")
+
+	if var.xmlPanel then
+		local btnget = var.xmlPanel:getWidgetByName("btnget")
+
+		local function stopDownload()
+			cc.DownManager:getInstance():clearDown()
+			game.isDownloadAllState = false
+			btnget:setTitleText("开始下载")
+		end
+		local function startLoadAllRes()
+
+			cc.DownManager:getInstance():clearDown()
+			for i,v in ipairs(game.needLoadRes) do
+				cc.DownManager:getInstance():requestAdd(v)
+			end
+			game.isDownloadAllState=true
+			btnget:setTitleText("暂停下载")
+		end		
+		local function pushbtns( sender )
+			local text = sender:getTitleText()
+			if text =="领取奖励" then
+				if game.downloadAll or game.isGetLoadAwarded == 1 then
+					NetClient:PushLuaTable("gui.PanelDownLoad.handlePanelData","get")
+				else
+					NetClient:alertLocalMsg("下载未完成，无法领取奖励！", "alert")
+				end
+			elseif text =="暂停下载" then
+				stopDownload()
+			elseif text =="立即下载" or text =="开始下载" then
+				startLoadAllRes()
+			end
+		end
+
+		if game.totalLoadNum <=0 and not game.downloadAll and game.isGetLoadAwarded <=0 then
+			game.needLoadRes,game.totalLoadNum = FileList.getList()
+			game.needLoadNum = #game.needLoadRes
+		end
+
+		if game.needLoadNum<=0 then
+			game.downloadAll=true
+		end
+
+		if game.isGetLoadAwarded >1 then
+			btnget:setEnabled(false)
+			PanelDownLoad.setProgressBar(100,100)
+		elseif game.downloadAll or game.isGetLoadAwarded >0 then
+			PanelDownLoad.setProgressBar(100,100)
+		elseif game.totalLoadNum >0 then
+			local hasDownNum = game.totalLoadNum - game.needLoadNum
+			PanelDownLoad.setProgressBar(hasDownNum,game.totalLoadNum)
+		end
+		if game.downloadAll or game.isGetLoadAwarded == 1 then
+			btnget:setTitleText("领取奖励")
+			util.addHaloToButton(btnget, "btn_normal_light3")
+		else
+			if game.totalLoadNum >0 and not game.isDownloadAllState then
+				btnget:setTitleText(game.totalLoadNum == game.needLoadNum and "立即下载" or "开始下载")
+			else
+				btnget:setTitleText("暂停下载")
+			end
+			if btnget:getChildByName("img_bln") then
+				btnget:removeChildByName("img_bln")
+			end
+		end
+		btnget:addClickEventListener(pushbtns)
+
+		var.xmlPanel:getWidgetByName("loadingbar"):setFormatString(""):setFormat2String("%.02f%%"):setFontSize(16):enableOutline(game.getColor4(0x000000), 1)
+		util.asyncload(var.xmlPanel, "imgBg", "needload/img_download_bg.jpg")
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelDownLoad.handlePanelData)
+			:addEventListener(Notify.EVENT_DOWNLOAD_SUCCESS, PanelDownLoad.downFileSuccess)
+		return var.xmlPanel
+	end
+end
+
+function PanelDownLoad.handlePanelData( event )
+	if event and event.type =="PanelDownLoad" then
+		local data = util.decode(event.data)
+		if data then
+			if data.cmd =="close" then
+				NetClient:dispatchEvent({name=Notify.EVENT_CLOSE_PANEL ,str="extend_download"})
+			else
+				game.isGetLoadAwarded = tonumber(data.con)
+				local award = data.award
+				local function updateAward(subItem)
+					local index = subItem.tag
+					if award[index] then
+						UIItem.getItem({
+							parent = subItem:getWidgetByName("icon"),
+							typeId = award[index].id,
+							num = award[index].num,
+						});
+					end
+				end
+				local awardlist = var.xmlPanel:getWidgetByName("awardList")
+				awardlist:reloadData(#award,updateAward,0,false)
+				awardlist.tableview:setTouchEnabled(false)
+
+				if game.isGetLoadAwarded > 0 then
+					PanelDownLoad.setProgressBar(100,100)
+				end
+				local btnget = var.xmlPanel:getWidgetByName("btnget")
+				if game.downloadAll or game.isGetLoadAwarded == 1 then
+					btnget:setTitleText("领取奖励")
+					util.addHaloToButton(btnget, "btn_normal_light3")
+				end
+			end
+		end
+	end
+end
+
+function PanelDownLoad.onPanelOpen(extend)
+
+	-- 变量为1表示服务器已知
+	if game.downloadAll and game.isGetLoadAwarded <=0 then
+		NetClient:PushLuaTable("gui.PanelDownLoad.handlePanelData","downall")
+	end
+
+	NetClient:PushLuaTable("gui.PanelDownLoad.handlePanelData","fresh")
+
+end
+
+function PanelDownLoad.downFileSuccess(event)
+	if event then
+		if game.needLoadNum>0 and game.isDownloadAllState then
+			local hasDownNum = game.totalLoadNum - game.needLoadNum
+			PanelDownLoad.setProgressBar(hasDownNum,game.totalLoadNum)
+
+		elseif game.isGetLoadAwarded <= 0 then
+
+			PanelDownLoad.setProgressBar(100,100)
+			game.downloadAll=true
+			local btnget = var.xmlPanel:getWidgetByName("btnget"):setTitleText("领取奖励")
+			util.addHaloToButton(btnget, "btn_normal_light3")
+
+			NetClient:alertLocalMsg("资源包下载完成!", "alert")
+		end
+	end
+end
+
+function PanelDownLoad.setProgressBar(factor,total)
+	var.xmlPanel:getWidgetByName("loadingbar"):setPercent(factor,total)
+end
+
+function PanelDownLoad.onPanelClose()
+end
+
+return PanelDownLoad

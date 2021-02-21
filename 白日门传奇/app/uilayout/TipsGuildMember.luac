@@ -1,0 +1,16 @@
+LUA_RET={
+{n="TipsGuildMember",v=true,type=0,id=1,parent=0,w=360.0000,h=450.0000,},
+{n="tips_bg",tag=1,ss=true,sx=108,sw=108,sh=72,sy=99,v=true,type=1,id=2,parent=1,w=360.0000,h=450.0000,color="255|255|255",res="img_kuan_bg",},
+{n="Image_1",tag=759,ss=true,sx=103,sw=103,sh=13,sy=13,v=true,type=1,id=3,parent=1,w=370.0000,h=33.0000,ax=0.5000,ay=0.5000,x=180.0000,y=373.3051,color="255|255|255",res="top_bg1",},
+{n="Text_1",tag=361,fs=25,text="成员查看",ht=1,vt=1,v=true,type=3,id=4,parent=1,w=120.0000,h=28.0000,ax=0.5000,ay=0.5000,x=183.5206,y=422.4416,color="255|229|183",fr="DFYuan.ttf",},
+{n="lbl_player_name",tag=1238,fs=18,text="标准名字七个字",ht=1,vt=1,v=true,type=3,id=5,parent=1,w=200.0000,h=25.0000,ax=0.5000,ay=0.5000,x=180.9337,y=372.6775,color="255|165|0",fr="DFYuan.ttf",},
+{n="btn_check_equip",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1230,t=true,fs=20,text="查看装备",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=6,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=179.0002,y=310.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_add_friend",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1229,t=true,fs=20,text="加为好友",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=7,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=100.0002,y=241.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_private_chat",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1231,t=true,fs=20,text="私聊",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=8,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=253.9984,y=241.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_invite_team",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1232,t=true,fs=20,text="邀请入队",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=9,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=100.0002,y=186.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_demise_admin",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1233,t=true,fs=20,text="禅让会长",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=10,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=253.9984,y=186.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_appoint_vice",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1234,t=true,fs=20,text="任命副会长",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=11,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=100.0002,y=131.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_appoint_elder",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1235,t=true,fs=20,text="任命长老",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=12,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=253.9984,y=131.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_dismiss_post",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1236,t=true,fs=20,text="撤销职务",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=13,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=100.0002,y=35.0003,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_kick_out",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1237,t=true,fs=20,text="踢出行会",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=14,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=253.9984,y=35.0003,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+}

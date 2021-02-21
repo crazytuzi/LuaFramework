@@ -1,0 +1,69 @@
+local TipsFristRecharge = {}
+
+-- 第一次弹出充值提示
+function TipsFristRecharge:initView(extend)
+    if self.xmlTips then
+        self.str = extend.str
+        local richLayout = self.xmlTips:getWidgetByName("richLayout")
+        local effectNode = self.xmlTips:getWidgetByName("effect_node")
+        local rechargeBtn = self.xmlTips:getWidgetByName("recharge_Btn")
+        util.addEffect(effectNode,"huanggua", GROUP_TYPE.EFFECT, 300028):setScale(0.8)
+        util.addEffect(rechargeBtn,"recharge_Btn", GROUP_TYPE.EFFECT, 300030)
+
+        self.xmlTips:getWidgetByName("panel_close"):addClickEventListener(function (sender)
+            NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = extend.str})
+        end)
+
+        rechargeBtn:addClickEventListener(function(sender) 
+            NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str="extend_firstPay"})
+            NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = extend.str})
+        end)
+        
+        local delayTime = 1
+        local fristPay = UISceneGame["m_rtPartUI"]:getWidgetByName("extend_firstPay")
+        if fristPay then
+            local wPos = util.getWidgetCenterPos(fristPay)
+
+            --两种获取 一种是隐藏  一种是显示
+            if UIRightTop.getShowFlags() then
+                self.xmlTips:setPosition(wPos.x - 70, wPos.y - 145)
+            else
+                local boxExtend = UISceneGame["m_rtPartUI"]:getWidgetByName("btn_control_extend")
+                wPos = util.getWidgetCenterPos(boxExtend)
+                self.xmlTips:setPosition(wPos.x - 70, wPos.y - 145)
+            end
+        end
+
+        self.xmlTips:runAction(
+            cca.seq({
+                cca.cb(function()
+                    for i=1, #lan.Pop_Desc do
+                        local richLabel = richLayout:getChildByName("tm"..i)
+                        if not richLabel then
+                            richLabel = UIRichLabel.new({size = cc.size(300, 17), space=3,name = "tm"..i}):addTo(richLayout)
+                        end
+                        local popData = lan.Pop_Desc[i]
+                        if popData then
+                            richLabel:setRichLabel(popData.desc, "", 16)
+                            richLabel:setPosition(popData.pos.x, popData.pos.y)
+                            richLabel:runAction(cca.repeatForever(cca.seq({
+                                cca.delay(delayTime),
+                                cca.moveTo(7, -richLabel:getContentSize().width, popData.pos.y),
+                                cca.moveTo(0.01, popData.pos.x, popData.pos.y)
+                            })))
+                            delayTime = delayTime + 1
+                        end
+                    end
+                end),
+            })
+        )
+        local randomNum = math.random(#lan.Pop_Desc)
+
+    end
+end
+
+function TipsFristRecharge:close()
+	NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = self.str})
+end
+
+return TipsFristRecharge

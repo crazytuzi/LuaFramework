@@ -1,0 +1,410 @@
+--最后修复cloth,最后研究
+local PanelChart = {}
+local var = {}
+local lblhint = "1.角色等级低于世界等级3级可激活打怪经验加成\n\n2.野外BOSS等级跟随世界等级成长"
+
+
+local despTable ={
+	[1] = 	"<font color=#E7BA52 size=18>世界等级说明：</font>",
+	[2] =	"1.角色等级低于世界等级3级可激活打怪经验加成",
+    [3] =	"2.野外BOSS等级跟随世界等级成长",
+}
+
+function PanelChart.initView(event)
+	var = {
+		xmlPanel,
+		list_chart,
+		curChartType,
+		curSelectedIndex = 1,
+		curSelectedItem,
+		Text_worldLv,
+		layerName,
+		-- xmlOperate
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelChart.uif")
+	if var.xmlPanel then
+		var.list_chart = var.xmlPanel:getWidgetByName("ListView_1")
+
+		var.xmlPanel:getWidgetByName("info_btn"):addClickEventListener(function (sender)
+			local d = var.curSelectedItem.data
+			if d.seedName == game.seedName then		--点击的是自己
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="main_avatar", from = "btn_main_rank"})
+			else													--其他玩家
+				NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str="friendOperate", data = d})
+				-- var.xmlOperate= UITips.showOperateTips(var.xmlOperate,var.xmlPanel,var.curSelectedItem.name)
+			end
+		end)
+
+		local btnDesp = var.xmlPanel:getWidgetByName("Button_ask"):hide()
+		btnDesp:setTouchEnabled(true)
+		btnDesp:addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelChart.Desp()
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+				LayerAlert.handleAlertClose()
+			end
+		end)
+		-- local function prsShuoMing(sender)
+
+		-- 	NetClient:dispatchEvent({
+		-- 		name = Notify.EVENT_PANEL_ON_ALERT, panel = "hint", visible = true, lblAlert1 = "世界等级", lblAlert2 = lblhint,
+		-- 		alertTitle = "关闭"
+		-- 	})
+		-- end
+		-- UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName("btn_hint"),prsShuoMing)	
+
+		util.asyncload(var.xmlPanel, "img_bg", "needload/bg_max2.png")
+		util.asyncload(var.xmlPanel, "img_innerbg", "needload/img_chart.jpg")
+
+		local tab_button	= var.xmlPanel:getWidgetByName("tab_button")
+		local Button_100	= tab_button:getChildByName("Button_100")
+		local Button_112	= tab_button:getChildByName("Button_112")
+
+		tab_button:addTabEventListener(PanelChart.pushButton)
+		-- tab_button:setTextColor(game.getColor(0xD2B48C),game.getColor(0xD2B48C))
+		tab_button:setTextColor("0xEADDBF", "0xEADDBF")
+		--EADDBF,D2B48C,eab065,
+		cc.EventProxy.new(NetClient, var.xmlPanel)
+			:addEventListener(Notify.EVENT_REQCHART_LIST, PanelChart.handleChartList)
+			
+		if event then
+			var.playerName = event.pName
+			-- if var.playerName then
+			-- 	NetClient:CheckPlayerEquip(event.pName)
+			-- end
+		end	
+	end	
+	return var.xmlPanel	
+end
+
+function PanelChart.Desp()
+	local mParam = {
+		name = Notify.EVENT_PANEL_ON_ALERT,
+		panel = "tips", 
+		infoTable = despTable,
+		visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+end
+function PanelChart.onPanelOpen(event)
+	-- PanelChart.acquireChartInfo()
+	local tab_button	= var.xmlPanel:getWidgetByName("tab_button")
+	local btnTab
+	if event.tab and type(event.tab) == "number" then
+		btnTab = tab_button:getChildByName("Button_112")
+	else
+		btnTab = tab_button:getChildByName("Button_100")
+	end
+	if var.curChartType then 
+		tab_button:getChildByName("Button_"..var.curChartType):setBrightStyle(0)
+	end 
+	
+	PanelChart.pushButton(btnTab)
+	btnTab:setBrightStyle(1)
+	PanelChart.setSelfRank()
+end
+
+function PanelChart.pushButton(sender)
+	var.curChartType = tonumber(string.sub(sender:getName(), 8,10))
+	if var.curChartType==112 then
+		var.xmlPanel:getWidgetByName("Text_4"):setString("层数")
+	elseif var.curChartType >= 106 and var.curChartType <= 108 then
+		var.xmlPanel:getWidgetByName("Text_4"):setString("战力")
+	elseif var.curChartType == 113 then
+		var.xmlPanel:getWidgetByName("Text_4"):setString("杀敌数")
+	elseif var.curChartType == 114 then
+		var.xmlPanel:getWidgetByName("Text_4"):setString("转生")
+	else
+		var.xmlPanel:getWidgetByName("Text_4"):setString("等级")	
+	end
+	PanelChart.set_rank()
+	PanelChart.acquireChartInfo()
+end
+
+function PanelChart.set_rank()
+	if  MainRole._mainAvatar then 
+		local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+
+		if var.curChartType==job+6 or  var.curChartType==100 or var.curChartType==111 or var.curChartType == 112 then
+			var.xmlPanel:getWidgetByName("lbl_selfRank"):setString( NetClient.mChartData[var.curChartType] and NetClient.mChartData[var.curChartType].chartRank or Const.str_not_in_rank)
+		else
+			var.xmlPanel:getWidgetByName("lbl_selfRank"):setString(  Const.str_not_in_rank)
+		end
+	else
+		var.xmlPanel:getWidgetByName("lbl_selfRank"):setString(  Const.str_not_in_rank)
+	end 
+end
+
+
+function PanelChart.acquireChartInfo()
+	if NetClient.mChartData[var.curChartType] then
+		PanelChart.handleChartList()
+	else
+		--var.xmlPanel:runAction(cca.callFunc(PanelChart.setSelfRank))
+		var.list_chart:hide()	
+	end
+	NetClient:GetChartInfo(var.curChartType, 1)
+end
+
+function PanelChart.updateInnerLooks()
+	-- if not var.panelShow then return end
+	local chartData = clone(NetClient.mChartData[var.curChartType])
+	if not chartData then return end
+	local tag = var.curSelectedIndex
+	local cloth     = chartData[tag].cloth
+	local weapon	= chartData[tag].weapon
+	local wing		= chartData[tag].wing
+	local hair		= chartData[tag].hair
+
+	local img_role = var.xmlPanel:getChildByName("img_role")
+	local img_wing = var.xmlPanel:getChildByName("img_wing")
+	local img_weapon = var.xmlPanel:getChildByName("img_weapon")
+	local img_hair = var.xmlPanel:getChildByName("img_hair")
+	
+	-- if not NetClient.m_PlayerEquip[var.playerName] then return end
+
+	--设置翅膀内观
+	if not img_wing then
+		img_wing = cc.Sprite:create()
+		img_wing:addTo(var.xmlPanel):align(display.CENTER, 190, 260):setName("img_wing"):setScale(0.75)
+	end
+	
+	--设置翅膀内观
+	if wing then
+		wing = wing - 20001
+		print(wing)
+	else
+		wing = 50001
+	end
+
+	if wing then
+		if wing ~= img_wing.curwingId then
+			local imgWingEffect = img_wing:getChildByName("wingEffect")
+			if not imgWingEffect then
+				util.addEffect(img_wing, "wingEffect", GROUP_TYPE.WING, wing, {x=0, y=0}, nil, true)
+				img_wing.curwingId = wing
+			else
+				util.updateEffect(img_wing, "wingEffect", wing, GROUP_TYPE.WING)
+			end
+		end
+	end
+
+	--设置衣服内观
+	if not img_role then
+		img_role = cc.Sprite:create()
+		img_role:addTo(var.xmlPanel):align(display.CENTER, 185, 270):setName("img_role")
+	end
+	local clothDef,clothId
+	local isFashion = false
+
+	clothDef = NetClient.mOthersItems[Const.ITEM_CLOTH_POSITION]
+	if clothDef then
+		clothId = clothDef.mIconID
+	end
+
+	if not clothId then
+		local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+		local luoti= gender==200 and  11100002 or 11100002
+		clothId = luoti
+	end
+
+	if clothId~=img_role.curClothId then
+		local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashion" or "cloth",clothId)
+		asyncload_callback(filepath, img_role, function(filepath, texture)
+			img_role:setTexture(filepath)
+		end)
+		img_role.curClothId = clothId
+	end
+
+	--设置武器内观
+	if not img_weapon then
+		img_weapon = cc.Sprite:create()
+		img_weapon:addTo(var.xmlPanel):align(display.CENTER, 310, 340):setName("img_weapon")
+	end
+	local weapon = NetClient.mOthersItems[Const.ITEM_WEAPON_POSITION]
+	if weapon then
+		if weapon.mTypeID~=var.curWeaponId then
+			local itemDef = NetClient:getItemDefByID(weapon.mTypeID)
+			if itemDef then
+			-- print(weaponId)
+			print(itemDef)
+				local filepath = "vipassana/weapon/"..itemDef.mIconID..".png"
+				asyncload_callback(filepath, img_weapon, function(filepath, texture)
+					img_weapon:setVisible(true)
+					img_weapon:setTexture(filepath)
+				end)
+			end
+			var.curWeaponId=weapon.mTypeID
+			print(weapon.mTypeID)
+		end
+	else
+		img_weapon:setTexture(nil)
+		img_weapon:setVisible(false)
+		var.curWeaponId=nil
+	end
+
+	--设置斗笠内观
+	if not img_hair then
+		img_hair = cc.Sprite:create()
+		img_hair:addTo(var.xmlPanel):align(display.CENTER, 185, 270):setName("img_hair")
+	end
+	local hairDef, hairId
+	local isFashion = false
+
+	hairDef = NetClient:getItemDefByID(Const.ITEM_BAMBOOHAT_POSITION)
+	if hairDef then
+		hairId = hairDef.mIconID
+	end
+
+	if hairId then
+		if hairId ~= img_hair.curHairId then
+			local filepath = string.format("vipassana/hair/%d.png", hairId)
+			asyncload_callback(filepath, img_hair, function(filepath, texture)
+				img_hair:setTexture(filepath)
+			end)
+			img_hair.curHairId = hairId
+		end
+	else
+		img_hair:setSpriteFrame("null")
+		img_hair.curHairId = nil
+	end
+end
+
+
+function PanelChart.handleChartList(event)
+	local chartData = clone(NetClient.mChartData[var.curChartType])
+	local chartIndex = {}
+	function updateItem(item)
+		local tag		= chartIndex[item.tag]
+		local param		= chartData[tag].param
+		local name 		= chartData[tag].name
+		local job 		= Const.job_name[chartData[tag].job]
+		local lv 		= chartData[tag].lv
+		local guild 	= chartData[tag].guild
+		--if chartData[tag].guild=="" then guild="无" else  guild =  end
+
+		local lbl_listItem1 = item:getWidgetByName("Text_list1")
+		lbl_listItem1:setString(tag)
+		lbl_listItem1:show()
+		local lbl_listItem2 = item:getWidgetByName("Text_list2")
+		lbl_listItem2:setString(name)
+		lbl_listItem2:show()
+		local lbl_listItem3 = item:getWidgetByName("Text_list3")
+		lbl_listItem3:setString(job)
+		lbl_listItem3:show()
+		local lbl_listItem4 = item:getWidgetByName("Text_list4")
+		lbl_listItem4:setString(lv)
+		
+		if var.curChartType==111 then
+			lbl_listItem4:setString(param.."阶")
+		elseif var.curChartType >= 106 and var.curChartType <= 108 then
+			if param > 10000 then
+				param = string.format("%.1f", param / 10000).."万"
+			end
+			lbl_listItem4:setString(param)
+		elseif var.curChartType==112 then
+			-- print(">>>>>>>>>>")
+			var.xmlPanel:getWidgetByName("Text_4"):setString("层数")
+			lbl_listItem4:setString(param.."层")
+		elseif var.curChartType == 113 then
+			lbl_listItem4:setString(param)
+		elseif var.curChartType == 114 then
+			lbl_listItem4:setString(param.."转")
+		end
+		---lbl_listItem4:setString(param)
+		lbl_listItem4:show()
+		local lbl_listItem5 = item:getWidgetByName("Text_list5")
+		lbl_listItem5:setString(guild)	
+		lbl_listItem5:show()
+
+		local img_rank = item:getWidgetByName("img_rank")
+		if tag <= 3 then		--align(display.CENTER):pos(73.51,31.28)
+			img_rank:show():loadTexture("ph_rank_"..tag, ccui.TextureResType.plistType):setScale(0.48)
+			lbl_listItem1:hide()
+		else
+			img_rank:hide()
+		end
+		if tag==1 then 
+			lbl_listItem2:setColor(game.getColor(0xe60ed4))
+			lbl_listItem3:setColor(game.getColor(0xe60ed4))
+			lbl_listItem4:setColor(game.getColor(0xe60ed4))
+			lbl_listItem5:setColor(game.getColor(0xe60ed4))
+		elseif tag==2 then 
+			lbl_listItem2:setColor(game.getColor(0x00bbff))
+			lbl_listItem3:setColor(game.getColor(0x00bbff))
+			lbl_listItem4:setColor(game.getColor(0x00bbff))
+			lbl_listItem5:setColor(game.getColor(0x00bbff))
+		elseif tag==3 then 
+			lbl_listItem2:setColor(game.getColor(0x30ff00))
+			lbl_listItem3:setColor(game.getColor(0x30ff00))
+			lbl_listItem4:setColor(game.getColor(0x30ff00))
+			lbl_listItem5:setColor(game.getColor(0x30ff00))
+		else 
+			lbl_listItem2:setColor(game.getColor(0xFFECDF))
+			lbl_listItem3:setColor(game.getColor(0xFFECDF))
+			lbl_listItem4:setColor(game.getColor(0xFFECDF))
+			lbl_listItem5:setColor(game.getColor(0xFFECDF))
+		end 
+		local img_highlight = item:getWidgetByName("img_highlight")
+		if var.curSelectedIndex == item.tag then
+			img_highlight:show()
+			var.curSelectedItem = item
+			var.curSelectedItem.data = chartData[item.tag]
+		else
+			img_highlight:hide()
+		end
+		item:setTouchEnabled(true)
+		item:addClickEventListener(function ()
+			if var.curSelectedIndex ~= item.tag then
+				if var.curSelectedItem then
+					img_highlight:show()
+					var.curSelectedItem:getWidgetByName("img_highlight"):hide()
+					var.curSelectedIndex = item.tag
+					var.curSelectedItem = item
+					var.curSelectedItem.data = chartData[item.tag]
+					PanelChart.updateInnerLooks()
+				end
+			end
+			-- if visible then
+			-- 	if var.curSelectedItem and var.curSelectedIndex ~= item.tag then
+			-- 		var.curSelectedItem:getWidgetByName("img_highlight"):hide()
+			-- 	end
+			-- 	var.curSelectedItem			= item
+			-- 	var.curSelectedItem.name	= chartData[tag].name
+			-- 	var.curSelectedItem.state	= chartData[tag].state
+			-- 	var.curSelectedItem.lv		= chartData[tag].lv
+			-- 	var.curSelectedIndex		= item.tag
+			-- else
+			-- 	var.curSelectedItem		= nil
+			-- 	var.curSelectedIndex	= nil
+			-- end
+		end)
+	end
+	
+	if chartData then
+		for i = 1, #chartData do
+			table.insert(chartIndex, i)
+		end
+	end
+	var.list_chart:reloadData(#chartIndex, updateItem)
+	var.list_chart:show()
+	
+
+	PanelChart.setSelfRank()
+	PanelChart.updateInnerLooks()
+end
+function PanelChart.setSelfRank()
+	PanelChart.set_rank()
+	if NetClient.mChartData[50] and NetClient.mChartData[50][1] and NetClient.mChartData[50][1].lv then 
+		var.Text_worldLv=NetClient.mChartData[50][1].lv
+		var.xmlPanel:getWidgetByName("Text_worldLv"):setString(var.Text_worldLv)
+	end 
+end
+function PanelChart.onPanelClose()
+	
+	NetClient.mChartData = {}
+	PanelChart.handleChartList()
+
+end
+return PanelChart

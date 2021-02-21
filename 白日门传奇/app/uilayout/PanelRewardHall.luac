@@ -1,0 +1,8 @@
+LUA_RET={
+{n="PanelRewardHall",v=true,type=0,id=1,parent=0,w=997.0000,h=576.0000,},
+{n="panel_bg",tag=147,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=997.0000,h=576.0000,color="255|255|255",res="bg_max2",},
+{n="panel_close",tag=109,t=true,fs=14,sx=7,sw=7,sh=11,sy=11,v=true,type=2,id=3,parent=1,w=33.0000,h=32.0000,ax=0.5000,ay=0.5000,x=948.9128,y=544.5061,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="btn_close",},
+{n="tabBox",tag=148,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=4,parent=1,w=835.0000,h=510.0000,x=33.5000,y=11.2230,color="255|255|255",},
+{n="box_tab",ud="tabv(每日签到,在线奖励,七日登录)",tag=204,t=true,c=false,v=true,type=0,id=5,parent=1,w=100.0000,h=410.0000,x=872.8734,y=110.4678,color="255|255|255",},
+{n="img_title",tag=279,sx=32,sw=32,sh=9,sy=9,v=true,type=1,id=6,parent=1,w=98.0000,h=29.0000,ax=0.5000,ay=0.5000,x=501.3264,y=546.9466,color="255|255|255",res="jianglidating",},
+}

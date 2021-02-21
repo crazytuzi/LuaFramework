@@ -1,0 +1,12 @@
+LUA_RET={
+{n="TipsKingCityStamp",v=true,type=0,id=1,parent=0,w=400.0000,h=400.0000,},
+{n="tips_bg",tag=325,ss=true,sx=16,sw=16,sh=16,sy=15,v=true,type=1,id=2,parent=1,w=400.0000,h=400.0000,color="255|255|255",res="img_scale4_bg",},
+{n="lbl_name",tag=326,fs=22,text="城主",vt=1,v=true,type=3,id=3,parent=2,w=120.0000,h=22.0000,ay=0.5000,x=130.0000,y=356.0000,color="253|223|174",},
+{n="lbl_bind",tag=327,fs=20,text="占领",vt=1,v=true,type=3,id=4,parent=2,w=45.0000,h=20.0000,ay=0.5000,x=130.0000,y=315.0000,color="255|143|22",},
+{n="img_icon_frame",tag=337,sx=22,sw=22,sh=22,sy=22,v=true,type=1,id=5,parent=2,w=68.0000,h=68.0000,ax=0.5000,ay=0.5000,x=66.0000,y=333.0000,color="255|255|255",res="img_cell_max",},
+{n="img_icon_bg",tag=338,v=true,type=1,id=6,parent=5,w=50.0000,h=50.0000,ax=0.5000,ay=0.5000,x=38.0000,y=38.0000,color="255|255|255",res="null",},
+{n="img_icon",tag=339,v=true,type=1,id=7,parent=5,w=60.0000,h=60.0000,ax=0.5000,ay=0.5000,x=37.0000,y=37.0000,color="255|255|255",res="cityking_stamp",},
+{n="lbl_bind_0",tag=370,fs=20,text="皇城帮会会长",vt=1,v=true,type=3,id=8,parent=2,w=180.0000,h=20.0000,ay=0.5000,x=171.0000,y=315.0000,color="255|240|78",},
+{n="list",ud="1|1|0|0",tag=371,t=true,c=false,d=1,v=true,type=9,id=9,parent=1,w=370.0000,h=200.0000,x=15.0000,y=84.0000,color="255|255|255",},
+{n="render",tag=372,t=true,c=false,v=true,type=0,id=10,parent=9,w=370.0000,h=36.0000,y=164.0000,color="255|255|255",},
+}

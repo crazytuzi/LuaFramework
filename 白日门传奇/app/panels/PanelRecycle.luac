@@ -1,0 +1,894 @@
+--一键回收有问题
+local PanelRecycle ={}
+local var={}
+local despTable ={
+	[1] = "<font color=#E7BA52 size=18>回收说明：</font>",
+	[2] = "<font color=#f1e8d0>1、可获得元宝</font>"
+}
+
+function PanelRecycle.initView(event)
+		var = {
+			xmlPanel,
+			huishouTable,
+			zhuangbeiTable,
+			clickHuiShou = false,
+			isInputJob = true,
+			isInputQiangHua = false,
+			isRecycle = false,
+			xmlPanel = UILuaLoader.load("uilayout/PanelRecycle.uif")
+		}
+
+		if var.xmlPanel then
+			var.huishouTable = {}
+			var.zhuangbeiTable = {}
+
+			util.asyncload(var.xmlPanel, "bg", "needload/bg_max2.png")
+			util.asyncload(var.xmlPanel, "bg2", "needload/img_jybg.png")
+
+			if event.mParam and event.mParam.guideLv then
+				var.xmlPanel:runAction(cca.seq({
+					cca.delay(0.2),
+					cca.cb(function ()
+					end)
+				}))
+			end
+
+			cc.EventProxy.new(NetClient, var.xmlPanel):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, function (event)
+				if event.type == "PanelRecycle" then
+					var.huishouTable = {}
+
+					if util.decode(event.data) and util.decode(event.data).cmd == "recycleExp" and util.decode(event.data).exp > 0 then
+						PanelRecycle.showExpEffect(util.decode(event.data).exp)
+					end
+				end
+			end):addEventListener(Notify.EVENT_FRESH_ITEM_PANEL, PanelRecycle.onFreshItemPanel)
+			var.xmlPanel:getWidgetByName("boxEffect"):setPosition(422, 300):setVisible(false)
+
+			var.expNum = ccui.TextAtlas:create("0123456789", "fonts/expNum.png", 27, 32, "0"):addTo(var.xmlPanel:getWidgetByName("boxEffect")):align(display.CENTER, 100, 20):setString(0)
+
+			return var.xmlPanel
+		end
+	end
+	
+function PanelRecycle.onPanelOpen()
+		PanelRecycle.initButton()
+		PanelRecycle.initTab()
+
+		var.isRecycle = false
+		var.isInputJob = true
+
+		var.xmlPanel:getWidgetByName("ck_job"):setVisible(var.isInputJob)
+end
+
+function PanelRecycle.onFreshItemPanel(event)
+		if event.flag == 0 then
+			var.xmlPanel:getWidgetByName("lbl_vcoin_bind"):setString(0)
+			var.xmlPanel:getWidgetByName("lbl_vcoin"):setString(0)
+			PanelRecycle.initPageHuishou()
+		end
+	end
+	
+function PanelRecycle.initButton()
+		for k, v in pairs({
+			"btn_add",
+			"btn_huishou",
+			"btnDesp"
+		}) do
+			UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName(v):setTouchEnabled(true), PanelRecycle.pushButtonsOfPageHuishou)
+		end
+
+		local btnQiangHua = var.xmlPanel:getWidgetByName("checkbox_qianghua"):setTouchEnabled(false)
+		local ck_qh = var.xmlPanel:getWidgetByName("ck_qh"):setTouchEnabled(false):setVisible(false)
+		local layout_qh = var.xmlPanel:getWidgetByName("layout_qh")
+
+		layout_qh:setTouchEnabled(true)
+		layout_qh:addClickEventListener(function (sender)
+			var.isInputQiangHua = not var.isInputQiangHua
+
+			ck_qh:setVisible(var.isInputQiangHua)
+
+			if not var.isInputQiangHua and #var.huishouTable > 0 then
+				for i = #var.huishouTable, 1, -1 do
+					if NetClient:getNetItem(var.huishouTable[i]) then
+						local nItem = NetClient:getNetItem(var.huishouTable[i])
+						local itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+
+						if nItem.mLevel > 0 then
+							table.removebyvalue(var.huishouTable, var.huishouTable[i])
+						end
+					end
+				end
+
+				PanelRecycle.initPageHuishou()
+			end
+		end)
+
+		local btnJob = var.xmlPanel:getWidgetByName("checkbox_job"):setTouchEnabled(false)
+		local ck_job = var.xmlPanel:getWidgetByName("ck_job"):setTouchEnabled(false):setVisible(false)
+		local layout_job = var.xmlPanel:getWidgetByName("layout_job")
+
+		layout_job:setTouchEnabled(true)
+		layout_job:addClickEventListener(function (sender)
+			var.isInputJob = not var.isInputJob
+
+			ck_job:setVisible(var.isInputJob)
+
+			if not var.isInputJob and #var.huishouTable > 0 then
+				for i = #var.huishouTable, 1, -1 do
+					if NetClient:getNetItem(var.huishouTable[i]) and NetClient:getItemDefByID(NetClient:getNetItem(var.huishouTable[i]).mTypeID).mJob == MainRole._mainAvatar:NetAttr(Const.net_job) then
+						table.removebyvalue(var.huishouTable, var.huishouTable[i])
+					end
+				end
+
+				PanelRecycle.initPageHuishou()
+			end
+		end)
+
+		local btnDesp = var.xmlPanel:getWidgetByName("btnDesp")
+
+		btnDesp:setTouchEnabled(true)
+		btnDesp:addTouchEventListener(function (pSender, touchType)
+			if  touchType == ccui.TouchEventType.began then
+				btnDesp:setScale(0.88, 0.88)
+				PanelRecycle.recycleDesp()
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				btnDesp:setScale(1, 1)
+				LayerAlert.handleAlertClose()
+			end
+		end)
+	end
+	
+	-- function PanelBag:updateGameMoney(event)
+	-- if var.xmlPanel then
+		-- local mainrole = NetClient.mCharacter
+		-- local moneyLabel = {
+			-- {name="lblVcoin",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	,	icon = "icon_coin"},
+			-- {name="lblBVcoin",	pre=Const.str_vcoinb,	value =	mainrole.mVCoinBind or 0,	icon = "icon_coin_bind"},
+			-- {name="lblMoney",	pre=Const.str_money,	value =	mainrole.mGameMoney or 0,	icon = "icon_money"},
+			-- {name="lblBMoney",	pre=Const.str_moneyb,	value =	mainrole.mGameMoneyBind or 0,	icon = "icon_money"},
+		-- }
+		
+		-- for _,v in ipairs(moneyLabel) do
+			-- var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		-- end
+	-- end
+-- end
+
+
+-- function PanelRecycle.getEquipExpAndCoin(posTable)
+	-- local exp,coin,zsjy,bvcoin =0,0,0,0
+	-- for k,v in pairs(posTable) do
+		-- local nItem = NetClient:getNetItem(v)
+		-- if nItem then
+			-- local itemid = nItem.mTypeID
+			-- if game.checkRecycle(itemid) then
+				-- exp = exp + (game.checkRecycle(itemid).jy or 0)
+				-- coin = coin + (game.checkRecycle(itemid).gold or 0)
+				-- zsjy = zsjy + (game.checkRecycle(itemid).zsjy or 0)
+				-- bvcoin = bvcoin + (game.checkRecycle(itemid).bangyuan or 0)
+			-- end
+		-- end
+	-- end
+
+		-- exp = exp >= 100000 and math.floor(exp / 10000).."万" or exp
+		-- coin = coin >= 100000 and math.floor(coin / 10000).."万" or coin
+		-- zsjy = zsjy >= 100000 and math.floor(zsjy / 10000).."万" or zsjy
+		-- bvcoin = bvcoin >= 100000 and math.floor(bvcoin / 10000).."万" or bvcoin
+	-- return exp,coin,zsjy,bvcoin
+-- end
+
+function PanelRecycle.CalculPrice(event)	
+	-- CalculPrice = function (slot0)
+		var.xmlPanel:getWidgetByName("lbl_vcoin_bind"):setString(0)
+		var.xmlPanel:getWidgetByName("lbl_vcoin"):setString(0)
+		
+			local mainrole = NetClient.mCharacter
+
+		local Vcoin = 0
+		local vcoinbind = 0
+		
+			local moneyLabel = {
+			{name="lblVcoin",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	,	icon = "icon_coin"},
+			{name="lblBVcoin",	pre=Const.str_vcoinb,	value =	mainrole.mVCoinBind or 0,	icon = "icon_coin_bind"},
+			{name="lblMoney",	pre=Const.str_money,	value =	mainrole.mGameMoney or 0,	icon = "icon_money"},
+			{name="lblBMoney",	pre=Const.str_moneyb,	value =	mainrole.mGameMoneyBind or 0,	icon = "icon_money"},
+		}	
+
+		for k, v in pairs(moneyLabel) do
+			if NetClient:getNetItem(v) then
+				itemDef = NetClient:getItemDefByID(NetClient:getNetItem(v).mTypeID)
+				Vcoin = 0 + itemDef.mRecycleVcion
+				vcoinbind = 0 + itemDef.mRecycleVcionBind
+			end
+		end
+
+		if Vcoin > 0 then
+			var.xmlPanel:getWidgetByName("lbl_vcoin"):setString(Vcion)
+		end
+
+		if vcoinbind > 0 then
+			var.xmlPanel:getWidgetByName("lbl_vcoin_bind"):setString(VcionBind)
+		end
+	end
+	
+function PanelRecycle.initTab()  --可能会应为tabarr出错
+		local severDay = NetClient.severDay+1
+		local tabArr = {"全部回收","杂品回收","180回收","1转回收","2转回收","3转回收"}
+	local function updateTabList(item)
+		local tab = item:getWidgetByName("btnMode")
+		local idx = item.tag
+		if idx == var.curSelectIndex and util.isObjectExist(var.curTab) then
+			tab:setBrightStyle(1)--:setTitleColor(cc.c3b(210, 180, 140))
+			tab:setScale(1.1, 1.1)
+			var.curTab = tab
+		else
+			tab:setBrightStyle(0)--:setTitleColor(cc.c3b(115, 95, 85))
+			tab:setScale(1, 1)
+		end
+
+		tab:setTitleText(tabArr[idx]):setSwallowTouches(false)
+		tab.index = idx;
+		UILuaLoader.attachEffect(tab,"outline(0e0600,1)")
+		UIRedPoint.addUIPoint(tab,PanelRecycle.changeTab)
+-- 第一次设置按钮给初始化
+		if var.curSelectIndex == nil and item.tag==1 then
+			PanelRecycle.changeTab(tab)
+		end
+		if severDay<=8 then
+			tab:setVisible(true)
+			end
+		-- if severDay>=7 and severDay<14 and item.tag>=7 then
+		--    tab:setVisible(false)
+		-- end
+		if severDay<=7 and item.tag>=18 then
+			tab:setVisible(false)
+		end
+	end
+		local tabList = var.xmlPanel:getWidgetByName("tabList")
+		tabList:reloadData(#tabArr,updateTabList)
+		-- :setTouchEnabled(true)
+		tabList:setSliderVisible(false)
+		tabList:setTouchEnabled(true)
+end
+	
+function PanelRecycle.changeTab(sender)
+		if var.curTab then
+			var.curTab:setBrightStyle(0)
+		end
+
+		sender:setBrightStyle(1)
+
+		if #var.huishouTable > 0 then
+			var.huishouTable = {}
+
+			var.xmlPanel:getWidgetByName("list_huishou"):reloadData(PanelRecycle.getListNum(var.huishouTable, 4), PanelRecycle.updateHuishouList)
+		end
+
+		var.curTab = sender
+		var.curSelectIndex = sender.index
+
+		PanelRecycle.initPageHuishou()
+end
+	
+function PanelRecycle.setPanelText()
+	
+end
+	
+function PanelRecycle.pushButtonsOfPageHuishou(pSender)
+		if pSender:getName() == "btn_huishou" then
+			if var.huishouTable then
+				local param = {
+					actionid = "huishou",
+					param = var.huishouTable
+				}
+				local isUpgraded = false
+
+				for k, v in pairs(var.huishouTable) do
+				local nItem = NetClient:getNetItem(v)
+					if NetClient:getNetItem(v) and (nItem.mLevel > 0 or nItem.mZLevel > 0) then
+						isUpgraded = true
+
+						break
+					end
+				end
+
+				if isUpgraded then
+					NetClient:dispatchEvent({
+						str = "confirm",
+						name = Notify.EVENT_SHOW_TIPS,
+						lblConfirm = Const.str_has_upgraded_recycle,
+						confirmCallBack = function ()
+							PanelRecycle.handleRecycleAction(function ()
+								NetClient.mSortFlag = 0
+
+								NetClient:PushLuaTable("gui.PanelUpgrade.onPanelData", util.encode(param))
+
+								var.isRecycle = false
+							end)
+						end
+					})
+				elseif #var.huishouTable > 0 then
+					NetClient:dispatchEvent({
+						str = "confirm",
+						lblConfirm = "是否确认本次回收？",
+						name = Notify.EVENT_SHOW_TIPS,
+						confirmCallBack = function ()
+							PanelRecycle.handleRecycleAction(function ()
+								NetClient.mSortFlag = 0
+
+								NetClient:PushLuaTable("gui.PanelUpgrade.onPanelData", util.encode(param))
+
+								var.isRecycle = false
+								var.clickHuiShou = true
+							end)
+						end
+					})
+				end
+			end
+		elseif pSender:getName() == "btn_add" then
+			if var.curTab then
+				PanelRecycle.changeTab(var.curTab)
+			end
+
+			var.huishouTable = PanelRecycle.selectHuiShouTable()
+
+			PanelRecycle.setLabelWillGeted()
+			PanelRecycle.initPageHuishou()
+		end
+	end
+	
+--[[function PanelRecycle.selectHuiShouTable()
+		local equipTable = {}
+		local nItem = nil
+		local itemDef = nil
+		local selectTabl = PanelRecycle.getEquipTableWithoutAdded()
+
+		if var.isInputJob and var.isInputQiangHua then
+			var.huishouTable = {}
+
+			for i = 1, #equipTable do
+				if not NetClient:check_better_item(selectTable[i], true) then
+					table.insert(equipTable, #equipTable + 1, selectTable[i])
+				end
+			end
+		elseif not var.isInputJob and not var.isInputQiangHua then
+			if #var.huishouTable > 0 then
+				equipTable = var.huishouTable
+				selectTabl = var.zhuangbeiTable
+			end
+
+			for i = 0, #selectTabl do
+				nItem = NetClient:getNetItem(selectTable[i])
+				if NetClient:getNetItem(selectTabl[i]) then
+					itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+					if nItem.mLevel < 1 and NetClient:getItemDefByID(nItem.mTypeID).mJob ~= MainRole._mainAvatar:NetAttr(Const.net_job) and not NetClient:check_better_item(selectTable[i]) then
+						table.insert(equipTable, #equipTable + 1, selectTabl[i])
+					end
+				end
+			end
+		elseif var.isInputJob then
+			if #var.huishouTable > 0 then
+				equipTable = uv1.huishouTable
+				selectTable = uv1.zhuangbeiTable
+			end
+
+			for i = 0, #selectTable do
+				nItem = NetClient:getNetItem(selectTable[i])
+				if NetClient:getNetItem(selectTable[i]) then
+					itemDef = NetClient:getItemDefByID(nItem.mTypeID)	
+					-- slot2 = NetClient:getItemDefByID(slot1.mTypeID)
+
+					if nItem.mLevel < 1 and not NetClient:check_better_item(selectTable[i],true) then
+						table.insert(equipTable,#equipTable+1, selectTable[i])
+					end
+				end
+			end
+		elseif var.isInputQiangHua then
+			if #var.huishouTable > 0 then
+				equipTable = var.huishouTable
+				selectTable = var.zhuangbeiTable
+			end
+
+			for i=0,#selectTable do
+				nItem = NetClient:getNetItem(selectTable[i])
+					if nItem then
+						itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+							if itemDef.mJob ~= MainRole._mainAvatar:NetAttr(Const.net_job) and not NetClient:check_better_item(selectTable[i],true) then
+								table.insert(equipTable,#equipTable+1, selectTable[i])
+							end
+					end
+			end
+		end
+		PanelRecycle.CalculPrice(var.huishouTable)
+
+		return equipTable
+	end]]---
+function PanelRecycle.selectHuiShouTable()
+		local equipTable = {}
+		local nItem = nil
+		local itemDef = nil
+
+		local selectTable = PanelRecycle.getEquipTableWithoutAdded()
+		if var.isInputJob and var.isInputQiangHua then     --如果都勾选，则投入所有可投入
+			var.huishouTable = {}
+			for i=1,#selectTable do
+				if not NetClient:check_better_item(selectTable[i],true) then
+					table.insert(equipTable,#equipTable+1, selectTable[i])
+				end
+			end
+		elseif not var.isInputJob and not var.isInputQiangHua then     --都不勾选
+
+				if #var.huishouTable > 0 then
+					equipTable = var.huishouTable
+					selectTable = var.zhuangbeiTable
+				end
+			for i=0,#selectTable do
+				nItem = NetClient:getNetItem(selectTable[i])
+					if nItem then
+						itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+						if nItem.mLevel < 1 and itemDef.mJob ~= MainRole._mainAvatar:NetAttr(Const.net_job) and not NetClient:check_better_item(selectTable[i]) then
+							table.insert(equipTable,#equipTable+1, selectTable[i])
+						end
+					end
+			end
+
+		elseif var.isInputJob then     --只勾选本职
+			if #var.huishouTable > 0 then
+				equipTable = var.huishouTable
+				selectTable = var.zhuangbeiTable
+			end
+			for i=0,#selectTable do
+				nItem = NetClient:getNetItem(selectTable[i])
+				if nItem then
+					itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+						if nItem.mLevel < 1 and not NetClient:check_better_item(selectTable[i],true) then
+							table.insert(equipTable,#equipTable+1, selectTable[i])
+						end
+				end
+			end
+		elseif var.isInputQiangHua then     --只勾选强化
+			if #var.huishouTable > 0 then
+				equipTable = var.huishouTable
+				selectTable = var.zhuangbeiTable
+			end
+			for i=0,#selectTable do
+				nItem = NetClient:getNetItem(selectTable[i])
+				if nItem then
+					itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+						if itemDef.mJob ~= MainRole._mainAvatar:NetAttr(Const.net_job) and not NetClient:check_better_item(selectTable[i],true) then
+							table.insert(equipTable,#equipTable+1, selectTable[i])
+						end
+				end
+			end
+	end
+	PanelRecycle.CalculPrice(event)
+	return equipTable
+end
+	
+function PanelRecycle.getCanZsMax(nItem, itemDef)
+if not nItem or not itemDef then return end
+local severDay = NetClient.severDay+1 --开区第一天NetClient.severDay=0
+local zMax = false
+if severDay>=0 then     --14天后
+-- 最高收强9 转2
+if nItem.mLevel < 20 and itemDef.mNeedZsLevel < 99 then
+zMax = true
+end
+-- zMax=20
+elseif severDay>=0 then     --7天后
+if nItem.mLevel < 20 and itemDef.mNeedZsLevel < 2 then
+zMax = true
+end
+-- zMax=8
+elseif severDay>=0 then     --前7天
+if nItem.mLevel < 20 and itemDef.mNeedZsLevel == 0 and itemDef.mNeedParam <= 999 then
+zMax = true
+end
+-- zMax=4
+end
+return zMax
+	end
+	
+function PanelRecycle.getEquipTableWithoutAdded()
+		local equipTable ={}
+		for i=0,(Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd) do
+			local nItem = NetClient:getNetItem(i)
+			if nItem then
+				local itemDef = NetClient:getItemDefByID(nItem.mTypeID)--and game.IsEquipment(nItem.mTypeID)
+				if not table.keyof(var.huishouTable,i) and PanelRecycle.getCanZsMax(nItem,itemDef) and itemDef.mEquipGroup>0 then     --过滤开服时间限制回收 和 垃圾站
+					if var.curSelectIndex == 1 then     --全部回收
+						if itemDef.mEquipGroup <= 1001 and nItem.mLevel <= 999 and itemDef.mEquipType < 999 then --itemDef.mEquipType>=11属于副装
+							table.insert(equipTable,#equipTable+1, i)
+						end
+					elseif var.curSelectIndex == 2 then     --杂品回收
+						if itemDef.mEquipGroup == 1001 then
+							table.insert(equipTable,#equipTable+1, i)
+						end
+					elseif var.curSelectIndex == 3 then     --100-180
+						if itemDef.mNeedZsLevel == 0 and           itemDef.mNeedParam > 0 and itemDef.mNeedParam < 181                     and    itemDef.mEquipGroup <= 999 and nItem.mLevel <= 999 then
+							table.insert(equipTable,#equipTable+1, i)
+						end
+					elseif var.curSelectIndex == 4 then     --1转回收
+						if itemDef.mNeedZsLevel == 1 and itemDef.mEquipGroup <= 15 and nItem.mLevel <= 999 then
+							table.insert(equipTable,#equipTable+1, i)
+						end
+					elseif var.curSelectIndex == 5 then     --2转回收
+						if itemDef.mNeedZsLevel == 2 and itemDef.mEquipGroup <= 25 and nItem.mLevel <= 999 then
+							table.insert(equipTable,#equipTable+1, i)
+						end
+					elseif var.curSelectIndex == 6 then     --3转回收
+						if itemDef.mNeedZsLevel == 3 and itemDef.mEquipGroup == 31 and nItem.mLevel <= 999 then
+							table.insert(equipTable,#equipTable+1, i)
+						end
+					end
+				end
+
+				var.zhuangbeiTable = equipTable
+			end
+		end
+
+		return equipTable
+	end
+	
+function PanelRecycle.initPageHuishou()
+		local list_zb = var.xmlPanel:getWidgetByName("list_zb"):setSliderVisible(false)
+		local equipTable = PanelRecycle.getEquipTableWithoutAdded()
+		
+		list_zb:reloadData(0, function (items)
+			PanelRecycle.updateHuishouEquipList(items, equipTable)
+		end)
+		list_zb:reloadData(PanelRecycle.getListNum(PanelRecycle.getEquipTableWithoutAdded(), 4), function (items)
+			PanelRecycle.updateHuishouEquipList(items, equipTable)
+		end)
+		var.xmlPanel:getWidgetByName("list_huishou"):setSliderVisible(false):reloadData(PanelRecycle.getListNum(var.huishouTable, 4), PanelRecycle.updateHuishouList)
+	end
+	
+function PanelRecycle.updateHuishouEquipList(subItem,equipTable)
+		local pos = subItem.tag
+
+		if equipTable[pos] then
+			UIItem.getItem({
+				iconType = Const.ICONTYPE.DEPOT,
+				parent = subItem,
+				pos = equipTable[pos],
+				titleText = Const.str_put_in,
+				callBack = function ()
+				local nItem = NetClient:getNetItem(equipTable[pos])
+				local itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+					NetClient:dispatchEvent({
+						visible = true,
+						name = Notify.EVENT_HANDLE_TIPS,
+						itemPos = equipTable[pos],
+						typeId = itemDef.mTypeID
+					})
+				end,
+				doubleCall = function ()
+					if util.isObjectExist(var.xmlPanel) then
+						PanelRecycle.updateEquipUpgrade(equipTable[pos])
+					end
+				end
+			})
+		elseif subItem:getWidgetByName("item_icon") then
+			subItem:getWidgetByName("item_icon"):removeFromParent()
+		end
+	end
+	
+function PanelRecycle.updateEquipUpgrade(npos)
+local nItem = NetClient:getNetItem(npos)
+local itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+if nItem then
+if not var.isInputQiangHua then     --判断不可投强化
+if not var.isInputJob then     --如果成立 不可投强化和本职
+if itemDef.mJob ~= MainRole._mainAvatar:NetAttr(Const.net_job) and nItem.mLevel < 1 then
+table.insert(var.huishouTable,#var.huishouTable+1,npos)
+end
+else     --否则 不可投强化 但可投本职
+if nItem.mLevel < 1 then
+table.insert(var.huishouTable,#var.huishouTable+1,npos)
+end
+end
+elseif not var.isInputJob then     --判断不可投本职
+if not var.isInputQiangHua then     --如果成立 不可投强化和本职
+if itemDef.mJob ~= MainRole._mainAvatar:NetAttr(Const.net_job) and nItem.mLevel < 1 then
+table.insert(var.huishouTable,#var.huishouTable+1,npos)
+end
+else     --否则 不可投本职 但可投强化
+if itemDef.mJob ~= MainRole._mainAvatar:NetAttr(Const.net_job) then
+table.insert(var.huishouTable,#var.huishouTable+1,npos)
+end
+end
+else     --所有都可以投
+table.insert(var.huishouTable,#var.huishouTable+1,npos)
+end
+PanelRecycle.initPageHuishou()
+end
+	end
+	
+function PanelRecycle.successAnimate(subItem)
+local fireworks = cc.Sprite:create():addTo(subItem):pos(40,40)
+local animate = cc.AnimManager:getInstance():getPlistAnimate(4,6521200,4,3)
+if animate then
+fireworks:runAction(cca.seq({
+cca.rep(animate,2),
+cca.removeSelf(),
+cca.cb(function ()
+
+end),
+}))
+end
+end
+
+--经验特效
+function PanelRecycle.successAnimate2()
+local boxEffect = var.xmlPanel:getWidgetByName("imgEff")
+local fireworks = cc.Sprite:create():addTo(boxEffect):pos(30,-25)
+local animate = cc.AnimManager:getInstance():getPlistAnimate(4,6521100,4,3)
+if animate then
+fireworks:runAction(cca.seq({
+cca.rep(animate,5),
+cca.removeSelf(),
+cca.cb(function ()
+
+end),
+}))
+end
+end
+
+--飞走特效
+function PanelRecycle.successAnimate3()
+local fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(422,350)
+local animate = cc.AnimManager:getInstance():getPlistAnimate(4,6521000,4,3)
+if animate then
+fireworks:runAction(cca.seq({
+cca.rep(animate,10),
+cca.removeSelf(),
+cca.cb(function ()
+
+end),
+}))
+end
+return fireworks
+end
+	
+function PanelRecycle.showExpEffect(exp)
+local boxEffect = var.xmlPanel:getWidgetByName("boxEffect"):setPosition(422,300):setVisible(true)
+var.expNum:setString(exp):setVisible(false)
+
+local numArrs = {}
+local length = string.len(tostring(exp))
+for i=length,1,-1 do
+local curNum = string.sub(tostring(exp),i,i)
+if curNum=="" then curNum="0" end
+table.insert(numArrs,curNum)
+end
+-- print(length,"==============",exp,util.encode(numArrs))
+
+for i=1,10 do
+local numImg = var.xmlPanel:getWidgetByName("num"..i)
+if i<=length then
+numImg:setVisible(true)
+else
+numImg:setVisible(false)
+end
+end
+var.xmlPanel:getWidgetByName("numBox"):setPositionX(102-(10-length)*10)
+
+local index = 1
+--数字翻滚
+local function numRoll(numImg)
+local time=0
+numImg:runAction(cca.repeatForever(cca.seq({cca.delay(0.015), cca.callFunc(function ()
+time = time+1
+numImg:loadTexture("rExp"..time, ccui.TextureResType.plistType)
+if time>9 then
+numImg:loadTexture("rExp"..numArrs[index], ccui.TextureResType.plistType)
+numImg:stopAllActions()
+index=index+1
+if index<=length then
+local numImg = var.xmlPanel:getWidgetByName("num"..index)
+numRoll(numImg)
+end
+end
+end)})))
+end
+
+local function moveAct3()
+local target = PanelRecycle.successAnimate3()
+target:runAction(cca.seq({
+-- cca.delay(0.5),
+cca.moveTo(0.6, 422, -50),
+cca.cb(function ()
+target:stopAllActions()
+target:setVisible(false)
+var.expNum:setString(0)
+NetClient:PushLuaTable("gui.PanelUpgrade.onPanelData", util.encode({actionid = "actStop",}))
+end),
+}))
+end
+
+local function moveAct2(target)
+target:runAction(cca.seq({
+cca.delay(2.5),
+cca.cb(function()
+target:stopAllActions()
+target:setVisible(false)
+moveAct3(target)
+end),
+}))
+end
+
+local function moveAct(target)
+target:setVisible(true)
+PanelRecycle.successAnimate2()
+target:runAction(cca.seq({
+cca.moveTo(0.2, 422, 350),
+cca.cb(function ()
+target:stopAllActions()
+moveAct2(target)
+local numImg = var.xmlPanel:getWidgetByName("num1")
+numRoll(numImg)
+end),
+}))
+end
+moveAct(boxEffect)
+for i=1,10 do
+var.xmlPanel:getWidgetByName("num"..i):loadTexture("rExp0", ccui.TextureResType.plistType)
+end
+end
+	
+function PanelRecycle.updateHuishouList(subItem)
+local npos = subItem.tag
+if var.huishouTable[npos] then
+local param = {
+parent = subItem,
+pos = var.huishouTable[npos],
+iconType = Const.ICONTYPE.DEPOT,
+titleText = Const.str_take_out,
+callBack = function()
+-- --防止面板关闭，tips没有关闭后导致的bug
+-- if util.isObjectExist(var.xmlPanel) then
+--     subItem:getWidgetByName("item_icon"):removeFromParent()
+--     table.removebyvalue(var.huishouTable,var.huishouTable[npos])
+
+--     PanelRecycle.setLabelWillGeted()
+--     -- var.xmlPanel:getWidgetByName("lblAddedNum"):setString("已添加"..#var.huishouTable.."件装备")
+--     var.xmlPanel:getWidgetByName("list_huishou"):reloadData(PanelRecycle.getListNum( var.huishouTable, 4 ),PanelRecycle.updateHuishouList)
+--     PanelRecycle.initPageHuishou()
+-- end
+
+-- 显示tips
+local nItem = NetClient:getNetItem(var.huishouTable[npos])
+local itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+NetClient:dispatchEvent({
+name        = Notify.EVENT_HANDLE_TIPS,
+itemPos        = var.huishouTable[npos],
+typeId        = itemDef.mTypeID,
+-- mLevel        = itemDef.mNeedParam,
+-- mZLevel        = itemDef.mNeedZsLevel,
+-- iconType    = itemIcon.iconType,
+visible        = true,
+})
+end,
+doubleCall = function()
+--防止面板关闭，tips没有关闭后导致的bug
+if util.isObjectExist(var.xmlPanel) then
+subItem:getWidgetByName("item_icon"):removeFromParent()
+table.removebyvalue(var.huishouTable,var.huishouTable[npos])
+
+PanelRecycle.setLabelWillGeted()
+-- var.xmlPanel:getWidgetByName("lblAddedNum"):setString("已添加"..#var.huishouTable.."件装备")
+-- var.xmlPanel:getWidgetByName("list_huishou"):reloadData(PanelRecycle.getListNum( var.huishouTable, 4 ),PanelRecycle.updateHuishouList)
+PanelRecycle.initPageHuishou()
+PanelRecycle.CalculPrice(event)
+end
+end
+}
+UIItem.getItem(param)
+else
+if subItem:getWidgetByName("item_icon") then
+subItem:getWidgetByName("item_icon"):removeFromParent()
+if var.clickHuiShou==true then
+PanelRecycle.successAnimate(subItem)
+end
+end
+end
+if npos>=20 then
+var.clickHuiShou=false
+end
+end
+	
+function PanelRecycle.getListNum( tb, idx ) --自己定义为40格
+		return idx * math.ceil((#tb > 20 and #tb or 20) / idx)
+	end
+	
+function PanelRecycle.setLabelWillGeted()
+	end
+	
+function PanelRecycle.getEquipExpAndCoin(posTable)
+	local exp,coin,zsjy,bvcoin =0,0,0,0
+	for k,v in pairs(posTable) do
+		local nItem = NetClient:getNetItem(v)
+		if nItem then
+			local itemid = nItem.mTypeID
+			if game.checkRecycle(itemid) then
+				exp = exp + (game.checkRecycle(itemid).jy or 0)
+				coin = coin + (game.checkRecycle(itemid).gold or 0)
+				zsjy = zsjy + (game.checkRecycle(itemid).zsjy or 0)
+				bvcoin = bvcoin + (game.checkRecycle(itemid).bangyuan or 0)
+			end
+		end
+	end
+
+		exp = exp >= 100000 and math.floor(exp / 10000).."万" or exp
+		coin = coin >= 100000 and math.floor(coin / 10000).."万" or coin
+		zsjy = zsjy >= 100000 and math.floor(zsjy / 10000).."万" or zsjy
+		bvcoin = bvcoin >= 100000 and math.floor(bvcoin / 10000).."万" or bvcoin
+	return exp,coin,zsjy,bvcoin
+end
+	
+function PanelRecycle.checkEquipRule(pos,rule)
+	local useful = true
+	local nItem = NetClient:getNetItem(pos)
+	if nItem then
+		if nItem.mLevel >0 or nItem.mZLevel > 0 then return true end
+		local idf = NetClient:getItemDefByID(nItem.mTypeID)
+			if idf then
+			local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+			local level = MainRole._mainAvatar:NetAttr(Const.net_level)
+			local zslevel = MainRole._mainAvatar:NetAttr(Const.net_zslevel)
+			local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+
+				if idf then
+					if rule =="list" and (idf.mJob~= job or gender ~= idf.mGender or  idf.mNeedParam < level or idf.mNeedZsLevel < zslevel and idf.mNeedParam < level ) then
+						useful = false
+					elseif rule =="onekey" and (idf.mJob~= job or idf.mNeedZsLevel <=zslevel and idf.mNeedParam < level) then
+						seful = false
+					elseif rule =="recy" and (idf.mJob~= job or idf.mNeedParam < level ) then
+						useful = false
+					end
+			end
+		end
+	end
+return useful
+end
+	
+function PanelRecycle.handleRecycleAction(callfunc)
+		callfunc()
+end
+	
+function PanelRecycle.onPanelClose()
+		if var.isRecycle and var.huishouTable then
+			NetClient:PushLuaTable("gui.PanelUpgrade.onPanelData", util.encode({
+				actionid = "huishou",
+				param = var.huishouTable
+			}))
+
+			var.huishouTable = {}
+			var.isRecycle = false
+		end
+
+		local tid, ts = NetClient:checkTaskState(1000)
+
+		if (tid == 10034 or tid == 10046 or tid == 10055) and ts == Const.TSCOMP then
+			NetClient:dispatchEvent({
+				name = Notify.EVENT_CONTINUE_TASK
+			})
+		end
+
+		NetClient.mSortFlag = nil
+
+		NetClient:PushLuaTable("gui.PanelUpgrade.onPanelData", util.encode({
+			actionid = "actStop"
+		}))
+	end
+	
+function PanelRecycle.recycleDesp()
+		NetClient:dispatchEvent({
+			panel = "tips",
+			visible = true,
+			name = Notify.EVENT_PANEL_ON_ALERT,
+			infoTable = despTable,
+		})
+	end
+	
+return PanelRecycle

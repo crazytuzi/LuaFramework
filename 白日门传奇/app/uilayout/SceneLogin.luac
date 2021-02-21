@@ -1,0 +1,32 @@
+LUA_RET={
+{n="img_bg",id=2,parent=1,w=1136,h=640,ax=0.5,ay=0.5,x=568,y=320,type=1,tag=262,v=true,},
+-- {n="Image_1",id=4,parent=3,w=466,h=187,ax=0.5,ay=0.5,x=233,y=93,res="yqmbg",type=1,tag=3825,v=true,},
+-- {n="Image_2",id=5,parent=3,w=48,h=23,ax=0.5,ay=0.5,x=52,y=124,res="img_account",type=1,tag=3826,v=true,},
+{n="Image_1",tag=176,sx=42,sw=42,sh=19,sy=19,v=true,type=1,id=4,parent=3,w=128.0000,h=59.0000,ax=0.5000,ay=0.5000,x=-5.3522,y=25.2269,color="255|255|255",res="yqmbg",},
+{n="Image_2",tag=176,sx=42,sw=42,sh=19,sy=19,v=true,type=1,id=5,parent=3,w=128.0000,h=59.0000,ax=0.5000,ay=0.5000,x=-5.3522,y=175.2269,color="255|255|255",res="img_account",},
+-- {n="Image_2_0",id=6,parent=3,w=48,h=22,ax=0.5,ay=0.5,x=52,y=61,res="img_mm",type=1,tag=10,v=true,},
+{n="Image_1_0",tag=177,sx=42,sw=42,sh=19,sy=19,v=true,type=1,id=6,parent=3,w=129.0000,h=57.0000,ax=0.5000,ay=0.5000,x=-5.8210,y=93.3780,color="255|255|255",res="img_pass",},
+-- {n="edit_account",id=7,parent=3,w=234,h=44,ax=0.5,ay=0.5,x=201,y=124,res="panel_textfield",type=1,tag=2,v=true,},
+-- {n="edit_password",id=8,parent=3,w=234,h=44,ax=0.5,ay=0.5,x=201,y=61,res="panel_textfield",type=1,tag=11,v=true,},
+
+{n="edit_account",tag=2,sx=15,sw=15,sh=9,sy=9,v=true,type=1,id=7,parent=3,w=367.0000,h=61.0000,ax=0.5000,ay=0.5000,x=256.9228,y=171.9272,color="255|255|255",res="panel_textfield",},
+{n="edit_password",tag=11,ss=true,sx=15,sw=15,sh=9,sy=9,v=true,type=1,id=8,parent=3,w=367.0000,h=61.0000,ax=0.5000,ay=0.5000,x=255.9015,y=92.4968,color="255|255|255",res="panel_textfield",},
+
+-- {n="btn_login",id=9,parent=3,w=108,h=99,ax=0.5,ay=0.5,x=390,y=108,tcolor="253|223|174",res="img_enterbtn",type=2,tag=42,ss=true,sx=15,sy=11,sw=78,sh=77,t=true,v=true,fs=32,},
+{n="btn_login",tag=13,t=true,fs=32,sx=28,sw=28,sh=11,sy=11,v=true,type=2,id=9,parent=3,w=438.0000,h=48.0000,ax=0.5000,ay=0.5000,x=244.0830,y=15.4275,color="255|255|255",tcolor="253|223|174",res="img_enterbtn",},--点击登录
+
+-- {n="Text_register",id=10,parent=3,ax=0.5,ay=0.5,x=399,y=-97,color="255|165|0",type=3,tag=12,v=true,fs=20,text="帐号注册",},--登录，注册切换
+{n="Text_register",tag=85,fs=20,text="注册",ht=1,vt=1,v=true,type=3,id=10,parent=3,w=95.0000,h=28.0000,ax=0.5000,ay=0.5000,x=-5.9839,y=16.2857,color="255|227|1",fr="DFYuan.ttf",},--登录，注册切换
+
+-- {n="btn_register",id=11,parent=3,w=108,h=99,ax=0.5,ay=0.5,x=390,y=108,tcolor="253|223|174",res="img_enterbtn",type=2,tag=13,ss=true,sx=15,sy=11,sw=78,sh=77,t=true,v=true,fs=32,},
+{n="btn_register",v=false,tag=42,t=true,fs=32,sx=28,sw=28,sh=11,sy=11,type=2,id=11,parent=3,w=438.0000,h=48.0000,ax=0.5000,ay=0.5000,x=244.0830,y=15.4275,color="255|255|255",tcolor="253|223|174",res="zhuce2",},--点击注册
+
+-- {n="btn_register",tag=13,t=true,fs=32,sx=28,sw=28,sh=11,sy=11,v=true,type=2,id=11,parent=3,w=438.0000,h=48.0000,ax=0.5000,ay=0.5000,x=244.0830,y=15.4275,color="255|255|255",tcolor="253|223|174",res="zhuce2",},--点击注册
+
+{n="box_login",id=3,parent=1,w=466,h=187,ax=0.5,ay=0.5,x=568,y=323,type=0,tag=263,t=true,v=true,},
+{n="Text_Prompt",id=12,parent=1,ax=0.5,ay=0.5,x=568,y=344,color="255|0|0",type=3,tag=41,v=true,fs=18,text="",},
+
+{n="btn_sdk_login",v=false,tag=10,t=true,fs=32,sx=66,sw=66,sh=18,sy=18,type=2,id=16,parent=1,w=203.0000,h=55.0000,ax=0.5000,ay=0.5000,x=562.3548,y=179.3499,color="255|255|255",tcolor="253|223|174",res="backButton",},
+-- {n="btn_sdk_login",id=13,parent=1,w=314,h=85,ax=0.5,ay=0.5,x=568,y=260,tcolor="253|223|174",res="backButton",type=2,tag=10,t=true,v=false,fs=32,},
+{n="SceneLogin",id=1,type=0,parent=0,w=1136,h=640,},
+}

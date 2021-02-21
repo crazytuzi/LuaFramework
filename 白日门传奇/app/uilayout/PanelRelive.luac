@@ -1,0 +1,16 @@
+LUA_RET={
+{n="PanelRelive",v=true,type=0,id=1,parent=0,w=387.0000,h=225.0000,},
+{n="tipsbg",ud="nocache",tag=26,ss=true,sx=128,sw=97,sh=81,sy=72,v=true,type=1,id=2,parent=1,w=387.0000,h=225.0000,color="255|255|255",res="img_kuan_bg",},
+{n="title",tag=547,fs=25,text="复活提示",ht=1,vt=1,v=true,type=3,id=3,parent=1,w=120.0000,h=30.0000,ax=0.5000,ay=0.5000,x=194.3656,y=196.8867,color="253|223|174",fr="DFYuan.ttf",},
+{n="label_enemy",tag=2,fs=18,text="某人",ht=1,vt=1,v=true,type=3,id=4,parent=1,w=220.0000,h=50.0000,ax=0.5000,ay=0.5000,x=180.6034,y=147.6193,color="224|28|42",fr="DFYuan.ttf",},
+{n="label_1",tag=1,fs=22,text="您被 ",vt=1,v=true,type=3,id=5,parent=4,w=55.0000,h=24.0000,ax=1.0000,ay=0.5000,x=5.9997,y=27.0008,color="253|223|174",fr="DFYuan.ttf",},
+{n="label_2",tag=3,fs=22,text=" 击败了!",vt=1,v=true,type=3,id=6,parent=4,w=120.0000,h=24.0000,ay=0.5000,x=207.9977,y=24.1364,color="253|223|174",fr="DFYuan.ttf",},
+{n="btn_back",ud="outline(0e0600,1);zoomscale(-0.12)",tag=7,t=true,fs=18,text="回城复活",ss=true,sx=36,sw=48,sh=19,sy=13,v=true,type=2,id=7,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=98.0003,y=36.3389,color="255|255|255",tcolor="241|232|208",res="btn_red_normal",},
+{n="label_relive_first_0",tag=12,fs=16,text="免费",ht=1,vt=1,v=true,type=3,id=8,parent=7,w=35.0000,h=21.0000,ay=0.5000,x=2.7800,y=62.3236,color="190|161|116",fr="DFYuan.ttf",},
+{n="time",tag=13,fs=16,text="30秒",ht=1,vt=1,v=true,type=3,id=9,parent=7,w=55.0000,h=18.0000,ay=0.5000,x=46.3651,y=61.6929,color="255|62|63",fr="DFYuan.ttf",},
+{n="btn_local",ud="outline(0e0600,1);zoomscale(-0.12)",tag=8,t=true,fs=18,text="原地复活",ss=true,sx=36,sw=48,sh=19,sy=13,v=true,type=2,id=10,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=286.0007,y=36.3389,color="255|255|255",tcolor="241|232|208",res="btn_red_normal",},
+{n="label_relive_first",tag=5,fs=16,text="剩余",ht=1,vt=1,v=true,type=3,id=11,parent=10,w=36.0000,h=21.0000,ay=0.5000,x=-25.0006,y=62.3523,color="24|209|41",fr="DFYuan.ttf",},
+{n="label_relive_second",tag=4,fs=16,text="3",ht=1,v=true,type=3,id=12,parent=10,w=13.0000,h=21.0000,ax=0.5000,ay=0.5000,x=42.9995,y=62.3523,color="255|62|63",fr="DFYuan.ttf",},
+{n="label_relive_third",tag=6,fs=16,text="次",vt=1,v=true,type=3,id=13,parent=10,w=50.0000,h=18.0000,ay=0.5000,x=77.9991,y=62.3523,color="24|209|41",fr="DFYuan.ttf",},
+{n="labXy",tag=25,fs=16,text="x:0",ht=1,vt=1,v=true,type=3,id=14,parent=1,w=200.0000,h=32.0000,ax=0.5000,ay=0.5000,x=187.9759,y=110.4589,color="153|137|104",},
+}

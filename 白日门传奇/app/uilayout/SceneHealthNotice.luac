@@ -1,0 +1,26 @@
+LUA_RET = {
+	{
+		n = "SceneHealthNotice",
+		parent = 0,
+		v = true,
+		type = 0,
+		id = 1,
+		w = 1136,
+		h = 640
+	},
+	{
+		n = "img_bg",
+		tag = 152,
+		h = 46,
+		type = 1,
+		w = 46,
+		ax = 0.5,
+		color = "255|255|255",
+		parent = 1,
+		v = true,
+		y = 320,
+		id = 2,
+		ay = 0.5,
+		x = 568
+	}
+}

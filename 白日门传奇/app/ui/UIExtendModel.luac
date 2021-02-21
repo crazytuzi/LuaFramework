@@ -1,0 +1,288 @@
+-- 主界面右侧快捷物品按钮
+--控制主界面显示哪些按钮.
+
+local UIExtendModel = {}
+local var = {}
+
+--第一排按钮不变，二三排实现自动换行
+local allExtButtons = {
+	[1] = {
+		{t="extend_store", n="商城", f=20},
+		--"extend_lottory",	--寻宝
+		{t="extend_openServer", n="开服活动", f=17},
+		{t="extend_awardHall", n="福利大厅", f=17},
+		{t="extend_invest",	 n="投资计划", f=17},
+		{t="extend_jrxl", n="假日狂欢", f=17},
+		{t="extend_firstPay", n="首冲", f=20},
+		{t="extend_dailyPay", n="每日充值", f=17},
+	},
+	[2] = {
+		-- "extend_mars", -- 战神
+		-- "extend_exploit", -- 功勋
+		-- "extend_breakup",
+		{t="extend_world", n="活动大厅", f=17},
+		{t="extend_kingWar", n="皇城争霸", f=17},
+		{t="extend_offline",  n="离线挂机", f=17}, --离线挂机		
+		-- "extend_superVip", --超级会员
+		{t="extend_task", n="商城", f=20},
+		{t="extend_zhuanPan", n="幸运转盘", f=17},
+		-- "extend_puzzle",
+		--"extend_makeExp",
+	},
+	[3] = {
+		{t="extend_download", n="商城", f=20},
+		{t="extend_dice", n="求签", f=20},
+		{t="extend_zhuanPan", n="幸运转盘", f=17},
+		{t="extend_activities",  n="庆典活动", f=17}, --庆典活动
+		{t="extend_events",  n="充值好礼", f=17}, --超值回馈活动
+		{t="extend_heFu",   n="合服活动", f=17},--和服活动
+	}
+}
+
+local extendButtons = {}
+
+if PLATFORM_BANSHU then
+	allExtButtons = {
+		[1] = {
+			"extend_store",
+			"extend_activities",
+		},
+		[2] = {
+			"extend_offline",
+			"extend_makeExp",
+		}
+	}
+end
+
+if device.platform == "ios" then
+	if table.indexof(allExtButtons[3],"extend_download") then
+		table.removebyvalue(allExtButtons[3], "extend_download")
+	end
+end
+
+local alwaysExtends = {
+	"extend_vcoinrecyle"--"extend_pagoda", --"extend_mars" --"extend_store"
+}
+
+local offX = -36;
+local intervalH = 80;
+
+local posY1 = 35; 
+local posY2 = -35;
+local posY3 = -105;
+
+local function checkExtendHalo(btnExtend)
+	if btnExtend.redParams and #btnExtend.redParams > 0 then
+		return true
+	end
+end
+
+-- 遍历显示光圈动画
+local function doExtendAnimation()
+	local children = var.boxExtend:getChildren()
+
+	local btnExtend
+	for i,v in ipairs(alwaysExtends) do
+		btnExtend = var.righttop:getWidgetByName(v)
+		if btnExtend then table.insert(children, btnExtend) end
+	end
+
+	local btnName, pSize, animaSprite, animate
+	for i,v in ipairs(children) do
+		btnName = v:getName()
+		animaSprite = v:getChildByName("animaSprite")
+		pSize = v:getContentSize()
+		if animaSprite then animaSprite:stopAllActions():hide() end
+		if checkExtendHalo(v) then
+			if not animaSprite then
+				animaSprite = cc.Sprite:create()
+					:align(display.CENTER, 0.5 * pSize.width, 0.5 * pSize.height)
+					:addTo(v)
+					:setName("animaSprite")
+			end
+			animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, 60040, 4, 5)
+			animaSprite:show():runAction(animate)
+			animaSprite:setBlendFunc({src=gl.SRC_ALPHA,dst=gl.ONE})
+		end
+	end
+
+end
+
+--处理按钮动画同步问题
+local function handleExtendAnimation()
+	var.boxExtend:runAction(cca.repeatForever(
+		cca.seq({
+			cca.cb(function ()
+				doExtendAnimation()
+			end),
+			cca.delay(1)
+		})
+	))
+end
+
+-- 按钮回调
+local function pushExtendButton(sender)
+	local btnName = sender:getName()
+	NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = btnName})
+end
+
+local function createExtendButton(v)
+	
+	
+	--local bg_name = ccui.Button:create("btn_skill_small", "btn_skill_small", "", ccui.TextureResType.plistType) 
+	--				:setPressedActionEnabled(true)
+	--				:setZoomScale(-0.12)
+	--				:setName(name)
+	--				
+	--local btnExtend = ccui.ImageView:create(name, ccui.TextureResType.plistType)
+	--				:align(display.CENTER, bg_name:getContentSize().width/2, bg_name:getContentSize().height/2)
+	--				:addTo(bg_name)
+	--local btn_name = ccui.ImageView:create(name.."_name", ccui.TextureResType.plistType)
+	--	:align(display.CENTER, bg_name:getContentSize().width/2, bg_name:getContentSize().height/2-28)
+	--	:addTo(bg_name)
+	-- bg_name.showAnima = true
+
+	local btnExtend = ccui.Button:create(v.t, v.t, "", ccui.TextureResType.plistType)
+		:setPressedActionEnabled(true)
+		:setZoomScale(-0.12)
+		:setName(v.t)
+	-- btnExtend.showAnima = true
+	local btnLabel = ccui.Text:create(v.n, FONT_NAME, v.f)
+				:setTextColor(game.getColor(0xFFDB9D))
+				:setPosition(36, 18)
+				:addTo(btnExtend)
+				:enableOutline(game.getColor(0x000000), 1)
+	return btnExtend
+end
+
+--默认第二行
+local function getExtButtonLine(name)
+	for line=1,3 do
+		if extendButtons[line] then
+			for i,v in ipairs(extendButtons[line]) do
+				if name == v.t then
+					return line
+				end
+			end		
+		end
+	end
+	-- return 2
+end
+
+-- 刷新extend按钮
+local function updateExtendButtons(index)
+	local extButtons = extendButtons[index]
+	if not extButtons then return end
+	-- local posY = (index == 1) and posY1 or posY2
+	-- local posY = posY1 - (index - 1) * 70
+	local posY
+	local btnExtend
+	local count = 0;
+	for i,v in ipairs(extButtons) do
+		btnExtend = var.boxExtend:getChildByName(v.t)
+		if NetClient:checkGuiButton(v.t) then --按钮是否可见
+			if not btnExtend then 
+				btnExtend = createExtendButton(v):addTo(var.boxExtend) 
+				UIRedPoint.addUIPoint(btnExtend, pushExtendButton)
+			end
+			local line = getExtButtonLine(v.t) or index
+			posY = posY1 - (line - 1) * 80
+			btnExtend:align(display.CENTER, offX - count * intervalH, posY)
+			count = count + 1
+		elseif btnExtend then
+			btnExtend:removeFromParent()
+		end
+	end
+
+	--清除老按钮
+	extButtons = allExtButtons[index]
+	if not extButtons then return end
+	for i,v in ipairs(extButtons) do
+		btnExtend = var.boxExtend:getChildByName(v.t)
+		if btnExtend and not NetClient:checkGuiButton(v.t) then
+			btnExtend:removeFromParent()
+		end
+	end
+end
+
+local function updateAlwaysExtends()
+	local btnExtend
+	for i,v in ipairs(alwaysExtends) do
+		btnExtend = var.righttop:getChildByName(v)
+		if btnExtend then
+			btnExtend:setVisible(NetClient:checkGuiButton(v))
+		end
+	end
+end
+
+local function initAlwaysExtends()
+	local btnExtend
+	for i,v in ipairs(alwaysExtends) do
+		btnExtend = var.righttop:getChildByName(v)
+		if btnExtend then
+			UIRedPoint.addUIPoint(btnExtend, pushExtendButton)
+		end
+	end
+end
+
+
+--重设extendButtons
+local function resetExtendButtons()
+	extendButtons[2] = {}
+	extendButtons[3] = {}
+	local count = 0
+	for i=2,3 do
+		for j,v in ipairs(allExtButtons[i]) do
+			if NetClient:checkGuiButton(v.t) then
+				if count < 7 then
+					table.insert(extendButtons[2], v)
+					count = count + 1
+				else
+					table.insert(extendButtons[3], v)
+				end
+			end
+		end
+	end
+end
+
+local function handleExtendButtons()
+	resetExtendButtons()
+	-- print("/////////handleExtendButtons/////////////", util.encode(extendButtons))
+
+	updateExtendButtons(1)
+	updateExtendButtons(2)
+	updateExtendButtons(3)
+
+	updateAlwaysExtends()
+end
+
+local function handleExtendVisibleByIndex(index, visible)
+	local extButtons = extendButtons[index]
+	if not extButtons then return end
+	local btnExtend
+	for i,v in ipairs(extButtons) do
+		btnExtend = var.boxExtend:getChildByName(v)
+		if btnExtend then btnExtend:setVisible(visible) end
+	end
+end
+
+function UIExtendModel.init(righttop)
+	var = {
+		righttop,
+		boxExtend,
+	}
+
+	extendButtons = clone(allExtButtons)
+
+	var.righttop = righttop
+	if var.righttop then
+		var.boxExtend = var.righttop:getWidgetByName("box_extend")
+		initAlwaysExtends()
+		handleExtendButtons()
+		handleExtendAnimation()
+		cc.EventProxy.new(NetClient, boxExtend)
+			:addEventListener(Notify.EVENT_GUI_BUTTON, handleExtendButtons)
+	end
+end
+
+return UIExtendModel

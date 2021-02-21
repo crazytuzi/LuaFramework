@@ -1,0 +1,46 @@
+local UIRedPoint={}
+UIRedPoint.UIBtnTab = {}
+UIRedPoint.ShowRed = {}
+function UIRedPoint.addUIPoint(parent, callback ,moreEvent)
+	-- addUIPoint = function (slot0, slot1, slot2)
+		if not parent then
+			print("addUIPoint  error")
+
+			return
+		end
+
+		parent:addTouchEventListener(function (pSender,touch_type)
+			if touch_type == ccui.TouchEventType.ended then
+				if pSender:getName() == "panel_close" then
+					PlayAudio.play("sound/btnclose.mp3")
+				else
+					PlayAudio.play("sound/btnclick.mp3")
+				end
+
+				  callback(pSender,touch_type)
+			end
+
+		if moreEvent and touch_type ~= ccui.TouchEventType.ended then
+			callback(pSender,touch_type)
+			end
+		end)
+	end
+function UIRedPoint.IsNeedBright(parent,callback)
+	for i=1,#UIRedPoint.ShowRed do
+		local show_tab=UIRedPoint.ShowRed[i]
+		for j=1,#show_tab do
+			if show_tab[j] == parent:getName() then
+				UIRedPoint.addUIPoint(parent,callback)
+			end
+		end
+	end
+end
+function UIRedPoint.RemoveRed(name)
+	for i=1,#UIRedPoint.ShowRed do
+		local show_tab=UIRedPoint.ShowRed[i]
+		if show_tab and name == show_tab[#show_tab] then
+			table.remove(UIRedPoint.ShowRed,i)
+			end
+		end
+	end
+return UIRedPoint

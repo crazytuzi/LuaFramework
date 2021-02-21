@@ -1,0 +1,13 @@
+LUA_RET={
+{n="TipsEnemyTrack",v=true,type=0,id=1,parent=0,w=387.0000,h=225.0000,},
+{n="tipsbg",tag=923,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=387.0000,h=225.0000,color="255|255|255",res="img_kuan_bg",},
+{n="Text_1",tag=772,fs=25,text="仇人追踪",ht=1,vt=1,v=true,type=3,id=3,parent=1,w=120.0000,h=28.0000,ax=0.5000,ay=0.5000,x=195.2561,y=197.6750,color="255|233|193",fr="DFYuan.ttf",},
+{n="btn_go",ud="outline(000000,1);zoomscale(-0.12)",tag=1151,t=true,fs=18,text="立即前往",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=4,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=96.9999,y=33.9999,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="lbl1",tag=1153,fs=20,text="追踪玩家可以获得玩家当前坐标",ht=1,vt=1,v=true,type=3,id=5,parent=1,w=320.0000,h=20.0000,ax=0.5000,ay=0.5000,x=197.4454,y=158.2714,color="30|144|255",fr="DFYuan.ttf",},
+{n="Text_9_1",tag=1155,fs=18,text="仇人所在地图:",vt=1,v=true,type=3,id=6,parent=1,w=120.0000,h=18.0000,ax=1.0000,ay=0.5000,x=165.4449,y=125.2722,color="231|186|82",fr="DFYuan.ttf",},
+{n="Text_9_1_0",tag=1175,fs=18,text="仇人所在坐标:",vt=1,v=true,type=3,id=7,parent=1,w=120.0000,h=18.0000,ax=1.0000,ay=0.5000,x=165.4449,y=92.2723,color="231|186|82",fr="DFYuan.ttf",},
+{n="lblmap",tag=1176,fs=18,text="云顶天宫",v=true,type=3,id=8,parent=1,w=140.0000,h=20.0000,ay=0.5000,x=174.4452,y=124.2719,color="255|236|223",fr="DFYuan.ttf",},
+{n="lblposition",tag=1177,fs=18,text="100",v=true,type=3,id=9,parent=1,w=100.0000,h=20.0000,ay=0.5000,x=174.4452,y=92.2722,color="255|236|223",fr="DFYuan.ttf",},
+{n="btn_track",ud="outline(000000,1);zoomscale(-0.12)",tag=1232,t=true,fs=18,text="确认追踪",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=10,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=282.9999,y=33.9999,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="lblvcoin",tag=1233,fs=14,text="消耗200000钻石",ht=1,vt=1,v=true,type=3,id=11,parent=1,w=120.0000,h=15.0000,ay=0.5000,x=220.9064,y=74.4495,color="20|255|0",fr="DFYuan.ttf",},
+}

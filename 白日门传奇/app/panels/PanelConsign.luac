@@ -1,0 +1,997 @@
+local PanelConsign = {}
+local var = {}
+local pageKeys = {
+	"buy", "sale", "shelf",
+}
+
+-- 寄售界面
+
+local consignHint = {
+	["buy"] = {
+		title = "购买说明",
+		tips = {
+			"<font color=#18d129 size=18>购买说明</font>",
+			'1．每次公共购买，卖家需要支付10% 的交易税，不足1钻石按1钻石计算',
+			'2．使用搜索栏或者筛选条件可以快速找到想要的物品',
+		}
+		
+	},
+	["sale"] = {
+		title = "寄售说明",
+		tips = {
+			"<font color=#18d129 size=18>寄售说明</font>",
+			'1．绑定物品无法出售',
+			'2．出售物品需要按照时间扣除相应的手续费，出售时间越长，手续费也越多',
+		}
+	},
+	["shelf"] = {
+		title = "货架说明",
+		tips = {
+			"<font color=#18d129 size=18>货架说明</font>",
+			'1．自己出售的所有物品都在我的货架中展示',
+			'2．下架可以取消正在出售中的物品，下架物品可以自动进入到背包内',
+			'3．手动下架物品，手续费不退还',
+			'4．剩余寄售时间为0时，玩家可以从我的货架中取出',
+		}
+	}
+}
+
+local MAX_PRICE = mixData[306].value
+local MAXSELLNUM= mixData[307].value
+local MIN_PRICE=  mixData[305].value
+local function checkData(param)
+	if not (param.mType and param.mType == var.buyFilterType)then
+		return false
+	end
+	if not (param.job and param.job == 0 or param.job == var.buyFilterJob) then
+		return false
+	end
+	if not (param.condition and param.condition == var.buyLevelLimit) then
+		return false
+	end
+	return true
+end
+
+local function formatTime(second)
+	local cal_time = second
+	local hour = math.floor(cal_time/(60*60))
+	cal_time = cal_time%(60*60)
+	local minute = math.floor(cal_time/60)
+	cal_time = cal_time%60
+	return hour.."小时"..minute.."分钟"
+end
+
+local function hideAllPages()
+	local pageName
+	for i,v in ipairs(pageKeys) do
+		pageName = "xmlPage"..string.ucfirst(v)
+		if var[pageName] then
+			var[pageName]:hide()
+		end
+	end
+end
+ -- page变量，初始化函数，刷新函数使用字符窜拼接
+local function showPanelPage(key)
+	if not (key and table.indexof(pageKeys, key))then return end
+	hideAllPages()
+	local pageName = "xmlPage"..string.ucfirst(key)
+	local initFunc = "initPage"..string.ucfirst(key)
+	local openFunc = "openPage"..string.ucfirst(key)
+	if not var[pageName] and PanelConsign[initFunc] then
+		PanelConsign[initFunc]()
+	end
+	if var[pageName] then
+		if PanelConsign[openFunc] then
+			PanelConsign[openFunc]()
+			var.xmlPanel:getWidgetByName("btn_consign_tips").key = key
+			var.xmlPanel:getWidgetByName("lbl_consign_tips"):setString(consignHint[key].title)--:setColor(game.getColor(#18d129))
+		end
+		var[pageName]:show()
+	end
+end
+
+local function pushTabButtons(sender)
+	-- hideAllPages()
+	local tag = sender:getTag()
+	if pageKeys[tag] then
+		showPanelPage(pageKeys[tag])
+	end
+end
+
+local function handlePanelData(event)
+	if event.type=="PanelConsignRedPoint" then 
+		local data=util.decode(event.data)
+		var.consignredpoint=data.visible
+		PanelConsign.updateRedPoint()
+		--print("0000000000000000000000000")
+	end
+end
+
+---------------------------------------以上为内部函数---------------------------------------
+function PanelConsign.initView(event)
+	var = {
+		boxTab,
+		xmlPanel,
+		panelBg,
+
+		xmlPageBuy,
+		xmlPageSale,
+		xmlPageShelf,
+		-- 寄售相关
+		sellPrice,
+		sellNum,
+		sellPos,
+		sellTime,
+		inputNumBlock,
+		inputPriceBlock,
+		maxSellNum,
+
+		canConsignItems = {},
+		
+		--购买相关
+		buyFilterType,
+		buyFilterJob,
+		buyLevelLimit,
+		buyFilterKey = "",
+
+		showFilterLv,
+		buyItemSeedId,
+		buyPrice,
+		mSelectedItemIndex,
+
+		buyBeginIndex,
+		buyConsignItems,
+
+		-- shelfBeginIndex,
+		shelfConsignItems,
+		consignredpoint,
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelConsign.uif")
+
+	if var.xmlPanel then
+		
+		var.xmlPanel:getWidgetByName("lbl_consign_tips"):setString("寄售说明")
+		local btnConsignTips = var.xmlPanel:getWidgetByName("btn_consign_tips"):addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				NetClient:dispatchEvent({
+					name = Notify.EVENT_PANEL_ON_ALERT, panel = "tips", visible = true, infoTable = consignHint[pSender.key].tips,
+				})
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled  then
+				NetClient:dispatchEvent({
+					name = Notify.EVENT_PANEL_ON_ALERT, panel = "all", visible = false })
+			end
+		end)
+
+		var.panelBg = var.xmlPanel:getWidgetByName("panel_bg")
+		var.boxTab = var.xmlPanel:getWidgetByName("box_tab")
+		var.boxTab:setTabRes("tab2_nor", "tab2_sel", ccui.TextureResType.plistType)
+		var.boxTab:addTabEventListener(pushTabButtons)
+
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max2.png")
+		util.asyncload(var.xmlPanel, "img_bg2", "needload/img_pmh_bg.png")
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, handlePanelData)
+		return var.xmlPanel
+	end
+end
+
+function PanelConsign.onPanelOpen(extend)
+	if extend and extend.tab then
+		var.boxTab:setSelectedTab(2)
+		if extend.tab == 3 then
+			showPanelPage("shelf")
+		end
+	else
+		var.boxTab:setSelectedTab(1)
+	end
+
+	NetClient:PushLuaTable("gui.moduleRedPoint.handlePanelData",util.encode({actionid = "ConsignRedPoint",params = {}}))	
+end
+
+function PanelConsign.onPanelClose()
+	
+end
+
+function PanelConsign.updateRedPoint()
+	if var.xmlPageSale then
+			--print("0000000000000000000000000",var.consignredpoint)
+		local btnMyShelf = var.xmlPageSale:getWidgetByName("btn_my_shelf")
+		if  var.consignredpoint then 
+			UIRedDot.addRedPointToTarget(btnMyShelf)
+		else
+			-- if btnMyShelf:getWidgetByName("redPoint") then 
+			-- 	btnMyShelf:getWidgetByName("redPoint"):setVisible(false)
+			-- end
+			btnMyShelf:removeChildByName("redPoint")
+		end
+	end
+
+	if var.xmlPageShelf then
+		local btnGetVcoin = var.xmlPageShelf:getWidgetByName("btn_get_vcoin")
+		if  var.consignredpoint then 
+			util.addHaloToButton(btnGetVcoin, "btn_normal_light3")------呼吸灯
+		else
+			util.removeHaloFromButton(btnGetVcoin)
+		end
+	end
+end
+
+--------------------------------------购买--------------------------------------
+local filterButtons = {
+	["btn_filter_all"] 		= {mType = 0}, 
+	["btn_filter_equip"]	= {mType = 1}, 
+	["btn_filter_drug"] 	= {mType = 2}, 
+	["btn_filter_material"] = {mType = 3}, 
+	["btn_filter_other"] 	= {mType = 4},
+}
+
+local filterLevelButtons = {
+	["btn_filter_level1"] = {mLvType = 1,mName = "80级以下"},
+	["btn_filter_level2"] = {mLvType = 2,mName = "80级-2转"},
+	["btn_filter_level3"] = {mLvType = 3,mName = "转2以上"},
+	["btn_filter_level4"] = {mLvType = 0,mName = "全部等级"},
+}
+
+local pageBuyButton = {
+	"btn_pull_down", "btn_only_career", "btn_clean_search", "btn_search", "btn_buy"
+}
+
+local function reqConsignItemList()
+	-- 	int type; // 0:全部 1:装备 2:药品 3:材料 4:其他 5:自己
+	-- 	int begin_index; // 开始查找索引
+	-- 	int job; // 职业
+	-- 	int condition; // 等级条件 0 全部 1:0-80 2:80-2转 3:2转以上
+	local param = {
+		type = var.buyFilterType,
+		index = var.buyBeginIndex, 
+		job = var.buyFilterJob,
+		level = var.buyLevelLimit,
+		filter = var.buyFilterKey
+	}
+
+	NetClient:reqConsignableItems(param)
+end
+
+local function resetBuyParam()
+	var.buyItemSeedId = -1
+	var.buyBeginIndex = 0
+	var.mSelectedItemIndex = -1
+	-- var.buyConsignItems = {}
+
+	-- var.xmlPageBuy:getWidgetByName("list_buy"):removeAllData()
+	reqConsignItemList()
+end
+
+local function updateButtonCareer()
+	var.xmlPageBuy:getWidgetByName("btn_only_career"):setBrightStyle((var.buyFilterJob == 0) and ccui.BrightStyle.normal or ccui.BrightStyle.highlight)
+	resetBuyParam()
+	-- reqConsignItemList()
+end
+
+local function pushFilterButton(sender)
+	local btnName = sender:getName()
+	local btnFilter
+	for k,v in pairs(filterButtons) do
+		var.xmlPageBuy:getWidgetByName(k):setBrightStyle(ccui.BrightStyle.normal)
+	end
+	if filterButtons[btnName] then
+		var.buyFilterType = filterButtons[btnName].mType
+		sender:setBrightStyle(ccui.BrightStyle.highlight)
+	end
+	resetBuyParam()
+	-- reqConsignItemList()
+end
+
+local function initBuyFilterKey()
+	var.buyFilterKey = ""
+	var.xmlPageBuy:getWidgetByName("edit_filter_key"):setText(var.buyFilterKey)
+end
+
+local function updateSelectedConsignItem(visible)
+	local listBuy = var.xmlPageBuy:getWidgetByName("list_buy")
+	if not listBuy then return end
+	if not var.mSelectedItemIndex then return end
+	local item = listBuy:getModelByIndex(var.mSelectedItemIndex)
+	if not item then return end
+	item:getChildByName("img_selected_box"):setVisible(visible)
+end
+
+function PanelConsign.openPageBuy()
+	var.xmlPanel:getWidgetByName("lbl_consign_tips"):setString("寄售说明")
+	pushFilterButton(var.xmlPageBuy:getWidgetByName("btn_filter_all"))
+end
+
+function PanelConsign.initPageBuy()
+
+	local function handleFilterLevelVisible()
+		local btnPullDown = var.xmlPageBuy:getWidgetByName("btn_pull_down")
+		var.xmlPageBuy:getWidgetByName("box_filter_level"):setVisible(var.showFilterLv)
+		-- btnPullDown:setRotation(var.showFilterLv and 180 or 0)
+		if var.showFilterLv then
+			--btnPullDown:loadTextures("btn_pull_up", "btn_pull_up", "", ccui.TextureResType.plistType)
+		else
+			--btnPullDown:loadTextures("btn_pull_down", "btn_pull_down", "", ccui.TextureResType.plistType)
+		end
+	end
+
+	local function pushFilterLevel(sender)
+		local btnName = sender:getName()
+		if filterLevelButtons[btnName] then
+			var.xmlPageBuy:getWidgetByName("lbl_filter_level_value"):setString(filterLevelButtons[btnName].mName)
+			var.buyLevelLimit = filterLevelButtons[btnName].mLvType
+			var.showFilterLv = false
+			handleFilterLevelVisible()
+			resetBuyParam()
+			-- reqConsignItemList()
+		end
+	end
+
+	local function pushPageBuyButton(sender)
+		local btnName = sender:getName()
+		if btnName == "btn_pull_down" then
+			var.showFilterLv = not var.showFilterLv
+			handleFilterLevelVisible()
+		elseif btnName == "btn_only_career" then
+			if var.buyFilterJob == 0 then
+				var.buyFilterJob = MainRole._mainAvatar:NetAttr(Const.net_job)
+			else
+				var.buyFilterJob = 0
+			end
+			updateButtonCareer()
+		elseif btnName == "btn_clean_search" then
+			initBuyFilterKey()
+		elseif btnName == "btn_search" then
+			reqConsignItemList()
+		elseif btnName == "btn_buy" then
+			local vcoin = NetClient.mCharacter.mVCoin
+			if (vcoin <= var.buyPrice) then
+				NetClient:alertLocalMsg("钻石不够，无法购买")
+				return
+			end
+			print("buyConsignItems", var.buyItemSeedId)
+			if var.buyItemSeedId >= 0 then
+				NetClient:reqBuyConsignItem({
+					mSeedId = var.buyItemSeedId
+				})
+			end
+		end
+	end
+
+	local consignItem
+
+	local function pushBuyItem(item)
+		-- print("//////////////pushBuyItem/////////////", item.index)
+		consignItem = var.buyConsignItems[item.index]
+		var.buyItemSeedId = consignItem.mSeedId
+		var.buyPrice = consignItem.mPrice
+		if var.mSelectedItemIndex then
+			updateSelectedConsignItem(false)
+		end
+		var.mSelectedItemIndex = item.index
+
+		updateSelectedConsignItem(true)
+
+		--显示tips
+		if not consignItem then return end
+		-- print("on Click ConsignItem item", consignItem.mTypeID, consignItem.mLevel, consignItem.mZLevel)
+		NetClient:dispatchEvent({
+			name		= Notify.EVENT_HANDLE_TIPS, 
+			-- itemPos		= itemIcon.itemPos, 
+			typeId		= consignItem.mTypeID,
+			mLevel		= consignItem.mLevel,
+			mZLevel		= consignItem.mZLevel,
+			-- iconType    = itemIcon.iconType,
+			-- tipsType	= itemIcon.tipsType,
+			-- customCallFunc = itemIcon.customCallFunc,
+			-- destoryCallFunc = itemIcon.destoryCallFunc,
+			visible		= true,
+			-- compare		= itemIcon.compare,
+			-- enmuPos 	= itemIcon.enmuPos,
+			-- enmuItemType = itemIcon.enmuItemType,
+		})
+	end
+
+	local index, imgItemBg
+	
+	local function updateBuyItem(item)
+		index = item.tag
+		consignItem = var.buyConsignItems[index]
+		if not consignItem then return end
+		imgItemBg = item:getWidgetByName("img_item_bg")
+		local lblItemName = item:getWidgetByName("lbl_item_name")
+		local param = {
+			parent = imgItemBg,
+			iconType = Const.ICONTYPE.DEPOT,
+			typeId = consignItem.mTypeID,
+			mLevel = consignItem.mLevel,
+			mZLevel= consignItem.mZLevel,
+			shengshiId = consignItem.mShengshiId,
+			updateDesp = function (itemdef)
+				-- print("///////////updateBuyItem//////////", itemdef.mName)
+				lblItemName:setString(itemdef.mName)
+			end
+		}
+		
+		UIItem.getItem(param)
+		imgItemBg:setTouchEnabled(false)
+
+		item:getWidgetByName("lbl_item_num"):setString(consignItem.mNumber)
+		local price = consignItem.mPrice * consignItem.mNumber
+		local str = price > 10000 and (price / 10000).."万" or price
+		item:getWidgetByName("lbl_item_price"):setString(str)
+		item:getWidgetByName("lbl_time_remain"):setString(formatTime(consignItem.mTimeLeft))
+
+		item.index = index
+		item:setTouchEnabled(true)
+		item:getChildByName("img_selected_box"):setVisible(item.index == var.mSelectedItemIndex)
+
+		UIRedPoint.addUIPoint(item, pushBuyItem)
+	end
+
+	local function updateListBuy()
+		local listBuy = var.xmlPageBuy:getWidgetByName("list_buy")
+		listBuy:reloadData(#var.buyConsignItems, updateBuyItem)
+	end
+
+	local function onConsignData(event)
+		local param = event.param
+		-- print('////////////onConsignData buy//////////////', param.mType, param.condition, param.job);
+		if param and checkData(param) and param.mType < 5 then
+			local items = param.items
+			var.buyConsignItems = {}
+			-- print("onConsignData", var.buyBeginIndex, #items, param.endIndex)
+			if util.isTable(items) then
+				for i,v in ipairs(items) do
+					table.insert(var.buyConsignItems, v)
+				end
+				-- var.buyBeginIndex = param.endIndex
+			end
+			updateListBuy()
+		end
+	end
+
+	local function onBuyConsignResult(event)
+		var.buyBeginIndex = 0
+		reqConsignItemList()
+	end
+
+	var.xmlPageBuy = UILuaLoader.load("uilayout/PanelConsign_buy.uif")
+	if var.xmlPageBuy then
+		--util.asyncload(var.xmlPageBuy, "page_buy_bg", "")
+		--var.xmlPageBuy:getWidgetByName("page_buy_bg"):setTouchEnabled(true):setSwallowTouches(true)
+		var.xmlPageBuy:align(display.LEFT_BOTTOM, 35, 9):addTo(var.xmlPanel)
+
+		local btnPageBuy
+		for _,v in ipairs(pageBuyButton) do
+			btnPageBuy = var.xmlPageBuy:getWidgetByName(v)
+			if btnPageBuy then
+				UIRedPoint.addUIPoint(btnPageBuy, pushPageBuyButton)
+			end
+		end
+
+		for k,v in pairs(filterLevelButtons) do
+			btnPageBuy = var.xmlPageBuy:getWidgetByName(k)
+			if btnPageBuy then
+				UIRedPoint.addUIPoint(btnPageBuy, pushFilterLevel)
+			end
+		end
+
+		for k,v in pairs(filterButtons) do
+			btnPageBuy = var.xmlPageBuy:getWidgetByName(k)
+			if btnPageBuy then
+				UIRedPoint.addUIPoint(btnPageBuy, pushFilterButton)
+			end
+		end
+
+		local boxFilterLevel = var.xmlPageBuy:getWidgetByName("box_filter_level"):setTouchEnabled(true)
+		boxFilterLevel:addClickEventListener(function ()
+			var.showFilterLv = false
+			handleFilterLevelVisible()
+		end)
+
+		local lblFilterKey = var.xmlPageBuy:getWidgetByName("lbl_filter_key"):hide()
+		local imgEditboxKey = var.xmlPageBuy:getWidgetByName("img_editbox_key")
+
+		local function endCallFunc(inputText)
+			if inputText then
+				var.buyFilterKey = inputText
+				var.xmlPageBuy:getWidgetByName("edit_filter_key"):setText(var.buyFilterKey)
+			end
+			-- print("endCallFunc", inputText)
+		end
+
+		local param = {
+			bindLabel = lblFilterKey,
+			parent = imgEditboxKey,
+			color = 0xFFCC00,
+			fontSize = 20,
+			-- inputMode = cc.EDITBOX_INPUT_MODE_ANY,
+			endCallFunc = endCallFunc,
+		}
+		-- print("//////////////////////////////////onInitPageBuy", lblFilterKey, imgEditboxKey)
+		local editBoxFilterKey = util.newCustomEditBox(param)
+		editBoxFilterKey:setName("edit_filter_key"):setPositionX(15)
+
+		var.buyItemSeedId = -1
+		var.buyPrice = -1
+		var.mSelectedItemIndex = -1
+		var.buyFilterType = 0
+		var.buyFilterJob = 0
+		var.showFilterLv = false
+		var.buyBeginIndex = 0
+
+		var.buyLevelLimit = 0
+
+		handleFilterLevelVisible()
+		cc.EventProxy.new(NetClient, var.xmlPageBuy)
+			:addEventListener(Notify.EVENT_CONSIGN_LIST, onConsignData)
+			:addEventListener(Notify.EVENT_CONSIGN_BUY_RESULT, onBuyConsignResult)
+	end
+end
+
+function PanelConsign.reqBuyConsignItem1(sender)
+	sender:setTitleText(Const.str_ystidy4)
+			if var.buyItemSeedId >= 0 then
+				NetClient:reqBuyConsignItem({
+					mSeedId = var.buyItemSeedId
+				})
+			end
+
+end
+--------------------------------------出售--------------------------------------
+
+local consignTime = {
+	["btn_sell_1"] = 12,
+	["btn_sell_2"] = 24,
+	["btn_sell_3"] = 48,
+}
+
+local buttonOnSale = {
+	"btn_add_consign", "btn_reset", "btn_my_shelf"
+}
+local function updateSaleNumAndPrice()
+	local totalPrice = var.sellNum * var.sellPrice
+
+	var.xmlPageSale:getWidgetByName("edit_sell_price"):setText(var.sellPrice)
+	var.xmlPageSale:getWidgetByName("edit_sell_num"):setString(var.sellNum)
+	var.xmlPageSale:getWidgetByName("lbl_total_price"):setString(totalPrice)
+end
+
+local function updateSaleItem(pos)
+	var.sellPrice = 0
+	var.maxSellNum = 0
+	var.sellPos = -999
+	var.sellTime = 0
+
+	local btnSellTime
+	for k,v in pairs(consignTime) do
+		btnSellTime = var.xmlPageSale:getWidgetByName(k)
+		-- print("pushSellTimeButton", k, btnSellTime)
+		if btnSellTime then
+			btnSellTime:setBrightStyle(ccui.BrightStyle.normal)
+		end
+	end
+
+	local netItem = NetClient:getNetItem(pos) 
+	local itemDef
+
+	if netItem then
+		var.sellPos = pos
+		itemDef = NetClient:getItemDefByID(netItem.mTypeID)
+		var.maxSellNum = netItem.mNumber
+	end
+	
+	local lblItemName = var.xmlPageSale:getWidgetByName("lbl_item_name")
+	local imgItemIcon = var.xmlPageSale:getWidgetByName("img_item_icon")
+	if itemDef then
+		var.sellNum = 1
+		lblItemName:setString(itemDef.mName)
+		imgItemIcon:loadTexture("picicon/"..itemDef.mIconID..".png")
+	else
+		var.sellNum = 0
+		lblItemName:setString("")
+		imgItemIcon:loadTexture("img_cell_max", ccui.TextureResType.plistType)
+	end
+	updateSaleNumAndPrice()
+end
+
+local function updateBagItem(item)
+		local index = item.tag
+		local itemPos = var.canConsignItems[index]
+		local param = {
+			tipsType = Const.TIPS_TYPE.CONSIGN,
+			parent = item,
+			pos = itemPos,
+			customCallFunc = function()
+				print("callBack", itemPos)
+				updateSaleItem(itemPos)
+			end,
+		}
+		UIItem.getItem(param)
+	end
+
+function PanelConsign.openPageSale()
+	updateSaleItem()
+	PanelConsign.updateRedPoint()
+	var.canConsignItems = {}
+
+	local netItem
+	for pos = Const.ITEM_BAG_BEGIN, Const.ITEM_BAG_BEGIN + Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd - 1 do
+		netItem = NetClient:getNetItem(pos)
+		if netItem and not (bit.band(netItem.mItemFlags, Const.ITEM_FLAG_BIND) > 0)then
+			table.insert(var.canConsignItems, pos)
+		end
+	end
+	var.xmlPageSale:getWidgetByName("list_bag"):reloadData(Const.ITEM_BAG_MAX, updateBagItem,nil,false)
+end
+
+function PanelConsign.initPageSale()
+
+	-- local function initBagList()
+		--获取列表容器
+		-- local listBag = var.xmlPageSale:getWidgetByName("list_bag"):setSliderVisible(false)
+		-- listBag:reloadData(Const.ITEM_BAG_MAX, updateBagItem,nil,false)
+	-- end
+
+	-- 鉴于价格输入框和文本输入框功能类似，增加统一创建函数
+	local function createEditBox(parent, bindLabel, endCallFunc)
+		local inputText
+		local function onEdit(event,editBox)
+			-- print("onEdit///////////////", event, editBox:getText())
+			if event == "began" then
+				-- bindLabel:hide()
+				-- editBox:setText("")
+			elseif event == "changed" then
+
+			elseif event == "ended" then
+			elseif event == "return" then
+				inputText = editBox:getText()
+				if inputText ~= "" then
+					-- editBox:setText("")
+					endCallFunc(inputText)
+				end
+				-- bindLabel:show()
+			end
+		end
+
+		local pSize = parent:getContentSize()
+
+		local numInput = util.newEditBox({
+			name = "numInput",
+			image = "#null",
+			size = pSize,
+			listener = onEdit,
+			color = game.getColor(0xFDDFAE),
+			x = -50,
+			y = 0,
+			fontSize = 20,
+			inputMode = cc.EDITBOX_INPUT_MODE_NUMERIC
+		})
+
+		numInput:align(display.BOTTOM_LEFT,0,0)
+			:setPlaceHolder("")
+			:addTo(parent)
+			:setText("")
+
+		local inputBlock = ccui.Widget:create()
+			:setContentSize(pSize)
+			:align(display.LEFT_BOTTOM, 80, 0)
+			:addTo(parent)
+		inputBlock:setSwallowTouches(true)
+
+		numInput.block = inputBlock
+
+		return numInput
+	end
+
+	local function initEditBox()
+		local parent = var.xmlPageSale:getWidgetByName("img_input_price_bg")
+		local lblSellPrice = var.xmlPageSale:getWidgetByName("lbl_sell_price"):hide()
+
+		local editBox = createEditBox(parent, lblSellPrice, function (inputText)
+			if inputText and tonumber(inputText) then
+				if tonumber(inputText) > MAX_PRICE then
+					NetClient:alertLocalMsg("出售单价不可高于"..MAX_PRICE.."!", "alert")
+					inputText = MAX_PRICE
+				end
+				if tonumber(inputText) < MIN_PRICE then
+					NetClient:alertLocalMsg("出售单价不可低于"..MIN_PRICE.."!", "alert")
+					inputText = MIN_PRICE
+				end
+				var.sellPrice = math.ceil(tonumber(inputText))
+				updateSaleNumAndPrice()
+			end
+		end)
+
+		if editBox then
+			editBox:setName("edit_sell_price")
+			var.inputPriceBlock = editBox.block
+		end
+
+		parent = var.xmlPageSale:getWidgetByName("img_input_num_bg")
+		local lblSellNum = var.xmlPageSale:getWidgetByName("lbl_sell_num"):hide()
+
+		editBox = createEditBox(parent, lblSellNum, function (inputText)
+			if inputText and tonumber(inputText) then
+				if tonumber(inputText) > MAXSELLNUM then
+					NetClient:alertLocalMsg("超出最大寄售数量!", "alert")
+					inputText = MAXSELLNUM
+				elseif tonumber(inputText) > var.maxSellNum then
+					NetClient:alertLocalMsg("超出最大寄售数量!", "alert")
+					inputText = var.maxSellNum
+				end
+				var.sellNum = math.ceil(tonumber(inputText))
+				if(var.sellNum <= 0) then
+					NetClient:alertLocalMsg("数量有误，请重新输入!", "alert")
+					return
+				end
+				updateSaleNumAndPrice()
+			end
+		end)
+
+		if editBox then
+			editBox:setName("edit_sell_num")
+			var.inputNumBlock = editBox.block
+
+			UIRedPoint.addUIPoint(var.xmlPageSale:getWidgetByName("btn_input_num"), function (pSender)
+				if editBox then 
+					editBox:touchDownAction(editBox, ccui.TouchEventType.ended)
+				end
+			end)
+		end
+	end
+
+	local function pushSellTimeButton(sender)
+		local btnName = sender:getName()
+		local btnSellTime
+		for k,v in pairs(consignTime) do
+			btnSellTime = var.xmlPageSale:getWidgetByName(k)
+			-- print("pushSellTimeButton", k, btnSellTime)
+			if btnSellTime then
+				btnSellTime:setBrightStyle(k == btnName and ccui.BrightStyle.highlight or ccui.BrightStyle.normal)
+			end
+		end
+
+		if consignTime[btnName] then
+			var.sellTime = consignTime[btnName]
+			if var.sellTime==12  then
+				var.xmlPageSale:getWidgetByName("lbl_procedure_fee"):setString(mixData[301].value)		
+			elseif var.sellTime==24  then
+				var.xmlPageSale:getWidgetByName("lbl_procedure_fee"):setString(mixData[302].value)	
+			elseif var.sellTime==48  then
+				var.xmlPageSale:getWidgetByName("lbl_procedure_fee"):setString(mixData[303].value)	
+			end
+		end
+	end
+
+	local function pushPageSaleButton(sender)
+		local btnName = sender:getName()
+		if btnName == "btn_add_consign" then
+			if (not var.sellPos) or var.sellPos < 0 then
+				return NetClient:alertLocalMsg("请选择寄售物品", "alert")
+			end
+			if (not var.sellPrice) or var.sellPrice == 0 then
+				return NetClient:alertLocalMsg("请输入出售单价", "alert")
+			end
+			if (not var.sellTime) or var.sellTime == 0 then
+				return NetClient:alertLocalMsg("请选择寄售时间", "alert")
+			end
+			if var.sellPos >= 0 and var.sellTime > 0 then
+				if var.sellNum <= 0 then
+					return
+				end
+				NetClient:consignItem({pos = var.sellPos, num = var.sellNum, price = var.sellPrice, time = var.sellTime})
+			end
+			updateSaleItem()
+		elseif btnName == "btn_reset" then
+			updateSaleItem()
+		elseif btnName == "btn_my_shelf" then
+			showPanelPage("shelf")
+		end
+	end
+
+	-- -1:无此物品 0:成功 1:手续费不够 2:绑定物品不可寄售
+	local function onConsignResult(event)
+		if event and event.ret then
+			if event.ret == -1 then
+				NetClient:alertLocalMsg("数量不足", "alert")
+			elseif event.ret == 0 then
+				NetClient:alertLocalMsg("寄售成功", "alert")
+			elseif event.ret == 1 then
+				NetClient:alertLocalMsg("手续费不够", "alert")
+			elseif event.ret == 2 then
+				NetClient:alertLocalMsg("绑定物品不可寄售", "alert")
+			end
+		end
+	end
+
+	local function updateGameMoney()
+		if var.xmlPageSale then
+			local mainrole = NetClient.mCharacter
+			local moneyLabel = {
+				{name="lbl_vcoin_num",	value =	mainrole.mVCoin or 0	,	},
+				{name="lbl_game_money",	value =	mainrole.mVCoinBind or 0,	},
+			}
+
+			--建临时表遍历设属性
+			for _,v in ipairs(moneyLabel) do
+				var.xmlPageSale:getWidgetByName(v.name):setString(v.value)
+			end
+		end
+	end
+
+	var.xmlPageSale = UILuaLoader.load("uilayout/PanelConsign_sale.uif")
+	if var.xmlPageSale then
+		util.asyncload(var.xmlPageSale, "page_sale_bg", "")
+		var.xmlPageSale:align(display.LEFT_BOTTOM, 35, 9):addTo(var.xmlPanel)
+
+		local btnPagSale
+		for _,v in ipairs(buttonOnSale) do
+			btnPagSale = var.xmlPanel:getWidgetByName(v)
+			if btnPagSale then
+				UIRedPoint.addUIPoint(btnPagSale, pushPageSaleButton)
+			end
+		end
+		
+		
+		for k,v in pairs(consignTime) do
+			btnPagSale = var.xmlPageSale:getWidgetByName(k)
+			if btnPagSale then
+				btnPagSale:getTitleRenderer():setAdditionalKerning(0)
+				UIRedPoint.addUIPoint(btnPagSale, pushSellTimeButton)
+			end
+		end
+
+		--var.xmlPageSale:getWidgetByName("btn_input_num")--:setSwallowTouches(false)
+
+		local lblVcoinNum = var.xmlPageSale:getWidgetByName("lbl_vcoin_num")
+		local lblGameMoney = var.xmlPageSale:getWidgetByName("lbl_game_money")
+		var.xmlPageSale:getWidgetByName("list_bag"):setSliderVisible(false)
+		updateGameMoney()
+		
+		var.sellPrice = 0
+		var.maxSellNum = 0
+		var.sellPos = -999
+		var.sellTime = 0
+
+		initEditBox()
+		-- initBagList()
+		updateSaleItem()
+
+		-- NetClient:consignItem({pos = 1, num = 1, price = 20, time = 12})
+		cc.EventProxy.new(NetClient, var.xmlPageSale)
+			:addEventListener(Notify.EVENT_CONSIGN_RESULT, onConsignResult)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, updateGameMoney)
+	end
+end
+--------------------------------------货架--------------------------------------
+
+local function reqConsignShelf()
+	local param = {
+		type = 5,
+		index = 0, 
+		job = 0,
+		level = 0,
+		filter = "",
+	}
+	NetClient:reqConsignableItems(param)
+end
+
+function PanelConsign.openPageShelf()
+	reqConsignShelf()
+	PanelConsign.updateRedPoint()
+end
+
+function PanelConsign.btnOffShelf1(sender)
+shelfItem = var.shelfConsignItems[sender.index]
+NetClient:reqTakeBackConsignableItem({mSeedId = shelfItem.mSeedId})
+sender:setTitleText(Const.str_ystidy4)
+end
+function PanelConsign.initPageShelf()
+	local shelfItem
+
+	-- 请求下架
+	local function pushOffShelfButton(sender)
+		--	NetClient:PushLuaTable("item.chuansong.luaitem","zdhuishou1")--调整到服务器去关闭或开启自动回收
+		--	util.setCountDown(sender, Const.str_ystidy1, 1, PanelConsign.btnOffShelf1)
+		-- shelfItem = var.shelfConsignItems[sender.index]
+		-- print("reqTakeBackConsignableItem", shelfItem.mSeedId)
+		-- NetClient:reqTakeBackConsignableItem({mSeedId = shelfItem.mSeedId})
+		
+		shelfItem = var.shelfConsignItems[sender.index]
+		NetClient:reqTakeBackConsignableItem({mSeedId = shelfItem.mSeedId})
+	end
+
+	local index, imgItemBg, btnOffShelf, timeRemian
+	
+	local function updateShelfItem(item)
+		index = item.tag
+		shelfItem = var.shelfConsignItems[index]
+		imgItemBg = item:getWidgetByName("img_item_bg")
+		local lblItemName = item:getWidgetByName("lbl_item_name")
+		local param = {
+			parent = imgItemBg,
+			iconType = Const.ICONTYPE.DEPOT,
+			typeId = shelfItem.mTypeID,
+			mLevel = shelfItem.mLevel,
+			mZLevel= shelfItem.mZLevel,
+			shengshiId = shelfItem.mShengshiId,
+			updateDesp = function (itemdef)
+				-- print("///////////updateShelfItem//////////", itemdef.mName)
+				lblItemName:setString(itemdef.mName)
+			end
+			-- doubleCall = function ()
+			-- 	-- convertGuildItem(item.tag)
+			-- end
+		}
+		UIItem.getItem(param)
+
+		item:getWidgetByName("lbl_item_num"):setString(shelfItem.mNumber)
+		item:getWidgetByName("lbl_item_price"):setString(shelfItem.mPrice)
+		timeRemian = shelfItem.mTimeLeft > 0 and shelfItem.mTimeLeft or 0
+		item:getWidgetByName("lbl_time_remain"):setString(formatTime(timeRemian))
+			
+		btnOffShelf = item:getWidgetByName("btn_off_shelf")
+		btnOffShelf.index = index
+		UIRedPoint.addUIPoint(btnOffShelf, pushOffShelfButton)
+	end
+
+	local function updateListShelf()
+		local listShelf = var.xmlPageShelf:getWidgetByName("list_shelf")
+		listShelf:reloadData(#var.shelfConsignItems, updateShelfItem)
+	end
+
+	local function onConsignData(event)
+		local param = event.param
+		-- print("onConsignData///////////////", param.mType, param.job, param.condition)
+		if param and param.job == 0 and param.condition == 0 and param.mType == 5 then
+			local items = param.items
+			var.shelfConsignItems = {}
+			if util.isTable(items) then
+				for i,v in ipairs(items) do
+					table.insert(var.shelfConsignItems, v)
+				end
+			end
+			updateListShelf()
+		end
+	end
+
+	local function onTakeBackConsignItem(event)
+		print("//////////////////////", event.ret, event.mSeedId)
+		reqConsignShelf()
+	end
+
+	local function onTakeBackConsignVcoin(event)
+		print("//////////////////////", event.ret)
+	end
+
+	var.xmlPageShelf = UILuaLoader.load("uilayout/PanelConsign_shelf.uif")
+	if var.xmlPageShelf then
+		util.asyncload(var.xmlPageShelf, "page_shelf_bg", "")
+		var.xmlPageShelf:align(display.LEFT_BOTTOM, 35, 9):addTo(var.xmlPanel)
+
+		local btnBackSale = var.xmlPageShelf:getWidgetByName("btn_back_sale")
+		UIRedPoint.addUIPoint(btnBackSale, function (sender)
+			showPanelPage("sale")
+		end)
+
+		local btnGetVcoin = var.xmlPageShelf:getWidgetByName("btn_get_vcoin")
+		
+
+		UIRedPoint.addUIPoint(btnGetVcoin, function (sender)
+			NetClient:reqTakeBackVcoin()
+		end)
+		
+
+		-- updateListShelf()
+		cc.EventProxy.new(NetClient, var.xmlPageShelf)
+			:addEventListener(Notify.EVENT_CONSIGN_LIST, onConsignData)
+			:addEventListener(Notify.EVENT_TAKE_CONSIGN_RESULT, onTakeBackConsignItem)
+			:addEventListener(Notify.EVENT_TAKE_VCOIN_RESULT, onTakeBackConsignVcoin)
+
+	end
+end
+
+return PanelConsign

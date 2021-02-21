@@ -1,0 +1,2182 @@
+﻿Const={
+	--kinyz 新增全局变量
+	STEP_ID = 0,
+	GUANGHUAN_ID = 0,
+	STEP_SPRITE = nil,
+	STEP1_X = nil,
+	STEP1_Y = nil,
+	STEP2_X = nil,
+	STEP2_Y = nil,
+	STEP3_X = nil,
+	STEP3_Y = nil,
+	STEP_NUM = 0,
+	GUANGHUAN_SPRITE = nil,
+	GHOST_STEP= nil,
+	-----------------
+	WIN_WIDTH=1136,
+	WIN_HEIGHT=640,
+	VISIBLE_X		= cc.Director:getInstance():getVisibleOrigin().x,
+	VISIBLE_Y		= cc.Director:getInstance():getVisibleOrigin().y,
+	VISIBLE_WIDTH	= cc.Director:getInstance():getVisibleSize().width,
+	VISIBLE_HEIGHT	= cc.Director:getInstance():getVisibleSize().height,
+		
+	SHOW_R_MENU		= 1,
+	SHOW_R_VIP		= 2,
+	SHOW_R_ACTIVE	= 3,
+	SHOW_R_BOSS_	= 4,
+	SHOW_R_TASK		= 5,
+
+	MOVE_TO_POS		= 0,
+	WAKL_TO_POS		= 1,
+	MOVE_TO_NPC		= 2,
+	WAKL_TO_NPC		= 3,
+	MOVE_TO_GHOST	= 4,
+	MOVE_TO_FIGHT	= 5,
+
+	GHOST_NPC		= 500,
+	GHOST_PLAYER	= 501,
+	GHOST_MONSTER	= 502,
+	GHOST_ITEM		= 503,
+	GHOST_SLAVE		= 504,
+	GHOST_NEUTRAL	= 505,
+	GHOST_DART		= 508,
+	GHOST_THIS		= 999,
+
+	ITEM_BAG_BEGIN		= 0,
+	
+	ITEM_BAG_SIZE		= 200,
+	ITEM_BAG_END		= 200,
+	ITEM_BAG_MAX		= 200,
+	ITEM_DEPOT_BEGIN	= 1000,
+	ITEM_DEPOT_SIZE		= 80,
+	ITEM_DEPOT_END		= 1080,
+	ITEM_XUANJING_BEGIN	= 3500,
+	ITEM_XUANJING_SIZE	= 140,
+
+
+	ITEM_LOTTERYDEPOT_BEGIN =3000,
+	ITEM_LOTTERYSIZE =300,
+
+	-- 时装
+	ITEM_FASHIONDEPOT_BEGIN = 5000,
+	ITEM_FASHIONSIZEE = 100,
+
+	-- 称号
+	ITEM_TITLEDEPOT_BEGIN = 6000,
+	ITEM_TITLESIZE = 100,
+
+	ITEM_FLAG_BIND = 0x1,
+	ITEM_FLAG_USE_BIND = 0x2,
+	ITEM_FLAG_JIPING = 0x4,
+	ITEM_FLAG_JIANDING= 0x8,
+
+	-- ITEM_WEAPON_POSITION	= -2 * 2,
+	-- ITEM_CLOTH_POSITION		= -3 * 2,
+	-- ITEM_HAT_POSITION		= -4 * 2,
+	-- ITEM_RING1_POSITION		= -5 * 2,
+	-- ITEM_RING2_POSITION		= -5* 2 - 1,
+	-- ITEM_GLOVE1_POSITION	= -6 * 2,
+	-- ITEM_GLOVE2_POSITION	= -6* 2 - 1,
+	-- ITEM_NICKLACE_POSITION	= -7 * 2,
+	-- ITEM_HUIZHANG_POSITION	= -8 * 2,
+	-- ITEM_BELT_POSITION		= -9 * 2,
+	-- ITEM_BOOT_POSITION		= -10 * 2,
+--------------------------
+	ITEM_WEAPON_POSITION 	= (-1*2),
+	ITEM_CLOTH_POSITION 	= (-2*2),
+	ITEM_HAT_POSITION 		= (-3*2),
+	ITEM_NICKLACE_POSITION 	= (-4*2),
+	ITEM_GLOVE1_POSITION 	= (-5*2),
+	ITEM_GLOVE2_POSITION 	= (-5*2-1),
+	ITEM_RING1_POSITION 	= (-6*2),
+	ITEM_RING2_POSITION 	= (-6*2-1),
+	ITEM_BELT_POSITION 		= (-7*2),
+	ITEM_BOOT_POSITION 		= (-8*2),
+	ITEM_SHIELDD_POSITION    = (-9*2),
+	ITEM_QIEGE_POSITION    = (-10*2),
+	
+	--斗笠
+	ITEM_BAMBOOHAT_POSITION = (-72*2),
+	--魂珠
+	ITEM_DRAGON_HEART_POSITION = (-15*2),	
+	--战鼓
+	ITEM_WOLFANG_POSITION = (-16*2),
+	--勋章
+	ITEM_ACHIEVE_MEDAL_POSITION = (-19*2),
+	--玉佩
+	ITEM_JADE_PENDANT_POSITION = (-11*2),
+	--暗器
+	ITEM_SHIELD_POSITION = (-12*2),
+
+	--仙器*铃铛
+	ITEM_MIRROR_ARMOUR_POSITION = (-73*2),
+	--仙器*神印
+	ITEM_FACE_CLOTH_POSITION = (-74*2),
+	--仙器*神谕
+	ITEM_DRAGON_BONE_POSITION = (-75*2),
+	--仙器*戒指
+	ITEM_CATILLA_POSITION = (-76*2),
+	--仙器*武器
+	ITEM_XIAN_WEPON_POSITION = (-60*2),
+	--仙器*衣服
+	ITEM_XIAN_CLOTH_POSITION = (-61*2),	
+	--仙器*头盔
+	ITEM_XIAN_HELMET_POSITION = (-62*2),	
+	--仙器*项链
+	ITEM_XIAN_NECKLACE_POSITION = (-63*2),	
+	--仙器*护肩
+	ITEM_XIAN_SHOULDER_POSITION = (-64*2),	
+	--仙器*盾牌
+	ITEM_XIAN_SHIELD_POSITION = (-65*2),	
+	--仙器*神坠
+	ITEM_XIAN_PENDANT_POSITION = (-66*2),	
+	--仙器*斗笠
+	ITEM_XIAN_HAT_POSITION = (-67*2),
+
+	--神器*钟
+	ITEM_SHEN_CLOCK_POSITION = (-68*2),
+	--神器*琴
+	ITEM_SHEN_QIN_POSITION = (-69*2),
+	--神器*锤
+	ITEM_SHEN_CHUI_POSITION = (-70*2),
+	--神器*斧
+	ITEM_SHEN_FU_POSITION = (-71*2),
+
+	--灵宝
+	ITEM_LBSW_POSITION = (-80*2),
+	ITEM_LBSS_POSITION = (-81*2),
+	ITEM_LBSZ_POSITION = (-82*2),
+	ITEM_LBXL_POSITION = (-83*2),
+
+	--传世
+	ITEM_CS_WEPON_POSITION 		= (-84*2),
+	ITEM_CS_CLOTH_POSITION 		= (-85*2),
+	ITEM_CS_HELMET_POSITION		= (-86*2),
+	ITEM_CS_NECKLACE_POSITION 	= (-87*2),
+	ITEM_CS_SHOULDER_POSITION 	= (-88*2),
+	ITEM_CS_GLOVE_POSITION 		= (-89*2),
+	ITEM_CS_CATILLA_POSITION 	= (-90*2),
+	ITEM_CS_BELT_POSITION 		= (-91*2),
+	ITEM_CS_BOOT_POSITION 		= (-92*2),
+	
+	--星座
+	ITEM_XZ1_POSITION = (-40*2),
+	ITEM_XZ2_POSITION = (-41*2),
+	ITEM_XZ3_POSITION = (-42*2),
+	ITEM_XZ4_POSITION = (-43*2),
+	ITEM_XZ5_POSITION = (-44*2),
+	ITEM_XZ6_POSITION = (-45*2),
+	ITEM_XZ7_POSITION = (-46*2),
+	ITEM_XZ8_POSITION = (-47*2),
+	ITEM_XZ9_POSITION = (-48*2),
+	ITEM_XZ10_POSITION = (-49*2),
+	ITEM_XZ11_POSITION = (-50*2),
+	ITEM_XZ12_POSITION = (-51*2),
+
+	--坐骑
+	ITEM_MOUNT_POSITION =(-28*2),
+	ITEM_MOUNT_SWITCH_POSITION = (-128*2),
+
+	--时装武器
+	ITEM_FASHION_WEAPON_POSITION = (-31*2),
+	--时装衣服
+	ITEM_FASHION_CLOTH_POSITION = (-32*2),
+	--时装翅膀
+	ITEM_FASHION_WING_POSITION = (-33*2),
+	--足迹
+	ITEM_FASHION_FOOT_POSITION = (-34*2),
+	
+	--称号
+	ITEM_TITLE_POSITION = (-35*2),
+
+
+-------------------------------
+
+	SKILL_TYPE_YiBanGongJi		= 100,
+	SKILL_TYPE_JiChuJianShu		= 101,
+	SKILL_TYPE_GongShaJianShu	= 102,
+	SKILL_TYPE_CiShaJianShu		= 103,
+	SKILL_TYPE_BanYueWanDao		= 104,
+	SKILL_TYPE_YeManChongZhuang	= 105,
+	SKILL_TYPE_LieHuoJianFa		= 106,
+	SKILL_TYPE_PoTianZhan		= 107,
+	SKILL_TYPE_ZhuRiJianFa		= 109,
+
+	SEX_MALE	= 200,
+	SEX_FEMALE	= 201,
+
+	AVATAR_ID				= 0,
+	AVATAR_TYPE				= 1,
+	AVATAR_STATE			= 2,
+	AVATAR_X				= 3,
+	AVATAR_Y				= 4,
+	AVATAR_DIR				= 5,
+	AVATAR_TARGET_X			= 6,
+	AVATAR_TARGET_Y			= 7,
+	AVATAR_DEADANIM			= 8,
+	AVATAR_DISABLE_MAGIC	= 9,
+	AVATAR_DISABLE_PRE		= 10,
+	AVATAR_DISABLE_RUN		= 11,
+	AVATAR_AUTOMOVE_FLAG	= 12,
+	AVATAR_ATTR_MAX			= 13,
+	
+	SKILL_TYPE_HuoQiuShu		= 401,
+	SKILL_TYPE_KangJuHuoHuan	= 402,
+	SKILL_TYPE_YouHuoZhiGuang	= 403,
+	SKILL_TYPE_DiYuHuo			= 404,
+	SKILL_TYPE_LeiDianShu		= 405,
+	SKILL_TYPE_ShunJianYiDong	= 406,
+	SKILL_TYPE_DaHuoQiu			= 407,
+	SKILL_TYPE_BaoLieHuoYan		= 408,
+	SKILL_TYPE_HuoQiang			= 409,
+	SKILL_TYPE_JiGuangDianYing	= 410,
+	SKILL_TYPE_DiYuLeiGuang		= 411,
+	SKILL_TYPE_MoFaDun			= 412,
+	SKILL_TYPE_ShengYanShu		= 413,
+	SKILL_TYPE_BingPaoXiao		= 414,
+	SKILL_TYPE_HuoLongQiYan		= 416,
+	SKILL_TYPE_LiuXingHuoYu		= 417,
+
+	SKILL_TYPE_ZhiYuShu				= 501,
+	SKILL_TYPE_JinShenLiZhanFa		= 502,
+	SKILL_TYPE_ShiDuShu				= 503,
+	SKILL_TYPE_LingHunHuoFu			= 504,
+	SKILL_TYPE_ZhaoHuanKuLou		= 505,
+	SKILL_TYPE_YinShenShu			= 506,
+	SKILL_TYPE_JiTiYinShenShu		= 507,
+	SKILL_TYPE_YouLingDun			= 508,
+	SKILL_TYPE_ShenShengZhanJiaShu	= 509,
+	SKILL_TYPE_XinLingQiShi			= 510,
+	SKILL_TYPE_KunMoZhou			= 511,
+	SKILL_TYPE_QunTiZhiLiao			= 512,
+	SKILL_TYPE_ZhaoHuanShenShou		= 513,
+	SKILL_TYPE_QiGongBo				= 514,
+	SKILL_TYPE_ZhaoHuanYueLing		= 518,
+
+	SKILL_TYPE_MonArrow	= 601,
+	SKILL_TYPE_LevelUp	= 602,
+	SKILL_TYPE_Jump		= 614,
+
+	-- 技能释放方式
+	SKILL_CASTWAW_Null = 0, -- 无
+	SKILL_CASTWAY_Manul = 1, -- 玩家选择后释放
+	SKILL_CASTWAY_Auto = 2, -- 玩家选择开启后自动释放
+	SKILL_CASTWAY_Pasv = 3, -- 玩家学习后释放
+	SKILL_CASTWAY_Delay = 4, -- 玩家选择后在下次攻击时释放
+	-- 目标选择方式
+	SKILL_TARGETING_Null = 0, -- 无
+	SKILL_TARGETING_Object = 1, -- 单位
+	SKILL_TARGETING_Grid = 2, -- 格子
+	SKILL_TARGETING_Dir = 3, -- 方向
+
+	JOB_ZS	= 100,
+	JOB_FS	= 101,
+	JOB_DS	= 102,
+
+	GENDER_MALE		= 200,
+	GENDER_FEMALE	= 201,
+
+	ITEM_BETTER_SELF	= 0,
+	ITEM_WORSE_SELF		= 1,
+	ITEM_UNUSE_SELF		= 2,
+	ITEM_NONE_SELF		= 3,
+
+	RecycleRedLimit = 10,
+	--mxwx 改了装备端口这里要改
+	EQUIP_TAG = {
+		WEAPON = 1,
+		CLOTH = 2,
+		HAT = 3,
+		NECKLACE = 4,
+		GLOVE = 5,
+		RING = 6,
+		BELT = 7,
+		BOOT = 8,
+		JADE_PENDANT= 11,
+		SHIELD = 12,
+		MIRROR_ARMOUR = 73,
+		FACE_CLOTH = 74,
+		DRAGON_HEART = 15,
+		WOLFANG = 16,
+		DRAGON_BONE = 75,
+		CATILLA = 76,
+		ACHIEVE_MEDAL = 19,
+		XUESHI = 20,
+		HUNQI = 21 ,
+		MEDAL = 22,
+		WING = 23,
+		MOUNT = 28,
+		FWEAPON = 31,
+		FCLOTH = 32,
+		FWING = 33,
+		FOOT = 34,
+		TITLE = 35,
+		XZ1 = 40,
+		XZ2 = 41,
+		XZ3 = 42,
+		XZ4 = 43,
+		XZ5 = 44,
+		XZ6 = 45,
+		XZ7 = 46,
+		XZ8 = 47,
+		XZ9 = 48,
+		XZ10 = 49,
+		XZ11 = 50,
+		XZ12 = 52,
+		XWEPON = 60,
+		XCLOTH = 61,
+		XHELMET = 62,
+		XNECKLACE = 63,
+		XSHOULDER =64,
+		XSHIELD = 65,
+		XPENDANT = 66,
+		XHAT = 67,
+		XCLOCK = 68,
+		XQIN = 69,
+		XCHUI = 70,
+		XFU = 71,
+		DOULI = 72,
+		LBSW = 80,
+		LBSS = 81,
+		LBSZ = 82,
+		LBXL = 83,
+		CWEPON = 84,
+		CCLOTH = 85,
+		CHELMET = 86,
+		CNECKLACE = 87,
+		CSHOULDER = 88,
+		CGLOVE = 89,
+		CCATILLA = 90,
+		CBELT = 91,
+		CBOOT = 92,
+	},
+
+	STATUS_DUN = "法灵神盾",
+	STATUS_EXP = "双倍经验",
+	STATUS_WLD = "武力丹",
+	STATUS_MLD = "魔力丹",
+	STATUS_DLD = "道力丹",
+	STATUS_ADD_EXP = "泡点状态",
+	STATUS_XUE = "魔血石",
+	STATUS_WLMZ = "武林盟主",
+	STATUS_VIP = "VIP",
+	STATUS_GUILD = "帮会",
+	STATUS_ZS = "转生",
+	STATUS_MOUNT = "坐骑",
+	STATUS_WING = "翅膀",
+	STATUS_GUILD_ATTR = "帮会属性",
+	STATUS_YS = "元神",
+	STATUS_YSTP = "元神突破",
+	DESP_DUN = "魔法护盾，可以抵挡伤害",
+	DESP_EXP1 = "打怪获得",
+	DESP_EXP2 = "倍经验",
+	DESP_WLD = "物理攻击+300",
+	DESP_MLD = "魔法攻击+300",
+	DESP_DLD = "道术攻击+300",
+	DESP_ADD_EXP = "持续获得经验",
+	DESP_XUE1 = "拥有",
+	DESP_XUE2 = "万恢复值",
+	DESP_WLMZ = "攻击力+300,杀怪经验增加50%",
+	SKILL_DESP = {
+	[100] = "造成普通伤害",--普通伤害
+	[101] = "增加攻击命中率",--战士剑术
+	[102] = "增加攻击伤害",--强攻剑术
+	[103] = "增加攻击距离",--刺杀剑气
+	[104] = "造成范围性攻击",--雷霆莲月
+	[105] = "可以撞晕敌人",--战神冲撞
+	[106] = "增加下次攻击伤害",--战圣烈焰
+	[107] = "增加下次攻击伤害",--破天斩
+	[109] = "增加下次攻击伤害",--奔雷剑法
+	[401] = "造成单体伤害",--火焰之球
+	[402] = "推开附近敌人",--法师威严
+	[403] = "",
+	[404] = "造成范围伤害",--黑狱之火
+	[405] = "造成单体伤害",--天雷之术
+	[406] = "可进行随机移动",--空间穿梭
+	[407] = "造成单体伤害",--火焰飞轮
+	[408] = "造成单体伤害",--爆焰火球
+	[409] = "造成持续范围伤害",--烈焰火墙
+	[410] = "造成直线范围伤害",--黑狱雷电
+	[411] = "造成范围伤害",--雷光风暴
+	[412] = "减少自身受到的伤害",--神灵法盾
+	[413] = "",
+	[414] = "造成范围伤害",--冰雪咆哮
+	[416] = "造成范围伤害并附带灼伤效果",--龙息气焰
+	[417] = "造成范围伤害并附带灼伤效果",--烈焰火雨
+	[501] = "治疗单体单位",--回春之术
+	[502] = "增加攻击命中率",--精神冥想
+	[503] = "单体减防持续伤害",--天尊之毒
+	[504] = "造成单体伤害",--天魂灵符
+	[505] = "召唤骷髅辅助作战",--亡灵召唤
+	[506] = "隐身单体单位",--隐身之术
+	[507] = "隐身区域单位",--天尊隐身
+	[508] = "增加魔法防御",--魔神庇护
+	[509] = "增加物理防御",--斗神庇护
+	[510] = "",
+	[511] = "",
+	[512] = "治疗群体单位",--天尊灵疗
+	[513] = "召唤一只强大的神兽作为自己的随从",--无极召唤
+	[514] = "用强大的气功把周围目标全部推开",--气功波
+	[518] = "召唤一只强大的神龙作为自己的随从",--炎龙召唤
+	[601] = "",
+	[602] = "",
+	[614] = "",
+	},
+
+	ddarr	= "☆★○●◎◇◆■△▲♂♀↑↓→←",
+	xarr	= "赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜戚谢邹喻柏水窦章云苏潘葛奚范彭郎鲁韦马苗凤花方俞任袁柳鲍史唐费廉岑薛雷贺倪汤滕殷罗毕郝邬安常于时傅皮卞齐康伍余元卜顾孟黄和穆萧尹姚邵汪祁毛禹狄米贝明臧伏成戴谈宋茅庞熊纪舒屈项祝董梁杜阮蓝闵席季麻贾路娄危江童颜郭梅盛林刁钟徐邱骆高夏蔡田樊胡凌霍虞万支柯管卢莫房裘解应丁宣邓郁单杭洪包诸左石崔吉龚程嵇邢裴陆荣翁荀羊惠甄曲封储靳松井段巫乌焦巴牧山谷车侯班秋仲伊宫宁仇栾甘厉祖武符刘景詹龙叶司郜黎蓟薄印宿白怀蒲台丛索咸赖卓蔺屠蒙池乔阴佟苍闻党翟谭贡劳姬申扶宰郦雍桑濮牛寿扈燕尚农温庄晏柴瞿阎慕连习宦艾容向古易廖庚步都耿满弘匡文寇广殴越隆师巩厍聂勾敖冷辛那简饶空曾沙鞠关蒯荆游桓公晋楚闫法鄢涂钦岳帅况琴商伯赏墨年阳",
+	fxarr	= "司马上官欧阳夏侯诸葛闻人东方赫连皇甫尉迟澹台公冶宗政濮阳淳于单于太叔申屠公孙仲孙轩辕令狐钟离宇文长孙慕容鲜于闾丘司徒司空司寇端木拓跋百里东郭南门呼延左丘西门南宫",
+	mfarr	= "昂宾彬斌滨波博才承德飞风丰刚光国冠晗涵瀚翰昊浩皓鹤宏鸿嘉坚建健锦瑾经靖君俊峻开凯乐力立良理茂敏朋鹏溥璞浦奇祺琪庆锐睿绍升圣晟思斯泰天同巍伟翔晓心欣新信兴星修旭炫学雪雅炎烨逸毅宜意英熠懿永咏勇宇雨玉煜远苑蕴展哲振正志致智子自作",
+	msarr	= "昂奥拔邦宝本弼璧彬斌滨冰秉炳波勃博才材采彩灿藏策昌长昶畅唱超朝尘沉辰宸晨诚澄驰畴初春慈赐聪存达澹宕德笛典定栋恩发飞丰风峰锋夫福复富赋罡歌格亘工光国果海涵寒汉翰瀚航豪好昊浩河翮赫虹鸿厚虎化寰焕晖辉火基济霁骥家嘉甲剑健骄教杰洁捷津谨进精驹举觉军钧筠俊峻浚骏凯可旷魁鹍鲲阔阑澜朗乐磊礼力立利良亮量临霖禄略纶迈漫茂萌淼渺邈民旻敏名鸣茗漠默木纳男楠能鸥朋鹏平魄奇琪祺启气乾强勤青卿清庆穹全泉群然人仁忍日儒锐瑞睿叡润赡韶深生胜圣识实适书树澍双爽顺烁朔铄硕思颂邃泰堂涛腾天通同图旺望为伟玮蔚悟希熙羲曦禧侠仙贤祥翔心昕欣新歆馨鑫信兴星行雄修旭煦轩煊旋学雪勋延言衍彦焱扬尧曜耀业晔宜怡义艺怿奕益谊逸意毅熠翼颖映庸永咏勇用友佑瑜宇羽雨语玉育昱裕煜誉豫渊原源远玥悦跃允运韵蕴载藻泽湛兆哲喆真祯阵振正知志致智中忠州舟洲珠竹专资纵",
+	wmfarr	= "傲碧冰采初从翠代丹冬尔凡访飞孤海含涵寒幻寄靖静乐怜灵绿曼梦觅妙南念凝盼沛平绮千巧青如若诗书思天听宛问惜香小晓笑新雪寻雅雁夜依以忆亦迎映友又雨语之芷紫醉",
+	wmsarr	= "波春翠丹蝶冬儿凡菲风枫芙海寒菡荷槐卉筠兰岚蓝蕾莲灵菱露绿曼梦南凝萍琪巧芹青晴蓉柔蕊珊双霜丝桃天彤薇香萱旋雪烟雁瑶亦玉珍真之竹",
+
+	rdmTransReelId		= 10001,
+	rdmTransStoneId		= 15002,
+	homeTransReelId		= 10002,
+	homeTransStoneId	= 15001,
+
+	sunWaterId		= 10052,
+	superSunWaterId	= 10053,
+	hpDrugSmallId	= 10040,
+	hpDrugMediumId	= 10041,
+
+	DIR_UP			= 0,
+	DIR_UP_RIGHT	= 1,
+	DIR_RIGHT		= 2,
+	DIR_DOWN_RIGHT	= 3,
+	DIR_DOWN		= 4,
+	DIR_DOWN_LEFT	= 5,
+	DIR_LEFT		= 6,
+	DIR_UP_LEFT		= 7,
+
+	GUILD_LEADER	= 1000,--会长
+	GUILD_PRESBYTER	= 200,--长老
+	GUILD_MEMBER	= 102,--会员
+
+	expressions_item = {[1] = {"/ps","pretty_smile"},
+					  	[2] = {"/se","smile"},
+					  	[3] = {"/be","big_smile"},
+					  	[4] = {"/de","bad_smile"},
+					  	[5] = {"/ge","greeding"},
+					  	[6] = {"/er","beyond_endurance"},
+					  	[7] = {"/wc","wicked"},
+					  	[8] = {"/wh","what"},
+					  	[9] = {"/uh","unhappy"},
+					  	[10] = {"/ua","unbelievable"},
+					  	[11] = {"/ms","misdoubt"},
+					  	[12] = {"/js","just_out"},
+					  	[13] = {"/na","i_have_no_idea"},
+					  	[14] = {"/ed","embarrassed"},
+					  	[15] = {"/cy","cry"},
+					  	[16] = {"/dv","the_devil"},
+					  	[17] = {"/su","surprise"},
+					  	[18] = {"/si","sigh"},
+					  	[19] = {"/sh","shame"},
+					  	[20] = {"/ro","rockn_roll"},
+	},
+
+	CHANNEL_TAG = {
+		WORLD	= 1,
+		GUILD	= 2,
+		GROUP	= 3,
+		FRIEND	= 4,
+		PRIVATE	= 5,
+		CURRENT	= 6,
+		SYSTEM	= 7,
+		HORN	= 8,
+	},
+
+	ChatChannelColor = {
+		[1]	= "DAA520", --WORLD = 1,
+		[2]	= "D2B48C", --GUILD = 2,
+		[3]	= "7081FF", --GROUP = 3,
+		[4]	= "6B8E23", --FRIEND = 4,
+		[5]	= "75AA0D", --PRIVATE = 5,
+		[6]	= "7B68EE", --CURRENT = 6,
+		[7]	= "A09696", --SYSTEM = 7,
+		[8]	= "C8C8C8", --HORN = 8,
+	},
+
+	stateKey = {
+		[100]	= "全体",
+		[101]	= "和平",
+		[102]	= "组队",
+		[103]	= "帮会",
+		[104]	= "善恶",
+		[105]	= "阵营",
+	},
+
+	friendRelation = {
+		[0]	= "陌生人",
+		[100]	= "好友",
+		[101]	= "仇人",
+		[102]	= "黑名单",
+	},
+
+	-- 星座
+	XzDesc = {
+		[1] = "白羊",
+		[2] = "金牛",
+		[3] = "双子",
+		[4] = "巨蟹",
+		[5] = "狮子",
+		[6] = "处女",
+		[7] = "天秤",
+		[8] = "天蝎",
+		[9] = "射手",
+		[10] = "魔蝎",
+		[11] = "水瓶",
+		[12] = "双鱼",
+	},
+
+	ICONTYPE = {
+		POS		= 1,
+		UPGRADE	= 2,
+		BAG = 3,
+		AVATAR = 4,
+		DEPOT = 5,
+		SOUL = 6,
+		COMPO = 7,
+		TRANSFER = 8,
+		UPGRADEING = 9,
+		NOTIP=10,
+	},
+	tabHColor = {0xD2B48C,0x735F55},
+	tabVColor = {0xD2B48C,0x735F55},
+
+	-- tabHColorS = {"0xD2B48C","0x735F55"},
+	-- tabVColorS = {"0xD2B48C","0x735F55"},
+
+	SOUND={
+		give_gole_coin="sound/shiqumoney.mp3",
+		medicine="sound/heyao.mp3",
+		convey="sound/convey.mp3",
+		die_male="sound/die_m.mp3",
+		die_female="sound/die_f.mp3",
+		injure_male="sound/injure_m.mp3",
+		injure_female="sound/injure_w.mp3",
+		walk="sound/walk3.mp3",
+		run="sound/walking.mp3",		
+	},
+
+	SHORT_BEGIN		= 1,
+	SHORT_SIZE		= 16,
+	SHORT_SKILL_END = 8,
+
+	-- buff相关
+	STATUS_TYPE_MOFADUN = 0,
+	-- STATUS_TYPE_YINGSHEN = 1,
+	-- STATUS_TYPE_YOULINGDUN = 2,-- mMACMax
+	-- STATUS_TYPE_SHENSHENGZHANJIASHU = 3,-- mACMax
+	STATUS_TYPE_POSION_HP = 4,
+	-- STATUS_TYPE_POSION_ARMOR = 5,
+	-- STATUS_TYPE_HP_RECOVER = 6,
+	-- STATUS_TYPE_ADD_EXP = 7,
+	-- STATUS_TYPE_ADD_AC = 8,-- mACMax
+	-- STATUS_TYPE_ADD_MAC = 9,-- mMACMax
+	-- STATUS_TYPE_ADD_DC = 10,-- mDCMax
+	-- STATUS_TYPE_ADD_MC = 11,-- mMCMax
+	-- STATUS_TYPE_ADD_SC = 12,-- mSCMax
+	-- STATUS_TYPE_ADD_DROP_ITEMADD_PROB = 13,
+	-- STATUS_TYPE_AUTO_ADD_EXP = 14,
+	-- STATUS_TYPE_NO_DAMAGE = 15,
+	-- STATUS_TYPE_ALL_YINGSHEN = 16,
+	-- STATUS_TYPE_NO_DROP = 17,
+	-- STATUS_TYPE_SHUT_PK_VALUE = 18,
+	-- STATUS_TYPE_SEVEN_COLOR_DAN = 19,-- mAC mACMax mMAC mMACMax mDC mDCMax mMC mMCMax mSC mSCMax mMaxHp mMaxMp
+ STATUS_TYPE_MABI = 20,
+	-- STATUS_TYPE_YUANSHENHUTI = 21,-- mAC mACMax mMAC mMACMax mDC mDCMax mMC mMCMax mSC mSCMax
+	-- STATUS_TYPE_BAQIHUTI = 22,-- mAC mACMax mMAC mMACMax mDC mDCMax mMC mMCMax mSC mSCMax
+	-- STATUS_TYPE_ADD_HP = 23,-- mMaxHp
+	-- STATUS_TYPE_ADD_MP = 24,-- mMaxMp
+	-- STATUS_TYPE_TIANSHENHUTI = 25,-- mMaxHp mDC mDCMax mMC mMCMax mSC mSCMax mDixiao_pres mFuyuan_cd
+	-- STATUS_TYPE_SHENWEI = 26,-- mMaxHp mDC mDCMax mMC mMCMax mSC mSCMax mDixiao_pres mFuyuan_cd
+	-- STATUS_TYPE_ZHIZUN = 27,-- mMaxHp mDC mDCMax mMC mMCMax mSC mSCMax mDixiao_pres mFuyuan_cd
+	-- STATUS_TYPE_FUQITONGXIN = 28,-- mAC mACMax mMAC mMACMax 
+	-- STATUS_TYPE_XUANTIANZHENQI=29,
+	-- -- STATUS_TYPE_XINFA1 = 30,
+	-- -- STATUS_TYPE_XINFA2 = 31,
+	-- STATUS_TYPE_WLMZ = 32,
+	-- -- STATUS_TYPE_ZHUANSHEN = 33,
+	-- STATUS_TYPE_VIP = 34,
+	-- STATUS_TYPE_ZUOQI = 35,
+	-- STATUS_TYPE_GUANZHI = 36,
+	-- STATUS_TYPE_ZUAN = 37,
+	-- STATUS_TYPE_XINFA_XIN = 38,
+	-- STATUS_TYPE_ZUNQI_XIN = 55,
+	-- STATUS_TYPE_BURNING = 70,
+	-- STATUS_TYPE_SHOULING=74,
+	-- STATUS_TYPE_NUMBER = 110,
+
+	-----------任务状态-----------
+	TSN    =10,
+	TSNULL =0,
+	TSUNAC =1,
+	TSACCE =2,
+	TSACED =3,
+	TSCOMP =4,
+
+	-----------改 名 卡-----------
+	ITEM_MODIFY_CARD = 32000008,
+
+	----------打孔石--------------
+	ITEM_OPEN_GEM = 24090009,
+
+	-----------选择物品宝箱----------
+	ITEM_SELECT_BEGIN = 27500000,
+	ITEM_SELECT_END   = 27600000,
+
+	-----------宝石相关-----------
+	ITEM_GEM_BEGIN = 25010000,
+	ITEM_GEM_END = 25999999,
+
+	-----------等级丹-------------
+	ITEM_LEVELDAN_BEGIN = 23100007,
+	ITEM_LEVELDAN_END   = 23100015,
+
+	ITEM_GEM_ATTACK_BEGIN = 25010000,
+	ITEM_GEM_ATTACK_END = 25019999,
+
+	ITEM_GEM_AC_BEGIN = 25020000,
+	ITEM_GEM_AC_END = 25029999,
+
+	ITEM_GEM_MAC_BEGIN = 25030000,
+	ITEM_GEM_MAC_END = 25039999,
+
+	ITEM_GEM_HP_BEGIN = 25040000,
+	ITEM_GEM_HP_END = 25049999,
+
+	ITEM_GEM_MP_BEGIN = 25050000,
+	ITEM_GEM_MP_END = 25059999,
+
+	ITEM_GEM_SPECIAL_BEGIN = 25060000,
+	ITEM_GEM_SPECIAL_END = 25089999,
+
+	ITEM_GEM_HOLY_BEGIN = 25060000,
+	ITEM_GEM_HOLY_END = 25069999,
+	---暴击宝石
+	ITEM_GEM_CRI_PROB_BEGIN = 25070000,
+	ITEM_GEM_CRI_PROB_END = 25079999,
+	---暴伤宝石
+	ITEM_GEM_CRI_BEGIN = 25080000,
+	ITEM_GEM_CRI_END = 25089999,
+
+	--宝石相关类型
+	GEM_TYPE_HOLY = 1,
+	GEM_TYPE_CRI_PROB = 2,
+	GEM_TYPE_CRI = 3,
+	GEM_TYPE_ATTACK = 4,
+	GEM_TYPE_AC = 5,
+	GEM_TYPE_MAC = 6,
+	GEM_TYPE_HP = 7,
+	GEM_TYPE_MP = 8,
+
+	GEM_ATTACK_OFFSET_POSITION = 500,
+	GEM_AC_OFFSET_POSITION = 530,
+	GEM_MAC_OFFSET_POSITION = 560,
+	GEM_HP_OFFSET_POSITION = 590,
+	GEM_MP_OFFSET_POSITION = 620,
+	GEM_SPECIAL_OFFSET_POSITION = 650,
+
+	-- tips类型
+	TIPS_TYPE = {
+		GENERAL = 1,
+		BAG = 2,
+		DEPOT = 3,
+		TRADE = 4,
+		CONSIGN = 5,
+		GEM = 6,
+		UPGRADE = 7,
+		REFINE = 8,
+		GUILD = 9,
+		TREASURE = 10,
+	},
+
+	ITEM_TYPE_EQUIP = 1,		--装备
+	ITEM_TYPE_MONEY = 2,		--货币
+	ITEM_TYPE_DRUG = 3,			--药物
+	ITEM_TYPE_MATERIAL = 4,		--时装、材料
+	ITEM_TYPE_SKILLBOOK = 5,	--技能书
+	ITEM_TYPE_GEM = 6,			--宝石
+	ITEM_TYPE_GIFT = 7,			--礼包
+	ITEM_TYPE_CHEST = 8,		--箱子	
+	ITEM_TYPE_BUFF = 9,			--Buff	
+	ITEM_TYPE_FASHION = 10,		--时髦（暂时未用）
+	ITEM_TYPE_SCROLL = 11,		--卷轴
+	ITEM_TYPE_OTHER = 12,		--其他
+
+	ITEM_TYPE_XZ = 15,			--星座
+	ITEM_TYPE_XQ = 16,			--仙器
+	ITEM_TYPE_MOUNT = 17,		--坐骑
+	ITEM_TYPE_DL = 18,			--斗笠
+	ITEM_TYPE_SQ = 19,			--神器
+	ITEM_TYPE_LB = 20,			--灵宝
+	ITEM_TYPE_CS = 21,			--传世
+
+	EQUIP_TYPE_WEAPON = 1,
+	EQUIP_TYPE_CLOTH = 2,
+	EQUIP_TYPE_HAT = 3,
+	EQUIP_TYPE_NICKLACE = 4,
+	EQUIP_TYPE_GLOVE = 5,
+	EQUIP_TYPE_RING = 6,
+	EQUIP_TYPE_BELT = 7,
+	EQUIP_TYPE_BOOT = 8,
+
+	-- 副装
+	-- 玉佩
+	EQUIP_TYPE_JADE_PENDANT = 11,
+	-- 暗器
+	EQUIP_TYPE_SHIELD = 12,
+	-- 魂珠
+	EQUIP_TYPE_DRAGON_HEART = 15,
+	-- 战鼓
+	EQUIP_TYPE_WOLFANG = 16,
+
+	-- 护心镜
+	EQUIP_TYPE_MIRROR_ARMOUR = 13,
+	-- 面巾
+	EQUIP_TYPE_FACE_CLOTH = 14,
+
+	-- 龙骨
+	EQUIP_TYPE_DRAGON_BONE = 17,
+	-- 虎符
+	EQUIP_TYPE_CATILLA = 18,
+	-- 勋章
+	EQUIP_TYPE_ACHIEVE_MEDAL = 19,
+
+
+}
+
+Const.GUILD_DEPOT_LENGTH = 375
+
+Const.SCALE_X = Const.VISIBLE_WIDTH / Const.WIN_WIDTH
+Const.SCALE_Y = Const.VISIBLE_HEIGHT / Const.WIN_HEIGHT
+Const.SCALE = nil
+
+Const.WING_TEXTURE_START_ID = 1001
+
+
+Const.UI_SIMPLIFIED = 100		--精简界面
+Const.UI_COMPLETE = 101			--正常界面
+
+function Const.gameScale()
+	if not Const.SCALE then
+		if Const.SCALE_X < Const.SCALE_Y then
+			Const.SCALE = Const.SCALE_X
+		else
+			Const.SCALE = Const.SCALE_Y
+		end
+	end
+	return Const.SCALE
+end
+
+function Const.left(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+	return cc.p(Const.VISIBLE_X + x, Const.VISIBLE_Y + Const.VISIBLE_HEIGHT/2 + y)
+end
+function Const.right(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+    return cc.p(Const.VISIBLE_X+Const.VISIBLE_WIDTH + x, Const.VISIBLE_Y + Const.VISIBLE_HEIGHT/2 + y)
+end
+function Const.top(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+    return cc.p(Const.VISIBLE_X + Const.VISIBLE_WIDTH/2 + x, Const.VISIBLE_Y + Const.VISIBLE_HEIGHT + y)
+end
+function Const.bottom(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+    return cc.p(Const.VISIBLE_X + Const.VISIBLE_WIDTH/2 + x, Const.VISIBLE_Y + y)
+end
+function Const.center(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+	return cc.p(Const.WIN_WIDTH/2 + x,Const.WIN_HEIGHT/2 + y)
+end
+function Const.leftTop(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+    return cc.p(Const.VISIBLE_X + x, Const.VISIBLE_Y + Const.VISIBLE_HEIGHT + y)
+end
+function Const.rightTop(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+    return cc.p(Const.VISIBLE_X + Const.VISIBLE_WIDTH + x, Const.VISIBLE_Y + Const.VISIBLE_HEIGHT + y)
+end
+function Const.leftBottom(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+	return cc.p(Const.VISIBLE_X + x,Const.VISIBLE_Y + y)  
+end
+function Const.rightBottom(x,y)
+	if not x then x = 0 end
+	if not y then y = 0 end
+    return cc.p(Const.VISIBLE_X + Const.VISIBLE_WIDTH + x, Const.VISIBLE_Y + y)  
+end
+function Const.color( index )
+	local color = {
+		[1] = cc.c3b(255,255,240),
+		[2] = cc.c3b(205,133,63),
+		[3] = cc.c3b(250,250,210),
+		[4] = cc.c3b(138,105,89),
+		[5] = cc.c3b(169,169,169),
+		[6] = cc.c3b(224,164,96),
+		[7] = cc.c3b(105,105,105),
+		[8] = cc.c3b(255,0,0),
+		[9] = cc.c3b(20,160,20),
+	}
+	return color[index]
+end
+
+-------------------------------人物属性-----------------------------------
+local i=0
+
+Const.net_id=i;i=i+1
+Const.net_type=i;i=i+1
+Const.net_cloth=i;i=i+1
+Const.net_weapon=i;i=i+1
+Const.net_mount=i;i=i+1
+Const.net_wing=i;i=i+1
+-- --新加
+Const.net_exp=i;i=i+1
+Const.net_x=i;i=i+1
+Const.net_y=i;i=i+1
+Const.net_dir=i;i=i+1
+Const.net_speed=i;i=i+1
+Const.net_hp=i;i=i+1
+Const.net_maxhp=i;i=i+1
+Const.net_mp=i;i=i+1
+Const.net_maxmp=i;i=i+1
+Const.net_burden=i;i=i+1
+Const.net_state=i;i=i+1
+Const.net_show=i;i=i+1
+Const.net_fabao=i;i=i+1
+Const.net_fashion=i;i=i+1
+Const.net_createtime=i;i=i+1
+Const.net_level=i;i=i+1
+Const.net_zslevel=i;i=i+1
+Const.net_job=i;i=i+1
+Const.net_gender=i;i=i+1
+Const.net_dead=i;i=i+1
+Const.net_teamid=i;i=i+1
+Const.net_pkstate=i;i=i+1
+Const.net_pkvalue=i;i=i+1
+Const.net_fabaolv=i;i=i+1
+Const.net_collecttime=i;i=i+1
+Const.net_isboss=i;i=i+1
+
+Const.net_name=i;i=i+1
+Const.net_seedname=i;i=i+1
+Const.net_love_name=i;i=i+1
+Const.net_team_name=i;i=i+1
+Const.net_guild_name=i;i=i+1
+Const.net_guild_title=i;i=i+1
+Const.net_guild_id=i;i=i+1
+Const.net_name_pre=i;i=i+1
+Const.net_name_pro=i;i=i+1
+Const.net_item_owner=i;i=i+1
+Const.net_itemtype=i;i=i+1
+Const.net_fight_point=i;i=i+1
+Const.net_show_head=i;i=i+1
+Const.net_show_count=i;i=i+1
+Const.net_disapear_time=i;i=i+1
+Const.net_power=i;i=i+1
+Const.net_maxpower=i;i=i+1
+Const.net_bemonster=i;i=i+1
+Const.net_attacked_time=i;i=i+1
+Const.net_touch=i;i=i+1
+Const.net_low=i;i=i+1
+
+Const.net_attr_num=i;i=i+1
+Const.net_step=i;i=i+1
+Const.net_title=i;i=i+1
+
+local j = 0
+Const.avatar_id = j; j = j + 1
+Const.avatar_type = j; j = j + 1
+Const.avatar_state = j; j = j + 1
+Const.avatar_x = j; j = j + 1
+Const.avatar_y = j; j = j + 1
+Const.avatar_dir = j; j = j + 1
+Const.avatar_target_x = j; j = j + 1
+Const.avatar_target_y = j; j = j + 1
+Const.avatar_deadanim = j; j = j + 1
+Const.avatar_disable_magic = j; j = j + 1
+Const.avatar_disable_pre = j; j = j + 1
+Const.avatar_disable_run = j; j = j + 1
+Const.avatar_attr_max = j; j = j + 1
+
+j=0
+Const.STATE_IDLE = j; j = j + 1
+Const.STATE_WALK = j; j = j + 1
+Const.STATE_RUN = j; j = j + 1
+Const.STATE_PREPARE = j; j = j + 1
+Const.STATE_ATTACK = j; j = j + 1
+Const.STATE_MAGIC = j; j = j + 1
+Const.STATE_INJURY = j; j = j + 1
+Const.STATE_DIE = j; j = j + 1
+Const.STATE_DAZUO = j; j = j + 1
+Const.STATE_CAIKUANG = j; j = j + 1
+Const.STATE_MIDLE = j; j = j + 1
+Const.STATE_MWALK = j; j = j + 1
+Const.STATE_MRUN = j; j = j + 1
+Const.STATE_JUMP = j; j = j + 1
+Const.STATE_COUNT = j; j = j + 1
+
+j=0
+Const.map_runplayer = j; j = j + 1
+Const.map_runmonster = j; j = j + 1
+Const.map_pkprohibit = j; j = j + 1
+Const.map_pkallow = j; j = j + 1
+Const.map_autoalive = j; j = j + 1
+Const.map_nointeract = j; j = j + 1
+Const.map_lockaction = j; j = j + 1
+Const.map_wanderfight = j; j = j + 1
+Const.map_fightstate = j; j = j + 1
+Const.map_count = j; j = j + 1
+
+Const.MODEL_WING_ID = 1
+Const.MODEL_MOUNT_JIE_ID = 2
+Const.MODEL_MOUNT_XING_ID = 3
+-------------------------------引导相关-----------------------------------
+
+-------------------------------layerAlert-----------------------------------
+Const.str_titletext_alert = "朕知道了"
+Const.str_titletext_confirm = "是"
+Const.str_titletext_cancel = "否"
+Const.str_cancel = "取消"
+
+
+-------------------------------职业介绍-----------------------------------
+
+Const.str_info_zs = "以强有力的体格为基础，特殊的地方在于用剑法及道法等技术，魔法防御较低。"
+Const.str_info_fs = "以长时间锻炼的内功为基础，能发挥强大的攻击型魔法，魔法攻击卓越，体力较弱。"
+Const.str_info_ds = "以强大的精神力作为基础，治疗术起死回生，施毒术闻名天下，召唤术出神入化，攻防均衡。"
+-------------------------------人物属性文字描述-----------------------------------
+Const.str_mDC 	= "物理攻击1111:"
+Const.str_sDC 	= "物攻:"
+Const.str_mMC 	= "魔法攻击:"
+Const.str_sMC 	= "魔攻:"
+Const.str_mSC 	= "道术攻击:"
+Const.str_sSC 	= "道攻:"
+Const.str_mAC 	= "物理防御:"
+Const.str_sAC 	= "物防:"
+Const.str_mMAC	= "魔法防御:"
+Const.str_sMAC	= "魔防:"
+Const.str_mHp 	= "血量上限:"
+Const.mHp 		= "生　　命:"
+Const.str_sHp 	= "生命:"
+Const.str_mMp 	= "魔法上限:"
+Const.mMp 		= "魔　　法:"
+Const.str_sMp 	= "魔法:"
+Const.mAccuracy	= "准  确:"
+Const.mDodge	= "闪  避:"
+Const.mLuck		= "幸  运:"
+Const.mCurse	= "诅　　咒:"
+Const.tenacity	= "韧  性:"
+Const.Xishou	= "物理免疫:"
+Const.mXishou	= "魔法免疫:"
+Const.mPKValue	= "PK　  值:"
+Const.mHonor	= "荣　　誉:"
+Const.str_attr  = "属\n性"
+Const.str_special = "特殊"
+Const.str_mountup = "进阶"
+Const.str_moveSpeed = "移动速度:"
+Const.str_powerUp = "战力提升:"
+Const.str_ignoremAC = "无视物防:"
+Const.str_ignoremMAC = "无视魔防:"
+Const.str_free = "免费"
+Const.str_times = "次"
+Const.mAntiMagic = "魔法闪避"
+Const.mAntiPoison = "中毒闪避"
+Const.mHpRecover = "生命恢复"
+Const.mMpRecover = "魔法恢复"
+Const.mPoisonRecover = "中毒恢复"
+Const.mGfAdd="攻防加成："
+
+Const.holyAttack = "神圣攻击:"
+Const.holyDefence = "神圣防御:"
+Const.CA = "暴击力:"
+Const.CAProb = "暴击率:"
+----------角色----------
+Const.str_name = "姓名"
+Const.str_level= "等级"
+Const.str_guild= "帮会"
+Const.str_job  = "职业"
+Const.str_zslevel  = "转生等级"
+-- Const.str_zslevelnum  = "转生次数"
+
+Const.str_gender = "性别"
+Const.str_state = "状态"
+
+Const.str_unknown = "未知"
+
+Const.str_male = "男"
+Const.str_female = "女"
+
+Const.str_zs   = "战士"
+Const.str_fs   = "法师"
+Const.str_ds   = "道士"
+Const.str_fight= "战斗力"
+
+Const.job_name = {
+	[100] = Const.str_zs,
+	[101] = Const.str_fs,
+	[102] = Const.str_ds,
+	["warrior"] = Const.str_zs,
+	["wizard"] = Const.str_fs,
+	["taoist"] = Const.str_ds,
+}
+Const.gender_name = {
+	[200] = Const.str_male,
+	[201] = Const.str_female,
+}
+
+Const.nums = {
+	[1] = "一",
+	[2] = "二",
+	[3] = "三",
+	[4] = "四",
+	[5] = "五",
+	[6] = "六",
+	[7] = "七",
+	[8] = "八",
+	[9] = "九",
+	[10] = "十",
+	[11] = "十一",
+	[12] = "十二",
+	[13] = "十三",
+	[14] = "十四",
+	[15] = "十五",
+	[16] = "十六",
+}
+
+Const.str_goto = "前往"
+Const.str_use  = "使用"
+
+Const.str_official = "官职"
+Const.str_title = "称号"
+Const.str_reborn = "转生"
+
+
+----------背包----------
+Const.str_bag = "背包"
+-- Const.str_vessel = "龙王鼎"
+Const.str_money  = "金币"
+Const.str_moneyb = "绑定金币"
+Const.str_vcoin  = "钻石"
+Const.str_vcoinb = "元宝"
+-- Const.str_grid	 = "网格显示"
+-- Const.str_list	 = "列表显示"
+Const.str_recycle= "装备回收"
+Const.str_filter = "装备筛选"
+Const.str_split  = "物品拆分"
+Const.str_pack   = "包裹整理"
+-- Const.str_recycle_exp = "可回收经验："
+-- Const.str_recycle_bmoney = "可回收金币："
+Const.str_onekey_putin = "一键放入"
+Const.str_putin_confirm = "确定回收"
+Const.str_title_recycle = "可回收"
+Const.str_title_bag = "包裹"
+Const.str_tidy = "整理并使用"
+Const.str_kz = "扩展仓库"
+Const.str_getall = "全部取出"
+Const.str_drop = "丢弃"
+Const.str_cancel_drop = "取消丢弃"
+Const.str_confirm_drop = "确认丢弃"
+Const.str_destory = "摧毁"
+Const.str_huishou = "物品回收"
+Const.str_sssd = "商店"
+Const.str_cancel_destory = "取消摧毁"
+Const.str_confirm_destory = "确认摧毁"
+Const.str_split_short = "拆分"
+Const.str_input_splitnum = "请输入拆分数量"
+Const.str_input_price	 = "请输入价格..."
+Const.str_legal_price	 = "请输入合法价格"
+----------仓库----------
+Const.str_title_depot = "仓库"
+
+
+----------装备----------
+Const.str_weapon	= "武器"
+Const.str_cloth		= "衣服"
+Const.str_hat		= "帽子"
+Const.str_ring		= "戒指"
+Const.str_glove		= "手套"
+Const.str_necklace	= "项链"
+Const.str_belt		= "腰带"
+Const.str_boot		= "鞋子"
+Const.str_wing		= "翅膀"
+Const.str_fashion	= "时装"
+Const.str_soul		= "魂器"
+Const.str_all		= "所有"
+Const.str_detail	= "详细信息"
+Const.str_goback	= "返回"
+
+----------排行榜----------
+Const.str_power			= "攻击"
+Const.str_wealth		= "财富"
+Const.str_richlist		= "富豪榜"
+Const.str_guildlist		= "帮会榜"
+Const.str_herolist		= "综合"
+Const.str_warriorlist	= "战士"
+Const.str_wizardlist	= "法师"
+Const.str_taoistlist	= "道士"
+Const.str_guild_name	= "帮会名称"
+Const.str_guild_number	= "人数"
+Const.str_guild_level	= "等级"
+Const.str_search		= "查 找"
+Const.str_clear			= "清 除"
+Const.str_not_in_rank	= "未入榜"
+
+----------商城----------------
+-- Const.str_all		= "全部"
+Const.str_equip		= "装备"
+Const.str_pet		= "宠物"
+Const.str_artifact	= "神器"
+Const.str_jewel		= "宝石"
+Const.str_other		= "其他"
+Const.str_buyLimit	= "限购%d次（%d/%d）"
+----------聊天----------
+Const.str_chat_common	= "【普通】"
+Const.str_chat_horn		= "【喇叭】"
+Const.str_chat_world	= "【世界】"
+Const.str_chat_guild	= "【帮会】"
+Const.str_chat_group	= "【队伍】"
+Const.str_chat_shout	= "【喊话】"
+Const.str_chat_private	= "【私聊】"
+Const.str_chat_system	= "【系统】"
+Const.str_chat_all		= "【综合】"
+Const.str_chat_near		= "【附近】"
+
+Const.str_channel_common= "当前"
+Const.str_channel_world	= "世界"
+Const.str_channel_guild	= "帮会"
+Const.str_channel_group	= "组队"
+Const.str_channel_friend = "好友"
+Const.str_channel_private= "私聊"
+Const.str_channel_system = "系统"
+Const.str_channel_all	= "系统"
+
+Const.str_expression = "表情"
+Const.str_voice = "语音"
+Const.str_send = "发送"
+
+Const.str_input = "点击这里输入"
+Const.str_input2 = "请输入查找目标"
+
+Const.str_you = "您"
+Const.str_change_voice_model1 = "切换语音模式为【自由说话】！"
+Const.str_change_voice_model2 = "切换语音模式为【会长说话】！"
+Const.str_change_voice_model3 = "切换语音模式为【队长说话】！"
+
+----------好友----------
+Const.online = {
+	[0] = "离线",
+	[1] = "在线",
+}
+Const.onlineColor = {
+	[0] = 0xb2a58b,
+	[1] = 0x30FF00,
+}
+Const.str_online = "在线"
+Const.str_offline = "离线"
+Const.str_frdList = "好友列表"
+Const.str_blacklist = "黑名单"
+Const.str_enemy = "仇人"
+Const.str_searchP = "查找玩家"
+
+Const.str_setPrivate = "设为私聊"
+Const.str_delFrd = "删除好友"
+Const.str_addFrd = "加为好友"
+Const.str_addRec = "添加"
+Const.str_addRecAllorfresh = {"更换一批","全部添加"}
+Const.str_delP = "删除玩家"
+Const.str_invGroup = "邀请组队"
+Const.str_chkInfo = "查看信息"
+Const.str_defriend = "拉黑"
+
+Const.str_onlineNum = "在线人数："
+Const.str_inputPName = "请输入玩家姓名："
+
+----------帮会----------
+Const.str_guild_view = "帮会总览"
+Const.str_guild_member ="帮会成员"
+Const.str_donate="贡献"
+Const.str_guild_wealth = "财富"
+Const.str_guild_leader = "会长"
+Const.str_guild_fuben_Text1 = "群体副本需要本帮会人员组队参与，由队长带领大家进入副本"
+Const.str_guild_fuben_Text2 = "群体副本开启半小时后关闭，爆出的物品无归属，可争抢"
+Const.str_guild_fuben_group= "群体副本(最少3人)"
+
+-----------组队------------
+Const.str_groupInfo = "队伍信息"
+Const.str_nearbyP = "附近玩家"
+Const.str_nearbyG = "附近队伍"
+
+Const.str_dismissG = "解散队伍"
+Const.str_leaveG = "离开队伍"
+Const.str_kickoutG = "踢出队伍"
+Const.str_follow = "发起跟随"
+Const.str_musterG = "召集队伍"
+
+Const.str_applyG = "申请加入"
+Const.str_createG = "创建队伍"
+
+Const.str_gPlace = "职务"
+Const.str_gLeader = "队长"
+Const.str_gMember = "队员"
+Const.str_guildinfo = "热血帮会欢迎各位武林豪杰加入，希望大家踊跃参加帮会活动，共同把帮会发展壮大！"
+Const.str_locateMap = "所在地图"
+----------菜单----------
+Const.str_game_set		= "游戏设定"
+Const.str_avatar		= "角色"
+Const.str_bag			= "背包"
+Const.str_skill 		= "技能"
+Const.str_friend		= "好友"
+Const.str_upgrade		= "强化"
+Const.str_mount			= "坐骑"
+Const.str_feather		= "羽毛"
+Const.str_task			= "任务"
+Const.str_npc_shop		= "NPC商店"
+Const.str_store			= "商城"
+Const.str_group			= "组队"
+Const.str_guild			= "帮会"
+Const.str_ranking		= "排行"
+Const.str_yuanshen		= "元神"
+Const.str_activity		= "活动"
+Const.str_button_set	= "按钮设置"
+Const.str_out_set		= "退出设置"
+Const.str_more			= "更多"
+Const.str_escort		= "押送"
+
+Const.str_dayfree		= "每日免费升级"
+Const.str_mountname		= "坐骑名字"
+Const.str_jie			= "阶"
+Const.str_xing			= "星"
+Const.str_yes			= "是"
+Const.str_no			= "否"
+----------地图----------
+Const.str_target		= "目标"
+Const.str_current		= "当前"
+Const.str_transfer		= "传送"
+Const.str_goto			= "前往"
+Const.str_npc 			= "NPC"
+Const.str_transfer_point= "传送点"
+Const.str_player 		= "玩家"
+
+----------坐骑----------
+Const.str_promote_medicine	= "使用坐骑丹"
+Const.str_promote_vcoin		= "钻石升级"
+Const.str_promote_onekey	= "一键升级"
+Const.str_mount_zhuangbei	= "骑装"
+Const.str_mount_hujia		= "护甲"
+Const.str_mount_maan		= "马鞍"
+Const.str_mount_titie		= "蹄铁"
+Const.str_mount_jiangshen	= "缰绳"
+Const.str_mount_hecheng		= "合成"
+Const.str_mount_getMountDan	= "获得坐骑丹"
+Const.str_moun_title = "玩法说明"
+Const.str_moun_info1 = "1、每日首次登陆时有免费的三次升级机会。"
+Const.str_moun_info2 = "2、坐骑当阶经验值升级至MAX时，坐骑升阶。"
+Const.str_moun_info3 = "3、坐骑当阶所有星级升满时，坐骑升级。"
+----------NPC商店----------
+Const.str_boss_iron		="铁匠铺老板"
+Const.str_boss_medicine	="药店老板"
+Const.str_boss_jewelry	="首饰店老板"
+Const.str_boss_armor	="防具店老板"
+Const.str_boss_sundry	="杂货铺老板"
+Const.str_boss_book		="书店老板"
+
+----------技能----------
+Const.str_skill_passive   		= "被动技能"
+Const.str_skill_assist	  		= "辅助技能"
+Const.str_skill_nitiative 		= "主动技能"
+Const.str_skill_lv 				= "Lv."
+Const.str_skill_quickupgrade 	= "升级"
+Const.str_skill_lvmax		 	= "满级"
+Const.str_skill_lvnow			= "当前属性"
+Const.str_skill_lvnext			= "下阶属性"
+Const.str_skill_lvc				= "等级"
+Const.str_skill_power			= "攻击力"
+
+
+
+----------任务----------
+-- Const.str_white		= "白色"
+-- Const.str_green		= "绿色"
+-- Const.str_blue		= "蓝色"
+-- Const.str_purple	= "紫色"
+-- Const.str_orange	= "橙色"
+-- Const.str_abandon	= "放弃"
+Const.str_accept_task	= "接受任务"
+Const.str_finish_task	= "完成任务"
+
+Const.str_injury_physical = "物理伤害"
+Const.str_injury_magical  = "魔法伤害"
+Const.str_injury_taoist	  = "法术伤害"
+Const.str_hp_ceiling	  = "生命加成"
+Const.str_attack		  = "攻击力"
+Const.str_mp_taoist	  	  = "魔法上限"
+Const.str_injury_crit	  = "暴击伤害"
+Const.str_s_injury_crit	  = "暴击:"
+Const.str_absorb_injury	  = "吸收伤害"
+Const.str_injury_prob	  = "暴击几率"
+Const.str_s_injury_prob	  = "暴率:"
+
+Const.str_tobe_vip = "升级 VIP"
+Const.str_equip_up = "强化装备"
+Const.str_mount_up = "升级坐骑"
+Const.str_wing_up = "强化翅膀"
+Const.str_fabao_up = "升级法宝"
+Const.str_xuanj_up = "镶嵌玄晶"
+Const.str_shoul_up ="强化翼灵"
+Const.str_xinfa_up = "强化心法"
+Const.str_zhuans_up ="转   生"
+Const.str_guanz_up ="加官进爵"
+Const.str_xunz_up ="升级勋章"
+Const.str_shop_up = "商城购买"
+Const.str_chat_trade_buy = "购买"
+Const.str_chat_trade_sell = "定价"
+Const.str_chat_trade_getBack = "取消出售"
+----------翅膀----------
+Const.str_wing_upgrade = "翅膀升级"
+Const.str_wing_open = "升级翅膀"
+Const.str_wing_advance = "翅膀进阶"
+Const.str_wing_getLY = "获得灵羽"
+Const.str_wing_info = "翅膀预览"
+Const.str_wing_next_level_info = "下阶预览"
+Const.str_curWing_info = "当前"
+Const.str_nexWing_info = "下阶"
+Const.str_vcoin_upgrade = "钻石升级"
+Const.str_vcoin_advance = "钻石进阶"
+Const.str_zhufuzhi	="祝福值"
+Const.str_bless_title = "翅膀升级说明"
+Const.str_suoxuyumao = "所需羽毛"
+Const.str_bless_info = "翅膀每升10级时,可以突破全新翅膀外观和属性,但需要消耗灵翼骨和灵羽。"
+
+----------坐骑----------
+Const.lbl_cur_ew 	="当前环额外加成属性:"
+Const.lbl_cur_dc	="当前攻击:"
+Const.lbl_cur_ac	="当前防御:"
+Const.lbl_cur_exp	="当前拥有翼灵经验:"
+Const.lbl_cur_1		="当前坐骑属性"
+Const.lbl_next_2	="下阶属性"
+Const.lbl_cur_sl	="蛮力翼灵LV1"
+Const.lbl_manli		="蛮力翼灵LV"
+Const.lbl_shashang	="杀伤翼灵LV"
+Const.lbl_zhenfen	="震愤翼灵LV"
+Const.lbl_shengyuan	="生源翼灵LV"
+Const.lbl_wuwei		="无畏翼灵LV"
+Const.lbl_jianren	="坚韧翼灵LV"
+Const.lbl_cur_jc	="当前加成:"
+Const.lbl_next_jc	="下阶加成:"
+Const.btn_lingzhu	="灵珠使用"
+Const.btn_yijian	="一键使用"
+Const.btn_slsj		="灵兽升级"
+Const.btn_ybsl		="钻石修炼"
+Const.str_beastInfo ="说明:六大灵兽同时点满一层后,获得一个额外属性。"
+----------功勋----------
+Const.str_medal_title = "玩法说明"
+Const.str_medal_info1 = "1、每日完成降妖除魔时可获得功勋值。"
+Const.str_medal_info2 = "2、功勋当阶经验值升级至MAX时，功勋升阶。"
+Const.str_medal_getmedal = "获得功勋"
+
+----------元神----------
+Const.str_xinmota	="心魔塔"
+-- Const.str_yuanshen 	="元神"
+Const.str_xiulian	="元神修炼"
+Const.str_promote_yuanshen ="提升元神"
+Const.str_auto_promote = "自动提升"
+Const.str_enjoyTower	="开始闯塔"
+Const.str_getAward	="领取元神珠"
+Const.str_yuansheninfo = "注:修为值满即可升阶,修为值不会回退！"
+Const.str_shuxing = "属性"
+
+----------设置----------
+Const.str_fight_config = "战斗"
+Const.str_game_config = "系统"
+
+----------个人Boss----------
+Const.str_boss_title = "玩法说明"
+Const.str_boss_info1 = "1、BOSS副本分为简单、困难、噩梦三个难度。"
+Const.str_boss_info2 = "2、达到指定的等级并且击杀前一个BOSS即可挑战副本。"
+Const.str_boss_info3 = "3、每天5次击杀次数，未击杀不扣次数。"
+Const.str_boss_info4 = "4、首次击杀BOSS不扣次数。"
+Const.str_boss_info5 = "5、所有BOSS可一键扫荡获得BOSS积分，击杀BOSS时不获得积分。"
+----------设置面板----------
+
+Const.str_autoFight	= "挂机"
+Const.str_support	= "辅助"
+Const.str_system	= "系统"
+
+Const.str_changeRole	= "更换角色"
+Const.str_changeAccount	= "更换账号"
+Const.str_exitGame		= "退出游戏"
+
+Const.str_protectConfig = "保护设置"
+Const.str_HPLessThen = "生命值低于"
+Const.str_MPLessThen = "法力值低于"
+Const.str_smartEatHP = "喝红"
+Const.str_smartEatMP = "喝蓝"
+Const.str_smartGoHome = "回城"
+Const.str_autoPickConfig = "拾取设置"
+Const.str_drug = "药品"
+Const.str_staff = "材料"
+Const.str_autoRetrieve = "自动回收"
+
+Const.str_set_warrior	= "战士设置"
+Const.str_autoBanYue	= "自动半月"
+Const.str_autoLieHuo	= "自动烈火"
+Const.str_autoCiSha	    = "隔位刺杀"
+Const.str_set_wiazrd	= "法师设置"
+Const.str_autoShield	= "自动上盾"
+Const.str_autoRoar		= "自动咆哮"
+Const.str_autofire		= "自动火墙"
+Const.str_set_taoist	= "道士设置"
+Const.str_autoCall		= "自动召唤"
+Const.str_set_basic		= "基本设置"
+Const.str_autoLock		= "智能锁定"
+Const.str_autoFightBack	= "自动反击"
+
+
+Const.str_screenConfig	= "画面设置"
+Const.str_shieldEffect	= "屏蔽特效"
+Const.str_shieldWing	= "屏蔽翅膀"
+Const.str_shieldGuild	= "屏蔽帮会"
+Const.str_shieldTitle	= "屏蔽称号"
+Const.str_shieldPet		= "屏蔽宠物"
+Const.str_shieldGSM		= "流量下载"
+Const.str_ShieldGoHome	= "屏蔽回城"
+Const.str_soundConfig	= "音乐特效"
+Const.str_turnOffSound	= "关闭音乐"
+Const.str_turnOffEffect	= "关闭音效"
+Const.str_otherConfig = "其他设置"
+Const.str_closeTrade = "关闭交易"
+Const.str_performanceMode = "性能模式"
+
+Const.str_switchMusic = "音乐"
+Const.str_switchEffect = "音效"
+Const.str_sure	= "确认"
+-----------活动---------------
+Const.str_fastReceive = "一键领取"
+Const.str_joinActivity = "参加活动"
+Const.str_activity2 = "活   动"
+
+----------押送----------
+Const.str_escort			= "押送"
+Const.str_robescort 		= "劫囚"
+Const.str_escort_tips1		= "提示：VIP等级越高，押送镖车奖励就越高。"
+Const.str_escort_tips2		= "提示：镖车等级越高，截获奖励就越高。"
+Const.str_remain_escort		= "剩余押送次数:%d次"
+Const.str_remain_robescort	= "剩余劫囚次数:%d次"
+Const.str_reward_escort		= "押送奖励:"
+Const.str_my_power			= "我的战斗力:"
+
+----------工会----------
+Const.str_guild_list		= "工会列表"
+Const.str_guild_member 		= "工会成员"
+Const.str_guild_building 	= "工会建筑"
+
+----------PanelBoss-----
+Const.str_yeWaiBoss			= "野外BOSS"
+Const.str_puTongMap			= "普通地图"
+Const.str_bossZhiJiaMap		= "BOSS之家"
+Const.str_maYaMap			= "玛雅神殿"
+Const.str_bossChuChu		= "BOSS出处:"
+Const.str_refreshTime		= "刷新时间:"
+Const.str_minute			= "分钟"
+----------交易-----
+Const.str_confirmed			= "已确认"
+Const.str_unconfirmed		= "未确认"
+Const.str_trade_record		= "交易记录"
+Const.str_close				= "关闭"
+Const.str_confirm 			= "确定"
+Const.str_other_trade 		= "对方交易"
+Const.str_self_trade 		= "己方交易"
+Const.str_my_bag 			= "我的背包"
+Const.str_trade 			= "交易"
+
+----------tips----------
+Const.str_get_out           = "提取"
+Const.str_put_in			= "放入"
+Const.str_put_in_canceled	= "取消放入"
+Const.str_undress			= "卸下"
+Const.str_take_out			= "取出"
+Const.str_dress 			= "装备"
+Const.str_use 				= "使用"
+Const.str_attr				= "[基础属性]"
+Const.str_attr_upd 			= "[强化属性]"
+Const.str_attr_curzl 		= "[注灵属性]"
+Const.str_attr_active 		= "[强化激活属性]"
+Const.str_attr_zl 			= "[可激活注灵属性]"
+Const.str_dressed 			= "已装备"
+Const.str_undressed 		= "未装备"
+Const.str_sell				= "出售:"
+Const.str_need_lv			= "等级:"
+Const.str_need_zslv			= "转生等级:"
+Const.str_back				= "返回"
+Const.str_insert			= "镶嵌"
+
+----------副本----------
+Const.str_copy_exp			= "经验副本"
+Const.str_copy_mount		= "坐骑副本"
+Const.str_copy_wing			= "灵羽副本"
+Const.str_enter_copy		= "进入副本"
+Const.str_get_award			= "领取奖励"
+
+-----------------邮件---------------------
+Const.str_receive	= "领取"
+Const.str_delete	= "删除"
+
+----------------成就-------------------
+Const.str_achieve_JF = "成就积分:"
+Const.str_achieve_DQJF = "当前总成就积分:"
+
+Const.str_achieve_btnfirst	    = "初入江湖"
+Const.str_achieve_btnboss 	    = "消灭BOSS"
+Const.str_achieve_btnupgrade 	= "强化等级"
+Const.str_achieve_btnlevel 	    = "等级达到"
+Const.str_achieve_btnspirit 	= "元神等级"
+Const.str_achieve_btnlogin  	= "累计登陆"
+Const.str_achieve_btnrecycle 	= "累计回收"
+
+Const.str_achieve_firsthead				= "第一次%s"
+Const.str_achieve_firstclothingequip 	= "穿戴装备"
+Const.str_achieve_firstgroup		 	= "组队"
+Const.str_achieve_firstaddguild			= "创建/加入帮会"
+Const.str_achieve_firstaddfriend		= "加好友"
+Const.str_achieve_firstupgrade			= "强化"
+Const.str_achieve_firstrecycle			= "回收"
+
+Const.str_achieve_bosshead			= "消灭BOSS:%s"
+Const.str_achieve_bossADXEQC		= "【暗殿】邪恶钳虫"
+Const.str_achieve_bossADBZY			= "【暗殿】白猪妖"
+Const.str_achieve_bossADJXZZ		= "【暗殿】赤月双头魔"
+Const.str_achieve_bossADJPMMWS		= "【暗殿】极品猛犸卫士"
+Const.str_achieve_bossADSHSJ		= "【暗殿】深海守将"
+Const.str_achieve_bossADMHJS		= "【暗殿】蛮荒巨兽"
+Const.str_achieve_bossADHLYH		= "【暗殿】皇陵幽魂"
+Const.str_achieve_bossADXYLS		= "【暗殿】雪域灵兽"
+Const.str_achieve_bossWELS			= " 万恶龙神"
+Const.str_achieve_bossBZW			= " 白猪王"
+Const.str_achieve_bossMMJH			= " 猛犸教皇"
+Const.str_achieve_bossQNZW			= " 赤月大恶魔"
+Const.str_achieve_bossMHJZ			= " 蛮荒教主"
+Const.str_achieve_bossHLDJJ			= " 皇陵大将军"
+Const.str_achieve_bossHYNJ			= " 海妖娜迦"
+Const.str_achieve_bossXYSL 			= " 雪域神龙"
+
+Const.str_achieve_upgradehead 	= "将 %d 件装备强化至 +%d"
+
+Const.str_achieve_levelhead 	= "等级达到 %d 级"
+Const.str_achieve_levelzshead 	= "转生等级达到 %d 级"
+
+Const.str_achieve_spirithead 	= "元神等级达到 %d 级"
+
+Const.str_achieve_loginhead 	= "累计登陆 %d 天"
+
+Const.str_achieve_recyclehead 	= "回收获得 %s 经验"
+Const.str_upgrading_introduce	={
+	[1]="强化规则说明",
+	[2]="1、所有装备最高可强化12级,强化等级越高，属性越强",
+	[3]="2、强化装备需使用金币，金币不足不能使用强化功能",
+	[4]="3、装备强化失败属性不变并失去一次强化机会,使用钻石购买强化次数",
+	[5]="4、使用钻石可保证100%成功，推荐强化高等级装备使用此功能",
+}
+
+Const.str_push_to_start 	= "按住说话"
+Const.str_loosen_to_send	= "松开发送"
+Const.str_upglide_to_cancel	= "上滑取消"
+Const.chat_open_trade_level = 45
+Const.str_trade_limit		= "聊天交易功能"..Const.chat_open_trade_level.."级开放！"
+Const.chat_open_voice_level = 45
+Const.str_voice_limit		= "聊天语音功能"..Const.chat_open_voice_level.."级开放！"
+Const.chat_open_show_level = 50
+Const.str_show_limit		= "聊天展示功能"..Const.chat_open_show_level.."级开放！"
+Const.str_close_trade		= "您已关闭交易"
+Const.str_msg_too_long		= "消息太长，无法发送！"
+
+Const.str_soul_info = "请在右侧选择您要注灵的装备"
+Const.str_soul_reinfo = "请在右侧选择您要回收灵力的装备"
+Const.str_has_upgraded = "消耗装备中存在星级或灵力，合成之后将会消失。您确定继续吗？"
+Const.str_has_upgraded_recycle = "回收装备中存在星级或灵力，回收之后将会消失。您确定继续吗？"
+--------------转生--------------
+Const.str_exchange_cultivation = "兑换修为"
+Const.str_exchange_title = "玩法说明"
+Const.str_exchange_info1 = "1、等级达到80级时，可通过经验炼制获得转生经验，等级不足80时不可炼制转生经验。"
+Const.str_exchange_info2 = "2、通过转生丹可获得转生经验。"
+Const.str_exchange_info3 = "3、转生当阶经验值满足升级需求时，可进行转生升级。"
+Const.str_exchange_getmedal = "获得功勋"
+--------------回收界面--------------
+Const.str_onekey_add		= "一键添加"
+Const.str_onekey_recycle	= "一键回收"
+Const.str_canget_exp		= "可获经验:"
+Const.str_canget_money		= "可获金币:"
+Const.str_canget_bvcoin		= "可获元宝:"
+Const.str_canget_zsjy		= "可获转生经验:"
+--------------boss积分-------------------
+Const.str_hasjifen 	= "拥有积分:"
+Const.str_needjifen = "消耗积分:"
+Const.str_needLevel = "需要等级:"
+-------------寻宝-------------------
+Const.str_lottery_NumOfTimes	= {
+		{"寻宝1次",		"需200钻石",	},
+		{"寻宝5次",		"需1000钻石",	},
+		{"寻宝10次",	"需2000钻石",	},
+	}
+
+Const.str_huishouHint		= "为您自动清理包裹中药水，节省空间%d格"
+Const.str_huishouHint_none	= "包裹中不存在药水，请选择其他方式清理！"
+-------------主界面右中-------------
+Const.hardLvName = {"简单","普通","困难","高手","大师","噩梦","炼狱"}
+
+----------主界面右下角----------
+Const.str_price_transfer 	= "1钻石"
+Const.str_price_drug 		= "1钻石"
+
+----------新装备提示----------
+Const.str_better_equip = "有新装备可穿戴"
+Const.str_continue_wabao = "继续挖宝？"
+Const.str_soon_relive = "即将复活"
+Const.str_hour = "时"
+Const.str_minute = "分"
+Const.str_second = "秒"
+Const.str_relive = "后复活"
+Const.str_paste_to_chat = "粘贴至聊天"
+----------背包满时提示-------------
+Const.str_bag_full_text = {
+	"您背包满了，选择以下方式可快速清理",
+	"快速传送到装备回收使者",
+	"为您手动销毁药品类道具",
+	"点击您要销毁的装备直接销毁",
+}
+
+---------------限时操作---------
+Const.BagTidyIntrval = 5 --背包整理间隔
+Const.ChatTradeIntrval = 10 --聊天交易间隔
+
+----------通用提示（技能和强12装备）----------
+Const.str_click_get 	= "点击获得"
+Const.str_click_dress 	= "点击装备"
+----------批量使用面板----------
+Const.str_batch_use 	= "批量使用"
+----------传送相关----------
+Const.str_warm_prompt = "温馨提示"
+Const.str_transfer_now	= "立即传送"
+Const.str_transfer_tips1= "接下来的路途非常遥远，让我们直接传送到目的地吧！"
+Const.str_transfer_tips2= "免费飞行还有"
+Const.str_transfer_tips3= "成为VIP可无限传送"
+Const.str_transfer_tips4= "您是尊贵的VIP，可享受无限传送特权！"
+
+Const.str_total_recharge = "充值钻石数量达到指定数量时，即可获得充值豪礼！"
+----------称号----------
+Const.str_attr_title = "属 性"
+Const.str_get_title = "领 取"
+
+----------赠送装备---------
+Const.str_get_dress = "领取并穿戴"
+
+
+Const.min_mount_open_level = 65
+
+Const.familyName = {
+    [1] = {
+        "赵", "席", "滕", "米", "梅", "鲁", "孔", "蒋", "和", "樊", 
+        "柏", "郁", "程", "甄", "井", "车", "宁", "景", "印", "卓", 
+        "闻", "冉", "边", "柴", "向", "都", "欧", "晁", "曾", "查", 
+        "钟离", "禾", "南宫", "百里", "钱", "纪", "季", "殷", "卞", "贝", 
+        "盛", "韦", "曹", "房", "沈", "穆", "鲍", "胡", "单", "嵇", 
+        "段", "侯", "仇", "詹", "蔺", "莘", "宰", "扈", "瞿", "古", 
+        "耿", "司马", "公冶", "宇文", "章佳", "范姜", "费莫", "邗", "钟", "粟", 
+        "舒", "麻", "罗", "齐", "明", "林", "昌", "严", "裘", "韩", 
+        "萧", "史", "凌", "窦", "杭", "邢", "富", "党", "郦", "燕", 
+        "阎", "易", "满", "敖", "荆", "上官", "宗政", "长孙", "皇", "马", 
+        "杨", "尹", "唐", "霍", "章", "洪", "巫", "龙", "翟", "欧阳", 
+        "慕容", "周", "项", "贾", "郝", "伍", "计", "苗", "金", "朱", 
+        "姚", "费", "虞", "云", "裴", "芮", "乌", "全", "甘", "叶", 
+        "蒲", "池", "谭", "冷", "游", "夏侯", "司徒", "第五", "佘", "徐", 
+        "凤", "魏", "解", "秦", "邵", "廉", "万", "苏", "诸", "陆", 
+        "羿", "焦", "幸", "邰", "乔", "贡", "浦", "连", "廖", "国", 
+        "越", "诸葛", "司空", "闫", "端木", "瑞", "王", "梁", "常", "西门", 
+        "海", "晋", "子车", "泥", "郑", "董", "娄", "安", "元", "成", 
+        "邱", "陶", "应", "尤", "岑", "支", "潘", "左", "荣", "太史", 
+        "陈", "阮", "童", "于", "孟", "宋", "夏", "任", "谢", "宣", 
+        "吕", "毛", "贺", "管", "范", "吉", "呼延", "郭", "傅", "黄", 
+        "庞", "田", "柳", "喻", "邓", "张", "狄", "汤", "莫", "令狐", 
+        "岳", "东郭", "拓跋", "尉迟", "轩辕", "黑猫警长", "限量版", "土豪", "数百万个", "威猛", 
+        "刚烈", "玉面彡", "不要不要的", "不可一世的", "怜香惜玉的", "把持不住的", "温柔似水的", "热情似火的", "步步莲花的", "风流倜傥的", 
+        "像风一样的", "推倒", "英俊潇洒的", "老衲最爱的", "超越神的", "超越鬼的", "爱吃嫩苗的", "三秒钟的", "风一般的", "欲死欲仙的", 
+        "飘飘欲仙的", "德艺双馨的", "帅到掉渣的", "女王大人的", "要死要死的", "豪放不羁的", "冰肌玉骨的", "菊花痒痒的", "视死如归的", "如花似玉的", 
+        "我不是", "脑子进水的", "坐怀不乱的", "下面吃的", "宇宙黄帝", "空虚寂寞的", "红极一时的", "顺浆男下的", "霸气侧漏的", "老黄牛", 
+        "被蹂躏的", "师太最爱的", "风云的", "弑神的", "自暴自弃的", "开学恐惧症", "君临枪下的", "孤单的", "大叔的", "萝莉的", 
+        "御女无数的", "姿势丰富的", "一夜八次的", "倾泻的", "猥所欲为的", "暗黑版", "羞羞嗒", "萌萌哒", "爱后面的", "巨人般的", 
+        "喳喳叫的", "嗷嗷叫的", "无双的", "阅男无数的", "如花朵般的", "帅醒自己的", "独家的", "喜欢流水的", "传说中的", "雨意直下的", 
+        "善解人衣的", "衣衫不整的", "青灵的", "至尊傲天的", "煎煎的", "坚强", "黯然神伤的", "王者之气", "爱吃黄瓜的", "醉生梦死的", 
+        "爱敌敌畏的", "很天真的", "很暴力的", "溅气十足的", "会暖床的", "怕开水烫的", "发粪涂墙的", "按键伤人的", "洞房不败的", "笑熬糨糊的", 
+        "鸭梨山大的", "拎壶冲的", "丑拖网速的", "深入持久的", "老庄孙子的", "含人妖的", "喜欢吃药的", "喜欢卖肾的", "做贼心虚的", "爱发神经的", 
+        "有美人痣的", "卖血上网的", "以静制洞的", "硕大无比的", "去西天的", "五块一次的", "喜欢用力的", "对牛弹琴的", "替天行房的", "杏玉强的", 
+        "咽下去的", "静待佳阴的", "喜欢单刷的", "变炮灰的", "墨明棋妙的", "喜欢巡山的", "妹带凶兆的", "爱锤喇叭的", "爱扔肥皂的", "爱捡肥皂的", 
+        "曾经用过的", "吟湿作对的", "弹力丝薄的", "喜欢挣扎的", "寂寞难耐的", "爱用左手的", "爱摇床的", "喜欢裸奔的", "为人湿表的", "嬉皮笑脸的", 
+        "眉开眼笑的", "爱挠痒痒的", "爱打酱油的", "食不果腹的", "舌战群儒的", "气质非凡的", "乘云直上的", "愁眉苦脸的", "趾高气昂的", "蓬头垢面的", 
+        "坚持不泄的", "镇定自若的", "大吃一惊的", "大精失色的", "爽歪歪的", "令人发指的", "瘙痒不止的", "跪地求饶的", "巧舌如簧的", "肝肠寸断的", 
+        "喜欢造人的", "带你飞的", "胸有乘猪的", "喜欢梦游的", "爱意境的", "喜欢咆哮的", "愤怒的", "喜欢收藏的", "闻来闻去的", "爱暖被窝的", 
+        "饥不择食的", "啪啪啪的", "喜欢注水的", "水水的", "字太白的", "爱打针的", "爱注射的", "膝盖受伤的", "爱打屁屁的", "爱湿身的", 
+        "爱扯犊子的", "远古的", "上古的", "古老的", "华夏的", "殷商的", "西周的", "东周的", "西汉的", "东汉的", 
+        "三国的", "西晋的", "东晋的", "五代的", "十国的", "大隋的", "大唐的", "南宋的", "北宋的", "大元的", 
+        "大明的", "大清的", "北魏的", "西蜀的", "东吴的", "秦国的", "楚国的", "燕国的", "赵国的", "魏国的", 
+        "齐国的", "东夷", "西戎", "北狄", "北京的", "天津的", "重庆的", "上海的", "河北的", "山西的", 
+        "辽宁的", "吉林的", "黑龙江的", "江苏的", "浙江的", "安徽的", "福建的", "江西的", "山东的", "河南的", 
+        "湖北的", "湖南的", "广东的", "海南的", "四川的", "贵州的", "云南的", "陕西的", "甘肃的", "青海的", 
+        "台湾的", "内蒙古的", "西藏的", "广西的", "宁夏的", "新疆的", "香港的", "澳门的", "微笑的", "撇嘴的", 
+        "发呆的", "得意的", "流泪的", "害羞的", "闭嘴的", "睡着的", "大哭的", "尴尬的", "发怒的", "调皮的", 
+        "呲牙的", "惊讶的", "难过的", "耍酷的", "流汗的", "抓狂的", "呕吐的", "偷笑的", "可爱的", "白眼的", 
+        "傲慢的", "饥饿的", "犯困的", "惊恐的", "憨笑的", "奋斗的", "咒骂的", "疑问的", "嘘嘘的", "晕晕的", 
+        "折磨的", "衰衰的", "敲打的", "再见的", "擦汗的", "抠鼻的", "鼓掌的", "故障的", "球球的", "坏笑的", 
+        "哼哼的", "哈哈的", "哈欠的", "鄙视的", "委屈的", "阴险的", "可怜的", "磨菜刀的", "切西瓜的", "喝啤酒的", 
+        "打篮球的", "煮咖啡的", "吃饭的", "炒菜的", "凋谢的", "示爱的", "心碎的", "被炸的", "被雷劈的", "拔刀的", 
+        "踢足球的", "拥抱", "握手的", "胜利的", "抱拳的", "差劲的", "爱你的", "飞吻的", "跳跳的", "发抖的", 
+        "怄火的", "转圈的", "磕头的", "回头的", "跳绳的", "挥手的", "激动的", "跳舞的", "献吻的", "打太极的", 
+        "双喜的", "放鞭炮的", "发财的", "K歌的", "购物的", "喝彩的", "祈祷的", "爆筋的", "开车的", "多云的", 
+        "下雨的", "打伞的", "潜水的", "敬礼的", "石化的", "安慰的", "扮鬼脸的", "无语的", "叹气的", "加油的", 
+        "生病的", "拜托的", "孤寂的", "惬意的", "烦躁的", "牵手的", "百里才", "摆架子", "败家子", "半吊子", 
+        "绊脚石", "暴发户", "比翼鸟", "不倒翁", "出气筒", "出头鸟", "出洋相", "吹牛皮", "醋坛子", "催命鬼", 
+        "单相思", "胆小鬼", "挡箭牌", "地头蛇", "垫脚石", "顶梁柱", "定心丸", "东道主", "恶作剧", "儿皇帝", 
+        "二把刀", "二百五", "二杆子", "二流子", "放冷箭", "及时雨", "急先锋", "交际花", "佼佼者", "叫花子", 
+        "阶下囚", "金不换", "掘墓人", "拦路虎", "老掉牙", "老古板", "老古董", "老江湖", "老油条", "吝啬鬼", 
+        "落水狗", "马大哈", "马后炮", "马屁精", "马前卒", "冒牌货", "冒失鬼", "门外汉", "闷葫芦", "跑龙套", 
+        "跑江湖", "炮筒子", "霹雳手", "千里眼", "墙外汉", "翘辫子", "翘尾巴", "孺子牛", "软刀子", "软钉子", 
+        "软骨头", "丧门星", "丧气鬼", "扫帚星", "书呆子", "书生气", "耍花腔", "太上皇", "替罪羊", "替死鬼", 
+        "土包子", "土皇帝", "万金油", "万人敌", "忘年交", "乌鸦嘴", "吸血鬼", "小气鬼", "主心骨", "玉麒麟", 
+        "智多星", "入云龙", "大刀", "豹子头", "霹雳火", "双鞭", "小李广", "小旋风", "扑天雕", "美髯公", 
+        "花和尚", "行者", "双枪将", "没羽箭", "青面兽", "金枪手", "神行太保", "赤发鬼", "黑旋风", "九纹龙", 
+        "没遮拦", "混江龙", "立地太岁", "浪里白条", "活阎罗", "病关索", "拼命三郎", "两头蛇", "双尾蝎", "浪子", 
+        "神机军师", "镇三山", "百胜将", "天目将", "神火将", "圣手书生", "锦毛虎", "轰天雷", "神算子", "小温侯", 
+        "神医", "紫髯伯", "矮脚虎", "一丈青", "丧门神", "混世魔王", "毛头星", "烛火星", "八臂哪吒", "飞天大圣", 
+        "玉臂匠", "铁笛仙", "出洞蛟", "通臂猿", "跳涧虎", "白花蛇", "白面郎君", "九尾蛇", "铁扇子", "花项虎", 
+        "摸着天", "小霸王", "笑面虎", "金眼彪", "母夜叉", "天魁星", "天罡星", "天机星", "天闲星", "天勇星", 
+        "天雄星", "天猛星", "天威星", "天英星", "天贵星", "天富星", "天满星", "天孤星", "天伤星", "天立星", 
+        "天捷星", "天暗星", "致我未尽的", "被束缚的", "不再年少的", "变路人的", "如梦的", "遇到你", "无奢求的", "吻了狗的", 
+        "骑着猪的", "迷惘的", "乱七八糟的", "忧郁的", "快乐的", "孤独的", "狂野的", "帅气的", "温柔的", "娘炮的", 
+        "无极剑士", "命不该绝的", "桃花仙", "职业杀手", "平反大将", "小有所成的", "横扫千军的", "金蝉脱壳的", "百里挑一的", "金玉满堂的", 
+        "满腹经纶的", "国色天香的", "逍遥法外的", "窈窕淑女", "破釜沉舟的", "倾国倾城的", "福星高照的", "学富五车的", "英雄豪杰", "国士无双", 
+        "石破天惊的", "精忠报国的", "覆雨翻云的", "鹰击长空的", "厚德载物的", "亡羊补牢的", "出生入死的", "一路顺风", "随遇而安的", "叶公好龙的", 
+        "守株待兔的", "韬光养晦的", "画蛇添足的", "风花雪月的", "滥竽充数的", "没完没了的", "无懈可击的", "随波逐流的", "袖手旁观的", "买椟还珠的", 
+        "负荆请罪的", "纸上谈兵的", "大器晚成的", "以德服人的", "一丝不挂的", "四面楚歌的", "掩耳盗铃的", "凿壁偷光的", "色厉内荏的", "花容月貌的", 
+        "越俎代庖的", "美轮美奂的", "红颜知己", "纸醉金迷的", "狐假虎威的", "纵横捭阖的", "暴殄天物的", "吃喝玩乐的", "乐不思蜀的", "小家碧玉", 
+        "天马行空的", "大智若愚的", "九五至尊", "浪迹天涯的", "镜花水月", "黔驴技穷", "杞人忧天的", "作茧自缚的", "一飞冲天的", "口是心非的", 
+        "风华正茂的", "铁石心肠的", "头晕目眩的", "纵横天下的", "有问必答的", "出水芙蓉", "毛遂自荐的", "迷途知返的", "朝三暮四的", "飞蛾扑火的", 
+        "运筹帷幄的", "姗姗来迟的", "一鸣惊人的", "孜孜不倦的", "眉飞色舞的", "战无不胜的", "风华绝代的", "持之以恒的", "中流砥柱", "放荡不羁的", 
+        "坐井观天的", "金屋藏娇的", "摸金校尉", "天之骄子", "翩翩公子", "身手敏捷的", "风驰电掣的", "动如脱兔的", "举目眺望的", "大步流星的", 
+        "昂首挺胸的", "手舞足蹈的", "张牙舞爪的", "走马观花的", "欢呼雀跃的", "奔走相告的", "满载而归的", "跋山涉水的", "劈波斩浪的", "前赴后继的", 
+        "横行霸道的", "神出鬼没的", "披星戴月的", "日夜兼程的", "负隅顽抗的", "耀武扬威的", "营私舞弊的", "兴风作浪的", "扶老携幼的", "昂首阔步的", 
+        "健步如飞的", "扭头就跑的", "定睛一看的", "侧耳细听的", "目不转睛的", "听得入迷的", "挖空心思的", "连蹦带跳的", "凝神注视的", "道听途说的", 
+        "飞檐走壁的", "东奔西窜的", "怒目而视的", "大摇大摆的", "横冲直撞的", "左顾右盼的", "步履艰难的", "飞似得跑的", "东张西望的", "一瘸一拐的", 
+        "奔走如飞的", "挤眉弄眼的", "匍匐前进的", "上窜下跳的", "瞻前顾后的", "蹑手蹑脚的", "举目远望的", "步履轻盈的", "极目了望的", "走马看花的", 
+        "虎视眈眈的", "眼明手快的", "眼疾手快的", "电光石火的", "眼明手捷的", "雷厉风行的", "哭哭啼啼的", "流星赶月的", "星驰电走的", "放声痛哭的", 
+        "失声痛哭的", "痛哭流涕的", "声泪俱下的", "泣不成声的", "哭爹叫娘的", "捶胸顿足的", "号啕大哭的", "抱头痛哭的", "点头微笑的", "抿着嘴笑的", 
+        "淡然一笑的", "冥思苦想的", "步履矫健的", "拔腿就跑的", "大快朵颐的", "抓耳挠腮的", "面面相觑的", "口若悬河的", "对答如流的", "滔滔不绝的", 
+        "谈笑风生的", "高谈阔论的", "豪言壮语的", "夸夸其谈的", "花言巧语的", "忐忑不安的", "心惊肉跳的", "心神不定的", "心猿意马的", "心慌意乱的", 
+        "七上八下的", "心急如焚的", "发奋图强的", "废寝忘食的", "闻鸡起舞的", "全力以赴的", "力争上游的", "披荆斩棘的", "顶天立地的", "奋不顾身的", 
+        "舍己为人的", "坚强不屈的", "贪生怕死的", "厚颜无耻的", "惊慌失措的", "垂头丧气的", "没精打采的", "大惊失色的", "炯炯有神的", "怒发冲冠的", 
+        "一目十行的", "一日千里的", "百发百中的", "一步登天的", "促膝谈心的", "前俯后仰的", "专心致志的", "笨手笨脚的", "得意忘形的", "喜笑颜开的", 
+        "呆若木鸡的", "悬梁刺股的", "长吁短叹的", "翻山越岭的", "鬼鬼祟祟的", "支支吾吾的", "吞吞吐吐的", "偷偷摸摸的", "踉踉跄跄的", "窃窃私语的", 
+        "喋喋不休的", "跃跃欲试的", "抱头鼠窜的", "盲人摸象的", "调兵遣将的", "东倒西歪的", "暗送秋波的", "拳打脚踢的", "辗转反侧的", "瞠目结舌招牌的", 
+        "担忧的", "急切的", "惧怕的", "知趣的", "光顾的", "恐怕的", "充足的", "理由的", "屋檐的", "其实的", 
+        "支撑的", "鼓励的", "环绕的", "娱乐的", "感叹的", "周游的", "思考的", "品味的", "片段的", "忽略的", 
+        "意义的", "方式的", "倾盆大雨的", "毫不犹豫的", "贪婪的", "通顺的", "可靠的", "培养的", "起码的", "比喻的", 
+        "心扉的", "呐喊的", "饱览的", "过瘾的", "报偿的", "驳杂的", "馈赠的", "磁石的", "锻炼的", "借鉴的", 
+        "饥肠辘辘的", "滚瓜烂熟的", "流光溢彩的", "津津有味的", "天长日久的", "如醉如痴的", "浮想联翩的", "囫囵吞枣的", "不求甚解的", "悲欢离合的", 
+        "牵肠挂肚的", "如饥似渴的", "不言而喻的", "千篇一律的", "别出心裁的", "与众不同的", "大显身手的", "心安理得的", "念念不忘的", "呕心沥血的", 
+        "幽芳的", "飘泊的", "唯独的", "顿时的", "慈祥的", "稀罕的", "离别的", "大抵的", "精神的", "品格的", 
+        "灵魂的", "骨气的", "民族的", "气节的", "磨难的", "欺凌的", "境遇的", "毕竟的", "所谓的", "梳理的", 
+        "衰老的", "珍藏的", "手绢的", "华侨的", "能书善画的", "风欺雪压的", "地头折节的", "玷污的", "秉性的", "眷恋的", 
+        "姿态的", "迷人的", "至少的", "邻居的", "成熟的", "完整的", "尤其的", "提前的", "潺潺的", "婀娜的", 
+        "舞姿的", "粼粼的", "波纹的", "干涸的", "点缀的", "螃蟹的", "浮现的", "潮湿的", "流通的", "舒服的", 
+        "印象的", "凉飕飕的", "颇负盛名的", "香飘十里的", "守望相助的", "目前的", "上腭的", "哺乳的", "退化的", "垂直的", 
+        "经验的", "判断的", "胎生的", "特征的", "寿命的", "珍贵的", "急促的", "报警的", "盗窃的", "犯罪的", 
+        "嫌疑的", "金属的", "银行的", "图纸的", "即使的", "规定的", "窗帘的", "保持的", "噪音的", "废水的", 
+        "集中的", "处理的", "对付的", "研制的", "奇迹的", "博物馆的", "安然无恙的", "藕断丝连的", "乖巧的", "驯良的", 
+        "清秀的", "矫健的", "机警的", "躲藏的", "追逐的", "强烈的", "溪流的", "警觉的", "触动的", "锐利的", 
+        "错杂的", "苔藓的", "狭窄的", "勉强的", "遮蔽的", "然而的", "面临的", "颗粒的", "来源的", "分裂的", 
+        "飘浮的", "削弱的", "柔和的", "性能的", "依附的", "稳定的", "朝晖的", "单调的", "古今往来的", "庞然大物的", 
+        "气象万千的", "附近的", "捕捞的", "鱼饵的", "辉映的", "剧烈的", "上钩的", "操纵的", "摆脱的", "鱼鳃的", 
+        "争辩的", "皎洁的", "乞求的", "嘴唇的", "沮丧的", "旅途的", "诱惑的", "告诫的", "实践的", "严格的", 
+        "永久的", "启示的", "收获的", "吩咐的", "榨油的", "便宜的", "可贵的", "石榴的", "爱慕的", "分辨的", 
+        "体面的", "银光闪闪的", "小心翼翼的", "不容争辩的", "依依不舍的", "抉择的", "环抱的", "和蔼的", "梦想的", "素净的", 
+        "巧妙的", "闪现的", "订购的", "约定的", "告辞的", "挑拨的", "如期的", "开幕的", "激发的", "简易的", 
+        "异常的", "葱茏的", "隐约的", "繁茂的", "蓬松的", "伤害的", "索性的", "细腻的", "陪伴的", "眼睑的", 
+        "咂嘴的", "流泻的", "信赖的", "星罗棋布的", "大喜过望的", "心灵手巧的", "源源不断的", "络绎不绝的", "受用不尽的", "轻松自在的", 
+        "不动声色的", "地震的", "混乱的", "安顿的", "昔日的", "废墟的", "坚定的", "挖掘的", "绝望的", "爆炸的", 
+        "叹息的", "悲痛的", "颤抖的", "糟糕的", "确实的", "自豪的", "誊写的", "敬仰的", "奇妙的", "出版的", 
+        "戏剧的", "严厉的", "灵感的", "创作的", "源泉的", "警告的", "提醒的", "歧途的", "谨慎的", "把握的", 
+        "极端的", "断言的", "欢声笑语的", "破烂不堪的", "满怀信心的", "一如既往的", "疲惫的", "忙碌的", "腼腆的", "触摸的", 
+        "残忍的", "虚弱的", "指教的", "滚荡的", "后悔的", "艰涩的", "拖沓的", "磨练的", "埋怨的", "冷漠的", 
+        "失魂落魄的", "震耳欲聋的", "雪上加霜的", "来日方长的", "聊胜于无的", "估量的", "卫矢的", "殿堂的", "宏伟的", "侵入的", 
+        "销毁的", "瑰宝的", "灰烬的", "进犯的", "转移的", "掩护的", "任务的", "崎岖的", "尸体的", "坠落的", 
+        "雹子的", "仇恨的", "眺望的", "豪迈的", "举世闻明的", "众星拱月的", "玲珑剔透的", "亭台楼阁的", "诗情话意的", "天南海北的", 
+        "奇珍异宝的", "满腔怒火的", "斩钉截铁的", "停泊的", "港口的", "真挚的", "崇高的", "敬意的", "统治的", "准许的", 
+        "礼堂的", "浓厚的", "叩问的", "旗帜的", "旗杆的", "脊梁的", "刹那的", "硝烟的", "骨髓的", "伤痕的", 
+        "痛苦的", "礼炮的", "扎根的", "悬崖绝壁的", "远征的", "典礼的", "委员的", "协商的", "外宾的", "汇集的", 
+        "按照的", "预定的", "排列的", "波浪的", "爆发的", "诞生的", "庄严的", "宣告的", "欢呼的", "电钮的", 
+        "肃立的", "瞻仰的", "肃静的", "飘拂的", "选举的", "骑兵的", "高潮的", "次序的", "光明的", "共产党的", 
+        "万水千山的", "四面八方的", "排山倒海的", "磅礴的", "拟定的", "地域的", "殉职的", "奔赴的", "尊重的", "踌躇的", 
+        "黯然的", "操劳的", "严肃的", "石站的", "干扰的", "诚恳的", "簸箕的", "为难的", "保证的", "特殊的", 
+        "洞庭的", "江南的", "玩赏的", "无瑕的", "扩散的", "攀登的", "泰山的", "骆驼的", "屏障的", "油桐的", 
+        "拥挤的", "孔隙的", "仰卧的", "臀部的", "稍微的", "额角的", "擦伤的", "蜿蜒的", "依据的", "敬亭山的", 
+        "波澜壮阔的", "水平如镜的", "峰峦雄伟的", "红叶似火的", "拔地而起的", "奇峰罗列的", "形态万千的", "色彩明丽的", "危峰兀立的", "如雷贯耳的", 
+        "暴跳如雷的", "骄阳似火的", "一日三秋的", "弃暗投明的", "大同小异的", "天翻地覆的", "生离死别的", "阳奉阴违的", "评头论足的", "里应外合的", 
+        "承上启下的", "供不应求的", "南腔北调的", "绝无仅有的", "假公济私的", "颠倒转折的", "胡言乱语的", "丢盔弃甲的", "争名夺利的", "争分夺秒的", 
+        "风起云涌的", "如履薄冰的", "冷若冰霜的", "不毛之地的", "取长朴短的", "大材小用的", "化险为夷的", "有名无实的", "此起彼伏的", "远交近攻的", 
+        "删繁就简的", "承前启后的", "舍本求末的", "南辕北辙的", "谄上欺下的", "量人为出的", "避实就虚的", "仁人志士的", "呼风唤雨的", "虎背熊腰的", 
+        "假仁假义的", "挥金如土的", "如日中天的", "心如乱麻的", "门庭若市的", "不计其数的", "厚今薄古的", "凶多吉少的", "有各无患的", "吐故纳新的", 
+        "求同存异的", "彻头彻尾的", "虎头蛇尾的", "舍生忘死的", "挑肥拣瘦的", "起死回生的", "惩前毖后的", "避重就轻的", "龙腾虎跃的", "日新月异的", 
+        "引经据典的", "铁证如山的", "势如破竹的", "高手如林的", "思重如山的", "一字千金的", "胆大包天的", "苦尽甘来的", "小题大做的", "古为今用的", 
+        "有眼无珠的", "同甘共苦的", "声东击西的", "空前绝后的", "明争暗斗的", "舍近求远的", "柳暗花明的", "顾此失彼的", "街头巷尾的", "藏头露尾的", 
+        "胡思乱想的", "甜言蜜语的", "流言蜚语的", "想方设法的", "度日如年的", "稳如泰山的", "从善如流的", "一泻千里的", "寸步难行的", "上行下效的", 
+        "古往今来的", "寻死觅活的", "因小失大的", "克己奉公的", "明枪暗箭的", "举足轻重的", "厚此薄彼的", "能屈能伸的", "摇头摆尾的", "魂飞魄散的", 
+        "日久天长的", "长年累月的", "自轻自贱的", "穷凶极恶的", "骨瘦如柴的", "守口如瓶的", "观者如云的", "一触即发的", "九死一生的", "旧仇新恨的", 
+        "异口同声的", "优胜劣败的", "扶弱抑强的", "拨乱反正的", "明察暗访的", "前因后果的", "除旧更新的", "深入浅出的", "僧多粥少的", "狐群狗党的", 
+        "金枝玉叶的", "高瞻远瞩的", "崇山峻岭的", "爱财如命的", "栩栩如生的", "浩如烟海的", "千钧一发的", "三长两短的", "无中生有的", "出生人死的", 
+        "异曲同工的", "自生自灭的", "改邪归正的", "居安思危的", "知彼知己的", "将信将疑的", "畏首畏尾的", "推陈出新的", "颠倒是非的", "人山人海的", 
+        "自由自在的", "含辛茹苦的", "蠢蠢欲动的", "格格不入的", "无边无际的", "无影无踪的", "缩手缩脚的", "神采奕奕的", "肝胆相照的", "兢兢业业的", 
+        "永垂不朽的", "学而不厌的", "自强不息的", "孤芳自赏的", "自我陶醉的", "闭月羞花的", "雍容华贵的", "直言不讳的", "绘声绘色的", "虚情假意的", 
+        "喜从天降的", "推心置腹的", "拔刀相助的", "万紫千红的", "过时黄花的", "云雾迷蒙的", "烘云托月的", "大雨倾盆的", "风雨同舟的", "漫山遍野的", 
+        "水流湍急的", "杯水车薪的", "五彩缤纷的", "绿水青山的", "风毛麟角的", "独具匠心的", "接踵摩肩的", "花花世界的", "人欢马叫的", "琳琅满目的", 
+        "层出不穷的", "多多益善的", "五花八门的", "心旷神怡的", "欣欣向荣的", "历历可数的", "循循善诱的", "洋洋得意的", "不闻不问的", "不折不扣的", 
+        "碍手碍脚的", "大手大脚的", "誓死不二的", "豁达大度的", "学无止境的", "勤学好问的", "不骄不躁的", "班门弄斧的", "自鸣得意的", "美如冠玉的", 
+        "其貌不扬的", "和蔼可亲的", "瘦骨嶙峋的", "慢条斯理的", "自圆其说的", "闲言碎语的", "相视而笑的", "亲密无间的", "心心相印的", "遍地开花的", 
+        "奇花异草的", "行云流水的", "朝云暮雨的", "春风化雨的", "未雨绸缪的", "刀山火海的", "逼上粱山的", "滴水不漏的", "流水无情的", "青红皂白的", 
+        "不可多得的", "沧海一粟的", "微乎其微的", "独占鳌头的", "万籁俱寂的", "挥汗如雨的", "包罗万象的", "洋洋大观的", "绰绰有余的", "丰富多彩的", 
+        "拔苗助长的", "画饼充饥的", "画龙点睛的", "大快人心的", "大庭广众的", "众星捧月的", "月中折桂的", "一技之长的", "沙里淘金的", "难能可贵的", 
+        "阳春白雪的", "安居乐业的", "千言万语的", "文通字顺的", "百炼成钢的", "笔墨纸砚的", "学有专长的", "博览群书的", "九州方圆的", "规行矩步的", 
+        "胆小如鼠的", "力大如牛的", "生龙活虎的", "守株待免的", "打草惊蛇的", "悬崖勒马的", "顺手牵羊的", "杀鸡儆猴的", "白云苍狗的", "焦头烂额的", 
+        "另眼相看的", "嗤之以鼻的", "摇唇鼓舌的", "口蜜腹剑的", "指手画脚的", "花红柳绿的", "万人空巷的", "真才实学的", "虚怀若谷的", "妄自尊大的", 
+        "自知之明的", "老态龙钟的", "眉清目秀的", "大腹便便的", "娓娓动听的", "唠唠叨叨的", "大言不惭的", "如获至宝的", "故弄玄虚的", "情深似海的", 
+        "盛情款待的", "明日黄花的", "风云变幻的", "浮云蔽日的", "滂沱大雨的", "狂风暴雨的", "大好河山的", "湖光山色的", "血流成河的", "水滴石穿的", 
+        "灯红酒绿的", "面如土色的", "屈指可数的", "微不足道的", "纷至沓来的", "门可罗雀的", "目不暇接的", "应有尽有的", "多如牛毛的", "举不胜举的", 
+        "刻舟求剑的", "愚公移山的", "渑池之会的", "十面埋伏的", "事出有因的", "斤斤计较的", "比比皆是的", "奄奄一息的", "耿耿于怀的", "自作自受的", 
+        "毛手毛脚的", "一模一样的", "漫不经心的", "忠贞不渝的", "见利忘义的", "威武不屈的", "不学无术的", "百花争艳的", "洗耳恭听的", "恃才傲物的", 
+        "自高自大的", "心慈面善的", "鹤发童颜的", "弱不禁风的", "肆无忌惮的", "喜上眉梢的", "面黄肌瘦的", "志同道合的", "关怀备至的", "春花秋月的", 
+        "火树银花的", "孤云野鹤的", "彤云密布的", "风调雨顺的", "和风细雨的", "悬崖峭壁的", "还我河山的", "波涛汹涌的", "千山万水的", "姹紫嫣红的", 
+        "九牛一毛的", "铁树开花的", "一丝一毫的", "座无虚席的", "人声鼎沸的", "一应俱全的", "应接不暇的", "俯拾皆是的", "人浮于事的", "井井有条的", 
+        "历历在目的", "振振有词的", "摇摇欲坠的", "自言自语的", "不知不觉的", "不屈不挠的", "两袖清风的", "枪林弹雨的", "不甘示弱的", "戒骄戒躁的", 
+        "目中无人的", "唯我独尊的", "明眸皓齿的", "落落大方的", "真心诚意的", "兴高采烈的", "锦上添花的", "壮志凌云的", "风卷残云的", "满城风雨的", 
+        "斜风细雨的", "山穷水尽的", "锦绣河山的", "水乳交融的", "洪水猛兽的", "五光十色的", "翠色欲流的", "前所未闻的", "独树一帜的", "举袖为云的", 
+        "无穷无尽的", "无所不包的", "不乏其人的", "三顾茅庐的", "卧薪尝胆的", "形势逼人的", "人人皆知的", "如痴如醉的", "不三不四的", "赤胆忠心的", 
+        "一尘不染的", "恬不知耻的", "笨鸟先飞的", "只争朝夕的", "功成不居的", "目空一切的", "忘乎所以的", "绰约多姿的", "容光焕发的", "威风凛凛的", 
+        "拐弯抹角的", "含糊其辞的", "旁敲侧击的", "笑容可掬的", "情同手足的", "海誓山盟的", "鸟语花香的", "化枝招展的", "腾云驾雾的", "烟消云散的", 
+        "风雨交加的", "风雨无阻的", "高山深涧的", "江山如画的", "高山流水的", "一碧千里的", "光彩夺目的", "宁缺毋滥的", "千古绝唱的", "一鳞半爪的", 
+        "川流不息的", "鸦雀无声的", "眼花缭乱的", "无奇不有的", "足智多谋的", "精卫填海的", "程门立雪的", "指鹿为马的", "蒸蒸日上的", "人人自危的", 
+        "步步为营的", "默默无闻的", "无忧无虑的", "半信半疑的", "全心全意的", "卖国求荣的", "好学不倦的", "发愤图强的", "谨言慎行的", "居功自傲的", 
+        "自命不凡的", "心神不安的", "沉鱼落雁的", "冰清玉洁的", "文质彬彬的", "无所顾忌的", "侃侃而谈的", "捧腹大笑的", "荣辱与共的", "春暖花开的", 
+        "花团锦簇的", "九霄云外的", "过眼烟云的", "血雨腥风的", "风雨飘摇的", "山明水秀的", "地动山摇的", "翻腾怒吼的", "五颜六色的", "古色古香的", 
+        "寥寥无几的", "三三两两的", "寥若晨星的", "车水马龙的", "水泄不通的", "接踵而至的", "美不胜收的", "多才多艺的", "形形色色的", "面地为牢的", 
+        "完璧归赵的", "南柯一梦的", "怡然自得的", 
+    },
+    [2] = {
+        "至湿方休", "菊花开瓶盖", "天王盖地虎", "宝塔镇河妖", "农妇三拳", "小唧炖蘑菇", "风吹裤档爽", "妇女之友", "全民呕像", "后面不可以", 
+        "我喂自己袋盐", "梅川内酷", "梅川裤子", "推倒女王殿下", "拨推飞机", "几百万基佬", "几百万腐女", "一试深浅", "放开那坨翔", "放开那大叔", 
+        "英雄本射", "景阳岗上挨过打", "如花", "屁股爱出汗", "在你心里我迷路", "剑过寂无声", "你的床我来过", "床前明月光", "跳楼大甩卖", "挥泪大甩卖", 
+        "吐血大甩卖", "农妇山泉有点田", "随便起来不是人", "暗恋伤心", "热恋伤身", "倚地屠猪记", "天猪地灭", "爬上墙头等红杏", "只叫人脱去衣裤", "臭死诸葛亮", 
+        "煮成稀饭", "鸽只是个传说", "一心只看肥皂剧", "小三不可斗量", "怪很强你先上", "掩护你去送死", "拉链夹到鸟", "掀起你的裤头来", "看看你的鸟", "朕射你无罪", 
+        "一招不秒就跑", "内裤一直用雕牌", "一次硬半年", "吟的一手好湿", "罗密欧和猪过夜", "女蜗补锅", "加勒比海带", "动力火锅", "亚里士缺德", "哈里波特大", 
+        "卖女孩的小火柴", "煮人为快乐之本", "六卖神剑", "爱在戏院前", "红烧的鱼", "成吉思春", "太平间公主", "臭水沟公主", "扛着大刀找织女", "兽兽的", 
+        "狼牙山我装死", "刀郎没我冲动", "拔刀自刎", "唐伯虎点蚊香", "PK发型不乱", "观音大湿", "传说中的巨炮", "风吹裤裆爽", "精神病院VIP", "弹你小丁丁", 
+        "活在裆下", "蛋蛋菊花香", "胸巨得以聚人心", "百年树袋熊", "鱼和胸罩兼得", "你应该在车底", "内练一口气", "外练一口屁", "只羡鸳鸯不献血", "穷孩子早出家", 
+        "中暑山庄", "车到山前是死路", "塞翁失身", "神经大虾", "清明上坟图", "圆月豌豆", "有钱的捧个钱场", "没钱的火葬场", "82年的矿泉水", "春天花开会", 
+        "九十九瓶煤气罐", "星矢冰河入梦来", "怕瓦落地", "挖的一手好坟", "嫂子请放手", "锄禾当午", "哥哥给你打针", "此乃大胸之罩", "妹特思棒威", "迎面而来的板砖", 
+        "会飞的钢镚", "养什么死什么", "能活几天算几天", "胸前一对双胞胎", "打不赢吐口水", "转角遇到猪", "狂奔的蜗牛", "高粱地里犯了错", "一拳撩倒丈母娘", "一抬一抬一抬抬", 
+        "凸比楠啵丸", "先生请用劲", "馒头压扁就是饼", "松下酷袋子", "长弓射天娇", "峰高为我主", "月当月快乐", "为伊射的人憔悴", "宽衣解带终不悔", "用纸不过三尺", 
+        "客官不可以", "齐德龙东强", "用烈火点烟", "念着倒才瓜傻", "高粱地里吃了亏", "高粱地里赚了钱", "苍天有井何时空", "松柏满岛独爱枫", "初吻给了杯酒", "九阴白股抓", 
+        "雨打内裤飘", "直捣水帘洞", "勇攀一指峰", "裤兜里有香肠", "燃烧的烤鸭", "开着拖拉机狂奔", "勿湿于人", "七剑下面条", "那夜床单红了", "哪个木乃是我姨", 
+        "你看不到我", "昨晚你真坏", "今夜很寂寞", "放开那小鸟", "轻抚菊花笑不语", "分手为何锅带走", "乱试佳人", "抱着嫦娥烤玉兔", "犹抱菊花半遮面", "训练用充气娃娃", 
+        "老衲法号智障", "东风不倒我先倒", "挑个软的捏", "刚出炉的新手", "第一次献给左手", "八戒你兽了", "坐死观音谁坐莲", "累死老汉谁推车", "强撸灰飞烟灭", "财大器粗", 
+        "少年包青蛙", "娶个太阳暖被窝", "孟婆不卖汤", "亲了就跑", "叛你无妻徒刑", "事了拂衣去", 
+    }
+}
+
+Const.firstName = {
+    [1] = {
+        "晓山", "向山", "绮山", "雁山", "夜山", "忆山", "雅山", "夏山", "丹山", "紫山", "恨山", "思山", "觅山", "以山", "沛山", "盼山", "若山", 
+        "涵山", "怀山", "醉山", "梦山", "之山", "语山", "慕山", "谷山", "白山", "千山", "映之", "梦之", "飞之", "如之", "新之", "妙之", "凡之", 
+        "念之", "海之", "夏之", "冷之", "傲之", "谷之", "忆之", "初之", "小之", "乐之", "含之", "恨之", "冰之", "靖之", "从南", "丹南", "紫南", 
+        "若南", "听南", "谷南", "初南", "忆南", "向南", "书南", "幼南", "如南", "傲南", "以南", "雨南", "笑南", "绮南", "寄南", "寻南", "怜南", 
+        "迎南", "夜南", "采南", "涵易", "醉易", "书易", "梦易", "映易", "白易", "友易", "青易", "曼易", "千易", "冬易", "又易", "靖易", "盼易", 
+        "雁易", "紫易", "傲易", "思枫", "乐枫", "幻枫", "听枫", "采枫", "忆枫", "芷枫", "元枫", "静枫", "幼枫", "若枫", "青枫", "冰枫", "访枫", 
+        "雪枫", "问枫", "白枫", "灵枫", "雁枫", "谷枫", "春枫", "夜云", "以云", "寒云", "含云", "念云", "亦云", "从云", "恨云", "诗云", "访云", 
+        "尔云", "之云", "孤云", "海云", "冬云", "寻云", "代云", "谷云", "傲云", "紫云", "以寒", "映寒", "听寒", "凌寒", "念寒", "紫寒", "青寒", 
+        "雨寒", "从寒", "曼寒", "恨寒", "秋寒", "亦寒", "灵寒", "忆寒", "夏寒", "安寒", "梦寒", "笑寒", "冬寒", "丹寒", "问寒", "怀寒", "白曼", 
+        "沛白", "书白", "采白", "尔白", "安白", "听白", "凡白", "幼白", "海白", "山白", "宛白", "秋白", "白柏", "傲白", "碧白", "笑白", "白卉", 
+        "白凡", "白容", "白风", "白翠", "依白", "夜白", "白竹", "白秋", "白亦", "白玉", "白晴", "南烟", "含烟", "飞烟", "念烟", "依烟", "秋烟", 
+        "绮烟", "寒烟", "依风", "访风", "尔风", "寄风", "问风", "雁风", "飞风", "觅风", "语风", "初风", "元风", "沛风", "孤风", "巧风", "忆风", 
+        "翠风", "千风", "映风", "南风", "如风", "恨风", "海风", "书文", "紫文", "寄文", "雨文", "从文", "沛文", "平文", "念文", "访文", "青文", 
+        "忆文", "采文", "凌文", "寻文", "曼文", "芷文", "易文", "惜文", "春文", "新波", "如波", "醉波", "香波", "灵波", "幻波", "凡波", "依波", 
+        "从波", "寄波", "迎波", "采波", "映波", "谷波", "觅波", "芷波", "访波", "念波", "绮波", "凌波", "盼波", "凌春", "凌旋", "凌青", "凌柏", 
+        "凌珍", "凌晴", "凌翠", "凌丝", "凌双", "凝阳", "雅阳", "孤阳", "从阳", "初阳", "翠阳", "尔阳", "以阳", "安阳", "飞阳", "采阳", "凡阳", 
+        "怜阳", "涵阳", "灵阳", "笑阳", "书阳", "代秋", "灵秋", "映秋", "依秋", "宛秋", "海秋", "盼秋", "千秋", "谷秋", "向秋", "忆秋", "丹秋", 
+        "海露", "觅海", "凝海", "绿海", "海雪", "沛海", "海安", "海蓝", "春海", "惜海", "冷海", "海冬", "痴海", "海亦", "盼海", "迎海", "海菡", 
+        "冰海", "语海", "海凡", "妙海", "宛海", "含海", "又亦", "亦巧", "天亦", "青亦", "亦丝", "冬亦", "亦竹", "采亦", "代亦", "丹亦", "亦梅", 
+        "秋亦", "亦旋", "宛亦", "怀亦", "千亦", "以亦", "亦绿", "晓亦", "亦凝", "冷亦", "碧凡", "南松", "雅松", "以松", "又松", "绿松", "寒松", 
+        "平松", "乐松", "如松", "傲松", "迎松", "妙松", "向松", "觅松", "孤松", "冷松", "灵松", "思松", "梦松", "恨松", "飞松", "寄松", "恨真", 
+        "向真", "尔真", "代真", "雨真", "思真", "映真", "天真", "安真", "迎真", "寄真", "念真", "易真", "寻真", "访真", "笑真", "绿真", "紫真", 
+        "冰真", "平蓝", "代蓝", "又蓝", "紫蓝", "醉蓝", "晓蓝", "芷蓝", "冰蓝", "尔蓝", "初蓝", "笑蓝", "以蓝", "天蓝", "寄蓝", "谷蓝", "忆蓝", 
+        "沛蓝", "采蓝", "问旋", "青旋", "灵槐", "灵雁", "寄灵", "若灵", "雨灵", "之灵", "幻灵", "秋灵", "寒灵", "灵冬", "平灵", "碧灵", "元灵", 
+        "慕灵", "山灵", "沛灵", "安筠", "以冬", "醉冬", "曼冬", "春冬", "寻冬", "谷冬", "冬卉", "飞柏", "静柏", "梦柏", "念柏", "涵柏", "青柏", 
+        "幻柏", "妙柏", "傲柏", "如柏", "靖柏", "绿柏", "痴柏", "秋柏", "春柏", "翠柏", "幼柏", "香柏", "山柏", "元柏", "雨柏", "作人", "自珍", 
+        "自强", "子濯", "子真", "子瑜", "子轩", "子实", "子石", "子琪", "子默", "子墨", "子晋", "子昂", "子安", "卓君", "中震", "智志", "智渊", 
+        "智宇", "智勇", "智鑫", "智杰", "智刚", "志专", "志泽", "志用", "志勇", "志义", "志业", "志学", "志文", "志尚", "志国", "志诚", "职君", 
+        "正谊", "正业", "正阳", "正信", "正卿", "正青", "正奇", "正诚", "震轩", "振荣", "振强", "振平", "振华", "振海", "振国", "振翱", "哲彦", 
+        "哲圣", "哲瀚", "长运", "长旭", "长兴", "长星", "泽语", "泽雨", "泽洋", "泽民", "蕴藉", "运珧", "运盛", "运晟", "运升", "运良", "运莱", 
+        "运凯", "运华", "运鸿", "运恒", "运浩", "运锋", "耘志", "耘涛", "耘豪", "越泽", "越彬", "苑杰", "苑博", "远骞", "远航", "元洲", "元勋", 
+        "元武", "元纬", "元思", "元青", "元亮", "元良", "元魁", "元凯", "元驹", "元甲", "元嘉", "元化", "煜祺", "玉韵", "玉轩", "玉石", "玉山", 
+        "玉泉", "玉成", "玉宸", "雨泽", "雨星", "雨信", "雨华", "宇荫", "宇寰", "宇达", "勇毅", "勇锐", "勇男", "勇军", "咏思", "咏德", "永长", 
+        "永元", "永怡", "永言", "永望", "永寿", "永宁", "永年", "永嘉", "永丰", "永昌", "永安", "英纵", "英资", "英卓", "英喆", "英哲", "英逸", 
+        "英奕", "英耀", "英彦", "英勋", "英韶", "英睿", "英锐", "英杰", "英光", "英发", "英达", "英博", "英飙", "胤运", "胤骞", "熠彤", "毅然", 
+        "毅君", "意智", "意致", "意蕴", "逸春", "宜修", "宜人", "宜然", "宜民", "烨煜", "烨熠", "烨烨", "烨然", "烨磊", "烨赫", "曜瑞", "曜坤", 
+        "曜栋", "阳州", "阳泽", "阳云", "阳羽", "阳曜", "阳焱", "阳炎", "阳旭", "阳曦", "阳文", "阳舒", "阳平", "阳嘉", "阳辉", "阳华", "阳德", 
+        "阳伯", "阳冰", "阳飇", "彦君", "彦昌", "雅志", "雅懿", "雅惠", "雅达", "雅昶", "雪松", "雪风", "学义", "学民", "学林", "学海", "学博", 
+        "宣朗", "轩昂", "旭尧", "旭炎", "旭鹏", "旭东", "旭彬", "修雅", "修贤", "修伟", "修能", "修明", "修筠", "修杰", "修德", "修诚", "兴业", 
+        "兴言", "兴修", "兴贤", "兴文", "兴为", "兴旺", "兴腾", "兴生", "兴庆", "兴平", "兴发", "兴德", "兴朝", "兴昌", "兴安", "星洲", "星泽", 
+        "星雨", "星宇", "星阑", "星津", "星火", "星华", "星汉", "星海", "星驰", "星辰", "信瑞", "新知", "新曦", "新觉", "欣悦", "欣怿", "欣荣", 
+        "心思", "项禹", "项明", "向阳", "向荣", "向笛", "向晨", "翔宇", "曦之", "曦哲", "文耀", "文曜", "文山", "文瑞", "文敏", "文乐", "文康", 
+        "文景", "文华", "文虹", "文光", "文栋", "文成", "文昌", "文斌", "文彬", "文昂", "温瑜", "温文", "温韦", "温茂", "伟兆", "伟泽", "伟彦", 
+        "伟祺", "伟懋", "伟茂", "伟才", "伟博", "巍奕", "巍然", "巍昂", "同济", "同和", "同方", "天纵", "天元", "天宇", "天佑", "天逸", "天瑞", 
+        "天路", "天禄", "天空", "天和", "天干", "天赋", "天成", "天材", "腾逸", "腾骏", "腾骞", "泰平", "泰宁", "泰华", "泰河", "泰初", "斯年", 
+        "斯伯", "思远", "思博", "圣杰", "绍元", "绍祺", "绍钧", "绍辉", "绍晖", "睿思", "睿明", "睿好", "睿广", "睿范", "睿达", "睿诚", "睿博", 
+        "锐智", "锐志", "锐阵", "锐泽", "锐藻", "锐利", "锐立", "锐精", "锐进", "锐达", "荣轩", "庆生", "起运", "祺祥", "祺瑞", "祺然", "祺福", 
+        "琪睿", "奇致", "奇志", "奇正", "奇逸", "奇文", "奇玮", "奇伟", "奇思", "奇胜", "奇略", "溥心", "浦泽", "浦和", "濮存", "璞玉", "澎湃", 
+        "鹏云", "鹏翼", "鹏天", "鹏涛", "鹏鹍", "鹏鲸", "鹏海", "鹏赋", "鹏飞", "鹏池", "彭祖", "彭泽", "彭勃", "彭薄", "朋义", "朋兴", "铭晨", 
+        "明智", "明志", "明知", "明喆", "明哲", "明煦", "明旭", "明亮", "明朗", "明俊", "明辉", "明达", "明诚", "敏学", "敏叡", "敏才", "孟君", 
+        "茂彦", "茂学", "茂实", "茂典", "茂德", "茂材", "茂才", "令飒", "令秋", "令锋", "良骏", "良俊", "良吉", "良畴", "良材", "良弼", "立人", 
+        "立果", "立诚", "力言", "力勤", "力强", "力行", "力夫", "理群", "理全", "礼骞", "黎昕", "黎明", "乐正", "乐章", "乐悦", "乐语", "乐游", 
+        "乐意", "乐逸", "乐欣", "乐心", "乐童", "乐天", "乐水", "乐山", "乐容", "乐人", "乐康", "乐家", "乐和", "乐池", "乐成", "乐邦", "昆宇", 
+        "昆谊", "昆雄", "昆纬", "昆锐", "昆琦", "昆鹏", "昆明", "昆纶", "昆颉", "昆峰", "康震", "康泰", "康顺", "康适", "康胜", "康平", "康宁", 
+        "康乐", "康复", "康德", "康成", "康伯", "康安", "恺乐", "凯乐", "凯康", "凯凯", "凯捷", "凯歌", "凯定", "开宇", "开朗", "开霁", "开济", 
+        "开诚", "开畅", "骏喆", "骏哲", "骏逸", "骏奇", "骏年", "骏俊", "骏桀", "峻熙", "俊智", "俊哲", "俊远", "俊语", "俊友", "俊英", "俊逸", 
+        "俊彦", "俊贤", "俊侠", "俊晤", "俊悟", "俊爽", "俊人", "俊明", "俊民", "俊美", "俊茂", "俊迈", "俊良", "俊郎", "俊杰", "俊晖", "俊豪", 
+        "俊风", "俊德", "俊达", "俊楚", "俊材", "俊才", "俊拔", "君之", "君浩", "君昊", "君豪", "君博", "靖琪", "景中", "景逸", "景天", "景铄", 
+        "景山", "景明", "景辉", "景焕", "景澄", "经义", "经纶", "经国", "经亘", "经赋", "晋鹏", "锦程", "金鹏", "健柏", "建章", "建元", "建业", 
+        "建修", "建同", "建树", "建木", "建德", "建弼", "建柏", "建白", "骞仕", "骞魁", "骞北", "坚诚", "坚白", "嘉志", "嘉珍", "嘉悦", "嘉誉", 
+        "嘉玉", "嘉谊", "嘉言", "嘉勋", "嘉歆", "嘉祥", "嘉禧", "嘉澍", "嘉树", "嘉实", "嘉石", "嘉瑞", "嘉容", "嘉荣", "嘉庆", "嘉平", "嘉慕", 
+        "嘉木", "嘉茂", "嘉良", "嘉德", "嘉赐", "家骏", "稷骞", "季同", "季萌", "吉星", "华容", "华荣", "华辉", "华晖", "华翰", "华彩", "华奥", 
+        "鸿卓", "鸿志", "鸿振", "鸿祯", "鸿哲", "鸿运", "鸿云", "鸿远", "鸿羽", "鸿雪", "鸿煊", "鸿信", "鸿禧", "鸿羲", "鸿文", "鸿朗", "鸿骞", 
+        "鸿晖", "鸿光", "鸿风", "鸿飞", "鸿达", "鸿畴", "鸿畅", "鸿彩", "鸿博", "鸿波", "鸿宝", "宏远", "宏逸", "宏义", "宏伟", "宏硕", "宏爽", 
+        "宏胜", "宏深", "宏儒", "宏朗", "宏阔", "宏旷", "宏恺", "宏浚", "宏放", "宏畅", "宏才", "弘毅", "弘益", "弘义", "弘业", "弘扬", "弘文", 
+        "弘伟", "弘盛", "弘深", "弘量", "弘亮", "弘阔", "弘济", "弘和", "弘光", "弘大", "弘博", "鹤轩", "鹤骞", "和正", "和泽", "和悦", "和豫", 
+        "和裕", "和玉", "和宜", "和怡", "和通", "和泰", "和颂", "和硕", "和洽", "和平", "和光", "和风", "和畅", "和昶", "和璧", "和安", "和蔼", 
+        "皓轩", "浩言", "浩皛", "浩思", "浩壤", "浩穰", "浩然", "浩气", "浩邈", "浩渺", "浩淼", "浩阔", "浩旷", "浩慨", "浩瀚", "浩广", "浩荡", 
+        "浩宕", "浩大", "浩初", "浩博", "浩波", "昊英", "昊伟", "昊天", "昊硕", "昊然", "昊穹", "昊乾", "昊磊", "昊空", "昊嘉", "昊东", "昊苍", 
+        "瀚玥", "瀚文", "瀚漠", "瀚海", "翰藻", "翰学", "翰林", "翰翮", "翰飞", "翰采", "涵映", "涵意", "涵衍", "涵蓄", "涵润", "涵亮", "涵畅", 
+        "晗昱", "晗日", "海阳", "海超", "海昌", "国源", "国兴", "广君", "光远", "光誉", "光耀", "光熙", "光启", "光临", "光亮", "光济", "光华", 
+        "光赫", "冠宇", "高卓", "高韵", "高远", "高懿", "高逸", "高谊", "高义", "高扬", "高雅", "高轩", "高爽", "高旻", "高峻", "高杰", "高翰", 
+        "高寒", "高峰", "高芬", "高飞", "高澹", "高达", "高超", "高畅", "高昂", "刚毅", "刚捷", "飞舟", "飞雨", "飞宇", "飞翼", "飞扬", "飞星", 
+        "飞翔", "飞文", "飞鸾", "飞龙", "飞捷", "飞虎", "飞鸿", "飞翮", "飞翰", "飞光", "飞驰", "飞沉", "飞掣", "德泽", "德运", "德宇", "德业", 
+        "德曜", "德馨", "德水", "德惠", "德辉", "德昌", "驰逸", "驰轩", "驰鸿", "驰翰", "承志", "承泽", "承载", "承允", "承宣", "承天", "承嗣", 
+        "承福", "承德", "承弼", "承安", "成荫", "成业", "成文", "成天", "成仁", "成龙", "成济", "成化", "晨涛", "晨朗", "辰钊", "辰宇", "辰阳", 
+        "辰龙", "辰骏", "辰皓", "昌盛", "昌淼", "昌茂", "昌黎", "昌翰", "曾琪", "才哲", "才良", "才俊", "才捷", "博耘", "博远", "博艺", "博学", 
+        "博文", "博涛", "博实", "博涉", "博赡", "博明", "博简", "博厚", "博达", "博超", "波峻", "波光", "炳君", "滨海", "斌蔚", "斌斌", "彬炳", 
+        "宾实", "宾白", "昂熙", "安志", "安易", "安宜", "安晏", "安顺", "安宁", "安民", "安澜", "安和", "安国", "安歌", "安福", "祖彭", "纵天", 
+        "资英", "濯子", "卓英", "卓鸿", "卓高", "壮弘", "竹修", "珠明", "周成", "舟飞", "智意", "智锐", "智明", "智俊", "致意", "致奇", "致嘉", 
+        "致弘", "志正", "志雅", "志伟", "志锐", "志明", "志嘉", "志鸿", "志和", "志承", "志安", "知新", "知明", "之君", "正元", "正乐", "正和", 
+        "震康", "振鸿", "阵锐", "祯嘉", "祯鸿", "真子", "真正", "珍嘉", "贞永", "喆英", "喆明", "哲曦", "哲明", "哲骏", "哲俊", "哲鸿", "哲才", 
+        "兆伟", "钊辰", "长永", "章飞", "湛乐", "泽志", "泽阳", "泽星", "泽伟", "泽天", "泽锐", "泽浦", "泽彭", "泽凯", "泽骞", "泽嘉", "泽德", 
+        "蕴意", "韵玉", "韵和", "运佑", "运胤", "运维", "运起", "运鹏", "运嘉", "运德", "运承", "云鸿", "玥瀚", "远意", "远修", "远心", "远鸿", 
+        "远宏", "远光", "远高", "远博", "源思", "元永", "元天", "元绍", "元建", "元德", "渊智", "渊星", "渊瑞", "豫和", "誉俊", "誉嘉", "煜烨", 
+        "裕博", "昱晗", "郁彬", "玉璞", "玉和", "玉冠", "语泽", "语俊", "语飞", "羽令", "羽鸿", "羽丰", "宇振", "宇泽", "宇玉", "宇翔", "宇天", 
+        "宇开", "宇昊", "宇飞", "宇辰", "瑜温", "佑嘉", "佑德", "勇志", "咏乐", "永修", "庸德", "映涵", "颖嘉", "英俊", "英昊", "荫宇", "荫成", 
+        "懿雅", "懿嘉", "懿高", "翼鹏", "翼飞", "熠烨", "毅勇", "毅英", "毅伟", "毅宏", "毅弘", "毅刚", "意锐", "意乐", "意涵", "逸长", "逸英", 
+        "逸雅", "逸天", "逸腾", "逸锐", "逸奇", "逸俊", "逸景", "逸海", "逸高", "逸驰", "谊正", "谊昆", "谊高", "益弘", "益成", "奕英", "怿欣", 
+        "易安", "艺经", "艺才", "艺博", "义志", "义朋", "义经", "义宏", "义弘", "义高", "宜和", "宜安", "怡自", "晔伟", "业志", "业正", "业经", 
+        "业建", "业弘", "业承", "耀英", "耀文", "耀光", "曜阳", "曜文", "曜德", "尧旭", "尧骞", "阳正", "阳向", "阳海", "扬宏", "扬弘", "扬高", 
+        "扬飞", "焱阳", "焱昊", "晏安", "彦英", "彦茂", "彦俊", "衍涵", "颜承", "炎旭", "言永", "言力", "延博", "雅修", "雅俊", "雅高", "勋元", 
+        "勋茂", "雪令", "雪鸿", "学志", "学兴", "学敏", "旋凯", "煊鹏", "煊鸿", "宣文", "宣承", "轩震", "轩玉", "轩文", "轩荣", "轩明", "轩鸿", 
+        "轩鹤", "轩晨", "煦阳", "煦明", "煦和", "煦涵", "旭阳", "旭明", "许嘉", "修宜", "修建", "雄昆", "雄俊", "雄昂", "兴长", "兴朋", "兴国", 
+        "兴高", "星文", "星吉", "星飞", "信正", "信骞", "信鸿", "鑫智", "歆嘉", "新志", "新永", "新弘", "心溥", "翔飞", "祥祺", "祥骏", "贤修", 
+        "贤兴", "贤乐", "侠俊", "禧嘉", "禧鸿", "曦曜", "曦新", "羲鸿", "熙峻", "熙嘉", "熙鸿", "熙光", "熙昂", "希奇", "悟俊", "武元", "武英", 
+        "武经", "文志", "文正", "文宇", "文学", "文修", "文兴", "文星", "文温", "文鸿", "文弘", "文瀚", "文博", "蔚斌", "玮奇", "纬元", "纬星", 
+        "纬昆", "纬经", "伟智", "伟烨", "伟修", "伟奇", "伟骏", "伟宏", "伟弘", "伟昊", "为修", "为兴", "韦温", "望承", "图弘", "彤熠", "同景", 
+        "通和", "天云", "天景", "天昊", "天承", "悌和", "腾兴", "腾星", "涛耘", "涛鹏", "涛晨", "涛博", "堂玉", "泰康", "泰和", "邃奇", "颂和", 
+        "松雪", "嗣承", "思元", "思永", "思兴", "思心", "思睿", "思浩", "硕宏", "硕和", "硕昊", "朔阳", "铄景", "烁烨", "顺康", "水心", "水奇", 
+        "爽宏", "爽高", "双成", "澍嘉", "树玉", "树建", "树嘉", "舒阳", "书温", "寿永", "寿德", "适康", "实子", "实宾", "识睿", "时康", "石子", 
+        "石玉", "石雨", "石文", "石嘉", "盛运", "盛康", "盛宏", "盛弘", "晟运", "胜景", "胜宏", "圣哲", "圣乐", "生乐", "深宏", "韶英", "赡博", 
+        "山乐", "山景", "飒令", "润德", "叡英", "叡敏", "睿英", "睿星", "睿天", "睿晟", "睿琪", "瑞信", "瑞文", "锐勇", "锐英", "锐昆", "儒宏", 
+        "容乐", "容嘉", "容涵", "容博", "荣振", "荣阳", "荣向", "荣华", "荣海", "日晗", "忍涵", "仁成", "人宜", "人俊", "壤浩", "穰浩", "然烨", 
+        "然修", "然信", "然欣", "然泰", "然昊", "然昂", "群立", "群理", "全理", "秋令", "庆兴", "清泰", "卿正", "勤力", "惬和", "强自", "强志", 
+        "强振", "强力", "乾运", "启光", "祺煜", "祺伟", "琦昆", "琪子", "琪靖", "奇骏", "平振", "平长", "平阳", "平兴", "平泰", "平景", "平嘉", 
+        "平和", "平承", "鹏运", "鹏旭", "鹏星", "鹏鑫", "鹏昆", "鹏晋", "彭瀚", "朋良", "沛辰", "湃澎", "鸥信", "宁泰", "宁康", "宁安", "年永", 
+        "年斯", "年骏", "年嘉", "能修", "楠俊", "慕嘉", "木建", "木嘉", "漠瀚", "铭辰", "茗建", "鸣飞", "明自", "明元", "明逸", "明炫", "明修", 
+        "明向", "明昆", "明景", "明建", "明昊", "明光", "明范", "明德", "敏智", "旻高", "民子", "民学", "民俊", "民安", "邈宏", "邈浩", "邈高", 
+        "淼思", "淼昌", "萌季", "懋伟", "茂哲", "茂温", "茂俊", "茂嘉", "茂华", "茂宏", "茂昌", "漫浩", "迈俊", "略奇", "略经", "纶温", "纶昆", 
+        "鸾飞", "路天", "禄天", "龙景", "龙成", "临光", "林学", "林文", "量弘", "亮元", "亮弘", "亮涵", "良才", "利锐", "丽高", "礼成", "磊烨", 
+        "磊昊", "乐文", "乐恺", "乐凯", "朗英", "朗宣", "朗明", "朗开", "朗鸿", "朗宏", "朗高", "朗晨", "郎俊", "澜安", "阑星", "莱运", "阔弘", 
+        "阔浩", "鲲鹏", "魁骞", "旷宏", "旷浩", "空天", "康永", "康文", "恺元", "恺宏", "凯运", "凯元", "骏寅", "骏腾", "骏良", "骏家", "骏辰", 
+        "峻宏", "峻高", "俊骏", "筠修", "钧绍", "君卓", "君毅", "君彦", "君书", "君孟", "君皓", "君炳", "军勇", "举鹏", "驹元", "景文", "鲸鹏", 
+        "精锐", "晋子", "颉昆", "捷勇", "捷刚", "捷才", "桀骏", "洁高", "洁刚", "杰运", "杰苑", "杰英", "杰修", "杰明", "杰昆", "杰俊", "杰高", 
+        "教承", "觉新", "健俊", "骞侠", "骞礼", "骞鸿", "甲元", "嘉永", "嘉昊", "家乐", "骥良", "霁新", "霁开", "济开", "济弘", "济光", "基元", 
+        "基承", "惠德", "辉绍", "辉明", "辉立", "辉景", "辉华", "辉光", "辉德", "晖智", "晖阳", "晖星", "晖绍", "晖俊", "晖华", "晖鸿", "焕景", 
+        "寰宇", "怀兴", "化同", "化弘", "化成", "华运", "华文", "华建", "华风", "华德", "虎飞", "厚信", "厚博", "鸿泰", "鸿驰", "鸿宾", "赫烨", 
+        "翮翰", "翮飞", "和天", "和浦", "和乐", "和弘", "皓昆", "皓华", "皓驰", "浩正", "浩君", "浩浩", "好睿", "豪正", "豪耘", "豪英", "豪俊", 
+        "豪君", "豪刚", "航飞", "行志", "行力", "行景", "瀚哲", "瀚浩", "瀚博", "翰新", "翰文", "翰天", "翰锐", "翰华", "翰驰", "翰昌", "涆浩", 
+        "汉星", "寒高", "海振", "海学", "海星", "海鹏", "海瀚", "海翰", "海德", "海滨", "果立", "国志", "国振", "国安", "广浩", "光星", "光鸿", 
+        "光弘", "光飞", "光波", "工天", "亘经", "歌咏", "歌恺", "歌安", "刚智", "干天", "富宏", "赋文", "赋天", "复康", "复凯", "甫同", "福永", 
+        "福祺", "福景", "福嘉", "福鸿", "福承", "福安", "锋运", "锋锐", "锋令", "峰雪", "峰高", "峯高", "枫令", "风雪", "风凯", "风俊", "风鸿", 
+        "风和", "芬高", "飞鹏", "飞高", "放宏", "方同", "方弘", "范英", "范睿", "凡运", "发运", "发英", "发俊", "东旭", "东昊", "定凯", "典茂", 
+        "笛向", "德正", "德元", "德文", "德睿", "德茂", "德俊", "德鸿", "荡浩", "宕浩", 
+    },
+    [2] = {
+        "依珊", "秋珊", "静珊", "笑珊", "幼珊", "寒珊", "元珊", "代珊", "友珊", "芷珊", "诗珊", "惜珊", "怜珊", "安珊", "以珊", "从珊", "傲珊", 
+        "沛珊", "采珊", "幻珊", "雪珊", "向珊", "痴珊", "灵珊", "书蕾", "怜蕾", "新蕾", "含蕾", "念蕾", "寄蕾", "傲蕾", "寒蕾", "半蕾", "诗蕾", 
+        "涵蕾", "芷蕾", "晓蕾", "春蕾", "南蕾", "从蕾", "夜蕾", "凡蕾", "安蕾", "小蕾", "南琴", "友琴", "丹琴", "绮琴", "碧琴", "依琴", "雅琴", 
+        "访琴", "翠琴", "寄琴", "凝琴", "千琴", "语琴", "雨琴", "又琴", "书琴", "尔琴", "书兰", "盼兰", "绿兰", "涵兰", "初兰", "凌兰", "问兰", 
+        "雁兰", "飞兰", "山兰", "夏兰", "诗兰", "含兰", "雨兰", "谷兰", "半兰", "冰兰", "晓兰", "绮兰", "语兰", "雪兰", "千兰", "听兰", "孤兰", 
+        "巧兰", "千青", "雅青", "平青", "诗青", "慕青", "凌青", "巧青", "半青", "曼青", "忆青", "安青", "又青", "天青", "雪青", "紫青", "雨青", 
+        "夏青", "碧蓉", "从蓉", "雁蓉", "尔蓉", "易蓉", "语蓉", "迎蓉", "乐蓉", "绿蓉", "夜蓉", "如蓉", "幻蓉", "夏蓉", "幼蓉", "寄蓉", "天蓉", 
+        "山芙", "尔芙", "雁芙", "翠芙", "语芙", "盼芙", "醉芙", "问芙", "代芙", "初蝶", "元蝶", "凌蝶", "怀蝶", "香蝶", "平蝶", "醉蝶", "孤蝶", 
+        "书蝶", "乐儿", "问儿", "慕儿", "访儿", "友儿", "靖儿", "千儿", "新儿", "凡儿", "冬儿", "语儿", "春儿", "傲儿", "宛儿", "觅儿", "盼儿", 
+        "水儿", "幻儿", "以儿", "如彤", "雅彤", "以彤", "夏彤", "访彤", "从彤", "翠彤", "平彤", "香彤", "安彤", "丹彤", "碧彤", "初彤", "雅柔", 
+        "新柔", "觅柔", "依柔", "靖柔", "寄柔", "春柔", "千柔", "语柔", "傲柔", "秋柔", "沛柔", "傲蕊", "诗蕊", "访蕊", "小蕊", "芷蕊", "友蕊", 
+        "绿蕊", "慕蕊", "恨蕊", "乐蕊", "若蕊", "问蕊", "惜蕊", "含蕊", "巧蕊", "语蕊", "香寒", "香薇", "香萱", "雅香", "香波", "香菱", "香莲", 
+        "香卉", "曼香", "梦香", "香旋", "寒香", "香巧", "香岚", "盼香", "忆香", "香春", "问香", "香天", "又香", "元香", "痴香", "夜香", "香桃", 
+        "香露", "香柳", "醉香", "凌香", "香梅", "冰香", "香之", "香柏", "青香", "巧香", "幻香", "半香", "惜香", "香凝", "香芹", "凌春", "绿春", 
+        "碧春", "春竹", "春海", "巧春", "春雁", "采春", "春冬", "寻春", "天春", "听春", "秋春", "安春", "春翠", "妙春", "春梅", "平春", "春绿", 
+        "春柏", "寄春", "南春", "夜春", "沛春", "初瑶", "元瑶", "晓瑶", "雪瑶", "恨瑶", "寄瑶", "痴瑶", "书瑶", "海瑶", "新瑶", "友瑶", "乐瑶", 
+        "凌瑶", "涵瑶", "飞瑶", "念瑶", "依瑶", "采萱", "碧萱", "雅萱", "白萱", "丹萱", "映萱", "惜萱", "乐萱", "小萱", "思萱", "凌萱", "紫萱", 
+        "平萱", "如萱", "幼萱", "灵萱", "安萱", "冷萱", "翠萱", "代萱", "书萱", "冬萱", "天荷", "曼荷", "代荷", "寒荷", "冷荷", "飞荷", "采荷", 
+        "巧荷", "幼荷", "乐荷", "秋荷", "芷荷", "恨荷", "听荷", "迎荷", "安荷", "雁荷", "靖荷", "翠荷", "雨荷", "听芹", "半芹", "书芹", "沛芹", 
+        "惜芹", "代芹", "谷芹", "念芹", "怀芹", "冰芹", "元芹", "寻芹", "语芹", "秋双", "秋柳", "之薇", "念薇", "向薇", "冰薇", "怀薇", "若薇", 
+        "天薇", "问薇", "傲薇", "语薇", "飞薇", "白薇", "白曼", "曼凡", "曼雁", "又曼", "巧曼", "乐曼", "访曼", "曼菱", "青曼", "曼梅", "迎曼", 
+        "曼冬", "曼易", "晓曼", "曼卉", "雪曼", "碧曼", "曼安", "如曼", "怀曼", "曼岚", "静曼", "盼曼", "尔曼", "曼寒", "曼容", "忆曼", "惜曼", 
+        "初曼", "曼云", "曼文", "代曼", "曼珍", "梦曼", "曼凝", "水曼", "翠曼", "天曼", "绿竹", "凝绿", "采绿", "平绿", "友绿", "静绿", "雅绿", 
+        "元绿", "绿松", "翠绿", "晓绿", "夜柳", "以柳", "采柳", "初柳", "笑柳", "千柳", "靖巧", "雪巧", "亦巧", "晓巧", "念巧", "巧云", "凡巧", 
+        "醉巧", "冰巧", "翠巧", "碧巧", "从凝", "小凝", "凝冬", "凝莲", "千凝", "书凝", "凝旋", "翠桃", "书桃", "水桃", "代桃", "幻桃", "寻桃", 
+        "念桃", "诗桃", "海桃", "涵桃", "盼晴", "又晴", "笑晴", "以晴", "孤晴", "雪晴", "绮晴", "凌晴", "怜晴", "山晴", "幼晴", "之桃", "希月", 
+        "秀媛", "黛娥", "雪容", "明洁", "贤惠", "飞燕", "浩丽", "惜梦", "娟妍", "秀越", "林楠", "新洁", "蓝尹", "闲静", "痴灵", "飞莲", "新美", 
+        "诗霜", "清雅", "英卫", "仪文", "芷烟", "好慕", "书竹", "元柳", "清卓", "妍妍", "淑慧", "隽美", "宏邈", "小萍", "芷天", "玉英", "莞然", 
+        "晶瑶", "流婉", "琛丽", "姣丽", "飞昂", "佩杉", "云岚", "嘉懿", "斯文", "瑜敏", "晓旋", "安妮", "韵梅", "水悦", "晗琴", "思语", "丽玉", 
+        "兰芝", "虹颖", "良哲", "夜绿", "芷蝶", "萌阳", "水蓝", "夏真", "意远", "彭丹", "木兰", "绿蝶", "贤淑", "梦槐", "晴曦", "紫丝", "宛菡", 
+        "怀绿", "含灵", "梅青", "希慕", "芷雪", "丝琪", "冰莹", "嘉佑", "良骥", "燕妮", "寒梅", "飞雪", "晶滢", "晓彤", "星晴", "慧丽", "馨欣", 
+        "长逸", "依辰", "心愫", "新竹", "笑雯", "怜云", "英华", "杏儿", "新雪", "长娟", "雪翎", "忆雪", "叶丰", "忻愉", "新文", "骊蓉", "琳瑜", 
+        "怀柔", "秋露", "多思", "茵茵", "芬馥", "星瑶", "颐和", "雪卉", "觅云", "思萌", "向卉", "怀梦", "慕诗", "兰芳", "嘉运", "霞文", "秋玉", 
+        "沈思", "雅逸", "文漪", "雅畅", "蔓蔓", "慧君", "妙菡", "雪绿", "惜雪", "熙星", "忻欢", "婉娜", "翠岚", "雨竹", "春燕", "瑞锦", "蕴涵", 
+        "洋洋", "雯君", "南晴", "映阳", "雅艳", "昕妤", "歆美", "婷婷", "锦凡", "菁英", "友卉", "芝英", "顺慈", "馨兰", "雁梅", "希蓉", "思楠", 
+        "含玉", "致萱", "慕卉", "靓影", "璇玑", "孤丹", "惜筠", "怜雪", "夜梅", "思嫒", "云亭", "牧歌", "云露", "孟乐", "韶容", "清芬", "慕雁", 
+        "秀婉", "博敏", "修洁", "音韵", "岚彩", "晶辉", "映雪", "冬莲", "觅夏", "颖秀", "乐芸", "清润", "秀慧", "月桂", "安柏", "若云", "涵涵", 
+        "惜灵", "蓉城", "淑兰", "田田", "庄静", "昂雄", "奇希", "运虹", "妙芙", "世英", "熙熙", "丝祺", "月怡", "玲珑", "珺琦", "沛凝", "凝丝", 
+        "又儿", "梦菲", "易槐", "曼衍", "飞槐", "清逸", "美华", "凝蕊", "欣艳", "凝丹", "熙怡", "歌云", "山蝶", "梦凡", "叶农", "湘君", "友桃", 
+        "夏雪", "冷珍", "晓君", "安波", "千凡", "怀蕾", "雅容", "雁凡", "丁兰", "新林", "凝静", "绿旋", "怀桃", "华芝", "婉丽", "春晓", "笑天", 
+        "善和", "敏丽", "水彤", "娇然", "冰彦", "叶飞", "天骄", "翠丝", "凯唱", "敬曦", "昊焱", "易云", "心香", "芳洁", "柔煦", "文滨", "悠逸", 
+        "燕桦", "骊雪", "雨梅", "桐华", "欢悦", "丝琦", "晓燕", "秀妮", "痴旋", "安琪", "元冬", "卓然", "思菱", "奇颖", "丽姿", "小珍", "元彤", 
+        "蒙雨", "秋英", "幻巧", "寒梦", "湘灵", "月朗", "紫菱", "曜儿", "清馨", "诗丹", "清漪", "寻凝", "梦丝", "山槐", "孤菱", "芳润", "幻露", 
+        "醉柳", "海儿", "清霁", "友容", "芷琪", "夜梦", "伟志", "若骞", "丽文", "清嘉", "寻绿", "端丽", "柔怀", "冰心", "怜容", "霞雰", "梦露", 
+        "碧螺", "彤云", "子楠", "谷蕊", "晓莉", "向梦", "唱月", "娜兰", "梦琪", "兰蕙", "若雁", "慧婕", "寒凝", "新筠", "秀雅", "韵诗", "初晴", 
+        "艳蕙", "以蕊", "雪萍", "学名", "莎莎", "琦珍", "月杉", "雍恬", "璇子", "子珍", "悠馨", "谷菱", "茗雪", "平卉", "悦爱", "芊芊", "沈靖", 
+        "智敏", "芳华", "冰双", "依美", "莎莉", "静丹", "星星", "梓楠", "秀艾", "愉心", "润丽", "文君", "淑华", "痴春", "晨菲", "正平", "蕙若", 
+        "向雁", "清昶", "芳茵", "白梅", "佳晨", "芸馨", "清华", "梅花", "智美", "尔槐", "芮澜", "乐英", "娟巧", "怡君", "歌飞", "彤蕊", "惜玉", 
+        "幼霜", "从冬", "雅歌", "凝荷", "思烟", "含景", "南霜", "婉静", "哲妍", "代柔", "昭懿", "安南", "隽雅", "灵凡", "思迪", "红雪", "一凡", 
+        "曼妮", "元槐", "丽雅", "凝云", "清韵", "宵月", "晓骞", "月悦", "施诗", "燕舞", "湘云", "芳芳", "思美", "鸿才", "芳菲", "小瑜", "晨欣", 
+        "雨莲", "甜恬", "晴霞", "鑫鹏", "从霜", "家美", "清淑", "文静", "雪帆", "丹蝶", "丽思", "雅宁", "半雪", "惜寒", "乐然", "晴画", "秋蝶", 
+        "慕思", "晴照", "忆彤", "静慧", "代双", "芊丽", "梦竹", "乐安", "醉卉", "梓云", "瑛瑶", "芳蔼", "彦红", "诗筠", "朵儿", "彦慧", "弘懿", 
+        "荌荌", "雁菱", "竹月", "子辰", "初柔", "忻忻", "蔓菁", "暄莹", "宛丝", "平安", "雅云", "恨桃", "谷雪", "闳丽", "思天", "映菡", "娴婉", 
+        "夏柳", "子萱", "绢子", "慈心", "问梅", "珠佩", "燕珺", "依霜", "如冰", "从雪", "盼夏", "恬谧", "白雪", "云蔚", "筠心", "清怡", "恬然", 
+        "幼丝", "寄翠", "晶晶", "芮欣", "夏瑶", "璎玑", "和暖", "慧语", "听然", "觅丹", "淳静", "依丝", "慧英", "笑萍", "静槐", "雨筠", "建本", 
+        "晓筠", "玄雅", "从筠", "昕月", "春英", "紫安", "曜曦", "雅安", "欣怡", "高洁", "雅霜", "尔蝶", "夜天", "知慧", "曼语", "恬畅", "绿凝", 
+        "樱花", "文丽", "湛霞", "清心", "倩丽", "秀华", "平莹", "康盛", "碧菡", "又槐", "若菱", "清妍", "妞妞", "恬欣", "歌韵", "梦菡", "灵慧", 
+        "伟毅", "子芸", "玄清", "姣姣", "忆远", "以莲", "冉冉", "晗蕾", "优扬", "秀英", "蕴和", "静涵", "兰娜", "佁然", "宜春", "曼婉", "运洁", 
+        "丹雪", "安娜", "沛容", "韦曲", "灵秀", "怡乐", "雨雪", "凌雪", "闲华", "会欣", "亦玉", "芸姝", "依凝", "瑞灵", "依云", "贝丽", "雅丽", 
+        "碧莹", "妮子", "楠楠", "雁桃", "筠溪", "寻芳", "子宁", "迎夏", "正清", "秋阳", "嘉音", "幻丝", "初夏", "婉容", "小雯", "如容", "慧巧", 
+        "天菱", "艳卉", "若兰", "和美", "向露", "代巧", "轶丽", "灵卉", "清绮", "蕴秀", "秀媚", "幼仪", "芮美", "颖初", "梓菱", "清佳", "代天", 
+        "凝竹", "一瑾", "燕楠", "滢渟", "平良", "映天", "和悌", "芮佳", "善思", "晴虹", "欣跃", "晶燕", "心远", "凡桃", "梦玉", "雅健", "曼彤", 
+        "清宁", "贞芳", "夏菡", "从安", "梦旋", "静逸", "慧晨", "慧雅", "静秀", "囡囡", "秀逸", "姝艳", "凝思", "巧夏", "悦喜", "雅韵", "乐双", 
+        "怀玉", "曼丽", "凝雪", "妙双", "沙雨", "婉然", "子凡", "依薇", "清舒", "可嘉", "天玉", "雁卉", "秀竹", "博丽", "语诗", "芦雪", "琴轩", 
+        "可可", "清婉", "湛芳", "虹影", "如云", "童童", "夏旋", "丹云", "玟丽", "端敏", "梦泽", "熹微", "云孤", "白依", "珊从", "白幼", "彤山", 
+        "竹亦", "影虹", "心冰", "桃寻", "柔依", "薇香", "芸乐", "艳绮", "悦子", "华振", "芹代", "薇向", "翠丹", "欣芸", "天芷", "兰书", "梓绣", 
+        "巧秋", "晓平", "仪献", "虹晴", "之谷", "豆红", "霜冷", "凝白", "风南", "欣布", "桃雁", "照晴", "凝沛", "爱悦", "楠梓", "琴书", "宜心", 
+        "露南", "荷凝", "柳夏", "春叶", "蓝谷", "媚雅", "吉叶", "欢忻", "天月", "瑶晓", "云静", "佳清", "然凝", "画晴", "岚冰", "凝问", "霁清", 
+        "萱灵", "然蔚", "工良", "静晏", "梅新", "易靖", "芳艳", "馨芳", "槐又", "韵莺", "媛悦", "美俏", "春听", "玉白", "兰馨", "智添", "霜念", 
+        "枫若", "君昭", "寒问", "巧醉", "槐尔", "玉婷", "菱冰", "悦慕", "竹绿", "槐灵", "巧盼", "玑璇", "真迎", "荷芷", "方舒", "柳元", "罡天", 
+        "芹沛", "顺安", "竹凝", "珊安", "冬春", "雯彤", "冬水", "雅静", "洁秀", "淑清", "枫春", "雁映", "蓝冰", "明月", "彤晓", "舒清", "香醉", 
+        "夏盼", "骞旻", "韵歌", "云逸", "婷暄", "珊惜", "钰长", "蓝芷", "霞骊", "筠白", "慧婉", "蓉乐", "美慧", "瑞嘉", "寒怀", "梅韵", "美婷", 
+        "蝶芷", "彤梓", "美韶", "烟夏", "文芷", "曼静", "雅秀", "薇紫", "雪春", "瑶寄", "意书", "君惠", "凝小", "安灵", "杰秀", "岚翠", "欣童", 
+        "彤丹", "蕾南", "菱谷", "人悦", "之小", "丽晴", "婉悠", "翠秋", "彤迎", "曲韦", "香馨", "涵梓", "梦惜", "月松", "嘉宜", "愫心", "霜晓", 
+        "芙翠", "荷冷", "岚浩", "易冬", "吹歌", "艺书", "烟思", "女海", "绮清", "朗月", "瑶雪", "韵情", "珊秋", "晨妍", "巧凡", "菲芳", "梅夜", 
+        "淑娴", "卉雁", "易梦", "海凝", "夏白", "安静", "寒雅", "寒安", "逸卓", "槐之", "倩梓", "梅曼", "华英", "晨雨", "安听", "丽雯", "莘莘", 
+        "春小", "馨香", "梦兰", "敏忆", "菡山", "阳翠", "茹韦", "玉夜", "素悠", "星蔚", "玥晗", "雅季", "雁念", "春凌", "华莹", "乐优", "雁冷", 
+        "柔春", "淑柔", "伦海", "丹以", "寒映", "荣欣", "恬甜", "瑶恨", "佳芮", "月希", "丽美", "雪向", "瑶海", "灵瑞", "玉代", "柔傲", "漪文", 
+        "苒荏", "莹琇", "灵痴", "菱涵", "惠姝", "湃彭", "然安", "烟新", "玟吉", "心乐", "松以", "思慕", "菲芬", "云霓", "秋千", "云慧", "雁书", 
+        "月慧", "卉白", "雪映", "槐梦", "玉傲", "溪云", "双寻", "璇夏", "然怡", "滢晶", "露绮", "丝幼", "风千", "飞歌", "媛秀", "云丹", "秋宛", 
+        "丽曼", "洁骊", "真雨", "萱思", "帆子", "媛仙", "蕊谷", "嘉叶", "楠雅", "丽玟", "涵静", "青又", "润涵", "雪半", "柔初", "楠林", "容易", 
+        "宁雅", "烟绮", "深弘", "琴南", "柏翠", "良嘉", "芳丽", "珍子", "瑜琳", "真映", "云卿", "风寄", "慧静", "蝶书", "琪安", "丽姝", "云雅", 
+        "蓉绿", "秋迎", "惠淑", "颖骊", "婉清", "婧令", "雪初", "珍凝", "雪紫", "易盼", "儿沛", "月吉", "凝慕", "思敏", "烟怜", "竹水", "翎雪", 
+        "亭云", "云觅", "瑶飞", "萱子", "君辰", "君湘", "彤叶", "华秀", "翠幻", "娴雅", "莲含", "春碧", "风尔", "凡子", "懿清", "馨悠", "然嫔", 
+        "红帅", "薇若", "兰春", "嫣暄", "怡清", "怡心", "静淳", "易书", "娇春", "远凝", "丝语", "安安", "晨琳", "楚华", "巧翠", "芹半", "慧彦", 
+        "曦晨", "巧易", "薇天", "天夜", "然瑜", "妮秀", "婧骊", "冬寻", "琇莹", "菱思", "慕望", "彦冰", "君翊", "舒望", "然婉", "雨昕", "娟娟", 
+        "柔靖", "晨鸣", "风晨", "海冰", "娥黛", "荷雁", "蝶尔", "兰秀", "河银", "蓝代", "真冰", "霏岚", "媛驰", "南书", "灵洛", "丹孤", "洁梓", 
+        "巧含", "扬优", "容笑", "超博", "双飞", "然陶", "之如", "蕾小", "莲半", "妙柔", "文紫", "立新", "兰半", "文易", "波凌", "然苇", "亦宛", 
+        "绿冰", "俐伶", "晶琇", "容曼", "筠雨", "云傲", "美骊", "霜凌", "绿亦", "岚晴", "蓝采", "双觅", "诗语", "冬新", "然恬", "华月", "柔秋", 
+        "容婉", "月华", "海春", "丽芊", "润清", "逸清", "璇一", "柳醉", "寒秋", "童依", "文采", "竹新", "梅寒", "静安", "容雪", "菲格", "煦柔", 
+        "丝傲", "蝶香", "蝶凝", "珍初", "秀杰", "莉莎", "莲安", "夏初", "泽甘", "槐半", "凡冰", "花樱", "素雅", "玉天", "英琼", "珠璇", "和善", 
+        "春平", "蕊含", "泽芳", "美绮", "丽秀", "翠笑", "安雨", "韵竹", "露从", "婉曼", "蕾诗", "山夏", "兰诗", "菱心", "歌雅", "静芸", "云之", 
+        "雅博", "思密", "慕希", "丝问", "蕊艳", "静湛", "芳寻", "跃欣", "梦访", "菡寻", "欣欢", "星若", "馥芬", "暖和", "华秋", "之含", "瑶痴", 
+        "阳怜", "韵天", "荷巧", "英霞", "柔寄", "筠听", "文奇", "梅梅", "蕊晗", "双听", "丽庄", "菱孤", "筠诗", "芝桂", "萱致", "寒曼", "珊沛", 
+        "悦欣", "寒笑", "衣布", "晴天", "儿溪", "白采", "华西", "美恬", "歌高", "然玲", "合欣", "雅望", "珺彦", "旎旎", "语倩", "翠觅", "亦千", 
+        "梅忆", "雪丹", "雨沙", "芹听", "林新", "春安", "雁曼", "槐谷", "松平", "琅玲", "风问", "珍觅", "玟娅", "瑾一", "乐孟", "斐斐", "丝凌", 
+        "奕悠", "之梦", "亦又", "莉森", "萱书", "丝迎", "蕊语", "念念", "兰雪", "美令", "燕飞", "寒夏", "辉霞", "菀菀", "梅雁", "唱雅", "媛英", 
+        "瑜璠", "蔓柔", "懿思", "姗三", "星晨", "琴雅", "素韫", "英春", "芹元", "南绮", "华棠", "灵元", "蓉寄", "易涵", "桃之", "芸暮", "语新", 
+        "芹惜", "南夜", "妍清", "槐向", "祺丝", "姗姗", "雁向", "洁芳", "云茹", "蝶初", "旋以", "云怜", "桃春", "蕾蓓", "雅慧", "瑶星", "玉嘉", 
+        "惠贤", "洁皓", "波晴", "枫问", "珍妙", "菡梦", "蓝寄", "瑾玉", "寒念", "洁雅", "松向", "蓝水", "翠诗", "思绮", "绚柔", "磬韵", "琴雨", 
+        "墨文", "涤涵", "艳雪", "心文", "寒以", "荷翠", "丽柔", "珊以", "露幻", "香盼", "怡和", "松寄", "烟南", "山醉", "玉玟", "风白", "馨清", 
+        "敏文", "云紫", "彤以", "骄天", "如密", "嘉清", "华梦", "萍沛", "梦语", "风如", "仪书", "晴以", "霜翠", "天笑", "曼晓", "琳子", "素玄", 
+        "悦乐", "露晓", "双妙", "巧靖", "瑶依", "蓉馨", "嫒思", "州阳", "云嘉", "畅欣", "珊幼", "蓉碧", "洁好", "美晴", "静婉", "琴依", "松如", 
+        "山晓", "嘉思", "芙醉", "彤语", "然宜", "怡熙", "菱幼", "蝶醉", "柳诗", "华美", "清玄", "云梦", "晗雅", "之妙", "云依", "夏小", "瑞珍", 
+        "桃书", "凡千", "枫静", "云夏", "霜雅", "雪从", "之忆", "珠曼", "琰琬", "睿知", "梦凝", "秋依", "彩瑞", "卉香", "烟寒", "冬元", "兰绮", 
+        "淑若", "薇子", "灵忆", "霞云", "巧冰", "琳思", "菡又", "露梦", "阳笑", "君慧", "雨梦", "凝依", "娜骊", "儿水", "芙静", "静恬", "亦丹", 
+        "彤若", "南雨", "之新", "波映", "雅萍", "燕骊", "珊代", "曼初", "娟湛", "之靖", "辉晶", "璐梓", "柏幼", "容雅", "蝶元", "丽润", "雅淳", 
+        "星小", "芳秋", "晴妙", "榆梓", "玉惜", "蕊小", "天思", "飞云", "香心", "梦夜", "波香", "吟曼", "丽典", "欣馨", "雪惜", "歌薇", "桃念", 
+        "蓉骊", "冬映", "巧隽", "美逸", "子璇", "岚云", "曼宛", "丽芮", "绮霞", "英兰", "柔沛", "心清", "桃恨", "宜悦", "信雨", "安忆", "彤曼", 
+        "绿飞", "山觅", "韵萍", "梅幻", "晴又", "子妮", "泽兰", "香夜", "婉流", "瑶文", "安尔", "艳雅", "蕊绿", "航宇", "彤绮", "飞霞", "思琼", 
+        "萍惜", "云夜", "暄和", "枫冰", "帆林", "卉冬", "桃香", "凡平", "筠安", "然忆", "秀蕴", "兰若", "安曼", "玲玲", "若思", "白沛", "灵晓", 
+        "萱映", "琪米", "玉幻", "云以", "珊芷", "丝翠", "绿怀", "兰玉", "章乐", "晗晗", "心语", "菡夏", "蓉尔", "灵寄", "山雁", "秋清", "慧知", 
+        "兰晓", "冬访", "莲又", "秀静", "波芷", "绿巧", "致逸", "珊诗", "语心", "美淳", "悦嘉", "曼巧", "易傲", "梦向", "筠惜", "然莞", "雅俨", 
+        "燕令", "华淑", "筠从", "玉双", "乐宁", "文霞", "平正", "梦怀", "懿弘", "音嘉", "文念", "娜安", "婷驰", "雅雍", "旋梦", "易千", "夏又", 
+        "双凡", "之念", "枫忆", "红丹", "枫听", "秋梦", "妍暄", "慧秀", "女媛", "真念", "玉鸣", "天映", "琴寻", "媛骊", "芹怀", "蕾寄", "兰绿", 
+        "柔又", "琬梓", "玑璎", "柏秋", "莉茉", "灵湘", "彤忆", "琴碧", "烟芷", "卉艳", "艳慧", "然依", "林语", "澜芮", "月昕", "奕奕", "旋妙", 
+        "晨慧", "灵雨", "阳萌", "秋向", "俐珺", "雨新", "雁若", "儿访", "华桐", "惠佳", "蕾半", "竹恨", "美嘉", "平子", "简博", "梦采", "蓝天", 
+        "怡琳", "凝从", "韵品", "慕怀", "夏迎", "丽琛", "红骊", "兰初", "波鸿", "炳彬", "秉坚", "冰阳", "斌文", "彬炎", "彬文", "飙英", "飙飞", 
+        "弼俊", "弼建", "弼承", "本建", "本德", "北骞", "宝鸿", "薄彭", "邦兴", "邦乐", "邦安", "柏建", "白元", "白建", "白飞", "白宾", "拔俊", 
+        "奥良", "翱振", "昂子", "昂文", "昂高", "安康", "安凯", "安建", "蔼和", "大浩", "达宇", "达英", "达锐", "达博", "聪思", "赐嘉", "慈睿", 
+        "春永", "春逸", "楚俊", "初正", "初浩", "畴鸿", "驰星", "驰俊", "池华", "池翰", "程鹏", "诚志", "诚正", "诚运", "诚修", "诚伟", "诚睿", 
+        "诚明", "诚坚", "成玉", "成阳", "成康", "成坚", "晨曦", "宸玉", "沉飞", "辰子", "掣飞", "超海", "超高", "唱凯", "畅开", "畅鸿", "畅和", 
+        "畅涵", "畅高", "昶雅", "昶和", "昌永", "昌彦", "昌海", "昌德", "岑高", "策良", "藏华", "苍昊", "灿曜", "彩华", "彩鸿", "采华", "采翰", 
+        "材天", "材茂", "材良", "材俊", "才英", "才伟", "才睿", "才敏", "才茂", "才鸿", "才宏", "博震", "博振", "博思", "博君", "博鸿", "博宏", 
+        "博弘", "博浩", "勃彭", "伯阳", "伯斯", "伯康", "伯宏", "波阳", "波星", "大宏", 
+    }
+}
+
+Const.LoadingTips = {
+	[1] = "新手之家内boss云集，前期打宝圣地，去了都说好！",
+	[2] = "玉佩和暗器能够增加血量、防御，让你pk时更加坚挺！",
+	[3] = "玉佩碎片可是非卖品，不过听说击杀所有波丝可以获得很多！",
+	[4] = "想要升级暗器、魂珠、战鼓，可别忘了多参加活动、多抢波丝！",
+	[5] = "战鼓产自北方的苍狼，极大的提高暴击力和暴击率，一起暴击吧！",
+	[6] = "魂珠提升攻击的神器，得之犹如天神下凡！",
+	[7] = "每天的伏魔任务一定不能忘哦！获得一级宝石盒可合成提升等级！",
+	[8] = "官印在手，从此pk无往不利，爽的不要不要的！",
+	[9] = "回收装备可以快速获得非绑钻石和元宝！",
+	[10] = "培养翅膀不只能收获强力属性，还有被人羡慕的眼神！",
+	[11] = "高级翅膀每天会清除祝福值，各位筒子一定要留心哦！",
+	[12] = "击杀波丝有概率获得终极装备，所有材料，等级丹！战力飙升！",
+	[13] = "新手进去修炼圣地，可快速升至90级！",
+	[14] = "加个行会吧！从此再也不是一个人了！",
+	[15] = "大家齐心建设行会，获取更强的属性加成！",
+	[16] = "元宝不够么！每日在线和押送可以获得海量钻石！",
+	[17] = "离线了也别担心！离线挂机保你装备、材料、钻石收益不减！",
+	[18] = "强化石不足？那就去矿洞挖矿吧！自力更生提升战力！",
+	[19] = "挑战守卫嫦娥，获取各类宝石，战力提升快人一筹！",
+	[20] = "优先升级您的神将，他是你打boss时最坚强的肉盾！",
+	[21] = "转生可快速提升战力，还能去更多的地图抢波丝！",
+}
+

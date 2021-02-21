@@ -1,0 +1,137 @@
+local HttpManager = class("HttpManager")
+
+function HttpManager:ctor()
+	
+end
+
+function HttpManager:appCheckReceipt(params,log_money)
+	-- local receipt=string.sub(params,9)
+	-- if string.len(receipt)<20 then return end
+
+	-- if cc.UserDefault:getInstance():getStringForKey("last_receipt","")=="" then
+	-- 	cc.UserDefault:getInstance():setStringForKey("last_receipt",receipt)
+	-- 	cc.UserDefault:getInstance():setStringForKey("last_money",tostring(log_money))
+	-- 	cc.UserDefault:getInstance():setStringForKey("last_count","0")
+	-- 	cc.UserDefault:getInstance():flush()
+	-- end
+
+	-- if game.gameUserid == "" then
+	-- 	game.gameUserid = cc.UserDefault:getInstance():getStringForKey("last_usertid","")
+	-- end
+	-- if game.seedName == "" then
+	-- 	game.seedName = cc.UserDefault:getInstance():getStringForKey("last_sid","")
+	-- end
+
+	-- if game.gameUserid == "" and game.seedName == "" then
+	-- 	PlatformTool.showMsg("您有一笔未结算的订单,请重新登陆")
+	-- 	return
+	-- end
+
+	-- PlatformTool.showWaiting({msg="正在提交支付结果,请稍候",delay=20,outtime=function()
+	-- 	PlatformTool.showMsg("结算超时,请联系客服")
+	-- 	game.applePaying = false
+	-- end})
+
+	-- local xhr = cc.XMLHttpRequest:new()
+ --    xhr.responseType = cc.XMLHTTPREQUEST_RESPONSE_STRING
+ --    xhr:open("POST", CONFIG_APPLE_PAY_URL.."/sku/"..game.sku)
+
+ --    local function onReadyStateChange()
+ --        PlatformTool.hideWaiting()
+
+	-- 	game.applePaying = false
+
+ --    	local json_table = util.decode(xhr.response)
+ --        if json_table then
+ --    		local status=json_table["status"]
+
+ --    		if status and status=="ok" then
+ --    			PlatformTool.showMsg("充值成功,元宝将在3分钟内到账")
+
+	--     		cc.UserDefault:getInstance():setStringForKey("last_receipt","")
+	--     		cc.UserDefault:getInstance():setStringForKey("last_money","")
+	--     		cc.UserDefault:getInstance():setStringForKey("last_count","0")
+	-- 			cc.UserDefault:getInstance():flush()
+ --    			return
+ --    		else
+ --    			PlatformTool.showMsg("结算失败,请联系客服")
+ --    		end
+ --        end
+ --    end
+
+ --    xhr:registerScriptHandler(onReadyStateChange)
+ --    xhr:send("userid="..game.gameUserid.."&serverid="..game.zoneId.."&sid="..game.seedName.."&receipt="..receipt.."&money="..log_money)
+end
+
+function HttpManager:requestRename(old_name,new_name,node)
+	local url = game.renameUrl.."?sku="..game.sku.."&account="..game.gameUserid.."&oldchr="..old_name.."&newchr="..new_name.."&serverId="..game.zoneId
+				.."&idfa="..PlatformTool.getConfigString("system_code")
+	local function httpcallback(request)
+		if request.status==200 then
+	        local json_table = util.decode(request.response)
+	        if json_table then
+				if json_table["ErrorDesc"] then
+					util.showAlert("错误", json_table["ErrorDesc"], "知道了")
+				elseif json_table["desc"] then
+					util.showAlert("提示", json_table["desc"], "知道了")
+				end
+
+				if json_table["status"]=="1" then
+					NetClient:ListCharacter()
+				else
+					-- PlatformTool.hideWaiting()
+				end
+	        end
+	    else
+	    	util.showAlert("", "改名请求失败", "知道了")
+	    end
+	end
+    print(url)
+    util.httpRequest(url, httpcallback, node)
+end
+
+function HttpManager:requestCDKey(text,node)
+	if string.len(text)>0 then
+		local url = game.giftUrl.."?sku="..game.sku.."&code="..text.."&chrname="..game.chrName.."&ptflag="..PlatformTool.getPlatform().."&pid="..PlatformTool.getPlatformId().."&serverId="..game.zoneId.."&idfa="..PlatformTool.getConfigString("system_code")
+		local function httpcallback(request)
+			if request.status==200 then
+		        local json_table = util.decode(request.response)
+		        if json_table then
+		        	if json_table["ErrorDesc"] then
+						-- util.showAlert("错误", json_table["ErrorDesc"], "知道了")
+						NetClient:alertLocalMsg(json_table["ErrorDesc"], "alert")
+					end
+		        else
+		        	-- util.showAlert("提示", request.response, "知道了")
+		        	NetClient:alertLocalMsg(request.response, "alert")
+		        end
+		    else
+				-- util.showAlert("错误", "兑换请求失败,请重试", "知道了")
+				NetClient:alertLocalMsg("兑换请求失败,请重试", "alert")
+		    end
+	    end
+	    print(url)
+	    util.httpRequest(url, httpcallback, node)
+	else
+		util.showAlert("提示", "请输入正确的礼包码","确定")
+	end
+end
+
+function HttpManager:requestGameNotice(url, callback, node)
+	local function httpcallback(request)
+		if request.status==200 then
+	        local json_table = util.decode(request.response)
+	        if json_table then
+	        	if callback and type(callback)=="function" then
+			    	callback(json_table)
+			    end
+	        end
+	    else
+
+	    end
+	end
+    util.httpRequest(url, httpcallback, node)
+end
+
+
+return HttpManager:new()

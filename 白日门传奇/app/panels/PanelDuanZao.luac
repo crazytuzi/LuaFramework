@@ -1,0 +1,833 @@
+local PanelDuanZao={}
+local var = {}
+
+--锻造界面
+
+local despQiangHua ={
+	[1] = 	"<font color=#E7BA52 size=18>强化说明：</font>",
+	[2] =	"<font color=#f1e8d0>1、强化需消耗金币和强化石</font>",
+	[3] =	"<font color=#f1e8d0>2、强化失败不掉级，使用钻石可100%成功</font>",
+	[4] =	"<font color=#f1e8d0>3、强化前10级概率提升，后10级以养成方式提升</font>",
+}
+
+local despJiCheng ={
+	[1] = 	"<font color=#E7BA52 size=18>继承说明：</font>",
+	[2] =	"<font color=#f1e8d0>1、目标装备强化等级必须为0，原始装备强化等级需大于0</font>",
+	[3] =	"<font color=#f1e8d0>2、强化转移不能转移注灵属性</font>",
+	[4] =	"<font color=#f1e8d0>3、转移消耗金币或钻石</font>",
+}
+
+--获取身上可以强化的装备
+local roleEquipPos = {
+	{pos = Const.ITEM_WEAPON_POSITION,	etype = Const.EQUIP_TAG.WEAPON},
+	{pos = Const.ITEM_CLOTH_POSITION,	etype = Const.EQUIP_TAG.CLOTH},
+	{pos = Const.ITEM_GLOVE1_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING1_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BOOT_POSITION,	etype = Const.EQUIP_TAG.BOOT},
+
+	{pos = Const.ITEM_HAT_POSITION,		etype = Const.EQUIP_TAG.HAT},
+	{pos = Const.ITEM_NICKLACE_POSITION,etype = Const.EQUIP_TAG.NECKLACE},
+	{pos = Const.ITEM_GLOVE2_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING2_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BELT_POSITION,	etype = Const.EQUIP_TAG.BELT},
+
+	--{pos = Const.ITEM_JADE_PENDANT_POSITION,	noTipsBtn = true},
+	--{pos = Const.ITEM_HIDDEN_WEPON_POSITION,			noTipsBtn = true},
+	{pos = Const.ITEM_MIRROR_ARMOUR_POSITION,	},
+	{pos = Const.ITEM_FACE_CLOTH_POSITION,		},
+	--{pos = Const.ITEM_DRAGON_HEART_POSITION,	noTipsBtn = true},
+	--{pos = Const.ITEM_WOLFANG_POSITION,			noTipsBtn = true},
+	{pos = Const.ITEM_DRAGON_BONE_POSITION,		},
+	{pos = Const.ITEM_CATILLA_POSITION,			},
+
+	--仙器*武器
+	{pos = Const.ITEM_XIAN_WEPON_POSITION,	},		--19孔位
+	--仙器*衣服
+	{pos = Const.ITEM_XIAN_CLOTH_POSITION,	},
+	--仙器*头盔
+	{pos = Const.ITEM_XIAN_HELMET_POSITION,	},
+	--仙器*项链
+	{pos = Const.ITEM_XIAN_NECKLACE_POSITION,	},
+	--仙器*护肩
+	{pos = Const.ITEM_XIAN_SHOULDER_POSITION,	},
+	--仙器*盾牌
+	{pos = Const.ITEM_XIAN_SHIELD_POSITION,	},
+	--仙器*神坠
+	{pos = Const.ITEM_XIAN_PENDANT_POSITION,	},
+	--仙器*斗笠
+	{pos = Const.ITEM_XIAN_HAT_POSITION,	},
+	--坐骑
+	-- {pos = Const.ITEM_MOUNT_POSITION,		},
+
+	{pos = Const.ITEM_XZ1_POSITION,	 etype = Const.EQUIP_TAG.ALL },   --27孔位 以此类推
+	{pos = Const.ITEM_XZ2_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ3_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ4_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ5_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ6_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ7_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ8_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ9_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ10_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ11_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ12_POSITION, etype = Const.EQUIP_TAG.ALL},
+	
+
+	{pos = Const.ITEM_SHEN_CLOCK_POSITION,	},		--19孔位
+	{pos = Const.ITEM_SHEN_QIN_POSITION,	},
+	{pos = Const.ITEM_SHEN_CHUI_POSITION,	},
+	{pos = Const.ITEM_SHEN_FU_POSITION,},
+	{pos = Const.ITEM_BAMBOOHAT_POSITION,},
+
+}
+
+
+	-- --玉佩
+	-- ITEM_JADE_PENDANT_POSITION = (-11*2),
+	-- --暗器
+	-- ITEM_HIDDEN_WEPON_POSITION = (-12*2),
+	-- --护心镜
+	-- ITEM_MIRROR_ARMOUR_POSITION = (-13*2),
+	-- --面巾
+	-- ITEM_FACE_CLOTH_POSITION = (-14*2),
+	-- --魂珠
+	-- ITEM_DRAGON_HEART_POSITION = (-15*2),
+	-- --战鼓
+	-- ITEM_WOLFANG_POSITION = (-16*2),
+	-- --龙骨
+	-- ITEM_DRAGON_BONE_POSITION = (-17*2),
+	-- --虎符
+	-- ITEM_CATILLA_POSITION = (-18*2),
+	
+
+function PanelDuanZao.initView()
+	var = {
+		xmlPanel,
+		xmlQH=nil,
+		xmlJC=nil,
+		bagEquips,
+		roleEquips,
+		curEquips,
+		openVcion=false,--钻石100%成功
+		openStone=false,--强化石不够钻石代替
+		curQhPos=-9999,--当前强化装备的pos
+		curTab=nil,--记录当前选中的页签
+
+		oldPos=nil,--继承原始装备pos
+		oldTypeid=nil,
+		newPos=nil,--继承装备pos
+		newTypeid=nil,
+		shopData=nil,
+		tablistv,
+		tablisth,
+		curEquipName="",
+		qhLevel=0,--当前放入的有强化等级装备的强化等级
+		fireworks=nil,
+		curEquipType=nil,--记录当前选中的是背包装备还是身上装备
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelDuanZao.uif");
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelDuanZao.handlePanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelDuanZao.updateGameMoney)
+		PanelDuanZao.updateGameMoney()
+		PanelDuanZao.initTabs()
+		PanelDuanZao.initEquipList("roleEquips")
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max2.png")
+		var.xmlPanel:getWidgetByName("fastBg"):setTouchEnabled(true)
+		util.asyncload(var.xmlPanel, "fastBg", "needload/img_kuan_bg.png")
+	end
+	PanelDuanZao.initShopInfo()
+	return var.xmlPanel
+end
+function PanelDuanZao.initShopInfo()
+	local function prsBtnClick( sender )
+		local senderName = sender:getName()
+		if senderName == "btnBuyMoney" then
+			NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid="reqBuyData",params={}}))
+			var.xmlPanel:getWidgetByName("fastBuyBox"):show()
+			var.xmlPanel:getWidgetByName("fastBg"):runAction(cca.seq({
+				cca.moveTo(0.3, 0, 0),
+				cca.callFunc(function()
+					
+				end)
+			}))
+		elseif senderName == "btnBuyMoneyHide" then
+			var.xmlPanel:getWidgetByName("fastBg"):runAction(cca.seq({
+				cca.moveTo(0.3, 0, -514),
+				cca.callFunc(function()
+					var.xmlPanel:getWidgetByName("fastBuyBox"):hide()
+				end)
+			}))
+		end
+	end
+	UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName("btnBuyMoney"),prsBtnClick)
+	UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName("btnBuyMoneyHide"),prsBtnClick)
+end
+function PanelDuanZao.handlePanelData(event)
+	if event.type ~= "PanelDuanZao" then return end
+	local data = util.decode(event.data)
+	-- print(event.data)
+	if data.cmd =="updateQiangHua" then
+		PanelDuanZao.updateQiangHua(data.dataTable)
+	elseif data.cmd=="updateTransfer" then
+		PanelDuanZao.updateJiCheng(data.dataTable)
+	elseif data.cmd=="successTransfer" then
+		PanelDuanZao.setYuanEquip(nil)
+		local fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(350, 380)
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,50021,4)
+		-- print(animate:getAnimation():setDelayPerUnit(36/40))
+		fireworks:runAction(cca.seq({
+			cca.rep(animate, 1),
+			cca.cb(function ()
+				
+			end),
+			cca.removeSelf()
+		}))
+	elseif data.cmd=="senderShopData" then	
+		var.shopData={}
+		var.shopData = data.data
+		PanelDuanZao.initShop()
+	elseif data.cmd=="qiangHuaSucceed" then
+		PanelDuanZao.successAnimate(60050)
+	elseif data.cmd=="qiangHuaFailed" then
+		PanelDuanZao.successAnimate(60051)
+	elseif data.cmd=="updateNewValue" then
+		PanelDuanZao.updateTransfered(data)
+	end
+end
+
+function PanelDuanZao.onPanelOpen()
+	PanelDuanZao.getRoleEquips()
+end
+
+function PanelDuanZao.onPanelClose()
+	
+end
+
+--金币刷新函数
+function PanelDuanZao.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="lblVcoin",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	,	icon = "icon_coin"},
+			{name="lblBVcoin",	pre=Const.str_vcoinb,	value =	mainrole.mVCoinBind or 0,	icon = "icon_coin_bind"},
+			{name="lblMoney",	pre=Const.str_money,	value =	mainrole.mGameMoney or 0,	icon = "icon_money"},
+			{name="lblBMoney",	pre=Const.str_money,	value =	mainrole.mGameMoneyBind or 0,	icon = "icon_money"},
+		}
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			local curNum = tonumber(var.xmlPanel:getWidgetByName(v.name):getString()) or 0
+			var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		end
+	end
+end
+
+-----------------------------------------------------背包操作部分---------------------------------------------------
+--技能根据操作显示背包和身上的装备（强化装备锁定后只显示未强化装备；为强化装备选定后只显示强化装备，二者都选中显示全部，二者都没没选显示已强化的）
+function PanelDuanZao.initJcEquipList()
+	var.oldPos=nil
+	var.newPos=nil	
+end
+
+--初始化背包装备或身上装备
+function PanelDuanZao.initEquipList(type)
+	if type=="bagEquips" then
+		var.curEquips=PanelDuanZao.getQiangHuaEquips()
+		var.curEquipType="bagEquips"
+	elseif type=="roleEquips" then
+		var.curEquips=PanelDuanZao.getRoleEquips()
+		var.curEquipType="roleEquips"
+	end
+	local equipList = var.xmlPanel:getWidgetByName("equipList")
+	equipList:reloadData(76,PanelDuanZao.updateList):setSliderVisible(false)
+end
+
+--获取背包可以强化的装备
+function PanelDuanZao.getQiangHuaEquips()
+	local maxNum = Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd 
+	local result = {}
+	local maxLev = 25
+	if var.curTab==2 then maxLev=26 end
+	for i=0,maxNum-1 do
+		local netItem = NetClient:getNetItem(i)
+		if netItem and game.IsEquipment(netItem.mTypeID) and netItem.mLevel<maxLev then 
+			if var.curTab and var.curTab==2 then
+				if not var.oldPos then
+					if netItem.mLevel>0 then
+						table.insert(result, netItem.position)
+					end
+				else
+					-- if not var.newPos then
+						if netItem.mLevel<=0 then
+							table.insert(result, netItem.position)
+						end
+					-- else
+						-- table.insert(result, netItem.position)
+					-- end
+				end
+			else
+				table.insert(result, netItem.position)
+			end
+		end
+	end
+	return result
+end
+
+function PanelDuanZao.getRoleEquips()
+	local maxLev = 25
+	if var.curTab==2 then maxLev=26 end
+	local result = {}
+	for i=1,#roleEquipPos do
+		local netItem = NetClient:getNetItem(roleEquipPos[i].pos)
+		if netItem and netItem.mLevel<maxLev then 
+			if var.curTab and var.curTab==2 then
+				if not var.oldPos then
+					if netItem.mLevel>0 then
+						table.insert(result, netItem.position)
+					end
+				else
+					-- if not var.newPos then
+						if netItem.mLevel<=0 then
+							table.insert(result, netItem.position)
+						end
+					-- else
+						-- table.insert(result, netItem.position)
+					-- end
+				end
+			else
+				table.insert(result, netItem.position)
+			end
+		end
+	end
+	return result
+end
+
+function PanelDuanZao.updateList(item)
+	local itemPos=var.curEquips[item.tag] or -9999
+	local param = {
+		parent = item,
+		pos = itemPos,
+		iconType = Const.ICONTYPE.DEPOT,
+		-- tipsType = Const.TIPS_TYPE.BAG,
+		callBack = function ()
+			if var.curTab==1 then
+				PanelDuanZao.changQiangHuaEquip(itemPos)
+			elseif var.curTab==2 then
+				PanelDuanZao.setYuanEquip(itemPos)
+			end
+		end,
+		doubleCall = function ()
+		
+		end,
+	}
+	UIItem.getItem(param)
+	if item.tag == 1 then
+		item:setName("item_upgrade")
+	else
+		item:setName("")
+	end
+end
+
+-------------------------------------------------------强化部分-----------------------------------------------------
+--左侧强化装备显示
+function PanelDuanZao.changQiangHuaEquip(pos)
+	local netItem = NetClient:getNetItem(pos)
+	if not netItem then return end
+	local itemdef = NetClient:getItemDefByID(netItem.mTypeID)
+	-- print(util.encode(item_define))
+	-- print(netItem.mLevel)
+	if itemdef then 
+		-- var.xmlQH:getWidgetByName("labEquipName"):setString(itemdef.mName.." +"..netItem.mLevel)
+		var.curEquipName=itemdef.mName
+	end
+	local param = {
+		parent = var.xmlQH:getWidgetByName("iconEquip"),
+		pos = pos,
+		-- iconType = Const.ICONTYPE.DEPOT,
+		iconType = Const.ICONTYPE.BAG,
+		tipsType = Const.TIPS_TYPE.BAG,
+		callBack = function ()
+
+		end,
+	}
+	UIItem.getItem(param)
+	if pos==-9999 then
+		-- local param={parent=var.xmlQH:getWidgetByName("iconClip"), typeId=nil}
+		-- UIItem.getItem(param)
+		var.xmlQH:getWidgetByName("labNeedStone"):setString(0):setColor(cc.c3b(247,186,52))
+	else
+		NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid = "curQiangHuaEquip",params={pos=pos}}))
+	end
+	var.curQhPos = pos
+end
+
+--强化成功特效
+function PanelDuanZao.successAnimate(effectid)
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlQH):pos(263, 450)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,effectid,4)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.removeSelf(),
+			cca.cb(function ()
+				var.fireworks=nil
+			end),
+		}))
+	end
+end
+
+--强化数据刷新
+function PanelDuanZao.updateQiangHua(data)
+	-- PanelDuanZao.successAnimate()
+	if not data or not var.xmlQH then return end
+	-- local imgIcon1 = var.xmlQH:getWidgetByName("icon1"):setVisible(true)
+	-- local param={parent=imgIcon1, typeId=data.chipTypeId, num=1,}
+	-- UIItem.getItem(param)
+	-- imgIcon1:getWidgetByName("item_icon"):setVisible(false)
+	-- local imgIcon2 = var.xmlQH:getWidgetByName("icon2"):setVisible(true)
+	-- local param={parent=imgIcon2, typeId=40000003, num=1,}
+	-- UIItem.getItem(param)
+	-- imgIcon2:getWidgetByName("item_icon"):setVisible(false)
+	if data.ownNum>=data.chipNum then
+		var.xmlQH:getWidgetByName("labNeedStone"):setString(data.chipNum):setColor(cc.c3b(247,186,52))
+	else
+		var.xmlQH:getWidgetByName("labNeedStone"):setString(data.chipNum):setColor(cc.c3b(255,0,0))
+	end
+	local curMoney = NetClient.mCharacter.mGameMoney + NetClient.mCharacter.mGameMoneyBind
+	if NetClient.mCharacter.mVCoinBind >= data.needMoney then
+		var.xmlQH:getWidgetByName("labNeedMoney"):setString(data.needMoney):setColor(cc.c3b(247,186,52))
+	else
+		var.xmlQH:getWidgetByName("labNeedMoney"):setString(data.needMoney):setColor(cc.c3b(255,0,0))
+	end
+	var.xmlQH:getWidgetByName("oneKeyDesp"):setString("使用"..data.needVcion.."钻石100%成功率")
+	-- var.xmlQH:getWidgetByName("labEquipName"):setString(var.curEquipName.." +"..data.level)
+
+	var.xmlQH:getWidgetByName("labOwnStone"):setString("背包拥有:"..data.ownNum.."个")
+
+	for i=1,10 do
+		local maxStar = data.level%10
+		if data.level==10 or data.level==25 then
+			maxStar=10
+		end
+		if i<=maxStar then
+			if data.level<=10 then
+				var.xmlQH:getWidgetByName("star"..i):loadTexture("img_star_light", ccui.TextureResType.plistType)
+			else
+				var.xmlQH:getWidgetByName("star"..i):loadTexture("img_yang_light", ccui.TextureResType.plistType)
+			end
+		else
+			if data.level<=10 then
+				var.xmlQH:getWidgetByName("star"..i):loadTexture("img_star_gray", ccui.TextureResType.plistType)
+			else
+				var.xmlQH:getWidgetByName("star"..i):loadTexture("img_yang_gray", ccui.TextureResType.plistType)
+			end
+		end
+	end
+	local resName = "stone_1"
+	if (data.level+1)>15 then
+		resName = "stone_4"
+	elseif (data.level+1)>10 then
+		resName = "stone_3"
+	elseif (data.level+1)>5 then
+		resName = "stone_2"
+	end
+	var.xmlQH:getWidgetByName("imgStone"):loadTexture("picicon/"..data.chipTypeId..".png"):setScale(0.65)
+
+	if data.level>=10 then
+		var.xmlQH:getWidgetByName("btnOneKey"):setVisible(false)
+		var.xmlQH:getWidgetByName("oneKeyDesp"):setVisible(false)
+	else
+		var.xmlQH:getWidgetByName("btnOneKey"):setVisible(true)
+		var.xmlQH:getWidgetByName("oneKeyDesp"):setVisible(true)
+	end
+
+	for j=1,3 do
+		if data.curValues and data.curValues[j] then
+			var.xmlQH:getWidgetByName("labCurValue"..j):setString(data.curValues[j]):setVisible(true)
+		else
+			var.xmlQH:getWidgetByName("labCurValue"..j):setString(""):setVisible(false)
+		end
+		if data.nextValues and data.nextValues[j] then
+			var.xmlQH:getWidgetByName("labNextValue"..j):setString(data.nextValues[j]):setVisible(true)
+		else
+			var.xmlQH:getWidgetByName("labNextValue"..j):setString(""):setVisible(false)
+		end
+	end
+	var.xmlQH:getWidgetByName("btnQh"):setVisible(true)
+	local bar = var.xmlQH:getWidgetByName("bar")
+	if data.level>=10 then
+		bar:setFormat2String("")
+		bar:setFormatString(data.yangLev*data.chipNum.."/"..data.maxUp)
+		bar:setPercent(data.yangLev*data.chipNum,data.maxUp)
+		if data.level>=25 then--满级显示
+			bar:setFormatString("")
+			bar:setFormat2String("Max")
+			bar:setPercent(100,100)
+			var.xmlQH:getWidgetByName("labNeedStone"):setString(0):setColor(cc.c3b(247,186,52))
+			var.xmlQH:getWidgetByName("labNeedMoney"):setString(0):setColor(cc.c3b(247,186,52))
+			var.xmlQH:getWidgetByName("btnQh"):setVisible(false)
+		end
+	else
+		bar:setFormatString("")
+		bar:setFormat2String("成功率:%d%%")
+		bar:setPercent(data.winPro*100,100)
+	end
+	bar:setFontSize(15):enableOutline(game.getColor(0x000049),1)
+	bar:setTextColor(game.getColor(0x30ff00))
+
+	-- bar:resetLabelFormat( "成功率：%d/%d" )
+end
+
+--切换页签时清空强化面板数据
+function PanelDuanZao.clearQiangHuaData()
+	var.curQhPos = -9999
+	var.openVcion=false
+	var.openStone=false
+	var.xmlQH:removeFromParent()
+	var.xmlQH=nil
+end
+
+--强化按钮操作
+local checkBtns = {"btnOneKey","btnAutoVcion","btnQhDesp","btnQh"}
+function PanelDuanZao.initCheckBtn()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if senderName=="btnOneKey" then
+			if var.openVcion then
+				var.openVcion=false
+				sender:setBrightStyle(0)
+			else
+				var.openVcion=true
+				sender:setBrightStyle(1)
+			end
+		elseif senderName=="btnAutoVcion" then
+			if var.openStone then
+				var.openStone=false
+				sender:setBrightStyle(0)
+			else
+				var.openStone=true
+				sender:setBrightStyle(1)
+			end
+		elseif senderName=="btnQhDesp" then
+
+		elseif senderName=="btnQh" then
+			if var.curQhPos~=-9999 then
+				NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid="startQiangHua",params={pos=var.curQhPos,flag1=var.openVcion,flag2=var.openStone}}))
+			else
+				NetClient:alertLocalMsg("请先放入需要强化的装备", "alert")
+			end
+		-- elseif senderName=="btnBuyMoney" then
+		-- 	local buyList =  var.xmlPanel:getWidgetByName("fastBuyBox")
+		-- 	-- local imgBg = var.xmlPanel:getWidgetByName("imgBg")
+		-- 	if buyList:isVisible() then
+		-- 		buyList:hide()
+		-- 		-- imgBg:hide()
+		-- 	else
+		-- 		buyList:show()
+		-- 		-- imgBg:show()
+		-- 		NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid="reqBuyData",params={}}))
+		-- 	end
+		end
+	end
+	for i=1,#checkBtns do
+		local btn = var.xmlQH:getWidgetByName(checkBtns[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+function PanelDuanZao.initShop()
+	local listShop = var.xmlPanel:getWidgetByName("listShop")
+	listShop:reloadData(#var.shopData,PanelDuanZao.updateShop):setSliderVisible(false):setSwallowTouches(true)
+end
+
+function PanelDuanZao.updateShop(item)
+	local itemData = var.shopData[item.tag]
+	item:getWidgetByName("labName"):setString(itemData.name)
+	item:getWidgetByName("labPrice"):setString(itemData.vcion)
+	local awardItem=item:getWidgetByName("icon")
+	local param={parent=awardItem , typeId=itemData.id}
+	UIItem.getItem(param)
+
+	local function prsBtnItem(sender)
+		NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid = "shopBuy",params={index=sender.index}}))
+	end 
+	local btnBuy = item:getWidgetByName("btnBuy")
+	btnBuy.index=item.tag
+	UIRedPoint.addUIPoint(btnBuy , prsBtnItem)
+end
+
+-----------------------------------------------------继承部分---------------------------------------------------
+--设置原始装备
+function PanelDuanZao.setYuanEquip(pos)
+	local netItem = NetClient:getNetItem(pos)
+	if netItem then
+		if netItem.mLevel>0 then
+			-- local param = {
+			-- 	parent   = var.xmlJC:getWidgetByName("iconEquip"),
+			-- 	pos      = pos,
+			-- 	iconType = Const.ICONTYPE.BAG,
+			-- 	tipsType = Const.TIPS_TYPE.BAG,
+			-- 	callBack = function ()
+
+			-- 	end,
+			-- }
+			-- UIItem.getItem(param)
+
+			local param = {
+				parent = var.xmlJC:getWidgetByName("iconEquip"),
+				pos      = pos,
+				tipsType = Const.TIPS_TYPE.UPGRADE,
+				enmuPos = 6,
+				customCallFunc = function()
+					PanelDuanZao.setYuanEquip(nil)
+					PanelDuanZao.initEquipList(var.curEquipType)
+				end,
+				-- showBetter = true,
+			}
+			UIItem.getItem(param)
+
+			var.oldPos=pos
+			var.oldTypeid=netItem.mTypeID
+			var.qhLevel=netItem.mLevel
+			NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid = "curJiChengEquip",params={pos=pos}}))
+			if var.newPos then
+				NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid = "reqNewLevelShow",params={pos=var.newPos,level=var.qhLevel}}))
+			end
+		else
+			-- NetClient:alertLocalMsg("强化等级大于0方可放入原始装备槽", "alert")
+			local param = {
+				parent = var.xmlJC:getWidgetByName("targetEquip"),
+				pos = pos,
+				iconType = Const.ICONTYPE.BAG,
+				tipsType = Const.TIPS_TYPE.BAG,
+				callBack = function ()
+
+				end,
+			}
+			UIItem.getItem(param)
+			var.newPos=pos
+			var.newTypeid=netItem.mTypeID
+			NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid = "reqNewLevelShow",params={pos=pos,level=var.qhLevel}}))
+		end
+		PanelDuanZao.initEquipList(var.curEquipType)
+	end
+	if not pos then
+		local param={parent=var.xmlJC:getWidgetByName("iconEquip"), typeId=nil}
+		UIItem.getItem(param)
+		local param={parent=var.xmlJC:getWidgetByName("targetEquip"), typeId=nil}
+		UIItem.getItem(param)
+		var.oldPos=nil
+		var.oldTypeid=nil
+		var.newPos=nil
+		var.newTypeid=nil
+		var.xmlJC:getWidgetByName("labNeedMoney"):setString(0):setColor(cc.c3b(247,186,52))
+		PanelDuanZao.clearLabel()
+	end
+end
+
+--刷新被继承者即将获得的强化属性
+function PanelDuanZao.updateTransfered(data)
+	for j=1,3 do
+		if data.newTable and data.newTable[j] then
+			var.xmlJC:getWidgetByName("labNextValue"..j):setString(data.newTable[j]):setVisible(true)
+		else
+			var.xmlJC:getWidgetByName("labNextValue"..j):setString(""):setVisible(false)
+		end
+	end
+end
+
+--转移成功清理文本属性
+function PanelDuanZao.clearLabel()
+	for j=1,3 do
+		var.xmlJC:getWidgetByName("labNextValue"..j):setString("")
+		var.xmlJC:getWidgetByName("labCurValue"..j):setString("")
+	end
+end
+
+function PanelDuanZao.updateJiCheng(data)
+	if not var.xmlJC then return end
+	local curMoney = NetClient.mCharacter.mGameMoney + NetClient.mCharacter.mGameMoneyBind
+	if data.needMoney > 0 and NetClient.mCharacter.mVCoinBind >= data.needMoney then
+		var.xmlJC:getWidgetByName("labNeedMoney"):setString(data.needMoney):setColor(cc.c3b(247,186,52))
+	else
+		var.xmlJC:getWidgetByName("labNeedMoney"):setString(data.needMoney):setColor(cc.c3b(255,0,0))
+	end
+	if data.needVcion > 0 then
+		var.xmlJC:getWidgetByName("Image_23"):loadTexture("vcoin", ccui.TextureResType.plistType)
+		var.xmlJC:getWidgetByName("Text_9"):setString("消耗钻石"):setVisible(true)
+		if data.vcion>=data.needVcion then
+			var.xmlJC:getWidgetByName("labNeedMoney"):setString(data.needVcion):setColor(cc.c3b(247,186,52))
+		else
+			var.xmlJC:getWidgetByName("labNeedMoney"):setString(data.needVcion):setColor(cc.c3b(255,0,0))
+		end
+	else
+		var.xmlJC:getWidgetByName("Image_23"):loadTexture("vcoin_bind", ccui.TextureResType.plistType)
+		var.xmlJC:getWidgetByName("Text_9"):setString("消耗元宝"):setVisible(true)
+	end
+	for j=1,3 do
+		if data.oldValues and data.oldValues[j] then
+			var.xmlJC:getWidgetByName("labCurValue"..j):setString(data.oldValues[j]):setVisible(true)
+		else
+			var.xmlJC:getWidgetByName("labCurValue"..j):setString(""):setVisible(false)
+		end
+	end
+end
+
+--Tip取出操作回调
+function PanelDuanZao.quChuOperate()
+	var.oldPos=nil
+	var.newPos=nil
+	
+end
+
+--切换页签清理继承慢板数据
+function PanelDuanZao.clearJiChengData()
+	var.oldPos=nil
+	var.newPos=nil
+	if var.xmlJC then
+		var.xmlJC:removeFromParent()
+		var.xmlJC=nil
+	end
+end
+
+--继承按钮操作
+local jcBtns = {"btnJC","btnJZDesp"}
+function PanelDuanZao.initJiChengBtn()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		-- print(senderName)
+		if senderName=="btnJC" then
+			PanelDuanZao.startJiCheng()
+		elseif senderName=="btnJZDesp" then
+
+		end
+	end
+	for i=1,#jcBtns do
+		local btn = var.xmlJC:getWidgetByName(jcBtns[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+--继承操作
+function PanelDuanZao.startJiCheng()
+	local result = {}
+	result.oldPos=var.oldPos
+	result.oldTypeid=var.oldTypeid
+	result.newPos=var.newPos
+	result.newTypeid=var.newTypeid
+	if not var.oldPos then
+		NetClient:alertLocalMsg("请放入原始装备", "alert")
+		return
+	end
+	if not var.newPos then
+		NetClient:alertLocalMsg("请放入新装备", "alert")
+		return
+	end
+	NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid = "startJiCheng",params=result}))
+end
+
+----------------------------------------页签操作-----------------------------------------------
+local btnArrs = {"tabQH","tabJC","btnSH","btnBag"}
+function PanelDuanZao.initTabs()
+	local function pressTabV(sender)
+		local tag = sender:getTag()
+		if tag==1 then
+			PanelDuanZao.initXmlContent("qianghua")
+			var.curTab=1
+			PanelDuanZao.clearJiChengData()
+		elseif tag==2 then
+			PanelDuanZao.initXmlContent("jicheng")
+			var.curTab=2
+			PanelDuanZao.clearQiangHuaData()
+		end
+		PanelDuanZao.initEquipList(var.curEquipType)
+	end
+	local function pressTabH(sender)
+		local tag = sender:getTag()
+		if tag==1 then
+			PanelDuanZao.initEquipList("roleEquips")
+		elseif tag==2 then
+			PanelDuanZao.initEquipList("bagEquips")
+		end
+	end
+	var.tablistv = var.xmlPanel:getWidgetByName("tablistv")
+	var.tablistv:addTabEventListener(pressTabV)
+	var.tablistv:setSelectedTab(1)
+	var.tablistv:setTabRes("tab2_nor","tab2_sel")
+
+	var.tablisth = var.xmlPanel:getWidgetByName("tablisth")
+	var.tablisth:addTabEventListener(pressTabH)
+	var.tablisth:setSelectedTab(1)
+	
+end
+
+--初始化页签模块
+function PanelDuanZao.initXmlContent(type)
+	local contentRight = var.xmlPanel:getWidgetByName("contentRight")
+	contentRight:setVisible(var.tablistv:getCurIndex()<3)
+	if var.xmlQH then var.xmlQH:hide() end
+	if var.xmlJC then var.xmlJC:hide() end
+	if var.xmlHC then var.xmlHC:hide() end
+	if var.xmlSZ then var.xmlSZ:hide() end
+	if type=="qianghua" then
+		if not var.xmlQH then
+			var.xmlQH = UILuaLoader.load("uilayout/PanelDuanZao_qiangHua.uif")
+			if var.xmlQH then
+				var.xmlQH:addTo(var.xmlPanel:getWidgetByName("tabContent")):align(display.LEFT_BOTTOM, 0, 0):show()
+			end
+			PanelDuanZao.initCheckBtn()
+			-- PanelDuanZao.changQiangHuaEquip(-2)--打开强化默认放武器
+			-- util.asyncload(var.xmlQH, "img_dz_qh_bg", "needload/img_dz_bg.jpg")
+			var.xmlQH:getWidgetByName("bar"):setFontSize(15):enableOutline(game.getColor(0x000049),1)
+		else
+			var.xmlQH:show()
+		end
+		var.xmlQH:getWidgetByName("btnQhDesp"):setTouchEnabled(true)
+		PanelDuanZao.initDesp(var.xmlQH,"btnQhDesp",despQiangHua)
+	elseif type=="jicheng" then
+		if not var.xmlJC then
+			var.xmlJC = UILuaLoader.load("uilayout/PanelDuanZao_JiCheng.uif")
+			if var.xmlJC then
+				var.xmlJC:addTo(var.xmlPanel:getWidgetByName("tabContent")):align(display.LEFT_BOTTOM, 0, 0):show()
+			end
+			PanelDuanZao.initJiChengBtn()
+			-- util.asyncload(var.xmlPanel, "img_jc_bg", "needload/img_jc_bg.jpg")
+		else
+			var.xmlJC:show()
+		end
+		var.xmlJC:getWidgetByName("btnJZDesp"):setTouchEnabled(true)
+		PanelDuanZao.initDesp(var.xmlJC,"btnJZDesp",despJiCheng)
+		if var.xmlPanel:getWidgetByName("fastBuyBox") then
+			var.xmlPanel:getWidgetByName("fastBg"):setPositionY(-514)
+			var.xmlPanel:getWidgetByName("fastBuyBox"):hide()
+		end
+	end
+end
+
+function PanelDuanZao.initDesp(xmlPanel,btnName,despTable)
+	local btnDesp=xmlPanel:getWidgetByName(btnName)
+	btnDesp:addTouchEventListener(function (pSender, touchType)
+		if touchType == ccui.TouchEventType.began then
+			PanelDuanZao.duanZaoDesp(despTable)
+		elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+			LayerAlert.handleAlertClose()
+		end
+	end)
+end
+
+function PanelDuanZao.duanZaoDesp(despTable)
+	local mParam = {
+	name = Notify.EVENT_PANEL_ON_ALERT,
+	panel = "tips", 
+	infoTable = despTable,
+	visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+
+end
+
+return PanelDuanZao

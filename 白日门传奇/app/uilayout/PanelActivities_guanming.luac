@@ -1,0 +1,17 @@
+LUA_RET={
+{n="PanelJingCaiAct_guanming",v=true,type=0,id=1,parent=0,w=835.0000,h=510.0000,},
+{n="img_bg",tag=749,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=835.0000,h=510.0000,y=3.0000,color="255|255|255",},
+{n="Image_1",tag=708,ss=true,sx=57,sw=57,sh=13,sy=13,v=true,type=1,id=3,parent=1,w=280.0000,h=150.0000,ax=0.5000,ay=0.5000,x=680.6561,y=276.0790,color="255|255|255",res="img_namebg",},
+{n="labCount",tag=753,fs=18,text="00:00:00",vt=1,v=true,type=3,id=4,parent=1,w=300.0000,h=20.0000,ay=0.5000,x=517.9956,y=478.8678,color="24|209|41",fr="DFYuan.ttf",},
+{n="Button_1",tag=754,t=true,fs=14,sx=9,sw=9,sh=11,sy=11,v=true,type=2,id=5,parent=1,w=29.0000,h=29.0000,ax=0.5000,ay=0.5000,x=46.3663,y=474.9997,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="btn_help_new",},
+{n="lbl_gm",tag=755,fs=18,text="规则说明",vt=1,v=true,type=3,id=6,parent=1,w=100.0000,h=23.0000,ay=0.5000,x=62.8844,y=476.3016,color="7|244|0",fr="DFYuan.ttf",},
+{n="labName1_0_0_0_0_0",tag=756,fs=16,text="即可参与排名获得冠名权的玩家将获得服务器霸主称号，奖励自动发放至玩家邮件",vt=1,v=true,type=3,id=7,parent=1,w=580.0000,h=21.0000,ay=0.5000,x=243.3812,y=23.4398,color="253|223|174",fr="DFYuan.ttf",},
+{n="rechargeNum",tag=757,fs=16,text="累计充值满10000元",ht=1,vt=1,v=true,type=3,id=8,parent=1,w=190.0000,h=30.0000,ay=0.5000,x=71.3810,y=23.4395,color="24|209|41",fr="DFYuan.ttf",},
+{n="labName1_0_0_0_0",tag=758,fs=16,text="温馨提示：",ht=2,vt=1,v=true,type=3,id=9,parent=1,w=100.0000,h=40.0000,ay=0.5000,x=-9.6190,y=23.4399,color="253|223|174",fr="DFYuan.ttf",},
+{n="Text_1",tag=750,fs=16,text="第一名:",vt=1,v=true,type=3,id=10,parent=1,w=80.0000,h=23.0000,ax=0.5000,ay=0.5000,x=649.5348,y=319.7004,color="255|165|0",fr="DFYuan.ttf",},
+{n="lbl_name_1",tag=751,fs=15,text="暂无",ht=1,vt=1,v=true,type=3,id=11,parent=1,w=120.0000,h=20.0000,ay=0.5000,x=660.0000,y=319.8588,color="255|255|0",},
+{n="Text_1_0",tag=704,fs=16,text="第二名:",vt=1,v=true,type=3,id=12,parent=1,w=80.0000,h=23.0000,ax=0.5000,ay=0.5000,x=649.3363,y=276.9340,color="255|165|0",fr="DFYuan.ttf",},
+{n="lbl_name_2",tag=705,fs=15,text="暂无",ht=1,vt=1,v=true,type=3,id=13,parent=1,w=120.0000,h=20.0000,ay=0.5000,x=660.0000,y=277.0923,color="255|255|0",},
+{n="Text_1_1",tag=706,fs=16,text="第三名:",vt=1,v=true,type=3,id=14,parent=1,w=80.0000,h=23.0000,ax=0.5000,ay=0.5000,x=650.1071,y=235.7379,color="255|165|0",fr="DFYuan.ttf",},
+{n="lbl_name_3",tag=707,fs=15,text="暂无",ht=1,vt=1,v=true,type=3,id=15,parent=1,w=120.0000,h=20.0000,ay=0.5000,x=660.0000,y=235.8961,color="255|255|0",},
+}

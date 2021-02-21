@@ -1,0 +1,70 @@
+local TipsGuildMember = {}
+
+local operateButtons = {
+	"btn_check_equip", 
+	"btn_add_friend", 
+	"btn_private_chat", 
+	"btn_invite_team", 
+	"btn_demise_admin", 
+	"btn_appoint_vice", 
+	"btn_appoint_elder", 
+	"btn_dismiss_post", 
+	"btn_kick_out",
+}
+
+function TipsGuildMember:initView(extend)
+	if self.xmlTips then
+		local function pushOperateButton(sender)
+			local btnName = sender:getName()
+			if btnName == "btn_check_equip" then				
+				NetClient:CheckPlayerEquip(extend.memberName)
+			elseif btnName == "btn_add_friend" then
+				NetClient:FriendChange(extend.memberName,100)
+			elseif btnName == "btn_private_chat" then
+				local data = extend.data
+				if data and NetClient:getRelation(data.name)==0 then
+					NetClient.mFriends = NetClient.mFriends or {}
+					NetClient.mFriends[data.name] = {}
+					NetClient.mFriends[data.name].name = data.name
+					NetClient.mFriends[data.name].gender = data.gender
+					NetClient.mFriends[data.name].job = data.job
+					NetClient.mFriends[data.name].level = data.lv or data.level
+					NetClient.mFriends[data.name].title = 0--陌生人关系
+					NetClient.mFriends[data.name].guild = data.guild or ""
+					NetClient.mFriends[data.name].online_state = data.online or 1
+				end
+				NetClient:addChatRecentPlayer(extend.memberName)
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str = "main_friend",tab = 1})
+			elseif btnName == "btn_invite_team" then
+				if NetClient.mCharacter.mGroupLeader ~= MainRole._mainAvatar:NetAttr(Const.net_name) then--不是队长
+					NetClient:alertLocalMsg("队长才能邀请组队","alert")
+				else
+					NetClient:InviteGroup(extend.memberName)
+				end
+			elseif btnName == "btn_demise_admin" then
+				NetClient:PushLuaTable("gui.PanelGuild.onPanelData", util.encode({actionid = "demiseAdmin", memberName = extend.memberName}))
+			elseif btnName == "btn_appoint_vice" then
+				NetClient:PushLuaTable("gui.PanelGuild.onPanelData", util.encode({actionid = "appointVice", memberName = extend.memberName}))
+			elseif btnName == "btn_appoint_elder" then
+				NetClient:PushLuaTable("gui.PanelGuild.onPanelData", util.encode({actionid = "appointAdv", memberName = extend.memberName}))
+			elseif btnName == "btn_dismiss_post" then
+				NetClient:PushLuaTable("gui.PanelGuild.onPanelData", util.encode({actionid = "dismissPost", memberName = extend.memberName}))
+			elseif btnName == "btn_kick_out" then
+				NetClient:PushLuaTable("gui.PanelGuild.onPanelData", util.encode({actionid = "kickOut", memberName = extend.memberName}))
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = extend.str})
+		end
+
+		local btnOperate
+		for i,v in ipairs(operateButtons) do
+			btnOperate = self.xmlTips:getWidgetByName(v)
+			UIRedPoint.addUIPoint(btnOperate, pushOperateButton)
+		end
+
+		util.asyncload(self.xmlTips, "tips_bg", "needload/img_kuan_bg.png")
+		
+		self.xmlTips:getWidgetByName("lbl_player_name"):setString(extend.memberName)
+	end
+end
+
+return TipsGuildMember

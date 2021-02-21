@@ -1,0 +1,194 @@
+local PanelZhuanPan = {}
+local var = {}
+
+-- 幸运站盘奖品各自展示
+local zpGz = {
+	[1] = {r=0},
+	[2] = {r=45},
+	[3] = {r=0},
+	[4] = {r=45},
+	[5] = {r=0},
+	[6] = {r=-45},
+	[7] = {r=0},
+	[8] = {r=-45},
+}
+
+function PanelZhuanPan.initView()
+	var = {
+		xmlPanel,
+		isTen=false,
+		curAngle=0,--当前指针所在的角度
+		yuTimes=0,--剩余抽奖次数
+	}
+	-- var.xmlPanel = cc.XmlLayout:widgetFromXml("uilayout/PanelZhuanPan/PanelZhuanPan.xml")
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelZhuanPan.uif")
+	if var.xmlPanel then
+		PanelZhuanPan.onPanelOpen()
+		PanelZhuanPan.PanelClick()
+
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max1.png")
+		util.asyncload(var.xmlPanel, "img_bg", "needload/img_pmh_bg.png")
+		
+		var.btn_ten = var.xmlPanel:getWidgetByName("btn_ten")
+		var.xmlPanel:getWidgetByName("btnGet"):setScale(0.8)
+		var.btn_ten:addClickEventListener(function (sender)
+			var.isTen = not var.isTen
+			sender:loadTextureNormal( (var.isTen and "btn_checkbox_big_sel") or "btn_checkbox_big", ccui.TextureResType.plistType)
+		end)
+
+		--PanelZhuanPan.addEffect()
+		
+		var.xmlPanel:getWidgetByName("btnChongZhi"):addClickEventListener(function (sender)
+			print("111")
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+		end):setScale(0.9)
+	
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelZhuanPan.handlePanelData)
+
+			NetClient:PushLuaTable("gui.PanelZhuanPan.handlePanelData",util.encode({actionid = "getPanelData"}))
+	end
+	return var.xmlPanel
+end
+
+function PanelZhuanPan.PanelClick()
+	local function prsBtnCall(sender)	
+		NetClient:PushLuaTable("gui.PanelZhuanPan.handlePanelData",util.encode({actionid = "choujiang", param= var.isTen }))
+		PanelZhuanPan.PointRotate()
+		if var.yuTimes>0 then
+			var.xmlPanel:getWidgetByName("btnGet"):setEnabled(false)
+		end
+	end
+	local btnGet = var.xmlPanel:getWidgetByName("btnGet")
+	UIRedPoint.addUIPoint(btnGet,prsBtnCall)
+end
+
+function PanelZhuanPan.onPanelOpen()
+	-- local awardItem = var.xmlPanel:getWidgetByName("Img_gezi")
+	-- local param={parent=awardItem , typeId=40000001,}
+	-- UIItem.getItem(param)
+	
+		
+end
+
+function PanelZhuanPan.handlePanelData(event)
+	if event.type ~= "PanelZhuanPan" then return end
+	local data=util.decode(event.data)
+	-- print(event.data)
+	if data.cmd=="updateRecord" then
+		if data.curWorldRecord then
+			PanelZhuanPan.updateContent(data.curWorldRecord,"worldList",236,2,false,18, true)
+		end
+		var.xmlPanel:getWidgetByName("labYuTimes"):setString("剩余次数："..data.yuTimes.."次")
+		var.yuTimes=data.yuTimes
+	elseif data.cmd=="updateShowItems" then
+		PanelZhuanPan.updateShowItems(data.dataTable, data.needVcoin)
+	elseif data.cmd=="startRotate" then
+		PanelZhuanPan.PointRotate(data.index)
+	elseif data.cmd=="updateYuTimes" then
+		var.xmlPanel:getWidgetByName("labYuTimes"):setString("剩余次数："..data.yuTimes.."次")
+		var.yuTimes=data.yuTimes
+		-- if data.time then
+		-- 	PanelZhuanPan.updateCount(var.xmlPanel,data.time)
+		-- end
+	elseif data.cmd=="openStartBtn" then
+		var.xmlPanel:getWidgetByName("btnGet"):setEnabled(true)
+	end
+end
+
+-- --刷新转盘显示
+-- function PanelZhuanPan.updateShowItems(data)
+-- 	if not data then return end
+-- 	for i=1,#data do
+-- 		local awardItem=var.xmlPanel:getWidgetByName("icon"..data[i].index)
+-- 		local param={parent=awardItem , typeId=data[i].id, num=1}
+-- 		UIItem.getItem(param)
+-- 		var.xmlPanel:getWidgetByName("labNum"..i):setString(data[i].num)
+-- 	end
+-- end
+--刷新转盘显示
+function PanelZhuanPan.updateShowItems(data, needVcoin)
+	if not data then return end
+	for i=1,#data do
+		local awardItem=var.xmlPanel:getWidgetByName("icon"..data[i].index):setScale(0.9)
+		local param={parent=awardItem , typeId=data[i].id, num = data[i].num}
+		UIItem.getItem(param)
+
+		if zpGz[i] then
+			awardItem:setRotation(zpGz[data[i].index].r)
+		end
+	end
+
+	var.xmlPanel:getWidgetByName("labVcoin"):setString(needVcoin)
+end 
+function PanelZhuanPan.updateContent(data,curScrollName,listsize,Margin,removeAll,tsize, action)
+	local scroll = var.xmlPanel:getWidgetByName(curScrollName):setItemsMargin(Margin or 0):setClippingEnabled(true)
+	scroll:setDirection(ccui.ScrollViewDir.vertical)
+	scroll:setScrollBarEnabled(false)
+	if removeAll then scroll:removeAllChildren() end
+	for i=1, #data do
+		local richWidget = UIRichLabel.new({size=cc.size(listsize,35),space=2})
+		local textsize = tsize or 18
+		-- local tempInfo = util.encode(data[i])
+		richWidget:setRichLabel(data[i],35,textsize)
+		richWidget:setVisible(true)
+		scroll:pushBackCustomItem(richWidget)
+		if #scroll:getItems() > 30 then
+			scroll:removeItem(0)
+		end
+	end
+
+	if action then
+		scroll:runAction(cc.Sequence:create(
+			cc.DelayTime:create(0.1),
+			cc.CallFunc:create(function ()
+					scroll:scrollToBottom(1,true)
+				end)
+			)
+		)
+	else
+		scroll:scrollToBottom(0,true)
+	end
+end
+
+-----------------------------------------------------旋转动画----------------------------------------------------------
+function PanelZhuanPan.PointRotate(index)
+	if not index or index<=0 then return end
+	local boxPoint=var.xmlPanel:getWidgetByName("boxPoint")
+	local needRotate = 45 * index-45-var.curAngle
+	var.curAngle= 45*index-45
+
+	if needRotate<=0 then needRotate=360+needRotate end
+
+	local needTime = 0.01*(100*needRotate/270)
+
+	-- print(needTime,needRotate)
+
+	local function moveAct2(target)
+		target:runAction(cca.seq({
+			cc.EaseIn:create(cca.rotateBy(needTime,needRotate),needTime),  --135/270 --度数计算时间
+			cca.cb(function ()
+				target:stopAllActions()
+				--结束后开始抽奖刷新记录+播放飞动画
+				NetClient:PushLuaTable("gui.PanelZhuanPan.handlePanelData",util.encode({actionid = "rotateStop"}))
+				var.xmlPanel:getWidgetByName("btnGet"):setEnabled(true)
+			end),
+		}))
+	end
+
+	local function moveAct(target)
+		target:runAction(cca.seq({
+			cca.rotateBy(0.3*4,360*4),
+			cca.cb(function ()
+				target:stopAllActions()
+				moveAct2(target)
+			end),
+		}))
+	end
+	-- moveAct(iconFly)
+	moveAct(boxPoint)
+end
+
+
+
+return PanelZhuanPan

@@ -1,0 +1,646 @@
+local PanelBossPictrue={}
+local var = {}
+local despTable ={
+	[1]="<font color=#E7BA52 size=18>回收说明：</font>",
+	[2]="<font color=#f1e8d0>1、回收灵丹可以获得炼魂值</font>",
+    [3]="<font color=#f1e8d0>2、越高级的灵丹获得的炼魂值越多</font>",
+}
+local despTable2 ={
+	[1]="<font color=#E7BA52 size=18>炼魂说明：</font>",
+	[2]="<font color=#f1e8d0>1、回收灵丹可以获得炼魂值</font>",
+    [3]="<font color=#f1e8d0>2、升级炼魂等级可以获得属性加成</font>",
+}
+
+-- Boss 拼图、灵丹、回收
+
+function PanelBossPictrue.initView()
+	var = {
+		xmlPanel,
+		xmlPinTu,
+		xmlLinHun,
+		xmlBuy,
+		xmlHuiShou,
+		curTab,
+		lianHunLev,
+		lianHunBar,
+		curVcion,
+		curBVcion,
+		curMoney,
+		buyData,
+		curPicIndex=1,
+		fireworks,
+		fireworks2,
+		fireworks3,
+		fireworks4,
+		bagData={},
+		huiShouData={},
+		pictrueIds={0,0,0,0,0,0,0,0,0},
+		redsTable={},
+		curTabIndex=2,
+
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelBossPictrue.uif");
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max1.png")
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelBossPictrue.handlePanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelBossPictrue.updateGameMoney)
+		PanelBossPictrue.initTabs()
+	end
+	return var.xmlPanel
+end
+
+function PanelBossPictrue.onPanelOpen()
+	PanelBossPictrue.updateGameMoney(nil)
+	local tab = var.xmlPanel:getWidgetByName("box_tab"):setSelectedTab(var.curTabIndex)
+	tab:setTabRes("tab1_nor","tab1_sel",ccui.TextureResType.plistType)
+	tab:setItemMargin(-5)
+end
+
+function PanelBossPictrue.onPanelClose()
+
+end
+
+function PanelBossPictrue.handlePanelData(event)
+	if event.type ~= "PanelBossPictrue" then return end
+	local data = util.decode(event.data)
+	-- print(event.data)
+	if data.cmd =="senderLinHunData" then
+		PanelBossPictrue.initBuy(data)
+	elseif data.cmd=="updatePinTuData" then
+		PanelBossPictrue.updatePinTu(data)
+	elseif data.cmd=="pinTuUseSuccessed" then
+		NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData",util.encode({actionid = "reqPinTuData",params={index=var.curPicIndex}}))
+
+	----------------------------------炼魂通讯---------------------------------------
+	elseif data.cmd=="updateLianHunData" then
+		PanelBossPictrue.updateLianHun(data)
+
+	----------------------------------回收通讯---------------------------------------
+	elseif data.cmd=="huiShouSuccessed" then
+		var.bagData=game.getPinTuPos()
+		var.huiShouData={}
+		PanelBossPictrue.initLists()
+	end
+end
+
+--初始化页签
+function PanelBossPictrue.initTabs()
+	local function pressTabH(sender)
+		local tag = sender:getTag()
+		if var.curTab then var.curTab:hide() end
+		if tag==1 then
+			--var.curTab = PanelBossPictrue.initPinTu()
+		elseif tag==2 then
+			var.curTab = PanelBossPictrue.initLinHun()
+		end
+		var.curTabIndex=tag
+	end
+	var.tablisth = var.xmlPanel:getWidgetByName("box_tab")
+	var.tablisth:addTabEventListener(pressTabH)
+	var.tablisth:setSelectedTab(2)
+end
+
+--------------------------------------------------------拼图（废弃）------------------------------------------------------------
+function PanelBossPictrue.initPinTu()
+	if not var.xmlPinTu then
+		var.xmlPinTu=UILuaLoader.load("uilayout/PanelBossPictrue_pintu.uif")
+							:addTo(var.xmlPanel:getWidgetByName("panel_bg"))
+							:pos(9, 9)
+							:show()
+							   
+   		util.asyncload(var.xmlPinTu, "imgLoadLeft", "needload/img_bpsspic_ptd.jpg")
+   		util.asyncload(var.xmlPinTu, "imgBossPic", "needload/BossPictrues/1.jpg")
+   		util.asyncload(var.xmlPinTu, "box_mask", "needload/BossPictrues/imgMaskLine.png")
+   		PanelBossPictrue.initPinTuBtns()
+   		PanelBossPictrue.initMaskClick()
+	else
+		var.xmlPinTu:show()
+	end
+	NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData",util.encode({actionid = "reqFristPinTuData",params={index=var.curPicIndex}}))
+	return var.xmlPinTu
+end
+
+local btnArrs = {"btnHuiShou","btnBuyTu","btnJiHuo","btnPre","btnNext"}
+function PanelBossPictrue.initPinTuBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if senderName=="btnHuiShou" then
+			PanelBossPictrue.initHuiShou()
+		elseif senderName=="btnBuyTu" then
+
+		elseif senderName=="btnJiHuo" then
+			NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData",util.encode({actionid = "reqJiHuoPictrue",params={index=var.curPicIndex}}))
+		elseif senderName=="btnPre" then
+			PanelBossPictrue.changePinTu(-1)
+		elseif senderName=="btnNext" then
+			PanelBossPictrue.changePinTu(1)
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPinTu:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+		if btnArrs[i]=="btnPre" then
+			var.xmlPinTu:getWidgetByName(btnArrs[i]):setRotation(180)
+			var.xmlPinTu:getWidgetByName("imgRedPre"):setRotation(180)
+		end
+	end
+end
+
+--拼图切换操作
+function PanelBossPictrue.changePinTu(flag)
+	if flag>0 and var.curPicIndex>=19 then return end
+	if flag<0 and var.curPicIndex<=1 then return end
+	var.curPicIndex=var.curPicIndex+flag
+	var.xmlPinTu:getWidgetByName("labPage"):setString(var.curPicIndex.."/19")
+	local btnNext = var.xmlPinTu:getWidgetByName("btnNext")
+	local btnPre = var.xmlPinTu:getWidgetByName("btnPre")
+	if var.curPicIndex>=19 then
+		btnNext:setEnabled(false)
+	else
+		btnNext:setEnabled(true)
+	end
+	if var.curPicIndex<=1 then
+		btnPre:setEnabled(false)
+	else
+		btnPre:setEnabled(true)
+	end
+	PanelBossPictrue.setBtnRedShow()
+	NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData",util.encode({actionid = "reqPinTuData",params={index=var.curPicIndex}}))
+end
+
+--刷新拼图的界面数据
+function PanelBossPictrue.updatePinTu(data)
+	util.asyncload(var.xmlPinTu, "imgBossPic", "needload/BossPictrues/"..data.picName..".jpg")
+	var.xmlPinTu:getWidgetByName("imgBossPic"):setScale(434/var.xmlPinTu:getWidgetByName("imgBossPic"):getContentSize().width,394/var.xmlPinTu:getWidgetByName("imgBossPic"):getContentSize().height)
+	var.xmlPinTu:getWidgetByName("labWg"):setString(data.dc.."-"..data.dc2)
+	var.xmlPinTu:getWidgetByName("labMg"):setString(data.mc.."-"..data.mc2)
+	var.xmlPinTu:getWidgetByName("labDg"):setString(data.sc.."-"..data.sc2)
+	var.xmlPinTu:getWidgetByName("labWf"):setString(data.ac.."-"..data.ac2)
+	var.xmlPinTu:getWidgetByName("labMf"):setString(data.mac.."-"..data.mac2)
+	-- var.xmlPinTu:getWidgetByName("labHp"):setString(data.hp)
+
+	if data.picInfo then
+		local btnJiHuo = var.xmlPinTu:getWidgetByName("btnJiHuo")
+		if data.picInfo[10]>0 then--已被激活
+			var.xmlPinTu:getWidgetByName("labBossInfo"):setString(data.bossName.."：9/9")
+			var.xmlPinTu:getWidgetByName("box_mask"):setVisible(false)
+			-- PanelBossPictrue.pinTuAnimate(true)
+			util.removeHaloFromButton(btnJiHuo)
+		else
+			local openNum = 0
+			for i=1,9 do
+				local btnMask = var.xmlPinTu:getWidgetByName("imgMask"..i)
+				btnMask:removeChildByName("img_bln")
+				if data.picInfo[i]>0 then
+					openNum=openNum+1
+					btnMask:setVisible(false)
+				else
+					btnMask:setVisible(true)
+					if data.haveState and data.haveState[i]>=1 then
+						util.addHaloToButton(btnMask, "pt_light"..i)
+					end
+				end
+			end
+			var.xmlPinTu:getWidgetByName("labBossInfo"):setString(data.bossName.."："..openNum.."/9")
+			var.xmlPinTu:getWidgetByName("box_mask"):setVisible(true)
+			-- PanelBossPictrue.pinTuAnimate(false)
+			if openNum>=9 then
+				util.addHaloToButton(btnJiHuo, "btn_normal_light3")
+			else
+				util.removeHaloFromButton(btnJiHuo)
+			end
+		end
+	end
+	if data.haveState then
+		var.pictrueIds=data.haveState
+	end
+	if data.upSucceed then
+		PanelBossPictrue.pinTuAnimate()
+		PanelBossPictrue.pinTuAnimate3()
+	end
+	var.curPicIndex=data.index
+	var.xmlPinTu:getWidgetByName("labPage"):setString(var.curPicIndex.."/19")
+	if var.curPicIndex==1 then
+		var.xmlPinTu:getWidgetByName("btnPre"):setEnabled(false)
+		var.xmlPinTu:getWidgetByName("btnNext"):setEnabled(true)
+	elseif var.curPicIndex==19 then
+		var.xmlPinTu:getWidgetByName("btnPre"):setEnabled(true)
+		var.xmlPinTu:getWidgetByName("btnNext"):setEnabled(false)
+	end
+	var.redsTable=data.redData
+	PanelBossPictrue.setBtnRedShow()
+end
+
+--设置左右按钮的红点
+function PanelBossPictrue.setBtnRedShow()
+	local imgRedPre=var.xmlPinTu:getWidgetByName("imgRedPre"):setVisible(false)
+	local imgRedNext=var.xmlPinTu:getWidgetByName("imgRedNext"):setVisible(false)
+	if var.curPicIndex>1 then
+		for i=1,(var.curPicIndex-1) do
+			if var.redsTable[i] and var.redsTable[i]>0 then
+				imgRedPre:setVisible(true)
+				break
+			end
+		end
+	end
+	if var.curPicIndex<19 then
+		for i=(var.curPicIndex+1),19 do
+			if var.redsTable[i] and var.redsTable[i]>0 then
+				imgRedNext:setVisible(true)
+				break
+			end
+		end
+	end
+end
+
+--遮罩点击开启操作
+function PanelBossPictrue.initMaskClick()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		local typeId = var.pictrueIds[sender.index]
+		NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData",util.encode({actionid = "repOpenPinTuMask",params={index=var.curPicIndex,maskid=var.pictrueIds[sender.index]}}))
+	end
+	for i=1,9 do
+		local btnMask = var.xmlPinTu:getWidgetByName("imgMask"..i):setTouchEnabled(true)
+		btnMask.index=i
+		UIRedPoint.addUIPoint(btnMask,prsBtnClick)
+	end
+end
+
+--拼图激活特效
+function PanelBossPictrue.pinTuAnimate(isshow)
+	if not var.fireworks3 then
+		var.fireworks3 = cc.Sprite:create():addTo(var.xmlPinTu):pos(246,296)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,6552000,4,4)
+	if animate then
+		var.fireworks3:setVisible(true)
+		var.fireworks3:stopAllActions()
+		var.fireworks3:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.cb(function (target)
+				var.fireworks3:setVisible(false)
+				PanelBossPictrue.pinTuAnimate2()
+			end)
+			-- cca.removeSelf(),
+		}))
+	end
+end
+
+--拼图激活特效
+function PanelBossPictrue.pinTuAnimate2()
+	if not var.fireworks4 then
+		var.fireworks4 = cc.Sprite:create():addTo(var.xmlPinTu):pos(246,296)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,6552000,4,4)
+	if animate then
+		var.fireworks4:setVisible(true)
+		var.fireworks4:stopAllActions()
+		var.fireworks4:runAction(cca.seq({
+			cca.rep(animate:reverse(),1),
+			cca.cb(function (target)
+				var.fireworks4:setVisible(false)
+			end)
+			-- cca.removeSelf(),
+		}))
+	end
+end
+
+--图片由暗到亮
+function PanelBossPictrue.pinTuAnimate3()
+	local value = 100
+	local bigPic = var.xmlPinTu:getWidgetByName("imgBossPic"):setOpacity(value)
+	bigPic:stopAllActions()
+	bigPic:runAction(cca.repeatForever(cca.seq({cca.delay(0.05), cca.callFunc(function ()
+		value = value+5
+		bigPic:setOpacity(value)
+		if value>=255 then
+			bigPic:stopAllActions()
+		end
+	end)})))
+end
+
+--------------------------------------------------------炼魂------------------------------------------------------------
+function PanelBossPictrue.initLinHun()
+	if not var.xmlLinHun then
+		var.xmlLinHun=UILuaLoader.load("uilayout/PanelBossPictrue_lianhun.uif")
+							:addTo(var.xmlPanel:getWidgetByName("panel_bg")):pos(107, 11)
+							:show()
+							   
+		util.asyncload(var.xmlLinHun, "panel_bg", "needload/img_ld.png")					   
+   		local btnDesp = var.xmlLinHun:getWidgetByName("Image_240_18"):setTouchEnabled(true)
+		btnDesp:addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelBossPictrue.huiShouDesp(despTable2)
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				LayerAlert.handleAlertClose()
+			end
+		end)
+   		--PanelBossPictrue.initPinTuBtns()
+   		var.lianHunBar=var.xmlPanel:getWidgetByName("linHunBar"):setPercent(20,100):setFontSize(18):enableOutline(game.getColor(0x000000),1)
+   		var.lianHunLev = ccui.TextAtlas:create("0123456789", "fonts/lianHunNum.png", 20, 25, "0")
+			:addTo(var.xmlLinHun)
+			:align(display.CENTER, 275, 479)
+			:setString(12)
+		PanelBossPictrue.initLinHunBtns()
+		PanelBossPictrue.lianHunAnimate()
+	else
+		var.xmlLinHun:show()
+	end
+	NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData",util.encode({actionid = "reqLianHunData",params={}}))
+	return var.xmlLinHun
+end
+
+--炼魂火特效
+function PanelBossPictrue.lianHunAnimate()
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlLinHun):pos(246,310)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,6550000,4,4)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,10000),
+			cca.removeSelf(),
+		}))
+	end
+end
+
+--炼魂火升级特效
+function PanelBossPictrue.lianHunAnimate2()
+	var.fireworks2 = cc.Sprite:create():addTo(var.xmlLinHun):pos(251, 400)
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,60015,4,4)
+	if animate then
+		var.fireworks2:stopAllActions()
+		var.fireworks2:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.removeSelf(),
+		}))
+	end
+end
+
+local btnArrs2 = {"btnShengJi","btnBuyTu"}
+function PanelBossPictrue.initLinHunBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if senderName=="btnHuiShou" then
+			PanelBossPictrue.initHuiShou()
+		elseif senderName=="btnBuyTu" then
+			PanelBossPictrue.clickBtnBuy("lianhun")
+		elseif senderName=="btnShengJi" then
+			NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData",util.encode({actionid = "shengJiLianHun",params={}}))
+		end
+	end
+	for i=1,#btnArrs2 do
+		local btn = var.xmlLinHun:getWidgetByName(btnArrs2[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+--刷新拼图的界面数据
+function PanelBossPictrue.updateLianHun(data)
+	local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+	if data and data.dataTable then
+		var.xmlLinHun:getWidgetByName("labWg"):setString(data.dataTable.wgmin.."-"..data.dataTable.wgmax)
+		--var.xmlLinHun:getWidgetByName("labMg"):setString(data.dataTable.mgmin.."-"..data.dataTable.mgmax)
+		--var.xmlLinHun:getWidgetByName("labDg"):setString(data.dataTable.dgmin.."-"..data.dataTable.dgmax)
+		var.xmlLinHun:getWidgetByName("labWf"):setString(data.dataTable.wfmin.."-"..data.dataTable.wfmax)
+		var.xmlLinHun:getWidgetByName("labMf"):setString(data.dataTable.mfmin.."-"..data.dataTable.mfmax)
+		if job==100 then
+			var.xmlLinHun:getWidgetByName("labHp"):setString(data.dataTable.zhanhp)
+		elseif job==101 then
+			var.xmlLinHun:getWidgetByName("labHp"):setString(data.dataTable.fahp)
+		elseif job==102 then
+			var.xmlLinHun:getWidgetByName("labHp"):setString(data.dataTable.daohp)
+		end
+	end
+	var.lianHunLev:setString(data.curLevel)
+	var.lianHunBar:setPercent(data.ownExp,data.needExp)
+
+	local btnShengJi = var.xmlLinHun:getWidgetByName("btnShengJi")
+	if tonumber(data.ownExp)>=tonumber(data.needExp) then
+		util.addHaloToButton(btnShengJi, "btn_normal_light3")
+	else
+		util.removeHaloFromButton(btnShengJi)
+	end
+	if data.upSucceed then
+		PanelBossPictrue.lianHunAnimate2()
+	end
+end
+
+-----------------------------------------拼图回收-----------------------------------------------
+function PanelBossPictrue.initHuiShou()
+	if not var.xmlHuiShou then
+		var.xmlHuiShou = UILuaLoader.load("uilayout/PanelBossPictrue_huishou.uif")
+				:addTo(var.xmlPanel:getWidgetByName("panel_bg"),20):align(display.CENTER, 465, 295)
+				:show()
+		util.asyncload(var.xmlHuiShou, "img_bg", "needload/bg_max.png")
+
+		local btnDesp = var.xmlHuiShou:getWidgetByName("btnDesp"):setTouchEnabled(true)
+		btnDesp:addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelBossPictrue.huiShouDesp(despTable)
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				LayerAlert.handleAlertClose()
+			end
+		end)
+
+		var.xmlHuiShou:getWidgetByName("btnback"):addClickEventListener(function (sender)--关闭回收
+   			var.xmlHuiShou:hide()
+		end)
+
+		var.xmlHuiShou:getWidgetByName("btn_add"):addClickEventListener(function (sender)--一键添加
+   			var.bagData={}
+   			var.huiShouData=game.getPinTuPos()
+   			PanelBossPictrue.initLists()
+		end)
+
+		var.xmlHuiShou:getWidgetByName("btn_huishou"):addClickEventListener(function (sender)--一键回收
+   			if #var.huiShouData>0 then
+   				NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData",util.encode({actionid = "startHuiShow",params={posArr=var.huiShouData}}))
+   			end
+		end)
+	else
+		var.xmlHuiShou:show()
+	end
+
+	var.bagData=game.getPinTuPos()
+	var.huiShouData={}
+	PanelBossPictrue.initLists()
+end
+
+function PanelBossPictrue.initLists()
+	local listBag = var.xmlPanel:getWidgetByName("list_bag"):setSliderVisible(false)
+	listBag:reloadData(60,PanelBossPictrue.updateBagList)
+
+	local listShou = var.xmlPanel:getWidgetByName("list_shou"):setSliderVisible(false)
+	listShou:reloadData(60,PanelBossPictrue.updateShouList)
+
+end
+
+function PanelBossPictrue.updateBagList(item)
+	if var.bagData[item.tag] then
+		local param = {
+			parent = item,
+			pos = var.bagData[item.tag],
+			-- iconType = Const.ICONTYPE.DEPOT,
+			-- titleText = Const.str_take_out,
+			tipsType = Const.TIPS_TYPE.UPGRADE,
+			enmuPos = 6,
+			customCallFunc = function()
+				local curValue = var.bagData[item.tag]
+				table.removebyvalue(var.bagData,curValue)
+				table.insert(var.huiShouData,curValue)
+				PanelBossPictrue.initLists()
+			end,
+			doubleCall = function()
+				local curValue = var.bagData[item.tag]
+				table.removebyvalue(var.bagData,curValue)
+				table.insert(var.huiShouData,curValue)
+				PanelBossPictrue.initLists()
+			end
+		}
+		UIItem.getItem(param)
+	else
+		if item:getWidgetByName("item_icon") then
+			item:getWidgetByName("item_icon"):removeFromParent()
+		end
+	end
+end
+
+function PanelBossPictrue.updateShouList(item)
+	if var.huiShouData[item.tag] then
+		local param = {
+			parent = item,
+			pos = var.huiShouData[item.tag],
+			-- iconType = Const.ICONTYPE.DEPOT,
+			-- titleText = Const.str_take_out,
+			tipsType = Const.TIPS_TYPE.UPGRADE,
+			enmuPos = 3,
+			customCallFunc = function()
+				local curValue = var.huiShouData[item.tag]
+				table.removebyvalue(var.huiShouData,curValue)
+				table.insert(var.bagData,curValue)
+				PanelBossPictrue.initLists()
+			end,
+			doubleCall = function()
+				local curValue = var.huiShouData[item.tag]
+				table.removebyvalue(var.huiShouData,curValue)
+				table.insert(var.bagData,curValue)
+				PanelBossPictrue.initLists()
+			end,
+		}
+		UIItem.getItem(param)
+	else
+		if item:getWidgetByName("item_icon") then
+			item:getWidgetByName("item_icon"):removeFromParent()
+		end
+	end
+end
+
+function PanelBossPictrue.huiShouDesp(desptable)
+	local mParam = {
+	name = Notify.EVENT_PANEL_ON_ALERT,
+	panel = "tips",
+	infoTable = desptable,
+	visible = true,
+	}
+	NetClient:dispatchEvent(mParam)
+
+end
+
+-----------------------------------------拼图材料购买-----------------------------------------------
+function PanelBossPictrue.initBuy(data)
+	if not var.xmlBuy then
+		var.xmlBuy = UILuaLoader.load("uilayout/PanelBossPictrue_buy.uif")
+				:addTo(var.xmlLinHun):align(display.CENTER, 646, 259)
+				:show()
+		
+		var.xmlBuy:getWidgetByName("shop_bg"):setPositionY(-518)
+		util.asyncload(var.xmlBuy, "shop_bg", "needload/img_kuan_bg.png")
+		local function prsBtnItem(sender)
+			var.xmlBuy:getWidgetByName("shop_bg"):runAction(cca.seq({
+				cca.moveTo(0.3, 0, -518),
+				cca.callFunc(function()
+					var.xmlBuy:hide()
+				end)
+			}))
+		end
+		UIRedPoint.addUIPoint(var.xmlBuy:getWidgetByName("btnback"), prsBtnItem)
+		var.xmlBuy:getWidgetByName("btnChongZhi"):setTouchEnabled(true):addClickEventListener(function ()
+   			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+   		end)
+
+	else
+		var.xmlBuy:show()
+	end
+	var.xmlBuy:getWidgetByName("shop_bg"):runAction(cca.seq({
+		cca.moveTo(0.3, 0, 0),
+		cca.callFunc(function()
+			
+		end)
+	}))
+	var.buyData=data.data
+	local listBuy = var.xmlBuy:getWidgetByName("listBuy")
+	listBuy:reloadData(#var.buyData,PanelBossPictrue.updateBuy):setSliderVisible(false)
+	var.xmlBuy:getWidgetByName("lblbindcoin"):setString(var.curBVcion)
+	var.xmlBuy:getWidgetByName("lblcoin"):setString(var.curVcion)
+
+	-- 
+	
+end
+
+function PanelBossPictrue.updateBuy(item)
+	local itemData = var.buyData[item.tag]
+	item:getWidgetByName("labName"):setString(itemData.name)
+	item:getWidgetByName("labPrice"):setString(itemData.money)
+	local awardItem=item:getWidgetByName("icon")
+	local param={parent=awardItem , typeId=itemData.id}
+	UIItem.getItem(param)
+
+	local function prsBtnItem(sender)
+		NetClient:PushLuaTable("gui.PanelOfficial.onPanelData",util.encode({actionid = "reqBuyHonour",params={index=sender.storeId}}))
+	end
+	local btnBuy = item:getWidgetByName("btnBuy")
+	btnBuy.storeId=itemData.storeId
+	UIRedPoint.addUIPoint(btnBuy , prsBtnItem)
+	UILuaLoader.attachEffect(btnBuy,"outline(0e0600,1)")
+end
+
+--跟新钻石和绑元变化
+function PanelBossPictrue.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		var.curVcion=mainrole.mVCoin or 0
+		var.curBVcion=mainrole.mVCoinBind or 0
+		var.curMoney=mainrole.mGameMoney or 0
+		if var.xmlBuy then
+			var.xmlBuy:getWidgetByName("lblcoin"):setString(var.curVcion)
+			var.xmlBuy:getWidgetByName("lblbindcoin"):setString(var.curBVcion)
+		end
+	end
+end
+
+--点击购买按钮操作
+function PanelBossPictrue.clickBtnBuy(type)
+	if var.xmlBuy and var.xmlBuy:isVisible() then
+		var.xmlBuy:getWidgetByName("shop_bg"):runAction(cca.seq({
+			cca.moveTo(0.3, 0, -514),
+			cca.callFunc(function()
+				var.xmlBuy:hide()
+			end)
+		}))
+	else
+		if type=="pintu" then
+			NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData", util.encode({actionid = "reqPinTuBuyData"}))
+		elseif type=="lianhun" then
+			NetClient:PushLuaTable("gui.PanelBossPictrue.handlePanelData", util.encode({actionid = "reqLinHunBuyData"}))
+		end
+	end
+end
+
+
+
+return PanelBossPictrue

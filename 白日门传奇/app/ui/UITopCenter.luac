@@ -1,0 +1,118 @@
+local UITopCenter = {}
+local var = {}
+
+function UITopCenter.init_ui(topCenter)
+		var = {
+			topCenter,
+			layerFuben,
+			layerPassStar,
+			lblCoundDown,
+		}
+		var.topCenter = topCenter
+		var.topCenter:align(display.TOP_CENTER, display.cx, display.height)
+
+		var.layerFuben = topCenter:getWidgetByName("layerFuben"):hide()
+		var.layerPassStar = topCenter:getWidgetByName("layerPassStar"):hide()
+
+		topCenter:getWidgetByName("progress_bar_bg"):setPositionY(display.height * -0.25):hide()
+
+		var.progressBar = topCenter:getWidgetByName("progress_bar"):setFormatString(""):setPositionY(12)
+
+		cc.EventProxy.new(NetClient, var.topCenter):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, UITopCenter.handlePanelData):addEventListener(Notify.EVENT_FRESH_FUBEN, UITopCenter.freshLayerFuBen)
+	end
+	
+function UITopCenter.handlePanelData(event)
+		if event.type == "showPassStar" then
+			UITopCenter.showPassStar(util.decode(event.data))
+		end
+	end
+	
+function UITopCenter.freshLayerFuBen(event)
+			var.layerFuben:setVisible(event.visible and true or false)
+	var.layerFuben:getWidgetByName("img_fb_countDown"):setVisible(event.second ~=nil)
+	var.layerFuben:getWidgetByName("lbl_fuben_info2"):setVisible(event.second ~=nil)
+
+	local img_fuben_info3 = var.layerFuben:getWidgetByName("img_fuben_info3")
+	local imgs = {"img_bu_susha","img_bu_quanmie","img_bu_zhanjiang"}
+	if event.imgindex~=nil then
+		local imgindex = event.imgindex or 1
+		img_fuben_info3:loadTexture(imgs[imgindex],ccui.TextureResType.plistType)
+		img_fuben_info3:pos(300,100):show()
+		img_fuben_info3:stopAllActions():runAction(cca.seq({
+			cc.EaseIn:create(cca.moveTo(0.5, 100, 100),0.5),
+			cca.delay(5),
+			cca.hide(),
+		}))
+	end
+	local leftsecond = event.second
+	if tonumber(leftsecond) then
+		if not var.lblCoundDown then
+			var.lblCoundDown = display.newBMFontLabel({font = "fonts/font_green.fnt",})
+			:align(display.CENTER, 0, 0)
+			:setName("lblCoundDown")
+			:setString("0")
+			:addTo(var.layerFuben:getWidgetByName("lbl_fuben_info2"))
+		end
+		var.layerFuben:stopAllActions()
+		var.lblCoundDown:setString(leftsecond)
+		var.layerFuben:runAction(cca.rep(cca.seq({
+			cca.delay(1),
+			cca.cb(function()
+				leftsecond = leftsecond - 1
+				var.lblCoundDown:setString(leftsecond)
+			end)
+		}),leftsecond))
+	else
+		var.layerFuben:stopAllActions()
+	end
+	end
+	
+function UITopCenter.showPassStar(data)
+		var.layerPassStar:setVisible(true)
+
+		local passStar = tonumber(data.passStar)
+
+		for i = 1, 3 do
+		end
+
+		var.layerPassStar:stopAllActions()
+		var.layerPassStar:runAction(cca.seq({
+			cca.scaleTo(0.3, 1.4),
+			cca.scaleTo(0.3, 1),
+			cca.delay(3),
+			cca.cb(function (target)
+				target:hide()
+			end)
+		}))
+	end
+	
+function UITopCenter.showProgressBar(event)
+		var.topCenter:getWidgetByName("progress_bar_bg"):show()
+
+		if event.info then
+			var.topCenter:getWidgetByName("img_lbl_tip"):runAction(cca.repeatForever(cca.seq({
+				cca.fadeIn(0.5),
+				cca.fadeOut(0.5)
+			})))
+		end
+
+		if event.time then
+			var.progressBar:setProgressTime(event.time)
+		end
+
+		NetClient.m_bCollecting = true
+
+		var.progressBar:setPercent(0, 100)
+		var.progressBar:setPercentWithAnimation(100, 100, function ()
+			UITopCenter.hideProgressBar()
+		end)
+	end
+	
+function UITopCenter.hideProgressBar()
+		var.topCenter:getWidgetByName("progress_bar_bg"):hide()
+		var.progressBar:stopAllActions()
+		var.progressBar:setPercent(0)
+		var.topCenter:getWidgetByName("img_lbl_tip"):stopAllActions()
+	end
+	
+return UITopCenter

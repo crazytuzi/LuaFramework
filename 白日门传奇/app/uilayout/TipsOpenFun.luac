@@ -1,0 +1,9 @@
+LUA_RET={
+{n="TipsOpenFun",v=true,type=0,id=1,parent=0,w=1136,h=640,ax=0,ay=0,},
+{n="box_open",tag=189,t=true,v=true,type=0,id=2,parent=1,w=326,h=335,ax=0.5,ay=0.5,x=568,y=320,},
+{n="funBg",tag=188,v=true,type=1,id=3,parent=2,w=326,h=335,ax=0,ay=0,x=0,y=0,},
+{n="imgTitleBg",tag=190,v=true,type=1,id=4,parent=2,w=40,h=165,ax=0.5,ay=0.5,x=310,y=256,},
+{n="imgShowFun",tag=192,v=true,type=1,id=5,parent=2,w=326,h=335,ax=0.5,ay=0.5,x=175,y=185,},
+{n="funTitle",tag=191,v=true,type=3,fs=20,text="boss\n拼\n图",vt=1,id=6,parent=2,w=40,h=90,ax=0,ay=0.5,x=302,y=288,fr="DFYuan.ttf",color="253|223|174",olc="0,0,0,255",},
+{n="imgFlyIcon",tag=7,v=true,type=1,id=7,parent=1,w=326,h=335,ax=1.0,ay=0.5,x=1136,y=433,},
+}

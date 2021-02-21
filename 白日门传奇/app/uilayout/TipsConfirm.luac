@@ -1,0 +1,9 @@
+LUA_RET={
+{n="TipsConfirm",v=true,type=0,id=1,parent=0,w=387.0000,h=225.0000,},
+{n="tipsbg",ud="nocache",tag=889,ss=true,sx=15,sh=115,sy=57,v=true,type=1,id=2,parent=1,w=387.0000,h=225.0000,color="255|255|255",res="img_kuan_bg",},
+{n="title",tag=1175,fs=25,text="系统提示",ht=1,vt=1,v=true,type=3,id=3,parent=1,w=120.0000,h=28.0000,ax=0.5000,ay=0.5000,x=195.0117,y=197.7218,color="255|237|205",fr="DFYuan.ttf",},
+{n="lbl_confirm_content",tag=84,fs=20,text="",ht=1,vt=1,v=true,type=3,id=4,parent=1,w=360.0000,h=90.0000,ax=0.5000,ay=0.5000,x=192.0000,y=115.0000,color="255|255|255",},
+{n="list_confirm_content",tag=86,t=true,c=false,d=1,v=true,type=9,id=5,parent=1,w=360.0000,h=90.0000,ax=0.5000,ay=0.5000,x=193.4194,y=114.0002,color="255|255|255",},
+{n="btnConfirm",ud="outline(000000,1);zoomscale(-0.12)",tag=3,t=true,fs=18,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=6,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=297.9999,y=32.5620,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btnCancel",ud="outline(000000,1);zoomscale(-0.12)",tag=4,t=true,fs=22,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=7,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=107.6110,y=32.8336,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+}

@@ -1,0 +1,15 @@
+LUA_RET={
+{n="PanelDaZao_Shengshi",v=true,type=0,id=1,parent=0,w=627.0000,h=507.0000,},
+{n="img_bg",ud="nocache",tag=327,sx=206,sw=206,sh=167,sy=167,v=true,type=1,id=2,parent=1,w=627.0000,h=507.0000,ax=0.5000,ay=0.5000,x=313.6622,y=254.1749,color="255|255|255",res="img_shengshi",},
+{n="iconEquip",tag=288,sx=-15,sw=31,sh=31,sy=-15,v=true,type=1,id=3,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=161.8562,y=413.4042,color="255|255|255",res="img_cell_max",},
+{n="iconEquip2",tag=54,sx=-15,sw=31,sh=31,sy=-15,v=true,type=1,id=4,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=161.0000,y=225.0000,color="255|255|255",res="img_cell_max",},
+{n="targetEquip",tag=289,sx=-15,sw=31,sh=31,sy=-15,v=true,type=1,id=5,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=376.2213,y=323.3893,color="255|255|255",res="img_cell_max",},
+{n="Image_26",tag=139,ss=true,sx=5,sw=5,sh=5,sy=5,v=true,type=1,id=6,parent=1,w=260.0000,h=35.0000,ax=0.5000,ay=0.5000,x=434.5034,y=118.6739,color="255|255|255",res="bar_bg",},
+{n="Image_23",tag=262,sx=13,sw=13,sh=13,sy=13,v=true,type=1,id=7,parent=1,w=47.0000,h=40.0000,ax=0.5000,ay=0.5000,x=305.6149,y=118.9780,color="255|255|255",res="vcoin",},
+{n="labNeedMoney",tag=335,fs=20,text="0",vt=1,v=true,type=3,id=8,parent=1,w=240.0000,h=25.0000,ay=0.5000,x=331.6176,y=118.9780,color="231|186|82",},
+{n="Text_9",tag=369,fs=20,text="消耗钻石",vt=1,v=true,type=3,id=9,parent=1,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=246.6174,y=120.9776,color="229|221|202",},
+{n="btnDZ",ud="outline(0e0600,1);zoomscale(-0.12)",tag=287,t=true,fs=18,text="打 造",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=10,parent=1,w=138.0000,h=36.0000,ax=0.5000,ay=0.5000,x=309.7628,y=54.0421,color="255|255|255",tcolor="234|221|191",sel="btn_red3",res="btn_red_chang",},
+{n="btn_dazaohelp",tag=259,sx=9,sw=9,sh=9,sy=9,v=true,type=1,id=11,parent=1,w=61.0000,h=66.0000,ax=0.5000,ay=0.5000,x=581.0001,y=459.6578,color="255|255|255",res="btn_help2_new",},
+-- {n="imgStone",tag=393,sx=18,sw=18,sh=18,sy=18,v=true,type=1,id=135,parent=1,w=56.0000,h=56.0000,ax=0.5000,ay=0.5000,x=275.5347,y=171.3197,color="255|255|255",res="stone_1",},
+
+}

@@ -1,0 +1,331 @@
+local UICenterBottom = {}
+local var = {}
+local btnInfo = {
+	bag_btn = {
+		name = "main_avatar",
+		tab = 2,
+		more = false
+	}
+}--背包
+
+
+function UICenterBottom.handlePanelData(event)
+	local data = util.decode(event.data)
+	--if data.type ~= "UICenterBottom" then return end
+	-- if data.cmd == "huWeiZhaoHuan" then
+		-- var.isState = 2
+		-- var.centerBottom:getWidgetByName("zcbtn"):loadTextureNormal("cy_main_chongwu_21", ccui.TextureResType.plistType)
+	-- elseif data.cmd == "huWeiZhaoHui" then
+		-- var.isState = 1
+		-- var.centerBottom:getWidgetByName("zcbtn"):loadTextureNormal("cy_main_chongwu_11", ccui.TextureResType.plistType)
+	-- end
+end
+	
+function UICenterBottom.init_ui(centerBottom)
+		var = {
+			layerHpMp,
+			layerLeftBtn,
+			can_move = true,
+			notPk = false,
+			-- isState = 1,
+			centerBottom = centerBottom
+		}
+
+		var.centerBottom:align(display.CENTER_BOTTOM, display.cx, display.bottom)
+
+		var.layerHpMp = var.centerBottom:getWidgetByName("layerHpMp")
+
+		var.layerHpMp:setTouchEnabled(true)
+
+		var.layerLeftBtn = var.centerBottom:getWidgetByName("layerLeftBtn")
+		var.Panel_btn = var.centerBottom:getWidgetByName("Panel_btn")
+		var.imgRight = var.centerBottom:getWidgetByName("imgRight")
+		var.imgLeft = var.centerBottom:getWidgetByName("imgLeft")
+		local btnBag = var.layerLeftBtn:getWidgetByName("btnBag")
+		local hwzhuan = var.centerBottom:getWidgetByName("Huweizhaohuan")
+		local hwzhui = var.centerBottom:getWidgetByName("Huweizhaohui")
+		hwzhuan:addClickEventListener(function ( ... ) UICenterBottom.zhaohuanhuwei() end)
+		hwzhui:addClickEventListener(function ( ... ) UICenterBottom.zhaohuihuwei() end)
+		-- local zcBtn = var.centerBottom:getWidgetByName("zcbtn"):addClickEventListener(function (sender)
+			-- if var.isState == 1 then
+				-- NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData", util.encode({
+					-- actionid = "reqZhaoHuan",
+					-- params = {
+						-- type = "world"
+					-- }
+				-- }))
+			-- else
+				-- NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData", util.encode({
+					-- actionid = "reqZhaoHui",
+					-- params = {
+						-- type = "world"
+					-- }
+				-- }))
+			-- end
+		-- end)
+
+		-- cc.EventProxy.new(NetClient, centerBottom):addEventListener(Notify.EVENT_GUI_BUTTON, function ()
+			-- if NetClient:checkGuiButton("extend_mars") then
+				-- if zcBtn then
+					-- zcBtn:show()
+				-- end
+			-- elseif zcBtn then
+				-- zcBtn:hide()
+			-- end
+		-- end)
+		 cc.EventProxy.new(NetClient, centerBottom):addEventListener(Notify.EVENT_SELF_HPMP_CHANGE, UICenterBottom.handlefreshHPMP)
+		:addEventListener(Notify.EVENT_BAG_UNFULL, UICenterBottom.showBagFull)
+		:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, UICenterBottom.handlePanelData)
+		:addEventListener(Notify.EVENT_FRESH_FUYUANCD, UICenterBottom.handlefreshFuyuan)
+		UIPropModel.init(var.centerBottom:getWidgetByName("panelRect"))
+
+		for k, v in pairs(btnInfo) do
+			UIRedPoint.addUIPoint(var.centerBottom:getWidgetByName(k), function (sender)
+				if v.more then
+					UICenterBottom.showMoreBtn(v, sender)
+				else
+					if v.tab then
+						-- Nothing
+					end
+
+					NetClient:dispatchEvent({
+						name = Notify.EVENT_OPEN_PANEL,
+						str = v.name,
+						tab = v.tab,
+						mParam = {
+							tab = v.tab,
+							index = v.tab
+						}
+					})
+				end
+			end)
+		end
+
+		UICenterBottom.handlefreshHPMP()
+		UICenterBottom.handlefreshFuyuan()
+	end
+	
+--召唤护卫
+function UICenterBottom.zhaohuanhuwei()
+	NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqZhaoHuan1",params={}}))
+	-- if data.state==1 then--有护卫
+		var.centerBottom:getWidgetByName("Huweizhaohuan"):setVisible(false):hide()
+		var.centerBottom:getWidgetByName("Huweizhaohui"):setVisible(true):show()
+	-- else
+		-- var.centerBottom:getWidgetByName("Huweizhaohuan"):setVisible(true)
+		-- var.centerBottom:getWidgetByName("Huweizhaohui"):setVisible(false)
+	-- end
+
+end
+--召回护卫
+function UICenterBottom.zhaohuihuwei()
+	NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqZhaoHui1",params={}}))
+	-- if data.state==1 then
+		-- var.centerBottom:getWidgetByName("Huweizhaohuan"):setVisible(false)
+		-- var.centerBottom:getWidgetByName("Huweizhaohui"):setVisible(true)
+	-- else
+		-- var.centerBottom:getWidgetByName("Huweizhaohuan"):setVisible(true)
+		-- var.centerBottom:getWidgetByName("Huweizhaohui"):setVisible(false)
+	-- end
+		var.centerBottom:getWidgetByName("Huweizhaohuan"):setVisible(true):show()
+		var.centerBottom:getWidgetByName("Huweizhaohui"):setVisible(false):hide()
+end	
+	
+function UICenterBottom.showBagFull(event)
+		local btnMainBag = var.centerBottom:getWidgetByName("bag_btn")
+		local image = btnMainBag:getChildByName("img_bag_full")
+		local img_red_dot = btnMainBag:getChildByName("img_red_dot")
+
+
+		if not btnMainBag:getChildByName("img_red_dot") then
+			local size = btnMainBag:getContentSize()
+			img_red_dot = ccui.ImageView:create()
+			local imageSize = img_red_dot:getContentSize()
+
+			img_red_dot:setName("img_red_dot")
+			img_red_dot:setPositionX(52)
+			img_red_dot:setPositionY(52)
+			btnMainBag:addChild(img_red_dot)
+			img_red_dot:loadTexture("img_red_dot", ccui.TextureResType.plistType)
+		end
+
+		if not image then
+			local size = btnMainBag:getContentSize()
+			image = ccui.ImageView:create()
+			local imageSize = image:getContentSize()
+
+			image:setName("img_bag_full")
+			image:setPositionX(52)
+			image:setPositionY(52)
+			btnMainBag:addChild(image)
+		end
+
+		util.asyncload(btnMainBag, "img_bag_full", "needload/img_bag_full.png")
+		image:setVisible(event.vis or false)
+		img_red_dot:setVisible(false)
+	end
+	
+function UICenterBottom.showMoreBtn( arr,sender)
+		i = sender
+		local panel = var.centerBottom:getWidgetByName("Panel_" .. sender.getName(i))
+
+		for i = 1, #arr do
+			if arr[i].panel ~= "" then
+				var.centerBottom:getWidgetByName(arr[i].normal):addClickEventListener(function (...)
+					NetClient:dispatchEvent({
+						name = Notify.EVENT_OPEN_PANEL,
+						str = arr[i].panel
+					})
+					panel:hide()
+				end)
+
+				if not NetClient:checkFuncOpened(arr[i].panel) then
+					var.centerBottom:getWidgetByName(arr[i].normal):setBright(false)
+					var.centerBottom:getWidgetByName(arr[i].normal):getChildByName("Image_2"):getVirtualRenderer():setState(1)
+				else
+					var.centerBottom:getWidgetByName(arr[i].normal):setBright(true)
+					var.centerBottom:getWidgetByName(arr[i].normal):getChildByName("Image_2"):getVirtualRenderer():setState(0)
+				end
+			end
+		end
+
+		local pos = {}
+		if sender:getName() == "sound_btn" then
+			-- Nothing
+		else
+			pos.x = sender:getPositionX() - 285
+			pos.y = 130
+		end
+
+		panel:setPosition({
+			x = sender:getPositionX() - 275,
+			y = 100
+		}):setVisible(not panel:isVisible())
+
+		if var.last_panel and var.last_panel ~= panel then
+			var.last_panel:setVisible(false)
+		end
+
+		var.last_panel = panel
+	end
+	
+function UICenterBottom.handleShowMoreBtn( arr,sender )
+		var.layerMoreBtn:removeAllChildren()
+
+		local tabBtn = {}
+		local width = 0
+		local spaceX = 2
+		local size = nil
+		local sizeWidth = {}
+
+		for i, v in ipairs(arr) do
+			if v and v.normal ~= "" then
+				local node = ccui.Button:create()
+
+				node:loadTextureNormal(v.normal, ccui.TextureResType.plistType)
+				node:setName(v.name)
+				node:setAnchorPoint(cc.p(0, 0))
+				UIRedPoint.addUIPoint(node, function ()
+					if v.panel ~= "" then
+						NetClient:dispatchEvent({
+							name = Notify.EVENT_OPEN_PANEL,
+							str = v.panel
+						})
+					end
+
+					var.layerMoreBtn:hide()
+				end)
+
+				tabBtn[#tabBtn + 1] = node
+				size = node:getContentSize()
+				sizeWidth[#sizeWidth + 1] = width
+				width = width + size.width + 2
+
+				if 0 < size.height then
+					height = size.height
+				end
+			end
+		end
+
+		height = height + 10
+		width = width + 10
+
+		var.layerMoreBtn:setContentSize(cc.size(width,height))
+
+		for i, v in ipairs(tabBtn) do
+			v:setPositionX(sizeWidth[i] + 5)
+			v:setPositionY(5)
+			var.layerMoreBtn:addChild(v)
+		end
+
+		var.layerMoreBtn:show()
+		var.layerMoreBtn:setPosition({
+			x = slot1:getPositionX() - 280,
+			y = 100
+		})
+	end
+	
+function UICenterBottom.handleSetPKNoraml()
+		if var.can_move then
+			var.can_move = false
+		else
+			return
+		end
+
+		var.notPk = not var.notPk
+
+		var.layerLeftBtn:setVisible(var.notPk)
+		var.Panel_btn:setVisible(true)
+		var.Panel_btn:runAction(cca.seq({
+			cca.moveTo(0.2, var.Panel_btn:getPositionX(), var.Panel_btn:getPositionY() + 80 * (var.notPk and 1 or -1)),
+			cca.cb(function ()
+				var.can_move = true
+			end)
+		}))
+		UILeftBottom.set_chat_visible(not var.notPk)
+		UIRightBottom.set_Skill_Pos(var.notPk)
+		UIFuncPreview.set_UIFuncPreview_visible(not var.notPk)
+
+		if var.last_panel then
+			var.last_panel:setVisible(false)
+		end
+	end
+	
+function UICenterBottom.handlefreshHPMP( event )
+		if MainRole and MainRole._mainAvatar and event and event.param then
+			local hp = MainRole._mainAvatar:NetAttr(Const.net_hp)
+			local maxhp = MainRole._mainAvatar:NetAttr(Const.net_maxhp)
+			local mp = MainRole._mainAvatar:NetAttr(Const.net_mp)
+			local maxmp = MainRole._mainAvatar:NetAttr(Const.net_maxmp)
+		end
+	end
+	
+function UICenterBottom.handlefreshFuyuan(event)
+		local time = NetClient.mCharacter.FuyuanCD
+		if NetClient.mCharacter.FuyuanCD and time > 0 then
+			local imgfy = var.centerBottom:getWidgetByName("img_fh"):show()
+			local lblfy = imgfy:getChildByName("lbl_fycd"):setString(time)
+
+			imgfy:stopAllActions()
+			imgfy:runAction(cca.repeatForever(cca.seq({
+				cca.delay(1),
+				cca.cb(function ()
+					time = time - 1
+
+					if time > 0 then
+						lblfy:setString(time)
+					else
+						lblfy:stopAllActions()
+						imgfy:hide()
+					end
+				end)
+			})))
+		end
+	end
+	
+function UICenterBottom.handleExpChange(event)
+		if var.expBar then
+			-- Nothing
+		end
+	end
+return UICenterBottom

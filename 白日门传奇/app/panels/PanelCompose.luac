@@ -1,0 +1,345 @@
+-- 装备合成界面
+
+local PanelCompose = {}
+local var = {}
+local equipTypeDesp = {
+	[11] = {desp = "任意<font color=#ffff00>60级</font>装备，可用来合成<font color=#00ff00>70级</font>套装部位",level = "60级"},
+	[12] = {desp = "任意<font color=#ffff00>70级</font>装备，可用来合成<font color=#00ff00>80级</font>套装部位",level = "70级"},
+	[13] = {desp = "任意<font color=#ffff00>80级</font>装备，可用来合成<font color=#00ff00>90级</font>套装部位",level = "80级"},
+	[14] = {desp = "任意<font color=#ffff00>90级</font>装备，可用来合成<font color=#00ff00>1转</font>套装部位",	level = "90级"},
+	[15] = {desp = "任意<font color=#ffff00>1转</font>装备，可用来合成<font color=#00ff00>2转</font>套装部位",	level = "1转"},
+
+	[21] = {desp = "<font color=#ffff00>%s</font>本职业装备，可用来合成<font color=#00ff00>%s</font>套装部位",	tar = "3转"},
+	[22] = {desp = "<font color=#ffff00>%s</font>本职业装备，可用来合成<font color=#00ff00>%s</font>套装部位",	tar = "5转"},
+	[23] = {desp = "<font color=#ffff00>%s</font>本职业装备，可用来合成<font color=#00ff00>%s</font>套装部位",	tar = "7转"},
+	[24] = {desp = "<font color=#ffff00>%s</font>本职业装备，可用来合成<font color=#00ff00>%s</font>套装部位",	tar = "9转"},
+	[25] = {desp = "<font color=#ffff00>%s</font>本职业装备，可用来合成<font color=#00ff00>%s</font>套装部位",	tar = "11转"},
+}
+
+local equip_info = {
+		{pos = Const.ITEM_WEAPON_POSITION},
+		{pos = Const.ITEM_CLOTH_POSITION},
+		{pos = Const.ITEM_GLOVE1_POSITION},
+		{pos = Const.ITEM_RING1_POSITION},
+		{pos = Const.ITEM_BOOT_POSITION},
+
+		{pos = Const.ITEM_HAT_POSITION},
+		{pos = Const.ITEM_NICKLACE_POSITION},
+		{pos = Const.ITEM_GLOVE2_POSITION},
+		{pos = Const.ITEM_RING2_POSITION},
+		{pos = Const.ITEM_BELT_POSITION},
+}
+
+function PanelCompose.initView( extend )
+	var = {
+		xmlPanel,
+		tabIndex = 1,
+		pageIndex = 1,
+		curItemIdx =1,
+		tablistv,
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelCompose.uif");
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelCompose.handlePanelData)
+
+		var.tablistv = var.xmlPanel:getWidgetByName("tablistv"):setFontSize(16)
+		--var.tablistv:hideTab({2,3})
+		var.tablistv:setTabRes("tab2_nor", "tab2_sel", ccui.TextureResType.plistType)
+		var.tablistv:addTabEventListener(PanelCompose.pressTabV)
+		util.asyncload(var.xmlPanel, "forgroudbg", "needload/bg_max2.png")
+
+		return var.xmlPanel
+	end
+end
+
+function PanelCompose.pressTabV(sender)
+	var.tabIndex = sender:getTag()
+	var.pageIndex = 1
+	PanelCompose.initTabView()
+end
+
+function PanelCompose.onPanelOpen()
+	var.tablistv:setSelectedTab(1)
+end
+
+function PanelCompose.handlePanelData(event)
+	if event.type ~= "PanelCompose" then return end
+	local data = util.decode(event.data)
+	if data.cmd == "getComposeData" then
+		if data.leftData then
+			PanelCompose.updateLeftView(data.leftData)
+		end
+		if data.rightData then
+			PanelCompose.updateRightView(data.rightData,data.notice)
+			PanelCompose.showHeCheng(data.rightData)
+		end
+		if data.serverDay then
+			if data.serverDay>=7 then--前7天不显示
+				--var.tablistv:hideTab({3})
+			else
+				--var.tablistv:hideTab({2,3})
+			end
+		end
+	elseif data.cmd == "composeSuccess" then
+		PanelCompose.successAnimate(50018)
+	end
+end
+
+function PanelCompose.initTabView(tab)
+	NetClient:PushLuaTable("gui.PanelCompose.handlePanelData",util.encode({actionid = "reqTabView",tab = var.tabIndex,page = var.pageIndex}))
+end
+
+function PanelCompose.clickbtnhecheng( sender )
+	NetClient:PushLuaTable("gui.PanelCompose.handlePanelData",util.encode({actionid = "startCom",id = sender.id,tab = var.tabIndex,page = var.pageIndex}))
+end
+
+--刷新合成右边信息
+function PanelCompose.updateRightView(data,notice)
+	local listhecheng = var.xmlPanel:getWidgetByName("listhecheng"):setSliderVisible(false)
+	listhecheng:reloadData(#data, function ( subItem )
+		local d = data[subItem.tag]
+		local btn_hecheng = subItem:getWidgetByName("btn_hecheng")
+		btn_hecheng.id = d.id
+		btn_hecheng:addClickEventListener(PanelCompose.clickbtnhecheng)
+		local lbl_beishu = subItem:getChildByName("lbl_beishu")
+		if not lbl_beishu then
+			lbl_beishu = display.newBMFontLabel({font = "fonts/hecheng.fnt",fontSize = 12})
+			:setName("lbl_beishu")
+			:align(display.CENTER, 220, 38)
+			:addTo(subItem)
+		end
+
+		lbl_beishu:setString(d.needNum)
+		local x = string.find(d.info,"X")--区分大小写
+		subItem:getWidgetByName("model_lbl1"):setString(string.sub(d.info,1,x-1))
+		subItem:getWidgetByName("model_lbl2"):setString(d.num):setColor(d.num>=d.needNum and game.getColor(0x00ff00) or game.getColor(0xff0000))
+		-- subItem:getWidgetByName("costStone"):setString(d.needStone):setColor(d.curStone>=d.needStone and game.getColor(0x00ff00) or game.getColor(0xff0000))
+		local itemDef = NetClient:getItemDefByID(d.typeId)
+		if itemDef then
+			-- subItem:getWidgetByName("model_lbl3"):setString(itemDef.mName)
+		end
+		-- subItem:getWidgetByName("model_icon1"):loadTexture("picicon/12110091.png")
+
+		--是否所需新的材料
+		if d.propitem > 0 then
+			subItem:getWidgetByName("costLab"):show()
+			subItem:getWidgetByName("costStone"):show():setString(d.needStone):setColor(d.curStone >= d.needStone and game.getColor(0x00ff00) or game.getColor(0xff0000))
+		else
+			subItem:getWidgetByName("costLab"):hide()
+			subItem:getWidgetByName("costStone"):hide()
+		end
+		if d.needTypeId2 > 0 then
+			subItem:getWidgetByName("costLab2"):show()
+			subItem:getWidgetByName("costStone2"):show():setString(d.needNum2):setColor(d.curStone2 >= d.needNum2 and game.getColor(0x00ff00) or game.getColor(0xff0000))
+		else
+			subItem:getWidgetByName("costLab2"):hide()
+			subItem:getWidgetByName("costStone2"):hide()
+		end
+		
+		local modelIcon = UIItem.getItem({
+			parent = subItem:getWidgetByName("model_icon1"),
+			typeId = d.needTypeId > 0 and d.needTypeId or 12110091,
+			num = 1,
+			compare = true
+		})
+
+		UIItem.getItem({
+			parent = subItem:getWidgetByName("model_icon2"),
+			typeId = d.typeId,
+			num = 1,
+			compare = true
+		})
+		-- local tipsdata = {
+		-- 	name = string.sub(d.info,1,x-1),
+		-- 	level = equipTypeDesp[var.equipType].level,
+		-- 	desp = equipTypeDesp[var.equipType].desp,
+		-- 	icon = "picicon/12110091.png",
+		-- }
+		-- if string.find(tipsdata.desp,"%%") then
+		-- 	local pos1 = string.find(d.info,"转")
+		-- 	local pos2 = string.find(d.info,"级")
+		-- 	local equipstr
+		-- 	if pos1 then
+		-- 		equipstr = string.sub(d.info,1,pos1+2)
+		-- 	elseif pos2 then
+		-- 		equipstr = string.sub(d.info,1,pos2+2)
+		-- 	end
+		-- 	tipsdata.level = equipstr
+		-- 	tipsdata.desp  = string.format(tipsdata.desp,equipstr,itemDef and itemDef.mNeedZsLevel.."转" or equipTypeDesp[var.equipType].tar)	
+		-- end
+		-- subItem:getWidgetByName("model_icon1"):setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+		-- 	if eventType == ccui.TouchEventType.began then
+		-- 		NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS, str = "compose", tipsdata = tipsdata})
+		-- 	-- elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled  then
+		-- 	-- 	NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = "compose", })
+		-- 	end
+		-- end)
+		-- modelIcon:setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+		-- 	if eventType == ccui.TouchEventType.began then
+		-- 		NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS, str = "compose", tipsdata = tipsdata})
+		-- 	-- elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled  then
+		-- 	-- 	NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS, str = "compose", })
+		-- 	end
+		-- end)
+	end,0,false)
+
+	--[[ 当前使用屏蔽
+	for i=1,#data do
+		local d = data[i]
+		local itemDef = NetClient:getItemDefByID(d.typeId)
+		if itemDef then
+			if d.has==1 then	--当前有这个装备
+				if PanelCompose.is_chuandai( d.typeId ) then
+					var.xmlPanel:getWidgetByName("Image_2"):getChildByName("item"..i):getChildByName("item_tip"):setString("(已穿戴)"):show()
+				else
+					var.xmlPanel:getWidgetByName("Image_2"):getChildByName("item"..i):getChildByName("item_tip"):setString("(已拥有)"):show()
+				end
+			else
+				var.xmlPanel:getWidgetByName("Image_2"):getChildByName("item"..i):getChildByName("item_tip"):setString(""):hide()
+			end
+			var.xmlPanel:getWidgetByName("Image_2"):getChildByName("item"..i):getChildByName("item_name"):setString(itemDef.mName):setColor(game.getItemColor(itemDef.mEquipLevel))
+		end
+		UIItem.getItem({
+			parent = var.xmlPanel:getWidgetByName("Image_2"):getChildByName("item"..i):getChildByName("item_icon1"),
+			typeId = d.typeId,
+			num = 1
+		})
+		var.xmlPanel:getWidgetByName("Image_2"):getChildByName("item"..i):getChildByName("item_icon1"):setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+			
+		end)
+		var.xmlPanel:getWidgetByName("Image_2"):getChildByName("item"..i):getChildByName("item_icon1"):addClickEventListener(function(sender,eventType)
+			var.click_index = i
+			PanelCompose.showHeCheng(data)
+		end)
+	end
+
+	var.xmlPanel:getWidgetByName("img_mask"):setVisible(notice and true or false):setOpacity(200):setTouchEnabled(true)
+	var.xmlPanel:getWidgetByName("lbl_5z"):setString(notice or "")
+	--]]
+end
+
+--合成成功特效
+function PanelCompose.successAnimate(effectid)
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(450, 350)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,effectid,4)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.removeSelf(),
+			cca.cb(function ()
+				var.fireworks=nil
+			end),
+		}))
+	end
+end
+
+function PanelCompose.is_chuandai( id )
+	for j=1,#equip_info do
+		if NetClient.mItems[equip_info[j].pos] and NetClient.mItems[equip_info[j].pos].mTypeID==id then
+			return true
+		end
+	end
+	return false
+end
+
+function PanelCompose.showHeCheng(data)
+	d=data[var.click_index]
+	if not d then return end
+
+	UIItem.getItem({
+		parent = hechengpanel:getChildByName("item_now"):getChildByName("item_icon1"),
+		typeId = 12110091
+	})
+	-- hechengpanel:getChildByName("item_now"):getChildByName("item_num_tip"):setString(d.num.."/"..d.needNum)
+
+	
+
+	local x = string.find(d.info,"X")
+	local tipsdata = {
+		name = string.sub(d.info,1,x-1),
+		level = equipTypeDesp[var.equipType].level,
+		desp = equipTypeDesp[var.equipType].desp,
+		icon = "picicon/12110091.png",
+	}
+	local itemDef1 = NetClient:getItemDefByID(12110091)
+	if itemDef1 then
+		hechengpanel:getChildByName("item_now"):getChildByName("item_name"):setString(string.sub(d.info,1,x-1)):setColor(game.getItemColor(itemDef1.mEquipLevel))
+	end
+	
+	if string.find(tipsdata.desp,"%%") then
+		local pos1 = string.find(d.info,"转")
+		local pos2 = string.find(d.info,"级")
+		local equipstr
+		if pos1 then
+			equipstr = string.sub(d.info,1,pos1+2)
+		elseif pos2 then
+			equipstr = string.sub(d.info,1,pos2+2)
+		end
+		tipsdata.level = equipstr
+		tipsdata.desp  = string.format(tipsdata.desp,equipstr,itemDef and itemDef.mNeedZsLevel.."转" or equipTypeDesp[var.equipType].tar)	
+	end
+	hechengpanel:getChildByName("item_now"):getChildByName("item_icon1"):setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+		if eventType == ccui.TouchEventType.began then
+			NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS, str = "compose", tipsdata = tipsdata})
+		end
+	end)
+
+
+	hechengpanel:getChildByName("item_next"):getChildByName("Image_46"):setScale(0.82)
+	UIItem.getItem({
+			parent = hechengpanel:getChildByName("item_next"):getChildByName("item_icon1"),
+			typeId = d.typeId
+		})
+	local itemDef = NetClient:getItemDefByID(d.typeId)
+	if itemDef then
+		hechengpanel:getChildByName("item_next"):getChildByName("item_name"):setString(itemDef.mName):setColor(game.getItemColor(itemDef.mEquipLevel))
+	end
+
+	local btn_hecheng = hechengpanel:getChildByName("Button_hecheng")
+	btn_hecheng.id = d.id
+	btn_hecheng:addClickEventListener(PanelCompose.clickbtnhecheng)
+	hechengpanel:show()
+end
+
+--刷新左边tableView
+function PanelCompose.updateLeftView(data)
+	local tabhecheng = var.xmlPanel:getWidgetByName("tabhecheng"):setSliderVisible(false)
+	tabhecheng.selItem = nil
+	local function clickSubitem(sender)
+		var.click_index = 0
+		if tabhecheng.selItem then
+			tabhecheng.selItem:getWidgetByName("model_sel"):hide()
+		end
+		tabhecheng.selItem = sender
+		var.pageIndex = sender.tag
+		var.equipType = data[sender.tag].equipType
+		sender:getWidgetByName("model_sel"):show()
+		NetClient:PushLuaTable("gui.PanelCompose.handlePanelData",util.encode({actionid = "reqPageData",tab = var.tabIndex,page = var.pageIndex}))
+	end
+	tabhecheng:reloadData(#data, function ( subItem )
+		local d = data[subItem.tag]
+		--subItem:getWidgetByName("model_lvstr"):setString(d.str)
+
+		-- local model_icon = subItem:getWidgetByName("model_icon"):setTouchEnabled(false)
+		-- -- model_icon:loadTextureNormal("picicon/"..data[subItem.tag][2][1].typeId..".png")
+		-- model_icon:loadTextureNormal("picicon/"..d.typeId..".png")
+		subItem:setTouchEnabled(true)
+		subItem:addClickEventListener(clickSubitem)
+		subItem:getWidgetByName("lbl_title"):show():setString(d.str)
+		subItem:getWidgetByName("model_sel"):hide()
+		if subItem.tag == var.pageIndex then
+			clickSubitem(subItem)
+		end
+	end,0,false)
+end
+
+function PanelCompose.onPanelClose()
+	
+end
+
+return PanelCompose

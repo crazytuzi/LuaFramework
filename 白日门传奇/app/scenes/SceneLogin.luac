@@ -1,0 +1,223 @@
+SceneLogin = class("SceneLogin", function()
+    return display.newScene("SceneLogin")
+end)
+
+function SceneLogin:ctor()
+	self.m_loginUI = nil
+	self.m_testip = nil
+	self.m_testport = nil
+	self.m_account = nil
+end
+
+function SceneLogin:onEnter()
+	if PlayAudio.musicName~="sound/login.mp3" then
+		PlayAudio.music("sound/login.mp3")
+	end
+
+	self.m_loginUI = UILuaLoader.load("uilayout/SceneLogin.lua")
+	if self.m_loginUI then
+
+		self.m_loginUI:size(cc.size(display.width, display.height)):align(display.CENTER, display.cx, display.cy)
+		self:addChild(self.m_loginUI)
+		-- util.addEffect( parent,name,group,id,pos,ap,isblend,loop,fun )
+		local imgBg = self.m_loginUI:getWidgetByName("img_bg"):align(display.CENTER, display.cx, display.cy)
+		asyncload_callback("needload/img_login.png", imgBg, function (filepath, texture)
+			PlatformTool.doSdkLogin()
+			if util.isObjectExist(imgBg) then
+				imgBg:loadTexture(filepath):scale(cc.MAX_SCALE)
+			end
+		end)
+
+		local btnSdkLogin = self.m_loginUI:getWidgetByName("btn_sdk_login")
+		btnSdkLogin:setTouchEnabled(true)
+		btnSdkLogin:addClickEventListener(handler(self,self.pushLoginButton))
+
+		self.m_textRegister = self.m_loginUI:getWidgetByName("Text_register")
+		self.m_textRegister:setTouchEnabled(true)
+		self.m_textRegister:addClickEventListener(handler(self,self.pushRegistText))
+		self.m_textRegister:setString("帐号注册")
+
+		self.m_btnLogin = self.m_loginUI:getWidgetByName("btn_login")
+		self.m_btnLogin:setTouchEnabled(true)
+		self.m_btnLogin:addClickEventListener(handler(self,self.pushLoginButton))
+
+		self.m_btnRegister = self.m_loginUI:getWidgetByName("btn_register")
+		self.m_btnRegister:setTouchEnabled(true)
+		self.m_btnRegister:addClickEventListener(handler(self,self.pushRegisterButton))
+		self.m_btnRegister:hide();
+		self.m_isLogin = true;
+
+		asyncload_callback("needload/tip_chenmi.png", self, function (filepath, texture)
+			if util.isObjectExist(self) then
+				ccui.ImageView:create(filepath):align(display.BOTTOM_CENTER, display.cx, 0):addTo(self,1)
+			end
+		end)
+
+		--self.m_loginUI:getWidgetByName("lbl_hint"):runAction(cca.repeatForever(cca.seq({cca.fadeTo(0.5, 0.5),cca.fadeIn(0.5)})))
+		self.m_loginUI:getWidgetByName("box_login"):pos(display.cx, display.cy)
+
+		self._labPrompt = self.m_loginUI:getWidgetByName("Text_Prompt")
+		self._labPrompt:hide()
+		
+
+		if device.platform~="windows" and PlatformTool.getPlatformId() ~= PlatformTool.PLATFORM_TEST_ID and PLATFORM_MILI_LOGIN == false then
+			self.m_loginUI:getWidgetByName("box_login"):setVisible(false)
+			btnSdkLogin:setVisible(true)
+
+			--PlatformTool.doSdkLogin()
+		else
+			btnSdkLogin:setVisible(false)
+			self:initInput()
+		end
+	end
+end
+
+function SceneLogin:onExit()
+	cc.SpriteManager:getInstance():removeFramesByFile("uipic/SceneSelectServer")
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+function SceneLogin:pushRegistText(pSender)
+	if (self.m_isLogin) then
+		self.m_isLogin = false
+		self.m_textRegister:setString("帐号登录")
+		self.m_btnRegister:show();
+		self.m_btnLogin:hide();
+	else
+		self.m_isLogin = true;
+		self.m_textRegister:setString("帐号注册")
+		self.m_btnRegister:hide();
+		self.m_btnLogin:show();
+	end
+end
+
+function SceneLogin:pushRegisterButton(psender)
+	local account = self.m_account:getText();
+	local password = self.m_password:getText();
+	if device.platform ~= "windows" then
+		local centerUrl = PlatformTool.getCenterUrl();
+		local update_url = centerUrl.."playerRegister?account="..account.."&password="..password;
+
+		local http=cc.XMLHttpRequest:new()
+	    http.responseType = cc.XMLHTTPREQUEST_RESPONSE_JSON
+	    http:open("GET", update_url)
+	    local function callback()
+	        local state=http.status
+	        print("-------state = "..state.."  data: "..http.response)
+	        if state==200 then
+	            local response=http.response
+	            local json=string.gsub(utilapp.unicode_to_utf8(response),"\\","")
+	            json=utilapp.decode(json)
+	            if type(json)=="table" and json.code then
+	            	local code = tonumber(json["code"]);
+	                if code == 0 then
+	                    --注册成功
+	                    PlatformTool.showMsg(lan.Register_Success);
+	                    self:pushRegistText()
+	                elseif code == 10 then
+	                    --已经注册
+	                    PlatformTool.showMsg(lan.Have_Register);
+	                    self:pushRegistText()
+	                elseif code == 11 then
+	                	--信息为空
+	                	self:openPanelPrompt(lan.SceneLogin_Account_Empty)
+	                end
+	            end
+	        else
+
+	        end
+	    end
+	    http:registerScriptHandler(callback)
+	    http:send()
+
+	end
+
+	UserConfig.Data["LastAccount"] = account
+	UserConfig.Data["LastPassword"] = password
+	UserConfig.save()
+end
+
+function SceneLogin:pushLoginButton(pSender)
+	if device.platform=="windows" or PlatformTool.getPlatformId() == PlatformTool.PLATFORM_TEST_ID or PLATFORM_MILI_LOGIN then
+		game.serverIP = "127.0.0.1"
+		game.serverPort = "7863"
+
+		local account = self.m_account:getText();
+		local password = self.m_password:getText();
+		if account and tostring(account) ~= "" and password and tostring(password) ~= "" then
+			print("----------doTestLogin------------")
+			game.gameKey=account
+			if device.platform ~= "windows" then
+				PlatformTool.doTestLogin(game.gameKey, password)  --模拟登陆
+			else
+				asyncload_frames("uipic/SceneNotice",".png",function ()
+					display.replaceScene(SceneNotice.new())
+			    end, self)
+			end
+			UserConfig.Data["LastAccount"] = account
+			UserConfig.Data["LastPassword"] = password
+			UserConfig.save()
+		else
+			self:openPanelPrompt(lan.SceneLogin_Account_Empty)
+		end
+	else
+		print("------------渠道登录----------")
+		PlatformTool.doSdkLogin()
+	end
+end
+
+function SceneLogin:openPanelPrompt( text )
+	self._labPrompt:stopAllActions()
+	self._labPrompt:align(display.CENTER, display.cx, display.cy)
+	self._labPrompt:show()
+	self._labPrompt:setString(text)
+	self._labPrompt:runAction(
+		cc.Sequence:create(
+			cc.MoveTo:create(0.8,cc.p(display.cx, display.cy+50)),
+			cc.CallFunc:create(function( ... )
+				self._labPrompt:hide()
+			end)
+		)
+	)
+end
+
+function SceneLogin:initInput()
+	local function onEdit(event, editbox)
+
+	end
+
+	self.m_account = util.newEditBox({
+			image = "picicon/null.png",
+			size = cc.size(234,40),
+			listener = onEdit,
+			x = 0,
+			y = 0,
+		})
+
+	local lastAccount = UserConfig.Data["LastAccount"]
+	self.m_account:setPlaceHolder("账号")
+	self.m_account:setString(lastAccount)
+
+	self.m_account:setAnchorPoint(cc.p(0,0))
+	self.m_loginUI:getWidgetByName("edit_account"):addChild(self.m_account)
+
+	----------------------
+	self.m_password = util.newEditBox({
+			image = "picicon/null.png",
+			size = cc.size(234,40),
+			listener = onEdit,
+			x = 0,
+			y = 0,
+		})
+
+	local lastPassword = UserConfig.Data["LastPassword"]
+	self.m_password:setPlaceHolder("密码")
+	self.m_password:setInputFlag(cc.EDITBOX_INPUT_FLAG_PASSWORD);
+	self.m_password:setString(lastPassword)
+
+	self.m_password:setAnchorPoint(cc.p(0,0))
+	self.m_loginUI:getWidgetByName("edit_password"):addChild(self.m_password)
+	
+end
+
+return SceneLogin

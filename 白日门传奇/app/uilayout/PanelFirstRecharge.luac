@@ -1,0 +1,15 @@
+LUA_RET={
+{n="PanelFirstRecharge",v=true,type=0,id=1,parent=0,w=973.0000,h=553.0000,},
+{n="box_recharge",tag=196,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=973.0000,h=554.0000,color="255|255|255",},
+{n="panel_close",ud="zoomscale(-0.12)",tag=60,t=true,fs=14,sx=12,sw=12,sh=12,sy=12,v=true,type=2,id=3,parent=1,w=77.0000,h=67.0000,ax=0.5000,ay=0.5000,x=907.2986,y=456.2108,color="255|255|255",tcolor="65|65|70",res="btn_close_sel",},
+{n="btn_recharge_receive",ud="outline(000000,1);zoomscale(0.12)",tag=208,t=true,fs=22,sx=33,sw=33,sh=12,sy=12,v=true,type=2,id=4,parent=1,w=180.0000,h=55.0000,ax=0.5000,ay=0.5000,x=490.5744,y=79.7746,color="255|255|255",fr="DFYuan.ttf",tcolor="255|165|0",res="btn_first_recharge",},
+{n="model_item_box_1",tag=206,v=true,type=1,id=5,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=343.0000,y=244.2578,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_2",tag=205,v=true,type=1,id=6,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=441.7187,y=244.2578,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_3",tag=204,v=true,type=1,id=7,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=540.0000,y=244.2578,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_4",tag=203,v=true,type=1,id=8,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=640.0000,y=244.2578,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_5",tag=49,v=true,type=1,id=9,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=490.8338,y=153.2800,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_6",tag=207,v=true,type=1,id=10,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=380.0000,y=153.2803,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_7",tag=202,v=true,type=1,id=11,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=600.0000,y=153.2800,color="255|255|255",res="img_cell_max",},
+{n="node_effect",tag=209,c=false,v=true,type=0,id=12,parent=1,x=160.0000,y=210.0000,color="255|255|255",},
+{n="node_effect2",tag=50,c=false,v=true,type=0,id=13,parent=1,x=830.0000,y=260.0000,color="255|255|255",},
+}

@@ -1,0 +1,649 @@
+local PanelQianMing={}
+local var = {}
+
+local despTable ={
+	[1] = 	"<font color=#E7BA52 size=18>创世神装说明：</font>",
+	[2] =	"<font color=#f1e8d0>1、消耗同部位的创世神装部件和主装备即可打造创世神装</font>",
+	[3] =	"<font color=#f1e8d0>2、创世神装具有特殊属性和强力技能</font>",
+	[4] =	"<font color=#f1e8d0>3、打造后的创世神装可进行拆分，无损获得源材料，拆分后的创世神装属性加成与技能全部消失</font>",
+	[5] =	"<font color=#f1e8d0>4、拆分后重新获得的创世神装部件依然可用于其他创世神装的打造</font>",
+	[6] =	"<font color=#f1e8d0>5、创世神装部件可在运营活动中获得</font>",
+}
+
+local itemTypeData = {"星耀套装","月烛套装","日冕套装"}
+
+function PanelQianMing.initView()
+	var = {
+		xmlPanel,
+		tablistv,
+		targetKey=0,
+		euipsTable={},
+		isPlayMid=false,
+		effArrs={false,false,false},
+
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelQianMing.uif");
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max2.png")
+		util.asyncload(var.xmlPanel, "imgBg", "needload/img_shengshi.jpg")
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelQianMing.handlePanelData)
+		--util.asyncload(var.xmlPanel, "imgBg", "needload/panel_hc_bg.jpg")
+		var.tablistv = var.xmlPanel:getWidgetByName("box_tab"):setFontSize(18)
+		var.tablistv:addTabEventListener(PanelQianMing.pushTabsButton)
+		var.tablistv:setTabRes("tab2_nor","tab2_sel",ccui.TextureResType.plistType)
+		var.tablistv:updateOrderZOrder()
+		-- var.tablistv:setTabScale({y = 0.8, margin = -35})
+		var.hc_num = var.xmlPanel:getWidgetByName("hc_num")
+		var.xmlPanel:getWidgetByName("btn_jia"):addClickEventListener(function (sender)
+			PanelQianMing.jiaNum()
+		end)
+		var.xmlPanel:getWidgetByName("btn_jian"):addClickEventListener(function (sender)
+			PanelQianMing.jianNum()
+		end)
+		var.xmlPanel:getWidgetByName("btn_max"):addClickEventListener(function (sender)
+			PanelQianMing.maxNum()
+		end)
+
+		var.xmlPanel:getWidgetByName("btnHeCheng"):addClickEventListener(function (sender)
+			if var.targetKey>0 then
+				NetClient:PushLuaTable("gui.PanelQianMing.handlePanelData",util.encode({actionid="startHeCheng",key=var.targetKey,num = tonumber(var.hc_num:getString())}))
+			else
+				NetClient:alertLocalMsg("请先放入需要合成的物品！", "alert")
+			end
+		end)
+		
+		var.xmlPanel:getWidgetByName("btnHeChengfen"):addClickEventListener(function (sender)
+			if var.targetKey>0 then
+				NetClient:PushLuaTable("gui.PanelQianMing.handlePanelData",util.encode({actionid="startHeChengfen",key=var.targetKey,num = tonumber(var.hc_num:getString())}))
+			else
+				NetClient:alertLocalMsg("请先放入需要拆解的物品！", "alert")
+			end
+		end)
+		local btnDesp = var.xmlPanel:getWidgetByName("btnDesp")
+		btnDesp:setTouchEnabled(true)
+		btnDesp:addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				btnDesp:setScale(0.88, 0.88)
+				PanelQianMing.heChengDesp()
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+				btnDesp:setScale(1, 1)
+				LayerAlert.handleAlertClose()
+			end
+		end)
+	end
+	return var.xmlPanel
+end
+
+function PanelQianMing.onPanelOpen()
+	var.tablistv:setSelectedTab(1)
+end
+
+function PanelQianMing.onPanelClose()
+	
+end
+
+function PanelQianMing.pushTabsButton(tab)
+	NetClient:PushLuaTable("gui.PanelQianMing.handlePanelData",util.encode({actionid="getData",tab=tab:getTag()}))
+	var.tabIndex = tab:getTag()
+	var.targetKey=0
+	PanelQianMing.clearHeChengShow()
+end
+
+function PanelQianMing.handlePanelData(event)
+	if event.type ~= "PanelQianMing" then return end
+	local data = util.decode(event.data)
+
+	if data.cmd == "getData" then
+		PanelQianMing.getData(data.data)
+	elseif data.cmd == "get_item_data" then
+		var.maxNum = data.max_num==0 and 1 or data.max_num
+		for i=1,3 do
+			if data["num"..i] then
+				var.xmlPanel:getWidgetByName("labName_"..i):show():setString("拥有:"..data["num"..i])
+				if var.itemData["neednum"..i]>data["num"..i] then
+					var.xmlPanel:getWidgetByName("labName_"..i):show():setColor(game.getColor(0xFF0000))
+				else
+					var.xmlPanel:getWidgetByName("labName_"..i):show():setColor(game.getColor(0xfddfae))
+				end
+			else
+				var.xmlPanel:getWidgetByName("labName_"..i):hide()
+			end
+		end
+		if data.success then
+			-- 合成成功
+			PanelQianMing.successAnimate(50018)
+		end
+	end
+end
+
+function PanelQianMing.getData( data )
+	var.xmlPanel:getWidgetByName("fashion_btns"):hide()
+	var.xmlPanel:getWidgetByName("skill_btns"):hide()
+	var.xmlPanel:getWidgetByName("stone_btns"):hide()
+	var.xmlPanel:getWidgetByName("list_item_1"):hide()
+	var.xmlPanel:getWidgetByName("list_item_2"):hide():setContentSize(cc.size(260, 256))
+	var.xmlPanel:getWidgetByName("list_item"):hide()
+	var.xmlPanel:getWidgetByName("sq_btns"):hide()
+	var.xmlPanel:getWidgetByName("sz_btns"):hide()
+	var.hechengData = data
+	if var.tabIndex == 1 then
+		var.xmlPanel:getWidgetByName("fashion_btns"):show()
+		PanelQianMing.initFashionBtns()
+	elseif var.tabIndex==2 then
+		var.xmlPanel:getWidgetByName("skill_btns"):show()
+		PanelQianMing.initSkillBtns()
+	elseif var.tabIndex==3 then
+		var.xmlPanel:getWidgetByName("stone_btns"):show()
+		PanelQianMing.initStoneBtns()
+	elseif var.tabIndex == 6 then
+		var.xmlPanel:getWidgetByName("sq_btns"):show()
+		PanelQianMing.initSqBtns()
+	elseif var.tabIndex == 7 then
+		var.xmlPanel:getWidgetByName("sz_btns"):show()
+		PanelQianMing.initSzBtns()
+	else
+		var.xmlPanel:getWidgetByName("list_item"):show()
+		PanelQianMing.set_item_list(data, "list_item")
+		if var.lastFashion then
+			var.xmlPanel:getWidgetByName("fashion_"..var.lastFashion):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+		end
+		if var.lastStone then
+			var.xmlPanel:getWidgetByName("stone_"..var.lastStone):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+		end
+		if var.lastSkill then
+			var.xmlPanel:getWidgetByName("skill_"..var.lastSkill):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+		end
+		if var.lastSq then
+			var.xmlPanel:getWidgetByName("skill_"..var.lastSq):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+		end
+		if var.lastsz then
+			var.xmlPanel:getWidgetByName("skill_"..var.lastsz):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+		end
+		var.lastSkill=nil
+		var.lastStone=nil
+		var.lastFashion = nil
+		var.lastSq = nil
+		var.lastsz = nil
+	end
+end
+--[[
+function PanelQianMing.initStoneBtns()
+	local function prsBtnClick(sender)
+		if not var.lastStone or var.lastStone~=sender.index then
+			for i=1,7 do
+				if i<=sender.index then
+					var.xmlPanel:getWidgetByName("stone_"..i):setPositionY(485-50*(i-1))
+				else
+					var.xmlPanel:getWidgetByName("stone_"..i):setPositionY(485-50*(i-1)-260)
+				end
+			end
+			if var.lastStone and var.lastStone~=sender.index then
+				var.xmlPanel:getWidgetByName("stone_"..var.lastStone):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			end	
+			var.lastStone = sender.index
+			var.xmlPanel:getWidgetByName("stone_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jian",ccui.TextureResType.plistType)
+			if var.lastStone <= 5 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 256))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 136):show()
+			elseif var.lastStone == 6 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 216))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 96):show()
+			else
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 170))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 46):show()
+			end
+			local data = {}
+			for i=1,#var.hechengData do
+				if tonumber(var.hechengData[i].type2) == sender.index then
+					table.insert(data,var.hechengData[i])
+				end
+			end
+			PanelQianMing.set_item_list(data,"list_item_2")
+		else
+			for i=1,7 do
+				var.xmlPanel:getWidgetByName("stone_"..i):setPositionY(485-50*(i-1))
+			end
+			var.lastStone = sender.index
+			var.xmlPanel:getWidgetByName("stone_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			var.xmlPanel:getWidgetByName("list_item_2"):hide()
+			var.lastStone=nil
+		end
+	end
+	for i=1,7 do
+		local btn = var.xmlPanel:getWidgetByName("stone_"..i)
+		btn.index = i
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+		var.xmlPanel:getWidgetByName("stone_"..i):setPositionY(485-50*(i-1))
+	end
+	if var.lastStone then
+		var.xmlPanel:getWidgetByName("stone_"..var.lastStone):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+	end
+end]]--
+-- 初始化装扮
+function PanelQianMing.initFashionBtns()
+	local function prsBtnClick(sender)
+		if not var.lastFashion or var.lastFashion~=sender.index then
+			for i=1,7 do
+				if i<=sender.index then
+					var.xmlPanel:getWidgetByName("fashion_"..i):setPositionY(485-50*(i-1))
+				else
+					var.xmlPanel:getWidgetByName("fashion_"..i):setPositionY(485-50*(i-1)-260)			--总高度 - 行高 乘以 行 - 最下面索引
+				end
+			end
+			if var.lastFashion and var.lastFashion~=sender.index then
+				var.xmlPanel:getWidgetByName("fashion_"..var.lastFashion):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			end	
+			var.lastFashion = sender.index
+			var.xmlPanel:getWidgetByName("fashion_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jian",ccui.TextureResType.plistType)
+			var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 136):show()
+			if var.lastFashion <= 5 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 256))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 136):show()
+			elseif var.lastFashion == 6 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 216))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 96):show()
+			else
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 170))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 46):show()
+			end
+			local data = {}
+			for i=1,#var.hechengData do
+				if tonumber(var.hechengData[i].type2) == sender.index then
+					table.insert(data,var.hechengData[i])
+				end
+			end
+			PanelQianMing.set_item_list(data,"list_item_2")
+		else
+			for i=1,7 do
+				var.xmlPanel:getWidgetByName("fashion_"..i):setPositionY(485-50*(i-1))
+			end
+			var.lastFashion = sender.index
+			var.xmlPanel:getWidgetByName("fashion_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			var.xmlPanel:getWidgetByName("list_item_2"):hide()
+			var.lastFashion=nil
+		end
+	end
+	for i=1,7 do
+		local btn = var.xmlPanel:getWidgetByName("fashion_"..i)
+		btn.index = i
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+		var.xmlPanel:getWidgetByName("fashion_"..i):setPositionY(485-50*(i-1))
+	end
+	if var.lastFashion then
+		var.xmlPanel:getWidgetByName("fashion_"..var.lastFashion):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+	end
+end
+
+function PanelQianMing.initSkillBtns()
+	local function prsBtnClick(sender)
+		if not var.lastSkill or var.lastSkill~=sender.index then
+			for i=1,7 do
+				if i<=sender.index then
+					var.xmlPanel:getWidgetByName("skill_"..i):setPositionY(485-50*(i-1))
+				else
+					var.xmlPanel:getWidgetByName("skill_"..i):setPositionY(485-50*(i-1)-260)
+				end
+			end
+			if var.lastSkill and var.lastSkill~=sender.index then
+				var.xmlPanel:getWidgetByName("skill_"..var.lastSkill):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			end	
+			var.lastSkill = sender.index
+			var.xmlPanel:getWidgetByName("skill_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jian",ccui.TextureResType.plistType)
+			if var.lastSkill <= 5 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 256))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 136):show()
+			elseif var.lastSkill == 6 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 216))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 96):show()
+			else
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 170))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 46):show()
+			end
+			local data = {}
+			for i=1,#var.hechengData do
+				if tonumber(var.hechengData[i].type2) == sender.index then
+					table.insert(data,var.hechengData[i])
+				end
+			end
+			PanelQianMing.set_item_list(data,"list_item_2")
+		else
+			for i=1,7 do
+				var.xmlPanel:getWidgetByName("skill_"..i):setPositionY(485-50*(i-1))
+			end
+			var.lastSkill = sender.index
+			var.xmlPanel:getWidgetByName("skill_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			var.xmlPanel:getWidgetByName("list_item_2"):hide()
+			var.lastSkill=nil
+		end
+	end
+	for i=1,7 do
+		local btn = var.xmlPanel:getWidgetByName("skill_"..i)
+		btn.index = i
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+		var.xmlPanel:getWidgetByName("skill_"..i):setPositionY(485-50*(i-1))
+	end
+	if var.lastSkill then
+		var.xmlPanel:getWidgetByName("skill_"..var.lastSkill):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+	end
+end
+
+function PanelQianMing.initStoneBtns()
+	local function prsBtnClick(sender)
+		if not var.lastStone or var.lastStone~=sender.index then
+			for i=1,7 do
+				if i<=sender.index then
+					var.xmlPanel:getWidgetByName("stone_"..i):setPositionY(485-50*(i-1))
+				else
+					var.xmlPanel:getWidgetByName("stone_"..i):setPositionY(485-50*(i-1)-260)
+				end
+			end
+			if var.lastStone and var.lastStone~=sender.index then
+				var.xmlPanel:getWidgetByName("stone_"..var.lastStone):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			end	
+			var.lastStone = sender.index
+			var.xmlPanel:getWidgetByName("stone_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jian",ccui.TextureResType.plistType)
+			if var.lastStone <= 5 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 256))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 136):show()
+			elseif var.lastStone == 6 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 216))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 96):show()
+			else
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 170))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 46):show()
+			end
+			local data = {}
+			for i=1,#var.hechengData do
+				if tonumber(var.hechengData[i].type2) == sender.index then
+					table.insert(data,var.hechengData[i])
+				end
+			end
+			PanelQianMing.set_item_list(data,"list_item_2")
+		else
+			for i=1,7 do
+				var.xmlPanel:getWidgetByName("stone_"..i):setPositionY(485-50*(i-1))
+			end
+			var.lastStone = sender.index
+			var.xmlPanel:getWidgetByName("stone_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			var.xmlPanel:getWidgetByName("list_item_2"):hide()
+			var.lastStone=nil
+		end
+	end
+	for i=1,7 do
+		local btn = var.xmlPanel:getWidgetByName("stone_"..i)
+		btn.index = i
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+		var.xmlPanel:getWidgetByName("stone_"..i):setPositionY(485-50*(i-1))
+	end
+	if var.lastStone then
+		var.xmlPanel:getWidgetByName("stone_"..var.lastStone):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+	end
+end
+
+-- 初始化神器特殊装备
+function PanelQianMing.initSqBtns()
+	local function prsBtnClick(sender)
+		if not var.lastSq or var.lastSq~=sender.index then
+			for i=1,7 do
+				if i<=sender.index then
+					var.xmlPanel:getWidgetByName("sq_"..i):setPositionY(485-50*(i-1))
+				else
+					var.xmlPanel:getWidgetByName("sq_"..i):setPositionY(485-50*(i-1)-251)
+				end
+			end
+			if var.lastSq and var.lastSq~=sender.index then
+				var.xmlPanel:getWidgetByName("sq_"..var.lastSq):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			end	
+			var.lastSq = sender.index
+			var.xmlPanel:getWidgetByName("sq_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jian",ccui.TextureResType.plistType)
+			if var.lastSq <= 5 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 256))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 136):show()
+			elseif var.lastSq == 6 then
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 216))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 96):show()
+			else
+				var.xmlPanel:getWidgetByName("list_item_2"):setContentSize(cc.size(260, 170))
+				var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 46):show()
+			end
+			local data = {}
+			for i=1,#var.hechengData do
+				if tonumber(var.hechengData[i].type2) == sender.index then
+					table.insert(data,var.hechengData[i])
+				end
+			end
+			PanelQianMing.set_item_list(data,"list_item_2")
+		else
+			for i=1,7 do
+				var.xmlPanel:getWidgetByName("sq_"..i):setPositionY(485-50*(i-1))
+			end
+			var.lastSq = sender.index
+			var.xmlPanel:getWidgetByName("sq_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			var.xmlPanel:getWidgetByName("list_item_2"):hide()
+			var.lastSq=nil
+		end
+	end
+	for i=1,7 do
+		local btn = var.xmlPanel:getWidgetByName("sq_"..i)
+		btn.index = i
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+		var.xmlPanel:getWidgetByName("sq_"..i):setPositionY(485-50*(i-1))
+	end
+	if var.lastFashion then
+		var.xmlPanel:getWidgetByName("sq_"..var.lastFashion):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+	end
+end
+
+-- 初始化神器特殊装备
+function PanelQianMing.initSzBtns()
+	local function prsBtnClick(sender)
+		if not var.lastsz or var.lastsz~=sender.index then
+			for i=1,2 do
+				if i<=sender.index then
+					var.xmlPanel:getWidgetByName("sz_"..i):setPositionY(485-50*(i-1))
+				else
+					var.xmlPanel:getWidgetByName("sz_"..i):setPositionY(485-50*(i-1)-260)
+				end
+			end
+			if var.lastsz and var.lastsz~=sender.index then
+				var.xmlPanel:getWidgetByName("sz_"..var.lastsz):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			end	
+			var.lastsz = sender.index
+			var.xmlPanel:getWidgetByName("sz_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jian",ccui.TextureResType.plistType)
+			var.xmlPanel:getWidgetByName("list_item_2"):setPositionY(50*(8-sender.index) - 136):show()
+			local data = {}
+			for i=1,#var.hechengData do
+				if tonumber(var.hechengData[i].type2) == sender.index then
+					table.insert(data,var.hechengData[i])
+				end
+			end
+			PanelQianMing.set_item_list(data,"list_item_2")
+		else
+			for i=1,2 do
+				var.xmlPanel:getWidgetByName("sz_"..i):setPositionY(485-50*(i-1))
+			end
+			var.lastsz = sender.index
+			var.xmlPanel:getWidgetByName("sz_"..sender.index):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+			var.xmlPanel:getWidgetByName("list_item_2"):hide()
+			var.lastsz=nil
+		end
+	end
+	for i=1,2 do
+		local btn = var.xmlPanel:getWidgetByName("sz_"..i)
+		btn.index = i
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+		var.xmlPanel:getWidgetByName("sz_"..i):setPositionY(485-50*(i-1))
+	end
+	if var.lastFashion then
+		var.xmlPanel:getWidgetByName("sz_"..var.lastFashion):getChildByName("imgFlag"):loadTexture("img_hc_jia",ccui.TextureResType.plistType)
+	end
+end
+
+--合成成功特效
+function PanelQianMing.successAnimate(effectid)
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(540, 320)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,effectid,4)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.removeSelf(),
+			cca.cb(function ()
+				var.fireworks=nil
+			end),
+		}))
+	end
+end
+
+function PanelQianMing.set_item_list(data,id)
+	local curSelected = nil
+	local init = true
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if curSelected then
+			curSelected:getWidgetByName("imgSelected"):setVisible(false)
+		end
+		sender:getWidgetByName("imgSelected"):setVisible(true)
+		curSelected=sender
+		init=false
+		NetClient:PushLuaTable("gui.PanelQianMing.handlePanelData",util.encode({actionid="get_item_data",id=sender.key}))
+		PanelQianMing.updateHeChengShow(data[sender.tag])
+	end
+	local function updateHeChengList(item)
+		local itemData = data[item.tag]
+		local icon = item:getWidgetByName("icon")
+		local param={parent=icon, typeId=itemData.targetid}
+		UIItem.getItem(param)
+		local itemdef = NetClient:getItemDefByID(itemData.targetid)
+  	 	if itemdef then
+  	 		item:getWidgetByName("itemName"):setString(itemdef.mName)
+  	 	end
+		item:getWidgetByName("itemType"):setString(itemTypeData[var.tabIndex])
+		item:setTouchEnabled(true)
+		item.key=itemData.id
+		UIRedPoint.addUIPoint(item,prsBtnClick)
+		if init then
+			item:getWidgetByName("imgSelected"):setVisible(false)
+		end
+	end
+	local list = var.xmlPanel:getWidgetByName(id)
+	list:reloadData(#data,updateHeChengList)
+end
+
+--清空右侧显示
+function PanelQianMing.clearHeChengShow()
+	for i=1,2 do
+		--var.xmlPanel:getWidgetByName("item"..i):setVisible(false)
+		var.xmlPanel:getWidgetByName("imgLock"..i):setVisible(true)
+		var.xmlPanel:getWidgetByName("labName_"..i):hide()
+	end
+	--var.xmlPanel:getWidgetByName("itemTarget"):setVisible(false)
+	var.xmlPanel:getWidgetByName("labName"):setString("")
+	var.effArrs={false,false,false}
+end
+
+--刷新右侧显示
+function PanelQianMing.updateHeChengShow(itemData)
+	if not itemData then
+		return PanelQianMing.clearHeChengShow()
+	end
+	local item1 = var.xmlPanel:getWidgetByName("item1")
+	local imgLock1 = var.xmlPanel:getWidgetByName("imgLock1")
+
+	if itemData.needid1>0 then
+		local param={parent=item1, typeId=itemData.needid1, num=itemData.neednum1}
+		local itemIcon = UIItem.getItem(param)
+		item1:setVisible(true)
+		imgLock1:setVisible(false)
+		var.effArrs[1]=true
+	else
+		item1:setVisible(false)
+		imgLock1:setVisible(true)
+		var.effArrs[1]=false
+	end
+	local item2 = var.xmlPanel:getWidgetByName("item2")
+	local imgLock2 = var.xmlPanel:getWidgetByName("imgLock2")
+	if itemData.needid2>0 then
+		local param={parent=item2, typeId=itemData.needid2, num=itemData.neednum2}
+		local itemIcon = UIItem.getItem(param)
+		item2:setVisible(true)
+		imgLock2:setVisible(false)
+		var.effArrs[2]=true
+	else
+		item2:setVisible(false)
+		imgLock2:setVisible(true)
+		var.effArrs[2]=false
+	end
+	-- local item3 = var.xmlPanel:getWidgetByName("item3")
+	-- local imgLock3 = var.xmlPanel:getWidgetByName("imgLock3")
+	-- if itemData.needid3>0 then
+		-- local param={parent=item3, typeId=itemData.needid3, num=itemData.neednum3}
+		-- local itemIcon = UIItem.getItem(param)
+		-- item3:setVisible(true)
+		-- imgLock3:setVisible(false)
+		-- var.effArrs[3]=true
+	-- else
+		-- item3:setVisible(false)
+		-- imgLock3:setVisible(true)
+		-- var.effArrs[3]=false
+	-- end
+	local itemTarget = var.xmlPanel:getWidgetByName("itemTarget"):setVisible(true)
+	local param={parent=itemTarget, typeId=itemData.targetid}
+	UIItem.getItem(param)
+	local itemdef = NetClient:getItemDefByID(itemData.targetid)
+ 	if itemdef then
+ 		var.xmlPanel:getWidgetByName("labName"):setString(itemdef.mName)
+ 	end
+ 	var.itemData = itemData
+	var.targetKey=itemData.id
+end
+function PanelQianMing.heChengDesp()
+	local mParam = {
+	name = Notify.EVENT_PANEL_ON_ALERT,
+	panel = "tips", 
+	infoTable = despTable,
+	visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+end
+
+function PanelQianMing.jiaNum()
+	if var.targetKey>0 then
+		local num = var.hc_num:getString()
+		num = tonumber(num)+1
+		if num>var.maxNum then
+			NetClient:alertLocalMsg("已达到最大值", "alert")
+		else
+			var.hc_num:setString(num)
+		end
+	else
+		NetClient:alertLocalMsg("请先放入需要合成的物品！", "alert")
+	end
+end
+
+function PanelQianMing.jianNum()
+	if var.targetKey>0 then
+		local num = var.hc_num:getString()
+		if tonumber(num)==1 then
+			NetClient:alertLocalMsg("已达到最小值", "alert")
+		else
+			var.hc_num:setString(num-1)
+		end
+	else
+		NetClient:alertLocalMsg("请先放入需要合成的物品！", "alert")
+	end
+end
+
+function PanelQianMing.maxNum()
+	if var.targetKey>0 then
+		var.hc_num:setString(var.maxNum)
+	else
+		NetClient:alertLocalMsg("请先放入需要合成的物品！", "alert")
+	end
+end
+
+return PanelQianMing

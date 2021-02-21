@@ -1,0 +1,32 @@
+local TipsSendCallFriend = {}--class("TipsSendCallFriend")
+
+function TipsSendCallFriend:initView( extend )
+	if self.xmlTips then
+		util.asyncload(self.xmlTips, "tipsbg", "needload/img_kuan_bg.png")
+		self.playerName = extend.playerName or ""
+		self.xmlTips:getWidgetByName("lblname"):setString(self.playerName)
+
+		self.vcoin = extend.vcoin or "0"
+		self.xmlTips:getWidgetByName("lblvcoin"):setString(self.vcoin)
+
+		local btns = {"btn_call"}
+		local function clickBtns( sender )
+			local name = sender:getName()
+			if name == btns[1] then
+				if os.time()-NetClient.lastCallFriendTime>=120 then
+					NetClient:PushLuaTable("gui.PanelFriend.onPanelData", util.encode({actionid = "callFriend", param = {self.playerName}}))
+				else
+					NetClient:alertLocalMsg("距离下次召唤好友还有"..(120-os.time()+NetClient.lastCallFriendTime).."秒！", "alert")
+				end
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = extend.str})
+		end
+		
+		for k,v in pairs(btns) do
+			self.xmlTips:getWidgetByName(v):addClickEventListener(clickBtns)
+		end
+
+	end
+end
+
+return TipsSendCallFriend

@@ -1,0 +1,17 @@
+LUA_RET={
+{n="PanelBoss_exchang",v=true,type=0,id=1,parent=0,w=412,h=298,ax=0,ay=0,},
+{n="img_black",tag=186,v=true,type=1,ss=true,sx=15,sw=20,sh=20,sy=15,id=2,parent=1,w=844,h=593,ax=0.5,ay=0.5,x=206,y=149,res="bg_4",},
+{n="img_exchange_bg",tag=185,v=true,type=1,id=3,parent=1,w=412,h=298,ax=0.5,ay=0.5,x=206,y=149,},
+{n="Image_4",tag=123,v=true,type=1,id=4,parent=1,w=400,h=254,ax=0.5,ay=0.5,x=206,y=132,res="img_boss_dh",},
+{n="labCurJiFen",tag=191,v=true,type=3,fs=18,text="0",vt=1,id=5,parent=1,w=70,h=25,ax=0,ay=0.5,x=143,y=89,color="48|255|0",},
+{n="labCurJiFen2",tag=192,v=true,type=3,fs=18,text="0",vt=1,id=6,parent=1,w=70,h=25,ax=0,ay=0.5,x=348,y=89,color="48|255|0",},
+{n="btnExchange10",tag=193,t=true,ud="outline(0e0600,1);zoomscale(-0.12)",v=true,type=2,fs=22,text="兑换十次",id=7,parent=1,w=110,h=40,ax=0.5,ay=0.5,x=318,y=35,tcolor="234|221|191",sel="btn_new2",res="btn_new2",},
+{n="btnExchange1",tag=194,t=true,ud="outline(0e0600,1);zoomscale(-0.12)",v=true,type=2,fs=22,text="兑换一次",id=8,parent=1,w=110,h=40,ax=0.5,ay=0.5,x=93,y=35,tcolor="234|221|191",sel="btn_new2",res="btn_new2",},
+{n="Image_2",tag=122,v=true,type=1,id=9,parent=1,w=140,h=24,ax=0.5,ay=0.5,x=206,y=279,res="title_boss_dh",},
+{n="labCurJiFen_0",tag=125,v=true,type=3,fs=18,text="当前BOSS积分：",vt=1,id=10,parent=1,w=130,h=25,ax=0,ay=0.5,x=21,y=89,color="231|186|82",},
+{n="labCurJiFen_0_0",tag=126,v=true,type=3,fs=18,text="当前寻宝积分：",vt=1,id=11,parent=1,w=130,h=25,ax=0,ay=0.5,x=229,y=89,color="231|186|82",},
+{n="labCurJiFen_0_1",tag=127,v=true,type=3,fs=24,text="10000",vt=1,id=12,parent=1,ax=0,ay=0.5,x=34,y=182,color="48|255|0",},
+{n="labCurJiFen_0_1_0",tag=128,v=true,type=3,fs=24,text="BOSS积分 ",vt=1,id=13,parent=1,ax=0,ay=0.5,x=112,y=182,color="231|186|82",},
+{n="labCurJiFen_0_1_1",tag=129,v=true,type=3,fs=24,text="1",vt=1,id=14,parent=1,ax=0,ay=0.5,x=250,y=182,color="48|255|0",},
+{n="labCurJiFen_0_1_2",tag=130,v=true,type=3,fs=24,text="寻宝积分",vt=1,id=15,parent=1,ax=0,ay=0.5,x=281,y=182,color="231|186|82",},
+}

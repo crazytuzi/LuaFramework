@@ -1,0 +1,11 @@
+LUA_RET={
+{n="PanelCelebrationAct",v=true,type=0,id=1,parent=0,w=997.0000,h=576.0000,},
+{n="bg",ud="nocache",tag=1104,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=997.0000,h=576.0000,color="255|255|255",res="bg_max2",},
+{n="panel_close",tag=371,t=true,fs=14,sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=3,parent=1,w=33.0000,h=32.0000,ax=0.5000,ay=0.5000,x=949.3727,y=544.2002,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="btn_close",},
+{n="tabList",ud="1|8|0|0",tag=1153,t=true,c=false,d=1,v=true,type=9,id=4,parent=1,w=100.0000,h=500.0000,x=871.8789,y=23.4423,color="255|255|255",},
+{n="render",tag=1154,t=true,c=false,v=true,type=0,id=5,parent=4,w=100.0000,h=60.0000,y=440.0000,color="255|255|255",},
+{n="btnMode",tag=1155,t=true,fs=20,ss=true,sx=33,sw=33,sh=34,sy=11,v=true,type=2,id=6,parent=5,w=100.0000,h=51.0000,ay=0.5000,y=25.0000,color="255|255|255",tcolor="241|232|208",sel="tab2_sel",res="tab2_nor",},
+{n="imgRed",v=false,tag=1156,type=1,id=7,parent=6,w=28.0000,h=28.0000,ax=0.5000,ay=0.5000,x=85.5848,y=45.6646,color="255|255|255",res="img_red_dot",},
+{n="tabBox",tag=148,v=true,type=1,id=8,parent=1,w=835.0000,h=507.0000,x=34.1205,y=14.0001,color="255|255|255",},
+{n="imgTitle",tag=120,sx=32,sw=32,sh=14,sy=14,v=true,type=1,id=9,parent=1,w=98.0000,h=29.0000,ax=0.5000,x=498.9869,y=534.0163,color="255|255|255",res="hfhd",},
+}

@@ -1,0 +1,664 @@
+--ui管理器： name是对应lua文件的名字，res=1表示这个ui需要加载资源， noBorder=1 表示有背景了， 
+--noCache=1 表示UI不需要缓存，  btnClose=1，表示需要为ui添加关闭按钮。
+--
+local panel_all = {
+--新加传送	
+	["panel_welcome"] 		= 	{name = "PanelWelcome",			noBoader=1,noCache = 1,btnClose = 1},
+	["panel_chuansong"] 	= 	{name = "PanelChuanSong",		res=1, noBoader=1},
+	["panel_guanchuan"] 	= 	{name = "PanelGuanChuan",		res=1, noBoader=1},
+	["panel_npctalkc"] 		= 	{name = "PanelTalkNpcc",		noBoader=1,noCache = 1,btnClose = 1},
+	["panel_libao"] 		= 	{name = "PanelLiBao",		noBoader=1,noCache = 1,btnClose = 1},
+	["panel_huishou"] 		= 	{name = "PanelHuiShou",		noBoader=1,noCache = 1,btnClose = 1},
+	["panel_zdhuishou"] 	= 	{name = "PanelZdHuiShou",		noBoader=1,noCache = 1,btnClose = 1},
+
+	["panel_menu"] 			= 	{name = "PanelMenu",		res=1, noBoader=1, },
+	["main_compose"] 		= 	{name = "PanelCompose",		res=1, noBoader=1,noCache=1,btnClose = 1},
+	["menu_recycle"]		=	{name = "PanelRecycle",		res=1, noBoader=1, noCache=1,closeCall=1,btnClose = 1},
+	["main_achieve"]		=	{name = "PanelAchieve",		res=1, noBoader=1, noCache=1,closeCall=1,btnClose = 1},
+	["panel_quickset"] 		= 	{name = "PanelQuickSet",	res=1, noBoader=1, noCache=1,btnClose = 1},
+	["menu_bag"] 			= 	{name = "PanelBag",			noBoader=1, btnClose = 1,},
+	["main_avatar"]	 		= 	{name = "PanelAvatar",		res=1, noBoader=1,noCache=1,closeCall=1,btnClose = 1},
+	["main_skill"]	 		= 	{name = "PanelSkill",		res=1, noBoader=1,noCache=1,closeCall=1,btnClose = 1},
+	["panel_minimap"] 		= 	{name = "PanelMiniMap",		res=1, noBoader=1},
+	["panel_npctalk"] 		= 	{name = "PanelTalkNpc",		noBoader=1,noCache = 1,btnClose = 1},
+	["panel_relive"]		=	{name = "PanelRelive",		noBoader=1, noBg = 1, noCache=1},
+	--PanelCaiLiao
+	["panel_cailiao"]		=	{name = "PanelCaiLiao",	    noBoader=1,btnClose = 1},
+	["main_dress"]			=   {name = "PanelDress",       noBoader=1,btnClose = 1},
+	["panel_depot"]			=	{name = "PanelDepot",		noBoader=1,noCache=1,btnClose = 1},
+	["main_friend"]			=	{name = "PanelFriend",		res=1, noBoader=1,noCache=1,btnClose = 1},
+	["btn_main_rank"] 		= 	{name = "PanelChart",		noBoader=1,btnClose = 1},
+	["panel_chart_yx"] 		= 	{name = "PanelChartYX",		noBg = 1,noBoader=1},
+	["main_mail"]			= 	{name = "PanelMail",		res=1, noBoader=1,btnClose = 1},
+	["panel_trade"]			=	{name = "PanelTrade",		noBoader=1,btnClose = 1,closeCall=1,noCache=1},		--交易界面
+
+	["btn_main_wing"] 		= 	{name = "PanelWing",		res=1, noBoader=1,btnClose = 1},
+	["main_furnace"] 		= 	{name = "PanelFurnace",		res=1, noBoader=1,noCache=1,btnClose = 1},
+	["main_group"] 			= 	{name = "PanelGroup",		res=1, noBoader=1,btnClose = 1},
+
+	["main_guild"]			= 	{name = "PanelGuild",		res=1, noBoader=1, btnClose = 1},
+	-- ["main_forge"] 			= 	{name = "PanelDuanZao",		res=1,noBoader=1,noCache=1,btnClose = 1},
+
+	["extend_exploit"] 		= 	{name = "PanelGongXun",		res=1,noBoader=1,noCache=1,btnClose = 1, closeCall=1},
+	["main_forge"] 			= 	{name = "PanelDuanZao",		res=1,noBoader=1,noCache=1,btnClose = 1},
+	["main_dazao"] 			= 	{name = "PanelDaZao",		noBoader=1,noCache=1,btnClose = 1},
+	-- ["main_protect"] 		= 	{name = "PanelProtect",		noBoader=1,noCache=1,btnClose = 1},
+	["extend_breakup"] 		= 	{name = "PanelBreakUp",		res=1,noBoader=1, noCache=1,closeCall=1,btnClose = 1},
+	["extend_pagoda"] 		= 	{name = "PanelPagoda",		res=1,noBoader=1, noCache=1,closeCall=1,btnClose = 1},
+	["extend_vcoinrecyle"]  =   {name = "PanelVcoinRecyle", res=1,noBoader=1, noCache=1,closeCall=1,btnClose = 1},
+	["panel_chat"] 			= 	{name = "PanelChat",		closeDir = 0,res=1,noBoader=1, noCache=1,closeCall=1,noMask=1, pos="left"},
+	
+	["panel_playertalk"]	= 	{name = "PanelNpcTalk",		closeDir = 0, noMask=1, noBoader=1, noCache=1, closeCall=1, pos="center"},
+	["panel_chumo"]			= 	{name = "PanelChuMo",		closeDir = 0, noMask=1, noBoader=1, noCache=1, closeCall=1, pos="left"},
+
+	["extend_world"]		=	{name = "PanelActivityGuide",res=1,noBoader=1,noCache=1,btnClose = 1},
+
+	["extend_mars"]			= 	{name = "PanelHuWei",		res=1,noBoader=1,noCache=1,closeCall=1,btnClose = 1},		--护卫
+	["panel_cutting"]		= 	{name = "PanelCutting",		noBoader=1,noCache=1,closeCall=1,btnClose = 1},		--切割
+	["panel_shield"]		= 	{name = "PanelShield",		noBoader=1,noCache=1,closeCall=1,btnClose = 1},		--切割
+
+	["btn_main_boss"] 		= 	{name = "PanelBoss",		res=1,noBoader=1,noCache=1,btnClose = 1},
+	["panel_charge"] 		= 	{name = "PanelCharge",		res=1,noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+	-- ["panel_charge"] 		= 	{name = "PanelVip",			res=1,noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+	["panel_vip"] 			= 	{name = "PanelVip",			res=1,noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+	["extend_makeExp"]		= 	{name = "PanelMakeExp",		res=1,noBoader=1,btnClose = 1},
+
+	["main_official"] 		= 	{name = "PanelOfficial",	res=1,noBoader=1,noCache=1,btnClose = 1},
+	["menu_setting"] 		= 	{name = "PanelSetting",		noBoader=1,btnClose = 1},
+	["extend_kingWar"] 		= 	{name = "PanelImpericalCity",res=1, noBoader=1,	btnClose = 1},
+	["extend_worship"] 		= 	{name = "PanelWorship", 	res=1,noBoader=1,	btnClose = 1},
+	["main_consign"]		= 	{name = "PanelConsign",	    res=1, noBoader=1, btnClose = 1},
+
+	["panel_groupapply"]	= 	{name = "PanelGroupApply",	noBoader=1,btnClose = 1},
+	["extend_offline"]		= 	{name = "PanelOffline",		res=1,noBoader=1,btnClose = 1,noCache=1,},
+
+	["panel_dart"]			= 	{name = "PanelDart",		res=1,noBoader=1,btnClose = 1},
+	["panel_mainTask"] 		= 	{name = "PanelMainTask",	closeDir = 0, noMask=1, noBoader=1, noCache=1, closeCall=1, pos="left"},
+
+	["panel_acttip"] 		= 	{name = "PanelActivityTip",	noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+
+	["extend_lottory"] 		= 	{name = "PanelLottery",	    res=1,noBoader=1, noCache=1, closeCall=1},
+
+	["main_convert"] 		= 	{name = "PanelLotteryExchange",	noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+
+	["extend_store"] 		= 	{name = "PanelStore",	res=1,noBoader=1, closeCall=1,btnClose = 0},
+
+	["extend_awardHall"]   = 	{name = "PanelRewardHall",	res=1,noBoader=1, closeCall=1,btnClose = 1},
+	["extend_firstPay"]   = 	{name = "PanelFirstRecharge",res=1,noBoader=1, closeCall=1},
+
+	["panel_checkequip"]   = 	{name = "PanelCheckEquip",noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+
+	["extend_zhuanPan"]   = 	{name = "PanelZhuanPan",res=1,noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+
+	["panel_shaozhuaward"] = 	{name = "PanelShaozhuAward", res=1,noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+	
+	["extend_openServer"] = 	{name = "PanelActivities", res=1,noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+	["extend_activities"] = 	{name = "PanelCelebrationAct", res=1,noBoader=1, closeCall=1,btnClose = 1},
+
+	["menpai_chart"] 		= 	{name = "PanelMenPaiChart", res=1,noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+	["menpai_store"] 		= 	{name = "PanelMenPaiStore", res=1,noBoader=1, noCache=1, closeCall=1,btnClose = 1},
+
+	["extend_heFu"] 		= 	{name = "PanelHeQuAct", res=1,noBoader=1,noCache=1,closeCall=1,btnClose = 1},
+	["extend_strengthen"]   = 	{name = "PanelStrengthen", res=1,noBoader=1,closeCall=1,btnClose = 1},
+
+	["extend_dailyPay"]     = 	{name = "PanelDailyRecharge", res=1,noBoader=1,btnClose = 1},
+	["panel_levelTip"]      = 	{name = "PanelLevelTip", res=1,noBoader=1,closeCall=1},
+	["extend_jrxl"]			=   {name = "PanelJieRiXianLi", noBoader=1, closeCall=1},
+
+	["extend_invest"]		= 	{name = "PanelInvest", res=1,noBoader=1,closeCall=1,btnClose = 1},
+	["extend_events"]       = 	{name = "PanelJingCaiAct", res=1,noBoader=1,closeCall=1,btnClose = 1},
+	["extend_dice"]         = 	{name = "PanelWuHun", res=1,noBoader=1,closeCall=1,btnClose = 1},
+	["extend_download"]     = 	{name = "PanelDownLoad", res=1,noBoader=1,closeCall=1,btnClose = 1},
+	["panel_defend"]		= 	{name = "PanelDefend", res=1, noBoader=1,noCache=1,closeCall=1,btnClose = 1},
+	["main_puzzle"]       	= 	{name = "PanelBossPictrue", res=1,noBoader=1,closeCall=1,btnClose = 1},
+
+	["extend_superVip"]     =   {name = "PanelSuperVip", res=1,noBoader=1,closeCall=1,btnClose = 1},
+	["extend_hecheng"]      =   {name = "PanelHeCheng", res=1,noBoader=1,closeCall=1,btnClose = 1},--PanelHeCheng
+	["main_qianming"] 		= 	{name = "PanelQianMing",		res=1,noBoader=1,closeCall=1,btnClose = 1},--新加打造测试
+
+	["panel_quickAddEquip"] =	{name = "PanelQuickAddEquip", noBoader=1,closeCall=1,btnClose = 1},
+
+	["extend_zhanchongPay"]	=   {name = "PanelZhanChongRecharge", res=1,noBoader=1,closeCall=1,btnClose=1,noCache=1,closeCall=1},
+}
+
+local conexistPanels = {
+	"panel_mainTask","panel_equiptips","panel_batch", "panel_relive", "extend_offline", "extend_dailyPay"
+}
+
+local LayerPanel = class("LayerPanel", function()
+    return cc.Layer:create()
+end)
+
+local cacheLength = 100
+
+function LayerPanel:ctor()
+	self.m_panelDict = {}   --保存panel创建对应的节点对象
+	self.m_panelFiles = {}  --保存所有panel的require lua文件的对象
+	self.m_panelCache = {}
+	self.scale = Const.gameScale()
+
+	self.existPanels = {}
+	self.lastName = nil
+
+	cc(self):addNodeEventListener(cc.NODE_EVENT, function(event)
+		if event.name == "enter" then
+			self:onEnter()
+        elseif event.name == "exit" then
+            self:closeAllPanels()
+		end
+    end)
+
+    self.m_panelEffect = ccui.Layout:create()   --特效层UI。
+	self.m_panelEffect:setTouchEnabled(false)
+    self.m_panelEffect:setPosition(0,0)
+	self.m_panelEffect:setContentSize(cc.size(display.width,display.height))
+	self:addChild(self.m_panelEffect,1000);
+end
+
+function LayerPanel:onEnter()
+	cc.EventProxy.new(NetClient, self)
+			:addEventListener(Notify.EVENT_OPEN_PANEL, handler(self, self.handleOpenEvent))
+			:addEventListener(Notify.EVENT_CLOSE_PANEL, handler(self, self.handleCloseEvent))
+			:addEventListener(Notify.EVENT_GESTURE_CLOSE, handler(self, self.handleGestureClose))
+			:addEventListener(Notify.EVENT_HANDLE_ALL_TRANSLUCENTBG, handler(self, self.handleAllTranslucentBg))
+			:addEventListener(Notify.EVENT_HANDLE_LAYERPANEL_VISIBLE, handler(self, self.handleLayerPanelVisible))
+			-- :addEventListener(Notify.EVENT_NEWFUNC_ANIMA, handler(self,self.handleNewFuncAnima))
+end
+
+function LayerPanel:handleOpenEvent(event)
+	local pName = event.str
+
+	if PLATFORM_BANSHU then -- 版署包充值不可用
+		if pName == "panel_charge" then
+			return
+		end
+	end
+
+	if not MAIN_IS_IN_GAME then
+		return
+	end
+
+	-- 死亡状态
+	if MainRole._mainAvatar and MainRole._mainAvatar:NetAttr(Const.net_dead) then
+		if not (pName == "panel_relive" or pName == "panel_charge" or pName == "menu_setting" or pName == "extend_firstPay") then -- 只可打开复活和充值面板(增加能点开设置面板)
+			return
+		end
+	end
+
+
+	if game.isNewFunc then return end   --标记新功能不能打开对话框
+
+	MainRole.updateAttr()
+	
+	if pName and panel_all[pName] then
+		if pName == "panel_mainTask" then  --打开的是npc对话窗口
+			-- if game.guiding then return end
+			NetClient:dispatchEvent( {name = Notify.EVENT_HANDLE_TIPS, visible = false}) --隐藏物品tips
+			NetClient:dispatchEvent( {name = Notify.EVENT_PANEL_ON_ALERT, panel = "all", visible = false}) --隐藏alert提示面板
+		end
+
+		-------------充值屏蔽-------------
+		-- if pName=="panel_chongzhi" then
+		-- 	NetClient:alertLocalMsg("充值功能暂未开放！", "alert")
+		-- 	return
+		-- end
+
+		-------------未开放功能屏蔽-------------
+		-- local infoTable ,state = util.handleOpenPanelState(pName,(event.mParam and (event.mParam.tab and  {index = event.mParam.tab} or nil) or nil))
+		-- if not state then
+		-- 	NetClient:alertLocalMsg(infoTable.name.."功能暂未开放，"..(infoTable.day and "开服第"..infoTable.day.."天" or (infoTable.level and infoTable.level.."级" or "转生等级"..infoTable.zslevel.."级")).."解锁", "alert")
+		-- 	return
+		-- end
+
+		--判断是功能是否开放
+		local opened, level, funcname, day = NetClient:checkFuncOpened(pName)
+		if not opened then
+			if not game.MainRoleLevelHigherThen(level) then
+				NetClient:alertLocalMsg(funcname.."功能暂未开放，"..level.."级开放")
+			elseif day then
+				NetClient:alertLocalMsg(funcname.."功能开服"..day.."天后自动开启！")
+			-- NetClient:alertLocalMsg("功能暂未开放")
+			end
+			return
+		end
+
+		self:setVisible(true);
+
+		--------判断面板是否可以共存------------------------
+		for k,v in pairs(self.m_panelDict) do
+			if not table.indexof(conexistPanels, k) then
+				self:closePanel(k)
+			end
+		end
+		-- self.curName = pName
+		table.insert(self.existPanels, pName)
+
+		if self.m_panelDict[pName] then 
+			self.m_panelDict[pName]:setVisible(true) 
+			-- return print("I'm already exist !!!") 
+		else
+			self:openPanel(pName, event)
+		end
+		
+		self:handleTranslucentBg()
+	end
+end
+------------------------黑色半透明背景处理------------------------
+function LayerPanel:handleTranslucentBg(hideAll)
+	for i,v in ipairs(self.existPanels) do
+		if util.isObjectExist(self.m_panelDict[v]) then
+			-- print("handleTranslucentBg", i,v,#self.existPanels, util.encode(self.existPanels), hideAll)
+			if self.m_panelDict[v].translucentBg then
+				if hideAll or i < #self.existPanels then
+					self.m_panelDict[v].translucentBg:hide()
+				else
+					self.m_panelDict[v].translucentBg:show()
+				end
+			end
+		else
+			self.existPanels[i] = "remove"
+		end
+	end
+	table.removebyvalue(self.existPanels, "remove", true)
+	-- if table.removebyvalue(self.existPanels, "remove", true) then
+	-- 	self:handleTranslucentBg(hideAll)
+	-- end
+end
+
+function LayerPanel:closeAllPanels()
+	for k,v in pairs(self.m_panelDict) do
+		self:closePanel(k)
+	end
+end
+
+function LayerPanel:createPanel(pName)
+
+	local param = panel_all[pName]
+	local panel = ccui.Widget:create() --创建面板
+		:setContentSize(cc.size(display.width, display.height))
+		:setTouchEnabled(true)
+		:align(display.CENTER, display.cx, display.cy)
+		:addTo(self)
+		:hide()
+
+	if not param.noBg then
+		panel:addClickEventListener(function (pSender)
+			if self.m_panelDict[pName] and not self.m_panelDict[pName].scaling then
+				local xmlPanel = self.m_panelDict[pName].xmlPanel
+				if xmlPanel.showTips then
+					self.m_panelFiles[pName]:closeTopPanel()
+				else
+					if param.closeDir then
+						self:closeWithAnimation(pName, param.closeDir)
+					else
+						-- self:closeAllPanels()
+						self:closePanel(pName)
+					end
+				end
+			end
+		end)
+	end
+
+	if not param.noMask then
+		panel.translucentBg = ccui.ImageView:create("bg_4", ccui.TextureResType.plistType) --半透明底
+			:setScale9Enabled(true)
+		 	:setContentSize(cc.size(display.width, display.height))
+		 	:align(display.CENTER, display.cx, display.cy)
+		 	:addTo(panel)
+	end
+	
+
+	panel.panelMain = ccui.Widget:create()
+		:setContentSize(display.width,display.height)
+		:align(display.CENTER, display.cx, display.cy)
+		:addTo(panel)
+		-- :setScale(self.scale)
+	panel.defaultPos = panel.defaultPos or cc.p(display.cx, display.cy)
+	return panel
+end
+
+function LayerPanel:addPanelBorder(panelMain, param)
+	local mainSize = panelMain:getContentSize()
+	local externalBg = ccui.ImageView:create("img_external_bg", ccui.TextureResType.plistType)
+		:align(display.CENTER, mainSize.width * 0.5, mainSize.height * 0.5)
+		:addTo(panelMain, 2)
+		:setName("externalBg")
+
+	local innerBg = ccui.ImageView:create("img_inner_bg1", ccui.TextureResType.plistType)
+		:align(display.CENTER_BOTTOM, mainSize.width * 0.5, 5)
+		:addTo(panelMain, 1)
+		:setName("innerBg")
+
+	if param.innerRes == 2 then
+		-- local filepath = "needload/img_inner_bg2.jpg"
+ 		-- asyncload_callback(filepath, innerBg, function(filepath, texture)
+ 		-- 	innerBg:loadTexture(filepath):setPositionY(0)
+ 		-- end,true)
+	end
+end
+
+function LayerPanel:openPanel(pName, extend)
+
+	local param = panel_all[pName]
+	if param then
+		for i,v in ipairs(self.m_panelCache) do
+			if v.key == pName then
+				self.m_panelDict[pName] = v.panel
+				self.m_panelDict[pName]:setPosition(self.m_panelDict[pName].defaultPos)
+				local btnClose = self.m_panelDict[pName]:getWidgetByName("panel_close")
+				if btnClose then
+					btnClose.from = extend.from
+					btnClose.mParam = extend.mParam
+				end
+				self:handleOpenAnimation(pName,extend)
+				return
+			end
+		end
+
+		self.m_panelFiles[pName] = require_ex("app.panels."..param.name)
+		-- print("need to load panel", pName, self.m_panelFiles[pName])
+		local mPanel = self:createPanel(pName)
+		if mPanel then
+			if not param.noBoader then
+				self:addPanelBorder(mPanel.panelMain, param) 
+			end
+
+			mPanel:setName(pName)
+			self.m_panelDict[pName] = mPanel	
+
+			if param.res then
+				if MAIN_IS_IN_GAME then
+					asyncload_frames("uipic/"..(param.name=="PanelHeQuAct" and "PanelCelebrationAct" or param.name),".png",function ()
+						if MAIN_IS_IN_GAME then
+							if self.m_panelDict[pName] then
+								self:initPanelView(extend)
+							end
+						end
+					end,self)
+				end
+			else
+				self:initPanelView(extend)
+			end
+		end
+		-- end
+	end
+end
+
+function LayerPanel:initPanelView(extend)
+	local pName = extend.str
+	if self.m_panelFiles[pName].initView then
+		self.m_panelDict[pName].xmlPanel =  self.m_panelFiles[pName].initView(extend)
+		local mainSize = self.m_panelDict[pName].panelMain:getContentSize()
+		if self.m_panelDict[pName].xmlPanel then
+			self.m_panelDict[pName].xmlPanel:setTouchEnabled(true)
+				:align(self.m_panelDict[pName].xmlPanel.mAlign or display.CENTER, mainSize.width * 0.5+((self.m_panelDict[pName].xmlPanel.mPos and self.m_panelDict[pName].xmlPanel.mPos.x) or 0),
+				 mainSize.height * 0.5+((self.m_panelDict[pName].xmlPanel.mPos and self.m_panelDict[pName].xmlPanel.mPos.y) or 0))
+				:addTo(self.m_panelDict[pName].panelMain, 3 )
+				-- :setName("xmlPanel")
+			print("initPanelView", pName)
+			local conf = panel_all[pName]
+			if conf.pos and conf.pos == "left" then
+				local mPos = self.m_panelDict[pName].panelMain:convertToNodeSpace(cc.p(display.left, display.height * 0.5)) 
+				self.m_panelDict[pName].xmlPanel:align(display.LEFT_CENTER, mPos.x, mPos.y)
+			end
+			
+			self:initBtnClose(pName,extend)
+			self:handleOpenAnimation(pName,extend)
+		end
+	end 
+end
+
+function LayerPanel:handleOpenAnimation(pName,extend)
+	if not self.m_panelDict[pName] then return end
+	self.m_panelDict[pName]:show()
+	local basePanel = self.m_panelDict[pName].panelMain
+	if panel_all[pName].noBoader then
+		basePanel = self.m_panelDict[pName].xmlPanel
+	end
+	-- basePanel:setScale(0.2)
+	-- 	:setOpacity(0.1)
+	self.m_panelDict[pName].scaling = true
+
+	if pName == "panel_equiptips" then game.equipsTipsOn = true end
+	if pName == "panel_chongzhi" then 
+		game.rechargeOn = true 
+		if game.checkMainTaskUsable() then game.stopAutoFight() end
+	end
+	
+
+	-- basePanel:runAction(
+	-- 	cca.seq({
+	-- 		cca.spawn({
+	-- 			cca.scaleTo(0.3, 1.0),
+	-- 			cca.fadeIn(0.3)
+	-- 		}),
+	-- 		cca.cb(function ()
+				if not self.m_panelDict[pName] then return end
+				if self.m_panelFiles[pName].onPanelOpen then self.m_panelFiles[pName].onPanelOpen(extend) end
+
+				-- 通知服务器面板打开了
+				NetClient:PushLuaTable("gui.moduleGuide.checkGuide",util.encode({actionid = "onPanelOpen", pName = pName}));
+
+				NetClient:dispatchEvent({ name = Notify.EVENT_UPDATE_PANELDICT, panels = self.m_panelDict, pName = pName})
+				self:setBlockedArea(self.m_panelDict[pName],pName)
+				self.m_panelDict[pName].scaling = false
+	-- 		end)}
+	-- 	)
+	-- )
+	self.m_panelDict[pName].loaded = true -- 标记面板加载完成
+end
+
+function LayerPanel:setBlockedArea(panel,pName)
+	if self.m_panelFiles[pName] and self.m_panelFiles[pName].getBlockedArea then
+		local block = self.m_panelFiles[pName].getBlockedArea()
+		if block then
+			local blockArea = {}
+			for _,v in ipairs(block) do
+				local wBlock = panel:getWidgetByName(v)
+				if wBlock then
+					local anChor = wBlock:getAnchorPoint()
+					local contentSize = wBlock:getContentSize()
+					local mWidth = contentSize.width * self.scale
+					local mHeight = contentSize.height * self.scale
+					local orignX = wBlock:getWorldPosition().x - mWidth * anChor.x
+					local orignY = wBlock:getWorldPosition().y - mHeight * anChor.y
+					table.insert(blockArea,cc.rect(orignX,orignY,mWidth,mHeight))
+				end
+			end
+			if #blockArea > 0 then
+				NetClient:dispatchEvent({name = Notify.EVENT_GESTURE_BLOCK , block = blockArea})
+			end
+		end
+	end
+end
+
+function LayerPanel:handleCloseEvent(event)   
+	local pName = event.str
+	if pName ~= "" then
+		if pName == "all" then
+			self:closeAllPanels()
+		elseif event.anima then
+			self:closeWithAnimation(pName, event.dir)
+		else 
+			self:closePanel(pName)
+		end
+	end
+end
+
+function LayerPanel:closeWithAnimation(pName,dir)
+	local panel = self.m_panelDict[pName]
+	if panel then
+		local distance = 1000
+		if dir == 0 then
+			distance = -1000
+		end
+		panel:runAction(
+			cca.seq(
+				{
+					cca.moveTo(0.2, cc.p(panel.defaultPos.x+distance,panel.defaultPos.y)),
+					cca.cb(function ()
+						self:closePanel(pName)
+					end)
+				}
+			)
+		)
+	end
+end
+------------------------增加面板缓存机制------------------------
+
+function LayerPanel:updatePanelCache(pName)
+
+	---------------------面板已存在缓存中，则重新排序---------------------
+	for i,v in ipairs(self.m_panelCache) do
+		if v.key == pName then 
+			if i ~= #self.m_panelCache then
+				local cache = v
+				table.remove(self.m_panelCache, i)
+				table.insert(self.m_panelCache,cache)				
+			end
+			v.panel:hide()
+			return
+		end
+	end
+	---------------------缓存面板达到上限，则去除老缓存面板---------------------
+	if #self.m_panelCache >= cacheLength then
+		local cache = self.m_panelCache[1]
+		if util.isObjectExist(cache.panel) then
+			cache.panel:removeFromParent()
+		end
+		if panel_all[cache.key].res then
+			remove_frames("uipic/"..panel_all[cache.key].name,".png")
+			cc.CacheMgr:getInstance():releaseUnused(false)
+		end
+		table.remove(self.m_panelCache, 1)
+	end
+	---------------------面板不存在缓存中，加入缓存---------------------
+	if self.m_panelDict[pName] then -- 缓存中插入面板
+		self.m_panelDict[pName]:hide()
+		table.insert(self.m_panelCache, {panel = self.m_panelDict[pName], key = pName})
+	end
+end
+
+function LayerPanel:closePanel(pName)
+	-- local panel = self.m_panelDict[pName]
+	if self.m_panelDict[pName] then
+		-- 检测面板是否可关闭
+		if self.m_panelFiles[pName].checkPanelClose and not self.m_panelFiles[pName].checkPanelClose() then return end
+		
+		-- if not false and not panel_all[pName].noCache and self.m_panelDict[pName].loaded then
+		if not CONFIG_TEST_MODE and not panel_all[pName].noCache and self.m_panelDict[pName].loaded then
+			self:updatePanelCache(pName)
+		else
+			if util.isObjectExist(self.m_panelDict[pName]) then
+				self.m_panelDict[pName]:removeFromParent()
+			end
+			if panel_all[pName].res then 
+				remove_frames("uipic/"..(panel_all[pName].name=="PanelHeQuAct" and "PanelCelebrationAct" or panel_all[pName].name),".png")
+				cc.CacheManager:getInstance():releaseUnused(false)
+			end
+		end
+
+		NetClient:dispatchEvent({name = Notify.EVENT_END_GUIDE})
+
+		if pName == "panel_equiptips" then game.equipsTipsOn = false end
+		if pName == "panel_chongzhi" then game.rechargeOn = false end
+		
+		if self.m_panelFiles[pName] and self.m_panelFiles[pName].onPanelClose then
+			if panel_all[pName].closeCall or util.isObjectExist(self.m_panelDict[pName].xmlPanel) then
+				self.m_panelFiles[pName].onPanelClose()
+			end
+		end
+		NetClient:PushLuaTable("gui.moduleGuide.checkGuide",util.encode({actionid = "onPanelClose", pName = pName}));
+
+		self.m_panelDict[pName] = nil
+
+		NetClient:dispatchEvent({name = Notify.EVENT_GESTURE_BLOCK , block = {}})
+		NetClient:dispatchEvent({ name = Notify.EVENT_UPDATE_PANELDICT, panels = self.m_panelDict})
+
+		-- PlayAudio.play("sound/closewin3.mp3")
+
+		if table.indexof(self.existPanels, pName) then
+			table.removebyvalue(self.existPanels, pName, true)
+		end
+
+		self:handleTranslucentBg()
+
+		LayerAlert.handleAlertClose()
+	end
+end
+
+function LayerPanel:handleGestureClose(event)
+	if event and event.dir then
+		if #self.existPanels > 0 and self.existPanels[#self.existPanels] then
+			local pName = self.existPanels[#self.existPanels]
+			if not panel_all[pName].noBg and not self.m_panelDict[pName].scaling then
+				self:closeWithAnimation(self.existPanels[#self.existPanels], event.dir)
+			end
+		end
+	end
+end
+
+function LayerPanel:getGuideWidget(pName,wName)
+	-- print("getGuideWidget",pName,wName)
+	if self.m_panelDict[pName] then 
+		return util.getChildFromNode(self.m_panelDict[pName], wName), self.m_panelDict[pName]:isVisible()
+		-- return self.m_panelDict[pName]:getWidgetByName(wName), self.m_panelDict[pName]:isVisible()
+	else
+		for i,v in ipairs(self.m_panelCache) do
+			if v.key == pName then
+				return util.getChildFromNode(v.panel, wName), v.panel:isVisible()
+			end
+		end		
+	end
+end
+
+function LayerPanel:handleNewFuncAnima(event)
+	self:setVisible((not event.isAnima))
+end
+
+function LayerPanel:handleAllTranslucentBg(event)
+	self:handleTranslucentBg(not event.visible)
+end
+
+function LayerPanel:handleLayerPanelVisible(event)
+	event.visible = event.visible and true or false;
+	self:setVisible(event.visible);
+end
+
+function LayerPanel:initBtnClose(pName,extend)
+	local btnClose = self.m_panelDict[pName].xmlPanel:getWidgetByName("panel_close") -- 为关闭按钮添加返回指定上级界面功能
+	if not btnClose and panel_all[pName].btnClose then
+		btnClose = self:addButtonClose(self.m_panelDict[pName].xmlPanel)
+	end
+	if btnClose then
+		btnClose.from = extend.from
+		btnClose.mParam = extend.mParam
+		UIRedPoint.addUIPoint(btnClose,	function(pSender)
+			-- self:closeAllPanels()
+			self:closePanel(pName)
+			if pSender.from then -- 打开上级面板
+				self:handleOpenEvent({str = pSender.from, mParam = pSender.mParam})
+			end
+		end) 
+	end
+end
+----统一添加关闭按钮方法
+function LayerPanel:addButtonClose(xmlPanel)
+	if not xmlPanel:getChildByName("panel_close") then
+		local btnClose = ccui.Button:create();
+		btnClose:loadTextures("btn_panel_close","btn_panel_close","",ccui.TextureResType.plistType);
+		btnClose:setName("panel_close")
+		btnClose:setPressedActionEnabled(true)
+		btnClose:setZoomScale(-0.12)
+		xmlPanel:addChild(btnClose);
+		local panelSize = xmlPanel:getContentSize()
+		btnClose:setPosition(cc.p(panelSize.width-15,panelSize.height-18))
+		return btnClose
+	end
+end
+
+function LayerPanel:getEffectPanel()
+	return self.m_panelEffect;
+end
+
+return LayerPanel

@@ -1,0 +1,314 @@
+
+
+--这里保存的是需要长期存储在用户设备中的数据
+
+local GameConf = {
+	["SmartEatHP"] = true,
+	["SmartEatHPPercent"] = 60,
+	["SmartEatMP"] = true,
+	["SmartEatMPPercent"] = 60,
+	["SmartLowHP"] = false,
+	["SmartLowHPPercent"] = 10,
+	["SmartLowHPItem"] = 32010002,
+	["AutoPickEquip"] = true,
+	["AutoPickEquipLevel"] = 10,--10-90等级，100-180转生等级(zslv*10+90)
+	["AutoPickDrug"] = true,
+	["AutoPickStaff"] = true,
+	["AutoPickOther"] = true,
+	["AutoPickCoin"] = true,
+	["AutoPickVcoin"] = true,
+	["AutoRetrieve"] = false,
+
+	["AutoBanyue"] = true,
+	["AutoLiehuo"] = true,
+	["AutoCiSha"] = true,
+	["AutoShield"] = true,
+	["AutoRoar"] = true,
+	["AutoCall"] = true,
+	["AutoLock"] = true,
+	["AutoFightBack"] = false,
+	["AutoHuoqiang"] = false,
+
+	--拾取过滤
+	["AutoDJD1"] = true,		["ShowDJD1"] = true,
+	["AutoDJD2"] = true,		["ShowDJD2"] = true, 
+	["AutoDJD3"] = true,		["ShowDJD3"] = true, 
+	["AutoDJD4"] = true, 		["ShowDJD4"] = true, 
+	["AutoDJD5"] = true, 		["ShowDJD5"] = true, 
+	["AutoEP10"] = true, 	 	["ShowEP10"] = 10,  	
+	["AutoEP15"] = true, 		["ShowEP15"] = true,  
+	["AutoEP20"] = true, 		["ShowEP20"] = true,  	
+	["AutoEP25"] = true, 		["ShowEP25"] = true,  	
+	["AutoEP30"] = true, 		["ShowEP30"] = true,  	
+	["AutoVcoin100"] =  true,    ["ShowVcoin100"]  = true,   
+	["AutoVcoin500"] =  true,  	["ShowVcoin500"]   = true,  
+	["AutoVcoin1000"] = true,  	["ShowVcoin1000"]  = true,  
+	["AutoVcoin5000"] = true, 	["ShowVcoin5000"]  = true,  
+	["AutoYP1"] = true, 		["ShowYP1"] = true,  
+	["AutoYP2"] = true, 		["ShowYP2"] = true, 
+	["AutoYP3"] = true, 		["ShowYP3"] = true,  
+	["AutoHD1"] = true, 		["ShowHD1"] = true,  
+	["AutoHD2"] = true, 		["ShowHD2"] = true,  
+	["AutoHD3"] = true,			["ShowHD3"] = true,  
+	["AutoHZ1"] = true, 		["ShowHZ1"] = true,  
+	["AutoHZ2"] = true, 		["ShowHZ2"] = true,  
+	["AutoZG1"] = true, 		["ShowZG1"] = true,  
+	["AutoZG2"] = true, 		["ShowZG2"] = true,  
+	["AutoZSD1"] = true, 		["ShowZSD1"] = true, 
+	["AutoZSD2"] = true, 		["ShowZSD2"] = true,  
+	["AutoZSD3"] = true, 		["ShowZSD3"] = true,  
+	["AutoGND1"] = true, 		["ShowGND1"] = true,
+	["AutoGND2"] = true, 		["ShowGND2"] = true,  
+	["AutoFBJZ"] = true, 		["ShowFBJZ"] = true,
+
+	["VoiceInTime"] = false,
+	["VoiceInTimeChannel"] = "",
+
+	["ShieldEffect"] = false,
+	["ShieldGuild"] = false,
+	["ShieldPet"] = false,
+	["ShieldMonster"] = false,
+	["ShieldBOSS"] = false,
+	["ShieldHair"] = false,
+	["ShieldAllPlayer"] =false,
+	["ShieldGSM"] = false,
+	["ShieldGoHome"] = false,
+	["SwitchMusic"] = false,
+	["CloseTrade"] = false,
+	["ShieldWing"] = false,
+	["ShieldTitle"] = false,
+	["SwitchEffect"] = false,
+	["PerformanceModel"] = false,
+	["ShieldAddFriend"] = false,
+	["ShieldShadow"] = false,
+	["AlertCheckbox"] ={},
+	["ChatRecord"] ={},
+
+	["VoiceModel"]	=	"",
+	["MicOnOrOff"]	= 	false,
+	["SpkOnOrOff"]	= 	false,
+	["VoiceAuthority"]	= 1,--1:"leader",2:freedom,
+
+	["LastChrName"]	=	"",
+	["SaveEnergy"] = false,
+	["OpenRocker"] = true,
+	["AutoHuiShou"] = 1,
+
+	--技能设置保存
+	["Skill1"] = false,
+	["Skill2"] = false,
+	["Skill3"] = false,
+	["Skill4"] = false,
+	["Skill5"] = false,
+	["Skill6"] = false,
+	["Skill7"] = false,
+	["Skill8"] = false,
+
+	["Medicine1"] = false,
+	["Medicine2"] = false,
+	["Medicine3"] = false,
+	["Medicine4"] = false,
+
+	--回收相关配置
+	["recyleCheck10"] = false,
+	["recyleCheck15"] = false,
+	["recyleCheck20"] = false,
+	["recyleCheck25"] = false,
+	["recyleCheck30"] = false,
+	["recyleCheck35"] = false,
+	["recyleCheck40"] = false,
+	["recyleCheck42"] = false,
+	["recyleCheck50"] = false,
+
+	--组队模式 1:自动组队 2:手动组队 3:拒绝组队
+	["GroupType"] = 2,
+	["ShieldRedWaring"] = false,
+
+	["VoiceChannelNear"] = false,
+	["VoiceChannelWorld"] = false,
+	["VoiceChannelGroup"] = false,
+	["VoiceChannelGuild"] = false,
+}
+
+local UserConfig = {}
+
+UserConfig.Data=nil
+UserConfig.LotteryList=nil
+UserConfig.FriendList=nil
+UserConfig.EnemyList=nil
+UserConfig.BlackList=nil
+UserConfig.DieRecords = nil
+UserConfig.GongXunOpenAward=nil--功勋开箱子获得记录
+local storeInfos = {
+	["Data"]		= "userconf",
+	["LotteryList"]	= "LotteryList",
+	["FriendList"] = "FriendList",
+	["EnemyList"] = "EnemyList",
+	["BlackList"] = "BlackList",
+	["DieRecords"] = "DieRecords",
+	["GongXunOpenAward"] = "GongXunOpenAward",
+}
+
+function UserConfig.loadConfig()
+	for k,v in pairs(storeInfos) do
+		local content=cc.UserDefault:getInstance():getStringForKey(v, "")
+		if content then
+			if content and content ~= "" then
+				local tempjson
+				if k == "Data"then
+					tempjson = cc.DataBase64:DecodeData(content)
+				else
+					tempjson = content
+				end
+				UserConfig[k]=utilapp.decode(tempjson)
+			end
+		end
+	end
+
+	if not UserConfig.Data then
+		UserConfig.Data = clone(GameConf)
+	end
+	for k,v in pairs(UserConfig.Data) do
+		-- if UserConfig.Data[k]==nil then
+		-- 	UserConfig.Data[k]=GameConf[k]
+		-- end
+
+		-- local value
+		-- if type(UserConfig.Data[k]) == "number" then
+		-- 	value = UserConfig.Data[k]
+		-- elseif UserConfig.Data[k] == false or UserConfig.Data[k] == nil then--false
+		-- 	value = 0
+		-- else--true
+		-- 	value = 1
+		-- end
+		-- _G["G_"..k] = value
+
+		UserConfig.setConf(k,v,true)
+	end
+
+	UserConfig.Data["AlertCheckbox"] = {}
+	-- UserConfig.Data["ChatRecord"] = {}
+	UserConfig.save()
+end
+
+function UserConfig.getInfos(key, storeType)
+	UserConfig[storeType] = UserConfig[storeType] or {}
+	return UserConfig[storeType][key]
+end
+
+function UserConfig.setInfos(key, value, storeType)
+	UserConfig[storeType] = UserConfig[storeType] or {}
+	-- if storeType == "Data" then
+	-- 	if GameConf[key] then
+	-- 		UserConfig[storeType][key]=value
+	-- 	end
+	-- else
+		UserConfig[storeType][key]=value
+	-- end
+end
+
+function UserConfig.getConf(key)
+	return UserConfig.getInfos(key, "Data")
+end
+
+function UserConfig_ShieldPet(type,pghost)
+	-- if G_ShieldPet==1 then
+	-- 	pghost:setShowHide(false)
+	-- else
+	-- 	pghost:setShowHide(true)
+	-- end
+end
+
+function UserConfig_ShieldGuild(type,pghost)
+	-- local mianavatar=CCGhostManager:getMainAvatar()
+	-- MainRole._mainAvatar = MainRole._mainAvatar or CCGhostManager:getMainAvatar()
+	if MainRole._mainAvatar and type~=Const.GHOST_THIS then
+		if pghost:NetAttr(Const.net_guild_name)~="" and pghost:NetAttr(Const.net_guild_name) == MainRole._mainAvatar:NetAttr(Const.net_guild_name) then
+			if G_ShieldPet==1 then
+				pghost:setShowHide(false)
+			else
+				pghost:setShowHide(true)
+			end
+		end
+	end
+end
+
+function UserConfig.setConf(key,value,nosave)
+	if not nosave then
+		UserConfig.setInfos(key, value, "Data")
+	end
+
+	local tempValue
+	if type(value) == "number" then
+		tempValue = value
+	elseif value == false or value == nil then
+		tempValue = 0
+	else--true
+		tempValue = 1
+	end
+	_G["G_"..key] = tempValue
+	if key == "ShieldPet" then
+		-- CCGhostManager:foreachGhosts("UserConfig_ShieldPet",Const.GHOST_SLAVE)
+		CCGhostManager:setHideSlave(value and true or false)
+	elseif key == "ShieldGuild" then
+		-- CCGhostManager:foreachGhosts("UserConfig_ShieldGuild",Const.GHOST_PLAYER)
+		CCGhostManager:setHideGuildPlayer(value and true or false)
+	elseif key == "ShieldAllPlayer" then
+		CCGhostManager:setHideAllPlayer(value and true or false)
+	elseif key == "ShieldMonster" then
+		-- CCGhostManager:setHideMonster(value and true or false)
+		CCGhostManager:foreachGhosts("handleMonsterVisible", Const.GHOST_MONSTER)
+	elseif key == "ShieldWing" then
+		CCGhostManager:setHideWing(value and true or false)
+	-- elseif key == "ShieldHair" then
+		-- CCGhostManager:setHideHair(value and true or false)
+	-- elseif key == "ShieldTitle" then
+		-- CCGhostManager:setHidePlayerTitle(value and true or false)
+		-- CCGhostManager:updatePlayerName()
+	elseif key == "ShieldShadow" then
+		CCGhostManager:setHideShadow(value and true or false)
+	elseif key == "ShieldRedWaring" then
+		if UISceneGame then
+			UISceneGame.handleHPMPChange(event)
+		end
+	elseif key == "ShieldEffect" then
+		CCGhostManager:setHideEffect(value and true or false)
+	elseif key == "OpenRocker" then
+		if UISceneGame and UISceneGame.m_layerRocker then
+			UISceneGame.m_layerRocker:setVisible(value and true or false)
+		end
+	elseif key == "SaveEnergy" then
+		--set_fps(30)
+	elseif key == "SwitchMusic" then
+		if value == true then
+			if PlayAudio then
+				PlayAudio.stop("music")
+			end
+		end
+	--"SwitchEffect" 对应 函数play_effect_sound  G_SwitchEffect
+	-- elseif key == "SwitchEffect" then
+
+	end
+end
+
+function UserConfig.save(storeType)
+	if not storeType then
+		storeType = "Data"
+	end
+	
+	local tempjson=utilapp.encode(UserConfig[storeType])
+	if tempjson then
+		local enjson
+		if storeType == "Data" then
+			enjson = cc.DataBase64:EncodeData(tempjson)
+		else
+			enjson = tempjson
+		end
+		cc.UserDefault:getInstance():setStringForKey(storeInfos[storeType],enjson)
+		cc.UserDefault:getInstance():flush()
+	end
+end
+
+UserConfig.loadConfig()
+
+return UserConfig

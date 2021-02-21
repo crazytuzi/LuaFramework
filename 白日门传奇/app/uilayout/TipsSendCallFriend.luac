@@ -1,0 +1,14 @@
+LUA_RET={
+{n="TipsSendCallFriend",v=true,type=0,id=1,parent=0,w=387.0000,h=225.0000,},
+{n="tipsbg",tag=1045,sx=86,sw=28,sh=80,sy=54,v=true,type=1,id=2,parent=1,w=387.0000,h=225.0000,color="255|255|255",res="img_kuan_bg",},
+{n="btn_call",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1151,t=true,fs=22,text="召唤",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=3,parent=1,w=85.0000,h=33.0000,ax=0.5000,ay=0.5000,x=193.4369,y=32.7595,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="lbl1",tag=1153,fs=18,text="好友召唤可邀请好友传送至你身边",v=true,type=3,id=4,parent=1,w=274.0000,h=23.0000,ay=0.5000,x=59.9837,y=160.7435,color="253|223|174",fr="DFYuan.ttf",},
+{n="lblinfo",tag=1154,fs=18,text="玩家可以拒绝召唤",v=true,type=3,id=5,parent=1,w=180.0000,h=18.0000,ax=0.5000,ay=0.5000,x=206.3068,y=132.7433,color="255|62|62",},
+{n="Text_9_1",tag=1155,fs=18,text="召唤玩家:",v=true,type=3,id=6,parent=1,w=81.0000,h=18.0000,ax=1.0000,ay=0.5000,x=180.1494,y=106.0750,color="231|186|82",},
+{n="lbl1_0",tag=1174,fs=18,text="提醒:",vt=1,v=true,type=3,id=7,parent=1,w=60.0000,h=20.0000,ay=0.5000,x=59.9836,y=132.7433,color="231|186|82",},
+{n="Text_9_1_0",tag=1175,fs=18,text="召唤花费:",v=true,type=3,id=8,parent=1,w=81.0000,h=18.0000,ax=1.0000,ay=0.5000,x=180.1494,y=76.0749,color="231|186|82",},
+{n="lblname",tag=1176,fs=20,text="玩家",v=true,type=3,id=9,parent=1,w=140.0000,h=20.0000,ay=0.5000,x=190.1494,y=105.3801,color="255|236|223",},
+{n="lblvcoin",tag=1177,fs=20,text="1000",v=true,type=3,id=10,parent=1,w=40.0000,h=20.0000,ay=0.5000,x=220.1493,y=76.0750,color="255|236|223",},
+{n="img_vcoin",tag=1178,v=true,type=1,id=11,parent=1,w=40.0000,h=41.0000,ax=0.5000,ay=0.5000,x=199.1492,y=76.0749,color="255|255|255",res="vcoin_bind",},
+{n="Text_1",tag=1066,fs=25,text="仇人追踪",ht=1,vt=1,v=true,type=3,id=12,parent=1,w=120.0000,h=28.0000,ax=0.5000,ay=0.5000,x=196.2152,y=199.0389,color="255|231|187",fr="DFYuan.ttf",},
+}

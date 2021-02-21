@@ -1,0 +1,193 @@
+local PanelChib = {}
+local var = {}
+
+function PanelChib.initView()
+	var = {
+		xmlPanel,
+		progressBar,
+		labBar,
+		labBar1,
+		curChibId=nil,
+		fireworks=nil,
+		ChibLevel=0,
+		chibWai=nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelChib.uif")
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelChib.handlePanelData)
+		PanelChib.initBtn()
+
+		local chibEff = var.xmlPanel:getWidgetByName("imgchib"):getChildByName("chibEff")
+		var.xmlPanel:getWidgetByName("imgchib"):setTouchEnabled(true)
+	--	if not chibEff then
+		--	chibEff = cc.Sprite:create()
+		--	chibEff:setName("chibEff")
+		--	chibEff:setPosition(250,230)
+		--			:setTouchEnabled(false)
+		--			:addTo(var.xmlPanel)
+	--		local animate = cc.AnimManager:getInstance():getPlistAnimate(4,21320,4, 5)
+	--		chibEff:runAction(cca.repeatForever(animate))
+	--	end			
+		--------------------------------------------	
+		
+		local titleFloor = var.xmlPanel:getChildByName("titleFloor")
+		if not titleFloor then
+			titleFloor = cc.Sprite:create()
+						:setName("titleFloor")
+						:align(display.CENTER, 209, 197)
+						:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+						:addTo(var.xmlPanel:getChildByName("img_left_bg"))
+			cc.AnimManager:getInstance():getPlistAnimateAsync(titleFloor,4,21320,0,0,0,true)
+		end
+		return var.xmlPanel
+	end
+end
+
+function PanelChib.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelChib.handlePanelData", util.encode({actionid = "reqChibData"}))
+	-- PanelChib.startAnimOne()
+end
+
+function PanelChib.onPanelClose()
+	-- MainRole.handleChibChange(var.ChibLevel)
+end
+
+function PanelChib.handlePanelData(event)
+	if event.type ~= "PanelChib" then return end
+	local data = util.decode(event.data)
+	if data.cmd=="updateChib" then
+		 PanelChib.updateChib(data)
+	elseif data.cmd=="" then
+
+	end
+end
+
+function PanelChib.initBtn()
+	local btnArrs = {"btn_suipian","btn_shenji"}
+	local function btnCallBack(sender)
+		local btnName = sender:getName()
+		if btnName=="btn_shenji" then
+			NetClient:PushLuaTable("gui.PanelChib.handlePanelData", util.encode({actionid = "reqChibShenJi"}))
+		elseif btnName=="btn_suipian" then
+			NetClient:PushLuaTable("gui.PanelChib.handlePanelData",util.encode({actionid = "chsuipian",}))
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn , btnCallBack)
+	end
+end
+
+function PanelChib.updateChib(data)
+	for i=1,10 do
+		for i=1,6 do
+			var.xmlPanel:getWidgetByName("labCur"..i):setString(data.curTable[i])
+		end
+		if i<=data.starNum then
+			var.xmlPanel:getWidgetByName("imgStar"..i):setVisible(true)
+		else
+			var.xmlPanel:getWidgetByName("imgStar"..i):setVisible(false)
+		end
+	end
+	if not util.isObjectExist(var.progressBar) then
+		local bar = var.xmlPanel:getWidgetByName("bar")
+		var.labBar = var.xmlPanel:getWidgetByName("labbar")
+		var.progressBar = UIProgressBar.new(bar,var.labBar)
+		var.labBar1 = var.xmlPanel:getWidgetByName("labbar1")
+		var.progressBar = UIProgressBar.new(bar,var.labBar1)
+	end
+	local num = tonumber(302*data.ownChip/data.needChip)
+	if var.progressBar.setPercentByMaxValue then
+		var.progressBar:setPercentByMaxValue(num,302)
+		var.progressBar:setVisible(true)
+	end
+	var.labBar:setString("拥有称号碎片:"..data.ownChip)
+	var.labBar1:setString("升星消耗碎片:"..data.needChip)
+	PanelChib.startAnimOne(data.level)
+	PanelChib.showChibAnimation(data.level)
+end
+
+--分割
+-- 参数:待分割的字符串,分割字符
+-- 返回:子串表.(含有空串)
+function lua_string_split(str, split_char)
+    local sub_str_tab = {};
+    while (true) do
+        local pos = string.find(str, split_char);
+        if (not pos) then
+            sub_str_tab[#sub_str_tab + 1] = str;
+            break;
+        end
+        local sub_str = string.sub(str, 1, pos - 1);
+        sub_str_tab[#sub_str_tab + 1] = sub_str;
+        str = string.sub(str, pos + 1, #str);
+    end
+
+    return sub_str_tab;
+end
+--称号特效
+function PanelChib.startAnimOne(level)
+	local resData = game.setChibEffect(level)
+	if not resData then resData={resNei=88911,name="梦幻王者"} end
+	if resData and resData.resNei~=var.curChibId then
+		local contentBox = var.xmlPanel:getWidgetByName("contentBox")
+		if not var.fireworks then
+			var.fireworks = cc.Sprite:create():addTo(contentBox):pos(33, -60)--28
+		end
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(4, resData.resNei, 4, 5)
+		var.curChibId=resData.resNei
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate, 1000),
+			cca.removeSelf()
+		}))
+		contentBox:stopAllActions()
+		contentBox:runAction(cca.loop(
+				cca.seq({
+					cca.moveBy(1, 0, 10),
+					cca.moveBy(1, 0, -10),
+				})
+			)
+		)
+		var.xmlPanel:getWidgetByName("labChName"):setString(resData.name)
+	end
+
+end
+function PanelChib.showChibAnimation(level)
+	local data_chib={88900,88901,88902,88903,88904,88905,88906,88907,88908,88909,88910}
+	local img_chibl = var.xmlPanel:getWidgetByName("img_chib_view"):getChildByName("img_chib")
+	if not img_chibl then
+		img_chibl = cc.Sprite:create()
+		img_chibl:addTo(var.xmlPanel:getWidgetByName("img_chib_view")):align(display.CENTER, 23, 23):setName("img_chib")
+	end
+	if level>=1 and level<=10 then
+		level = 1
+	elseif level>=11 and level<=20 then
+		level = 2
+	elseif level>=21 and level<=30 then
+		level = 3
+	elseif level>=31 and level<=40 then
+		level = 4
+	elseif level>=41 and level<=50 then
+		level = 5
+	elseif level>=51 and level<=60 then
+		level = 6
+	elseif level>=61 and level<=70 then
+		level = 7
+	elseif level>=71 and level<=80 then
+		level = 8
+	elseif level>=81 and level<=90 then
+		level = 9
+	elseif level>=91 and level<=100 then
+		level = 10
+	end
+	if level >= 1 and level <= 10 then
+		local filepath = "vipassana/chib/"..data_chib[level+1]..".png"
+		asyncload_callback(filepath, img_chibl, function(filepath, texture)
+			img_chibl:setTexture(filepath)
+		end)
+	end
+end
+
+return PanelChib

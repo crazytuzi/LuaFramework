@@ -1,0 +1,469 @@
+local PanelVip = {}
+local var = {}
+local vipDesc = 
+{
+	vip20 = "昊天赞助",
+	vip13 = "主宰赞助",
+	vip12 = "钻石赞助",
+	vip19 = "星辰赞助",
+	vip11 = "白金赞助",
+	vip18 = "超凡赞助",
+	vip10 = "青铜赞助",
+	vip17 = "至尊赞助",
+	vip16 = "王者赞助",
+	vip15 = "霸气赞助",
+	vip14 = "领袖赞助"
+}
+
+function PanelVip.initView(extend)
+	var = {
+			xmlPanel,
+			coinRecDespPage,
+			coinRecPage,
+			loadingbar,
+			tabList,
+			list_vipinfo,
+			list_award,
+			curSelect,
+			isGot,
+			chargeList,
+			isRecInit = false,
+			limit6Charge = false,
+			curSelectIdx = 0,
+			myVipLv = 0,
+			vipData = {},
+			itemCache = {},
+			xmlPanel = UILuaLoader.load("uilayout/PanelVip.uif")
+		}
+
+		if var.xmlPanel then
+			util.asyncload(var.xmlPanel, "img_inner_bg", "needload/vip_inner.jpg")
+			util.asyncload(var.xmlPanel, "img_bg2", "needload/bg_mmax.png")
+
+			var.loadingbar = var.xmlPanel:getWidgetByName("loadingbar")
+
+			var.loadingbar:getLabel():setPositionY(0):enableOutline(game.getColor("000000"), 1):setTextColor(game.getColor(16774369)):setFontSize(19)
+
+			var.tabList = var.xmlPanel:getWidgetByName("tabList")
+			var.list_vipinfo = var.xmlPanel:getWidgetByName("list_vipinfo")
+			var.list_award = var.xmlPanel:getWidgetByName("list_award")
+			var.coinRecDespPage = var.xmlPanel:getWidgetByName("CoinDespPage")
+			var.coinRecPage = var.xmlPanel:getWidgetByName("CoinRecPage")
+			var.chargeList = var.coinRecPage:getChildByName("chargeList")
+
+			PanelVip.freshList()
+
+			if extend.str ~= "panel_charge" then
+				var.coinRecDespPage:show()
+				var.coinRecPage:hide()
+			else
+				var.coinRecDespPage:hide()
+				var.coinRecPage:show()
+
+				if var.isRecInit == false then
+					var.isRecInit = true
+
+					NetClient:PushLuaTable("gui.PanelCharge.onPanelData", util.encode({
+						actionid = "fresh",
+						sys = device.platform,
+						platformId = PlatformTool.getPlatformId()
+					}))
+				end
+			end
+
+			cc.EventProxy.new(NetClient, var.xmlPanel):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelVip.handlePanelData)
+			UILuaLoader.attachEffect(var.xmlPanel:getWidgetByName("btn_charge"),"outline(7c2b03,1)")
+		    var.xmlPanel:getWidgetByName("btn_charge"):addClickEventListener(function(sender)
+			NetClient:PushLuaTable("server.showChongzhi", "")
+				if var.coinRecDespPage:isVisible() == true then
+					var.coinRecDespPage:hide()
+					var.coinRecPage:show()
+
+					if var.isRecInit == false then
+						var.isRecInit = true
+
+						NetClient:PushLuaTable("gui.PanelCharge.onPanelData", util.encode({
+							actionid = "fresh",
+							sys = device.platform,
+							platformId = PlatformTool.getPlatformId()
+						}))
+					end
+				else
+					var.coinRecDespPage:show()
+					var.coinRecPage:hide()
+				end
+			end)
+			var.xmlPanel:getWidgetByName("btn_get"):addClickEventListener(function (sender)
+				if var.isGot == 1 then
+					NetClient:alertLocalMsg("您已领取过该奖励！", "alert")
+				else
+					NetClient:PushLuaTable("gui.PanelVip.onPanelData", util.encode({
+						actionid = "getAward",
+						vip = var.curSelectIdx
+					}))
+				end
+			end)
+			var.xmlPanel:getWidgetByName("btn_buff"):addClickEventListener(function (sender)
+				NetClient:PushLuaTable("gui.PanelVip.onPanelData", util.encode({
+					actionid = "getBuff"
+				}))
+			end)
+
+			return var.xmlPanel
+		end
+	end
+	
+function PanelVip.onPanelOpen()
+		var.xmlPanel:getWidgetByName("btn_buff"):hide()
+		NetClient:PushLuaTable("gui.PanelVip.onPanelData", util.encode({
+			actionid = "fresh"
+		}))
+	end
+	
+function PanelVip.handlePanelData(event)
+		if event.type ~= "PanelVip" then
+			return
+		end
+
+		local result = util.decode(event.data)
+		if util.decode(event.data).cmd == "fresh" then
+			PanelVip.freshPanel(result)
+		elseif result.cmd == "vipinfo" then
+			PanelVip.freshVipInfo(result)
+		elseif result.cmd == "freshRecVip" then
+			if result.data then
+				PanelVip.freshList(result.data)
+			end
+
+			var.limit6Charge = result.limit6Charge
+		elseif result.cmd == "freshItem" and result.data then
+			PanelVip.freshItem(result.data)
+		end
+	end
+	
+function PanelVip.createRecharge(price, func)
+	local message,payId,code=nil
+	local http=cc.XMLHttpRequest:new()
+	http:setRequestHeader("Content-Type", "application/json")
+	http:open("POST", game.paymentUrl)
+	local param = {
+		price = price,
+		account = game.accountId,
+		chrname = game.GetMainRole():NetAttr(Const.net_name),
+		server = game.zoneId,
+		time = os.time(),
+		ip_address = game.serverIP,--string.gsub(utilapp.unicode_to_utf8(game.serverIP), "http://", ""),
+		pid = PlatformTool.getPlatformId(),
+	}
+	-- dump(param)
+	local function notifyCallBack()
+		local status=http.status
+		--dump(status, "notifyCallBack")
+		if status==200 then
+			local response=http.response
+			if response=="" or not response then
+				message="服务器无响应"
+				code=-100
+				self:showErrorMsg(code,message)
+			else
+				local json=string.gsub(utilapp.unicode_to_utf8(response),"\\","")
+				json=util.decode(json)
+				if json.status == 100 then
+					NetClient:alertLocalMsg("创建订单失败，请重试！")
+				elseif json.status == 200 or json.status == 0 then
+					NetClient:alertLocalMsg("订单创建成功，正在跳转支付...")
+					payId = json.ordernumber
+					func(payId)
+				end
+			end
+		else
+			message="连接失败"
+			code=-99
+			self:showErrorMsg(code,message)
+		end
+	end
+	http:registerScriptHandler(notifyCallBack)
+	http:send(util.ToBase64(util.encode(param)))
+end
+
+
+--[[function PanelVip.freshList(data)
+		if not data then
+			return
+		end
+
+		var.chargeList:reloadData(#data, function (subItem)
+			var.itemCache[subItem.tag] = subItem
+			
+			local d = data[subItem.tag]
+			subItem:getChildByName("vcoin"):setString(d.vcoin_nor)
+
+			if PlatformTool.getPlatformId() == PlatformTool.PLATFORM_GOOGLE_ID then
+				subItem:getChildByName("rmb2"):setString("充值")
+			else
+				subItem:getChildByName("rmb2"):setString("" .. d.num):enableOutline(game.getColor("000000"), 1)
+			end
+
+			subItem:getWidgetByName("icon"):loadTexture(d.res, ccui.TextureResType.plistType)
+
+			if d.res == "icon_04" then
+				-- Nothing
+			end
+
+			if d.isFirst == 0 and d.rate > 1 then
+				subItem:getWidgetByName("doubleImg"):loadTexture("frist_double_txt", ccui.TextureResType.plistType):setVisible(true)
+
+				slot2 = subItem:getWidgetByName("fan")
+				slot3 = "二"
+
+				if d.rate == 2 then
+					slot3 = "二"
+				elseif d.rate == 3 then
+					slot3 = "三"
+				elseif d.rate == 4 then
+					slot3 = "四"
+				elseif d.rate == 5 then
+					slot3 = "五"
+				elseif d.rate == 6 then
+					slot3 = "六"
+				end
+
+				if d.rate >= 3 then
+					subItem:getWidgetByName("czimg"):setVisible(true)
+				else
+					subItem:getWidgetByName("czimg"):setVisible(false)
+				end
+
+				slot2:setString(slot3)
+				slot2:enableOutline(game.getColor("000000"), 1)
+			else
+				subItem:getWidgetByName("doubleImg"):setVisible(false)
+				subItem:getWidgetByName("czimg"):setVisible(false)
+			end
+
+			subItem:getWidgetByName("btn_charge"):setTag(slot1.num):setContentSize(cc.size(122, 43)):setScale9Enabled(true)
+			subItem:getWidgetByName("btn_charge"):addClickEventListener(function (slot0)
+				if uv0.limit6Charge and uv1.num == 6 and (PLATFORM_APP_STORE or PLATFORM_APP_LINYOU or PLATFORM_APP_DAZHAN) then
+					return NetClient:alertLocalMsg("每日只能充值10元档1次", "alert")
+				end
+
+				if slot0:getTag() then
+					uv2.createRecharge(slot1, function (slot0)
+						PlatformTool.doSdkPay(uv0.vcoin_nor, uv1, 1, slot0)
+					end)
+				end
+			end)
+		end)
+	end]]--
+	
+function PanelVip.freshList(data)
+	if not data then return end
+	var.chargeList:reloadData(#data,function(subItem)
+		var.itemCache[subItem.tag] = subItem
+		local d = data[subItem.tag]
+		subItem:getChildByName("vcoin"):setString(d.vcoin_nor)
+		if PlatformTool.getPlatformId() == PlatformTool.PLATFORM_GOOGLE_ID then
+			subItem:getChildByName("rmb2"):setString("充值")
+		else
+			subItem:getChildByName("rmb2"):setString(""..d.num):enableOutline(game.getColor("000000"),1)
+		end
+
+		subItem:getWidgetByName("icon"):loadTexture(d.res, ccui.TextureResType.plistType)--:setPosition(cc.p(93.99,102.00))--:setContentSize(cc.size(175,200)):setScale9Enabled(true)
+
+
+		-- 是否第一次充值
+		if d.isFirst == 0 and d.rate > 1 then
+			--
+			if d.rate >= 2 then
+				subItem:getWidgetByName("doubleImg"):setVisible(true):loadTexture("icon_rate"..d.rate, ccui.TextureResType.plistType)
+			else
+				subItem:getWidgetByName("doubleImg"):setVisible(false)
+			end
+		-- elseif d.isFirst == 1 then
+		-- 	--第二次首充
+		-- 	subItem:getWidgetByName("douleImg"):loadTexture("frist_double_txt", ccui.TextureResType.plistType):setVisible(true)
+		else
+			subItem:getWidgetByName("doubleImg"):setVisible(false)
+		end
+
+		if d.icon then
+			subItem:getWidgetByName("czimg"):loadTexture(d.icon, ccui.TextureResType.plistType):setVisible(true)
+		else
+			subItem:getWidgetByName("czimg"):setVisible(false)
+		end
+
+		subItem:getWidgetByName("btn_charge"):setTag(d.num)
+		subItem:getWidgetByName("btn_charge"):addClickEventListener(function(sender)
+			if var.limit6Charge and d.num == 6 and (PLATFORM_APP_STORE or PLATFORM_APP_LINYOU or PLATFORM_APP_DAZHAN) then
+				return NetClient:alertLocalMsg("每日只能充值10元档1次", "alert")
+			end
+			
+			local money = sender:getTag()
+			if money then
+				PanelVip.createRecharge(money, function (payId)
+					PlatformTool.doSdkPay(d.vcoin_nor.."钻石", money, 1, payId)--三个字段都必须是数字，，后期还需要再把其他数据传上去
+					--HttpManager:requestPayment(money, payId)
+				end)
+			end
+		end)
+	end)
+end
+	
+function PanelVip.freshItem(data)
+	if var.itemCache[data.index] then
+		local item = var.itemCache[data.index]
+		if data.isFirst == 0 and d.rate > 1 then
+			subItem:getWidgetByName("doubleImg"):loadTexture("frist_double_txt", ccui.TextureResType.plistType):setVisible(true)
+			if d.rate >= 3 then
+				subItem:getWidgetByName("czimg"):setVisible(true)
+			else
+				subItem:getWidgetByName("czimg"):setVisible(false)
+			end
+		else
+			subItem:getWidgetByName("doubleImg"):setVisible(false)
+			subItem:getWidgetByName("czimg"):setVisible(false)
+		end
+
+		subItem:getWidgetByName("vcoin"):setString(data.vcoin_nor)
+	end
+end
+
+	
+function PanelVip.updateItem(subItem,d)
+	if not subItem then return end
+	local btnMode = subItem:getWidgetByName("btnMode")
+	btnMode.vip = d.lv
+	UILuaLoader.attachEffect(btnMode,"outline(0e0600,1)")
+	btnMode:addClickEventListener(PanelVip.clickTab)
+	btnMode:setTitleText(d.lv < 11 and d.lv and d.name or vipDesc["vip"..d.lv]):setTouchEnabled(true):setTouchSwallowEnabled(false)
+	local res = "btn_new21_nor"
+	if d.lv == var.curSelectIdx then
+		res = "btn_new21_sel"
+		if var.curSelect ~= btnMode then
+			PanelVip.clickTab(btnMode)
+		end
+		var.curSelect = btnMode
+	end
+	btnMode:loadTextures(res,res,res,ccui.TextureResType.plistType)
+	UIRedDot.addRedPointToTarget(btnMode)
+	btnMode:getWidgetByName("redPoint"):setVisible(d.redPoint)
+end
+
+function PanelVip.freshPanel( result )
+		local vipLv = result.vipLv
+		var.myVipLv = result.vipLv
+
+		if not var.lbl_level then
+			var.lbl_level = display.newBMFontLabel({
+				fontSize = 22,
+				font = "fonts/img_zs_num.fnt"
+			}):addTo(var.xmlPanel):align(display.CENTER, 251, 505):setName("lbl_level")
+		end
+
+		var.vipData = result.vipData
+		var.curSelectIdx = vipLv + 1
+		var.curSelectIdx = util.bound(1, var.curSelectIdx, #var.vipData)
+
+		var.lbl_level:setString(vipLv)
+
+		vipLv = util.bound(0, vipLv, #var.vipData)
+		local subItemModel = var.xmlPanel:getWidgetByName("render")
+		local targetLv = #var.vipData
+		var.tabList:removeAllItems()
+
+		for i = 1, #var.vipData do
+			local subItem = subItemModel:clone():show()
+			if var.xmlPanel:getWidgetByName("render"):clone():show() then
+				PanelVip.updateItem(subItem, var.vipData[i])
+				var.tabList:pushBackCustomItem(subItem)
+			end
+		end
+
+		var.tabList:jumpToPercentVertical(90 * vipLv / #var.vipData)
+		var.tabList:requestDoLayout()
+	end
+	
+function PanelVip.clickTab(sender)
+		local res = "btn_new21_nor"
+
+		if util.isObjectExist(var.curSelect) then
+			var.curSelect:loadTextures(res, res, res, ccui.TextureResType.plistType)
+		end
+
+		res = "btn_new21_sel"
+
+		sender:loadTextures(res, res, res, ccui.TextureResType.plistType)
+
+		var.curSelect = sender
+		var.curSelectIdx = sender.vip
+
+		if sender.vip <= 10 then
+			var.xmlPanel:getWidgetByName("lblviplibao"):setString(string.format("VIP%d尊享礼包", sender.vip))
+		else
+			var.xmlPanel:getWidgetByName("lblviplibao"):setString(vipDesc["vip" .. sender.vip] .. "礼包")
+		end
+
+		NetClient:PushLuaTable("gui.PanelVip.onPanelData", util.encode({
+			actionid = "vipinfo",
+			vip = sender.vip
+		}))
+	end
+	
+function PanelVip.freshVipInfo(result)
+	local btn_buff = var.xmlPanel:getWidgetByName("btn_buff")
+	btn_buff:setVisible(false)
+	if result.showBuff and not btn_buff:getChildByName("img_bln") then
+		util.addHaloToButton(btn_buff, "btn_normal_light3")
+	end
+
+	var.isGot = result.isGot
+
+	local data= result.vipInfoData
+	var.list_vipinfo:reloadData(#data, function(subItem)
+		local richLabel = subItem:getWidgetByName("richLabel")
+		if not richLabel then
+			richLabel = UIRichLabel.new({size = cc.size(subItem:getContentSize().width, 20), fontSize = 20, space=3,name = "richLabel"})
+			richLabel:addTo(subItem):setPosition(cc.p(20,25))
+		end
+		richLabel:setRichLabel("<font color=#FDDFAE>"..data[subItem.tag].."</font>")
+
+		local lblvipinfo = subItem:getWidgetByName("lblvipinfo")
+		lblvipinfo:setString("")
+	end, 0, false)
+	var.loadingbar:setPercent(result.vipExp,result.vipMax)
+
+	local award = result.vipAward
+	var.list_award:reloadData(#award, function(subItem)
+		UIItem.getItem({
+			parent = subItem:getWidgetByName("awardicon"),
+			typeId = award[subItem.tag].id,
+			num = award[subItem.tag].num,
+		})
+	end, 0, false)
+	local btn_get = var.xmlPanel:getWidgetByName("btn_get")
+	if var.isGot==0 then
+		btn_get:setVisible(#award>0):setTitleText("领取奖励"):loadTextures("btn_red_normal","btn_red_normal","btn_red_normal", ccui.TextureResType.plistType)
+	else
+		btn_get:loadTextures("img_yilingqu1", "img_yilingqu1","",ccui.TextureResType.plistType):setTitleText("")
+	end
+	var.xmlPanel:getWidgetByName("lblviplibao"):setVisible(#award>0)
+
+	for k,v in pairs(result.redPoints) do
+		if var.vipData[k] then
+			var.vipData[k].redPoint = v
+			PanelVip.updateItem(var.tabList:getItem(k-1),var.vipData[k])
+		end
+	end
+
+	if result.btnGetShow then
+		util.addHaloToButton(btn_get, "btn_normal_light3")
+	else
+		util.removeHaloFromButton(btn_get)
+	end
+end
+
+function PanelVip.onPanelClose()
+
+end
+
+return PanelVip

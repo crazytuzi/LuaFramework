@@ -1,0 +1,11 @@
+LUA_RET={
+{n="PanelRewardHall_cdk",v=true,type=0,id=1,parent=0,w=835.0000,h=510.0000,},
+{n="cdkBg",tag=151,ss=true,sx=225,sw=232,sh=186,sy=180,v=true,type=1,id=2,parent=1,w=835.0000,h=510.0000,color="255|255|255",},
+{n="cdkBg2",tag=680,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=3,parent=1,w=783.0000,h=496.0000,ax=0.5000,ay=0.5000,x=412.4756,y=253.6152,color="255|255|255",},
+{n="Image_2",tag=681,sx=161,sw=161,sh=33,sy=33,v=true,type=1,id=4,parent=1,w=543.0000,h=38.0000,ax=0.5000,ay=0.5000,x=481.6968,y=360.7514,color="255|255|255",res="input_get_lbl",},
+{n="btnCdk",ud="outline(7c2b03,1);zoomscale(-0.12)",tag=124,t=true,fs=20,text="领取奖励",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=5,parent=1,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=454.3666,y=136.0980,color="255|255|255",tcolor="255|224|139",res="btn_red_normal",},
+{n="Image_3",tag=682,sx=83,sw=83,sh=17,sy=17,v=true,type=1,id=6,parent=1,w=252.0000,h=54.0000,ax=0.5000,ay=0.5000,x=456.7014,y=253.1060,color="255|255|255",res="input_cdk_lbl",},
+{n="inputlayer",tag=360,t=true,c=false,v=true,type=0,id=7,parent=1,w=300.0000,h=80.0000,x=306.9663,y=158.7339,color="255|255|255",},
+{n="label_input_bg",tag=132,ss=true,sx=15,sw=16,sh=16,sy=15,v=true,type=1,id=8,parent=7,w=261.0000,h=47.0000,ax=0.5000,ay=0.5000,x=147.2869,y=42.3631,color="255|255|255",res="input_cdk",},
+{n="Text_1",tag=43,fs=16,text="温馨提示：兑换激活码时，请保留背包空余位置",ht=1,vt=1,v=true,type=3,id=9,parent=1,w=370.0000,h=25.0000,ax=0.5000,ay=0.5000,x=570.9997,y=44.0001,color="255|234|61",},
+}

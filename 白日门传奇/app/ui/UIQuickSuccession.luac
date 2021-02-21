@@ -1,0 +1,281 @@
+local UIQuickSuccession={}
+local var = {}
+
+--继承消耗
+local shiftTable = {
+	[1] ={needMoney=200,  needVcion=0},
+	[2] ={needMoney=500,  needVcion=0},
+	[3] ={needMoney=500, needVcion=0},
+	[4] ={needMoney=300, needVcion=0},
+	[5] ={needMoney=1000,needVcion=0},
+	[6] ={needMoney=2000,needVcion=0},
+	[7] ={needMoney=4000,needVcion=0},
+	[8] ={needMoney=6000,needVcion=0},
+	[9] ={needMoney=0,     needVcion=6000},
+	[10]={needMoney=0,     needVcion=9000},
+	[11]={needMoney=0,     needVcion=13600},
+	[12]={needMoney=0,     needVcion=20400},
+	[13]={needMoney=0,     needVcion=27400},
+	[14]={needMoney=0,     needVcion=35600},
+	[15]={needMoney=0,     needVcion=45000},
+	[16]={needMoney=0,     needVcion=55600},
+	[17]={needMoney=0,     needVcion=67400},
+	[18]={needMoney=0,     needVcion=80400},
+	[19]={needMoney=0,     needVcion=94600},
+	[20]={needMoney=0,     needVcion=110000},
+	[21]={needMoney=0,     needVcion=510000},
+	[22]={needMoney=0,     needVcion=1100000},
+	[23]={needMoney=0,     needVcion=2100000},
+	[24]={needMoney=0,     needVcion=3100000},
+	[25]={needMoney=0,     needVcion=5100000},
+}
+
+--快速继承点击是操作
+local function funcClickConfirm(pSender)
+	local money = NetClient.mCharacter.mGameMoney or 0
+	local bMoney = NetClient.mCharacter.mGameMoneyBind or 0
+	local diamond = NetClient.mCharacter.mVCoin or 0
+	local vcion = NetClient.mCharacter.mVCoinBind or 0
+	-- print(money,bMoney,vcion)
+	-- var.uiQuickJiCheng:hide()
+	-- print(pSender.mLevel,shiftTable[pSender.mLevel],"=========9999999999999")
+	if pSender.mLevel>0 and shiftTable[pSender.mLevel] then
+		local itemData = shiftTable[pSender.mLevel]
+		-- if itemData.needMoney>0 then
+		-- 	if itemData.needMoney>(money+bMoney) then
+		-- 		NetClient:alertLocalMsg("快速继承所需金币不足！","alert")
+		-- 		return
+		-- 	end
+		-- end
+		if itemData.needMoney>0 then
+			if itemData.needMoney>vcion then
+				NetClient:alertLocalMsg("快速继承所需元宝不足！","alert")
+				return
+			end
+		end
+		if itemData.needVcion>0 then
+			if itemData.needVcion > diamond then
+				NetClient:alertLocalMsg("快速继承所需钻石不足！","alert")
+				return
+			end
+		end
+
+		local result={}
+		result.oldPos=pSender.oldPos
+		result.oldTypeid=pSender.oldTypeid
+		result.newPos=pSender.newPos
+		result.newTypeid=pSender.newTypeid
+		-- print(util.encode(result),"=======8888888888888")
+		NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid = "startJiCheng",params=result}))
+	end
+end
+
+--如果是手镯或者戒指的话
+local function getNeedPos(equipType)
+	local pos1 = -2*equipType
+	local pos2 = -2*equipType-1
+
+	local newItem1 = NetClient.mItems[pos1]
+	local newItem2 = NetClient.mItems[pos2]
+
+	if newItem1 and newItem2 then
+		local itemDef1 = NetClient:getItemDefByID(newItem1.mTypeID)
+		local itemDef2 = NetClient:getItemDefByID(newItem2.mTypeID)
+		if itemDef1 and itemDef2 then
+			if itemDef1.mNeedZsLevel>0 or itemDef2.mNeedZsLevel>0 then
+				if itemDef1.mNeedZsLevel < itemDef2.mNeedZsLevel then
+					return pos1
+				end
+				if itemDef1.mNeedZsLevel > itemDef2.mNeedZsLevel then
+					return pos2
+				end
+				if itemDef1.mNeedZsLevel == itemDef2.mNeedZsLevel then
+					if newItem1.mLevel<=newItem2.mLevel then
+						return pos2
+					else
+						return pos1
+					end
+				end
+			else
+				if itemDef1.mNeedParam < itemDef2.mNeedParam then
+					return pos1
+				end
+				if itemDef1.mNeedParam > itemDef2.mNeedParam then
+					return pos2
+				end
+				if itemDef1.mNeedParam == itemDef2.mNeedParam then
+					if newItem1.mLevel<=newItem2.mLevel then
+						return pos2
+					else
+						return pos1
+					end
+				end
+			end
+		end
+	end
+	return pos1
+end
+
+--被替换的部件有强化等级时调用 返回值为true 需要执行快速继承操作
+local function checkQiangHuaLevel(newPos)
+	local btnConfirm = var.uiQuickJiCheng:getWidgetByName("btnConfirm")
+	btnConfirm.mLevel=0
+
+	if not newPos then return 0 end
+	local newItem = NetClient.mItems[newPos]
+	if not newItem then return 0 end
+	local itemDef = NetClient:getItemDefByID(newItem.mTypeID)
+	if not itemDef then return 0 end
+		-- print(util.encode(itemDef),"================")
+		-- print(util.encode(newItem))
+	local equipType = itemDef.mEquipType
+	local targetPos = -2*equipType
+
+	if equipType==5 or equipType==6 then
+		targetPos = getNeedPos(equipType)
+	end
+
+	local targetItem = NetClient.mItems[targetPos]
+	
+	if targetItem then
+		if targetItem.mLevel>0 then
+			btnConfirm.mLevel=targetItem.mLevel
+
+			btnConfirm.oldPos=targetPos
+			btnConfirm.oldTypeid=targetItem.mTypeID
+			btnConfirm.newPos=newPos
+			btnConfirm.newTypeid=newItem.mTypeID
+			var.oldPos=targetPos
+			var.newPos=newPos
+
+			local param = {
+				parent = var.uiQuickJiCheng:getWidgetByName("iconOld"),
+				pos = targetPos,
+				iconType = Const.ICONTYPE.BAG,
+				-- tipsType = Const.TIPS_TYPE.BAG,
+			}
+			UIItem.getItem(param)
+
+			local param = {
+				parent = var.uiQuickJiCheng:getWidgetByName("iconNew"),
+				pos = newPos,
+				iconType = Const.ICONTYPE.BAG,
+				-- tipsType = Const.TIPS_TYPE.BAG,
+			}
+			UIItem.getItem(param)
+
+			return targetItem.mLevel
+		else
+			return 0
+		end
+	else
+		return 0--对应装备位无装备
+	end
+
+end
+
+-- NetClient:ItemPositionExchange(from,to)
+
+--点击否时的操作
+local function funcClickCancel(pSender)
+	if var.oldPos and var.newPos then
+		NetClient:ItemPositionExchange(var.newPos,var.oldPos, 0)
+		var.uiQuickJiCheng:hide()
+	end
+	var.oldPos=nil
+	var.newPos=nil
+end
+
+--戒指和手镯有空位置不出快速继承
+local function checkHaveEmpty(newPos)
+	local newItem = NetClient.mItems[newPos]
+	local equipType = nil
+	if newItem then
+		if not game.IsRing(newItem.mTypeID) and not game.IsGlove(newItem.mTypeID) then
+			return true
+		end
+		local itemDef = NetClient:getItemDefByID(newItem.mTypeID)
+		if itemDef then
+			equipType=itemDef.mEquipType
+		end
+		if not equipType then return true end
+		if (not NetClient.mItems[-2*equipType]) or (not NetClient.mItems[-2*equipType-1]) then
+			return false
+		end
+	end
+	return true
+end
+
+
+function UIQuickSuccession.useCheckJiCheng(newPos)
+	-- print("--------1111111111111111111===",newPos,checkQiangHuaLevel(newPos));
+	local newItem = NetClient.mItems[newPos]
+	if newItem and newItem.mLevel>0 then return false end
+	if not checkHaveEmpty(newPos) then return false end
+
+	local mLevel = checkQiangHuaLevel(newPos)
+	if mLevel>0 then 
+		var.uiQuickJiCheng:show()
+		local labNeedDesp = var.uiQuickJiCheng:getWidgetByName("labNeedDesp")
+		if shiftTable[mLevel] then
+			local itemData = shiftTable[mLevel]
+			-- if itemData.needMoney>0 then
+			-- 	labNeedDesp:setString("需要消耗："..itemData.needMoney.."金币")
+			if itemData.needMoney>0 then
+				labNeedDesp:setString("需要消耗："..itemData.needMoney.."元宝")
+			elseif itemData.needVcion>0 then
+				labNeedDesp:setString("需要消耗："..itemData.needVcion.."钻石")
+			end
+		end
+
+		-- var.uiQuickJiCheng:hide()
+		return true
+	end
+	return false
+end
+
+local function handlePanelData(event)
+	if event.type ~= "PanelDuanZao" then return end
+	local data = util.decode(event.data)
+	if data.cmd =="successTransfer" then
+		-- print(var.newPos,var.oldPos,"====777777777777777777777777")
+		if var.oldPos and var.newPos then
+			NetClient:ItemPositionExchange(var.newPos,var.oldPos,0)
+			var.uiQuickJiCheng:hide()
+		end
+		var.oldPos=nil
+		var.newPos=nil
+	end
+end
+
+
+function UIQuickSuccession.init(scene)
+	var = {
+		uiQuickJiCheng,
+		oldPos=nil,
+		newPos=nil,
+	}
+	if scene then
+		var.uiQuickJiCheng = UILuaLoader.load("uilayout/UIQuickSuccession.uif")
+		if var.uiQuickJiCheng then
+			-- 背景
+			util.asyncload(var.uiQuickJiCheng, "tipsbg", "needload/img_kuan_bg.png")
+
+			cc.EventProxy.new(NetClient,var.uiQuickJiCheng)
+				:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, handlePanelData)
+
+			var.uiQuickJiCheng:align(display.LEFT_BOTTOM, 0, 0):addTo(scene,51):hide()
+			-- util.asyncload(var.uiQuickJiCheng, "tipsbg", "needload/panel_prompt_bg.png")
+			-- util.asyncload(var.uiQuickJiCheng, "imgBg", "needload/img_tips_fly_bg.png")
+
+			var.uiQuickJiCheng:getWidgetByName("tipsbg"):setTouchEnabled(true)
+
+			local btnConfirm = var.uiQuickJiCheng:getWidgetByName("btnConfirm")
+			UIRedPoint.addUIPoint(btnConfirm, funcClickConfirm)
+			local btnCancel = var.uiQuickJiCheng:getWidgetByName("btnCancel")
+			UIRedPoint.addUIPoint(btnCancel, funcClickCancel)
+		end
+	end
+end
+
+return UIQuickSuccession

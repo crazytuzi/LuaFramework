@@ -1,0 +1,306 @@
+SceneLoading = class("SceneLoading", function()
+    return display.newScene("SceneLoading")
+end)
+local game_tips = {
+
+}
+-- local cache_res = {
+	-- "picicon/shadow.png",
+	-- "picicon/cloth_loading.png",
+	-- "picicon/blood_normal.png",
+	-- "picicon/blood_yellow.png",
+	-- "picicon/blood_normal_bg.png",
+	-- "fonts/miss.png",
+	-- "fonts/add_0.png",
+	-- "fonts/reduce_0.png",
+	-- "fonts/crit_0.png",
+	-- "fonts/fsadd_0.png",
+	-- "fonts/zhansha_0.png",
+	-- "fonts/zk_zhh.png",
+	-- "fonts/damage_0.png",
+	-- "fonts/shzt.png"
+-- }
+
+local cache_res = {
+	"picicon/safearea_point.png",
+	"picicon/shadow.png",
+	"picicon/cloth_loading.png",
+	"picicon/blood_normal.png",
+	"picicon/blood_yellow.png",
+	"picicon/blood_normal_bg.png",
+	-- "picicon/mon_tombstone.png",
+	"fonts/miss.png",
+	"fonts/add_0.png",
+	"fonts/reduce_0.png",
+	"fonts/crit_0.png",
+	-- "effect/1030000.png",
+	-- "effect/1031000.png",
+	-- "effect/1032000.png",
+	-- "effect/1040000.png",
+	-- "effect/1041000.png",
+	-- "effect/2000300.png",
+	-- "effect/2020000.png",
+	-- "effect/2020100.png",
+	-- "effect/2020200.png",
+	-- "effect/2020300.png",
+	-- "effect/5000100.png",
+	-- "effect/5200000.png",
+	-- "cloth/100000.png",
+	-- "cloth/100005.png",
+	-- "cloth/100013.png",
+	-- "weapon/110000.png",
+	-- "weapon/210000.png",
+	-- "wing/100100.png",
+	-- "wing/100104.png",
+	-- "mount/200110.png",
+	-- "uipic/buff.png",
+}
+
+function SceneLoading:ctor()
+	self._loadUI = nil
+	self._curPage = 0
+	self._freshHandle = nil
+	self._percent = 0
+	self._lastStep = 0
+	self._curStep = 0
+	self._loaded = false
+	self._tick = 0
+	self._waiting = false
+end
+
+function SceneLoading:stopSchedule()
+	if self._freshHandle then
+		Scheduler.unscheduleGlobal(self._freshHandle)
+		self._freshHandle = nil
+	end
+end
+
+function SceneLoading:onExit()
+	self:stopAllActions()
+	self:stopSchedule()
+
+	cc.SpriteManager:getInstance():removeFramesByFile("uipic/SceneLoading")
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+function SceneLoading:onResEnterGame(event)
+	print("SceneLoading:onResEnterGame "..event.result)
+	if event.result==100 then
+		self._waiting = false
+		if PlatformTool then
+			PlatformTool.doSubmitExtendData(PlatformTool.TYPE_ENTER_GAME)
+		end
+	elseif event.result==103 then
+		self._waiting = true
+		util.showAlert("提示","当前账号在线",{"再试一次","取消"},function (event)
+			if event.buttonIndex == 1 then
+				self:runAction(cca.seq({
+					cca.delay(5),
+					cca.cb(function()
+						NetClient:EnterGame(game.chrName,game.seedName)
+					end)
+				}))
+			else
+				self:stopSchedule()
+				game.ExitToRelogin()
+			end
+		end,self)
+	else
+		if _G.buglyReportLuaException then
+	        buglyReportLuaException("enter game error", "error code:"..event.result.." svr:"..game.lastSvr.name)
+	    end
+		PlatformTool.showMsg("角色验证失败，请重试")
+		self:stopSchedule()
+		game.ExitToRelogin()
+	end
+end
+
+function SceneLoading:onPlatformLogout()
+	game.ExitToRelogin()
+end
+
+function SceneLoading:showTips()
+	if self._loadUI then
+		local label = self._loadUI:getWidgetByName("labDesp")
+		local random = math.random(1,#Const.LoadingTips)
+		label:setString(Const.LoadingTips[random])
+		label:runAction(cca.rep(cca.seq({cca.delay(1),cca.cb(function()
+			random = math.random(1,#Const.LoadingTips)
+			label:setString(Const.LoadingTips[random])
+		end)}),1000))
+	end
+end
+
+function SceneLoading:onEnter()
+	self.m_handler = cc.EventProxy.new(NetClient, self):addEventListener(Notify.EVENT_RES_ENTER_GAME, handler(self, self.onResEnterGame)):addEventListener(Notify.EVENT_PLATFORM_LOGOUT, handler(self, self.onPlatformLogout))
+
+	cc.AnimManager:getInstance():remAllAnimate()
+
+	self._loadUI = UILuaLoader.load("uilayout/SceneLoading.uif"):setContentSize(cc.size(display.width, display.height)):align(display.CENTER, display.cx, display.cy):addTo(self)
+
+	self._loadUI:getWidgetByName("seceneBg"):setScale(cc.MAX_SCALE):align(display.CENTER, display.cx, display.cy):loadTexture("needload/2.png")
+	self._loadUI:getWidgetByName("box_loadingBar"):pos(Const.bottom(x, y).x, 0)
+	self._loadUI:getWidgetByName("labPer"):align(display.CENTER, 550, 16):enableOutline(game.getColor(0), 1)
+	--slot1
+	local mask = self._loadUI:getWidgetByName("mask")
+	local barLight = self._loadUI:getWidgetByName("bar_light"):setVisible(false)
+
+	self:showTips()
+
+	self._percent = 0
+
+	UserConfig.setConf("LastChrName", game.chrName)
+	print("EnterGame", game.chrName, game.seedName)
+	NetClient:EnterGame(game.chrName, game.seedName)
+
+	self._freshHandle = Scheduler.scheduleGlobal(function (dt)
+		if not game.chrName or not game.seedName or tostring(game.chrName) == "" or tostring(game.seedName) == "" then
+			if _G.buglyReportLuaException then
+				buglyReportLuaException("chrname error", "chrname:" .. game.chrName .. ":" .. game.seedName .. " svr:" .. game.lastSvr.name)
+			end
+
+			PlatformTool.showMsg("角色信息错误")
+			self:stopSchedule()
+			game.ExitToRelogin()
+
+			return
+		end
+
+		if self._loaded then
+			self._tick = self._tick + 1
+
+			if self._waiting and self._tick >= 3600 then
+				if _G.buglyReportLuaException then
+					buglyReportLuaException("login again error", "chrname:" .. game.chrName .. ":" .. game.seedName .. " svr:" .. game.lastSvr.name)
+				end
+
+				PlatformTool.showMsg("重试登录超时")
+				self:stopSchedule()
+				game.ExitToReSelect()
+
+				return
+			end
+
+			if not self._waiting and self._tick >= 3600 then
+				if _G.buglyReportLuaException then
+					buglyReportLuaException("login first error", "chrname:" .. game.chrName .. ":" .. game.seedName .. " svr:" .. game.lastSvr.name)
+				end
+
+				PlatformTool.showMsg("服务器连接超时")
+				self:stopSchedule()
+				game.ExitToReSelect()
+
+				return
+			end
+		end
+
+		if self._percent < 100 then
+			self._percent = self._percent + 1
+		end
+
+		self._loadUI:getWidgetByName("labPer"):align(display.CENTER, 550, 16):setString("加载进度：" .. math.floor(self._percent) .. "%")
+
+		if not barLight:isVisible() then --uv2
+			barLight:setVisible(true)
+		end
+
+		local width = math.max(self._percent * 831 / 100, 10)
+
+		mask:size(width + 100, 83)
+		barLight:setPosition(width + 20, 45)
+
+		if self._lastStep == self._curStep then
+			self._lastStep=self._lastStep+1
+
+			if self._curStep < #cache_res then
+				asyncload_callback(cache_res[self._lastStep], self, function(filepath, texture)
+					self._curStep=self._curStep+1
+					if self._percent<(40/#cache_res)*self._curStep then self._percent=math.floor((40/#cache_res)*self._curStep) end
+				end,true)
+			elseif self._curStep==#cache_res then
+				asyncload_frames("uipic/MainUI",".png",function ()
+					self._curStep=self._curStep+1
+					if self._percent<50 then self._percent=50 end
+				end,self)
+			elseif self._curStep==#cache_res+1 then
+				asyncload_frames("uipic/CommonUI",".png",function ()
+					self._curStep=self._curStep+1
+					if self._percent<55 then self._percent=55 end
+				end,self)
+			elseif self._curStep==#cache_res+2 then
+				asyncload_frames("uipic/PanelBg",".png",function ()
+					self._curStep=self._curStep+1
+					if self._percent<60 then self._percent=60 end
+				end,self)
+			elseif self._curStep==#cache_res+3 then
+				cc.BinManager:getInstance():loadBiz(GROUP_TYPE.CLOTH,"biz/cloth.biz")
+				cc.BinManager:getInstance():loadBiz(GROUP_TYPE.CLOTH,"biz/npc.biz")
+				self._curStep=self._curStep+1
+				if self._percent<65 then self._percent=65 end
+			elseif self._curStep==#cache_res+4 then
+				cc.BinManager:getInstance():loadBiz(GROUP_TYPE.WEAPON,"biz/weapon.biz")
+				self._curStep=self._curStep+1
+				if self._percent<70 then self._percent=70 end
+			elseif self._curStep==#cache_res+5 then
+				cc.BinManager:getInstance():loadBiz(GROUP_TYPE.WING,"biz/wing.biz")
+				-- cc.BinManager:getInstance():loadBiz(GROUP_TYPE.MOUNT,"biz/mount.biz")
+				self._curStep=self._curStep+1
+				if self._percent<75 then self._percent=75 end
+			elseif self._curStep==#cache_res+6 then
+				cc.BinManager:getInstance():loadBiz(GROUP_TYPE.CLOTH,"biz/monster.biz")
+				cc.BinManager:getInstance():loadDiff(GROUP_TYPE.CLOTH,"biz/mondiff.diz")
+				self._curStep=self._curStep+1
+				if self._percent<80 then self._percent=80 end
+			elseif self._curStep==#cache_res+7 then
+				cc.BinManager:getInstance():loadDiff(GROUP_TYPE.EFFECT,"biz/effdiff.diz")
+				cc.BinManager:getInstance():loadBiz(GROUP_TYPE.EFFECT,"biz/effect.biz")
+				self._curStep=self._curStep+1
+				if self._percent<85 then self._percent=85 end
+			elseif self._curStep==#cache_res+8 then
+				-- asyncload_frames("fonts/UIAlertAttrPlus",".png",function ()
+				asyncload_frames("uipic/tips",".png",function ()
+					self._curStep=self._curStep+1
+					if self._percent<87 then self._percent=87 end
+				end,self)
+			elseif self._curStep==#cache_res+9 then
+				asyncload_frames("fonts/UIAlertAttrPlus",".png",function ()
+					self._curStep=self._curStep+1
+					if self._percent<88 then self._percent=88 end
+				end,self)
+			elseif self._curStep==#cache_res+10 then
+					asyncload_frames("uipic/buff",".png",function ()
+						self._curStep = self._curStep+1
+						if self._percent<89 then self._percent=89 end
+					end,self)
+			elseif self._curStep==#cache_res+11 then
+				asyncload_frames("uipic/FontsCH", ".png", function ()
+					self._curStep = self._curStep + 1
+					self._loaded = true
+				end, self)
+			elseif self._curStep>#cache_res+11 then
+
+				if not self._waiting then
+					if NetClient._connected then
+						if NetClient.mNetMap.mMapID then
+							PlayAudio.stop("music")
+							self:stopSchedule()
+							cc.Director:getInstance():replaceScene(cc.SceneGame:create())
+							return
+						end
+					else
+						-- if _G.buglyReportLuaException then
+					 --        buglyReportLuaException("connect error", "chrname:"..game.chrName..":"..game.seedName.." svr:"..game.lastSvr.name)
+					 --    end
+						PlatformTool.showMsg("登陆失败，请重试")
+						self:stopSchedule()
+						game.ExitToRelogin()
+					end
+				end
+
+				self._curStep = self._curStep + 1
+			end
+		end
+	end, 0.016666666666666666)
+end
+
+return SceneLoading

@@ -1,0 +1,11 @@
+LUA_RET={
+{n="TipsRevenge",v=true,type=0,id=1,parent=0,w=412.0000,h=255.0000,},
+{n="layerbg",tag=38,t=true,c=false,v=true,type=0,id=2,parent=1,w=700.0000,h=500.0000,ax=0.5000,ay=0.5000,x=205.0000,y=127.0000,color="255|255|255",},
+{n="innerbg",tag=1149,v=true,type=1,id=3,parent=1,w=412.0000,h=255.0000,color="255|255|255",res="img_revenge_bg",},
+{n="btn_sure",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1151,t=true,fs=22,text="确定",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=4,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=333.0000,y=35.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="lbl1",tag=1153,fs=16,text="编辑复仇宣言",v=true,type=3,id=5,parent=1,w=96.0000,h=16.0000,ay=0.5000,x=19.0000,y=231.0000,color="241|232|208",},
+{n="lblvcoin",tag=1177,fs=14,text="击杀仇人后，自动发送到仇人邮箱",v=true,type=3,id=6,parent=1,w=210.0000,h=14.0000,ay=0.5000,x=16.0000,y=25.0000,color="241|232|208",},
+{n="img_input_bg",tag=1178,ss=true,sx=16,sw=18,sh=18,sy=16,v=true,type=1,id=7,parent=1,w=350.0000,h=140.0000,ax=0.5000,ay=0.5000,x=206.0000,y=135.0000,color="255|255|255",res="null",},
+{n="lblvcoin_0",tag=1218,fs=16,text="最多30字",v=true,type=3,id=8,parent=1,w=64.0000,h=16.0000,ay=0.5000,x=284.1390,y=234.9445,color="241|232|208",},
+{n="btn_close",ud="zoomscale(-0.12)",tag=1234,t=true,fs=14,ss=true,sx=9,sw=9,sh=9,sy=9,v=true,type=2,id=9,parent=1,w=28.0000,h=28.0000,ax=0.5000,ay=0.5000,x=393.7068,y=236.4172,color="255|255|255",tcolor="65|65|70",res="btn_close",},
+}

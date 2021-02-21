@@ -1,0 +1,7 @@
+LUA_RET={
+{n="PanelCelebrationAct_ruishou",v=true,type=0,id=1,parent=0,w=835.0000,h=507.0000,},
+{n="tabBg",tag=151,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=835.0000,h=507.0000,x=0.0001,y=2.0000,color="255|255|255",},
+{n="Text_18",tag=111,fs=18,text="剩余时间：",v=true,type=3,id=3,parent=1,w=83.0000,h=23.0000,ax=0.5000,ay=0.5000,x=576.9998,y=474.9999,color="24|209|41",fr="DFYuan.ttf",},
+{n="labCount",tag=112,fs=18,text="00:00:00",vt=1,v=true,type=3,id=4,parent=1,w=180.0000,h=25.0000,ay=0.5000,x=616.9999,y=475.0000,color="24|209|41",fr="DFYuan.ttf",},
+{n="btnVcion",ud="outline(3d0e00,1);zoomscale(-0.12)",tag=115,t=true,fs=22,sx=53,sw=53,sh=16,sy=16,v=true,type=2,id=5,parent=1,w=180.0000,h=53.0000,ax=0.5000,ay=0.5000,x=597.8087,y=65.1894,color="255|255|255",fr="DFYuan.ttf",tcolor="255|255|0",res="btn_vcion",},
+}

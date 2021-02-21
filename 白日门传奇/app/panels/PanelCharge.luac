@@ -1,0 +1,151 @@
+local PanelCharge = {}
+local var ={}
+
+local Data = {
+	-- ["ios"] = {
+	-- 	{ id="100006",  num = 6, 		vcoin = 600,		res="icon_01",			},
+	-- 	{ id="100030",  num = 30, 	vcoin = 3000,	res="icon_02",			},
+	-- 	{ id="100050",  num = 50, 	vcoin = 5000,	res="icon_03",			},
+	-- 	{ id="100098",  num = 98, 	vcoin = 9800,	res="icon_04",			},
+	-- 	{ id="100198",  num = 198, 	vcoin = 19800,	res="icon_05",	},
+	-- 	{ id="100328",  num = 328, 	vcoin = 32800,	res="icon_06",	},
+	-- 	{ id="100648",  num = 648, 	vcoin = 64800,	res="icon_07",		},
+	-- 	{ id="101998",  num = 1998, 	vcoin = 199800,	res="icon_08",		},
+	-- },
+	-- ["android"] = {
+	-- 	{ id="100006",  num = 6, 		vcoin = 600,		res="icon_01",			},
+	-- 	{ id="100030",  num = 30, 	vcoin = 3000,	res="icon_02",			},
+	-- 	{ id="100050",  num = 50, 	vcoin = 5000,	res="icon_03",			},
+	-- 	{ id="100098",  num = 98, 	vcoin = 9800,	res="icon_04",			},
+	-- 	{ id="100198",  num = 198, 	vcoin = 19800,	res="icon_05",	},
+	-- 	{ id="100328",  num = 328, 	vcoin = 32800,	res="icon_06",	},
+	-- 	{ id="100648",  num = 648, 	vcoin = 64800,	res="icon_07",		},
+	-- 	{ id="102000",  num = 2000, 	vcoin = 200000,	res="icon_08",		},
+	-- 	{ id="105000",  num = 5000, 	vcoin = 500000,	res="icon_09",		},
+	-- }
+}
+
+
+function PanelCharge.initView(extend)
+	var = {
+		xmlPanel,
+		defaultTab = 1,
+		chargeList,
+		vipLevel,
+		limit6Charge= false,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelCharge.uif")
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max4.png")
+
+		var.chargeList = var.xmlPanel:getWidgetByName("chargeList");
+
+		PanelCharge:updateGameMoney()
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelCharge.handlePanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelCharge.updateGameMoney)
+	-- var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlPanel):align(display.LEFT_CENTER, 145, 337):setString(2):setScale(0.65)
+	-- var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlPanel):align(display.LEFT_CENTER, 332, 337):setString(2):setScale(0.65)
+	-- var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlPanel):align(display.LEFT_CENTER, 515, 337):setString(2):setScale(0.65)
+	-- var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlPanel):align(display.LEFT_CENTER, 699, 337):setString(3):setScale(0.65)
+	-- var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlPanel):align(display.LEFT_CENTER, 145, 135):setString(3):setScale(0.65)
+	-- var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlPanel):align(display.LEFT_CENTER, 332, 135):setString(4):setScale(0.65)
+	-- var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlPanel):align(display.LEFT_CENTER, 515, 135):setString(4):setScale(0.65)
+	-- var.vcoinChar = ccui.TextAtlas:create("0123456789", "fonts/hongBao.png", 34, 40, "0"):addTo(var.xmlPanel):align(display.LEFT_CENTER, 699, 135):setString(5):setScale(0.65)
+
+		return var.xmlPanel
+	end
+end
+
+function PanelCharge.onPanelOpen()
+	PanelCharge.freshList()
+	NetClient:PushLuaTable("gui.PanelCharge.onPanelData", util.encode({
+		actionid = "fresh", 
+		sys = device.platform,
+		platformId = PlatformTool.getPlatformId()
+	}))
+end
+
+function PanelCharge:updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="lblVcoin",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	},
+			--{name="lblBVcoin",	pre=Const.str_vcoinb,	value =	mainrole.mVCoinBind or 0},
+			--{name="lblMoney",	pre=Const.str_money,	value =	mainrole.mGameMoney or 0},
+			--{name="lblBMoney",	pre=Const.str_moneyb,	value =	mainrole.mGameMoneyBind or 0},
+		}
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		end
+	end
+end
+
+function PanelCharge.handlePanelData(event)
+	if event.type ~= "PanelCharge" then return end
+	local result = util.decode(event.data)
+	if result.cmd == "fresh" then
+
+		--if var.vipLevel then
+			--var.vipLevel:setString(result.vipLv)
+		--end
+		--var.xmlPanel:getWidgetByName("lblChargeInfo"):setString(result.chargeInfo)
+		--var.xmlPanel:getWidgetByName("loadingbar"):setPercent(result.vipExp, result.vipMax)
+		if result.data then
+			PanelCharge.freshList(result.data)
+		end
+		var.limit6Charge = result.limit6Charge
+	end
+end
+
+function PanelCharge.freshList(data)
+	if not data then
+		data = Data["android"]
+		if device.platform == "ios" then
+			data = Data["ios"]
+		end
+	end
+	if not data then return end
+	var.chargeList:reloadData(#data,function(subItem)
+		local d = data[subItem.tag]
+		-- local rmb2 = subItem:getChildByName("rmb2")
+		-- if not rmb2 then
+		-- 	rmb2 = display.newBMFontLabel({font = "fonts/vipcharge.fnt",})
+		-- 	:addTo(subItem)
+		-- 	:align(display.CENTER, 85, 23)
+		-- 	:setName("rmb2")
+		-- end
+		-- rmb2:setString(""..d.num)
+		subItem:getChildByName("vcoin"):setString(d.vcoin)
+		if PlatformTool.getPlatformId() == PlatformTool.PLATFORM_GOOGLE_ID then
+			subItem:getChildByName("rmb2"):setString("充值")
+		else
+			subItem:getChildByName("rmb2"):setString(""..d.num)
+		end
+		subItem:getWidgetByName("icon"):loadTexture(d.res,ccui.TextureResType.plistType)
+		if d.res == "ck4" then
+			--subItem:getWidgetByName("icon"):setPositionY(130)
+		else
+			--subItem:getWidgetByName("icon"):setPositionY(102)
+		end
+		subItem:getWidgetByName("btn_charge"):setTag(d.num):setContentSize(cc.size(122,43)):setScale9Enabled(true)
+		subItem:getWidgetByName("btn_charge"):addClickEventListener(function(sender)
+			if var.limit6Charge and d.num == 6 and (PLATFORM_APP_STORE or PLATFORM_APP_LINYOU or PLATFORM_APP_DAZHAN) then
+				return NetClient:alertLocalMsg("每日只能充值6元档1次", "alert")
+			end
+			local money = sender:getTag()
+			if money then
+				PlatformTool.doSdkPay(d.vcoin, money, 1)--三个字段都必须是数字，，后期还需要再把其他数据传上去
+			end
+		end)
+	end)
+
+end
+
+function PanelCharge.onPanelClose()
+	
+end
+
+return PanelCharge

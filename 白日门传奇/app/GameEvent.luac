@@ -1,0 +1,1238 @@
+EVENT={
+
+LUAEVENT_INIT_GAME=0,
+LUAEVENT_ASYNCLOAD_TEXTURE=1,
+LUAEVENT_ASYNCLOAD_FRAMES=2,
+LUAEVENT_SOCKET_ERROR=3,
+LUAEVENT_ON_MESSAGE=4,
+
+LUAEVENT_AFTER_ADD_NET_GHOST = 5,
+
+LUAEVENT_WALK_UPDATE = 6,
+
+LUAEVENT_ENTER_GAME=10,
+LUAEVENT_ENTER_MAP=11,
+LUAEVENT_SCENE_GAME_ENTER=12,
+LUAEVENT_SCENE_GAME_EXIT=13,
+LUAEVENT_SCENE_GAME_UPDATE=14,
+LUAEVENT_SELECT_SOME_ONE=15,
+LUAEVENT_ON_ATTACKED=16,
+
+LUAEVENT_DO_ACTION=20,
+LUAEVENT_AUTOMOVE_START=21,
+LUAEVENT_AUTOMOVE_END=22,
+LUAEVENT_MAINROLE_ATTACH=23,
+LUAEVENT_MAINROLE_DETACH=24,
+LUAEVENT_MAINROLE_UPDATE=25,
+LUAEVENT_MAINROLE_TICK_UPDATE=26,
+LUAEVENT_MAINROLE_ACTIONSTART=27,
+LUAEVENT_MAINROLE_ACTIONEND=28,
+
+LUAEVENT_MAP_MEET=29,
+LUAEVENT_MAP_BYE=30,
+
+LUAEVENT_GHOST_DIE=31,
+LUAEVENT_MAINROLE_STATUS=32,
+LUAEVENT_MAINROLE_AUTOMOVE=33,
+LUAEVENT_CAST_SKILL=34,
+LUAEVENT_DOWNLOAD_SUCCESS=35,
+
+LUAEVENT_DOWNLOAD_PROGRESS=36,
+LUAEVENT_DOWNLOAD_FAILED=37,
+LUAEVENT_PROTECTBODY_CHANGE=38,
+
+LUAEVENT_BUFF_CHANGE=39,
+
+}
+
+local Node = cc.Node
+Node.getNameOld = Node.getName
+Node.getName = nil
+function Node:getName()
+    local this = self
+	if utilapp.isObjectExist(this) then
+    	return this:getNameOld()
+    else
+    	return ""
+    end
+end
+
+local Widget = ccui.Widget
+Widget.addClickOld = Widget.addClickEventListener
+Widget.addClickEventListener = nil
+function Widget:addClickEventListener(callback)
+	local this = self
+    this:addClickOld(function(event)
+        if this:getDescription()=="Button" then
+        	if this:getName()=="panel_close" then
+				PlayAudio.play("sound/btnclose.mp3")
+			else
+            	PlayAudio.play("sound/click.mp3",1)
+            end
+        end
+        if callback then
+            callback(event)
+        end
+    end)
+    return this
+end
+Widget.getWidgetByNameOld = Widget.getWidgetByName
+Widget.getWidgetByName = nil
+function Widget:getWidgetByName(name)
+	local this = self
+
+	if not utilapp.isObjectExist(this) then
+		if _G.buglyReportLuaException then
+	        buglyReportLuaException("parent widget is null", "getWidgetByName:"..name)
+	    end
+		return nil
+	end
+
+	return this:getWidgetByNameOld(name)
+end
+
+function ccui.Widget:setRedPointVisible(vis)
+	if vis then
+		UIRedDot.addRedPointToTarget(self)
+		self:getWidgetByName("redPoint"):show()
+	else
+		if self:getWidgetByName("redPoint") then
+			self:getWidgetByName("redPoint"):hide()
+		end
+	end
+end
+
+cc.Node.setAnchorPointOld = cc.Node.setAnchorPoint
+cc.Node.setAnchorPoint = nil
+function cc.Node:setAnchorPoint(x,y)
+	local this,anchor = self,x
+	if not x and not y then 
+		--print("node setAnchorPoint params error "..this:getName()) 
+	return this end
+	if y then
+		anchor = cc.p(x,y)
+	end
+	return this:setAnchorPointOld(anchor)
+end
+local Text = ccui.Text
+Text.setStringOld = Text.setString
+Text.setString = nil
+function Text:setString(string)
+	local this = self
+	if type(string)~="number" and type(string)~="string" then
+		return this
+	end
+	this:setStringOld(string)
+
+	return this
+end
+
+local Image = ccui.ImageView
+Image.loadTextureOld = Image.loadTexture
+function Image:loadTexture(texture,restype)
+	local this = self
+	if not restype then restype = ccui.TextureResType.localType end
+	if restype == ccui.TextureResType.plistType then
+		if cc.SpriteFrameCache:getInstance():getSpriteFrame(texture) then
+			this:loadTextureOld(texture,restype)
+		end
+	end
+	if restype == ccui.TextureResType.localType then
+		if cc.FileUtils:getInstance():isFileExist(texture) then
+			this:loadTextureOld(texture,restype)
+		end
+	end
+	return this
+end
+
+local Button = ccui.Button
+Button.loadTextureNormalOld = Button.loadTextureNormal
+function Button:loadTextureNormal(texture,restype)
+	local this = self
+	if not restype then restype = ccui.TextureResType.localType end
+	if restype == ccui.TextureResType.plistType then
+		if cc.SpriteFrameCache:getInstance():getSpriteFrame(texture) then
+			this:loadTextureNormalOld(texture,restype)
+		end
+	end
+	if restype == ccui.TextureResType.localType then
+		if cc.FileUtils:getInstance():isFileExist(texture) then
+			this:loadTextureNormalOld(texture,restype)
+		end
+	end
+	return this
+end
+Button.loadTexturePressedOld = Button.loadTexturePressed
+function Button:loadTexturePressed(texture,restype)
+	local this = self
+	if not restype then restype = ccui.TextureResType.localType end
+	if restype == ccui.TextureResType.plistType then
+		if cc.SpriteFrameCache:getInstance():getSpriteFrame(texture) then
+			this:loadTexturePressedOld(texture,restype)
+		end
+	end
+	if restype == ccui.TextureResType.localType then
+		if cc.FileUtils:getInstance():isFileExist(texture) then
+			this:loadTexturePressedOld(texture,restype)
+		end
+	end
+	return this
+end
+Button.loadTextureDisabledOld = Button.loadTextureDisabled
+function Button:loadTextureDisabled(texture,restype)
+	local this = self
+	if not restype then restype = ccui.TextureResType.localType end
+	if restype == ccui.TextureResType.plistType then
+		if cc.SpriteFrameCache:getInstance():getSpriteFrame(texture) then
+			this:loadTextureDisabledOld(texture,restype)
+		end
+	end
+	if restype == ccui.TextureResType.localType then
+		if cc.FileUtils:getInstance():isFileExist(texture) then
+			this:loadTextureDisabledOld(texture,restype)
+		end
+	end
+	return this
+end
+Button.loadTexturesOld = Button.loadTextures
+function Button:loadTextures(normal,selected,disabled,restype)
+	local this = self
+	if not restype then restype = ccui.TextureResType.localType end
+	if normal and normal~="" then
+		this:loadTextureNormal(normal,restype)
+	end
+	if selected and selected~="" then
+		this:loadTexturePressed(selected,restype)
+	end
+	if disabled and disabled~="" then
+		this:loadTextureDisabled(disabled,restype)
+	end
+	return this
+end
+
+local mapItemIds = {}
+
+function set_item_name(srcid,mNameLabel)
+	if not mNameLabel then return end
+	local item=NetCC:getGhostByID(srcid)
+	if not item then return end
+	local typeid=item:NetAttr(Const.net_itemtype)
+	if not typeid then return end
+	local itemdef = NetClient:getItemDefByID(typeid)
+	if not itemdef then return end
+	if itemdef then
+		if itemdef.mDropEffect > 0 then
+			util.addEffect(mNameLabel, "dropEffect", 4, itemdef.mDropEffect, {x = 20, y=10})--mxwx 光柱
+		end
+	end
+	local itemname = item:NetAttr(Const.net_name)
+	if not itemname then return end
+	if game.getPickState(typeid, 1) then
+		mNameLabel:setString(itemname)
+	end
+	mNameLabel:setTextColor(game.getItemColor(itemdef.mEquipLevel))
+end
+
+local preClickEffect = nil	-- 上一次点击的物品选中特效
+local curClickEffect = nil
+function handler_item_touch(srcid, mItemSprite)
+	if not mItemSprite then return end
+	if preClickEffect then
+		preClickEffect:stopAllActions()
+		preClickEffect:removeFromParent()
+		preClickEffect = nil
+	end
+
+	preClickEffect = util.addEffect(mItemSprite, "drop_effect", GROUP_TYPE.EFFECT, 65080, {x = 33, y = -22})
+end
+
+function play_effect_sound(soundid,frame,onwer)
+	if G_SwitchEffect < 1 then
+			if MainRole.mID and MainRole.mID > 0 and MainRole.mID == onwer then
+				if soundid == "10000" then
+					local pixesmain = MainRole.updateAttr()
+					if pixesmain then
+						if pixesmain:NetAttr(Const.net_gender) == Const.SEX_MALE then
+							soundid = "10010"
+						end
+					end
+				end
+			end
+
+			--	为了防止相同的声音同时播放这里要判断相同的声音只能播放一次
+			if not PlayAudio.playAudios[soundid] then
+				PlayAudio.playAudios[soundid] = soundid
+			else
+				--当前声音还未播放完毕直接退出		玩家除外
+				if MainRole.mID and MainRole.mID > 0 and MainRole.mID ~= onwer then return end
+			end
+
+			local soundfile = "sound/"..soundid..".mp3"
+			PlayAudio.play(soundfile)
+		--end
+	end
+end
+ -- cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_DO_ACTION,"play_effect_sound")
+
+-- function on_buff_change(srcid,buffid)
+-- 	NetClient:dispatchEvent({name = Notify.EVENT_BUFF_CHANGE, srcId = srcId, buffId = buffId})
+-- end
+-- cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_BUFF_CHANGE,"on_buff_change")
+
+
+function set_blood_pos(posy,bloodBg,netid)
+	if not netid then return end
+ 	local ghsot = NetCC:getGhostByID(tonumber(netid))
+	if ghsot then
+		if GAME_VERSION == GAME_TYPE.DZY then
+		--if ghsot:NetAttr(Const.net_type) == Const.GHOST_PLAYER then--and ghsot:NetAttr(Const.net_name) == "雕像" then
+			bloodBg:setPositionY(posy + 20)
+		--end
+		end
+	end
+end
+
+function show_monster_name(flags,nameSprite,name)
+	if not nameSprite then return end
+	local nameLabel = nameSprite:getChildByName("mNameLabel")
+	if nameLabel then
+		nameLabel:setString(name)
+	end
+	-- if nameLabel and name == "雕像" then
+	-- 	nameLabel:setPositionY(-100)
+	-- end
+	-- if not mNameSprite then return end
+	-- local posX, posY = mNameSprite:getPosition()
+	-- local mTitleSprite = nameSprite:getChildByName("mTitleSprite")
+	-- if mTitleSprite then
+	-- 	mTitleSprite:setPositionY(posY - (110-TILE_HEIGHT/2 + 30) + 50)
+	-- end
+end
+
+-- 神将、神兽名称
+function show_ghost_name(srcid,nameSprite,name)
+	local pixeAvatar = CCGhostManager:getPixesAvatarByID(srcid)
+	if not pixeAvatar then return end
+
+	local ghostType = pixeAvatar:NetAttr(Const.net_type)
+	local level = pixeAvatar:NetAttr(Const.net_level)
+
+	if ghostType == Const.GHOST_NEUTRAL then
+		--print("/////////////////////////show_ghost_name/////////////////////////////////////", srcid)
+		local nameLabel = nameSprite:getChildByName("mNameLabel")
+		if nameLabel then nameLabel:setTextColor(game.getItemColor(5)) end  --mxwx 内部神将颜色
+		if not nameLabel then return end
+
+		local refreshTime = pixeAvatar:NetAttr(Const.net_collecttime)
+		if not refreshTime then return end
+		if refreshTime > 0 then
+
+			local lblRefreshTime = nameSprite:getChildByName("lbl_refresh_time")
+			if not lblRefreshTime then
+				local posX, posY = nameLabel:getPosition()
+				lblRefreshTime = ccui.Text:create("", FONT_NAME, 16):setTextColor(game.getColor(0xFF3E3E)):addTo(nameSprite):enableOutline(game.getColor(0x000000), 1)
+				lblRefreshTime:setPosition(posX, posY + 25)
+				lblRefreshTime:setName("lbl_refresh_time")
+			end
+			local endTime = os.time() + refreshTime
+			lblRefreshTime:setString("复活时间："..utilapp.setTimeFormat(refreshTime*1000,2))
+			lblRefreshTime:stopAllActions()
+			lblRefreshTime:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.cb(function (target)
+				if endTime-os.time() >= 0 then
+					target:setString("复活时间："..utilapp.setTimeFormat((endTime - os.time())*1000,2))
+				else
+					target:stopAllActions()
+				end
+			end)})))
+		end
+	elseif ghostType == Const.GHOST_SLAVE then
+		local nameLabel = nameSprite:getChildByName("mNameLabel")
+		if nameLabel then
+			if level <= 6 then
+				nameLabel:setTextColor(game.getItemColor(level - 1))
+			else
+				nameLabel:setTextColor(game.getItemColor(5))
+			end
+		end
+		if not nameLabel then return end
+	elseif ghostType == Const.GHOST_DART then			--镖车
+		local nameLabel = nameSprite:getChildByName("mNameLabel")
+		if nameLabel then
+			nameLabel:setTextColor(game.getDartColor(level))
+		end
+	end
+end
+
+function show_dart_name(nameSprite, name)
+	-- if not (nameSprite and name) then return end
+	-- local mNameLabel = nameSprite:getChildByName("mNameLabel")
+	-- if not mNameLabel then
+	-- 	mNameLabel = ccui.Text:create("", FONT_NAME, 18):setColor(cc.c3b(255, 255, 255)):addTo(nameSprite):enableOutline(game.getColor(0x000000), 1)
+	-- 	nameSprite:setPosition(TILE_WIDTH * 0.5, 140 - TILE_HEIGHT * 0.5);
+	-- end
+	-- mNameLabel:setString(name)
+end
+
+--Npc
+function show_npc_flags(flags,nameSprite,name)
+	local function npc_task_change(flags,anim)
+		local binid
+		if flags == -10 then
+			binid = 50010
+		elseif flags == 10 then
+			binid = 50011
+		elseif flags == 30 then		--第二大陆
+		elseif flags == 31 then		--第三大陆
+
+		else
+			binid = 50012
+		end
+		anim:stopAllActions()
+		-- anim:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+		-- if anim.posX and anim.posY then
+		-- 	anim:pos(anim.posX, anim.posY);
+		-- end
+		cc.AnimManager:getInstance():getPlistAnimateAsync(anim,GROUP_TYPE.EFFECT,binid,4,0)
+		-- cc.AnimManager:getInstance():getBinAnimateAsync(anim,4,binid,0,0,true)
+		-- anim:playAnimationForever(display.newAnimation(display.newFrames("npc_"..frames.."_%1d", 1, 6), 1 / 6))
+	end
+
+	if nameSprite then
+		local createType = false
+		if not nameSprite:getChildByName("npc_task") then
+			local nameLabel = nameSprite:getChildByName("mNameLabel")
+			local pos = cc.p(0,0)
+			if nameLabel then pos = cc.p(nameLabel:getPosition()) end
+			-- local npcName = nameLabel:getString()
+			if nameLabel and name == "城主雕像" then
+				nameLabel:setPositionY(-200)
+			end
+			local anim = cc.Sprite:create()
+						:align(display.CENTER, pos.x, pos.y+50)
+						:addTo(nameSprite)
+						:setName("npc_task")
+						:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+						:setTag(10086)
+			-- anim.posX = pos.x
+			-- anim.posY = pos.y+50
+			-- print("new npc task", pos.x, pos.y);
+			-- local blend = anim:getBlendFunc()
+			-- print("blend 111", blend.src, blend.dst, anim:getPositionX(), anim:getPositionY())
+			if flags == 10 or flags == 1 or flags == -10 then
+				npc_task_change(flags,anim)
+			elseif flags == 0 then
+				local nameLabel = nameSprite:getChildByName("mNameLabel")
+				local npcName = nameLabel:getString()
+				local npcdata
+
+				--显示气泡机制，暂时隐藏
+				local keyWordTable = {
+					["冰雪大陆"] = {pic="dierdalu",posy=100},
+					["巨龙之巅"] = {pic="disandalu",posy=-100},
+				}
+
+				for k,v in pairs(keyWordTable) do
+					if string.find(npcName,k) then
+						npcdata = v
+						createType = true
+						break
+					end
+				end
+
+				if not createType then return end
+
+				local frame = cc.SpriteFrameCache:getInstance():getSpriteFrame(npcdata.pic)
+				if frame then
+					anim:setSpriteFrame(frame)
+				end
+
+				local animSize = anim:getContentSize()
+				anim:align(display.CENTER, pos.x, -pos.y + npcdata.posy)
+				nameLabel:hide()
+			end
+		else
+			if flags == 10 or flags == 1 then
+				npc_task_change(flags,nameSprite:getChildByName("npc_task"))
+			elseif flags == 0 and not createType then
+				nameSprite:removeChildByName("npc_task")
+			end
+		end
+	end
+end
+
+local fightPre = {
+	[100] = {pre = "dyzs", res = "img_title_warrior_no1"},
+	[101] = {pre = "dyfs", res = "img_title_wizard_no1"},
+	[102] = {pre = "dyds", res = "img_title_taoist_no1"},
+}
+
+-- local titleText = {
+-- 	"初出茅庐","略有所成","游刃有余","融会贯通","人中豪杰",
+-- 	"威震八方","战无不胜","横扫千军","万夫莫开","盖世奇侠",
+-- }
+
+local officialTitle  = {
+	"十品芝麻官","正十品芝麻官","九品仕长","正九品仕长","八品百夫长",
+	"正八品百夫长","七品校尉","正七品校尉","六品护军","正六品护军",
+	"五品先锋","正五品先锋","四品中郎将","正四品中郎将","三品镇远将军",
+	"正三品镇远将军","二品镇国大将军","正二品镇国大将军","一品大都督","正一品大都督",
+}
+
+-- 头衔称号
+-- local titleRes = {
+-- 	["highplay"] = {"img_title_master", "img_title_warrior", "img_title_wizard", "img_title_taoist"},
+-- 	-- ["highplay"] = {"img_title_master", "img_title_warrior", "img_title_wizard", "img_title_taoist"},
+-- }
+
+local titleRes = {
+	["highplay"] = {80040, 80010, 80020, 80030, 80070}
+}
+
+-- 显示玩家头部所有信息
+function show_player_title(srcid, nameSprite)
+	if not nameSprite then return end
+	local mNetGhost = NetCC:getGhostByID(srcid)
+
+	if mNetGhost then
+		if not PLATFORM_BANSHU then
+			show_player_vip(srcid)
+		end
+		local frameName, kingGuild, officialIndex, highplayIndex,shiwangflag
+
+		--------优先玛法主宰者--------
+		-- if mNetGhost:NetAttr(Const.net_guild_name) == NetClient.mKingGuild or mNetGhost:NetAttr(Const.net_guild_name) == NetClient.KHcandidate then
+		-- 	kingGuild = true
+		-- 	if mNetGhost:NetAttr(Const.net_guild_title) == 1000 then
+		-- 		frameName = titleRes["highplay"][1]
+		-- 	end
+		-- end
+
+		--------自动显示称号----------
+		local namePreValue = mNetGhost:NetAttr(Const.net_name_pre)
+		if namePreValue and namePreValue ~= "" then
+			local namePre = string.split(namePreValue,"|")
+			--print(">---->", namePreValue)		--|highplay_4
+			for k,v in pairs(namePre) do
+				if string.find(v, "guanwei_") then
+					officialIndex = tonumber(string.sub(v, 9))
+				end
+				-- if not frameName then
+				-- 	if string.find(v, "highplay_") then
+				-- 		highplayIndex = tonumber(string.sub(v, 10))
+				-- if string.find( v, "killplay_" ) then
+				-- 	highplayIndex = tonumber(string.sub(v, 10))
+				-- end
+				-- end
+				if string.find(v,"shiwangTime_") then
+					shiwangflag = tonumber(string.sub(v, 13,23))
+					--print(shiwangflag,v,">>>>>>>>>>>>>")
+				end
+				--print("shiwangflag",shiwangflag)
+			end
+		
+			if highplayIndex and titleRes["highplay"][highplayIndex] then
+				frameName = titleRes["highplay"][highplayIndex]
+			end
+		end
+		------根据玩家穿戴称号显示称号---------
+		
+		--------------------倒计时-----------img_flag_shiwang
+		-- if time>0 then
+		-- 	labTime:stopAllActions()
+		-- 	labTime:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+		-- 	shiwangflag = data.time - 1000
+		-- 	if data.time > 0 then
+		-- 		labTime:setString(util.setTimeFormat(data.time,3))
+		-- 	else
+		-- 		labTime:stopAllActions()
+		-- 	end
+		-- 	end)})))
+		-- end
+		-- local mTitleTime = nameSprite:getChildByName("mTitleTime")
+		-- local time = 30*1000
+
+		-- if namePreValue and namePreValue ~= "" then
+		-- 	local namePre = string.split(namePreValue,"|")
+		-- 	if table.indexof(namePre, "time") then
+		-- 		frameName = "img_star_big"
+		-- 		if not mTitleTime then
+		-- 			mTitleTime = ccui.Text:create()
+		-- 			:align(display.CENTER,0, -50)
+		-- 			:addTo(nameSprite)
+		-- 			:setName("mTitleTime")
+		-- 			:setString("00:30")
+		-- 			:setFontSize(18)
+		-- 			:setFontName(FONT_NAME)
+		-- 			:setColor(cc.c3b(0,255,0))
+		-- 		mTitleTime:stopAllActions()
+		-- 		mTitleTime:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+		-- 		time = time - 1000
+		-- 		if time > 0 then
+		-- 			mTitleTime:setString(util.setTimeFormat(time,3))
+		-- 		else
+		-- 			mTitleTime:stopAllActions()
+		-- 		end
+		-- 	end)})))
+		-- 		end
+		-- 		local height = 20
+		-- 		height = height + (mTitleLabel and 30 or 0)
+		-- 		height = height + (kingGuild and 10 or 0)
+		-- 		mTitleTime:pos(0, height)
+		-- 	end
+		-- elseif mTitleTime then
+		-- 	mTitleTime:removeFromParent()
+		-- end
+
+		------------------------------------
+
+		-- 官职称号
+		local mOfficialImg = nameSprite:getChildByName("mOfficialImg")
+		if officialIndex and officialIndex > 0 then
+			local tempImgPath = "gw"..officialIndex
+			officialIndex = officialIndex % 2 ~= 0 and officialIndex + 1 or officialIndex
+			if tempImgPath then
+				if not mOfficialImg then
+					mOfficialImg = cc.Sprite:create()
+						:setName("mOfficialImg")
+						:addTo(nameSprite)	
+						:setScale(1.2)	
+				end				
+				--mOfficialImg:loadTexture(tempImgPath, ccui.TextureResType.plistType)
+			end
+		elseif mOfficialImg then
+			mOfficialImg:removeFromParent()
+			mOfficialImg = nil
+		end
+
+		local startNum = 1
+		local endNum = 10
+		
+		--官职动画
+		local function playOfficeAnim ()
+			if officialIndex == 0 or not officialIndex then nameSprite:stopAllActions() return end
+			asyncload_callback("vipassana/guanzhi/"..officialIndex.."/"..startNum..".png", mOfficialImg,  function (filepath, texture)
+				mOfficialImg:setTexture(filepath)
+			end)
+			startNum = startNum + 1
+			if startNum > endNum then
+				startNum = 1
+			end
+		end
+
+		nameSprite:stopAllActions()
+		nameSprite:runAction(cca.repeatForever(cca.seq({cca.delay(0.18), cca.cb(playOfficeAnim)})))
+		
+		------ 尸王倒计时
+		local mCountDown = nameSprite:getChildByName("mCountDown")
+		local icon_book = nameSprite:getChildByName("icon_book")
+		if not icon_book then
+			icon_book = cc.Sprite:createWithSpriteFrameName("img_flag_shiwang")
+				:setName("icon_book")
+				:addTo(nameSprite)
+				:pos(0, 144)
+		else
+			icon_book:initWithSpriteFrameName("img_flag_shiwang")
+		end
+		icon_book:setVisible(false)
+		--print(">>>>>>>>>>>>>",shiwangflag)
+		if shiwangflag and shiwangflag > 0 then
+			if shiwangflag then
+				if not mCountDown then
+					mCountDown = ccui.Text:create("00:00", FONT_NAME, 20)
+						:enableOutline(game.getColor(0x000000),1)
+						:setColor(game.getColor(0xFF0000))
+						:setName("mCountDown")
+						:addTo(nameSprite)
+						:pos(0, 144)
+				end
+
+				if icon_book then
+					local nameWidth = mCountDown:getContentSize().width
+					local vipWidth = icon_book:getContentSize().width
+					icon_book:setPositionX(- nameWidth * 0.5 - 20)
+					mCountDown:setPositionX(vipWidth * 0.5)
+				end
+
+				if shiwangflag>0 then
+					--print(">>>>>-----",shiwangflag)
+						mCountDown:stopAllActions():setVisible(true):setString(utilapp.setTimeFormat(shiwangflag+180-os.time(),3))
+						icon_book:setVisible(true)
+						mCountDown:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+							--shiwangflag = shiwangflag - 1000
+							--print(shiwangflag+180-os.time()-1)
+							if shiwangflag+180-os.time() > 0 then
+								mCountDown:setString(utilapp.setTimeFormat((shiwangflag+180-os.time())*1000,3))
+
+							else
+								mCountDown:stopAllActions():setVisible(false)
+								icon_book:setVisible(false)
+							end
+						end)})))
+				end
+				--mCountDown:setString(shiwangflag)
+			end
+		elseif mCountDown then
+			mCountDown:removeFromParent()
+			mCountDown = nil
+		end
+		--------------------------称号
+		if mOfficialImg then mOfficialImg:setPositionY(21) end
+
+		
+		
+		if G_ShieldTitle==0 then
+			nameSprite:removeChildByName("mTitleSprite")
+			local mTitleSprite = nameSprite:getChildByName("mTitleSprite")
+			local netTitle = mNetGhost:NetAttr(Const.net_fabao) or 0
+			if not mTitleSprite and netTitle > 0 then--触发player
+			-- NetClient:alertLocalMsg("穿装备测试000000")---穿戴
+				util.addEffect(nameSprite, "mTitleSprite", GROUP_TYPE.EFFECT, netTitle, nil ,nil ,true)
+			else
+				util.updateEffect(nameSprite, "mTitleSprite", netTitle)
+				
+			end
+			local height = 65
+			height = height + (mTitleLabel and 30 or 0)
+			height = height + (kingGuild and 10 or 0)
+			height = height + (mOfficialImg and 35 or 0)
+			if nameSprite:getChildByName("mTitleSprite") then
+				nameSprite:getChildByName("mTitleSprite"):pos(0, height)
+			end
+			
+			if netTitle and mTitleSprite then
+				util.updateEffect(nameSprite, "mTitleSprite", netTitle)
+			end
+			-- if not NetClient:getNetItem(-70) then
+				-- nameSprite:removeChildByName("mTitleSprite")
+			-- end
+
+			
+		else 
+			nameSprite:removeChildByName("mTitleSprite")
+		end
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+-------斩杀数字
+	--[[	local mNameLabel = nameSprite:getChildByName("mNameLabel")
+
+		local normalY = nameSprite:getPositionY()
+
+		if mNameLabel and mNetGhost:NetAttr(Const.net_kill_num) then
+			local nameLast = mNetGhost:NetAttr(Const.net_kill_num) > 0 and string.format( "[斩:%d]", mNetGhost:NetAttr(Const.net_kill_num)) or nil
+			local zLabel = mNameLabel:getChildByName("zLabel")
+			if not zLabel then
+				zLabel = ccui.Text:create()
+				zLabel:addTo(mNameLabel)
+					:setFontName(FONT_NAME)
+					:setFontSize(15)
+					:enableOutline(cc.c4b(24,19,11,200), 1)
+					:setTextColor(cc.c4b(255,215,0,255))
+					:setName("zLabel")
+					:setPosition(mNameLabel:getContentSize().width + 28, mNameLabel:getContentSize().height / 2)
+			end
+			zLabel:setString(nameLast):enableOutline(cc.c4b(24,19,11,200), 1)
+		end]]--
+
+		if GAME_VERSION == GAME_TYPE.DZY then
+			if mNetGhost:NetAttr(Const.net_mount) > 0 then
+				nameSprite:setPositionY(155)
+			else
+				nameSprite:setPositionY(125)
+			end
+		end		
+		
+		local mGuildLabel = nameSprite:getChildByName("mGuildLabel")
+		if mGuildLabel then
+			local guildName = mNetGhost:NetAttr(Const.net_guild_name)
+			local guildTitle = mNetGhost:NetAttr(Const.net_guild_title)
+
+			if guildTitle < 102 then
+				guildName = ""
+			elseif guildTitle == 102 then
+				guildName = guildName.."(帮众)"
+			elseif guildTitle == 200 then
+				guildName = guildName.."(长老)"
+			elseif guildTitle == 300 then
+				guildName = guildName.."(副帮主)"
+			elseif guildTitle == 1000 then
+				guildName = guildName.."(帮主)"
+			end
+			if guildName ~= "" then
+				local guildPrefix = mNetGhost:NetAttr(Const.net_guild_name) == NetClient.KHcandidate and "[皇城]" or nil
+				if guildPrefix then
+					mGuildLabel:setString(guildPrefix..guildName)
+					-- mGuildLabel:setTextColor(cc.c4f(255,204, 204, 255))
+				elseif kingGuild then
+					mGuildLabel:setString("[皇城]"..guildName)
+					-- mGuildLabel:setTextColor(cc.c4f(89,165,239, 255))
+				else
+					mGuildLabel:setString(guildName)
+					mGuildLabel:setTextColor(cc.c4f(255,255,255, 255))
+				end
+			else
+				mGuildLabel:setString(guildName)
+				mGuildLabel:setTextColor(cc.c4f(255,255,255, 255))
+			end
+			if mOfficialImg then mOfficialImg:setPositionY(20 + 24) end
+			if mTitleSprite then mTitleSprite:setPositionY(mTitleSprite:getPositionY() + 28) end
+		end
+		updateNameColor(srcid)
+
+		--依据死亡状态控制和显示称号
+		-- if mTitleSprite then
+		-- 	if mNetGhost:NetAttr(Const.net_dead) or mNetGhost:NetAttr(Const.net_hp) <= 0 then
+		-- 		mTitleSprite:hide()
+		-- 	else
+		-- 		mTitleSprite:show()
+		-- 	end
+		-- end
+	end
+end
+
+--怪物称号部分
+function show_monster_title(srcid, nameSprite)
+	local mPixesAvatar = CCGhostManager:getPixesAvatarByID(srcid)
+	if not mPixesAvatar then return end
+
+	local ghostType = mPixesAvatar:NetAttr(Const.net_type)
+	if ghostType == Const.GHOST_DART then
+		return UISceneGame.showDartHalo(ghostType, mPixesAvatar)
+	end
+
+	if ghostType == Const.GHOST_MONSTER then
+		handleMonsterVisible(ghostType, mPixesAvatar)
+	end
+
+	-- if ghostType == Const.GHOST_NEUTRAL then
+	-- 	show_ghost_name(srcid,nameSprite)
+	-- end
+
+	-- local nameSprite = mPixesAvatar:getNameSprite()
+	if not nameSprite then return end
+	local frameName
+	local index = mPixesAvatar:NetAttr(Const.net_show_head)
+	if tonumber(index) and titleRes["highplay"][index] then
+		frameName = titleRes["highplay"][index]
+	end
+	nameSprite:setPosition(TILE_WIDTH * 0.5, 110-TILE_HEIGHT/2)
+	local mTitleSprite = nameSprite:getChildByName("mTitleSprite")
+	if frameName and G_ShieldTitle==0 then
+		if not mTitleSprite then
+			mTitleSprite = cc.Sprite:createWithSpriteFrameName(frameName)
+				:setName("mTitleSprite")
+				:align(display.CENTER, 0 , 60)
+				:addTo(nameSprite)
+		else
+			mTitleSprite:initWithSpriteFrameName(frameName)
+		end
+	elseif mTitleSprite then
+		mTitleSprite:removeFromParent()
+		mTitleSprite = nil
+	end
+
+	--依据死亡状态控制和显示称号
+	if mTitleSprite then
+		if mPixesAvatar:NetAttr(Const.net_dead) or mPixesAvatar:NetAttr(Const.net_hp) <= 0 then
+			mTitleSprite:hide()
+		else
+			mTitleSprite:show()
+		end
+	end
+end
+
+function updateNameColor(srcid) -- 战场，行会，红名
+	local mPixesAvatar = CCGhostManager:getPixesAvatarByID(srcid)
+	if mPixesAvatar and mPixesAvatar:getNameSprite() then
+		local nameSprite = mPixesAvatar:getNameSprite()
+		local mNameLabel = nameSprite:getChildByName("mNameLabel")
+		if not mNameLabel then return end
+		local nameColor = cc.c4f(255, 255, 255, 255)
+
+		-- 依据pk值修改
+		local pkvalue = mPixesAvatar:NetAttr(Const.net_pkvalue) or 0
+		local pkstate = mPixesAvatar:NetAttr(Const.net_pkstate) or 0
+		-- print("//////////////////////////updateNameColor////////////////////", mPixesAvatar:NetAttr(Const.net_name), pkvalue, pkstate)
+		if pkvalue >= 400 then
+			nameColor = game.getColor4(0xf50428)
+		elseif pkstate > 0 then
+			nameColor = game.getColor4(0x7e5d48)
+		elseif pkvalue >= 100 then
+			nameColor = game.getColor4(0xe4ed50)
+		end
+
+		-- 依据攻击模式修改
+		local ghostType, mainAvatar
+		if NetClient.mAttackMode == 102 then -- 组队
+			mainAvatar = cc.GhostManager:getInstance():getMainAvatar()
+			ghostType = mPixesAvatar:NetAttr(Const.net_type)
+			if not (ghostType == Const.GHOST_THIS) then
+				-- print("//////////////////////////teammode///////////////////", mainAvatar:NetAttr(Const.net_teamid), mPixesAvatar:NetAttr(Const.net_teamid))
+				-- if mainAvatar:NetAttr(Const.net_teamid) == mPixesAvatar:NetAttr(Const.net_teamid) then
+				if NetClient:isGroupMember(mPixesAvatar:NetAttr(Const.net_name)) then
+					nameColor = cc.c4b(11, 232, 0, 255)
+				end
+			end
+		elseif NetClient.mAttackMode == 103 then -- 行会
+			mainAvatar = cc.GhostManager:getInstance():getMainAvatar()
+			ghostType = mPixesAvatar:NetAttr(Const.net_type)
+			if ghostType == Const.GHOST_THIS then
+				nameColor = cc.c4b(0, 0, 255, 255)
+			elseif ghostType == Const.GHOST_PLAYER then
+				if mainAvatar:NetAttr(Const.net_guild_name) == mPixesAvatar:NetAttr(Const.net_guild_name) then
+					nameColor = cc.c4b(0, 0, 255, 255)
+				else
+					-- nameColor = cc.c4b(255, 255, 0, 255)
+					nameColor = cc.c4b(255, 156, 0, 255)
+				end
+			end
+		elseif NetClient.mAttackMode == 105 then --阵营
+			local teamId = mPixesAvatar:NetAttr(Const.net_teamid)
+			local teamName = mPixesAvatar:NetAttr(Const.net_team_name)
+			if teamId == 1 then
+				nameColor = cc.c4b(255,0,0,255)
+			elseif teamId == 2 then
+				nameColor = cc.c4b(0,0,255,255)
+			end
+		end
+
+		-- local mainAvatar = cc.GhostManager:getInstance():getMainAvatar()
+		-- local selfGuild = mainAvatar:NetAttr(Const.net_guild_name)
+
+		-- local avatarGuild = mPixesAvatar:NetAttr(Const.net_guild_name)
+		-- if G_AttackGuild == 1 and selfGuild and avatarGuild then
+		-- 	nameColor = selfGuild == avatarGuild and cc.c4b(0, 255, 0, 255) or cc.c4b(0, 0, 255, 255)
+		-- end
+
+		if nameColor then mNameLabel:setTextColor(nameColor) end
+	end
+end
+
+function show_player_vip(srcid)
+	local mPixesAvatar = CCGhostManager:getPixesAvatarByID(srcid)
+	if mPixesAvatar and mPixesAvatar:getNameSprite() then
+		local nameSprite = mPixesAvatar:getNameSprite()
+		local mNameLabel = nameSprite:getChildByName("mNameLabel")
+		if not mNameLabel then return end
+		-- local mModels = NetClient.mModels[srcid]
+		local vipLv
+		if NetClient:getPlayerModel(srcid,5)>0 then -- 取vip信息
+			vipLv = NetClient:getPlayerModel(srcid,5)
+		else
+			local netState = mPixesAvatar:NetAttr(Const.net_state)-- 取vip信息(他人)
+			if netState then
+				vipLv = tonumber(netState)
+			end
+		end
+		if vipLv and vipLv > 0 and vipLv < 10 then
+			local mVipSprite = nameSprite:getChildByName("mVipSprite")
+			if not mVipSprite then
+				mVipSprite = cc.Sprite:createWithSpriteFrameName("img_title_VIP")--..vipLv)
+					:setName("mVipSprite")
+					:addTo(nameSprite)
+			else
+				mVipSprite:initWithSpriteFrameName("img_title_VIP")--..vipLv)
+			end
+		else
+			if nameSprite:getChildByName("mVipSprite") then
+				nameSprite:getChildByName("mVipSprite"):removeFromParent()
+			end
+			if vipLv and vipLv > 0 then
+				if nameSprite:getChildByName("vipEffect") then
+					util.updateEffect(nameSprite, "vipEffect", 70000 + vipLv)
+				else
+					util.addEffect(nameSprite, "vipEffect", GROUP_TYPE.EFFECT, 70000 + vipLv, nil, nil, true):setScale(1.1)--:pos(-80, 0)
+				end
+			end
+		end
+		utilapp.updateNamePos(nameSprite)--vip的位置
+	end
+end
+
+function set_relive_time(time,label)
+	if time >= 5 then
+		local cal_time = time
+		local hour = math.floor(cal_time/(60*60))
+		cal_time = cal_time%(60*60)
+		local minute = math.floor(cal_time/60)
+		cal_time = cal_time%60
+		local second = cal_time
+		if hour > 0 then
+			label:setString(string.format("%02d",hour)..":"..string.format("%02d",minute)..":"..string.format("%02d",second)..Const.str_relive)
+		elseif minute > 0 then
+			label:setString(string.format("%02d",minute)..":"..string.format("%02d",second)..Const.str_relive)
+		else
+			label:setString(string.format("%02d",second)..Const.str_second..Const.str_relive)
+		end
+	else
+		label:setString(Const.str_soon_relive)
+	end
+end
+
+function on_message(type,bytearray)
+	NetClient:ParseMsg(bytearray)
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_ON_MESSAGE,"on_message")
+
+function on_socket_error(code)
+	print("on_socket_error "..code)
+
+	NetClient._connected = false
+	NetClient:dispatchEvent({ name = Notify.EVENT_SOCKET_ERROR, code=code})
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_SOCKET_ERROR,"on_socket_error")
+
+local skill_sound = {
+	-- ["0"] = {mp3 = "zhang_attack.mp3"},
+	-- ["11031"] = {mp3 = "cishajianjue.mp3"},
+	-- ["11051"] = {mp3 = "yemanchongzhuang.mp3"},
+	-- ["11061"] = {mp3 = "lieyanjianfa.mp3"},
+	-- ["11021"] = {mp3 = "guanrihongjianjue.mp3"},
+	-- ["11041"] = {mp3 = "banyuezhan.mp3"},
+	-- ["24051"] = {mp3 = "tianleishu.mp3"},
+	-- ["24091"] = {mp3 = "huoqiang.mp3"},
+	-- ["24141"] = {mp3 = "bingxuepaoxiao.mp3"},
+	-- ["24021"] = {mp3 = "kangjuguanghuan.mp3"},
+	-- ["24121"] = {mp3 = "mofadunpai.mp3"},
+	-- ["35041"] = {mp3 = "linghuofu.mp3"},
+	-- ["35121"] = {mp3 = "zhiliaoshu.mp3"},
+	-- ["35071"] = {mp3 = "yinshenshu.mp3"},
+	-- ["35081"] = {mp3 = "youlinghuzhao.mp3"},
+	-- ["35131"] = {mp3 = "zhaohuanshenshou.mp3"},
+}
+
+function cast_skill_effect(srcid,type,rid)
+	local mainAvatar = cc.NetClient:getInstance():getMainGhost()
+	if mainAvatar and mainAvatar:NetAttr(Const.net_id) == srcid then
+		if rid and tostring(rid) and skill_sound[tostring(rid)] then
+			--PlayAudio.play("sound/"..skill_sound[tostring(rid)].mp3)
+		end
+		-- print("cast_skill_effectcast_skill_effect", type, rid)
+	end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_CAST_SKILL,"cast_skill_effect")
+
+
+local framescallback={}
+
+function clearFramesCallback()
+	framescallback={}
+end
+
+function asyncload_frames(filename,filetype,callback,node)
+	if type(filename) == "string" then
+		if not framescallback[filename] then
+			framescallback[filename]={}
+		end
+		table.insert(framescallback[filename],{callback=callback,node=node})
+	end
+	cc.SpriteManager:getInstance():asyncLoadSpriteFrames(filename,filetype)
+end
+
+function remove_frames(filename,filetype)
+	cc.SpriteManager:getInstance():removeFramesByFile(filename)  
+
+	if filetype then
+		cc.CacheManager:getInstance():releaseCache(filename..filetype)
+	end
+
+end
+
+function frames_callback(filename)
+	if framescallback[filename] and type(framescallback[filename])=="table" then
+		for _,v in pairs(framescallback[filename]) do
+			if v.callback then
+				if not v.node or utilapp.isObjectExist(v.node) then
+					v.callback(filename)
+				end
+			end
+		end
+		framescallback[filename]=nil
+	end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_ASYNCLOAD_FRAMES,"frames_callback")
+
+-- local loadcallback={}
+
+function asyncload_callback(filepath,ccnode,callback,retain)
+	if not retain then retain =false end
+
+	if not cc.FileUtils:getInstance():isFileExist(filepath) then
+		return false
+	end
+
+	local isexit=false
+
+	if type(filepath) == "string" then
+		if cc.CacheManager:getInstance():asyncLoadAndListener(filepath,function(path,texture)
+			if callback and not isexit then
+				if not ccnode or utilapp.isObjectExist(ccnode) then
+					callback(path,texture)
+				end
+			else
+				-- print("asyncload_callback callback exit")
+			end
+		end,retain)==true then
+			if ccnode then
+				cc(ccnode):addNodeEventListener(cc.NODE_EVENT, function (event)
+					-- print("cc(ccnode):addNodeEventListener",event.name)
+		            if event.name == "exit" then
+		                -- print("asyncload_callback",event.name)
+		                isexit=true
+		            end
+		        end)
+			else
+				-- print("asyncload_callback has not target !!!")
+			end
+		end
+	end
+end
+
+function asyncload_list(filelist,ccnode,callback)
+	if type(filelist)=="table" then
+		local len=#filelist
+		local step=0
+		local res={}
+		for i=1,len do
+			local ret=asyncload_callback(filelist[i],ccnode,function (path,pic)
+				step=step+1
+				res[path]=pic
+				pic:retain()
+				if step>=len then
+					if not ccnode or utilapp.isObjectExist(ccnode) then
+						callback(filelist,res)
+					end
+					for _,v in pairs(res) do
+						if v and v.release then
+							v:release()
+						end
+					end
+					res=nil
+				end
+			end)
+			if ret==false then
+				if res then
+					for _,v in pairs(res) do
+						if v and v.release then
+							v:release()
+						end
+					end
+					res=nil
+					print("async list load stop !!!")
+				end
+				return
+			end
+		end
+		if ccnode then
+			cc(ccnode):addNodeEventListener(cc.NODE_EVENT, function (event)
+	            if event.name == "exit" then
+	                if res then
+						for _,v in pairs(res) do
+							if v and v.release then
+								v:release()
+							end
+						end
+						res=nil
+						print("async list load stop !!!")
+					end
+	            end
+	        end)
+		else
+			print("asyncload_callback has not target !!!")
+		end
+	end
+end
+
+-- function texture_callback(filepath,texture)
+-- 	if loadcallback[filepath] and type(loadcallback[filepath])=="table" then
+-- 		for _,v in pairs(loadcallback[filepath]) do
+-- 			if v then
+-- 				v(filepath,texture)
+-- 			end
+-- 		end
+-- 		loadcallback[filepath]=nil
+-- 	end
+-- end
+-- cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_ASYNCLOAD_TEXTURE,"texture_callback")
+
+-- function attacked_callback(type)
+	-- if G_SwitchEffect < 1 then
+	-- 	local MainAvatar = CCGhostManager:getMainAvatar()
+	-- 	local gender = MainAvatar:NetAttr(Const.net_gender)
+
+	-- 	if MainAvatar:NetAttr(Const.net_hp) > 0 then
+	-- 		if gender == Const.SEX_MALE then
+	-- 			PlayAudio.play(Const.SOUND.injure_male)
+	-- 		else
+	-- 			PlayAudio.play(Const.SOUND.injure_female)
+	-- 		end
+	-- 	end
+	-- end
+-- end
+-- cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_ON_ATTACKED,"attacked_callback")
+
+function walk_update(typed)
+	---------typed(1:走，2：跑，11：坐骑慢行，12：坐骑全速)--------
+	if G_SwitchEffect < 1 then
+		-- if typed == 1 then
+		-- 	PlayAudio.play(Const.SOUND.walk)
+		-- elseif typed == 2 then
+		-- 	PlayAudio.play(Const.SOUND.run)
+		-- end
+		PlayAudio.play("sound/walk.mp3",1)
+	end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_WALK_UPDATE,"walk_update")
+
+function mainrole_status(statusid,dura,param)
+	if MainRole then
+		MainRole.setStatus(statusid,dura,param)
+	end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_MAINROLE_STATUS,"mainrole_status")
+
+function downFileSuccess(filename)
+	if filename then
+		if (game.totalLoadNum >0 or game.isDownloadAllState) and not game.downloadAll then
+			if game.needLoadNum >0 then
+				game.needLoadNum=game.needLoadNum-1
+			end
+			if game.totalLoadNum>0 and game.needLoadNum<=0 then
+				game.downloadAll=true
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_DOWNLOAD_SUCCESS,file = filename})
+			if game.isGetLoadAwarded <= 0 and game.downloadAll and MAIN_IS_IN_GAME then
+				-- 通知服务器下载完成
+				NetClient:PushLuaTable("gui.PanelDownLoad.handlePanelData","downall")
+			end
+		end
+	end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_DOWNLOAD_SUCCESS,"downFileSuccess")
+
+function handleMonsterVisible(ghostType, pixesAvatar)
+	local isBoss = pixesAvatar:NetAttr(Const.net_isboss)
+	isBoss = type(isBoss) == "boolean" and 0 or isBoss
+	if isBoss == 0 then
+		local visible = true
+		if _G["G_ShieldMonster"] == 1 then
+			visible = false
+		end
+		pixesAvatar:setVisible(visible);
+	else
+		pixesAvatar:setVisible(true);
+	end
+end

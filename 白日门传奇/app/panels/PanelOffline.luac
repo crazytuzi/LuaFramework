@@ -1,0 +1,665 @@
+local PanelOffline = {}
+local var = {}
+local resource = {"coin","coin_bind","vcoin","vcoin_bind"}
+
+local lblInfos = {
+	"1.不同地图的主要产出不一样，可以根据需求选择任意挂机地图",
+	"2.经验符效果<font color=#00ff00>不可叠加</font>，重复使用会覆盖上一个的效果",
+	"3.挂机超过<font color=#00ff00>1分钟</font>自动返回登录界面",
+	"4.退出游戏后，离线挂机仍然继续",
+	"5.未使用离线挂机直接离线,则默认上次选中的地图中挂机"
+}
+
+local function getMultiTimes(itemName)
+	local multi = 1
+	if string.find(itemName,"双") then
+		multi = 2
+	elseif string.find(itemName,"三") then
+		multi = 3
+	elseif string.find(itemName,"四") then
+		multi = 4
+	end
+	return multi
+end
+
+local multiExpBuffType = { 401 }
+
+
+function PanelOffline.initView( extend )
+		var = {
+			xmlPanel,
+			mapSelect = 1,
+			multiTimes = 1,
+			state = "",
+			monNum = 0,
+			multiExpTime = 0,
+			close = function (str)
+				NetClient:dispatchEvent({
+					name = Notify.EVENT_CLOSE_PANEL,
+					str = str
+				})
+			end,
+			open = function (str,tab)
+				NetClient:dispatchEvent({
+					name = Notify.EVENT_OPEN_PANEL,
+					str = str,
+					tab = tab or 1
+				})
+			end,
+			skillsDesp = {},
+			mapData = {},
+			award = {
+				exp = 0,
+				coinbind = 0
+			},
+			xmlPanel = UILuaLoader.load("uilayout/PanelOffline.uif")
+		}
+
+		if var.xmlPanel then
+			-- k = "needload/img_offine.png"
+
+			util.asyncload(var.xmlPanel, "img_bg", "needload/img_offine.png")
+			print("---------------------------------************************************************************---------------------------")
+
+			var.skillsDesp = {}
+
+			--slot4=k slot5=v
+			for k, v in pairs(NetClient.m_skillsDesp) do
+				if v.mDamageEffect == 2 then
+					table.insert(var.skillsDesp, v.mName)
+				end
+			end
+
+			PanelOffline.updateListInfo(PanelOffline2)
+			cc.EventProxy.new(NetClient, var.xmlPanel):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelOffline.handlePanelData):addEventListener(Notify.EVENT_BUFF_CHANGE, PanelOffline.buffChange)
+			
+			--slot6=k slot7=v
+			for k, v in pairs({
+				"btn_start",
+				"btn_get_award",
+				"btn_stop",
+				"btn_back_login"
+			}) do
+				var.xmlPanel:getWidgetByName(v):addClickEventListener(function (sender)
+					if sender:getName() == "btn_start" then
+						NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+							actionid = "start",
+							params = {}
+						}))
+					elseif sender:getName() == "btn_quick_use" then
+					--slot2=layerQuickUse slot3=local vis
+						local layerQuickUse = var.xmlPanel:getWidgetByName("layerQuickUse")
+						local vis = layerQuickUse:isVisible()
+
+						layerQuickUse:setVisible(not vis)
+
+						if not vis then
+							NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+								actionid = "shop",
+								params = {}
+							}))
+						end
+					elseif sender:getName() == "btn_quick_get" then
+						if MainRole._mainAvatar then
+							if PLATFORM_BANSHU or NetClient:getPlayerModel(MainRole._mainAvatar:NetAttr(Const.net_id), 5) > 0 then
+								NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+									actionid = "quickget",
+									params = {}
+								}))
+							else
+								var.state = "tovip"
+
+								NetClient:dispatchEvent({
+									str = "panel_vip",
+									from = "extend_offline",
+									name = Notify.EVENT_OPEN_PANEL
+								})
+							end
+						end
+					elseif sender:getName() == "btn_stop" then
+						NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+							actionid = "stop",
+							params = {
+								var.award,
+								var.monNum
+							}
+						}))
+					elseif sender:getName() == "btn_back_login" then
+						game.ExitToRelogin()
+					elseif sender:getName() == "btn_get_award" then
+						NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+							actionid = "get",
+							params = {}
+						}))
+					end
+				end)
+			end
+
+			if PLATFORM_BANSHU then
+				var.xmlPanel:getWidgetByName("lblnovipexp"):setString("未领取多倍经验")
+			end
+
+			if NetClient:getPlayerModel(MainRole._mainAvatar:NetAttr(Const.net_id), 5) > 0 then
+				-- Nothing
+			end
+
+			return var.xmlPanel
+		end
+	end
+	
+function PanelOffline.buffChange(event,init)
+
+		if MainRole._mainAvatar and (event.srcId == MainRole.mID or init) then
+			-- slot2 = {}
+			local expBuff = {}
+			if NetClient.mNetBuff[MainRole.mID] then
+			--slot6=k slot7=v
+				for k, v in pairs(NetClient.mNetBuff[MainRole.mID]) do
+				--uv0=multiExpBuffType,为什么等于multiExpBuffType暂时不知道计算的
+				--slot8=NetCC:getBuffDef(k).  这个顺序我忘了
+					if table.indexof(multiExpBuffType, NetCC:getBuffDef(k).type) and NetCC:getBuffDef(k) then
+						v.def = NetCC:getBuffDef(k)
+
+						table.insert(expBuff, v)
+					end
+				end
+			end
+
+			if #expBuff > 0 then
+				PanelOffline.lblAction(expBuff[#expBuff].timeRemain + expBuff[#expBuff].starttime - os.time())
+
+				var.multiTimes = getMultiTimes(expBuff[#expBuff].def.name)
+			else
+				PanelOffline.lblAction()
+
+				var.multiTimes = 1
+			end
+		end
+	end
+	
+function PanelOffline.onPanelOpen(extend)
+		var.xmlPanel:getWidgetByName("layerQuickUse"):hide()
+		var.xmlPanel:getWidgetByName("layerStart"):setVisible(true)
+		var.xmlPanel:getWidgetByName("layerbc"):setVisible(false)
+		var.xmlPanel:getWidgetByName("lbllefttime"):setVisible(false)
+		var.xmlPanel:getWidgetByName("img_unstart"):setVisible(true)
+		var.xmlPanel:getWidgetByName("listBattleInfo"):setVisible(false)
+		NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+			actionid = "fresh",
+			params = {}
+		}))
+		PanelOffline.buffChange({}, "init")
+	end
+	
+function PanelOffline.handlePanelData(event)
+		if event.type ~= "PanelOffline" then
+			return
+		end
+		local data = util.decode(event.data)
+		if util.decode(event.data).cmd == "fresh" then
+		--slot1=data
+			var.mapSelect = checkint(data.mapSelect)
+
+			if var.mapSelect < 1 then
+				data.state = 0
+			end
+
+			if data.mapData then
+				var.mapData = data.mapData
+
+				PanelOffline.initMapView()
+			end
+
+			var.multiTimes = data.multiTimes or 1
+			var.multiExpTime = data.multiExpTime or 0
+
+			if data.lblInfos then
+				PanelOffline.updateListInfo(lblInfos)
+			end
+
+			if data.offlineTime then
+				var.xmlPanel:getWidgetByName("lbllefttime"):show():setString(util.setTimeFormat(1000 * data.offlineTime))
+			end
+
+			if data.state == 1 then
+				PanelOffline.freshPanel("guaji")
+
+				if util.isTable(data.record) then
+					PanelOffline.freshPanel("award")
+					PanelOffline.freshAward(data.record.award, data.record.monNum)
+				end
+
+				PanelOffline.startOffline()
+			elseif util.isTable(data.record) then
+				PanelOffline.freshPanel("award")
+				PanelOffline.freshAward(data.record.award, data.record.monNum)
+			else
+				PanelOffline.freshPanel("stop")
+				PanelOffline.freshAward({}, 0)
+			end
+		elseif data.cmd == "changeMap" then
+			var.mapSelect = data.mapSelect
+
+			PanelOffline.initMapView()
+		elseif data.cmd == "getTaskInfo" then
+			PanelOffline.freshTaskInfo(data.config)
+		elseif data.cmd == "shop" then
+			PanelOffline.setQuickBuyList(data.shop)
+		elseif data.cmd == "start" then
+			var.monNum = 0
+
+			PanelOffline.freshPanel("guaji")
+			PanelOffline.startOffline()
+		elseif data.cmd == "close" then
+			var.state = "stop"
+
+			NetClient:dispatchEvent({
+				str = "extend_offline",
+				name = Notify.EVENT_CLOSE_PANEL
+			})
+		elseif data.cmd == "stop" then
+			for i = 1, #var.mapData do
+				var.xmlPanel:getWidgetByName("maplist"):cellAtIndex(i - 1):getChildByName("_widget"):getWidgetByName("model_map"):getVirtualRenderer():setState(0)
+			end
+		end
+	end
+	
+function PanelOffline.setVipExpLabel(exp)
+	local btn_quick_get = var.xmlPanel:getWidgetByName("btn_quick_get")
+	local pSize = btn_quick_get:getContentSize()
+	local effectSprite = btn_quick_get:getChildByName("effectSprite")
+	if not effectSprite then
+		effectSprite = cc.Sprite:create()
+			:align(display.CENTER, 0.5 * pSize.width, 0.5 * pSize.height)
+			:addTo(btn_quick_get)
+			:setScale(1.8,0.7)
+			:setName("effectSprite")
+	end
+	effectSprite:stopAllActions():hide()
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(4, 65080, 4, 5)
+	local lblnovipexp = var.xmlPanel:getWidgetByName("lblnovipexp"):show()
+	MainRole._mainAvatar = MainRole._mainAvatar or CCGhostManager:getMainAvatar()
+	if MainRole._mainAvatar then
+		local srcid = MainRole._mainAvatar:NetAttr(Const.net_id)
+		if NetClient:getPlayerModel(srcid,5) >0 then
+			lblnovipexp:setString("VIP经验:"..math.floor(exp))
+			if exp>0 then
+				effectSprite:show():runAction(cca.repeatForever(animate))
+			end
+		else
+			lblnovipexp:setString("未领取VIP经验")
+		end
+	end
+	end
+	
+function PanelOffline.initMapView()
+		if not util.isTable(var.mapData) then
+			return
+		end
+
+		NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+			actionid = "changeMap",
+			params = {
+				1
+			}
+		}))
+	end
+	
+function PanelOffline.freshDropItem( data )
+		for i = 1, 6 do
+			if i <= #data then
+				UIItem.getItem({
+					parent = var.xmlPanel:getWidgetByName("icon" .. i),
+					typeId = data[i].id
+				})
+			else
+				UIItem.getItem({
+					parent = var.xmlPanel:getWidgetByName("icon" .. i)
+				})
+			end
+		end
+	end
+	
+function PanelOffline.setQuickBuyList( data )
+		function clickbuy(sender)
+			NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+				actionid = "buy",
+				params = {
+					data.storeId
+				}
+			}))
+		end
+
+		var.xmlPanel:getWidgetByName("listquick"):reloadData(#data, function( subItem )
+			--slot1=d uv0=data 
+			local d  = data[subItem.tag]
+			local model_buy = subItem:getWidgetByName("model_buy")
+
+			model_buy:addClickEventListener(clickbuy)--uv1=clickbuy,暂时不记得是为什么了
+
+			model_buy.storeId = d.storeId
+
+			subItem:getWidgetByName("mocelname"):setString(d.name)
+			subItem:getWidgetByName("lblvcoin"):setString(d.money)
+			UIItem.getItem({
+				parent = subItem:getWidgetByName("icon"),
+				typeId = d.id,
+				num = d.num
+			})
+			subItem:getWidgetByName("vcoin"):loadTexture(resource[d.MoneyKind - 99], ccui.TextureResType.plistType)
+		end, 0, false)
+	end
+	
+function PanelOffline.updateListInfo(infoTable)
+		local listInfo = var.xmlPanel:getWidgetByName("listInfo")
+		local strs = {}
+
+		if type(infoTable) == "string" then
+			strs = {
+				infoTable
+			}
+		elseif type(infoTable) == "table" then
+			strs = infoTable
+		end
+
+		for i, v in ipairs(strs) do
+			UIRichLabel.new({
+				space = 8,
+				size = cc.size(slot1:getContentSize().width - 8, 30),
+				name = "listinfo" .. i
+			}):setRichLabel("<font color=#fddfae>" .. v .. "</font>", "", 18)
+		end
+	end
+	
+function PanelOffline.updateListBattleInfo(infoTable)
+		local listBattleInfo = var.xmlPanel:getWidgetByName("listBattleInfo")
+		local strs = {}
+
+		if type(infoTable) == "string" then
+			strs = {
+				infoTable
+			}
+		elseif type(infoTable) == "table" then
+			strs = infoTable
+		end
+
+		for i, v in ipairs(strs) do
+			local richLabel = UIRichLabel.new({
+				space = 3,
+				size = cc.size(slot1:getContentSize().width, 30),
+				name = "listBattleInfo" .. i
+			})
+
+			richLabel:setRichLabel("<font color=#f1e8d0>" .. v .. "</font>", "", 20)
+			listBattleInfo:pushBackCustomItem(richLabel)
+		end
+	end
+	
+function PanelOffline.freshPanel(state)--state状态
+		var.state = state
+
+		if state == "stop" then
+			var.xmlPanel:getWidgetByName("layerStart"):setVisible(true)
+			var.xmlPanel:getWidgetByName("layerbc"):setVisible(false)
+			var.xmlPanel:getWidgetByName("img_unstart"):setVisible(true)
+			var.xmlPanel:getWidgetByName("listBattleInfo"):setVisible(false):stopAllActions()
+		elseif state == "guaji" then
+			var.xmlPanel:getWidgetByName("layerStart"):setVisible(false)
+			var.xmlPanel:getWidgetByName("layerbc"):setVisible(true)
+			var.xmlPanel:getWidgetByName("img_unstart"):setVisible(false)
+			var.xmlPanel:getWidgetByName("listBattleInfo"):setVisible(true)
+			var.xmlPanel:getWidgetByName("btn_stop"):setVisible(true)
+			var.xmlPanel:getWidgetByName("btn_back_login"):setVisible(true)
+			var.xmlPanel:getWidgetByName("btn_get_award"):setVisible(false)
+		elseif state == "award" then
+			var.xmlPanel:getWidgetByName("layerStart"):setVisible(false)
+			var.xmlPanel:getWidgetByName("layerbc"):setVisible(true)
+			var.xmlPanel:getWidgetByName("img_unstart"):setVisible(true)
+			var.xmlPanel:getWidgetByName("listBattleInfo"):setVisible(false):stopAllActions()
+			var.xmlPanel:getWidgetByName("btn_stop"):setVisible(false)
+			var.xmlPanel:getWidgetByName("btn_back_login"):setVisible(false)
+			var.xmlPanel:getWidgetByName("btn_get_award"):setVisible(true)
+		end
+	end
+	
+function PanelOffline.freshAward(award,monNum)
+		var.monNum = monNum or 0
+
+		var.xmlPanel:getWidgetByName("lbl_kill_mon"):setString(monNum or "")
+
+		-- slot2 = {}
+		local newaward = {}
+
+		for k, v in pairs(award or {}) do
+			if v.num > 0 then
+				table.insert(newaward, v)
+			end
+		end
+		
+		
+		--暂时uv0=award,有可能是resource
+		var.xmlPanel:getWidgetByName("listInfo"):reloadData(#newaward, function (sender)
+			itemdata = award[sender.tag]
+
+			UIItem.getItem({
+				parent = sender,
+				typeId = itemdata.id,
+				num = itemdata.num,
+				iconType = Const.ICONTYPE.BAG
+			})
+		end):setSliderVisible(false)
+	end
+	
+function PanelOffline.startOffline()
+		local listBattleInfo = var.xmlPanel:getWidgetByName("listBattleInfo"):stopAllActions():removeAllItems()
+		local labels = {
+			"你使用<font color=#00ff00>%s</font>对<font color=#00ff00>%s</font>造成<font color=#ff0000>%d</font>点伤害!",
+			"你使用<font color=#00ff00>%s</font>对<font color=#00ff00>%s</font>造成<font color=#ff0000>%d</font>点伤害，击败了<font color=#00ff00>%s</font>！",
+			"<font color=#00ff00>%s</font>向你攻击，对你造成<font color=#ff0000>%d</font>点伤害。",
+			"<font color=#00ff00>%s</font>向你攻击，但被你躲避。",
+			"<font color=#00ff00>%s</font>向你挑衅!"
+		}
+
+		local getSkill = function () local rand = math.random(1,#var.skillsDesp) return var.skillsDesp[rand] end
+		local getRand = function(prob) return math.random(1,10000)<prob and 1 or 0 end
+
+		local monNum = var.monNum
+		local curTarget = "self"
+		local curTarget = nil
+		local hp = 0
+		local hurt = 99
+		local award= {
+			{
+				id = 40000001,
+				name = "经验",
+				num = 0
+			},
+			{
+				id = 40000003,
+				name = "绑定金币",
+				num = 0
+			},
+			{
+				id = 40000008,
+				name = "内功经验",
+				num = 0
+			},
+			{
+				id = 23000001,
+				name = "玉佩碎片",
+				num = 0
+			}
+		}
+
+	if not var.mapData[var.mapSelect] then return end
+	local getMonConf = function ()
+		local monConfs = var.mapData[var.mapSelect].monConf or {}
+		local rand = math.random(1,#monConfs)
+		return monConfs[rand]
+	end
+	local monConf = getMonConf()
+	local miss = false
+	local newLabel = function()
+		local label
+		if not monName then
+			monConf = getMonConf()
+			monName = monConf.monname
+			hp = monConf.hp
+			if math.random(1,100)>50 then
+				label = string.format(labels[5],monName)
+			end
+			curTarget = "self"
+		end
+		if label then
+			return label
+		end
+		if curTarget == "self" then
+			curTarget = "mon"
+			local skill = getSkill()
+			hurt = math.random(monConf.hp*0.1,monConf.hp*0.4)
+			-- print("hurt---",hp,hurt,var.multiTimes)
+			if hp>hurt then
+				--人物攻击
+				hp = hp - hurt
+				label = string.format(labels[1],skill,monName,hurt)
+			else
+				--怪物死亡
+				hurt = hp
+				hp = 0;
+				label = string.format(labels[2],skill,monName,hurt,monName)
+				monName = nil
+				monNum = monNum + 1
+				award[1].num = award[1].num + monConf.exp * var.multiTimes
+				var.award.exp = award[1].num
+
+				if monConf.coinbind then
+					award[2].num = award[2].num + monConf.coinbind*getRand(monConf.prob)
+				end
+				if monConf.innerpowerExp then
+					award[3].num = award[3].num + monConf.innerpowerExp
+				end
+				if monConf.itemid then
+					award[4].num = award[4].num + getRand(monConf.prob)
+				end
+
+				var.monNum = monNum
+				PanelOffline.freshAward(award,monNum)
+
+			end
+		else
+			--怪物攻击
+			miss = math.random(1,100)>50
+			curTarget = "self"
+			if miss then
+				label = string.format(labels[3],monName,math.random(20,60))
+			else
+				label = string.format(labels[4],monName)
+			end
+		end
+		return label
+	end
+	listBattleInfo:runAction(cca.repeatForever(cca.seq({
+		cca.delay(1),
+		cca.cb(function( target )
+			local richLabel = UIRichLabel.new({size = cc.size(listBattleInfo:getContentSize().width-8, 30), space=3})
+			richLabel:setRichLabel("<font color=#f1e8d0>"..newLabel().."</font>","",20)
+			target:insertCustomItem(richLabel,0)
+			if #target:getItems()>10 then
+				target:removeItem(10)
+			end
+			target:jumpToTop()
+		end),
+	})))
+end
+	
+function PanelOffline.lblAction(time)
+		local lbllefttime = var.xmlPanel:getWidgetByName("lbllefttime")
+
+		if time and time > 0 then
+			lbllefttime.time = time
+
+			lbllefttime:show():setString(util.setTimeFormat(1000 * time)):stopAllActions()
+			lbllefttime:runAction(cca.rep(cca.seq({
+				cca.delay(1),
+				cca.cb(function (target)
+					if not target.time then
+						target.time = time
+					end
+
+					target.time = target.time - 1
+
+					target:setString(util.setTimeFormat(1000 * target.time))
+
+					if target.time <= 0 then
+						target:stopAllActions():hide()
+
+						var.multiTimes = 1
+					end
+				end)
+			}), target))
+		else
+			var.multiTimes = 1
+		end
+	end
+	
+function PanelOffline.checkPanelClose()
+		if var.state == "award" then
+			NetClient:dispatchEvent({
+				lblConfirm = "领取奖励并关闭界面",
+				str = "alert",
+				btnConfirm = "确定",
+				name = Notify.EVENT_SHOW_TIPS,
+				confirmCallBack = function ()
+					var.state = "stop"
+
+					NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+						actionid = "get",
+						params = {}
+					}))
+					NetClient:dispatchEvent({
+						str = "extend_offline",
+						name = Notify.EVENT_CLOSE_PANEL
+					})
+				end
+			})
+
+			return false
+		elseif var.state == "guaji" then
+			NetClient:dispatchEvent({
+				btnCancel = "取消",
+				lblConfirm = "退出后无法获得挂机奖励，确定退出离线挂机吗？",
+				str = "confirm",
+				btnConfirm = "确定",
+				name = Notify.EVENT_SHOW_TIPS,
+				confirmCallBack = function ()
+					var.state = "stop"
+
+					NetClient:PushLuaTable("gui.PanelOffline.onPanelData", util.encode({
+						actionid = "stop",
+						params = {}
+					}))
+					NetClient:dispatchEvent({
+						str = "extend_offline",
+						name = Notify.EVENT_CLOSE_PANEL
+					})
+				end
+			})
+
+			return false
+		else
+			return true
+		end
+	end
+	
+function PanelOffline.onPanelClose()
+		var.award = {
+			exp = 0,
+			coinbind = 0
+		}
+		var.monNum = 0
+		var.state = "stop"
+
+		var.xmlPanel:getWidgetByName("listBattleInfo"):stopAllActions()
+		var.xmlPanel:getWidgetByName("lbllefttime"):stopAllActions()
+	end
+return PanelOffline

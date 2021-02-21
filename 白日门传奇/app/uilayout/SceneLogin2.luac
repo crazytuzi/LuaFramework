@@ -1,0 +1,19 @@
+LUA_RET={
+{n="img_bg",id=2,parent=1,w=1136,h=640,ax=0.5,ay=0.5,x=568,y=320,type=1,tag=262,v=true,},
+{n="Image_1",id=4,parent=4,w=466,h=187,ax=0.5,ay=0.5,x=233,y=93,res="img_ztdk1",type=1,tag=3825,v=true,},
+{n="Image_2",id=5,parent=3,w=188,h=34,ax=0.5,ay=0.5,x=240,y=150,res="zhanghao1",type=1,tag=3826,v=true,}, --- 账号图
+{n="Image_2_0",id=6,parent=3,w=188,h=34,ax=0.5,ay=0.5,x=240,y=75,res="mima1",type=1,tag=10,v=true,},   --密码图
+
+{n="edit_account",id=7,parent=3,w=191,h=36,ax=0.5,ay=0.5,x=225,y=110,res="mima",type=1,tag=2,v=true,},--账号底图
+{n="edit_password",id=8,parent=3,w=191,h=36,ax=0.5,ay=0.5,x=225,y=35,res="mima",type=1,tag=11,v=true,},--密码底图
+
+{n="muyiwangluoyouxi",id=100,parent=3,w=60,h=82,ax=0.5,ay=0.5,x=700,y=35,res="wangluoyouxi",type=1,tag=11,v=true,},--网络游戏底图
+
+{n="btn_login",id=9,parent=3,w=220,h=91,ax=0.5,ay=0.5,x=225,y=-30,tcolor="253|223|174",res="btn_kshlch2",type=2,tag=42,ss=true,sx=15,sy=11,sw=78,sh=77,t=true,v=true,fs=32,}, --账号登录
+{n="Text_register",id=10,parent=3,ax=0.5,ay=0.5,x=375,y=115,color="45|238|177",type=3,tag=12,v=true,fs=20,text="帐号注册",},
+{n="btn_register",id=11,parent=3,w=220,h=91,ax=0.5,ay=0.5,x=225,y=-31,tcolor="253|223|174",res="btn_register",type=2,tag=13,ss=true,sx=15,sy=11,sw=78,sh=77,t=true,v=true,fs=32,},--账号注册
+{n="box_login",id=3,parent=1,w=466,h=187,ax=0.5,ay=0.5,x=568,y=323,type=0,tag=263,t=true,v=true,},
+{n="Text_Prompt",id=12,parent=1,ax=0.5,ay=0.5,x=568,y=344,color="255|0|0",type=3,tag=41,v=true,fs=18,text="",},
+{n="btn_sdk_login",id=13,parent=1,w=220,h=91,ax=0.5,ay=0.5,x=568,y=260,tcolor="253|223|174",res="btn_kshlch2",type=2,tag=10,t=true,v=false,fs=32,},
+{n="SceneLogin",id=1,type=0,parent=0,w=1136,h=640,},
+}

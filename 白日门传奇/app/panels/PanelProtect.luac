@@ -1,0 +1,297 @@
+local PanelProtect={}
+local var = {}
+
+local despProtect ={
+	[1] = 	"<font color=#E7BA52 size=18>装备投保说明：</font>",
+	[2] =	"<font color=#f1e8d0>1、投保后装备获得1次保险次数，可防止死亡掉落</font>",
+	[3] =	"<font color=#f1e8d0>2、投保需要消耗钻石</font>",
+	[4] =	"<font color=#f1e8d0>3、已投保的装备不能重复投保，次数耗尽后可再次投保</font>",
+	[5] =	"<font color=#f1e8d0>4、需要注意，处于保险状态的装备不能丢弃、交易拍卖上架,投保不能反悔需谨慎</font>",
+	[6] =	"<font color=#f1e8d0>5、装备触发保险后消耗1次保险次数</font>",
+	[7] =	"<font color=#f1e8d0>6、投保后的装备进行升阶操作，投保的效果依旧有效</font>",
+}
+
+--获取身上可以签名的装备
+local roleEquipPos = {
+	{pos = Const.ITEM_WEAPON_POSITION,	etype = Const.EQUIP_TAG.WEAPON},
+	{pos = Const.ITEM_CLOTH_POSITION,	etype = Const.EQUIP_TAG.CLOTH},
+	{pos = Const.ITEM_GLOVE1_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING1_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BOOT_POSITION,	etype = Const.EQUIP_TAG.BOOT},
+
+	{pos = Const.ITEM_HAT_POSITION,		etype = Const.EQUIP_TAG.HAT},
+	{pos = Const.ITEM_NICKLACE_POSITION,etype = Const.EQUIP_TAG.NECKLACE},
+	{pos = Const.ITEM_GLOVE2_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING2_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BELT_POSITION,	etype = Const.EQUIP_TAG.BELT}
+}
+
+function PanelProtect.initView()
+	var = {
+		xmlPanel,
+		xmlPanel=nil,
+		xmlCF=nil,
+		bagEquips,
+		roleEquips,
+		curEquips,
+		curBhPos= -9999,	--当前保护装备的pos
+		curBhPos2 = -9999,	--当前保护附带装备
+		curBhType = 1,		--消耗类型
+		curTab=nil,--记录当前选中的页签
+
+		tablisth,
+		curEquipName="",
+		fireworks=nil,
+		curEquipType=nil,--记录当前选中的是背包装备还是身上装备
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelProtect.uif");
+
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelProtect.handlePanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelProtect.updateGameMoney)
+
+		PanelProtect.updateGameMoney()
+		PanelProtect.initTabs()
+		PanelProtect.initDesp("helpBtn",despProtect)
+		var.xmlPanel:getWidgetByName("startBtn"):addClickEventListener(function(sender) 
+			if var.curBhPos == -9999 then
+				NetClient:alertLocalMsg("当前没有可保护装备，无法保护！")
+				return
+			end
+			NetClient:PushLuaTable("gui.PanelProtect.handlePanelData",util.encode({actionid = "startProtect",params={pos=var.curBhPos, type=var.curBhType}}))
+		end)
+
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max1.png")
+		util.asyncload(var.xmlPanel, "img_bg", "needload/PanelAvatar/img_ditu9.png")		
+	end
+	return var.xmlPanel
+end
+
+function PanelProtect.handlePanelData(event)
+	if event.type ~= "PanelProtect" then return end
+	local data = util.decode(event.data)
+	if data.cmd =="initProtect" then
+		PanelProtect.initProtect(data)
+	elseif data.cmd=="sucessAnim" then
+		PanelProtect.successAnimate(60050)
+	end
+end
+
+function PanelProtect.onPanelOpen()
+	PanelProtect.getRoleEquips()
+end
+
+function PanelProtect.onPanelClose()
+	
+end
+
+--金币刷新函数
+function PanelProtect.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="lblVcoin",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	,	icon = "icon_coin"},
+		}
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			local curNum = tonumber(var.xmlPanel:getWidgetByName(v.name):getString()) or 0
+			var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		end
+	end
+end
+
+-----------------------------------------------------背包操作部分---------------------------------------------------
+--技能根据操作显示背包和身上的装备（强化装备锁定后只显示未强化装备；为强化装备选定后只显示强化装备，二者都选中显示全部，二者都没没选显示已强化的）
+
+--初始化背包装备或身上装备
+function PanelProtect.initEquipList(type)
+	if type=="bagEquips" then
+		var.curEquips=PanelProtect.getBagEquips()
+		var.curEquipType="bagEquips"
+	elseif type=="roleEquips" then
+		var.curEquips=PanelProtect.getRoleEquips()
+		var.curEquipType="roleEquips"
+	end
+	local equipList = var.xmlPanel:getWidgetByName("equipList")
+	equipList:reloadData(76,PanelProtect.updateList):setSliderVisible(false)
+end
+
+--获取背包可以保护的装备
+function PanelProtect.getBagEquips()
+	local maxNum = Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd 
+	local result = {}
+	for i=0,maxNum-1 do
+		local netItem = NetClient:getNetItem(i)
+		if netItem then
+			local bind = bit.band(netItem.mItemFlags, Const.ITEM_FLAG_BIND)
+			if game.IsEquipment(netItem.mTypeID) and bind <= 0 and netItem.mProtect <= 0 then
+				table.insert(result, netItem.position)
+			end
+		end
+	end
+	return result
+end
+
+function PanelProtect.getRoleEquips()
+	local result = {}
+	for i=1,#roleEquipPos do
+		local netItem = NetClient:getNetItem(roleEquipPos[i].pos)
+		if netItem then
+			local bind = bit.band(netItem.mItemFlags, Const.ITEM_FLAG_BIND)
+			if game.IsEquipment(netItem.mTypeID) and bind <= 0 and netItem.mProtect <= 0 then
+				table.insert(result, netItem.position)
+			end
+		end
+	end
+	return result
+end
+
+function PanelProtect.updateList(item)
+	local itemPos=var.curEquips[item.tag] or -9999
+	local param = {
+		parent = item,
+		pos = itemPos,
+		iconType = Const.ICONTYPE.DEPOT,
+		-- tipsType = Const.TIPS_TYPE.BAG,
+		callBack = function ()
+			if var.curTab==1 then
+				PanelProtect.changeProtectEquip(itemPos)
+			elseif var.curTab==2 then
+				PanelProtect.setYuanEquip(itemPos)
+			end
+		end,
+		doubleCall = function ()
+		
+		end,
+	}
+	UIItem.getItem(param)
+	if item.tag == 1 then
+		item:setName("item_upgrade")
+	else
+		item:setName("")
+	end
+end
+
+-------------------------------------------------------装备保护部分-----------------------------------------------------
+function PanelProtect.changeProtectEquip(pos)
+	local netItem = NetClient:getNetItem(pos)
+	if not netItem then return end
+	if netItem.mProtect > 0 then 
+		NetClient:alertLocalMsg("当前装备已经保护过，无法继续保护！")
+		return 
+	end
+	local itemdef = NetClient:getItemDefByID(netItem.mTypeID)
+	if itemdef then 
+		var.curEquipName=itemdef.mName
+	end
+	local param = {
+		parent = var.xmlPanel:getWidgetByName("iconEquip"),
+		pos = pos,
+		iconType = Const.ICONTYPE.BAG,
+		tipsType = Const.TIPS_TYPE.BAG,
+		callBack = function ()
+
+		end,
+	}
+	UIItem.getItem(param)
+	if pos==-9999 then
+		var.xmlPanel:getWidgetByName("labNeedMoney"):setString(0):setColor(cc.c3b(247,186,52))
+	else
+		NetClient:PushLuaTable("gui.PanelProtect.handlePanelData",util.encode({actionid = "curProtect",params={pos=pos}}))
+	end
+	var.curBhPos = pos
+end
+
+--打造成功特效
+function PanelProtect.successAnimate(effectid)
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(300, 450)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,effectid,4)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.removeSelf(),
+			cca.cb(function ()
+				var.fireworks=nil
+			end),
+		}))
+	end
+
+	local param={parent=var.xmlPanel:getWidgetByName("iconEquip"), typeId=nil}
+	UIItem.getItem(param)
+
+	var.curBhPos = -9999
+	var.curBhPos2 = -9999
+end
+
+--保护数据刷新
+function PanelProtect.initProtect(data)
+	if not data or not var.xmlPanel then return end
+	if data.needDiamond then
+		var.xmlPanel:getWidgetByName("needDiaTxt"):setString("消耗充值钻"..(data.needDiamond/10000).."万")
+	end
+	if data.needDiamondGs then
+		var.xmlPanel:getWidgetByName("needDiaGsTxt"):setString("消耗福利钻"..(data.needDiamondGs/10000).."万")
+	end
+end
+
+----------------------------------------页签操作-----------------------------------------------
+function PanelProtect.initTabs()
+	local function pressTabH(sender)
+		local tag = sender:getTag()
+		if tag==1 then
+			PanelProtect.initEquipList("roleEquips")
+		elseif tag==2 then
+			PanelProtect.initEquipList("bagEquips")
+		end
+	end
+
+	var.curTab = 1
+	var.curBhType = 1
+
+	var.tablisth = var.xmlPanel:getWidgetByName("tablisth")
+	var.tablisth:addTabEventListener(pressTabH)
+	var.tablisth:setSelectedTab(1)
+
+	local cb1 = var.xmlPanel:getWidgetByName("checkbox_gs")
+	local cb2 = var.xmlPanel:getWidgetByName("checkbox_diamond")
+	cb1:setSelected(true)
+
+	cb1:addClickEventListener(function() 
+		cb1:setSelected(true)
+		cb2:setSelected(false)
+		var.curBhType = 1
+	end)
+
+	cb2:addClickEventListener(function() 
+		cb1:setSelected(false)
+		cb2:setSelected(true)
+		var.curBhType = 2
+	end)
+end
+
+function PanelProtect.initDesp(btnName,despTable)
+	local btnDesp=var.xmlPanel:getWidgetByName(btnName)
+	btnDesp:addTouchEventListener(function (pSender, touchType)
+		if touchType == ccui.TouchEventType.began then
+			PanelProtect.protectDesp(despTable)
+		elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+			LayerAlert.handleAlertClose()
+		end
+	end)
+end
+
+function PanelProtect.protectDesp(despTable)
+	local mParam = {
+	name = Notify.EVENT_PANEL_ON_ALERT,
+	panel = "tips", 
+	infoTable = despTable,
+	visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+end
+
+return PanelProtect

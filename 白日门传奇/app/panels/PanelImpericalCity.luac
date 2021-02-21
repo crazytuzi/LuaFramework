@@ -1,0 +1,208 @@
+-- 皇城争霸界面
+
+local PanelImpericalCity = {}
+local var = {}
+local despTable ={
+		"<font color=#E7BA52 size=18>皇城战说明：</font>",
+		"<font color=#b2a58b>1.开服<font color=#30ff00>第3天</font>,自动开启<font color=#30ff00>首次</font>皇城战</font>",
+		"<font color=#b2a58b>2.合服<font color=#30ff00>第2、4天</font>,自动开启皇城战</font>",
+	    "<font color=#b2a58b>3.<font color=#30ff00>任意</font>行会会长申请皇城战后，<font color=#30ff00>所有</font><br>行会均可参战</font>",
+	    "<font color=#b2a58b>4.申请皇城战需消耗:<font color=#ff3e3e>1个攻城号角</font>，申请成功后，次日开启皇城战</font>",
+	    "<font color=#b2a58b>5.<font color=#30ff00>20:00</font>才能进入皇宫，<font color=#30ff00>20:30</font>最终占领皇宫的行会将拥有皇城归属权</font>",
+}
+
+function PanelImpericalCity.initView(extend)
+	var = {
+		xmlPanel,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelImpericalCity.uif")
+	if var.xmlPanel then
+
+		util.asyncload(var.xmlPanel, "bg", "needload/img_wuhun_bg.png")
+		util.asyncload(var.xmlPanel, "panelbgleft", "needload/img_huangcheng.png")
+		
+		var.xmlPanel:getWidgetByName("btn_go_city"):addClickEventListener(function( sender )
+			NetClient:PushLuaTable("npc.huangcheng.onPanelData",util.encode({cmd = "deliver"}))
+			NetClient:dispatchEvent({name=Notify.EVENT_CLOSE_PANEL,str="extend_kingWar"})
+		end)
+		var.xmlPanel:getWidgetByName("lbl_open_time"):setString("")
+
+		local btn_info = var.xmlPanel:getWidgetByName("Text_21")
+		var.xmlPanel:getWidgetByName("btn_info")
+		btn_info:setTouchEnabled(true)
+		btn_info:addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				--btn_info:setScale(0.88, 0.88)
+				local mParam = {
+				name = Notify.EVENT_PANEL_ON_ALERT,
+				panel = "tips",
+				infoTable = despTable,
+				visible = true,
+				}
+				NetClient:dispatchEvent(mParam)
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				btn_info:setScale(1, 1)
+				LayerAlert.handleAlertClose()
+			end
+		end)
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelImpericalCity.handlePanelData)
+		return var.xmlPanel
+	end
+end
+
+function PanelImpericalCity.handlePanelData(event)
+	if event.type ~= "PanelImpericalCity" then return end
+	local data = util.decode(event.data)
+	if data.cmd == "panel" then
+		PanelImpericalCity.freshPanel(data)
+	end
+end
+
+function PanelImpericalCity.onPanelOpen(extend)
+	NetClient:PushLuaTable("npc.huangcheng.onPanelData",util.encode({cmd = "cityPanel"}))
+end
+
+function PanelImpericalCity.freshPanel(data)
+	var.xmlPanel:getWidgetByName("lbl_open_time"):setString(data.openTime)
+	var.xmlPanel:getWidgetByName("lbl_guild_name"):setString(data.guildName):setLocalZOrder(10)
+
+	if util.isTable(data.kingInfo) then
+		PanelImpericalCity.updateInnerLooks(data.kingInfo[1] ,1)
+	else
+		PanelImpericalCity.updateInnerLooks({} ,1)
+	end
+	if util.isTable(data.ViceAdminInfo) then
+		PanelImpericalCity.updateInnerLooks(data.ViceAdminInfo[1],2)
+	else
+		PanelImpericalCity.updateInnerLooks({},2)
+	end
+	local ViceInfo = data.ViceInfo or {}
+	PanelImpericalCity.updateInnerLooks(ViceInfo[1], 3)
+	-- for i=1,3 do
+	-- 	PanelImpericalCity.updateInnerLooks(ViceInfo[i],i+2)
+	-- end
+end
+
+function PanelImpericalCity.updateInnerLooks(data,index)
+	local posY = {455,393,393,340,340}
+	data = data or {}
+	local cloth = checknumber(data.cloth)
+	local weapon = checknumber(data.weapon)
+	local wing = checknumber(data.wing)
+	local gender = checknumber(data.gender) --MainRole._mainAvatar:NetAttr(Const.net_gender)
+	local name = data.name
+	local isExist = false
+	if cloth>0 or weapon>0 or wing>0 or gender>0 then
+		isExist = true
+	end
+
+	local widget = var.xmlPanel:getWidgetByName("innerlooks_"..index)
+	--local lbl = var.xmlPanel:getWidgetByName("img_xuweiyidai_"..index)
+	local txtName = var.xmlPanel:getWidgetByName("lbl_name"..index)
+	if data.name then
+		--lbl:setVisible(false)
+		txtName:setString(data.name)
+	else
+		--lbl:show()
+		txtName:setString()
+	end
+	local img_role = widget:getChildByName("img_role")
+	local img_wing = widget:getChildByName("img_wing")
+	local img_weapon = widget:getChildByName("img_weapon")
+	local img_xuwei  = widget:getChildByName("img_xuwei")
+	if isExist then
+		if img_xuwei then
+			img_xuwei:hide()
+		end
+	else
+		if not img_xuwei then
+			img_xuwei = ccui.ImageView:create()
+			img_xuwei:addTo(widget):align(display.CENTER, -20, -20):setName("img_wing"):loadTexture("someone", ccui.TextureResType.plistType)
+		end
+		img_xuwei:show()
+	end
+	-- --设置翅膀内观
+
+	-- if isExist and wing > 0 then
+	-- 	local filepath = string.format("vipassana/wing/%d.png",wing+1000)
+	-- 	asyncload_callback(filepath, img_wing, function(filepath, texture)
+	-- 		img_wing:setVisible(true)
+	-- 		img_wing:setTexture(filepath)
+	-- 	end)
+	-- else
+	-- 	img_wing:setTexture("null")
+	-- 	img_wing:setVisible(false)
+	-- end
+	if not img_wing then
+		img_wing = cc.Sprite:create()
+		img_wing:addTo(widget):align(display.CENTER, 0, 0):setName("img_wing")
+	end
+
+	if wing then
+		wing = wing - 19001
+		local imgWingEffect = img_wing:getChildByName("wingEffect")
+		if not imgWingEffect then
+			util.addEffect(img_wing, "wingEffect", GROUP_TYPE.WING, wing, {x=0, y=0}, nil, true)
+		else
+			util.updateEffect(img_wing, "wingEffect", wing, GROUP_TYPE.WING)
+		end
+	end
+
+	--设置衣服内观
+	if not img_role then
+		img_role = cc.Sprite:create()
+		img_role:addTo(widget):align(display.CENTER, 0, 32):setName("img_role"):setLocalZOrder(0)
+	end
+	if not isExist then
+		local luoti= (gender==200 or gender =="male") and  10000000 or 10000001
+		local filepath = "vipassana/cloth/"..luoti..".png"
+		asyncload_callback(filepath, img_role, function(filepath, texture)
+			img_role:setTexture("null")
+		end)
+	else
+		if cloth==0 then
+			cloth = (gender==200 or gender =="male") and  10000000 or 10000001
+		else
+			local itemdef = NetClient:getItemDefByID(cloth)
+			if itemdef then
+				cloth = itemdef.mIconID
+			end
+		end
+		if cloth>0 then
+			local filepath = "vipassana/cloth/"..cloth..".png"
+			asyncload_callback(filepath, img_role, function(filepath, texture)
+				img_role:setTexture(filepath)
+			end)
+		end
+	end
+
+    --设置武器内观
+	if not img_weapon then
+		img_weapon = cc.Sprite:create()
+		img_weapon:addTo(widget):align(display.CENTER, 0, 32):setName("img_weapon"):setLocalZOrder(0)
+	end
+	-- local weapon = MainRole._mainAvatar:NetAttr(Const.net_weapon)
+	if isExist and weapon>0 then
+		local weaponDef = NetClient:getItemDefByID(weapon)
+		if weaponDef and weapon~=widget.curWeaponId then
+			local filepath = "vipassana/weapon/"..weaponDef.mIconID..".png"
+			asyncload_callback(filepath, img_weapon, function(filepath, texture)
+				img_weapon:setVisible(true)
+				img_weapon:setTexture(filepath)
+			end)
+			widget.curWeaponId=weapon
+		end
+	else
+		img_weapon:setTexture("null")
+		img_weapon:setVisible(false)
+		widget.curWeaponId=nil
+	end
+end
+
+function PanelImpericalCity.onPanelClose()
+
+end
+
+return PanelImpericalCity

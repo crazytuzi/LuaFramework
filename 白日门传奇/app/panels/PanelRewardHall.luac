@@ -1,0 +1,636 @@
+--[[
+--奖励大厅功能
+--]]
+
+local PanelRewardHall={}
+local var = {}
+
+local btnTabName ={
+	"btn_tab_sign", "btn_tab_online", "btn_tab_fifteen"
+}
+
+function PanelRewardHall.initView()
+	var = {
+		xmlPanel,
+		curXmlTab=nil,
+		xmlBoss=nil,
+		xmlOnline=nil,
+		xmlTeHui=nil,
+		xmlCDK=nil,
+
+		bossData=nil,--全名BOSS数据
+		bossGroup=1,--全名BOSS当前显示的组id
+		xmlDaily = nil,
+		dailyTabData = nil,
+		xmlFifteen = nil,
+		xmlHistory = nil,
+		fifteenCeels = {},
+		fifteenTabData = nil,
+		fifteenNowSelect = nil,
+		historyCells = {},
+		historyTabData = nil,
+
+		curFifTag=1,
+		mSendText=nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelRewardHall.uif")
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelRewardHall.handlePanelData)
+		PanelRewardHall.initTabs()
+
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max2.png")
+	end
+	return var.xmlPanel
+end
+
+function PanelRewardHall.onPanelOpen()
+
+end
+
+function PanelRewardHall.onPanelClose()
+
+end
+
+function PanelRewardHall.handlePanelData(event)
+	if event.type ~= "PanelRewardHall" then return end
+	local data = util.decode(event.data)
+	if data.cmd =="daily" then
+		if var.xmlDaily then
+			if data.childCmd == "updateList" then
+				PanelRewardHall.updateDailyTab(data.table,data.noReplace);
+			elseif data.childCmd == "updateReceive" then
+				PanelRewardHall.updateDailyReceive(data.receiveNum)
+			elseif data.childCmd == "updatereceiveBtn" then
+				PanelRewardHall.updateDailyReceiveBtn(data.receiveBtn)
+			elseif data.childCmd == "updateListBtn" then
+				PanelRewardHall.updateDailyOnceTab(data.state,data.tag)
+			end
+		end
+	elseif data.cmd=="fifteen" then
+		if var.xmlFifteen then
+			if data.childCmd == "updateList" then
+				PanelRewardHall.updateFifteenList(data.table,data.jumpNum,data.loginDay);
+			elseif data.childCmd == "updateListOnce" then
+				PanelRewardHall.updateFifteenOnceData(data.state,data.tag)
+			end
+		end
+	elseif data.cmd=="updateOnlineData" then--在线奖励
+		PanelRewardHall.initOnlineList(data)
+	elseif data.cmd=="history" then 	--历史累充奖励
+		if var.xmlHistory then
+			if data.childCmd == "updateList" then
+				PanelRewardHall.updateHistoryList(data.dataTable, data.rmb)
+			elseif data.childCmd == "updateListOnce" then
+				PanelRewardHall.updateHistoryOnceData(data.state, data.tag)
+			end
+		end
+	end
+end
+
+--初始化页签
+function PanelRewardHall.initTabs()
+	local function pressTabH(sender)
+		local tag = sender:getTag()
+		if var.curXmlTab then var.curXmlTab:hide() end;
+		if tag==1 then
+			var.curXmlTab=PanelRewardHall.initDaily();
+		elseif tag==2 then
+			PanelRewardHall.initOnline()
+			var.curXmlTab= var.xmlOnline
+		elseif tag==3 then
+			var.curXmlTab=PanelRewardHall.initFifteen();
+		-- elseif tag==4 then
+			-- var.curXmlTab=PanelRewardHall.initCDK()
+		elseif tag==4 then
+			var.curXmlTab = PanelRewardHall.initHistory()
+		end
+	end
+	var.tablisth = var.xmlPanel:getWidgetByName("box_tab")
+
+	for i,v in ipairs(btnTabName) do
+		var.tablisth:getItemByIndex(i):setName(v)
+	end
+
+	var.tablisth:addTabEventListener(pressTabH)
+	var.tablisth:setSelectedTab(1)
+	var.tablisth:setScaleEnabled(false)
+	var.tablisth:setTabRes("tab2_nor","tab2_sel")
+	var.tablisth:setTabColor(game.getColor(0xc3ad88),game.getColor(0xfddfae))
+end
+
+--------------------------------------------------------------在线奖励------------------------------------------------------------------
+local despOnline ={
+	[1]="<font color=#E7BA52 size=18>在线奖励说明：</font>",
+	[2]="<font color=#f1e8d0>1、开服第一周:每周1个小时在线可累计增加300000元宝</font>",
+	[3]="<font color=#f1e8d0>2、开服第二周:每周1个小时在线可累计增加350000元宝</font>",
+	[4]="<font color=#f1e8d0>3、开服第三周以后:每周1个小时在线可累计增加400000元宝</font>",
+	[5]="<font color=#f1e8d0>3、每周最大累计70小时在线时间</font>",
+}
+function PanelRewardHall.initOnline()
+	if not var.xmlOnline then
+		var.xmlOnline=UILuaLoader.load("uilayout/PanelRewardHall_online.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+   							:show()
+   		util.asyncload(var.xmlOnline, "onlineBg", "needload/img_bg3.png")
+   		var.xmlOnline:getWidgetByName("lbl_desps"):setTouchEnabled(true):addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelRewardHall.onlineDesp()
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				LayerAlert.handleAlertClose()
+			end
+		end)
+		var.xmlOnline:getWidgetByName("btnAwardWeek"):addTouchEventListener(function (pSender,touchType)
+			if touchType == ccui.TouchEventType.began then
+				NetClient:PushLuaTable("gui.AwardHall_online.handlePanelData",util.encode({actionid = "reqOldWeekAward",params={}}))
+			end
+		end)
+		-- PanelRewardHall.initOnlineList(nil)
+	else
+		var.xmlOnline:show()
+	end
+	NetClient:PushLuaTable("gui.AwardHall_online.handlePanelData",util.encode({actionid = "reqOnlineData",params={}}))
+end
+
+--初始化在线奖励列表
+function PanelRewardHall.initOnlineList(data)
+	local function updateOnlineList(item)
+		local itemData = data.dataTable[item.tag]
+		local btnLing = item:getWidgetByName("btnLing"):setTouchEnabled(true)
+		btnLing:addTouchEventListener(function (sender,touchType)
+			if touchType == ccui.TouchEventType.began then
+				NetClient:PushLuaTable("gui.AwardHall_online.handlePanelData",util.encode({actionid = "reqOnlineAward",params={index=item.tag}}))
+			end
+		end)
+		local labTime = item:getWidgetByName("labTime")
+		-- local img_online_guang = item:getWidgetByName("img_online_guang"):setOpacity(255 * 0.5)
+		local imgBox = item:getWidgetByName("img_online_box")
+		local boxeff = imgBox:getWidgetByName("boxeff")
+		local imgYlq = item:getWidgetByName("img_ylq")
+		if not boxeff then
+			boxeff = cc.Sprite:create():addTo(imgBox):pos(62.5,60):setName("boxeff")
+		end
+		if itemData.ling==1 then
+			labTime:setVisible(false)
+			btnLing:loadTextures("img_zaixianjiangli_bukelingqu", "img_zaixianjiangli_bukelingqu", "", ccui.TextureResType.plistType):setTouchEnabled(false)--已领取
+			-- img_online_guang:setVisible(false)
+			imgBox:setVisible(false)
+			boxeff:setVisible(false)
+			boxeff:stopAllActions()
+			-- imgYlq:setVisible(true):getVirtualRenderer():setState(1)--灰态
+			imgYlq:setVisible(true):loadTexture("img_online_ylq", ccui.TextureResType.plistType)
+		else
+			-- imgYlq:setVisible(false):getVirtualRenderer():setState(0)
+			if data.onlineTime>=itemData.needTime then
+				--imgYlq:setVisible(true):loadTexture("img_online_klq", ccui.TextureResType.plistType)
+				labTime:setVisible(false)
+				btnLing:loadTextures("btn_online_2", "btn_online_2", "", ccui.TextureResType.plistType)--可领取
+				imgBox:setVisible(true)
+				-- img_online_guang:setVisible(true)
+				-- img_online_guang:stopAllActions()
+				-- img_online_guang:runAction(cca.repeatForever(cca.seq({
+				-- 		cca.scaleTo(0.5, 1.06),
+				-- 		cca.scaleTo(0, 1.0),
+				-- 	})
+				-- ))
+				local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,65095,4,3)
+				if animate then
+					boxeff:setVisible(true)
+					boxeff:stopAllActions()
+					boxeff:runAction(cca.seq({
+						cca.rep(animate,10000),
+						cca.removeSelf()
+					}))
+				end
+			else
+				labTime:setVisible(true)
+				btnLing:loadTextures("img_zaixianjiangli_bukelingqu", "img_zaixianjiangli_bukelingqu", "", ccui.TextureResType.plistType)--不可领取
+				-- img_online_guang:setVisible(false)
+				imgBox:setVisible(false)
+				boxeff:setVisible(false)
+				boxeff:stopAllActions()
+				imgYlq:setVisible(false)
+			end
+		end
+		local time = itemData.needTime-data.onlineTime--秒
+		if time>0 then
+			labTime:stopAllActions()
+			labTime:setString(util.setTimeFormat(time*1000,2))
+			labTime:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+				time = time-1
+				if time > 0 then
+					labTime:setString(util.setTimeFormat(time*1000,2))
+				else
+					labTime:stopAllActions()
+					labTime:setVisible(false)
+					btnLing:loadTextures("btn_online_2", "btn_online_2", "", ccui.TextureResType.plistType)--可领取
+					imgBox:setVisible(true)
+				end
+			end)})))
+		end
+		-- print(data.onlineTime,itemData.needTime)
+		-- item:getWidgetByName("labTime"):setString("在线"..(itemData.needTime/60).."分钟")
+	end
+	if not var.xmlOnline then return end
+	local onlineList = var.xmlOnline:getWidgetByName("onlineList")
+	onlineList:reloadData(#data.dataTable,updateOnlineList):setSliderVisible(false):setTouchEnabled(false)
+
+	var.xmlOnline:getWidgetByName("labOldWeek"):setString(data.oldWeekAward)
+	var.xmlOnline:getWidgetByName("labWeek"):setString(data.newWeekAward)
+
+	local labCount = var.xmlOnline:getWidgetByName("labOnlineTime")
+	local time = data.onlineTime*1000
+	labCount:stopAllActions()
+	labCount:setString(util.setTimeFormat(time,2))
+	labCount:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+		time = time + 1000
+		if time > 0 then
+			labCount:setString(util.setTimeFormat(time,2))
+		else
+			labCount:stopAllActions()
+		end
+	end)})))
+
+	local btnLingWeek = var.xmlOnline:getWidgetByName("btnAwardWeek")
+	if data.weekLing==1 then
+		btnLingWeek:setTitleText("已领取"):setEnabled(false)
+		util.removeHaloFromButton(btnLingWeek)
+	else
+		if data.oldWeekAward<=0 then
+			btnLingWeek:setTitleText("领取"):setEnabled(false)
+			util.removeHaloFromButton(btnLingWeek)
+		else
+			btnLingWeek:setTitleText("领取"):setEnabled(true)
+			util.addHaloToButton(btnLingWeek, "btn_normal_light3")
+		end
+	end
+
+end
+
+function PanelRewardHall.onlineDesp()
+	local mParam = {
+		name = Notify.EVENT_PANEL_ON_ALERT,
+		panel = "tips",
+		infoTable = despOnline,
+		visible = true,
+	}
+	NetClient:dispatchEvent(mParam)
+end
+--------------------------------------------------------------在线奖励End------------------------------------------------------------------
+
+function PanelRewardHall.createUiTable(parent,array)
+	parent.ui = {};
+	for _,v in ipairs(array) do
+		local node = parent:getWidgetByName(v);
+		if node then
+			parent.ui[v] = node
+		end
+	end
+	return parent.ui
+end
+
+--------------------------------------------------------------每日签到------------------------------------------------------------------
+
+local daily_node = {"list_daily","lbl_daily_num","lbl_daily_title","lbl_daily_title_end","btn_daily_sign_in","lbl_daily_title","box_daily"}
+function PanelRewardHall.initDaily()
+	if not var.xmlDaily then
+		var.xmlDaily=UILuaLoader.load("uilayout/PanelRewardHall_daily.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+							:align(display.LEFT_BOTTOM,0, 0)
+							:show();
+		--util.asyncload(var.xmlDaily, "box_daily", "needload/PanelRewardHall/img_ditu.jpg");
+		PanelRewardHall.createUiTable(var.xmlDaily,daily_node);
+	else
+		var.xmlDaily:show();
+	end
+	NetClient:PushLuaTable("gui.PanelDailySignIn.onPanelData", util.encode({actionid = "init"}))
+	return var.xmlDaily
+end
+
+function PanelRewardHall.updateDailyTab(data,noReplace)
+	if data and util.isTable(data) then
+		var.dailyTabData = data;
+		if not noReplace then
+			var.xmlDaily.ui["list_daily"]:reloadData(table.nums(var.dailyTabData),function(subItem)
+				local index = subItem.tag
+				local needData = var.dailyTabData[index];
+				local needDay = needData.day;
+				local awardTab = needData.awards;
+				local state = needData.state;
+
+				subItem:getWidgetByName("lbl_daily_title_cell"):setString("累计签到"..needDay.."次")
+				:setFontSize(22):setTextColor(game.getColor(0xffd800)):enableOutline(game.getColor(0x000000), 1);
+				subItem:getWidgetByName("lbl_get_state"):setVisible(false);
+
+				--subItem:getWidgetByName("btn_daily_receive"):setVisible(state==-1);
+				--if state>=0 then subItem:getWidgetByName("img_daily_state"):loadTexture("img_daily_"..state,ccui.TextureResType.plistType) end
+				if state == 0 then
+					subItem:getWidgetByName("btn_daily_receive"):setTitleText(""):setTouchEnabled(false)
+					subItem:getWidgetByName("lbl_get_state"):setVisible(true):setTextColor(game.getColor(0x545454)):setString("未达标")
+				elseif state == 1 then
+					subItem:getWidgetByName("btn_daily_receive"):setTitleText(""):setTouchEnabled(false)
+					subItem:getWidgetByName("lbl_get_state"):setVisible(true):setTextColor(game.getColor(0x18d129)):setString("已领取")
+				else
+					subItem:getWidgetByName("btn_daily_receive"):setTitleText("领取奖励"):setTouchEnabled(true)
+				end
+				subItem:getWidgetByName("btn_daily_receive"):addClickEventListener(function (sender)
+					NetClient:PushLuaTable("gui.PanelDailySignIn.onPanelData", util.encode({actionid = "receiveCumulative",tag = index}))
+				end)
+				if awardTab then
+					for i=1,5 do
+						local modelItem = subItem:getWidgetByName("model_item_box_"..i);
+						local awardOnce = awardTab[i];
+						if awardOnce then
+							awardOnce.parent = modelItem;
+							UIItem.getItem(awardOnce);
+							modelItem:setSwallowTouches(false)
+							modelItem:show();
+						else
+							modelItem:hide();
+						end
+					end
+				end
+			end)
+		else
+			var.xmlDaily.ui["list_daily"]:updateCellInView()
+		end
+	end
+end
+
+function PanelRewardHall.updateDailyOnceTab(state,tag)
+	if state and tag and var.dailyTabData and var.dailyTabData[tag] then
+		var.dailyTabData[tag].state = state;
+		var.xmlDaily.ui["list_daily"]:updateCellInView()
+	end
+end
+
+function PanelRewardHall.updateDailyReceive(receiveNum)
+	local firstPosX = var.xmlDaily.ui["lbl_daily_title"]:getContentSize().width+var.xmlDaily.ui["lbl_daily_title"]:getPositionX()+15;
+	var.xmlDaily.ui["lbl_daily_num"]:setString(receiveNum):setPositionX(firstPosX)
+	:setFontSize(20):setTextColor(game.getColor(0x18d129)):enableOutline(game.getColor(0x000000), 1);
+	firstPosX = firstPosX+var.xmlDaily.ui["lbl_daily_num"]:getContentSize().width+15;
+	var.xmlDaily.ui["lbl_daily_title_end"]:setPositionX(firstPosX);
+end
+
+function PanelRewardHall.updateDailyReceiveBtn(receiveToday)
+	local state = receiveToday and receiveToday>0
+	var.xmlDaily.ui["btn_daily_sign_in"]:setTitleText(state and "已签到" or "签到"):setTouchEnabled(not state);
+	if state then
+		var.xmlDaily.ui["btn_daily_sign_in"]:loadTextures("btn_red_sel", "btn_red_sel", "", ccui.TextureResType.plistType):setTouchEnabled(false)
+		:setTitleColor(game.getColor(0xffe08b))
+		UILuaLoader.attachEffect(var.xmlDaily.ui["btn_daily_sign_in"],"outline(7c2b03,1)")
+	else
+		var.xmlDaily.ui["btn_daily_sign_in"]:loadTextures("btn_red", "btn_red", "", ccui.TextureResType.plistType):setTouchEnabled(true)
+	end
+	var.xmlDaily.ui["btn_daily_sign_in"]:removeAllChildren()
+
+	var.xmlDaily.ui["btn_daily_sign_in"]:addClickEventListener(function (sender)
+		NetClient:PushLuaTable("gui.PanelDailySignIn.onPanelData", util.encode({actionid = "receiveToday"}))
+	end)
+end
+--------------------------------------------------------------每日签到End------------------------------------------------------------------
+
+
+--------------------------------------------------------------15日登陆New2--------------------------------------------------------------------
+local fifteen_node = {
+	"list_daily",
+	"lbl_daily_num",
+	"lbl_daily_title_cell",
+	"btn_daily_receive",
+	"lbl_get_state",
+	"model_item_box_1",
+	"model_item_box_2",
+	"model_item_box_3",
+	"model_item_box_4",
+	"model_item_box_5",
+}
+
+
+
+function PanelRewardHall.initFifteen()
+	if not var.xmlFifteen then
+		var.xmlFifteen = UILuaLoader.load("uilayout/PanelRewardHall_fifteenLogin.uif")
+			:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+			:align(display.LEFT_BOTTOM, 0, 0)
+			:show()
+
+		PanelRewardHall.createUiTable(var.xmlFifteen, fifteen_node);
+		NetClient:PushLuaTable("gui.PanelFifteenSignIn.onPanelData", util.encode({actionid = "init"}))	
+
+		-- 内功等级
+		if not var.lbl_Vcoin then
+			var.lbl_Vcoin = display.newBMFontLabel({font = "fonts/innerpower.fnt",}):addTo(var.xmlFifteen):align(display.CENTER_LEFT,206, 402):setName("lbl_level"):setString(200000)
+		end
+	else
+		var.xmlFifteen:show()
+	end
+
+	return var.xmlFifteen
+end
+
+function PanelRewardHall.updateFifteenOnceData(state,tag)
+	if state and tag and var.fifteenTabData and var.fifteenTabData[tag] then
+		var.fifteenTabData[tag].state = state
+		local subItem = var.fifteenCeels[tag]
+		if subItem then
+			if state == 1 then
+				local btnRecive = subItem:getWidgetByName("btn_daily_receive")
+				util.removeHaloFromButton(btnRecive)
+				btnRecive:setTitleText(""):setTouchEnabled(false)
+				subItem:getWidgetByName("lbl_get_state"):setVisible(true):setTextColor(game.getColor(0x18d129)):setString("已领取")
+			end
+		end
+	end
+end
+
+function PanelRewardHall.updateFifteenList(data,jumpNum,loginDay)
+	var.xmlFifteen.ui["lbl_daily_num"]:setString(loginDay)
+	if data and util.isTable(data) then
+		var.fifteenTabData = data;
+
+		var.xmlFifteen.ui["list_daily"]:reloadData(#var.fifteenTabData, function (subItem)
+			local index = subItem.tag
+			local needData = var.fifteenTabData[index]
+			local award = needData.awards
+			local state = needData.state
+			var.fifteenCeels[index] = subItem
+			--PanelRewardHall.updateFifteenCell(tag)
+			subItem:getWidgetByName("lbl_daily_title_cell"):setString("第"..index.."天")
+				:setFontSize(22):setTextColor(game.getColor(0xffd800)):enableOutline(game.getColor(0x000000), 1);
+				subItem:getWidgetByName("lbl_get_state"):setVisible(false);
+
+			local btnRecive = subItem:getWidgetByName("btn_daily_receive")
+			if state == 1 then
+				btnRecive:setTitleText(""):setTouchEnabled(false)
+				subItem:getWidgetByName("lbl_get_state"):setVisible(true):setTextColor(game.getColor(0x18d129)):setString("已领取")
+				util.removeHaloFromButton(btnRecive)
+			else
+				
+				btnRecive:setTitleText("领取奖励"):setTouchEnabled(true)
+				if index <= loginDay then
+					util.addHaloToButton(btnRecive, "btn_normal_light2")
+				else
+					util.removeHaloFromButton(btnRecive)
+				end
+			end
+
+			btnRecive:addClickEventListener(function (sender)
+				NetClient:PushLuaTable("gui.PanelFifteenSignIn.onPanelData", util.encode({actionid = "receive",tag = index}))
+			end)
+			if award then
+				for i=1,5 do
+					local modelItem = subItem:getWidgetByName("model_item_box_"..i);
+					local awardOnce = award[i];
+					if awardOnce then
+						awardOnce.parent = modelItem;
+						UIItem.getItem(awardOnce);
+						modelItem:setSwallowTouches(false)
+						modelItem:show();
+					else
+						modelItem:hide();
+					end
+				end
+			end			
+		end)
+	end
+end
+
+function PanelRewardHall.updateFifteenCell(tag,updateBox)
+	local needCell = var.fifteenCeels[tag] ;
+	if needCell and var.fifteenTabData and var.fifteenTabData[tag] then
+		local award =  var.fifteenTabData[tag];
+		local state = award.state;
+		local aType = award.aType
+		-- needCell:getWidgetByName("icon_name"):ignoreContentAdaptWithSize(false)
+		-- 	:setContentSize(cc.size(100,20));
+		-- print("BBBBBBB",aType)
+		needCell:getWidgetByName("lbl_day_num"):setString("第"..util.numberToChinese(tag).."天");
+		local bgButton = needCell:getWidgetByName("btn_icon");
+		local iconName = needCell:getWidgetByName("icon_name");
+		iconName:loadTexture("lbl_"..fifteen_awards_type[aType],ccui.TextureResType.plistType)
+		bgButton.tag = tag;
+		bgButton:loadTextureNormal("icon_"..fifteen_awards_type[aType],ccui.TextureResType.plistType)
+			:loadTexturePressed("icon_"..fifteen_awards_type[aType],ccui.TextureResType.plistType)
+			-- :setTouchEnabled(state~=0)
+			-- :setBright(state~=0)
+			:addClickEventListener(PanelRewardHall.updateFifteenAwardBox)
+			:setSwallowTouches(false)
+
+		needCell:getWidgetByName("img_award_state"):setVisible(state==1);
+		needCell:show();
+		needCell:removeChildByName("img_bln")
+		if updateBox then
+			PanelRewardHall.updateFifteenAwardBox({["tag"]=tag});
+		end
+	end
+end
+--------------------------------------------------------------15日登录End---------------------------------------------------------------------
+
+--------------------------------------------------------------历史累充--------------------------------------------------------------------
+local history_node = {
+	"list_history",
+	"lbl_num",
+	"lbl_title",
+	"btn_receive",
+	"lbl_get_state",
+	"model_item_box_1",
+	"model_item_box_2",
+	"model_item_box_3",
+	"model_item_box_4",
+	"model_item_box_5",
+}
+
+function PanelRewardHall.initHistory()
+	if not var.xmlHistory then
+		var.xmlHistory = UILuaLoader.load("uilayout/PanelRewardHall_History.uif")
+			:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+			:align(display.LEFT_BOTTOM, 0, 0)
+			:show()
+
+		util.asyncload(var.xmlHistory, "box_daily", "needload/img_leichonghaoli.png");
+		PanelRewardHall.createUiTable(var.xmlHistory, history_node);
+		NetClient:PushLuaTable("gui.AwardHall_History.handlePanelData", util.encode({actionid = "reqLeiChongData"}))
+
+	else
+		var.xmlHistory:show()
+	end
+
+	return var.xmlHistory
+end
+
+function PanelRewardHall.updateHistoryOnceData(state, tag)
+	if state and tag and var.historyTabData and var.historyTabData[tag] then
+		var.historyTabData[tag].state = state
+		local subItem = var.historyCells[tag]
+		if subItem then
+			if state == 3 then
+				local btnRecive = subItem:getWidgetByName("btn_receive")
+				util.removeHaloFromButton(btnRecive)
+				btnRecive:setTitleText(""):setTouchEnabled(false)
+				subItem:getWidgetByName("lbl_get_state"):setVisible(true):setTextColor(game.getColor(0x18d129)):setString("已领取")
+			end
+		end
+	end
+end
+
+function PanelRewardHall.updateHistoryList(data, rmb)
+	var.xmlHistory.ui["lbl_num"]:setString(rmb)
+	if data and util.isTable(data) then
+		var.historyTabData = data;
+
+		var.xmlHistory.ui["list_history"]:reloadData(#var.historyTabData, function (subItem)
+			local index = subItem.tag
+			local needData = var.historyTabData[index]
+			local award = needData.ids
+			local state = needData.flag
+	
+			var.historyCells[index] = subItem
+
+			subItem:getWidgetByName("lbl_title"):setString("累充"..needData.needRmb.."元"):setTextColor(game.getColor(0xffd800)):enableOutline(game.getColor(0x000000), 1);
+				subItem:getWidgetByName("lbl_get_state"):setVisible(false);
+
+			local btnRecive = subItem:getWidgetByName("btn_receive")
+			if state == 3 then
+				btnRecive:setTitleText(""):setTouchEnabled(false)
+				subItem:getWidgetByName("lbl_get_state"):setVisible(true):setTextColor(game.getColor(0x18d129)):setString("已领取")
+				util.removeHaloFromButton(btnRecive)
+			else
+				
+				btnRecive:setTitleText("领取奖励"):setTouchEnabled(true)
+				if needData.needRmb <= rmb and state == 2 then
+					util.addHaloToButton(btnRecive, "btn_normal_light2")
+				else
+					util.removeHaloFromButton(btnRecive)
+				end
+			end
+
+			btnRecive:addClickEventListener(function (sender)
+				NetClient:PushLuaTable("gui.AwardHall_History.handlePanelData", util.encode({actionid = "receive",tag = index}))
+			end)
+
+			if award then
+				for i=1,6 do
+					local modelItem = subItem:getWidgetByName("model_item_box_"..i);
+					if modelItem and award[i] then
+						local awardOnce = 
+						{
+							typeId=award[i],
+							num=needData.nums[i],
+							parent = modelItem
+						};
+						UIItem.getItem(awardOnce);
+						modelItem:setSwallowTouches(false)
+						modelItem:show();
+					elseif modelItem then
+						modelItem:hide();
+					end
+				end
+			end			
+		end)
+	end
+end
+--------------------------------------------------------------历史累充End---------------------------------------------------------------------
+
+
+return PanelRewardHall

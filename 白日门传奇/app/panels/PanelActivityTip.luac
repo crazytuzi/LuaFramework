@@ -1,0 +1,94 @@
+local PanelActivityTip = {}
+local var = {}
+
+function PanelActivityTip.initView()
+	var = {
+		xmlPanel,
+		curData=nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelActivityTip.uif")
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelActivityTip.handlePanelData)
+		util.asyncload(var.xmlPanel, "imgBg", "needload/bg_max1.png")
+		util.asyncload(var.xmlPanel, "imgBg2", "needload/3.png")
+		PanelActivityTip.initBtns()
+		return var.xmlPanel
+	end
+end
+
+function PanelActivityTip.onPanelOpen()
+	if NetClient.tipsMsg["tip_activity"] then 
+		local data=NetClient.tipsMsg["tip_activity"]
+		if NetClient.tipsMsg["tip_activity"] and #NetClient.tipsMsg["tip_activity"]>0 then
+			var.curData=NetClient.tipsMsg["tip_activity"][1]
+			PanelActivityTip.updatePanel(var.curData)
+		end
+	end
+end
+
+function PanelActivityTip.onPanelClose()
+	if var.curData and NetClient.tipsMsg["tip_activity"] then
+		for i=1,#NetClient.tipsMsg["tip_activity"] do
+			local itemData = NetClient.tipsMsg["tip_activity"][i]
+			if itemData and itemData.name==var.curData.name then
+				table.remove(NetClient.tipsMsg["tip_activity"],i)
+				var.curData=nil
+				break
+			end
+		end
+	end
+end
+
+
+function PanelActivityTip.handlePanelData(event)
+	if event.type ~= "PanelActivityTip" then return end
+	local data = util.decode(event.data)
+	-- print(event.data)
+	if data.cmd =="" then
+
+	elseif data.cmd=="" then
+
+	end
+
+end
+
+--刷新当前选中的活动信息
+function PanelActivityTip.updatePanel(itemData)
+	-- var.xmlPanel:getWidgetByName("labDesp"):setString(itemData.explain) 
+	var.xmlPanel:getWidgetByName("richLabel_labDesp"):setRichLabel("<font color=#fddfae>"..itemData.explain.."</font>","PanelActivityGuide",20)
+	var.xmlPanel:getWidgetByName("labName"):setString(itemData.name)
+	for i=1,6 do
+		local x = 1
+		local awardItem = var.xmlPanel:getWidgetByName("icon"..i)
+		local param={parent=awardItem,typeId=nil}
+		if itemData.awards and itemData.awards[i] then
+			param={parent=awardItem,typeId=itemData.awards[i].id,num=itemData.awards[i].num}
+		end
+		UIItem.getItem(param)
+	end
+end
+
+-----------------------------------------按钮操作-----------------------------------------------
+local btnArrs = {"btnGo"}
+function PanelActivityTip.initBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if senderName=="btnGo" then
+			if var.curData then
+				NetClient:PushLuaTable("gui.PanelActivityGuide.onPanelData",util.encode({actionid = "btnGo",nameIndex=var.curData.name}))
+			end
+		elseif senderName=="btnGet" then
+
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+
+
+
+return PanelActivityTip

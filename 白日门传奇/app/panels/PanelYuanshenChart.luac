@@ -1,0 +1,76 @@
+PanelYuanshenChart = {}
+local var = {}
+local towerLevelName = {"","简单","普通","困难","高手","大师","噩梦","炼狱"};
+
+function PanelYuanshenChart.initView(params)
+	var = {
+		xmlPanel,
+		charts,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelYuanshenChart.uif")
+	if var.xmlPanel then
+		NetClient:PushLuaTable("gui.PanelRiChang.onPanelData",util.encode({actionid = "yuanshen",params = {"getChartStr"}}))
+
+		var.xmlPanel:getWidgetByName("btn_get"):addClickEventListener(function(sender)
+				NetClient:PushLuaTable("gui.PanelRiChang.onPanelData",util.encode({actionid = "yuanshen",params = {"getDailyAward"}}))
+			end)
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelYuanshenChart.handlePanelData)
+
+		return var.xmlPanel
+	end
+end
+
+function PanelYuanshenChart.handlePanelData(event)
+	if event.type=="updateChartStr" then
+		local pData=util.decode(event.data)
+		if pData and pData.charts then
+			var.charts = pData.charts
+			var.xmlPanel:getWidgetByName("lbl_myProcess"):setString(PanelYuanshenChart.convert2chinese( pData.myMaxTower ))
+			var.xmlPanel:getWidgetByName("lbl_myRanking"):setString(pData.myRanking)
+			var.xmlPanel:getWidgetByName("btn_get"):setEnabled(pData.isGetAward)
+			local chartList = var.xmlPanel:getWidgetByName("chartList")
+			chartList:reloadData(#var.charts, PanelYuanshenChart.update)
+		end
+	end
+end
+
+function PanelYuanshenChart.convert2chinese( lv )
+	local str = ""
+	lv = tonumber(lv)
+	if not lv or lv ==0 then return "0层" end
+	str = towerLevelName[math.ceil(lv/12)+1]
+	lv = lv%12
+	if lv == 0 then lv = 12 end
+	str = str..lv.."层"
+	return str
+end
+
+function PanelYuanshenChart.update( item )
+	local index = item.tag
+	item:getWidgetByName("lbl_ranking"):setString(index)
+	local name = var.charts[index].name=="" and "暂无" or var.charts[index].name
+	item:getWidgetByName("lbl_name"):setString(name)
+	item:getWidgetByName("lbl_jindu"):setString(PanelYuanshenChart.convert2chinese(var.charts[index].lv))
+	if index<=3 then
+		item:getWidgetByName("img_ranking"):show():loadTexture("img_chart_"..index,ccui.TextureResType.plistType)
+	else
+		item:getWidgetByName("img_ranking"):hide()
+	end
+	UIItem.getItem({
+		parent = item:getWidgetByName("img_item"),
+		typeId = var.charts[index].award,
+		num = var.charts[index].num,
+	})
+end
+
+function PanelYuanshenChart.onPanelOpen()
+	var.xmlPanel:getWidgetByName("panel_close").mParam = {tab = 3}
+end
+
+function PanelYuanshenChart.onPanelClose()
+
+end
+
+return PanelYuanshenChart

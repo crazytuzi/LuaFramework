@@ -1,0 +1,568 @@
+SceneCreateRole = class("SceneCreateRole", function ()
+	return display.newScene("SceneCreateRole")
+end)
+
+function SceneCreateRole:ctor()
+	self._curJob = nil
+	self._curGender = 1
+	self._createName = nil
+	self._xmlScene = nil
+	self.roleImageEffect = nil
+	self.enterGameEffect = nil
+	self._isSameName = nil
+	self._lbl_editBoxText = nil
+	self.isEditing = false
+	self.jobTable = {
+		"zs",
+		"fs",
+		"ds"
+	}
+	self.RotateMenu = nil
+	self.isWaiting = false
+	self.rolePos = {
+		{
+			x = 5,
+			y = 10
+		},
+		{
+			x = 30,
+			y = 10
+		},
+		{
+			x = -10,
+			y = 30
+		},
+		{
+			x = -10,
+			y = 10
+		},
+		{
+			x = -5,
+			y = 30
+		},
+		{
+			x = -50,
+			y = -15
+		}
+	}
+	self.effectPos = {
+		{
+			x = -5,
+			y = 0
+		},
+		{
+			x = 0,
+			y = -5
+		},
+		{
+			x = 6,
+			y = 10
+		},
+		{
+			x = 0,
+			y = 0
+		},
+		{
+			x = 0,
+			y = 0
+		},
+		{
+			x = 0,
+			y = 0
+		}
+	}
+	self.roleCenter = {
+		x = 568,
+		y = 300
+	}
+
+end
+
+function SceneCreateRole:onKeyboard(event)
+	if event.key=="back" and not self.isEditing then
+		if #NetClient._netChars < 1 then 
+			util.showAlert("提示","要重新登录吗？",{"确定","取消"},function (event)
+				if event.buttonIndex == 1 then
+					game.ExitToRelogin()
+				end
+			end,self)
+		else
+			asyncload_frames("uipic/SceneSelectRole",".png",function ()
+				display.replaceScene(SceneSelectRole.new())
+			end,self)
+		end
+	end
+end
+
+function SceneCreateRole:onPlatformLogout()
+	game.ExitToRelogin()
+end
+
+function SceneCreateRole:onEnter()
+	if PlayAudio.musicName ~= "sound/role.mp3" then
+		-- Nothing
+	end
+
+	self._xmlScene = UILuaLoader.load("uilayout/SceneCreateRole.uif"):setContentSize(display.width, display.height):align(display.CENTER, display.cx, display.cy):addTo(self)
+
+	self._xmlScene:getWidgetByName("box_roleBase"):align(display.RIGHT_BOTTOM, display.width, 0)
+
+	self._lbl_editBoxText = self._xmlScene:getWidgetByName("lbl_editBoxText")
+	self.lbl_alert = self._xmlScene:getWidgetByName("lbl_alert")
+	local imgCreateRoleBottom = self._xmlScene:getWidgetByName("img_createRole_bottom"):align(display.CENTER, display.cx, display.cy)
+
+	imgCreateRoleBottom:loadTexture("needload/img_battle.png")
+	imgCreateRoleBottom:scale(cc.MAX_SCALE)
+	local widgetContent = ccui.Widget:create():setContentSize(cc.size(1136, 640)):align(display.CENTER, display.cx, display.cy):addTo(self):setLocalZOrder(10)
+
+	if display.height > 640 then
+		imgCreateRoleBottom:scale(display.height / 640)
+		widgetContent:scale(display.height / 640)
+	end
+
+	cc.EventProxy.new(NetClient, self):addEventListener(Notify.EVENT_CREATECHARACTOR, handler(self, self.handleRoleCreated)):addEventListener(Notify.EVENT_SOCKET_ERROR, handler(self, self.onSocketError)):addEventListener(Notify.EVENT_PLATFORM_LOGOUT, handler(self, self.onPlatformLogout))
+
+	self.roleImage = ccui.ImageView:create()
+
+	self.roleImage:addTo(widgetContent):align(display.CENTER, self.roleCenter.x, self.roleCenter.y)
+	self.roleImage:setLocalZOrder(2)
+
+	self.roleImageEffect = ccui.ImageView:create()
+
+	self.roleImageEffect:addTo(widgetContent):align(display.CENTER, self.roleCenter.x, self.roleCenter.y):setLocalZOrder(1)
+
+	self.animeSprite = cc.Sprite:create()
+
+	self.animeSprite:setName("animeSprite")
+
+	i = self.roleCenter.x
+
+	self.animeSprite:addTo(widgetContent):align(display.CENTER, i, self.roleCenter.y)
+
+	for i = 1, 3 do
+		local btn = self._xmlScene:getWidgetByName("btn_job_" .. i)
+		btn.tag = i
+
+		btn:addClickEventListener(function (sender)
+			self:selectJob(sender.tag)
+		end)
+	end
+
+	self:refreshScene()
+	self:playRoleFireEffect(self._xmlScene)
+	self:playEnterGameEffect(self._xmlScene)
+end
+
+function SceneCreateRole:playFireEffect(action)
+	local startNum = 1
+	local doorNum = 11
+	--slot4
+	local rightFire = self._xmlScene:getWidgetByName("rightFire")
+	--slot5
+	local leftFire = self._xmlScene:getWidgetByName("leftFire")
+
+	action:runAction(cca.repeatForever(cca.seq({
+		cca.delay(0.1),
+		cca.cb(function ()
+			-- asyncload_callback("needload/FireEffect/" .. uv0 .. ".png", uv1, function (slot0, slot1)
+
+			asyncload_callback("needload/FireEffect/" .. rightFire .. ".png", leftFire, function (filepath, texture)
+				if util.isObjectExist(rightFire) then
+					rightFire:loadTexture(filepath):setScale(2):setPositionY(270):align(display.RIGHT_CENTER, display.right - 150, 270)
+				end
+
+				if util.isObjectExist(leftFire) then
+					leftFire:loadTexture(filepath):setScale(2):setPositionY(270)
+				end
+			end)
+
+			startNum = startNum + 1
+
+			if startNum >= 12 then
+				startNum = 1
+			end
+		end)
+	}), tonumber(11)))
+end
+
+function SceneCreateRole:playRoleFireEffect(action)
+	local startNum = 1
+	local doorNum = 11
+
+	action:runAction(cca.repeatForever(cca.seq({
+		cca.delay(0.1),
+		cca.cb(function ()
+			asyncload_callback("needload/SelectFireEffect/" .. startNum .. ".png", action.roleImageEffect, function (filepath, texture)
+				if util.isObjectExist(self.roleImageEffect) then
+					self.roleImageEffect:loadTexture(filepath):setPositionY(120):setScale(1.3)
+				end
+			end)
+
+			startNum = startNum + 1
+
+			if startNum >= 11 then
+				startNum = 1
+			end
+		end)
+	}), tonumber(10)))
+end
+
+function SceneCreateRole:playEnterGameEffect(action)
+	local startNum = 1
+	local doorNum = 11
+
+	action:runAction(cca.repeatForever(cca.seq({
+		cca.delay(0.1),
+		cca.cb(function ()
+			asyncload_callback("needload/login/btnstart/" .. startNum  .. ".png", action.enterGameEffect, function (filepath, texture)
+				if util.isObjectExist(self.enterGameEffect) then
+					self.enterGameEffect:loadTextureNormal(filepath)
+				end
+			end)
+
+			startNum  = startNum  + 1
+
+			if startNum  >= 12 then
+				startNum  = 1
+			end
+		end)
+	}), tonumber(10)))
+end
+
+function SceneCreateRole:playHeroAnim(job, gener, node, startIdx)
+	node:stopAllActions()
+
+	local startIdx = startIdx or 1
+
+	if node ~= nil then
+		local startNum = 1
+		local endNum = 8
+		-- slot8 = 4
+		-- slot9 = 17
+
+		if startIdx == 1 then
+			endNum = 8
+		end
+
+	 local function startOpen()
+			local filePath = "needload/Character/role" .. job .. "_" .. gener .. "/00" .. startNum .. ".png"
+
+					asyncload_callback(filePath, node, function (filepath, texture)
+						if util.isObjectExist(node) then
+							node:loadTexture(filepath)
+						end
+					end)
+
+					startNum = startNum + 1
+
+					if endNum <= startNum and startIdx == 1 then
+						self:playHeroAnim(job, gener, node, startIdx + 1)
+					elseif endNum <= startNum then
+						startNum = 1
+						self:playHeroAnim(job, gener, node, 2)
+					 end
+			end
+			
+       if startIdx == 1 then
+	        node:runAction(cca.rep(cca.seq({cca.delay(0.08),cca.cb(startOpen)}),tonumber(endNum - 1)))
+            --self.roleImageEffect:runAction(cca.rep(cca.seq({cca.delay(0.05),cca.cb(startEffect)}),tonumber(endEffectNum - 1)))
+        else
+            node:runAction(cca.rep(cca.seq({cca.delay(0.08),cca.cb(startOpen)}),tonumber(endNum - 1)))
+        end
+    end
+end
+
+function SceneCreateRole:selectJob(job)
+	local jobsIntroduce = {
+		{
+			info = "穿越在蛮荒战场之中的勇士，用自己的实力横扫寰宇，为了心中的梦想赴汤蹈火在所不惜！",
+			shortName = "zs",
+			fullName = "战士"
+		},
+		{
+			info = "信仰魔法之力的游荡者，利用元素之力来摆平遇到的一切困难。",
+			shortName = "fs",
+			fullName = "法师"
+		},
+		{
+			info = "于大自然中诞生，于大自然中醒悟的智者，利用异世的力量来普济众生。",
+			shortName = "ds",
+			fullName = "道士"
+		}
+	}
+
+	if self._curJob == job then
+		return
+	end
+
+	self._xmlScene:getWidgetByName("img_job_1"):hide()
+	self._xmlScene:getWidgetByName("img_job_2"):hide()
+	self._xmlScene:getWidgetByName("img_job_3"):hide()
+
+	self._curJob = job
+
+	self._xmlScene:getWidgetByName("img_job_" .. self._curJob):show()
+	self._xmlScene:getWidgetByName("img_info"):show():loadTexture(string.format("img_info_%s", jobsIntroduce[self._curJob].shortName), ccui.TextureResType.plistType)
+
+	if self._createName and not self._lbl_editBoxText._customInput then
+		self._createName:setString(self:randomName())
+	end
+
+	asyncload_callback("needload/Character/role" .. self._curJob .. "_" .. self._curGender .. "/001" .. ".png", self.roleImage, function (filepath, texture)
+		self.roleImage:loadTexture(filepath)
+		self:playHeroAnim(self._curJob, self._curGender, self.roleImage)
+	end)
+	self.animeSprite:stopAllActions()
+
+	if cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, 80000 + (self._curJob - 1) * 2 + self._curGender - 1, 4, 7) then
+		self.animeSprite:runAction(cca.repeatForever(cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, 80000 + (self._curJob - 1) * 2 + self._curGender - 1, 4, 7)))
+	end
+	local idxtag = (self._curJob - 1) * 2 + self._curGender - 1
+	self.roleImage:align(display.CENTER, self.roleCenter.x + self.rolePos[idxtag + 1].x, self.roleCenter.y + self.rolePos[idxtag + 1].y)
+	self.animeSprite:align(display.CENTER, self.roleCenter.x + self.rolePos[idxtag + 1].x + self.effectPos[idxtag + 1].x, self.roleCenter.y + self.rolePos[idxtag + 1].y + self.effectPos[idxtag + 1].y)
+end
+
+function SceneCreateRole:refreshScene()
+	local tab_gender = self._xmlScene:getWidgetByName("tab_gender")
+
+	function selectGender(sender, isCalledManually)
+		if self._curGender then
+			--uv1=slot1=tab_gender
+			tab_gender:getWidgetByName("btn_gender_" .. self._curGender):setTouchEnabled(true):setLocalZOrder(4)
+		end
+
+		self._curGender = 1
+
+		if not isCalledManually then
+			asyncload_callback("needload/Character/role" .. self._curJob .. "_" .. self._curGender .. "/001" .. ".png", self.roleImage, function (filepath, texture)
+				self.roleImage:loadTexture(filepath)
+				self:playHeroAnim(self._curJob, self._curGender, self.roleImage)
+			end)
+			self.animeSprite:stopAllActions()
+
+			if cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, 80000 + (self._curJob - 1) * 2 + self._curGender - 1, 4, 7) then
+				self.animeSprite:runAction(cca.repeatForever(cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, 80000 + (self._curJob - 1) * 2 + self._curGender - 1, 4, 7)))
+			end
+			--slot2=(self._curJob - 1) * 2 + self._curGender - 1
+			local idxtag = 	(self._curJob - 1) * 2 + self._curGender - 1
+			self.roleImage:align(display.CENTER, self.roleCenter.x + self.rolePos[idxtag + 1].x, self.roleCenter.y + self.rolePos[idxtag + 1].y)
+			self.animeSprite:align(display.CENTER, self.roleCenter.x + self.rolePos[idxtag + 1].x + self.effectPos[idxtag + 1].x, self.roleCenter.y + self.rolePos[idxtag + 1].y + self.effectPos[idxtag + 1].y)
+		end
+
+		self:setTouchEnabled(false)
+
+		if self._createName and not self._lbl_editBoxText._customInput then
+			self._createName:setString(self:randomName())
+		end
+	end
+
+	local randomJobIndex = os.time() % 3 + 1
+	local randomGenderIndex =  os.time() % 1 + 1   --单职业
+	--slot1=tab_gender  slot2 = selectGender 注释slot是根据每段从新定义的，这里是从开始调用
+	--slot2 为什么是selectGender暂时没摸索到
+	tab_gender:addTabEventListener(selectGender)
+
+	local randomGenderBtn = tab_gender:getWidgetByName("btn_gender_" .. os.time() % 2 + 1)
+
+	randomGenderBtn:setBrightStyle(1)
+	selectGender(randomGenderBtn, true)
+	self:selectJob(1)
+
+	local imgEditBoxBg = self._xmlScene:getWidgetByName("img_editBoxBg"):getContentSize()
+	self._createName = util.newEditBox({
+		fontSize = 22,
+		image = "picicon/null.png",
+		placeHolder = "请输入角色姓名",
+		size = cc.size(251, 70),
+		listener = function (event,editBox)
+			if event == "began" then
+				self.isEditing = true
+
+				if self._isSameName then
+					editBox:setString("")
+
+					self._isSameName = false
+
+					self:handleSameName()
+				end
+
+				self._lbl_editBoxText:hide()
+
+				self._lbl_editBoxText._customInput = true
+			elseif event == "return" then
+				self.isEditing = false
+
+				if util.isObjectExist(self._lbl_editBoxText) then
+					self._lbl_editBoxText:show()
+				end
+			end
+
+			if not self:checkName(editBox:getText()) then
+				return
+			end
+
+			self.lbl_alert:hide()
+			self._lbl_editBoxText:setString(editBox:getText())
+		end,
+		color = game.getColor(0)
+	}):align(display.RIGHT_BOTTOM, display.width - 100, 16):addTo(self._xmlScene, -100)
+
+	self._createName:setString(self:randomName())
+	self._xmlScene:getWidgetByName("btn_randomName"):addClickEventListener(function ()
+		self._lbl_editBoxText._customInput = false
+
+		self._createName:setString(self:randomName())
+	end)
+
+	local btn_back = self._xmlScene:getWidgetByName("btn_back")
+
+	btn_back:pos(display.left + btn_back:getContentSize().width / 2 + 20, 45)
+	btn_back:addClickEventListener(function ()
+		self:onKeyboard({
+			key = "back"
+		})
+	end)
+
+	local btn_entergame = self._xmlScene:getWidgetByName("btn_entergame")
+	self.enterGameEffect = btn_entergame
+
+	btn_entergame:pos(display.right - btn_entergame:getContentSize().width - 190, 260):setScale(0.8)
+	btn_entergame:addClickEventListener(function ()
+		if not self.isEditing then
+			local name = self._createName:getText()
+
+			print(name)
+
+			if not self:checkName(name) then
+				return
+			end
+
+			game.chrName = name
+			game.level = 1
+			NetClient.mCreateJob = self._curJob + 99
+			NetClient.mCreateGender = self._curGender + 199
+			-- name = 0
+			svrid = 0
+			if game.lastSvr then
+				svrid = tonumber(game.lastSvr.serial) or 0
+			end
+
+			NetClient:CreateCharacter(game.chrName, NetClient.mCreateJob, NetClient.mCreateGender,svrid, "")
+			self._createName:setTouchEnabled(false)
+		end
+	end)
+end
+
+function SceneCreateRole:onExit()
+	cc.SpriteManager:getInstance():removeFramesByFile("uipic/SceneCreateRole")
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+function SceneCreateRole:onSocketError(event)
+	PlatformTool.showMsg("服务器连接已断开")
+	game.ExitToRelogin()
+end
+
+function SceneCreateRole:handleRoleCreated(event)
+	if event.result == 100 then
+		if NetClient._connected then
+			asyncload_frames("uipic/SceneLoading", ".png", function ()
+				game.seedName = event.seedname
+				game.roleId = event.roleid
+				game.createTime = event.createtime
+				game.preScene = "SceneCreateRole"
+
+				display.replaceScene(SceneLoading.new())
+			end, self)
+		else
+			game.ExitToRelogin()
+		end
+	elseif event.result == 103 then
+		self._isSameName = true
+
+		self:handleSameName()
+		self._createName:setTouchEnabled(true)
+	else
+		self.lbl_alert:show():setString(event.msg)
+		self._createName:setTouchEnabled(true)
+	end
+end
+
+function SceneCreateRole:handleSameName()
+	if self._isSameName then
+		self.lbl_alert:show():setString("名称已存在")
+	else
+		self.lbl_alert:hide()
+	end
+end
+
+function SceneCreateRole:getNameLen(name)
+	local chineseNum, asciiNum = util.getStrLen(name)
+	return chineseNum * 2 + asciiNum
+end
+
+function SceneCreateRole:checkName(name)
+	if self:getNameLen(name) > 14 then
+		self.lbl_alert:show():setString("名称过长")
+
+		return
+	end
+
+	if util.checkInvalidChar(name) then
+		self.lbl_alert:show():setString("名称不得包含非法字符")
+
+		return
+	end
+
+	return true
+end
+
+function SceneCreateRole:runAnimeAction(target, anime, actionTag)
+-- function SceneCreateRole.runAnimeAction(slot0, slot1, slot2, slot3)
+	local pos = cc.p(target:getPosition())--slot4
+	--slot5
+	local foreverAction = cc.RepeatForever:create(cc.Spawn:create(anime, cc.Sequence:create(cc.EaseSineInOut:create(cc.MoveTo:create(1, cc.p(pos.x, pos.y + 10))), cc.EaseSineInOut:create(cc.MoveTo:create(1, cc.p(pos.x, pos.y - 10))))))
+
+	if actionTag then
+		foreverAction:setTag(actionTag)
+	end
+
+	target:runAction(foreverAction)
+end
+
+function SceneCreateRole:randomName()
+	self._isSameName = false
+
+	self:handleSameName()
+
+	local random = math.random(1, #Const.familyName)
+	local familyName = Const.familyName[random]
+	local randName = familyName[math.random(1,#familyName)]
+	if random == 1 then
+		 randName =familyName[math.random(1, #familyName)] .. ("" .. Const.firstName[self._curGender][math.random(1, #Const.firstName[self._curGender])])
+	end
+
+	self._lbl_editBoxText:setString(randName)
+
+	return randName
+end
+
+function SceneCreateRole:onShakeScene()
+	if not self.isRunningAction then
+		self:stopAllActions()
+
+		self.isRunningAction = true
+
+		self:runAction(cca.seq({
+			cca.rep(cca.seq({
+				cca.moveBy(0.05, self:getPositionX() - 20, self:getPositionY()),
+				cca.moveBy(0.05, self:getPositionX() + 20, self:getPositionY())
+			}), 1),
+			cca.cb(function ()
+				self.isRunningAction = false
+			end)
+		}))
+	end
+end
+
+return SceneCreateRole

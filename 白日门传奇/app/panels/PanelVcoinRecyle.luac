@@ -1,0 +1,160 @@
+local PanelVcoinRecyle = {}
+local var = {}
+local res = {"coin","coin_bind","vcoin","vcoin_bind"}
+
+function PanelVcoinRecyle.initView(extend)
+	var = {
+		xmlPanel,
+		defaultTab = 1,
+		curTabIndex = 0,
+		tp = 1,
+		panelData,
+		progressBar,
+		labBar,
+		tabv,
+		curId = 0,
+		nextId = 0,
+		shopshow = false,
+		serverday=0,
+		tabName = {
+			"tab_1","tab_2","tab_3","tab_4","tab_5"
+		},
+		curItemData = {}
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelVcoinRecyle.uif")
+	if var.xmlPanel then
+		var.xmlPanel:getWidgetByName("store_bg"):loadTexture("needload/panel_lottery_bg.png")
+		var.xmlPanel:getWidgetByName("store_kuang"):loadTexture("needload/img_store_kuang.png")
+		-- util.asyncload(var.xmlPanel, "leftbg", "needload/img_fengekuang_small.png")
+        -- util.asyncload(var.xmlPanel, "rightbg", "needload/img_fengekuang_big.png")
+        -- util.asyncload(var.xmlPanel, "img_inner_bg", "needload/panel_lottery_bg.png")
+		var.listShop = var.xmlPanel:getChildByName("listShop")
+		for i,v in ipairs(var.tabName) do
+			UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName(var.tabName[i]),function ( sender )
+				PanelVcoinRecyle.selectTabIndex( i )
+			end)
+		end
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelVcoinRecyle.handlePanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelVcoinRecyle.updateGameMoney)
+		PanelVcoinRecyle.updateGameMoney()
+		return var.xmlPanel
+	end
+end
+
+function PanelVcoinRecyle.onPanelOpen(extend)
+	PanelVcoinRecyle.selectTabIndex( var.defaultTab )
+end
+function PanelVcoinRecyle.selectTabIndex( index )
+	if var.curTabIndex == index then return end
+	var.curTabIndex = index
+	for i,v in ipairs(var.tabName) do
+		if i == var.curTabIndex then
+			var.xmlPanel:getWidgetByName(var.tabName[i]):setBrightStyle(1)
+			var.xmlPanel:getWidgetByName(var.tabName[i]):getChildByName("txtName"):setColor(game.getColor(0xfddfae))
+		else
+			var.xmlPanel:getWidgetByName(var.tabName[i]):getChildByName("txtName"):setColor(game.getColor(0xc3ad88))
+			var.xmlPanel:getWidgetByName(var.tabName[i]):setBrightStyle(0)
+		end
+	end
+	NetClient:PushLuaTable("gui.PanelVcoinRecyle.onPanelData", util.encode({actionid = "fresh",tab = var.curTabIndex}))
+end
+function PanelVcoinRecyle.handlePanelData(event)
+	if event.type ~= "PanelVcoinRecyle" then return end
+	local result = util.decode(event.data)
+	if result.cmd == "fresh" then
+		PanelVcoinRecyle.freshPanel( result )
+	end
+end
+function PanelVcoinRecyle.freshPanel(result)
+	local data = result.storeData
+	table.sort(data,function(a,b)
+		return a.position < b.position
+	end)
+	var.curItemData = data
+	var.listShop:reloadData(#data, PanelVcoinRecyle.updateListShop,nil,false)
+end
+
+
+function PanelVcoinRecyle.updateListShop( subItem)
+
+	local d = var.curItemData[subItem.tag]
+	local num = NetClient:getTypeItemNum(d.itemBaseId)
+	if d then
+		if num > 0 then
+			subItem:getWidgetByName("lblname"):setString(d.name):setColor(cc.c3b(205, 205, 0))
+			subItem:getWidgetByName("lblcoin"):setString(d.money)
+			
+		else
+			subItem:getWidgetByName("lblname"):setString(d.name):setColor(cc.c3b(0, 205, 0))
+			subItem:getWidgetByName("lblcoin"):setString(d.money)
+		end
+		
+		subItem:getWidgetByName("coin"):loadTexture(res[d.MoneyKind-99],ccui.TextureResType.plistType)
+		subItem:getWidgetByName("coin"):setScale(0.95)
+		UIItem.getItem({
+			parent = subItem:getWidgetByName("icon"),
+			typeId = d.itemBaseId,
+			num = d.itemNum,
+			bind = 2-d.bind,
+		})
+		if num > 0 then
+			local btn_buy = subItem:getWidgetByName("btn_buy"):setTitleColor(game.getColor(0xffe08b))
+				btn_buy:getTitleRenderer():enableOutline(game.getColor4(0x000000), 1)
+				btn_buy.data = d
+				btn_buy:addClickEventListener(PanelVcoinRecyle.clickBuy):show()
+				
+				
+			else
+				local btn_buy = subItem:getWidgetByName("btn_buy"):setTitleColor(game.getColor(0xffe08b)):hide()
+				btn_buy:getTitleRenderer():enableOutline(game.getColor4(0x000000), 1):hide()
+				btn_buy.data = d
+				btn_buy:addClickEventListener(PanelVcoinRecyle.clickBuy):hide()
+				
+			end	
+	
+		end
+end
+--金币刷新函数
+function PanelVcoinRecyle.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="lblVcoin",	value =	mainrole.mVCoin or 0	,	},
+			{name="lblBVcoin",	value =	mainrole.mVCoinBind or 0,	},
+			{name="lblMoney",	value =	mainrole.mGameMoney or 0,	},
+			{name="lblBMoney",	value =	mainrole.mGameMoneyBind or 0,},
+		}
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		end
+	end
+end
+
+
+local MoneyKind = {
+	[100] = {name = "金币",		 value = "mGameMoney" },
+	[101] = {name = "绑定金币",	 value = "mGameMoneyBind" },
+	[102] = {name = "钻石",		 value = "mVCoin" },
+	[103] = {name = "元宝",		 value = "mVCoinBind" },
+}
+
+
+function PanelVcoinRecyle.clickBuy(sender)
+	local data = sender.data
+	local num = NetClient:getTypeItemNum(data.itemBaseId)
+	if num > 0 then
+		NetClient:PushLuaTable("gui.PanelVcoinRecyle.onPanelData", util.encode({actionid = "buy",id = data.id,tab = var.curTabIndex, buyNum = curNumber}))
+		
+	   
+	  else  
+	end			
+end
+
+
+function PanelVcoinRecyle.onPanelClose()
+
+end
+
+return PanelVcoinRecyle

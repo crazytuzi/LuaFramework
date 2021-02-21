@@ -1,0 +1,557 @@
+local PanelQuickAddEquip = {}
+local var = {}
+
+local equip_info = {
+	{pos = Const.ITEM_WEAPON_POSITION,	etype = Const.EQUIP_TAG.WEAPON},
+	{pos = Const.ITEM_CLOTH_POSITION,	etype = Const.EQUIP_TAG.CLOTH},
+	{pos = Const.ITEM_GLOVE1_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING1_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BOOT_POSITION,	etype = Const.EQUIP_TAG.BOOT},
+
+	{pos = Const.ITEM_HAT_POSITION,		etype = Const.EQUIP_TAG.HAT},
+	{pos = Const.ITEM_NICKLACE_POSITION,etype = Const.EQUIP_TAG.NECKLACE},
+	{pos = Const.ITEM_GLOVE2_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING2_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BELT_POSITION,	etype = Const.EQUIP_TAG.BELT},
+
+	{pos = Const.ITEM_SHEN_CLOCK_POSITION,		},	--noTipsBtn = true},		--	--神器*钟
+	{pos = Const.ITEM_SHEN_QIN_POSITION,		},	--noTipsBtn = true},
+	{pos = Const.ITEM_MIRROR_ARMOUR_POSITION,	},
+	{pos = Const.ITEM_FACE_CLOTH_POSITION,		},
+	{pos = Const.ITEM_SHEN_FU_POSITION,		    },	--noTipsBtn = true},
+	{pos = Const.ITEM_SHEN_CHUI_POSITION,			},	--noTipsBtn = true},
+	{pos = Const.ITEM_DRAGON_BONE_POSITION,		},
+	{pos = Const.ITEM_CATILLA_POSITION,			},
+	--仙器*武器
+	{pos = Const.ITEM_XIAN_WEPON_POSITION,	},		--19孔位
+	--仙器*衣服
+	{pos = Const.ITEM_XIAN_CLOTH_POSITION,	},
+	--仙器*头盔
+	{pos = Const.ITEM_XIAN_HELMET_POSITION,	},
+	--仙器*项链
+	{pos = Const.ITEM_XIAN_NECKLACE_POSITION,	},
+	--仙器*护肩
+	{pos = Const.ITEM_XIAN_SHOULDER_POSITION,	},
+	--仙器*盾牌
+	{pos = Const.ITEM_XIAN_SHIELD_POSITION,	},
+	--仙器*神坠
+	{pos = Const.ITEM_XIAN_PENDANT_POSITION,	},
+	--仙器*斗笠
+	{pos = Const.ITEM_XIAN_HAT_POSITION,	},
+	--坐骑
+	{pos = Const.ITEM_MOUNT_POSITION,		},
+	--斗笠
+	{pos = Const.ITEM_BAMBOOHAT_POSITION,	},
+
+	--灵宝
+	{pos = Const.ITEM_LBSW_POSITION,	},
+	{pos = Const.ITEM_LBSS_POSITION,	},
+	{pos = Const.ITEM_LBSZ_POSITION,	},
+	{pos = Const.ITEM_LBXL_POSITION,	},
+
+
+	{pos = Const.ITEM_XZ1_POSITION,	 etype = Const.EQUIP_TAG.ALL},   --33孔位 以此类推
+	{pos = Const.ITEM_XZ2_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ3_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ4_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ5_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ6_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ7_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ8_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ9_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ10_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ11_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ12_POSITION, etype = Const.EQUIP_TAG.ALL},
+}
+local equipFlagRes = {
+	[Const.ITEM_WEAPON_POSITION] 	=	"equip_flag_weapon",
+	[Const.ITEM_CLOTH_POSITION] 	=	"equip_flag_cloth",
+	[Const.ITEM_GLOVE1_POSITION] 	=	"equip_flag_glove",
+	[Const.ITEM_RING1_POSITION] 	=	"equip_flag_ring",
+	[Const.ITEM_BOOT_POSITION] 		=	"equip_flag_boot",
+	[Const.ITEM_HAT_POSITION] 		=	"equip_flag_hat",	
+	[Const.ITEM_NICKLACE_POSITION] 	=	"equip_flag_necklace",
+	[Const.ITEM_GLOVE2_POSITION] 	=	"equip_flag_glove",
+	[Const.ITEM_RING2_POSITION] 	=	"equip_flag_ring",
+	[Const.ITEM_BELT_POSITION] 		=	"equip_flag_belt",
+
+	--玉佩
+	[Const.ITEM_JADE_PENDANT_POSITION] = "equip_flag_jade_pendant",
+	--暗器
+	[Const.ITEM_SHIELD_POSITION] = "equip_flag_shield",
+	--护心镜
+	[Const.ITEM_MIRROR_ARMOUR_POSITION] = "equip_flag_mirror_armour",
+	--面巾
+	[Const.ITEM_FACE_CLOTH_POSITION] = "equip_flag_face_cloth",
+	--魂珠
+	[Const.ITEM_DRAGON_HEART_POSITION] = "equip_flag_dragon_heart",
+	--战鼓
+	[Const.ITEM_WOLFANG_POSITION] = "equip_flag_wolfang",
+	--龙骨
+	[Const.ITEM_DRAGON_BONE_POSITION] = "equip_flag_dragon_bone",
+	--虎符
+	[Const.ITEM_CATILLA_POSITION] = "equip_flag_catilla",
+
+	--仙器*铃铛
+	[Const.ITEM_MIRROR_ARMOUR_POSITION] = "xq_13",
+	--仙器*神印
+	[Const.ITEM_FACE_CLOTH_POSITION] = "xq_14",
+	--仙器*神谕
+	[Const.ITEM_DRAGON_BONE_POSITION] = "xq_17",
+	--仙器*戒指
+	[Const.ITEM_CATILLA_POSITION] = "xq_18",
+	--仙器*武器
+	[Const.ITEM_XIAN_WEPON_POSITION] = "xq_60",		--19孔位
+	--仙器*衣服
+	[Const.ITEM_XIAN_CLOTH_POSITION] = "xq_61",
+	--仙器*头盔
+	[Const.ITEM_XIAN_HELMET_POSITION] = "xq_62",
+	--仙器*项链
+	[Const.ITEM_XIAN_NECKLACE_POSITION] = "xq_63",
+	--仙器*护肩
+	[Const.ITEM_XIAN_SHOULDER_POSITION] = "xq_64",
+	--仙器*盾牌
+	[Const.ITEM_XIAN_SHIELD_POSITION] = "xq_65",
+	--仙器*神坠
+	[Const.ITEM_XIAN_PENDANT_POSITION] = "xq_66",
+	--仙器*斗笠
+	[Const.ITEM_XIAN_HAT_POSITION] = "xq_67",
+	--坐骑
+	[Const.ITEM_MOUNT_POSITION] = "equip_mount",
+	--斗笠
+	[Const.ITEM_BAMBOOHAT_POSITION] = "equip_flag_guan",
+
+	--神器*钟
+	[Const.ITEM_SHEN_CLOCK_POSITION] = "equip_flag_zhong",
+	--神器*琴
+	[Const.ITEM_SHEN_QIN_POSITION] = "equip_flag_qin",
+	--神器*锤
+	[Const.ITEM_SHEN_CHUI_POSITION] = "equip_flag_chui",
+	--神器*斧
+	[Const.ITEM_SHEN_FU_POSITION] = "equip_flag_fu",
+
+	--灵宝 圣文 圣石 圣珠 项链
+	[Const.ITEM_LBSW_POSITION] = "lb_sw",
+	[Const.ITEM_LBSS_POSITION] = "lb_ss",
+	[Const.ITEM_LBSZ_POSITION] = "lb_sz",
+	[Const.ITEM_LBXL_POSITION] = "lb_xl",
+
+	--星座
+	[Const.ITEM_XZ1_POSITION] = "xz_1",
+	[Const.ITEM_XZ2_POSITION] = "xz_2",
+	[Const.ITEM_XZ3_POSITION] = "xz_3",
+	[Const.ITEM_XZ4_POSITION] = "xz_4",
+	[Const.ITEM_XZ5_POSITION] = "xz_5",
+	[Const.ITEM_XZ6_POSITION] = "xz_6",
+	[Const.ITEM_XZ7_POSITION] = "xz_7",
+	[Const.ITEM_XZ8_POSITION] = "xz_8",
+	[Const.ITEM_XZ9_POSITION] = "xz_9",
+	[Const.ITEM_XZ10_POSITION] = "xz_10",
+	[Const.ITEM_XZ11_POSITION] = "xz_11",
+	[Const.ITEM_XZ12_POSITION] = "xz_12",
+}
+
+local name_data = {"武器","衣服","左手镯","左戒指","靴子","头盔","项链","右手镯","右戒指","腰带","东皇钟","伏羲琴",
+				   "铃铛","神印","盘古斧","昊天锤","神谕","戒指","武器","衣服","头盔","项链","护肩","盾牌","神坠","斗笠","坐骑",
+				   "斗笠","圣文","圣石","圣珠","项链",
+				   "白羊","金牛","双子","巨蟹","狮子","处女","天秤","天蝎","射手","摩羯","水瓶","双鱼"} 
+
+--显隐人物内观
+function PanelQuickAddEquip.showInnerLooks(isVisible)
+	local img_role = var.xmlRolePanel:getChildByName("img_role")
+	local img_wing = var.xmlRolePanel:getChildByName("img_wing")
+	local img_weapon = var.xmlRolePanel:getChildByName("img_weapon")
+	local img_hair = var.xmlRolePanel:getChildByName("img_hair")
+	
+	img_role:setVisible(isVisible)
+	img_wing:setVisible(isVisible)
+	img_weapon:setVisible(isVisible)
+	img_hair:setVisible(isVisible)
+end
+
+function PanelQuickAddEquip.initView(extend)
+	var = {
+		xmlPanel,
+		mShowMainEquips = true,
+		playerName,
+		curWeaponId=nil,
+		curClothId=nil,
+		curwingId=nil,
+		equipPage=nil,
+		animalPage=nil,
+		fireworks=nil,
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelQuickAddEquip.uif")
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel, "bg_wai", "needload/bg_role_small.png")
+		var.xmlRolePanel = var.xmlPanel:getWidgetByName("roleLayout")
+		util.asyncload(var.xmlPanel, "page_role_bg", "needload/PanelAvatar/img_ditu4.png")
+		util.asyncload(var.xmlPanel, "box_xz_equips" ,"needload/PanelAvatar/img_ditu7.png")
+		util.asyncload(var.xmlPanel, "box_lb_equips", "needload/PanelAvatar/img_ditu8.png")
+
+		local boxMainEquips = var.xmlRolePanel:getWidgetByName("box_main_equips")
+		local boxViceEquips = var.xmlRolePanel:getWidgetByName("box_vice_equips")
+		local boxXZEquips = var.xmlRolePanel:getWidgetByName("box_xz_equips")
+		local boxLbEquips = var.xmlRolePanel:getWidgetByName("box_lb_equips")
+		local ts_panel = var.xmlRolePanel:getWidgetByName("ts_panel")
+
+		var.equipPage = var.xmlPanel:getWidgetByName("box_role")
+		var.animalPage = var.xmlPanel:getWidgetByName("box_xz")
+
+		local function updateBoxEquips()
+			var.xmlRolePanel:getWidgetByName("btn_switch_equips"):loadTextureNormal(var.mShowMainEquips and "btn_role_fu" or "btn_role_zhu", ccui.TextureResType.plistType)
+			-- print("updateBoxEquips", var.mShowMainEquips)
+			var.xmlRolePanel:getWidgetByName("box_role"):setLocalZOrder(4)
+			if var.mShowMainEquips then
+				boxMainEquips:show()
+				ts_panel:hide()
+				boxViceEquips:hide()
+				boxXZEquips:hide()
+				boxLbEquips:hide()
+				PanelQuickAddEquip.showInnerLooks(true)
+			else
+				ts_panel:show()
+				boxMainEquips:hide()
+				boxViceEquips:show()
+			end
+		end
+
+		PanelQuickAddEquip.updateInnerLooks()
+		updateBoxEquips()
+
+		local equipPage = var.xmlPanel:getWidgetByName("box_role"):show()
+
+		--4大特殊装备切换
+		local sqLookBtn = var.xmlRolePanel:getWidgetByName("sq_look")
+		sqLookBtn:addClickEventListener(function ()
+			if not boxViceEquips:isVisible() then
+				boxMainEquips:hide()
+				boxXZEquips:hide()
+				boxLbEquips:hide()
+				boxViceEquips:show()
+				PanelQuickAddEquip.showInnerLooks(true)
+			end
+		end)
+
+		local xzLookBtn = var.xmlRolePanel:getWidgetByName("xz_look")
+		xzLookBtn:addClickEventListener(function ()
+			if not boxXZEquips:isVisible() then
+				boxMainEquips:hide()
+				boxViceEquips:hide()
+				boxLbEquips:hide()
+				boxXZEquips:show()
+				PanelQuickAddEquip.showInnerLooks(false)
+			end
+		end)
+
+		local lbLookBtn = var.xmlRolePanel:getWidgetByName("lb_look")
+		lbLookBtn:addClickEventListener(function ()
+			if not boxLbEquips:isVisible() then
+				boxMainEquips:hide()
+				boxXZEquips:hide()
+				boxViceEquips:hide()
+				boxLbEquips:show()
+				PanelQuickAddEquip.showInnerLooks(false)
+			end
+		end)
+
+		-- --星座装备切换
+		-- local btnAnimal = var.xmlPanel:getWidgetByName("btn_animal")
+		-- btnAnimal:addClickEventListener(function ()
+		-- 	if var.equipPage:isVisible() then
+		-- 		var.animalPage:show()
+		-- 		var.equipPage:hide()
+		-- 		--showInnerLooks(false)
+		-- 		btnAnimal:loadTextureNormal("btn_equip", ccui.TextureResType.plistType)
+		-- 	else
+		-- 		var.animalPage:hide()
+		-- 		var.equipPage:show()
+		-- 		--showInnerLooks(true)
+		-- 		btnAnimal:loadTextureNormal("btn_constelltion", ccui.TextureResType.plistType)
+		-- 	end
+		-- end)
+
+		var.xmlRolePanel:getWidgetByName("jqqd"):addTouchEventListener(function(event, sender)
+			NetClient:alertLocalMsg("暂未开放，敬请期待！")
+		end)
+
+		-- 主装神装切换
+		local btnSwitch = var.xmlRolePanel:getWidgetByName("btn_switch_equips"):setPressedActionEnabled(true)
+		btnSwitch:addClickEventListener( function (sender)
+			var.mShowMainEquips = not var.mShowMainEquips
+			updateBoxEquips()
+		end)
+
+		local function suitAttrLook(info)
+			local mParam = {
+			name = Notify.EVENT_PANEL_ON_ALERT,
+			panel = "SuitTips",
+			infoTable = info,
+			visible = true,
+			}
+			NetClient:dispatchEvent(mParam)
+		end
+
+		cc.EventProxy.new(NetClient, var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelQuickAddEquip.handlePanelData)
+
+		PanelQuickAddEquip.refreshPanel(extend)
+
+		return var.xmlPanel
+	end
+end
+
+function PanelQuickAddEquip.handlePanelData(event)
+	if event.type ~= "PanelQuickAddEquip" then return end
+	local data = util.decode(event.data)
+	if data.cmd =="sucessAnim" then
+		PanelQuickAddEquip.successAnimate(60050)
+	end
+end
+
+--强化成功特效
+function PanelQuickAddEquip.successAnimate(effectid)
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlRolePanel):pos(240, 440):setLocalZOrder(10000)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,effectid,4)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.removeSelf(),
+			cca.cb(function ()
+				var.fireworks=nil
+			end),
+		}))
+	end
+end
+
+function PanelQuickAddEquip.refreshPanel(extend)
+	local idx = 0			--记录当前索引值
+
+	for i = 1, #equip_info do
+		local isXZ = false
+		idx = i
+		local equip_block = var.xmlRolePanel:getWidgetByName("equip_"..i)
+		local param
+		if not equip_block then
+			idx = idx - 33 + 1
+			equip_block = var.xmlRolePanel:getWidgetByName("xz_"..idx)
+			isXZ = true
+			
+		end
+		if equip_block then
+			local tTitle = nil
+			if isXZ == true then
+				tTitle	= Const.XzDesc[idx]
+			end
+			param = {
+				parent = equip_block,
+				pos	= equip_info[i].pos,		--左边的装备tips显示在右边，反之亦然
+				title 			= tTitle,
+				mShowEquipFlag  = true,
+				iconType = Const.ICONTYPE.NOTIP,
+				tipsType = not equip_info[i].noTipsBtn and Const.TIPS_TYPE.GENERAL or nil,
+				callBack = function ()
+					if not NetClient:getItemDefByPos(equip_info[i].pos) then
+						NetClient:alertLocalMsg("该部位没有装备道具", "alert")
+						return
+					end
+					if game.IsViceEquipmentWithPos(equip_info[i].pos) then
+						NetClient:alertLocalMsg("该部件不可强化！", "alert")
+						return
+					end
+
+					local param = {
+						name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = "确认将"..name_data[i].."强化到"..extend.value.."级吗？", btnConfirm = "确认",btnCancel ="取消",
+						confirmCallBack = function ()
+							NetClient:PushLuaTable("gui.PanelDuanZao.handlePanelData",util.encode({actionid="quickQianghua",pos = equip_info[i].pos,nextlevel=extend.value,id=extend.id}))
+						end
+					}
+					NetClient:dispatchEvent(param)
+				end
+			}
+		end
+		UIItem.getItem(param)
+	end
+end
+
+function PanelQuickAddEquip.updateInnerLooks(event)
+	local img_role = var.xmlRolePanel:getChildByName("img_role")
+	local img_wing = var.xmlRolePanel:getChildByName("img_wing")
+	local img_weapon = var.xmlRolePanel:getChildByName("img_weapon")
+	local img_hair = var.xmlRolePanel:getChildByName("img_hair")
+
+	--设置翅膀内观
+	if not img_wing then
+		img_wing = cc.Sprite:create()
+		img_wing:addTo(var.xmlRolePanel):align(display.CENTER, 220, 260):setName("img_wing"):setScale(0.75)
+	end
+	
+	--设置翅膀内观
+	local wing = NetClient:getItemDefByPos(Const.ITEM_FASHION_WING_POSITION)
+	if wing then
+		wing = MainRole._mainAvatar:NetAttr(Const.net_wing) - 19000
+	else
+		wing = MainRole._mainAvatar:NetAttr(Const.net_wing) - 20001
+	end
+
+	if wing then
+		if wing ~= img_wing.curwingId then
+			local imgWingEffect = img_wing:getChildByName("wingEffect")
+			if not imgWingEffect then
+				util.addEffect(img_wing, "wingEffect", GROUP_TYPE.WING, wing, {x=0, y=0}, nil, true)
+				img_wing.curwingId = wing
+			else
+				util.updateEffect(img_wing, "wingEffect", wing, GROUP_TYPE.WING)
+			end
+		end
+	end
+
+	--设置衣服内观
+	if not img_role then
+		img_role = cc.Sprite:create()
+		img_role:addTo(var.xmlRolePanel):align(display.CENTER, 215, 270):setName("img_role")
+	end
+	local clothDef,clothId
+	local isFashion = false
+
+	clothDef = NetClient:getItemDefByPos(Const.ITEM_FASHION_CLOTH_POSITION)
+	if clothDef then
+		clothId = clothDef.mIconID
+		isFashion = true
+	else
+		clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+		if clothDef then
+			clothId = clothDef.mIconID
+		end
+	end
+
+	if not clothId then
+		local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+		local luoti= gender==200 and  11100002 or 11100002
+		clothId = luoti
+	end
+
+	if clothId~=img_role.curClothId then
+		local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashion" or "cloth",clothId)
+		asyncload_callback(filepath, img_role, function(filepath, texture)
+			img_role:setTexture(filepath)
+		end)
+		img_role.curClothId = clothId
+	end
+
+	--设置武器内观
+	if not img_weapon then
+		img_weapon = cc.Sprite:create()
+		img_weapon:addTo(var.xmlRolePanel):align(display.CENTER, 215, 270):setName("img_weapon")
+	end
+	local weaponDef, weaponId
+	local isFashion = false
+
+	weaponDef = NetClient:getItemDefByPos(Const.ITEM_FASHION_WEAPON_POSITION)
+	if weaponDef then
+		weaponId = weaponDef.mIconID
+		isFashion = true
+	else
+		weaponDef = NetClient:getItemDefByPos(Const.ITEM_WEAPON_POSITION)
+		if weaponDef then
+			isFashion = false
+			weaponId = weaponDef.mIconID
+		end
+	end
+
+	if weaponId then
+		if weaponId ~= img_weapon.curWeaponId then
+			local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashionweapon" or "weapon", weaponId)
+			print(filepath)
+			asyncload_callback(filepath, img_weapon, function(filepath, texture)
+				img_weapon:setTexture(filepath)
+			end)
+			img_weapon.curWeaponId = weaponId
+		end
+	else
+		img_weapon:setSpriteFrame("null")
+		img_weapon.curWeaponId = nil
+	end
+
+	--设置斗笠内观
+	if not img_hair then
+		img_hair = cc.Sprite:create()
+		img_hair:addTo(var.xmlRolePanel):align(display.CENTER, 215, 270):setName("img_hair")
+	end
+	local hairDef, hairId
+	local isFashion = false
+
+	hairDef = NetClient:getItemDefByPos(Const.ITEM_BAMBOOHAT_POSITION)
+	if hairDef then
+		hairId = hairDef.mIconID
+	end
+
+	if hairId then
+		if hairId ~= img_hair.curHairId then
+			local filepath = string.format("vipassana/hair/%d.png", hairId)
+			asyncload_callback(filepath, img_hair, function(filepath, texture)
+				img_hair:setTexture(filepath)
+			end)
+			img_hair.curHairId = hairId
+		end
+	else
+		img_hair:setSpriteFrame("null")
+		img_hair.curHairId = nil
+	end
+
+	var.playerName = MainRole._mainAvatar:NetAttr(Const.net_name)
+	if var.playerName then
+		var.xmlPanel:getWidgetByName("lbl_role_name"):setString(var.playerName)
+	end
+	local guild_name = MainRole._mainAvatar:NetAttr(Const.net_guild_name)
+	if not guild_name or guild_name == "" then
+		guild_name = "暂无行会"
+	end
+	var.xmlPanel:getWidgetByName("lbl_guild_name"):setString(guild_name)
+
+	local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+	local imgJob = var.xmlPanel:getWidgetByName("img_Job")
+	local jobres = {"img_role_zhan","img_role_fa","img_role_dao"}
+	imgJob:loadTexture(jobres[job-99], ccui.TextureResType.plistType)
+end
+
+function PanelQuickAddEquip.updateBoxEquips()
+	var.xmlPanel:getWidgetByName("img_equips_type"):loadTexture(var.mShowMainEquips and "word_vice_equips" or "word_main_equips", ccui.TextureResType.plistType)
+	local boxMainEquips = var.xmlPanel:getWidgetByName("box_main_equips")
+	local boxViceEquips = var.xmlPanel:getWidgetByName("box_vice_equips")
+	if var.mShowMainEquips then
+		boxMainEquips:show()
+		boxViceEquips:hide()
+	else
+		boxMainEquips:hide()
+		boxViceEquips:show()
+	end
+end
+
+-- local btnArrs = {"btn_switch_equips"}
+-- function PanelQuickAddEquip.initBtn()
+-- 	local function prsBtnClick(sender)
+-- 		local senderName = sender:getName()
+-- 		if senderName=="btn_switch_equips" then
+-- 			NetClient:PushLuaTable("gui.PanelGongXun.handlePanelData",util.encode({actionid = "addGongXun"}))
+-- 		end
+-- 	end
+-- 	for i=1,#btnArrs do
+-- 		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+-- 		UIRedPoint.addUIPoint(btn,prsBtnClick)
+-- 	end
+-- end
+
+function PanelQuickAddEquip.onPanelOpen(extend)
+	
+end
+
+function PanelQuickAddEquip.onPanelClose()
+
+end
+
+return PanelQuickAddEquip

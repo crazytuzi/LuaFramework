@@ -1,0 +1,515 @@
+-- 选择服务器界面
+
+SceneSelectServer = class("SceneSelectServer", function()
+    return display.newScene("SceneSelectServer")
+end)
+
+local needloadImg = {
+	-- ["imgSceneBg"] = {res = "img_battle.jpg", needscale = true, posX = display.cx, posY = display.cy, anchor = display.CENTER},
+	["serverBg"] = {res = "server_bg.png", posX = display.cx, posY = display.cy, anchor = display.CENTER}
+}
+
+local buttonTable = {"btnLogout", "btnEnterGame", "btnSelectServer", "btnLastServer"}
+
+function SceneSelectServer:ctor()
+	self.m_serverUI = nil
+	self.panelLogin = nil
+	self.panelServerList = nil
+	self.curPanel = nil
+	self.loginManager = nil
+	self.serverList = {}
+	self.serverId = 1
+	self.curTag = 1		-- 当前选的大区
+	self.svrpath = cc.FileUtils:getInstance():getWritablePath().."serverList.json"
+	self.directEnter = false
+end
+
+local serverNum = 20
+
+-- -- 人物大图动画
+function SceneSelectServer:playBgAnim(ui)
+-- 	local startNum = 1
+-- 	local doorNum = 20
+ 	local imgSceneBg = self.m_serverUI:getWidgetByName("imgSceneBg"):align(display.CENTER, display.cx, display.cy):scale(cc.MAX_SCALE)
+-- 	local function startAnim()
+ 		asyncload_callback("needload/img_login.png", imgSceneBg, function (filepath, texture)
+			if util.isObjectExist(imgSceneBg) then
+				imgSceneBg:loadTexture(filepath)
+			end
+ 		end)
+-- 		startNum = startNum + 1
+-- 		if startNum >= 21 then
+-- 			startNum = 1
+-- 		end
+-- 	end
+	
+-- 	ui:runAction(cca.repeatForever(cca.seq({cca.delay(0.1),cca.cb(startAnim)}),tonumber(20)))
+end
+
+function SceneSelectServer:onEnter()
+	if PlayAudio.musicName~="sound/login.mp3" then
+		PlayAudio.music("sound/login.mp3")
+	end
+
+	self.m_serverUI = UILuaLoader.load("uilayout/SceneSelectServer.uif")
+	if self.m_serverUI then
+		self.m_serverUI:size(cc.size(display.width, display.height)):align(display.CENTER, display.cx, display.cy):addTo(self,2)
+		local sceneScale = display.height / 640
+		for k,v in pairs(needloadImg) do
+			local imgNeedLoad = self.m_serverUI:getWidgetByName(k):loadTexture("needload/"..v.res):setTouchEnabled(true):show()
+			-- if v.needscale then imgNeedLoad:setScale(sceneScale) end
+			-- if v.posX then imgNeedLoad:align(v.anchor, v.posX, v.posY) end
+		end
+		-- local img_left = self.m_serverUI:getWidgetByName("img_left")
+		-- local img_right = self.m_serverUI:getWidgetByName("img_right")
+
+		-- img_left:setPositionX(display.cx)
+		-- img_right:setPositionX(display.cx)
+
+		-- asyncload_callback("needload/OpenDoor/img_login_open.jpg", img_left, function (filepath, texture)
+		-- 	if util.isObjectExist(img_left) then
+		-- 		img_left:loadTexture(filepath):scale(cc.MAX_SCALE)
+		-- 	end
+		-- 	if util.isObjectExist(img_right) then
+		-- 		img_right:loadTexture(filepath):scale(cc.MAX_SCALE)
+		-- 	end
+		-- end)
+		-- img_right:setFlippedX(true)
+
+		-- local panelBg = self.m_serverUI:getWidgetByName("imgSceneBg")
+		-- --加载背景
+		-- asyncload_callback("needload/2.png", panelBg, function (filepath, texture)
+		-- 	if util.isObjectExist(panelBg) then
+		-- 		panelBg:loadTexture(filepath):scale(cc.MAX_SCALE)
+		-- 	end
+		-- end)
+
+		self:playBgAnim(self.m_serverUI)
+		--util.asyncload(self.m_serverUI, "panelBg", "needload/2.png")
+
+		--self:openDoor(self.m_serverUI)
+		-- asyncload_callback("needload/tip_chenmi.png", self, function (filepath, texture)
+		-- 	if util.isObjectExist(self) then
+		-- 		self.tip_chenmi = ccui.ImageView:create(filepath):align(display.BOTTOM_CENTER, display.cx, 0):addTo(self,3):hide()
+		-- 	end
+		-- end)
+
+		if device.platform ~= "windows" then
+			local assetsCode = PlatformTool.getConfigString("assets_code")
+			local version = PlatformTool.getConfigString("version")
+			if not assetsCode or assetsCode=="" or assetsCode=="0" then
+				assetsCode = version
+			end
+
+			local lblAssetsCode = util.newUILabel({
+				text = lan.Com_Resource..":"..assetsCode,
+				font = FONT_NAME,
+				fontSize = 24,
+				color = cc.c3b(255, 165, 0),
+			}):addTo(self,11):align(display.RIGHT_TOP, display.right - 10, display.top - 10):enableOutline(cc.c4b(24,19,11,200),1)
+
+			local lblAssetsCode = util.newUILabel({
+				text = lan.Com_Game..":"..version,
+				font = FONT_NAME,
+				fontSize = 24,
+				color = cc.c3b(255, 165, 0),
+			}):addTo(self,11):align(display.LEFT_TOP, display.left + 10, display.top - 10):enableOutline(cc.c4b(24,19,11,200),1)
+		end
+
+		self.panelLogin = self.m_serverUI:getWidgetByName("panelLogin"):align(display.CENTER, display.cx, display.cy):hide()
+
+		self.panelServerList = self.m_serverUI:getWidgetByName("panelServerList"):align(display.CENTER, display.cx, display.cy):hide()
+			:setContentSize(cc.size(display.width, display.height)):setTouchEnabled(true)
+		self.curPanel = self.panelLogin
+
+		local imgSelectBg = self.panelLogin:getChildByName("Image_1")
+		-- imgSelectBg:pos(display.cx, display.cy)
+
+		local btnSelectServer = self.m_serverUI:getWidgetByName("btnSelectServer")
+		local btnServerBg = self.m_serverUI:getWidgetByName("btnServerBg")
+		btnServerBg:pos(display.cx, 180)
+		--btnSelectServer:pos(display.cx + btnSelectServer:getContentSize().width/2, display.cy)
+		btnSelectServer:addClickEventListener(function ()
+			self:onSelectServer()
+		end)
+
+
+		self.panelConnect = self.m_serverUI:getWidgetByName("Panel_Connect")
+		self.panelConnect:setContentSize(cc.size(display.width, display.height)):align(display.CENTER, display.cx, display.cy)
+		self.panelConnect:setTouchEnabled(true)
+		self.panelConnect:setVisible(false)
+
+		--固定屏幕位置
+		-- self.panelLogin:getWidgetByName("btnLogout"):pos(104,45)
+		-- self.panelLogin:getWidgetByName("btnEnterGame"):pos(978,45)
+		local btnLogout = self.panelLogin:getWidgetByName("btnLogout");
+		local btnEnterGame = self.panelLogin:getWidgetByName("btnEnterGame");
+		btnEnterGame:pos(display.cx, 90)
+		
+		local btnLogoutSize = btnLogout:getContentSize();
+		-- btnLogout:pos(display.left+btnLogoutSize.width/2+20, 45)
+
+		local btnEnterGameSize = btnEnterGame:getContentSize();
+		-- btnEnterGame:pos(display.right-btnEnterGameSize.width/2-20, 45)
+
+		self.panelLogin:setContentSize(display.width, display.height)
+
+		-- 公告
+		self.panelLogin:getWidgetByName("btnNotice"):addClickEventListener(function ()
+			-- asyncload_frames("uipic/SceneNotice",".png",function ()
+			-- 	display.replaceScene(SceneNotice.new())
+			-- end)
+		end)
+
+		for i,v in ipairs(buttonTable) do
+			local btnScence = self.m_serverUI:getWidgetByName(v)
+			if v == "btnLogout" then
+				-- btnScence:align(display.LEFT_TOP, display.left + 10, display.height - 10)
+			elseif v == "btnAnnounceMent" then
+				btnScence:align(display.RIGHT_TOP, display.right - 10, display.height - 10)
+			end
+			UIRedPoint.addUIPoint(btnScence, handler(self, self.pushSceneButtons))
+		end
+		UIRedPoint.addUIPoint(self.panelServerList, handler(self, self.pushSceneButtons))
+	end
+
+	cc.EventProxy.new(NetClient,self)
+		:addEventListener(Notify.EVENT_LOADCHAR_LIST, handler(self, self.handleCharLoaded))
+		:addEventListener(Notify.EVENT_KEYBOARD_PASSED, handler(self, self.onKeyboard))
+
+	self.loginManager = LoginManager:new()
+	self:handleScenePartVisible(false)
+	self:updateServerInfo()
+
+end
+
+function SceneSelectServer:openDoor(ui)
+	--我家大门常打开
+	local startNum = 1
+	local doorNum = 7
+	local img_left = ui:getWidgetByName("img_leftdoor")
+	local img_right = ui:getWidgetByName("img_rightdoor")
+	local function startOpen()
+		asyncload_callback("needload/OpenDoor/img_door"..startNum..".jpg", img_left, function (filepath, texture)
+			if util.isObjectExist(img_left) then
+				img_left:loadTexture(filepath):scale(display.height/640)
+			end
+			if util.isObjectExist(img_right) then
+				img_right:loadTexture(filepath):scale(display.height/640)
+			end
+		end)
+		startNum = startNum + 1
+		if startNum >= 8 then
+			-- img_left:hide()
+			-- img_right:hide()
+			img_left:runAction(cca.fadeOut(0.5))
+			img_right:runAction(cca.fadeOut(0.5))
+			self:handleScenePartVisible(false)
+		end
+	end
+	img_right:setFlippedX(true)
+	ui:runAction(cca.rep(cca.seq({cca.delay(0.25),cca.cb(startOpen)}),tonumber(7)))
+end
+function SceneSelectServer:onKeyboard(event)
+	if event.key=="back" then
+		-- game.ShowExit()
+	end
+end
+
+function SceneSelectServer:onSelectServer(  ) --选择服务器
+	self:hideAndShowPanel(self.panelServerList)
+end
+
+function SceneSelectServer:updateServerInfo(showPanel)
+	self.serverList = self.loginManager:getServers()
+	print("--------------serverList = "..json.encode(self.serverList))
+	
+	self.serverId=UserConfig.Data["LastServerId"]
+
+
+	local recommendId = self.loginManager:getRecommendServer()
+	local btnRecommandServer = self.m_serverUI:getWidgetByName("btnRecommandServer")
+	if recommendId then
+		btnRecommandServer.tag = recommendId
+		btnRecommandServer:getChildByName("lblSVRName"):setString(self.serverList[recommendId].name)
+		btnRecommandServer:getChildByName("imgSVRStatus"):loadTexture("img_svr_status"..self.serverList[recommendId].status, ccui.TextureResType.plistType)
+		btnRecommandServer:show()
+	else
+		btnRecommandServer:hide()
+	end
+	UIRedPoint.addUIPoint(btnRecommandServer, handler(self, self.pushServerButton))
+	if self.serverId == nil or self.serverId == "" then
+		self.serverId = self.serverList[recommendId].serverId
+	end
+
+	local list = self.m_serverUI:getWidgetByName("listServer")
+	list:reloadData(#self.serverList, handler(self, self.updateServerList))
+
+	local quList = self.m_serverUI:getWidgetByName("listServerqu")
+	quList:reloadData((#self.serverList - 1) / serverNum + 1, handler(self, self.updateServerQuList))
+
+	local info = self.loginManager:getServerById(self.serverId)
+	if info then
+		self.m_serverUI:getWidgetByName("btnSelectServer"):getChildByName("lblServerName"):setString(info.name)
+
+		local btnLastServer = self.m_serverUI:getWidgetByName("btnLastServer")
+		btnLastServer.tag = self.serverId
+		btnLastServer:getChildByName("lblSVRLast"):setString(info.name)
+		local status = info.status
+		if tonumber(info.status) > 2 then
+			status = 1
+		end
+
+		btnLastServer:getChildByName("imgSVRStatus"):loadTexture("img_svr_status"..status, ccui.TextureResType.plistType)
+		UIRedPoint.addUIPoint(btnLastServer, handler(self, self.pushServerButton))
+
+		if self.directEnter and info.socket and info.socket ~= "" then
+			self:pushLoginButton()
+			PlatformTool.showMsg(lan.Com_Loading, 1)
+		end
+	end
+	self.directEnter = false
+end
+
+function SceneSelectServer:pushSceneButtons(pSender)
+	local btnName = pSender:getName()
+	if btnName == "btnEnterGame" then 
+		self:pushLoginButton()
+	elseif btnName == "btnLogout" and not game.disEnterButton then
+		util.showAlert(lan.Com_Tip,"要退出当前账号吗？",{lan.Com_Confirm, lan.Com_Cancel},function (event)
+			if event.buttonIndex == 1 then
+				self:handleScenePartVisible(true)
+				game.ExitToRelogin()
+		    end
+		end, self)
+	elseif btnName == "btnLastServer" or btnName == "panelServerList" then 
+		self:hideAndShowPanel()
+	end
+end
+
+function SceneSelectServer:showRelatePanel(panel)
+	self.curPanel = panel
+	if panel then
+		--self.tip_chenmi:setVisible(self.curPanel == self.panelServerList)
+		self.curPanel:pos(display.cx, display.cy):show()
+	end
+end
+
+function SceneSelectServer:hideAndShowPanel(panel)
+	local tempPanel = panel or self.panelLogin
+	if self.curPanel == tempPanel then return end
+
+	self.curPanel:hide()
+	self:showRelatePanel(tempPanel)
+end
+
+function SceneSelectServer:pushServerQuBtn(cell)
+	self.curTag = cell.tag
+	local col = math.floor(#self.serverList / serverNum)
+	local row = #self.serverList % serverNum
+	local list = self.m_serverUI:getWidgetByName("listServer")
+	list:reloadData((self.curTag - 1) < col and serverNum or row, handler(self, self.updateServerList))
+	if self.curBtn then
+		self.curBtn:loadTexture("btn_gate", ccui.TextureResType.plistType)
+	end
+	self.curBtn = cell
+	self.curBtn:loadTexture("btn_gate_sel", ccui.TextureResType.plistType)
+end
+
+-- 更新左边服务器区服列表
+function SceneSelectServer:updateServerQuList(item)
+	item:setTouchEnabled(true)
+	local sBtn = item:getWidgetByName("btnServerBg"):setScale(1.2)
+	item:getWidgetByName("lblSVRName"):setString("统战 "..tonumber(item.tag).." 区")
+	if not sBtn.cellCallBack then
+		sBtn.cellCallBack = true
+		sBtn.tag = item.tag
+		-- UIRedPoint.addUIPoint(sBtn, handler(self, self.pushServerQuBtn))
+		item:addClickEventListener(function()
+			self:pushServerQuBtn(sBtn)
+		end)
+
+		if item.tag == 1 then
+			sBtn:loadTexture("btn_gate_sel", ccui.TextureResType.plistType)
+			self:pushServerQuBtn(sBtn)
+			self.curBtn = sBtn
+		end
+	end
+end
+
+function SceneSelectServer:updateServerList(item)
+	item.tag = (self.curTag - 1) * serverNum + item.tag
+	print("----------SceneSelectServer:updateServerList---------item.tag="..item.tag)
+	local svrData = self.loginManager:getServerById(item.tag)
+	item:hide()--:setTouchEnabled(false)
+	if svrData then
+		item:getWidgetByName("lblSVRName"):setString(svrData.name)
+		item:getWidgetByName("img_role_num_bg"):hide()
+		item:getWidgetByName("imgSVRStatus"):loadTexture("img_svr_status0", ccui.TextureResType.plistType)
+		if svrData.socket and svrData.socket ~= ""  then
+			local status = svrData.status
+			if tonumber(svrData.status) > 3 then
+				status = 1
+			end
+			-- 0 维护 1 流畅  2 爆满
+			item:getWidgetByName("imgSVRStatus"):loadTexture("img_svr_status"..status, ccui.TextureResType.plistType)
+		end
+		if game.svrRole and type(game.svrRole)=="table" then
+			if game.svrRole[svrData.serverId] and tonumber(game.svrRole[svrData.serverId])>0 then
+				item:getWidgetByName("img_role_num_bg"):show()
+				item:getWidgetByName("img_role_num_bg"):getWidgetByName("lbl_role_num"):setString(tostring(game.svrRole[svrData.serverId]))
+			end
+		end
+		if svrData.role and tonumber(svrData.role)>0 then
+			item:getWidgetByName("img_role_num_bg"):show()
+			item:getWidgetByName("img_role_num_bg"):getWidgetByName("lbl_role_num"):setString(tostring(svrData.role))
+		end
+		item.socket = svrData.socket
+		if not item.cellCallBack then
+			item.cellCallBack = true
+			UIRedPoint.addUIPoint(item, handler(self, self.pushServerButton))
+		end
+		local imgSVRTag = item:getChildByName("imgSVRTag")
+		if svrData.isNew and tonumber(svrData.isNew) == 1 then
+			if not imgSVRTag then
+				imgSVRTag = ccui.ImageView:create("img_svr_tag1", ccui.TextureResType.plistType):setName("imgSVRTag")
+					:align(display.CENTER, 210, 35)
+					:setScale(0.68)
+					:addTo(item)
+			end
+			imgSVRTag:show():setScale(0.68)		
+		elseif imgSVRTag then
+			imgSVRTag:hide()
+		end
+		item:show()
+	end
+end
+
+function SceneSelectServer:pushServerButton(cell)
+	print("------pushServerButton-----")
+	print("---------cell.tag = "..cell.tag)
+
+	local svrData = self.loginManager:getServerById(cell.tag)
+	if (cell.tag ~= nil) and (svrData ~= nil) then
+		local info = svrData
+
+		if info and info.status then
+			self.serverId = cell.tag
+			self.m_serverUI:getWidgetByName("btnSelectServer"):getChildByName("lblServerName"):setString(info.name)
+			self:hideAndShowPanel()
+		-- elseif info and info.status and tonumber(info.status) == 0 then
+		-- 	util.showAlert("", lan.SceneSelectServer_Server_Weihu.."!", "")
+		-- elseif info and info.status and tonumber(info.status) == 6 then
+		-- 	util.showAlert("", "尚未到开区时间，请稍后进入".."!", "")
+		end
+	end
+end
+
+function SceneSelectServer:onExit()
+	-- loginScene和SceneSelectServer 都用的同一个合图， 所以这里不能removeFramesByFile
+	-- cc.SpriteManager:getInstance():removeFramesByFile("uipic/SceneSelectServer")
+	cc.CacheManager:getInstance():releaseUnused(false)
+	
+	game.disEnterButton = false
+end
+
+function SceneSelectServer:pushLoginButton(pSender)
+	if not game.disEnterButton then
+		local svrData = self.loginManager:getServerById(self.serverId)--game.lastSvr
+		game.lastSvr = svrData
+		if svrData == nil then
+			svrData = self.serverList[1]
+		end
+
+		if svrData.socket and svrData.socket ~= "" then
+			local errorFun= function (code, msg)
+				util.showAlert(lan.Com_Tip,msg,{lan.Com_Confirm},function (event)
+
+				end, self)
+			end
+			local progressFun=function (code,msg)
+				--game.showConnecting(self.connectBox,true,msg)
+				self.panelConnect:setVisible(true)
+				self.panelConnect:getChildByName("Text_Connect"):setString(msg):align(display.CENTER, display.cx, display.cy + 80)
+								:setLocalZOrder(2)
+
+				local sprite = ccui.ImageView:create()
+    						:align(display.CENTER, display.cx, display.cy + 80)
+							:addTo(self.panelConnect)
+
+				if not sprite then return end
+				sprite:stopAllActions()
+				--cc.Director:getInstance():getActionManager():removeAllActionsFromTarget(sprite)
+				
+				-- local frames = display.newFrames("loadingtips%d", 1, 10)
+				-- local animation = display.newAnimation(frames, 0.1)
+				-- sprite:playAnimationForever(animation)
+				-- sprite:setScale(1.5)
+				local curNum = 1
+				sprite:runAction(cca.loop(
+					cca.seq({
+						cca.delay(0.15),
+						cca.cb(function ()
+							if curNum < 7 then
+								curNum = curNum + 1
+							else
+								curNum = 1
+							end
+							asyncload_callback("needload/login/"..curNum..".png", sprite, function(filepath, texture) 
+								sprite:loadTexture(filepath)
+							end)
+						end)
+					})
+				))
+				
+			end
+			local successFun=function()
+				NetClient:ListCharacter()
+			end
+			self.loginManager:selectServer(svrData.serverId,errorFun,progressFun,successFun)
+    		return
+		else
+			util.showAlert(lan.Com_Not_Open, lan.Com_Open_Zone_Time.."："..svrData.openDateTime..","..lan.SceneSelectServer_Refresh_List.."?" ,{lan.Com_Confirm, lan.Com_Cancel}, function (event)
+				if event.buttonIndex == 1 then
+					self.directEnter = true
+					self:requestServerList()
+				end
+			end)
+			-- util.showAlert("尚未开启", "开区时间："..svrData.openDateTime, "确定")
+			return
+		end
+		util.showAlert("", lan.SceneSelectServer_ServerData_YiChang, lan.Com_Confirm)
+	end
+end
+
+function SceneSelectServer:handleCharLoaded(event)
+	cc.SpriteManager:getInstance():removeFramesByFile("uipic/SceneSelectServer")
+	
+	if #NetClient._netChars > 0 then
+		asyncload_frames("uipic/SceneSelectRole",".png",function ()
+			display.replaceScene(SceneSelectRole.new())
+	    end,self)
+	else
+		asyncload_frames("uipic/SceneCreateRole",".png",function ()
+			display.replaceScene(SceneCreateRole.new())
+		end,self)
+	end
+end
+
+function SceneSelectServer:handleScenePartVisible(isAccount)
+	if isAccount then
+		print("====>SceneSelectServer.isAccount = true")
+	else
+		print("====>SceneSelectServer.isAccount = false")
+	end
+
+	self.m_serverUI:getWidgetByName("btnLogout"):setVisible(not isAccount)
+	if isAccount then
+		self.curPanel:setVisible(false)
+	end
+
+	self.curPanel = self.panelLogin:setVisible(not isAccount)
+	if not isAccount then self.curPanel:pos(display.cx, display.cy) end
+end
+
+return SceneSelectServer

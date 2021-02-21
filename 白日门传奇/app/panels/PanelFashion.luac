@@ -1,0 +1,1751 @@
+local PanelFashion = {}
+local var = {}
+local pageKeys = {
+	"role","fashion","zuoqi"--,"huanwu"--"
+
+}
+local lblhint = {
+    "<font color=#E7BA52 size=18>时装说明</font>",
+    "1.	穿戴时装即可获得该时装属性。",
+    "2.	限时类同款套装多次使用，剩余时间叠加。",
+    "3.	选中时装可预览时装形象，佩戴后可改变场景中角色形象。"
+}
+
+local attrData = {
+    {str = "物理攻击：", x1 = "mDC", x2 = "mDCMax"},
+    {str = "物理防御：", x1 = "mAC", x2 = "mACMax"},
+    {str = "魔法防御：", x1 = "mMAC", x2 = "mMACMax"}
+}
+local lblhint_step = {
+    "<font color=#E7BA52 size=18>脚印说明</font>",
+    "1.	穿戴脚印即可获得该脚印属性。",
+    "2.	限时类同款脚印多次使用，剩余时间叠加。",
+    "3.	选中脚印可预览脚印形象，佩戴后可改变场景中脚印形象。"
+}
+local lblhint1 = {
+    "<font color=#E7BA52 size=18>星座说明</font>",
+    "1.	穿戴6件激活星座套装属性：三攻增加2%",
+    "2.	穿戴12件激活星座套装属性：三攻增加3%"
+}
+
+local equip_info = {
+	{pos = Const.ITEM_WEAPON_POSITION,	etype = Const.EQUIP_TAG.WEAPON},
+	{pos = Const.ITEM_CLOTH_POSITION,	etype = Const.EQUIP_TAG.CLOTH},
+	{pos = Const.ITEM_GLOVE1_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING1_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BOOT_POSITION,	etype = Const.EQUIP_TAG.BOOT},
+
+	{pos = Const.ITEM_HAT_POSITION,		etype = Const.EQUIP_TAG.HAT},
+	{pos = Const.ITEM_NICKLACE_POSITION,etype = Const.EQUIP_TAG.NECKLACE},
+	{pos = Const.ITEM_GLOVE2_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING2_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BELT_POSITION,	etype = Const.EQUIP_TAG.BELT},
+
+	{pos = Const.ITEM_JADE_PENDANT_POSITION, noTipsBtn = true	},--不可以卸载
+	{pos = Const.ITEM_SHIELDD_POSITION,		noTipsBtn = true	},
+	{pos = Const.ITEM_MIRROR_ARMOUR_POSITION,	},
+	{pos = Const.ITEM_FACE_CLOTH_POSITION,		},
+	{pos = Const.ITEM_DRAGON_HEART_POSITION, noTipsBtn = true	},
+	{pos = Const.ITEM_WOLFANG_POSITION,		noTipsBtn = true	},
+	{pos = Const.ITEM_DRAGON_BONE_POSITION,		},
+	{pos = Const.ITEM_CATILLA_POSITION,			},
+
+	{pos = Const.ITEM_TEJIE1_POSITION,	etype = Const.EQUIP_TAG.TEJIE1},
+	{pos = Const.ITEM_TEJIE2_POSITION,	etype = Const.EQUIP_TAG.TEJIE2},
+	--飞升
+	{pos = Const.ITEM_LUNHUI_POSITION,	etype = Const.EQUIP_TAG.LUNHUI},
+	
+	-- {pos = Const.ITEM_DIAOZHUI_POSITION,	},
+	-- {pos = Const.ITEM_HUDUN_POSITION,		},
+	-- {pos = Const.ITEM_LONGXIN_POSITION,		},
+	-- {pos = Const.ITEM_HUNZHU_POSITION,		},
+	
+	{pos = Const.ITEM_DOULI_POSITION,	etype = Const.EQUIP_TAG.DOULI},
+	{pos = Const.ITEM_DUNPAI_POSITION,	etype = Const.EQUIP_TAG.DUNPAI},
+	
+	--十二生肖
+
+	--特戒
+	-- {pos = Const.ITEM_MABI_POSITION,	etype = Const.EQUIP_TAG.MABI},
+	-- {pos = Const.ITEM_XIXUE_POSITION,	etype = Const.EQUIP_TAG.XIXUE},
+	-- {pos = Const.ITEM_FUHUO_POSITION,	etype = Const.EQUIP_TAG.FUHUO},
+	--轮回 203
+		--根骨
+
+	--套装
+	{pos = Const.ITEM_TAOZ_POSITION,},	--28-30
+	{pos = Const.ITEM_TAOZ1_POSITION,},	
+	{pos = Const.ITEM_TAOZ2_POSITION,},	 --26
+}
+
+local fashionPos = {
+	Const.ITEM_FASHION_CLOTH_POSITION,
+	Const.ITEM_FASHION_WEAPON_POSITION,
+	Const.ITEM_MOUNT_POSITION,
+}
+local fashionwuPos = {
+
+	Const.ITEM_FASHION_WEAPON_POSITION
+}
+local fashionzuoqiPos = {
+
+	Const.ITEM_MOUNT_POSITION
+}
+
+
+local Attr={
+{
+					key = "lbl_dc",
+					name = "物   攻：",
+					value = NetClient.mCharacter.mDC .. " - " .. NetClient.mCharacter.mMaxDC
+				},
+				{
+					key = "lbl_ac",
+					name = "物   防：",
+					value = NetClient.mCharacter.mAC .. " - " .. NetClient.mCharacter.mMaxAC
+				},
+				{
+					key = "lbl_mac",
+					name = "魔   防：",
+					value = NetClient.mCharacter.mMAC .. " - " .. NetClient.mCharacter.mMaxMAC
+				},
+				{
+					key = "lbl_accuracy",
+					name = "准   确：",
+					value = NetClient.mCharacter.mAccuracy
+				},
+				{
+					key = "lbl_dodge",
+					name = "闪   避：",
+					value = NetClient.mCharacter.mDodge
+				},
+				{
+					key = "labSSSH",
+					name = "神圣伤害：",
+					value = NetClient.mCharacter.holyDam
+				},
+				{
+					key = "lbl_crit_prob",
+					name = "暴击概率：",
+					value = NetClient.mCharacter.critProb / 100 .. "%"
+				},
+				{
+					key = "lbl_crit_point",
+					name = "暴击伤害：",
+					value = NetClient.mCharacter.critPoint
+				},
+				{
+					key = "lbl_tenacity",
+					name = "韧   性：",
+					value = NetClient.mCharacter.tenacity
+				},
+				{
+					key = "lbl_luck",
+					name = "幸   运：",
+					value = NetClient.mCharacter.mLuck
+				},
+				{
+					key = "lbl_pkvalue",
+					name = "PK   值：",
+					value = MainRole._mainAvatar:NetAttr(Const.net_pkvalue)
+				},
+				{
+					key = "lbl_damadd",
+					name = "内功恢复：",
+					value = NetClient.mCharacter.powerRecover
+				},
+				{
+					key = "lbl_damadd",
+					name = "生命恢复：",
+					value = NetClient.mCharacter.hpRecover
+				},
+				-- {
+					-- key = "lbl_damadd",
+					-- name = "伤害加成：",
+					-- value = NetClient.mCharacter.addDamage / 100 .. "%"
+				-- },
+				-- {
+					-- key = "lbl_damredu",
+					-- name = "伤害减免：",
+					-- value = NetClient.mCharacter.reduceDamage / 100 .. "%"
+				-- },
+				{
+					key = "lbl_critms",
+					name = "暴击免伤：",
+					value = NetClient.mCharacter.critms
+				},
+				-- {
+					-- key = "lbl_dead",
+					-- name = "防爆减免：",
+					-- value = NetClient.mCharacter.reduceDeadEquip / 100 .. "%"
+				-- }
+
+}
+
+local function hideAllPages()
+	local pageName
+	for i,v in ipairs(pageKeys) do
+		pageName = "xmlPage"..string.ucfirst(v)
+		if var[pageName] then
+			var[pageName]:hide()
+		end
+	end
+end
+
+function showPanelPage(index)
+	local key = pageKeys[index] --uv0[slot0]
+	if not (key and table.indexof(pageKeys, key))then return end
+
+	var.lastTabIndex = index
+	var.curPageName = key
+
+	-- uv2()
+	hideAllPages()
+	local pageName = "xmlPage"..string.ucfirst(key)
+	local initFunc = "initPage" .. string.ucfirst(key)
+	local openFunc = "openPage" .. string.ucfirst(key)
+
+	if not var[pageName] and PanelFashion[initFunc] then
+		PanelFashion[initFunc]()
+	end
+
+	if var[pageName] then
+		if PanelFashion[openFunc] then
+			PanelFashion[openFunc]()
+		end
+
+		var[pageName]:show()
+
+		var.isDepotPanelOpen = false
+		var.isRecylePanelOpen = false
+
+		if key ~= "bag" and key ~= "role" then
+			var.xmlRolePanel:hide()
+			var.xmlKnapsackPanel:hide()
+			var.xmlRecylePanel:hide()
+		else
+			var.xmlRolePanel:show()
+			var.xmlKnapsackPanel:hide()
+			var.xmlRecylePanel:hide()
+		end
+	end
+end
+
+function pushTabButtons(sender)
+-- function slot15(slot0)
+--	slot1, slot2, slot3 = nil
+	--slot1 = true
+	local opened, level, funcName
+	opened = true
+	--uv0==pageKeys
+	if pageKeys[sender:getTag()] == "reborn" then
+	-- if uv0[slot0:getTag()] == "reborn" then
+		opened, level, funName = NetClient:checkFuncOpenedByID(10014)
+		--slot4=sender:gettag()
+	elseif pageKeys[sender:getTag()] == "gem" then
+		opened, level, funName = NetClient:checkFuncOpenedByID(10015)
+	end
+
+	if not opened then
+		var.boxTab:setTabSelected(var.lastTabIndex)
+		NetClient:alertLocalMsg(funName .. "功能暂未开放，" .. level .. "级开放")
+
+		return
+	end
+	--uv2=showPanelPage
+	showPanelPage(sender:getTag())
+end
+	
+function PanelFashion.showInnerLooks(event)
+		var.xmlRolePanel:getChildByName("img_role"):setVisible(event)
+		var.xmlRolePanel:getChildByName("img_wing"):setVisible(event)
+		var.xmlRolePanel:getChildByName("img_weapon"):setVisible(event)
+		var.xmlRolePanel:getChildByName("img_douli"):setVisible(event)
+end
+
+function PanelFashion.updateInnerLooks (typeId)
+		local img_role = var.xmlRolePanel:getChildByName("img_role")
+		local img_wing = var.xmlRolePanel:getChildByName("img_wing")
+		local img_weapon = var.xmlRolePanel:getChildByName("img_weapon")
+		local img_douli = var.xmlRolePanel:getChildByName("img_douli")
+		local img_dunpai = var.xmlRolePanel:getChildByName("img_dunpai")
+		
+
+
+		if not img_wing then
+			img_wing = cc.Sprite:create()
+			img_wing:addTo(var.xmlRolePanel):align(display.CENTER, 260, 135):setName("img_wing"):setScale(1.75)
+			-- cc.Sprite:create():addTo(var.xmlRolePanel):align(display.CENTER, 220, 220):setName("img_wing"):setScale(0.75)
+		end
+		local wing = MainRole._mainAvatar:NetAttr(Const.net_wing)
+		if wing then
+			if not img_wing:getChildByName("wingEffect") then
+			util.addEffect(img_wing, "wingEffect", GROUP_TYPE.WING, wing, {
+					x = 0,
+					y = 0
+				}, nil, true)
+
+				var.curwingId = wing
+			else
+				util.updateEffect(img_wing, "wingEffect", wing, GROUP_TYPE.WING)
+			end
+		else
+			img_wing:setTexture(nil)
+			img_wing:setVisible(false)
+			var.curwingId=nil
+		end
+		
+		if not img_role then
+			img_role = cc.Sprite:create()
+			img_role:addTo(var.xmlRolePanel):align(display.CENTER, 255, 240):setName("img_role")--:setScale(1)
+		end
+		local clothDef,clothId
+		local isFashion = false
+
+		local fashion = MainRole._mainAvatar:NetAttr(Const.net_fashion)
+		local cloth = MainRole._mainAvatar:NetAttr(Const.net_cloth)
+		if fashion >0 then
+			clothId = fashion
+			isFashion = true
+		else
+			clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+			if clothDef then
+				clothId = clothDef.mIconID
+			end
+		end
+		if not clothId then
+			local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+			local luoti= gender==200 and  11100002 or 11100002
+			clothId = luoti
+		end
+		if clothId~=img_role.curClothId then
+			local filepath = string.format("vipassana/%s/%d.png",isFashion and "fashion" or "cloth",clothId)
+			asyncload_callback(filepath, img_role, function(filepath, texture)
+				img_role:setTexture(filepath)
+			end)
+			img_role.curClothId = clothId
+			
+		end
+
+	    --设置武器内观
+
+		if not img_weapon then
+			img_weapon = cc.Sprite:create()
+			img_weapon:addTo(var.xmlRolePanel):align(display.CENTER, 266, 292):setName("img_weapon")
+		end
+	local weaponDef,weaponId
+	local IsWeapon = false
+		-- slot9, slot10 = nil
+		-- slot11 = false
+		-- local fashion = MainRole._mainAvatar:NetAttr(Const.net_fashion)
+		 weapon = NetClient:getItemDefByPos(Const.ITEM_FASHION_WEAPON_POSITION)
+		 weaponDef = NetClient:getItemDefByPos(Const.ITEM_WEAPON_POSITION)
+		if NetClient:getItemDefByPos(Const.ITEM_FASHION_WEAPON_POSITION) then
+			weaponId = weapon.mIconID
+			IsWeapon = true
+		elseif NetClient:getItemDefByPos(Const.ITEM_WEAPON_POSITION) then
+	
+
+			IsWeapon = false
+			weaponId = weaponDef.mIconID
+		end
+		if not weaponId then
+			local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+			local luoti= gender==200 and  11100012 or 11110012--这里必须有图的空图
+			weaponId = luoti
+		end
+
+			if weaponId ~= img_weapon.curWeaponId then
+				local filepath = string.format("vipassana/%s/%d.png", IsWeapon and "fashionweapon" or "weapon", weaponId)
+
+			
+				asyncload_callback(filepath, img_weapon, function (filepath, texture)
+					img_weapon:setTexture(filepath)
+				end)
+
+				img_weapon.curWeaponId = weaponId
+				-- else
+			-- img_weapon:setTexture(nil)
+			-- img_weapon:setVisible(false)
+			-- var.weaponId=nil
+
+		end
+		
+		--设置斗笠内观
+		if not img_douli then
+			img_douli = cc.Sprite:create()
+			img_douli:addTo(var.xmlRolePanel):align(display.CENTER, 274, 430):setName("img_douli")
+		end
+		local douliDef = NetClient:getItemDefByPos(Const.ITEM_DOULI_POSITION)
+		if not isFashion and douliDef then
+			if douliDef then
+				if douliDef.mIconID~=var.curDouliId then
+				local filepath = "vipassana/douli/"..douliDef.mIconID..".png"
+				asyncload_callback(filepath, img_douli, function(filepath, texture)
+					img_douli:setVisible(true)
+					img_douli:setTexture(filepath)
+				end)
+				var.curDouliId=douliDef.mIconID
+			end
+		else
+			img_douli:setTexture(nil)
+			img_douli:setVisible(false)
+			var.curDouliId=nil
+			end
+		end
+
+
+		--设置盾牌内观
+		if not img_dunpai then
+			img_dunpai = cc.Sprite:create()
+			img_dunpai:addTo(var.xmlRolePanel):align(display.CENTER, 320, 250):setName("img_dunpai")
+		end
+		local dunpaiDef = NetClient:getItemDefByPos(Const.ITEM_DUNPAI_POSITION)
+		if not isFashion and dunpaiDef then
+			if dunpaiDef then
+				if dunpaiDef.mIconID~=var.curDunpaiId then
+					local filepath = "vipassana/dunpai/"..dunpaiDef.mIconID..".png"
+						asyncload_callback(filepath, img_dunpai, function(filepath, texture)
+						img_dunpai:setVisible(true)
+						img_dunpai:setTexture(filepath)
+					end)
+					var.curDunpai=dunpaiDef.mIconID
+				end
+			else
+				img_dunpai:setTexture(nil)
+				img_dunpai:setVisible(false)
+				var.curDunpaiId=nil
+			end	
+		end
+	end
+
+
+function PanelFashion.updateEquips()
+	--[[	slot0 = 0
+
+		for slot4 = 1, #uv0 do
+			slot5 = false
+
+			if not var.xmlRolePanel:getWidgetByName("equip_" .. slot4) then
+				slot6 = var.xmlRolePanel:getWidgetByName("xz_" .. slot0 - 42 + 1)
+				slot5 = true
+			end
+
+			if slot6 then
+				slot6.etype = uv0[slot4].etype
+				slot7 = nil
+
+				if slot5 == true then
+					slot7 = Const.XzDesc[slot0]
+				end
+
+				if uv0[slot4].effectid then
+					if UIItem.getItem({
+						mShowEquipFlag = true,
+						parent = slot6,
+						pos = uv0[slot4].pos,
+						tipsPos = cc.p(display.cx - uv1.xmlRolePanel:getContentSize().width / 2 + (slot4 <= 5 and 290 or 0), display.cy - uv1.xmlRolePanel:getContentSize().height / 2),
+						tipsAnchor = cc.p(0, 0),
+						title = slot7,
+						tipsType = not uv0[slot4].noTipsBtn and Const.TIPS_TYPE.GENERAL or nil,
+						effectId = uv0[slot4].effectid
+					}):setScale(uv0[slot4].scale):getChildByName("iconSprite") then
+						slot9:setPositionX(uv0[slot4].p.x)
+						slot9:setPositionY(uv0[slot4].p.y)
+					end
+				else
+					UIItem.getItem(slot8)
+				end
+			end
+		end]]--
+			for i = 1, #equip_info do
+			local equip_block = var.xmlRolePanel:getWidgetByName("equip_"..i)
+			if equip_block then
+				-- ccui.Widget:create():setContentSize(equip_block:getContentSize()):setName("guideWidget"):align(display.LEFT_BOTTOM, 0, 0):addTo(equip_block)
+				equip_block.etype = equip_info[i].etype
+				local param = {
+					parent			= equip_block,
+					pos				= equip_info[i].pos,--左边的装备tips显示在右边，反之亦然
+					tipsPos			= cc.p(display.cx-var.xmlRolePanel:getContentSize().width/2+(i<=5 and 290 or 0), display.cy-var.xmlRolePanel:getContentSize().height/2),
+					tipsAnchor		= cc.p(0,0),
+					mShowEquipFlag  = true,
+					tipsType = not equip_info[i].noTipsBtn and Const.TIPS_TYPE.GENERAL or nil,
+				}
+				UIItem.getItem(param)
+			local itemdef = NetClient.mItemDesp[param.pos]--装备光圈
+				print (equip_block.etype)
+				local effectID = 65077
+				if itemdef then
+					if itemdef.mItemBg > 0 then
+						effectID = itemdef.mItemBg + effectID - 3
+					end
+				end
+				util.addEffect(equip_block,"spriteEffect",4,effectID,{x = 32 , y = 32})
+			end
+		end	
+		
+		
+		
+		
+	end	
+
+
+function PanelFashion.initView(extend)
+	var = {
+			boxTab,
+			xmlPanel,
+			xmlPageGem,
+			xmlPageRole,
+			xmlPageBag,
+			xmlPageOfficial,
+			xmlPageReborn,
+			xmlPageFashion,
+			xmlPageZuoqi,
+			xmlPageHuanwu,
+			xmlPageInnerPower,
+			xmlRolePanel,
+			xmlKnapsackPanel,
+			xmlRecylePanel,
+			bagSize,
+			powerNum,
+			curClothId,
+			curWeaponId,
+			curPageName,
+			barHp,
+			barMp,
+			barPower,
+			zsLevel,
+			fightNum,
+			imgEquipSelected,
+			curEquipIndex,
+			mSelectedEquip,
+			mShowMainEquips,
+			isDepotPanelOpen = false,
+			curFashionListIndex = 1,
+			recyleItems = {},
+			shopData = {},
+			fashion_data = {},
+			zuoqi_data = {},
+			huanwu_data = {},
+			fashion_preview = {},
+			zuoqi_preview = {},
+			huanwu_preview = {},
+			fashion_list_cells = {},
+			zuoqi_list_cells = {},
+			huanwu_list_cells = {},
+			fireworks=nil,
+	
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelFashion.uif")
+
+	if var.xmlPanel then
+	
+			var.xmlRolePanel = var.xmlPanel:getWidgetByName("roleLayout")
+			 box_main_equips = var.xmlRolePanel:getWidgetByName("box_main_equips")
+			 box_vice_equips = var.xmlRolePanel:getWidgetByName("box_vice_equips")
+			 box_xz_equips = var.xmlRolePanel:getWidgetByName("box_xz_equips")
+			 box_lb_equips = var.xmlRolePanel:getWidgetByName("box_lb_equips")
+			 box_cs_equips = var.xmlRolePanel:getWidgetByName("box_cs_equips")
+			 ts_panel = var.xmlRolePanel:getWidgetByName("ts_panel")
+			
+				local function updateBoxEquips()
+				var.xmlRolePanel:getWidgetByName("btn_switch_equips"):loadTextureNormal(var.mShowMainEquips and "btn_role_fu" or "btn_role_zhu", ccui.TextureResType.plistType)
+				var.xmlRolePanel:getWidgetByName("box_role"):setLocalZOrder(4)
+
+				if var.mShowMainEquips then
+					box_main_equips:show()
+					box_vice_equips:hide()
+					box_xz_equips:hide()
+					box_lb_equips:hide()
+					box_cs_equips:hide()
+					ts_panel:hide()--
+					PanelFashion.showInnerLooks(true)
+				else
+					box_vice_equips:show() --显示按键
+					box_main_equips:hide()
+					-- box_xz_equips:show()
+					ts_panel:show()--显示四个按键
+				end
+			end
+			
+		--[[asyncload_callback("needload/bg_max2.png", uv0.xmlPanel:getWidgetByName("bg_wai"), function (slot0, slot1)
+				uv0:loadTexture(slot0)
+			end)]]--
+		local img_kuang = var.xmlPanel:getWidgetByName("bg_wai"):getChildByName("bg_wai")
+		if not img_kuang then
+			img_kuang = cc.Sprite:create()
+			img_kuang:addTo(var.xmlPanel:getWidgetByName("bg_wai")):align(display.CENTER, 500, 290):setName("bg_wai")
+		end
+		local filepath = "needload/bg_max2.png"
+		asyncload_callback(filepath, img_kuang, function(filepath, texture)
+			img_kuang:setTexture(filepath)
+		end)
+		
+		
+		var.boxTab = var.xmlPanel:getWidgetByName("box_tab")
+		var.boxTab:setTabRes("tab2_nor", "tab2_sel", ccui.TextureResType.plistType)-- 设置角色，背包按键和字体横
+		var.boxTab:getParent():setLocalZOrder(10)
+		var.boxTab:setItemMargin(10)
+		var.boxTab:addTabEventListener(pushTabButtons)
+
+
+		util.asyncload(var.xmlPanel, "page_role_bg", "needload/PanelAvatar/img_ditu2.png")
+		util.asyncload(var.xmlPanel, "box_xz_equips", "needload/PanelAvatar/img_ditu7.png")
+		util.asyncload(var.xmlPanel, "box_lb_equips", "needload/PanelAvatar/img_ditu8.png")
+		util.asyncload(var.xmlPanel, "box_cs_equips", "needload/PanelAvatar/img_ditu10.png")		
+		
+			var.xmlKnapsackPanel = var.xmlPanel:getWidgetByName("knapsack_bg")
+			var.xmlRecylePanel = var.xmlPanel:getWidgetByName("recylebg")		
+			box_role = var.xmlPanel:getWidgetByName("box_role"):show()
+
+			var.xmlRolePanel:getWidgetByName("sq_look"):addClickEventListener(function ()
+				if not box_main_equips:isVisible() then
+					box_cs_equips:hide()
+					box_vice_equips:hide()
+					box_xz_equips:hide()
+					box_lb_equips:hide()
+					box_vice_equips:show()--四个按键是关键的切换
+					PanelFashion.showInnerLooks(true)
+				end
+			end)
+			var.xmlRolePanel:getWidgetByName("xz_look"):addClickEventListener(function ()
+				if not box_main_equips:isVisible() then
+					box_cs_equips:hide()
+					box_vice_equips:hide()
+					box_xz_equips:hide()
+					box_lb_equips:hide()
+					box_xz_equips:show()
+					PanelFashion.showInnerLooks(false)
+				end
+			end)
+			var.xmlRolePanel:getWidgetByName("lb_look"):addClickEventListener(function ()
+				if not box_main_equips:isVisible() then
+					box_cs_equips:hide()
+					box_vice_equips:hide()
+					box_xz_equips:hide()
+					box_lb_equips:hide()
+					box_lb_equips:show()
+					PanelFashion.showInnerLooks(false)
+				end
+			end)
+			var.xmlRolePanel:getWidgetByName("cs_look"):addClickEventListener(function ()
+				if not box_main_equips:isVisible() then
+					box_cs_equips:hide()
+					box_vice_equips:hide()
+					box_xz_equips:hide()
+					box_lb_equips:hide()
+					box_cs_equips:show()
+					PanelFashion.showInnerLooks(false)
+				end
+			end)
+			var.xmlRolePanel:getWidgetByName("btn_switch_equips"):setPressedActionEnabled(true):addClickEventListener( function (sender)
+				var.mShowMainEquips = not var.mShowMainEquips
+
+				updateBoxEquips()
+			end)
+
+			var.mShowMainEquips = true	
+			PanelFashion.updateInnerLooks()
+			PanelFashion.updateEquips()
+			updateBoxEquips()
+		-- var.boxTab:setSelectedTab(1)
+		local opened = NetClient:checkFuncOpenedByID(10015)
+		if not opened then
+			var.boxTab:hideTab(table.keyof(pageKeys,"gem"))
+		end
+		if not MainRole._mainAvatar:NetAttr(Const.net_guild_name) or slot18 == "" then
+			guild_name = "暂无行会"
+		end
+
+			var.xmlRolePanel:getWidgetByName("lbl_guild_name"):setString(guild_name)
+			var.xmlRolePanel:getWidgetByName("lbl_role_name"):setString(MainRole._mainAvatar:NetAttr(Const.net_name))
+			var.xmlRolePanel:getWidgetByName("img_Job"):loadTexture(({
+				"img_role_zhan",
+				"img_role_fa",
+				"img_role_dao"
+			})[MainRole._mainAvatar:NetAttr(Const.net_job) - 99], ccui.TextureResType.plistType)
+			
+		local jobs = MainRole._mainAvatar:NetAttr(Const.net_job)
+		--print("jobs=====",jobs)
+		if jobs == 100 then
+			PlayAudio.play("sound/manWarrior_a.mp3")
+		elseif jobs == 101 then
+			PlayAudio.play("sound/manMage_a.mp3")
+		elseif jobs == 102 then
+			PlayAudio.play("sound/manMtaoist_a.mp3")
+		end
+		cc.EventProxy.new(NetClient, var.xmlPanel)
+			:addEventListener(Notify.EVENT_SELF_HPMP_CHANGE, updateHpMp)
+			-- :addEventListener(Notify.EVENT_ATTRIBUTE_CHANGE,updateAvatarAttr)
+			:addEventListener(Notify.EVENT_AVATAR_CHANGE, PanelFashion.updateInnerLooks)
+			:addEventListener(Notify.EVENT_INNERPOWER_CHANGE, updateInnerPower)
+		
+		
+		return var.xmlPanel
+	end
+end
+	
+--暂时使用onPanelOpen
+function PanelFashion.onPanelOpen  (extend) --function onPanelOpen extend)--(slot0)
+		var.panelExtend = extend
+
+		if not NetClient:checkFuncOpenedByID(10015) then
+			var.boxTab:hideTab(table.keyof(pageKeys, "gem"))
+		end
+
+		if extend and extend.mParam and extend.tab then
+			var.boxTab:setSelectedTab(extend.tab)
+
+			if extend.mParam == "recyle" then
+				var.xmlRolePanel:setVisible(false)
+				var.xmlKnapsackPanel:setVisible(false)
+
+				if not var.xmlRecylePanel:isVisible() then
+					var.xmlRecylePanel:setVisible(true)
+					PanelFashion.initRecyle()
+					PanelFashion.freshBagList()
+				end
+
+				var.isDepotPanelOpen = false
+				var.isRecylePanelOpen = true
+			end
+
+			return
+		end
+
+		if extend and extend.tab and util.isNumber(extend.tab) then
+			var.boxTab:setSelectedTab(extend.tab)
+		elseif extend and extend.index and util.isNumber(extend.index) then
+			var.boxTab:setSelectedTab(extend.index)
+		else
+			var.boxTab:setSelectedTab(1)
+		end
+	end
+function PanelFashion.onPanelClose()
+
+end
+
+function lookAttrDesp (desptable)
+	-- lookAttrDesp = function (slot0) (desptable)
+		NetClient:dispatchEvent({
+			panel = "tips",
+			visible = true,
+			name = Notify.EVENT_PANEL_ON_ALERT,
+			infoTable = despTable,
+		})
+	end
+	
+function PanelFashion.updateAvatarAttr()
+	var.listAttr = var.xmlPageRole:getWidgetByName("listAttr")	
+	var.listAttr:reloadData(#Attr,function( subItem )
+			
+			local d=Attr[subItem.tag]
+				if not Attr[subItem.tag] then
+					return
+				end
+
+				subItem:getWidgetByName("lbl_name"):setString(d.name)
+				subItem:getWidgetByName("lbl_value"):setString(d.value)
+			end):setSliderVisible(false)
+
+	end	
+function PanelFashion.updateHpMp(event)
+		local hp = 		MainRole._mainAvatar:NetAttr(Const.net_hp) or 0
+		local maxhp = 	MainRole._mainAvatar:NetAttr(Const.net_maxhp) or 0
+		local mp =		MainRole._mainAvatar:NetAttr(Const.net_mp) or 0
+		local maxmp = 	MainRole._mainAvatar:NetAttr(Const.net_maxmp) or 0
+
+		if event then
+			var.barHp:setPercentWithAnimation(hp, maxhp)
+			var.barMp:setPercentWithAnimation(mp, maxmp)
+		else
+			local power =      MainRole._mainAvatar:NetAttr(Const.net_power) or 0
+			local maxpower =   MainRole._mainAvatar:NetAttr(Const.net_maxpower) or 0
+			var.barHp:setPercent(hp, maxhp):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+			var.barMp:setPercent(mp, maxmp):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+			var.barPower:setPercent(power, maxpower):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+		end
+	end
+	
+function PanelFashion.initPageRole()
+	--刷新战力
+	local function updateFightPoint()
+		var.powerNum:setString(NetClient.mCharacter.mFightPoint)
+	end
+	local function updateHpMp(event)
+		local hp = 		MainRole._mainAvatar:NetAttr(Const.net_hp) or 0
+		local maxhp = 	MainRole._mainAvatar:NetAttr(Const.net_maxhp) or 0
+		local mp =		MainRole._mainAvatar:NetAttr(Const.net_mp) or 0
+		local maxmp = 	MainRole._mainAvatar:NetAttr(Const.net_maxmp) or 0
+
+		if event then
+			var.barHp:setPercentWithAnimation(hp, maxhp)
+			var.barMp:setPercentWithAnimation(mp, maxmp)
+		else
+			local power =      MainRole._mainAvatar:NetAttr(Const.net_power) or 0
+			local maxpower =   MainRole._mainAvatar:NetAttr(Const.net_maxpower) or 0
+			var.barHp:setPercent(hp, maxhp):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+			var.barMp:setPercent(mp, maxmp):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+			var.barPower:setPercent(power, maxpower):setFontSize( 14 ):enableOutline(game.getColor(0x000000),1)
+		end
+	end
+	
+local function lookAttrDesp (desptable)
+	-- lookAttrDesp = function (slot0) (desptable)
+		NetClient:dispatchEvent({
+			panel = "tips",
+			visible = true,
+			name = Notify.EVENT_PANEL_ON_ALERT,
+			infoTable = despTable,
+		})
+	end
+	---刷新属性条
+
+
+	local function updateInnerPower(event)
+		-- if not event.srcId == MainRole.mID then return end
+		local power =      MainRole._mainAvatar:NetAttr(Const.net_power) or 0
+		local maxpower =   MainRole._mainAvatar:NetAttr(Const.net_maxpower) or 0
+		var.barPower:setPercentWithAnimation(power, maxpower)
+		updateFightPoint()
+	end
+	--套装
+    -- local function updateSxNum()
+		-- local sx_equip_num = NetClient.mSxNum
+		-- local neednum = {4,8,12}
+		-- local tzinfo = {
+		-- "1.1倍攻击力",
+		-- "神圣伤害+5000",
+		-- "伤害提升50%",
+		-- }
+		-- for i=1,#neednum do
+			-- local sx_info = var.xmlPageRole:getWidgetByName("taozhuang_info"..i)
+			-- if sx_equip_num >= neednum[i] then
+				-- sx_info:setColor(game.getColor(0x7CFC00))
+				-- sx_info:setString("穿戴"..neednum[i].."件("..sx_equip_num.."件)生肖装备激活"..tzinfo[i].."(已激活)")
+			-- else
+				-- sx_info:setColor(game.getColor(0xc0bcb4))
+				-- sx_info:setString("穿戴"..neednum[i].."件("..sx_equip_num.."件)生肖装备激活"..tzinfo[i].."(未激活)")
+			-- end
+		-- end
+		
+		-- local sx_buffbtn = var.xmlPageRole:getWidgetByName("btn_sx")
+		-- sx_buffbtn:loadTextureNormal("null",ccui.TextureResType.plistType)
+		-- if sx_equip_num > 0 then
+			-- sx_buffbtn:loadTextureNormal("buff_sx_"..sx_equip_num,ccui.TextureResType.plistType)
+		-- end
+		-- sx_buffbtn:setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+			-- if eventType == ccui.TouchEventType.began then
+				-- NetClient:dispatchEvent({
+					-- name = Notify.EVENT_PANEL_ON_ALERT, panel = "tips", visible = true, infoTable = sxinfo,
+				-- })
+			-- elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled  then
+				-- NetClient:dispatchEvent({
+					-- name = Notify.EVENT_PANEL_ON_ALERT, panel = "all", visible = false })
+			-- end
+		-- end)
+		
+
+	-- end
+	var.xmlPageRole = UILuaLoader.load("uilayout/PanelFashion_role.uif")
+	if var.xmlPageRole then
+	
+		var.xmlPageRole:align(display.LEFT_BOTTOM, 0, 0):addTo(var.xmlPanel)
+
+
+		var.barHp = var.xmlPageRole:getWidgetByName("bar_hp")
+		var.barMp = var.xmlPageRole:getWidgetByName("bar_mp")
+		var.barPower = var.xmlPageRole:getWidgetByName("bar_power")
+		var.listAttr = var.xmlPageRole:getWidgetByName("listAttr")	
+		var.xmlPageRole:getWidgetByName("downbtn"):setRotation(180)                  
+		var.xmlPageRole:getWidgetByName("btn_attr_desc"):addTouchEventListener(function (pSender, eventType)	
+				if eventType == ccui.TouchEventType.began then --slot1=eventType
+					lookAttrDesp(desptable)
+				elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled then
+					LayerAlert.handleAlertClose() --隐藏所有显示框
+				end
+			end)		
+		util.addEffect(var.xmlPageRole, "pointEffect", GROUP_TYPE.EFFECT, 80060):setPosition(680, 28):setScale(1.5)
+		var.powerNum = ccui.TextAtlas:create("0123456789", "fonts/www.png", 20, 32, "0")--123456的动态战力
+			:addTo(var.xmlPageRole:getWidgetByName("Image_2")):setScale(1.25)
+		   :align(display.LEFT_CENTER, 85,20)
+			:setString(0)
+ 	     	var.powerNum:setOpacity(999)
+	       var.powerNum :show():runAction(cca.repeatForever(cca.seq({
+			cca.fadeOut(0.8),
+			cca.fadeIn(0.8),
+				})
+	))
+
+		updateFightPoint()
+		updateHpMp()
+		PanelFashion.updateAvatarAttr()
+		-- PanelFashion.updateInnerLooks()
+		-- PanelFashion.updateEquips()
+		var.xmlPageRole:getWidgetByName("upbtn"):addClickEventListener(function (sender)
+		var.listAttr:moveToNextItem()
+		end)
+		var.xmlPageRole:getWidgetByName("downbtn"):addClickEventListener(function (sender)
+		var.listAttr:moveToPreItem()
+		end)	
+		cc.EventProxy.new(NetClient, var.xmlPageRole)
+			 :addEventListener(Notify.EVENT_SELF_HPMP_CHANGE, updateHpMp)
+			-- :addEventListener(Notify.EVENT_ATTRIBUTE_CHANGE, updateAvatarAttr)
+			:addEventListener(Notify.EVENT_AVATAR_CHANGE, PanelFashion.updateInnerLooks)
+		
+	end
+
+end
+
+
+
+
+
+--------------------------------------时装--------------------------------------
+--显示已装备时装属性
+function PanelFashion.freshFashionAttr(event)
+    local attrList = var.xmlPageFashion:getWidgetByName("attrList"):removeAllItems()
+    local model = var.xmlPageFashion:getWidgetByName("model")
+    local fashionItems = {}
+    for k, v in pairs(fashionPos) do
+        local netItem = NetClient:getNetItem(v)
+        if netItem then
+            local itemDef = NetClient:getItemDefByID(netItem.mTypeID)
+            if itemDef then
+                table.insert(fashionItems, itemDef)
+            end
+        end
+    end
+    for i = 1, 3 do
+        local modeli = model:clone()
+        modeli:getWidgetByName("attrName"):setString(attrData[i].str)
+        local a1, a2 = 0, 0
+        for k, v in pairs(fashionItems) do
+            a1 = a1 + v[attrData[i].x1]
+            a2 = a2 + v[attrData[i].x2]
+        end
+        modeli:getWidgetByName("attrValue"):setString(string.format("%d-%d", a1, a2))
+        attrList:pushBackCustomItem(modeli)
+    end
+end
+function PanelFashion.tryOnFashion(typeId)
+    --武器
+    local img_weapon = var.xmlPageFashion:getChildByName("img_weapon")
+    --设置武器内观
+    if not img_weapon then
+        img_weapon = cc.Sprite:create()
+        img_weapon:addTo(var.xmlPageFashion):align(display.CENTER, 306, 370):setName("img_weapon"):setLocalZOrder(5)
+    end
+    local weaponDef
+    if not typeId and not NetClient:getItemDefByPos(Const.ITEM_FASHION_CLOTH_POSITION) then
+        weaponDef = NetClient:getItemDefByPos(Const.ITEM_WEAPON_POSITION)
+    end
+    if weaponDef then
+        if weaponDef.mIconID ~= img_weapon.curWeaponId then
+            local filepath = "vipassana/weapon/" .. weaponDef.mIconID .. ".png"
+            asyncload_callback(
+                filepath,
+                img_weapon,
+                function(filepath, texture)
+                    img_weapon:setVisible(true)
+                    img_weapon:setTexture(filepath)
+                end
+            )
+            img_weapon.curWeaponId = weaponDef.mIconID
+        end
+    else
+        img_weapon:setTexture(nil)
+        img_weapon:setVisible(false)
+        img_weapon.curWeaponId = nil
+    end
+
+    --设置左手盾内观
+    local img_zuoshoudun = var.xmlPageFashion:getChildByName("img_zuoshoudun")
+    if not img_zuoshoudun then
+        img_zuoshoudun = cc.Sprite:create()
+        img_zuoshoudun:addTo(var.xmlPageFashion):align(display.CENTER, 306, 340):setName("img_zuoshoudun"):setLocalZOrder(4)
+    end
+    -- local weapon = MainRole._mainAvatar:NetAttr(Const.net_weapon)
+    local zuoshoudunDef = NetClient:getItemDefByPos(Const.ITEM_DUNPAI_POSITION)
+    --print("zuoshoudunDef=",zuoshoudunDef)
+    if zuoshoudunDef then
+        if zuoshoudunDef.mIconID ~= img_zuoshoudun.curZuoshoudunId then
+            local filepath = "vipassana/dunpai/" .. zuoshoudunDef.mIconID .. ".png"
+            asyncload_callback(
+                filepath,
+                img_zuoshoudun,
+                function(filepath, texture)
+                    img_zuoshoudun:setVisible(true)
+                    img_zuoshoudun:setTexture(filepath)
+                end
+            )
+            img_zuoshoudun.curZuoshoudunId = zuoshoudunDef.mIconID
+        end
+    else
+        img_zuoshoudun:setTexture(nil)
+        img_zuoshoudun:setVisible(false)
+        img_zuoshoudun.curZuoshoudunId = nil
+    end
+
+    --衣服
+    local img_role = var.xmlPageFashion:getChildByName("img_role")
+    --设置衣服内观
+    if not img_role then
+        img_role = cc.Sprite:create()
+        img_role:addTo(var.xmlPageFashion):align(display.CENTER, 276, 300):setName("img_role"):setLocalZOrder(2)
+    end
+    local clothDef, clothId
+    local isFashion = false
+    if typeId then
+        --试穿
+        clothDef = NetClient:getItemDefByID(typeId)
+        if clothDef then
+            isFashion = true
+            clothId = clothDef.mIconID
+        end
+    else
+        local fashion = MainRole._mainAvatar:NetAttr(Const.net_fashion)
+        local cloth = MainRole._mainAvatar:NetAttr(Const.net_cloth)
+        if fashion > 0 then
+            clothId = fashion
+            isFashion = true
+        else
+            clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+            if clothDef then
+                clothId = clothDef.mIconID
+            end
+        end
+    end
+
+    if not clothId then
+        local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+        local luoti = gender == 200 and 11100002 or 11100002
+        clothId = luoti
+    end
+
+    if typeId and var.fashion_data then
+        local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+        for i = 1, #var.fashion_data do
+            if typeId == var.fashion_data[i].id then
+                if gender == 200 then
+                    clothId = var.fashion_data[i].male
+                else
+                    clothId = var.fashion_data[i].female
+                end
+                break
+            end
+        end
+    end
+    if clothId ~= img_role.curClothId then
+        local filepath = string.format("vipassana/%s/%d.png", isFashion and "fashion" or "cloth", clothId)
+        --print(filepath)
+        asyncload_callback(
+            filepath,
+            img_role,
+            function(filepath, texture)
+                img_role:setTexture(filepath)
+            end
+        )
+        img_role.curClothId = clothId
+    end
+    --设置翅膀内观
+    local img_wing = var.xmlPageFashion:getChildByName("img_wing")
+    if not img_wing then
+        img_wing = cc.Sprite:create()
+        img_wing:addTo(var.xmlPageFashion):align(display.CENTER, 308, 330):setName("img_wing"):setLocalZOrder(1)
+    end
+
+    local wing = MainRole._mainAvatar:NetAttr(Const.net_wing)
+    --local wing = 50009
+    --print("wing=",wing)
+    if wing == 70001 then
+        wing = 50000
+    elseif wing == 70002 then
+        wing = 50001
+    elseif wing == 70003 then
+        wing = 50002
+    elseif wing == 70004 then
+        wing = 50003
+    elseif wing == 70005 then
+        wing = 50004
+    elseif wing == 70006 then
+        wing = 50005
+    elseif wing == 70007 then
+        wing = 50006
+    elseif wing == 70008 then
+        wing = 50007
+    elseif wing == 70009 then
+        wing = 50008
+    elseif wing == 70010 then
+        wing = 50009
+    elseif wing == 70011 then
+        wing = 50010
+    elseif wing == 70012 then
+        wing = 50011
+    elseif wing == 70013 then
+        wing = 50012
+    elseif wing == 70014 then
+        wing = 50013
+    end
+    if wing then
+        if wing then
+            local filepath = "vipassana/wing/" .. wing .. ".png"
+            asyncload_callback(
+                filepath,
+                img_wing,
+                function(filepath, texture)
+                    img_wing:setVisible(true)
+                    img_wing:setTexture(filepath)
+                end
+            )
+            img_wing.curwingId = wing
+        end
+    else
+        img_wing:setTexture(nil)
+        img_wing:setVisible(false)
+        img_wing.curwingId = nil
+    end
+end
+function PanelFashion.ckickDressFashionButton(sender)
+    if sender.position < 0 then
+        NetClient:UndressItem(sender.position)
+    else
+        NetClient:BagUseItem(sender.position, sender.mTypeID)
+    end
+end
+
+function PanelFashion.initPageFashion()
+    local function updateInnerLooks()
+        PanelFashion.tryOnFashion()
+    end
+	var.xmlPageFashion = UILuaLoader.load("uilayout/PanelFashion_fashion.uif")
+	if var.xmlPageFashion then
+		    util.asyncload(var.xmlPageFashion, "page_role_bg", "needload/PanelAvatar/img_ditu3.png")
+        var.xmlPageFashion:align(display.LEFT_BOTTOM, 0, 0):addTo(var.xmlPanel)
+
+
+        var.xmlPageFashion:getWidgetByName("lbl_role_name"):setString(MainRole._mainAvatar:NetAttr(Const.net_name))
+
+        local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+        local imgJob = var.xmlPageFashion:getWidgetByName("img_Job")
+        local jobres = {"img_role_zhan", "img_role_fa", "img_role_dao"}
+        imgJob:loadTexture(jobres[job - 99], ccui.TextureResType.plistType)
+
+        local tabhfashion = var.xmlPageFashion:getWidgetByName("tabhfashion")
+		tabhfashion:setItemMargin(0):setTabColor(game.getColor4(0xefddca),game.getColor4(0xefddca)):setTabRes("btn_red", "btn_red_sel", ccui.TextureResType.plistType)
+        tabhfashion:addTabEventListener(PanelFashion.ckickFashionTab)
+
+        local btn_info = var.xmlPageFashion:getWidgetByName("btn_info")
+        btn_info:setTouchEnabled(true):addTouchEventListener(
+            function(sender, eventType)
+                if eventType == ccui.TouchEventType.began then
+                    NetClient:dispatchEvent(
+                        {
+                            name = Notify.EVENT_PANEL_ON_ALERT,
+                            panel = "tips",
+                            visible = true,
+                            infoTable = lblhint
+                        }
+                    )
+                elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled then
+                    NetClient:dispatchEvent(
+                        {
+                            name = Notify.EVENT_PANEL_ON_ALERT,
+                            panel = "all",
+                            visible = false
+                        }
+                    )
+                end
+            end
+        )
+        NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel", util.encode({actionid = "fresh"}))
+        updateInnerLooks()
+
+        cc.EventProxy.new(NetClient, var.xmlPageFashion):
+		addEventListener(Notify.EVENT_ITEM_CHANGE, PanelFashion.freshFashionPage):
+		addEventListener(Notify.EVENT_AVATAR_CHANGE, updateInnerLooks):
+		addEventListener(Notify.EVENT_PUSH_PANEL_DATA,PanelFashion.setFashiondata)
+    end
+end
+function PanelFashion.setFashiondata(event)
+    -- if event.type == "Fashion" then
+        -- local pData = util.decode(event.data)
+        -- if pData then
+            -- if pData.cmd == "dress_fashion" then
+                -- var.fashion_data = pData.data
+            -- end
+        -- end
+	--这里最容易错误的	
+   if event.type == "PanelFashion" then
+        local data = util.decode(event.data)
+        if data.cmd == "getFashionPreview" then
+            var.fashion_preview = data.Data
+            PanelFashion.freshFashionPage({pos = -64})
+        end
+    end
+end
+function PanelFashion.freshFashionPage(event)
+    local tabhfashion = var.xmlPageFashion:getWidgetByName("tabhfashion")
+    local x = pageKeys[var.boxTab:getCurIndex()]
+	--这里设置不对话，不是第一时间显示必须点击列表才会显示
+    if x == "fashion" then  
+        -- if tabhfashion:getCurIndex() == table.indexof(fashionPos,event.pos) then
+        PanelFashion.ckickFashionTab(tabhfashion:getItemByIndex(tabhfashion:getCurIndex()))
+        -- end
+        if table.indexof(fashionPos, event.pos) then
+            PanelFashion.freshFashionAttr(event)
+        end
+    end
+end
+
+
+--刷新时装列表
+function PanelFashion.ckickFashionTab(tab)
+    PanelFashion.tryOnFashion()
+    local function pushSelectItem(item)
+        if item and item.tagFashionId > 0 then
+            --PanelFashion.tryOnFashion(item.tagFashionId)
+            PanelFashion.TryFashionShow(item.tagFashionId, item.tag)
+        end
+    end
+    local tag = tab:getTag()
+    var.fashion_list_cells = {}
+    var.curFashionListIndex = 0
+    if tag == 1 then
+        local data = {}
+        local opendata = {}
+        if var.fashion_preview then
+            for k, v in pairs(var.fashion_preview) do
+                local dest = NetClient:getItemDefByID(v.id)
+                if dest then
+                    opendata[dest.mIconID] = v
+                end
+            end
+        end
+        for k, v in pairs(NetClient.mItems) do
+            if k >= Const.ITEM_FASHIONDEPOT_BEGIN and k <= Const.ITEM_FASHIONDEPOT_BEGIN + Const.ITEM_FASHIONSIZEE then
+                local dest = NetClient:getItemDefByID(v.mTypeID)
+                if game.IsSameFashion(v.mTypeID, fashionPos[tag]) and opendata[dest.mIconID] then
+                    table.insert(data, v)
+                end
+            end
+        end
+        local DressItem = NetClient:getNetItem(fashionPos[tag])
+
+        local lbllefttime = var.xmlPanel:getWidgetByName("lbllefttime"):hide():stopAllActions()
+        local lblleftstr = var.xmlPanel:getWidgetByName("lblleftstr"):hide()
+        if DressItem then
+            local dest = NetClient:getItemDefByID(DressItem.mTypeID)
+            if dest and opendata[dest.mIconID] then
+                lblleftstr:show()
+                lbllefttime:show()
+                table.insert(data, 1, DressItem)
+                -- local itemDef = NetClient:getItemDefByID(DressItem.mTypeID)
+                local sec = 0
+                -- if itemDef then
+                sec = DressItem.mLastTime - os.time() + DressItem.mCreateTime
+                -- end
+                if DressItem.mLastTime == 0 then
+                    lbllefttime:setString("永久")
+                else
+                    util.runCountDown(
+                        lbllefttime,
+                        sec,
+                        function(target, count)
+                            target:setString(util.setTimeFormat(count * 1000, 6))
+                        end
+                    )
+                end
+            end
+        end
+
+        local fashionList = var.xmlPageFashion:getWidgetByName("fashionList")
+        fashionList:reloadData(
+            #data,
+            function(subItem)
+                local d = data[subItem.tag]
+                local itemDef = NetClient:getItemDefByID(d.mTypeID)
+                UIItem.getItem(
+                    {
+                        parent = subItem:getWidgetByName("icon"),
+                        typeId = d.mTypeID,
+                        iconType = Const.ICONTYPE.NOTIP,
+                        callBack = function()
+                            PanelFashion.tryOnFashion(d.mTypeID)--点击icon
+                            PanelFashion.TryFashionShow(d.mTypeID, subItem.tag)
+                        end
+                    }
+                )
+
+                subItem:getWidgetByName("itemname"):setString(itemDef.mName)
+                local btn_dress = subItem:getWidgetByName("btn_dress")
+                btn_dress.mTypeID = d.mTypeID
+                btn_dress.position = d.position
+                btn_dress:addClickEventListener(PanelFashion.ckickDressFashionButton)
+                btn_dress:setTitleText(d.position < 0 and "卸下" or "穿戴"):setVisible(true)
+                local hasDress = subItem:getWidgetByName("hasDress")
+                hasDress:setVisible(d.position < 0)
+                subItem:getWidgetByName("img_selected"):setVisible(false)
+                subItem:getWidgetByName("lbl_fashion_remark"):setVisible(false)
+                subItem.tagFashionId = d.mTypeID
+                subItem:setTouchEnabled(true)
+                UIRedPoint.addUIPoint(subItem, pushSelectItem)
+
+                local needCell = var.fashion_list_cells[subItem.tag]
+                if not needCell then
+                    needCell = subItem
+                    needCell:setName(subItem:getName() .. subItem.tag)
+                end
+                var.fashion_list_cells[subItem.tag] = needCell
+            end
+        )
+    elseif tag == 2 then
+        var.xmlPageFashion:getWidgetByName("fashionList"):reloadData(
+            #var.fashion_preview,
+            function(subItem)
+                local previewdata = var.fashion_preview[subItem.tag]
+                local d = var.fashion_preview[subItem.tag]
+                UIItem.getItem(
+                    {
+                        parent = subItem:getWidgetByName("icon"),
+                        typeId = previewdata.id,
+                        iconType = Const.ICONTYPE.NOTIP,
+                        callBack = function()
+                            PanelFashion.tryOnFashion(previewdata.id)--点击icon
+                            PanelFashion.TryFashionShow(d.id, subItem.tag)
+                        end
+                    }
+                )
+                subItem:getWidgetByName("img_selected"):setVisible(false)
+                subItem:getWidgetByName("itemname"):setString(previewdata.name)
+                subItem:getWidgetByName("btn_dress"):setVisible(false)
+                subItem:getWidgetByName("hasDress"):setVisible(false)
+                subItem:getWidgetByName("lbl_fashion_remark"):setVisible(true):setString(previewdata.accessway)
+                subItem.tagFashionId = previewdata.id
+                subItem:setTouchEnabled(true)
+                UIRedPoint.addUIPoint(subItem, pushSelectItem)
+
+                local needCellpre = var.fashion_list_cells[subItem.tag]
+                if not needCellpre then
+                    needCellpre = subItem
+                    needCellpre:setName(subItem:getName() .. subItem.tag)
+                end
+                var.fashion_list_cells[subItem.tag] = needCellpre
+            end
+        )
+    end
+end
+
+function PanelFashion.TryFashionShow(fashionid, listindex)
+    PanelFashion.tryOnFashion(fashionid)
+    if var.curFashionListIndex > 0 and var.fashion_list_cells[var.curFashionListIndex] then
+        var.fashion_list_cells[var.curFashionListIndex]:getWidgetByName("img_selected"):setVisible(false)
+    end
+    var.fashion_list_cells[listindex]:getWidgetByName("img_selected"):setVisible(true)
+    var.curFashionListIndex = listindex
+end
+
+function PanelFashion.openPageFashion()
+    local tabhfashion = var.xmlPageFashion:getWidgetByName("tabhfashion")
+    tabhfashion:setSelectedTab(2)
+    local guild_name = MainRole._mainAvatar:NetAttr(Const.net_guild_name)
+    if not guild_name or guild_name == "" then
+        guild_name = "暂无帮会"
+    end
+    var.xmlPageFashion:getWidgetByName("lbl_guild_name"):setString(guild_name)
+
+    PanelFashion.freshFashionAttr()
+    NetClient:PushLuaTable("item.chufa.getfashionlook", util.encode({actionid = "reqfashionData", params = {}}))
+end
+
+--坐骑问题可能是在服务器端的chufa
+
+--------------------------------------坐骑--------------------------------------
+--显示已装备时装属性
+function PanelFashion.freshZuoqiAttr(event)
+    local attrList = var.xmlPageZuoqi:getWidgetByName("attrList"):removeAllItems()
+    local model = var.xmlPageZuoqi:getWidgetByName("model")
+    local fashionItems = {}
+    for k, v in pairs(fashionPos) do
+        local netItem = NetClient:getNetItem(v)
+        if netItem then
+            local itemDef = NetClient:getItemDefByID(netItem.mTypeID)
+            if itemDef then
+                table.insert(fashionItems, itemDef)
+            end
+        end
+    end
+    for i = 1, 3 do
+        local modeli = model:clone()
+        modeli:getWidgetByName("attrName"):setString(attrData[i].str)
+        local a1, a2 = 0, 0
+        for k, v in pairs(fashionItems) do
+            a1 = a1 + v[attrData[i].x1]
+            a2 = a2 + v[attrData[i].x2]
+        end
+        modeli:getWidgetByName("attrValue"):setString(string.format("%d-%d", a1, a2))
+        attrList:pushBackCustomItem(modeli)
+    end
+end
+function PanelFashion.tryOnZuoqi(typeId)
+     local img_role = var.xmlPanel:getChildByName("img_role")
+    --设置衣服内观
+    if not img_role then
+        img_role = cc.Sprite:create()
+        img_role:addTo(var.xmlPanel):align(display.CENTER, 276, 300):setName("img_role"):setLocalZOrder(2)
+    end
+    local clothDef, clothId
+    local isFashion = false
+    if typeId then
+        --试穿
+        clothDef = NetClient:getItemDefByID(typeId)
+        if clothDef then
+            isFashion = true
+            clothId = clothDef.mIconID
+        end
+		-- print(clothDef.mIconID)
+    else
+        local fashion = MainRole._mainAvatar:NetAttr(Const.net_fashion)
+        local cloth = MainRole._mainAvatar:NetAttr(Const.net_cloth)
+        if fashion > 0 then
+            clothId = fashion
+            isFashion = true
+        else
+            clothDef = NetClient:getItemDefByPos(Const.ITEM_CLOTH_POSITION)
+            if clothDef then
+                clothId = clothDef.mIconID
+            end
+			-- print(clothId)
+        end
+    end
+
+    if not clothId then
+        local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+        local luoti = gender == 200 and 11100002 or 11100002
+        clothId = luoti
+		-- print(clothId)
+    end
+
+    if typeId and var.zuoqi_data then
+        local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+        for i = 1, #var.zuoqi_data do
+            if typeId == var.zuoqi_data[i].id then
+                if gender == 200 then
+                    clothId = var.zuoqi_data[i].effect
+                else
+                    clothId = var.zuoqi_data[i].effect
+					-- print(clothId)
+                end
+                break
+            end
+        end
+		 print(clothId)
+    end
+	-- local clothIde = 0
+	 -- img_role:removeChildByName("effectNode")
+	-- if clothId == 13010 then
+			-- if not var.xmlPanel:getChildByName("effectNode") then
+					-- util.addEffect(img_role, "effectNode", GROUP_TYPE.EFFECT, clothId, {
+						-- x = 300,
+						-- y = 300
+					-- }, nil, true)
+				-- else
+					-- util.updateEffect(img_role, "effectNode", clothId, GROUP_TYPE.EFFECT)
+				-- end
+				-- print(clothId)
+				-- end
+	-- if clothId == 13011 then
+			-- if not var.xmlPanel:getChildByName("effectNode") then
+					-- util.addEffect(img_role, "effectNode", GROUP_TYPE.EFFECT, clothId, {
+						-- x = 330,
+						-- y = 240
+					-- }, nil, true)
+				-- else
+					-- util.updateEffect(img_role, "effectNode", clothId, GROUP_TYPE.EFFECT)
+				-- end
+				-- print(clothId)
+	-- end
+	local clothIde = clothId-12986991
+    if clothId ~= img_role.curClothId then
+		 img_role:removeChildByName("wingEffect")
+		if not img_role:getChildByName("wingEffect") then
+			-- if clothIde == 13010 then
+			util.addEffect(img_role, "wingEffect", GROUP_TYPE.EFFECT, clothIde, {
+				x = 0,
+				y = 0
+			}, nil, true)
+							else
+					util.updateEffect(img_role, "effectNode",clothIde, GROUP_TYPE.EFFECT)
+				end
+			print(clothIde)
+			-- end
+      --[[ local filepath = string.format("vipassana/%s/%d.png", isFashion and "fashion" or "cloth", clothId)
+		-- print(filepath)
+        asyncload_callback(
+            filepath,
+            img_role,
+            function(filepath, texture)
+                img_role:setTexture(filepath)
+            end
+        )
+        img_role.curClothId = clothId
+		-- print(img_role)]]--
+    end
+end
+function PanelFashion.ckickDressZuoqiButton(sender)
+    if sender.position >0 then
+        NetClient:UndressItem(sender.position)
+    else
+        NetClient:BagUseItem(sender.position, sender.mTypeID)
+    end
+end
+function PanelFashion.initPageZuoqi()
+    local function updateInnerLooks()
+        PanelFashion.tryOnZuoqi()
+    end
+	var.xmlPageZuoqi = UILuaLoader.load("uilayout/PanelFashion_zuoqi.uif")
+	if var.xmlPageZuoqi then
+		    util.asyncload(var.xmlPageZuoqi, "page_role_bg", "needload/PanelAvatar/img_ditu3.png")
+        var.xmlPageZuoqi:align(display.LEFT_BOTTOM, 0, 0):addTo(var.xmlPanel)
+
+
+        var.xmlPageZuoqi:getWidgetByName("lbl_role_name"):setString(MainRole._mainAvatar:NetAttr(Const.net_name))
+
+        local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+        local imgJob = var.xmlPageZuoqi:getWidgetByName("img_Job")
+        local jobres = {"img_role_zhan", "img_role_fa", "img_role_dao"}
+        imgJob:loadTexture(jobres[job - 99], ccui.TextureResType.plistType)
+
+        local tabhfashion = var.xmlPageZuoqi:getWidgetByName("tabhfashion")
+		tabhfashion:setItemMargin(0):setTabColor(game.getColor4(0xefddca),game.getColor4(0xefddca)):setTabRes("btn_red", "btn_red_sel", ccui.TextureResType.plistType)
+        tabhfashion:addTabEventListener(PanelFashion.ckickZuoqiTab)
+
+        local btn_info = var.xmlPageZuoqi:getWidgetByName("btn_info")
+        btn_info:setTouchEnabled(true):addTouchEventListener(
+            function(sender, eventType)
+                if eventType == ccui.TouchEventType.began then
+                    NetClient:dispatchEvent(
+                        {
+                            name = Notify.EVENT_PANEL_ON_ALERT,
+                            panel = "tips",
+                            visible = true,
+                            infoTable = lblhint
+                        }
+                    )
+                elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled then
+                    NetClient:dispatchEvent(
+                        {
+                            name = Notify.EVENT_PANEL_ON_ALERT,
+                            panel = "all",
+                            visible = false
+                        }
+                    )
+                end
+            end
+        )
+        NetClient:PushLuaTable("gui.PanelZuoqi.onOpenPanel", util.encode({actionid = "fresh"}))
+        updateInnerLooks()
+
+        cc.EventProxy.new(NetClient, var.xmlPageZuoqi):
+		addEventListener(Notify.EVENT_ITEM_CHANGE, PanelFashion.freshZuoqiPage):
+		addEventListener(Notify.EVENT_AVATAR_CHANGE, updateInnerLooks):
+		addEventListener(Notify.EVENT_PUSH_PANEL_DATA,PanelFashion.setZuoqidata)
+    end
+end
+function PanelFashion.setZuoqidata(event)
+    if event.type == "Zuoqi" then
+        local pData = util.decode(event.data)
+        if pData then
+            if pData.cmd == "dress_fashion" then
+                var.zuoqi_data = pData.data
+            end
+        end
+	--这里最容易错误的	
+   elseif event.type == "PanelZuoqi" then
+        local data = util.decode(event.data)
+        if data.cmd == "getZuoqiPreview" then
+            var.zuoqi_preview = data.Data
+            PanelFashion.freshZuoqiPage({pos = -64})
+        end
+    end
+end
+function PanelFashion.freshZuoqiPage(event)
+    local tabhfashion = var.xmlPageZuoqi:getWidgetByName("tabhfashion")
+    local x = pageKeys[var.boxTab:getCurIndex()]
+	--这里设置不对话，不是第一时间显示必须点击列表才会显示
+    if x == "zuoqi" then  
+        -- if tabhfashion:getCurIndex() == table.indexof(fashionPos,event.pos) then
+        PanelFashion.ckickZuoqiTab(tabhfashion:getItemByIndex(tabhfashion:getCurIndex()))
+        -- end
+        if table.indexof(fashionPos, event.pos) then
+            PanelFashion.freshZuoqiAttr(event)
+        end
+    end
+end
+
+
+--刷新时装列表
+function PanelFashion.ckickZuoqiTab(tab)
+    PanelFashion.tryOnZuoqi()
+    local function pushSelectItem(item)
+        if item and item.tagFashionId > 0 then
+            --PanelFashion.tryOnZuoqi(item.tagFashionId)
+            PanelFashion.TryZuoqiShow(item.tagFashionId, item.tag)
+        end
+    end
+    local tag = tab:getTag()
+    var.zuoqi_list_cells = {}
+    var.curFashionListIndex = 0
+    if tag == 1 then
+        local data = {}
+        local opendata = {}
+        if var.zuoqi_preview then
+            for k, v in pairs(var.zuoqi_preview) do
+                local dest = NetClient:getItemDefByID(v.id)
+                if dest then
+                    opendata[dest.mIconID] = v
+                end
+            end
+        end
+        for k, v in pairs(NetClient.mItems) do
+            if k >= Const.ITEM_FASHIONDEPOT_BEGIN and k <= Const.ITEM_FASHIONDEPOT_BEGIN + Const.ITEM_FASHIONSIZEE then
+                local dest = NetClient:getItemDefByID(v.mTypeID)
+                if game.IsSameFashion(v.mTypeID, fashionPos[tag]) and opendata[dest.mIconID] then
+                    table.insert(data, v)
+                end
+            end
+        end
+        local DressItem = NetClient:getNetItem(fashionPos[tag])
+
+        local lbllefttime = var.xmlPanel:getWidgetByName("lbllefttime"):hide():stopAllActions()
+        local lblleftstr = var.xmlPanel:getWidgetByName("lblleftstr"):hide()
+        if DressItem then
+            local dest = NetClient:getItemDefByID(DressItem.mTypeID)
+            if dest and opendata[dest.mIconID] then
+                lblleftstr:show()
+                lbllefttime:show()
+                table.insert(data, 1, DressItem)
+                -- local itemDef = NetClient:getItemDefByID(DressItem.mTypeID)
+                local sec = 0
+                -- if itemDef then
+                sec = DressItem.mLastTime - os.time() + DressItem.mCreateTime
+                -- end
+                if DressItem.mLastTime == 0 then
+                    lbllefttime:setString("永久")
+                else
+                    util.runCountDown(
+                        lbllefttime,
+                        sec,
+                        function(target, count)
+                            target:setString(util.setTimeFormat(count * 1000, 6))
+                        end
+                    )
+                end
+            end
+        end
+
+        local fashionList = var.xmlPageZuoqi:getWidgetByName("fashionList")
+        fashionList:reloadData(
+            #data,
+            function(subItem)
+                local d = data[subItem.tag]
+                local itemDef = NetClient:getItemDefByID(d.mTypeID)
+                UIItem.getItem(
+                    {
+                        parent = subItem:getWidgetByName("icon"),
+                        typeId = d.mTypeID,
+                        iconType = Const.ICONTYPE.NOTIP,
+                        callBack = function()
+                            PanelFashion.tryOnZuoqi(d.mTypeID)--点击icon
+                            PanelFashion.TryZuoqiShow(d.mTypeID, subItem.tag)
+                        end
+                    }
+                )
+
+                subItem:getWidgetByName("itemname"):setString(itemDef.mName)
+                local btn_dress = subItem:getWidgetByName("btn_dress")
+                btn_dress.mTypeID = d.mTypeID
+                btn_dress.position = d.position
+                btn_dress:addClickEventListener(PanelFashion.ckickDressZuoqiButton)
+                btn_dress:setTitleText(d.position < 0 and "卸下" or "穿戴"):setVisible(true)
+                local hasDress = subItem:getWidgetByName("hasDress")
+                hasDress:setVisible(d.position < 0)
+                subItem:getWidgetByName("img_selected"):setVisible(false)
+                subItem:getWidgetByName("lbl_fashion_remark"):setVisible(false)
+                subItem.tagFashionId = d.mTypeID
+                subItem:setTouchEnabled(true)
+                UIRedPoint.addUIPoint(subItem, pushSelectItem)
+
+                local needCell = var.zuoqi_list_cells[subItem.tag]
+                if not needCell then
+                    needCell = subItem
+                    needCell:setName(subItem:getName() .. subItem.tag)
+                end
+                var.zuoqi_list_cells[subItem.tag] = needCell
+            end
+        )
+    elseif tag == 2 then
+        var.xmlPageZuoqi:getWidgetByName("fashionList"):reloadData(
+            #var.zuoqi_preview,
+            function(subItem)
+                local previewdata = var.zuoqi_preview[subItem.tag]
+                local d = var.zuoqi_preview[subItem.tag]
+                UIItem.getItem(
+                    {
+                        parent = subItem:getWidgetByName("icon"),
+                        typeId = previewdata.id,
+                        iconType = Const.ICONTYPE.NOTIP,
+                        callBack = function()
+                            PanelFashion.tryOnZuoqi(previewdata.id)--点击icon
+                            PanelFashion.TryZuoqiShow(d.id, subItem.tag)
+                        end
+                    }
+                )
+                subItem:getWidgetByName("img_selected"):setVisible(false)
+                subItem:getWidgetByName("itemname"):setString(previewdata.name)
+                subItem:getWidgetByName("btn_dress"):setVisible(false)
+                subItem:getWidgetByName("hasDress"):setVisible(false)
+                subItem:getWidgetByName("lbl_fashion_remark"):setVisible(true):setString(previewdata.accessway)
+                subItem.tagFashionId = previewdata.id
+                subItem:setTouchEnabled(true)
+                UIRedPoint.addUIPoint(subItem, pushSelectItem)
+
+                local needCellpre = var.zuoqi_list_cells[subItem.tag]
+                if not needCellpre then
+                    needCellpre = subItem
+                    needCellpre:setName(subItem:getName() .. subItem.tag)
+                end
+                var.zuoqi_list_cells[subItem.tag] = needCellpre
+            end
+        )
+    end
+end
+
+function PanelFashion.TryZuoqiShow(fashionid, listindex)
+    PanelFashion.tryOnZuoqi(fashionid)
+    if var.curFashionListIndex > 0 and var.zuoqi_list_cells[var.curFashionListIndex] then
+        var.zuoqi_list_cells[var.curFashionListIndex]:getWidgetByName("img_selected"):setVisible(false)
+    end
+    var.zuoqi_list_cells[listindex]:getWidgetByName("img_selected"):setVisible(true)
+    var.curFashionListIndex = listindex
+end
+
+function PanelFashion.openPageZuoqi()
+    local tabhfashion = var.xmlPageZuoqi:getWidgetByName("tabhfashion")
+    tabhfashion:setSelectedTab(2)
+    local guild_name = MainRole._mainAvatar:NetAttr(Const.net_guild_name)
+    if not guild_name or guild_name == "" then
+        guild_name = "暂无帮会"
+    end
+    var.xmlPageZuoqi:getWidgetByName("lbl_guild_name"):setString(guild_name)
+
+    PanelFashion.freshZuoqiAttr()
+    NetClient:PushLuaTable("item.chufa.getzuoqilook", util.encode({actionid = "reqzuoqiData", params = {}}))
+end
+
+--------------------------------------幻武--------------------------------------
+
+
+
+return PanelFashion

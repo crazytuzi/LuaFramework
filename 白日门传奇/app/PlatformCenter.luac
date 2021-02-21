@@ -1,0 +1,135 @@
+PlatformCenter={}
+
+function PlatformCenter.init()
+	
+end
+
+-------------------------------call-----------------------------
+
+function PlatformCenter.onLoginZk(paramsTab)
+    local params = nil;
+    local loginUrl = nil;
+    if paramsTab[2] then params=paramsTab[2] end
+    if paramsTab[3] then loginUrl=paramsTab[3] end
+
+    local http=cc.XMLHttpRequest:new()
+    http.responseType = cc.XMLHTTPREQUEST_RESPONSE_JSON
+    http:setRequestHeader("Content-Type", "application/json")
+    http:open("POST", loginUrl)
+    print("=====loginUrl===== " .. loginUrl)
+    PlatformTool.showWaiting({msg="正在登录..."})
+    
+    local function callback()
+        local state=http.status
+        if state==200 then
+            local response=http.response
+            local json=string.gsub(utilapp.unicode_to_utf8(response),"\\","")
+            json=utilapp.decode(json)
+            if type(json)=="table" and PlatformTool then
+                local data = json["data"];
+                local code = tonumber(json["code"]);
+                if code == 0 then
+                    PlatformTool.hideWaiting();
+
+                    local fileUtils = cc.FileUtils:getInstance()
+
+                    local anncInfo = data["anncInfo"];
+                    if anncInfo then
+                        local annc = anncInfo["annc"]
+                        local path=fileUtils:getWritablePath().."annc.json";
+                        local b = fileUtils:writeStringToFile(annc, path);
+                        if b then
+                            print("------>写入annc信息成功")
+                        end
+                    end
+
+                    local serverInfo = data["serverInfo"]
+                    if serverInfo then
+                        local servers = serverInfo["servers"];
+                        servers = utilapp.encode(servers)
+                        local path=fileUtils:getWritablePath().."serverList.json";
+                        local b = fileUtils:writeStringToFile(servers, path);
+                        if b then
+                            print("------>写入servers信息成功")
+                        end
+                    end
+
+                    local player = data["player"];
+                    if player then
+                        local loginKey = player["loginKey"];
+                        local accountId = player["accountId"];
+                        game.accountId = accountId;
+                        print("===============>loginKey = "..loginKey)
+                        print("===============>accountId = "..accountId)
+                        local arg = "onLogin|"..loginKey;
+                        PlatformTool.callListener(arg)
+                    end
+                elseif code == 101 then --帐号密码不正确
+                    PlatformTool.hideWaiting();
+                    PlatformTool.showMsg(json.message);
+                end
+                
+            end
+        else
+            print("请求失败")
+        end
+    end
+    http:registerScriptHandler(callback)
+    http:send(params)
+
+                        print("========asas=======>loginKey = ")
+    dump(params)
+    
+end
+
+function PlatformCenter.logout()
+	
+end
+
+function PlatformCenter.showCenter()
+	
+end
+
+function PlatformCenter.switchToolBar()
+	
+end
+
+function PlatformCenter.appScore()
+	
+end
+
+function PlatformCenter.pay(order,number,listener)
+
+end
+
+function PlatformCenter.showExit()
+	
+end
+
+-------------------------------listener-----------------------------
+
+function PlatformCenter.onLogin(param)
+	
+end
+
+function PlatformCenter.onLogout()
+	
+end
+
+function PlatformCenter.onPayed(params)
+
+	
+
+end
+
+-------------------------------tools-----------------------------
+
+function PlatformCenter.checkShowCenter()
+	
+end
+
+function PlatformCenter.checkPayList()
+	
+end
+
+return PlatformCenter

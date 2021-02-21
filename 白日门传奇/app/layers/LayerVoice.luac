@@ -1,0 +1,166 @@
+LayerVoice = {}
+local var = {}
+
+function LayerVoice.init()
+	var = {
+		voiceLayer,
+		channel,
+		send,
+		playerSender,
+		voiceRecord = {}
+	}
+	local layer = cc.Layer:create()
+	var.voiceLayer = UILuaLoader.load("uilayout/LayerVoice.uif")
+	if var.voiceLayer then
+		var.voiceLayer:addTo(layer):align(display.CENTER, display.cx, display.cy):hide()
+	end
+	cc.EventProxy.new(NetClient,layer)
+		:addEventListener(Notify.EVENT_VOICE_HANDLE, LayerVoice.voiceHandler)
+		:addEventListener(Notify.EVENT_VOICE_CALLBACK, LayerVoice.voiceCallback)
+ 		:addEventListener(Notify.EVENT_VOICE_PLAY_FINISH, LayerVoice.onPlayVoiceFinish)
+
+ 	cc.YvMsg:getInstance():Yvlogin(CCGhostManager:getMainAvatar():NetAttr(Const.net_name),CCGhostManager:getMainAvatar():NetAttr(Const.net_seedname))
+	return layer
+end
+
+function LayerVoice.voiceHandler(event)
+	if var.voiceLayer then
+		if event.channel then
+			var.channel = event.channel
+			var.send = nil
+		end
+		if event.send then
+			var.send = event.send
+		end
+		local voiceLayer = var.voiceLayer
+		local mark = voiceLayer:getChildByName("mark")
+		if event.vis == true then
+			voiceLayer:setVisible(event.vis)
+
+			PlayAudio.pause()
+
+			cc.YvMsg:getInstance():YvStartRecord(var.channel,1)
+			if not mark then
+				mark = cc.ProgressTimer:create(cc.Sprite:createWithSpriteFrameName("img_voice_circle"))
+				:align(display.CENTER, voiceLayer:getContentSize().width/2, voiceLayer:getContentSize().height/2)
+				-- :setScaleX(-1)
+				:addTo(voiceLayer,100)
+				:setType(cc.PROGRESS_TIMER_TYPE_RADIAL)
+				:setName("mark")
+			end
+			mark:stopAllActions()
+			mark:runAction(cc.Sequence:create(cc.ProgressFromTo:create(30,0,100),cc.CallFunc:create(function(target)
+				LayerVoice.voiceHandler({vis = false,send = true})
+				--PlatformTool.callVoiceChat("stop_record")
+				cc.YvMsg:getInstance():YvStopRecord()
+				PlayAudio.resume()
+			end)))
+
+		elseif event.vis == false and voiceLayer:isVisible() then
+			if util.isObjectExist(mark) then mark:stopAllActions() end
+
+			cc.YvMsg:getInstance():YvStopRecord()
+			PlayAudio.resume()
+			voiceLayer:setVisible(false)
+		end
+		voiceLayer:getWidgetByName("img_voice_info"):setVisible(event.charVis)
+		voiceLayer:getWidgetByName("img_voice_back"):loadTexture(event.charVis and "img_voice_back" or "img_voice_big" ,ccui.TextureResType.plistType)
+	end
+end
+
+function LayerVoice.voiceCallback(event)
+	print("2222222222222222222222222222222222222222222")
+	if event.func then
+		if event.func == "voiceRecordStop" and event.filepath and var.send then
+			local record = {
+				flag = tostring(event.flag),
+				filepath = event.filepath,
+				time = event.time,
+				newTime = os.time(),
+				channel=event.channel,
+			}
+			if tonumber(event.time)>1000 then --小于1000毫秒不发
+				for k,v in pairs(var.voiceRecord) do
+					if os.time() - record.newTime >300 then
+						var.voiceRecord[k] = nil
+					end
+				end
+				var.voiceRecord[event.flag] = record
+			end
+			print("voiceCallback   ",event.filepath)
+		elseif event.func == "voiceUploadSucc" and event.url and var.send then
+			local msg = "<voice>|"..util.ToBase64(event.url).."|"..event.flag
+			if var.voiceRecord[event.flag] and var.voiceRecord[event.flag].flag == event.flag then
+				msg = msg .. "|".. util.ToBase64(var.voiceRecord[event.flag].filepath)
+				msg = msg .. "|".. var.voiceRecord[event.flag].time
+			else
+				return
+			end
+			print("voiceUploadSucc   ",msg)
+			if event.channel == "VoiceChannelWorld" then
+				NetClient:WorldChat(msg)
+			elseif event.channel == "VoiceChannelGuild" then
+				NetClient:GuildChat(msg)
+			elseif event.channel == "VoiceChannelGroup" then
+				NetClient:GroupChat(msg)
+			elseif event.channel == "VoiceChannelNear" then
+				NetClient:NormalChat(msg)
+			elseif event.channel == "VoiceChannelPrivate" then
+				if NetClient.m_strPrivateChatTarget and NetClient.m_strPrivateChatTarget~="" then
+					NetClient:PrivateChat(NetClient.m_strPrivateChatTarget,msg)
+				end
+			end
+		else
+
+		end
+	end
+end
+
+function LayerVoice.playVoice(sender)
+	if sender and (sender.filepath or sender.url) then
+		if util.isObjectExist(var.playerSender) then
+			var.playerSender:getWidgetByName("img_voice_chat"):stopAllActions():loadTexture("img_chat_voice3", ccui.TextureResType.plistType)
+		end
+		var.playerSender = sender
+
+		PlayAudio.resume()
+
+			print(sender.url)
+			print(sender.flag)
+			cc.YvMsg:getInstance():YvPlayRecord(sender.url,sender.flag)	
+		-- end
+		local i = 0
+
+		local duration = math.ceil(sender.duration/1000)
+		game.isPlayVoice = true
+		sender:getWidgetByName("img_voice_chat"):runAction(
+			cca.seq({
+				cca.rep(cca.seq({
+					cca.delay(1/3),
+					cca.cb(function(target)
+						target:loadTexture("img_chat_voice"..(i%3+1), ccui.TextureResType.plistType)
+						i = i+1
+						end)
+					}),sender.duration*3
+				),
+				cca.cb(function(target)
+					game.isPlayVoice = false
+					target:loadTexture("img_chat_voice3", ccui.TextureResType.plistType)
+				end)
+			})
+		)
+	end
+end
+
+function LayerVoice.onPlayVoiceFinish(event)
+	print("xxx---xxx-----xxx----xxx")
+	print(var.playerSender)
+	if util.isObjectExist(var.playerSender) then 
+	print("STPOOOOOOPPPPPPP")
+		var.playerSender:getWidgetByName("img_voice_chat"):stopAllActions():loadTexture("img_chat_voice3", ccui.TextureResType.plistType)
+
+	end
+	PlayAudio.resume()
+end
+
+return LayerVoice

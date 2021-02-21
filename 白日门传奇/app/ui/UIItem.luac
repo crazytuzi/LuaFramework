@@ -1,0 +1,914 @@
+--if itemIcon.mIsEffect and not itemIcon.mEffectId then没触发，等完成看看是什么
+
+--lbl_upd_level是强化显示数字，要更改颜色
+
+local UIItem = {}
+
+local equipFlagRes = {
+	[Const.ITEM_WEAPON_POSITION] 	=	"equip_flag_weapon",
+	[Const.ITEM_CLOTH_POSITION] 	=	"equip_flag_cloth",
+	[Const.ITEM_GLOVE1_POSITION] 	=	"equip_flag_glove",
+	[Const.ITEM_RING1_POSITION] 	=	"equip_flag_ring",
+	[Const.ITEM_BOOT_POSITION] 		=	"equip_flag_boot",
+	[Const.ITEM_HAT_POSITION] 		=	"equip_flag_hat",	
+	[Const.ITEM_NICKLACE_POSITION] 	=	"equip_flag_necklace",
+	[Const.ITEM_GLOVE2_POSITION] 	=	"equip_flag_glove",
+	[Const.ITEM_RING2_POSITION] 	=	"equip_flag_ring",
+	[Const.ITEM_BELT_POSITION] 		=	"equip_flag_belt",
+	
+	--新加切割，盾牌
+	[Const.ITEM_SHIELDD_POSITION] = "equip_flag_catilla",
+	[Const.ITEM_QIEGE_POSITION] = "equip_flag_catilla",	
+
+	--玉佩
+	[Const.ITEM_JADE_PENDANT_POSITION] = "equip_flag_jade_pendant",
+	--暗器
+	[Const.ITEM_SHIELD_POSITION] = "equip_flag_shield",
+	--护心镜
+	[Const.ITEM_MIRROR_ARMOUR_POSITION] = "equip_flag_mirror_armour",
+	--面巾
+	[Const.ITEM_FACE_CLOTH_POSITION] = "equip_flag_face_cloth",
+	--魂珠
+	[Const.ITEM_DRAGON_HEART_POSITION] = "equip_flag_dragon_heart",
+	--战鼓
+	[Const.ITEM_WOLFANG_POSITION] = "equip_flag_wolfang",
+	--龙骨
+	[Const.ITEM_DRAGON_BONE_POSITION] = "equip_flag_dragon_bone",
+	--虎符
+	[Const.ITEM_CATILLA_POSITION] = "equip_flag_catilla",
+
+	--仙器*铃铛
+	[Const.ITEM_MIRROR_ARMOUR_POSITION] = "xq_13",
+	--仙器*神印
+	[Const.ITEM_FACE_CLOTH_POSITION] = "xq_14",
+	--仙器*神谕
+	[Const.ITEM_DRAGON_BONE_POSITION] = "xq_17",
+	--仙器*戒指
+	[Const.ITEM_CATILLA_POSITION] = "xq_18",
+	--仙器*武器
+	[Const.ITEM_XIAN_WEPON_POSITION] = "xq_60",		--19孔位
+	--仙器*衣服
+	[Const.ITEM_XIAN_CLOTH_POSITION] = "xq_61",
+	--仙器*头盔
+	[Const.ITEM_XIAN_HELMET_POSITION] = "xq_62",
+	--仙器*项链
+	[Const.ITEM_XIAN_NECKLACE_POSITION] = "xq_63",
+	--仙器*护肩
+	[Const.ITEM_XIAN_SHOULDER_POSITION] = "xq_64",
+	--仙器*盾牌
+	[Const.ITEM_XIAN_SHIELD_POSITION] = "xq_65",
+	--仙器*神坠
+	[Const.ITEM_XIAN_PENDANT_POSITION] = "xq_66",
+	--仙器*斗笠
+	[Const.ITEM_XIAN_HAT_POSITION] = "xq_67",
+	--坐骑
+	[Const.ITEM_MOUNT_POSITION] = "equip_mount",
+	--斗笠
+	[Const.ITEM_BAMBOOHAT_POSITION] = "equip_flag_guan",
+
+	--神器*钟
+	[Const.ITEM_SHEN_CLOCK_POSITION] = "equip_flag_zhong",
+	--神器*琴
+	[Const.ITEM_SHEN_QIN_POSITION] = "equip_flag_qin",
+	--神器*锤
+	[Const.ITEM_SHEN_CHUI_POSITION] = "equip_flag_chui",
+	--神器*斧
+	[Const.ITEM_SHEN_FU_POSITION] = "equip_flag_fu",
+
+	--灵宝 圣文 圣石 圣珠 项链
+	[Const.ITEM_LBSW_POSITION] = "lb_sw",
+	[Const.ITEM_LBSS_POSITION] = "lb_ss",
+	[Const.ITEM_LBSZ_POSITION] = "lb_sz",
+	[Const.ITEM_LBXL_POSITION] = "lb_xl",
+
+	--星座
+	[Const.ITEM_XZ1_POSITION] = "xz_1",
+	[Const.ITEM_XZ2_POSITION] = "xz_2",
+	[Const.ITEM_XZ3_POSITION] = "xz_3",
+	[Const.ITEM_XZ4_POSITION] = "xz_4",
+	[Const.ITEM_XZ5_POSITION] = "xz_5",
+	[Const.ITEM_XZ6_POSITION] = "xz_6",
+	[Const.ITEM_XZ7_POSITION] = "xz_7",
+	[Const.ITEM_XZ8_POSITION] = "xz_8",
+	[Const.ITEM_XZ9_POSITION] = "xz_9",
+	[Const.ITEM_XZ10_POSITION] = "xz_10",
+	[Const.ITEM_XZ11_POSITION] = "xz_11",
+	[Const.ITEM_XZ12_POSITION] = "xz_12",
+}
+
+local function newItem(pSize)
+	local itemIcon = ccui.Widget:create()
+		:setName("item_icon")
+		:setContentSize(pSize)
+
+	local imgIconInner = ccui.ImageView:create("null", ccui.TextureResType.plistType)
+		:align(display.CENTER, pSize.width * 0.5, pSize.height * 0.5+2)
+		:addTo(itemIcon)
+		:hide()
+		:setName("img_icon_inner")
+
+	local imgEquipFlag = ccui.ImageView:create("null", ccui.TextureResType.plistType)
+		:align(display.CENTER, pSize.width * 0.5, pSize.height * 0.5)
+		:addTo(itemIcon)
+		-- :hide()
+		:setName("img_equip_flag")
+
+	local size = imgIconInner:getContentSize()
+	imgIconInner:setScale(pSize.width / size.width)
+
+	-- 品质背景
+	ccui.ImageView:create()
+		:align(display.CENTER, pSize.width * 0.5, pSize.height * 0.5)
+		:addTo(itemIcon)
+		:hide()
+		:setContentSize(pSize)
+		:setName("img_icon_bg")
+
+	-- icon图片
+	ccui.ImageView:create()
+		:align(display.CENTER, pSize.width * 0.5, pSize.height * 0.5)
+		:addTo(itemIcon)
+		:setContentSize(pSize)
+		:setName("img_icon")
+
+	-- 图片描述
+	ccui.Text:create()
+		:align(display.BOTTOM, pSize.width * 0.5, pSize.height * 0.05)
+		:setFontName(FONT_NAME)
+		:setFontSize(18)
+		:addTo(itemIcon)
+		:setContentSize(pSize)
+		:setName("lbl_title")
+		:enableOutline(game.getColor(0x000000),1)
+
+	-- 图片品阶 mxwx 用于uiticp上面品阶显示具体位置
+	local v = display.newBMFontLabel({font = "fonts/vipNum.fnt",fontSize = 12})
+	v:setName("img_pinjie")
+		:align(display.LEFT_TOP, pSize.width * 0.05, pSize.height * 0.95)
+		:setString("0")
+		:addTo(itemIcon)
+		:hide()
+
+	ccui.ImageView:create("pjie", ccui.TextureResType.plistType)
+		:setPosition(5, 10)
+		:setName("pjie")
+		:addTo(v)
+		:hide()
+	
+	--星耀测试	
+	local z = display.newBMFontLabel({font = "fonts/vipNum.fnt",fontSize = 12})
+	z:setName("img_shengshi")
+		:align(display.LEFT_TOP, pSize.width * 0.05, pSize.height * 0.95)
+		:setString("")
+		:addTo(itemIcon)
+		:hide()
+	--星耀测试
+	ccui.ImageView:create("xingyao1", ccui.TextureResType.plistType)
+		:setPosition(5, -10)
+		:setName("xingyao1")
+		:addTo(z)
+		:hide()	
+	--月烛测试		
+	local x = display.newBMFontLabel({font = "fonts/vipNum.fnt",fontSize = 12})
+	x:setName("img_yuezhu")
+		:align(display.LEFT_TOP, pSize.width * 0.05, pSize.height * 0.95)
+		:setString("")
+		:addTo(itemIcon)
+		:hide()
+	--月烛测试
+	ccui.ImageView:create("yuezhu1", ccui.TextureResType.plistType)
+		:setPosition(5, -10)
+		:setName("yuezhu1")
+		:addTo(x )
+		:hide()
+	--日冕测试
+	local y = display.newBMFontLabel({font = "fonts/vipNum.fnt",fontSize = 12})
+	y:setName("img_rimian")
+		:align(display.LEFT_TOP, pSize.width * 0.05, pSize.height * 0.95)
+		:setString("")
+		:addTo(itemIcon)
+		:hide()
+	--日冕测试
+	ccui.ImageView:create("rimian1", ccui.TextureResType.plistType)
+		:setPosition(5, -10)
+		:setName("rimian1")
+		:addTo(y)
+		:hide()
+		
+	--强化等级
+	ccui.Text:create()
+		:align(display.RIGHT_TOP, (pSize.width<=60 and pSize.width * 0.95 or pSize.width * 0.9), (pSize.height<=60 and pSize.height*1 or pSize.height*0.9))
+		:setFontName(FONT_NAME)
+		:addTo(itemIcon)
+		:setFontSize(16)
+		:setName("lbl_upd_level")
+		:enableOutline(game.getColor(0x000000),1)
+
+	--注灵等级(装备)
+	ccui.Text:create()
+		:align(display.LEFT_BOTTOM, pSize.width * 0.1, pSize.height*0.05)
+		:setFontName(FONT_NAME)
+		:addTo(itemIcon)
+		:setFontSize(20)
+		:setName("lbl_zl_level")
+
+	--数量 暂时写死
+	ccui.Text:create()
+		:align(display.RIGHT_BOTTOM, pSize.width * 0.95, pSize.height * 0.05)
+		:enableOutline(game.getColor(0x000000),1)
+		:setFontName(FONT_NAME)
+		:addTo(itemIcon)
+		:setFontSize(16)
+		:setName("lbl_num")
+
+	--装备职业
+	ccui.Text:create()
+		:align(display.RIGHT_BOTTOM, pSize.width * 0.95, pSize.height * 0.05)
+		:enableOutline(game.getColor(0x000000),1)
+		:setFontName(FONT_NAME)
+		:addTo(itemIcon)
+		:setFontSize(16)
+		:hide()
+		:setName("lbl_job")
+
+	--装备类型
+	ccui.ImageView:create()
+		:align(display.RIGHT_BOTTOM, pSize.width * 0.95, pSize.height * 0.05)
+		:addTo(itemIcon)
+		:hide()
+		:setName("img_equip_type")
+	
+	--物品等级
+	ccui.Text:create()
+		:align(display.LEFT_TOP, pSize.width * 0.05, pSize.height * 0.95)
+		:enableOutline(game.getColor(0x000000),1)
+		:setFontName(FONT_NAME)
+		:addTo(itemIcon)
+		:setFontSize(16)
+		:setName("icon_desc")
+
+	-- 绑定标志
+	ccui.ImageView:create("lock", ccui.TextureResType.plistType)
+		:align(display.LEFT_BOTTOM, pSize.width * 0.05, pSize.height * 0.05)
+		:addTo(itemIcon)
+		:hide()
+		:setName("img_bind_mark")
+
+	-- 红点
+	ccui.ImageView:create("img_arrow_attr_up", ccui.TextureResType.plistType)
+		:align(display.LEFT_BOTTOM, pSize.width * 0.05, pSize.height * 0.05)
+		:addTo(itemIcon)
+		:hide()
+		:setName("img_better_equip")
+
+	ccui.ImageView:create("img_red_point", ccui.TextureResType.plistType)
+		:align(display.CENTER, pSize.width * 0.9, pSize.height * 0.9)
+		:addTo(itemIcon)
+		:hide()
+		:setName("img_use_item")
+
+	-- 选择标志
+	ccui.ImageView:create("img_bag_highlight", ccui.TextureResType.plistType)
+		:align(display.CENTER, pSize.width * 0.5, pSize.height * 0.5)
+		:addTo(itemIcon)
+		:hide()
+		:setName("img_item_select")
+	return itemIcon
+end
+
+-- 重置当前物品框、装备框
+local function resetItem(itemIcon)
+	if itemIcon then
+		-- print("resetItem",itemIcon)
+		itemIcon:getWidgetByName("img_icon"):loadTexture("null", ccui.TextureResType.plistType)
+		itemIcon:getWidgetByName("img_icon_bg"):loadTexture("null", ccui.TextureResType.plistType)
+		itemIcon:removeChildByName("effectSprite")
+		itemIcon:removeChildByName("effectSprite2")
+		itemIcon:removeChildByName("iconSprite")
+		-- itemIcon.itemPos = nil
+		itemIcon.typeId = nil
+		itemIcon.mLevel = nil
+		itemIcon.mClickTime = 0
+		itemIcon.showBetter = nil
+		if game.itemSchedule then
+			Scheduler.unscheduleGlobal(game.itemSchedule)
+			game.itemSchedule = nil
+		end
+
+		-- itemIcon.updateFunc = nil
+		-- itemIcon.itemCallBack = nil
+		itemIcon:getWidgetByName("lbl_upd_level"):setString("")
+		itemIcon:getWidgetByName("lbl_zl_level"):setString("")
+		itemIcon:getWidgetByName("lbl_num"):setString("")
+		--itemIcon:getWidgetByName("lbl_job"):setString("")
+		itemIcon:getChildByName("img_pinjie"):setString(""):hide()
+		itemIcon:getChildByName("img_shengshi"):setString(""):hide()---mxwx 这里必须要加，否则会在包袱出现虚影
+		itemIcon:getChildByName("img_yuezhu"):setString(""):hide()---mxwx 这里必须要加，否则会在包袱出现虚影
+		itemIcon:getChildByName("img_rimian"):setString(""):hide()---mxwx 这里必须要加，否则会在包袱出现虚影
+		itemIcon:getWidgetByName("icon_desc"):setString("")
+		--itemIcon:getWidgetByName("lbl_title"):setString("")
+		itemIcon:getWidgetByName("img_better_equip"):hide()
+		itemIcon:getWidgetByName("img_bind_mark"):hide()
+		itemIcon:getWidgetByName("img_icon_inner"):hide()
+		itemIcon:getWidgetByName("img_item_select"):hide()
+		itemIcon:getWidgetByName("img_equip_type"):hide()
+		itemIcon:getWidgetByName("img_use_item"):stopAllActions():hide()
+	end
+end
+
+local function singleClickItem(sender)
+	local itemIcon = sender.itemIcon
+	if itemIcon then
+		--张思帆说可以去掉限制----------还是加上吧
+		if Const.ICONTYPE.DEPOT==itemIcon.iconType or Const.ICONTYPE.NOTIP==itemIcon.iconType then
+			if itemIcon.callBack then
+				if Const.ICONTYPE.RECYLE == itemIcon.iconType then
+					if not itemIcon.typeId then return end
+					local itemDef = NetClient:getItemDefByID(itemIcon.typeId)
+					if game.isEquipMent(itemDef.SubType) then
+						local visible = itemIcon:getChildByName("img_item_select"):isVisible()
+						itemIcon:getChildByName("img_item_select"):setVisible(not visible)
+						itemIcon.callBack(not visible, itemIcon.itemPos)
+					else
+						NetClient:alertLocalMsg("当前物品不可回收！")
+					end
+				else 
+					itemIcon.callBack()
+				end
+			end
+		else
+			NetClient:dispatchEvent({
+				name		= Notify.EVENT_HANDLE_TIPS, 
+				itemPos		= itemIcon.itemPos, 
+				typeId		= itemIcon.typeId,
+				mLevel		= itemIcon.mLevel,
+				mZLevel		= itemIcon.mZLevel,
+
+				-- iconType    = itemIcon.iconType,
+				tipsType	= itemIcon.tipsType,
+				tipsPos	    = itemIcon.tipsPos,
+				customCallFunc = itemIcon.customCallFunc,
+				destoryCallFunc = itemIcon.destoryCallFunc,
+				visible		= true,
+				compare		= itemIcon.compare,
+				enmuPos 	= itemIcon.enmuPos,
+				enmuItemType = itemIcon.enmuItemType,
+				otherPlayer = itemIcon.mOtherPlayer,
+				otherPos = itemIcon.mOtherPos,
+				shengshiId = itemIcon.mShengshiId,
+			})
+		end
+	end
+end
+
+local function doubleClickItem(sender)
+	-- print("doubleClickItem");
+	local itemIcon = sender.itemIcon
+	if itemIcon.doubleCall then
+		itemIcon.doubleCall()
+	elseif Const.ICONTYPE.BAG == itemIcon.iconType then
+		local netItem = NetClient:getNetItem(itemIcon.itemPos)
+		if netItem then
+			if game.canBatchUse(netItem.mTypeID) then
+				NetClient:BagUseItem(itemIcon.itemPos, netItem.mTypeID,netItem.mNumber)
+			else
+				NetClient:BagUseItem(itemIcon.itemPos, netItem.mTypeID)
+			end
+		end
+	end
+end
+
+local function handleEquipFlag(itemIcon)
+	itemIcon:getWidgetByName("img_equip_flag"):loadTexture("null", ccui.TextureResType.plistType)
+	if itemIcon.itemPos and itemIcon.itemPos < 0 and itemIcon.mShowEquipFlag then
+		local netItem = NetClient:getNetItem(itemIcon.itemPos)
+		if not netItem and equipFlagRes[itemIcon.itemPos] then
+			itemIcon:getWidgetByName("img_equip_flag"):loadTexture(equipFlagRes[itemIcon.itemPos], ccui.TextureResType.plistType)
+		end
+	end
+end
+
+--背包格子红点动画
+local function handleRedPoint(itemIcon, netItem)
+	itemIcon:getWidgetByName("img_use_item"):stopAllActions():hide()
+	-- print("////////////////////////////////", netItem.position, game.IsPosInBag(netItem.position), game.checkItemShowUse(netItem.mTypeID))
+	if game.IsPosInBag(netItem.position) and game.checkItemShowUse(netItem.mTypeID) then
+		local milliSecond = math.floor(game.getTime() % 1000 - 500)
+		local scale = 1
+		if milliSecond >= 0 then
+			scale = 1.1 - (0.2 * milliSecond / 500)
+		else
+			scale = 0.9 + (0.2 * (500 + milliSecond) / 500)
+		end
+
+		local function scaleActionA (sender)
+			if sender then sender:runAction(cca.repeatForever(cca.seq({cca.scaleTo(0.5, 1.1), cca.scaleTo(0.5, 0.9)}))) end
+		end
+
+		local function scaleActionB (sender)
+			if sender then sender:runAction(cca.repeatForever(cca.seq({cca.scaleTo(0.5, 0.9), cca.scaleTo(0.5, 1.1)}))) end
+		end
+
+		local imgUseItem = itemIcon:getWidgetByName("img_use_item"):show():scale(scale)
+		if milliSecond > 0 then
+			imgUseItem:runAction(cca.seq({
+				cca.scaleTo((500 - milliSecond) / 1000, 0.9),
+				cca.cb(scaleActionA)
+			}))
+		else
+			imgUseItem:runAction(cca.seq({
+				cca.scaleTo(-milliSecond / 1000, 1.1),
+				cca.cb(scaleActionB)
+			}))
+		end
+	end
+end
+
+--整理使用批量刷新，不执行单个刷新
+local function canItemFresh(pos)
+	local can = true
+	if NetClient.mSortFlag then
+		if NetClient.mSortFlag == 0 then --背包
+			if game.IsPosInBag(pos) then can = false end
+		elseif NetClient.mSortFlag == 1 then -- 仓库
+			if game.IsPosInDepot(pos) then can = false end
+		-- elseif NetClient.mSortFlag == 3 then -- 寻宝
+		-- 	if game.IsPosInLottoryDepot(pos) then can = false end
+		end
+	end
+	--print("canItemFresh", NetClient.mSortFlag, pos, can)
+	return can
+end
+
+function UIItem.getItem(param)
+	if param.parent then
+		local itemIcon = param.parent:getWidgetByName("item_icon")
+		-- print("UIItem.getItem", itemIcon)
+		if not itemIcon then
+			local pSize = param.parent:getContentSize()
+			itemIcon = newItem(pSize):align(display.CENTER, pSize.width * 0.5, pSize.height * 0.5):addTo(param.parent)
+		else
+			resetItem(itemIcon)
+		end
+
+		itemIcon.updateFunc = nil
+		itemIcon.updateDesp = nil
+
+		itemIcon.mShowEquipFlag = param.mShowEquipFlag
+		itemIcon.mLevel = param.mLevel
+		itemIcon.mZLevel = param.mZLevel
+		itemIcon.showBetter = param.showBetter
+		itemIcon.showBg = param.showBg
+		itemIcon.mTitle  = param.title and param.title or ""
+		itemIcon.mIsEffect = param.isEffect == nil and true or param.isEffect
+		itemIcon.mOtherPlayer = param.otherPlayer or false
+		itemIcon.mOtherPos = param.otherPos or false
+		itemIcon.select = param.select or false
+		itemIcon.mShengshiId = param.shengshiId or nil
+		itemIcon.mEffectId = param.effectId or nil
+		--itemIcon.tipsPos = param["tipsPos"]
+
+		itemIcon:getWidgetByName("lbl_upd_level"):setString(itemIcon.mLevel and itemIcon.mLevel>0 and "+"..itemIcon.mLevel or ""):setColor(cc.c3b(48,255,0))
+		itemIcon:getWidgetByName("lbl_zl_level"):setString(itemIcon.mZLevel and itemIcon.mZLevel>0 and itemIcon.mZLevel or ""):setColor(cc.c3b(0,255,255))
+		itemIcon:getWidgetByName("lbl_title"):setString(itemIcon.mTitle):setColor(cc.c3b(200, 200, 200))
+
+		if param.pos or param.typeId then
+			--print("param.pos", param.pos, param.typeId, param.titleText)
+			
+			param.parent:setTouchEnabled(true)
+			param.parent.itemIcon = itemIcon
+			itemIcon:setTouchEnabled(false)
+			-- itemIcon.itemCallBack	= param.itemCallBack
+			itemIcon.iconType		= param.iconType
+			itemIcon.tipsType		= param.tipsType
+			itemIcon.customCallFunc = param.customCallFunc
+			itemIcon.destoryCallFunc = param.destoryCallFunc
+			itemIcon.callBack		= param.callBack
+			itemIcon.doubleCall		= param.doubleCall
+			if itemIcon.customCallFunc then
+				itemIcon.doubleCall = itemIcon.customCallFunc
+			end
+			param.parent.hitTestCall    = param.hitTest
+			itemIcon.updateDesp 	= param.updateDesp
+			itemIcon.updateFunc 	= param.updateFunc
+			itemIcon.compare 	= param.compare
+			itemIcon.enmuPos	= param.enmuPos
+			itemIcon.enmuItemType = param.enmuItemType
+
+			if param.pos then
+				UIItem.updateItemIconByPos(itemIcon, param.pos)
+				cc.EventProxy.new(NetClient,itemIcon)
+					:addEventListener(Notify.EVENT_ITEM_CHANGE, function (event)
+						if canItemFresh(itemIcon.itemPos) then
+							UIItem.handleItemChange(itemIcon, event)
+						end
+					end)
+					:addEventListener(Notify.EVENT_ITEM_USELIMIT_CHANGE, function (event)
+						UIItem.handleItemUseLimitChange(itemIcon, event)
+					end)
+			elseif param.typeId then 
+				UIItem.updateItemIconByTypeId(itemIcon, param.typeId)
+				cc.EventProxy.new(NetClient,itemIcon)
+					:addEventListener(Notify.EVENT_NOTIFY_GETITEMDESP, function (event)
+						if param.typeId == event.type_id then
+							UIItem.updateItemIconByTypeId(itemIcon, event.type_id)
+						end
+					end)
+
+				if param.num then
+					UIItem.updateItemNum(itemIcon, param.num)
+				end
+				if param.bind then
+					if bit.band(param.bind, Const.ITEM_FLAG_BIND) > 0 then
+						itemIcon:getWidgetByName("img_bind_mark"):show()
+					else
+						itemIcon:getWidgetByName("img_bind_mark"):hide()
+					end
+				end
+
+				if param.otherPlayer then
+					handleEquipFlag(itemIcon)
+				end
+			end
+			param.parent:setSwallowTouches(true)
+			util.addMutilClickListener(param.parent, singleClickItem, doubleClickItem)
+
+			if itemIcon.mIsEffect and not itemIcon.mEffectId then
+				UIItem.addHightEffect(itemIcon)
+			end
+
+			if itemIcon.select then
+				itemIcon:getWidgetByName("img_item_select"):loadTexture("img_bag_highlight", ccui.TextureResType.plistType):show()
+			end
+		end
+	return itemIcon
+	end
+end
+
+-- 添加发光特效
+function UIItem.addHightEffect(itemIcon)--mxwx 这里最后调整闪光
+	-- 发光特效
+	if itemIcon.typeId then
+		local itemdef = NetClient.mItemDesp[itemIcon.typeId]
+		itemIcon:removeChildByName("effectSprite")
+		itemIcon:removeChildByName("effectSprite2")
+		if itemdef then
+			local effectID = 65075
+			if itemdef.mEqeffect > 0 and (game.IsEquipment(itemIcon.typeId) and itemIcon.iconType == Const.ICONTYPE.BAG) and itemdef.mIconDesc > 10 then
+				-- effectID = itemdef.mEqeffect
+				util.addEffect(itemIcon,"effectSprite",GROUP_TYPE.EFFECT,itemdef.mEqeffect)
+			elseif itemdef.mEqeffect > 0 and itemIcon.iconType ~= Const.ICONTYPE.BAG and itemdef.mIconDesc > 10 then
+				-- effectID = itemdef.mEqeffect
+				util.addEffect(itemIcon,"effectSprite",GROUP_TYPE.EFFECT,itemdef.mEqeffect)
+			end
+
+			if itemdef.mItemBg >= 3 and (game.IsEquipment(itemIcon.typeId) and itemIcon.iconType == Const.ICONTYPE.BAG)  then
+				effectID = itemdef.mItemBg + effectID - 3
+				util.addEffect(itemIcon, "effectSprite2", GROUP_TYPE.EFFECT, effectID)  ---65075是测试的
+			elseif itemdef.mItemBg >= 3 and itemIcon.iconType ~= Const.ICONTYPE.BAG then
+				effectID = itemdef.mItemBg + effectID - 3
+				util.addEffect(itemIcon, "effectSprite2", GROUP_TYPE.EFFECT, effectID)
+			end
+			--[[
+			if itemdef.mItemBg >= 3 and (game.IsEquipment(itemIcon.typeId) and itemIcon.iconType == Const.ICONTYPE.BAG) and itemdef.mIconDesc > 10 then
+				effectID = itemdef.mItemBg + effectID - 3
+				util.addEffect(itemIcon,"effectSprite",GROUP_TYPE.EFFECT,effectID)
+			elseif itemdef.mItemBg >= 3 and itemIcon.iconType ~= Const.ICONTYPE.BAG and itemdef.mIconDesc > 10 then
+				effectID = itemdef.mItemBg + effectID - 3
+				util.addEffect(itemIcon,"effectSprite",GROUP_TYPE.EFFECT,effectID)
+			end
+
+			if itemdef.mEqeffect and (game.IsEquipment(itemIcon.typeId) and itemIcon.iconType == Const.ICONTYPE.BAG)  then
+				util.addEffect(itemIcon, "effectSprite2", GROUP_TYPE.EFFECT, itemdef.mEqeffect)  ---65075是测试的
+			elseif itemdef.mEqeffect and itemIcon.iconType ~= Const.ICONTYPE.BAG then
+				util.addEffect(itemIcon, "effectSprite2", GROUP_TYPE.EFFECT, itemdef.mEqeffect)
+			
+			end
+			]]--
+		end		
+	end
+end
+
+function UIItem.updateItemIconByPos(itemIcon, pos)
+	itemIcon.itemPos = pos
+	local netItem = NetClient:getNetItem(pos)
+	if netItem then
+		itemIcon.mLevel = netItem.mLevel
+		itemIcon.mZLevel = netItem.mZLevel
+		itemIcon.mShengshiId = netItem.mShengshiId
+		UIItem.updateItemIconByTypeId(itemIcon, netItem.mTypeID)
+		local mNum = netItem.mNumber
+		local color = cc.c3b(0, 255, 0)
+		local itemdef = NetClient:getItemDefByID(netItem.mTypeID)
+		if itemdef then
+			color = game.getColor(itemdef.mColor)
+		end
+		if itemIcon.mLevel > 0 then
+			itemIcon:getWidgetByName("lbl_upd_level"):setString("+"..itemIcon.mLevel):setColor(cc.c3b(48,255,0))
+		else
+			itemIcon:getWidgetByName("lbl_upd_level"):setString("")
+		end
+		if netItem.mZLevel > 0 then
+			itemIcon:getWidgetByName("lbl_zl_level"):setString(itemIcon.mZLevel):setColor(cc.c3b(0,255,255))
+		else
+			itemIcon:getWidgetByName("lbl_zl_level"):setString("")
+		end
+		if itemIcon.typeId > 0 then
+			itemIcon:getWidgetByName("lbl_title"):setVisible(false)
+		else
+			itemIcon:getWidgetByName("lbl_title"):setVisible(true)
+		end
+		-- local mColor = cc.c3b(0,255,0)
+		UIItem.updateItemNum(itemIcon, mNum)
+
+		if bit.band(netItem.mItemFlags, Const.ITEM_FLAG_BIND) > 0 or netItem.mProtect > 0 then
+			itemIcon:getWidgetByName("img_bind_mark"):show()
+		else
+			itemIcon:getWidgetByName("img_bind_mark"):hide()
+		end
+		handleRedPoint(itemIcon, netItem)
+
+		if itemIcon.mIsEffect and not itemIcon.mEffectId then
+			UIItem.addHightEffect(itemIcon)
+		end
+	else
+		resetItem(itemIcon)
+	end
+
+	if NetClient:check_better_item(itemIcon.itemPos, true) then 
+		itemIcon:getWidgetByName("img_better_equip"):show() 
+	else
+		if netItem and game.checkBoxMatch(netItem.mTypeID) then
+			itemIcon:getWidgetByName("img_better_equip"):show() 
+		else
+			itemIcon:getWidgetByName("img_better_equip"):hide() 
+		end
+	end
+	handleEquipFlag(itemIcon, netItem)
+	if itemIcon.updateFunc then itemIcon.updateFunc(itemIcon.itemPos) end
+end
+
+function UIItem.updateItemNum(itemIcon, num ,color)
+	-- print("/////////UIItem.updateItemNum/////////////", itemIcon.itemPos, num)
+	local lblNum = itemIcon:getWidgetByName("lbl_num")
+	local pSize = itemIcon:getContentSize()
+	if num then
+		if type(num) == "number" and num >= 1 then
+			if num == 1 then
+				lblNum:setString("")
+			else
+				if num > 9999 then
+					lblNum:align(display.CENTER_BOTTOM, pSize.width * 0.5, pSize.height * 0.1)
+				else
+					lblNum:align(display.RIGHT_BOTTOM, pSize.width * 0.9, pSize.height * 0.1)
+				end
+
+				lblNum:setString(num)
+			end
+		elseif type(num) == "string" then
+			lblNum:setString(num)
+		end
+		if color then
+			lblNum:setColor(color)
+		end
+	else
+		lblNum:setString("")
+	end
+end
+
+function UIItem.updateItemIconByTypeId(itemIcon, typeId)
+	local iconRes = "10000000"
+	local itemdef = NetClient:getItemDefByID(typeId)
+	if itemdef then iconRes = itemdef.mIconID end
+
+	--检查当前是否是创世装备
+	if not itemIcon.mShengshiId then
+		local netItem = NetClient:getNetItem(itemIcon.itemPos)
+		if netItem then
+			itemIcon.mShengshiId = netItem.mShengshiId
+		end
+	end
+	if itemIcon.mShengshiId and itemIcon.mShengshiId > 0 then
+		local itemSs = NetClient:getSSEquipAttr(itemIcon.mShengshiId)
+		if itemSs then
+			local tf = NetClient:getItemDefByID(itemSs.mNeedItemId)
+			if tf then iconRes = tf.mIconID end
+		end
+	end
+
+	itemIcon.typeId = typeId
+	itemIcon.resLoaded = false
+	local path = "picicon/"..iconRes..".png"
+	-- local imgIconInner = itemIcon:getWidgetByName("img_icon_inner"):hide()
+	-- asyncload_callback(path, itemIcon, function(filepath, texture)
+		-- if util.isObjectExist(itemIcon) and itemIcon.typeId then
+			-- if not itemIcon.resLoaded then
+				-- imgIconInner:show()
+				if not itemIcon.mEffectId then
+					itemIcon:getWidgetByName("img_icon"):loadTexture(path)
+					-- local size = itemIcon:getWidgetByName("img_icon"):getContentSize()
+					-- local pSize = itemIcon:getContentSize()
+					itemIcon:getWidgetByName("img_icon"):setScale(0.95)
+				else
+					util.addEffect(itemIcon,"iconSprite",GROUP_TYPE.EFFECT,itemIcon.mEffectId,nil,nil,true)
+				end
+		
+			-- local itemdef = NetClient:getItemDefByID(itemIcon.typeId)
+			-- if itemdef and "picicon/"..itemdef.mIconID..".png" == filepath then
+			-- 	itemIcon.resLoaded = true
+			-- end
+		-- end
+	-- end)
+	-- local jobInfo = util.getJobInfo(itemdef.mJob)
+	-- if jobInfo then--and (itemIcon.iconType == Const.ICONTYPE.BAG or itemIcon.iconType == Const.ICONTYPE.DEPOT) then
+		--itemIcon:getWidgetByName("lbl_job"):setString(jobInfo.name):setColor(jobInfo.color):enableOutline(cc.c3b(0,0,0),1)
+	-- end
+---这里暂时有问题
+	if itemdef.mIconDesc and not itemIcon.mEffectId then
+		local pNumber = tonumber(itemdef.mIconDesc)
+		
+		if game.IsEquipment(itemIcon.typeId) and pNumber and pNumber > 0 and itemdef.mTzluck < 1 then
+		 	local img_pinjie = itemIcon:getChildByName("img_pinjie"):show()
+			itemIcon:getChildByName("img_pinjie"):setString(itemdef.mIconDesc)
+			if pNumber >= 10 then
+				img_pinjie:getChildByName("pjie"):setPositionX(8):show()
+			else
+				img_pinjie:getChildByName("pjie"):setPositionX(5):show()
+			end
+			local img_type = game.getEquipTypeWithId(itemdef.mTypeID)
+			if img_type then
+				itemIcon:getWidgetByName("img_equip_type"):loadTexture(img_type, ccui.TextureResType.plistType):show()
+			end
+		else
+			itemIcon:getChildByName("img_pinjie"):hide()
+			itemIcon:getWidgetByName("img_equip_type"):hide()
+			itemIcon:getWidgetByName("icon_desc")
+		end
+	else
+		itemIcon:getChildByName("img_pinjie"):hide()
+		itemIcon:getWidgetByName("img_equip_type"):hide()
+	end
+	--星耀测试
+	if itemdef.mTzluck and not itemIcon.mEffectId then
+		local pNumber = tonumber(itemdef.mTzluck)
+		
+		if game.IsEquipment(itemIcon.typeId) and pNumber and pNumber == 1 then
+		 	local img_pinjie = itemIcon:getChildByName("img_shengshi"):show()
+			itemIcon:getChildByName("img_shengshi")--:setString(itemdef.mIconDesc)
+			-- if pNumber >= 1 then
+				img_pinjie:getChildByName("xingyao1"):setPositionX(8):setPositionY(-35):show()
+			-- else
+				-- img_pinjie:getChildByName("xingyao"):setPositionX(5):show()
+			-- end
+				-- img_pinjie:getChildByName("xingyao"):setPositionX(8):show()
+
+			local img_type = game.getEquipTypeWithId(itemdef.mTypeID)
+			if img_type then
+				itemIcon:getWidgetByName("img_equip_type"):loadTexture(img_type, ccui.TextureResType.plistType):show()
+			end
+		else
+			itemIcon:getChildByName("img_shengshi"):hide()
+			itemIcon:getWidgetByName("img_equip_type"):hide()
+			itemIcon:getWidgetByName("icon_desc")
+		end
+	else
+		itemIcon:getChildByName("img_shengshi"):hide()
+		itemIcon:getWidgetByName("img_equip_type"):hide()
+	end
+		--月烛测试
+	if itemdef.mTzluck and not itemIcon.mEffectId then
+		local pNumber = tonumber(itemdef.mTzluck)
+		
+		if game.IsEquipment(itemIcon.typeId) and pNumber and pNumber == 2 then
+		 	local img_pinjie = itemIcon:getChildByName("img_yuezhu"):show()
+			itemIcon:getChildByName("img_yuezhu")--:setString(itemdef.mIconDesc)
+			-- if pNumber >= 1 then
+				img_pinjie:getChildByName("yuezhu1"):setPositionX(8):setPositionY(-35):show()
+			-- else
+				-- img_pinjie:getChildByName("xingyao"):setPositionX(5):show()
+			-- end
+				-- img_pinjie:getChildByName("xingyao"):setPositionX(8):show()
+
+			local img_type = game.getEquipTypeWithId(itemdef.mTypeID)
+			if img_type then
+				itemIcon:getWidgetByName("img_equip_type"):loadTexture(img_type, ccui.TextureResType.plistType):show()
+			end
+		else
+			itemIcon:getChildByName("img_yuezhu"):hide()
+			itemIcon:getWidgetByName("img_equip_type"):hide()
+			itemIcon:getWidgetByName("icon_desc")
+		end
+	else
+		itemIcon:getChildByName("img_yuezhu"):hide()
+		itemIcon:getWidgetByName("img_equip_type"):hide()
+	end
+		--日冕测试
+	if itemdef.mTzluck and not itemIcon.mEffectId then
+		local pNumber = tonumber(itemdef.mTzluck)
+		
+		if game.IsEquipment(itemIcon.typeId) and pNumber and pNumber == 3 then
+		 	local img_pinjie = itemIcon:getChildByName("img_rimian"):show()
+			itemIcon:getChildByName("img_rimian")--:setString(itemdef.mIconDesc)
+			-- if pNumber >= 1 then
+				img_pinjie:getChildByName("rimian1"):setPositionX(8):setPositionY(-35):show()
+			-- else
+				-- img_pinjie:getChildByName("xingyao"):setPositionX(5):show()
+			-- end
+				-- img_pinjie:getChildByName("xingyao"):setPositionX(8):show()
+
+			local img_type = game.getEquipTypeWithId(itemdef.mTypeID)
+			if img_type then
+				itemIcon:getWidgetByName("img_equip_type"):loadTexture(img_type, ccui.TextureResType.plistType):show()
+			end
+		else
+			itemIcon:getChildByName("img_rimian"):hide()
+			itemIcon:getWidgetByName("img_equip_type"):hide()
+			itemIcon:getWidgetByName("icon_desc")
+		end
+	else
+		itemIcon:getChildByName("img_rimian"):hide()
+		itemIcon:getWidgetByName("img_equip_type"):hide()
+	end
+
+	if itemIcon.typeId > 0 then
+		itemIcon:getWidgetByName("lbl_title"):setVisible(false)
+	else
+		itemIcon:getWidgetByName("lbl_title"):setVisible(true)
+	end
+
+	local filepath
+	if itemdef and itemdef.mItemBg >= 0 then
+		filepath = string.format("picicon/iconbg%s.png", itemdef.mItemBg)
+	elseif itemIcon:getWidgetByName("img_icon_bg") then
+		itemIcon:getWidgetByName("img_icon_bg"):loadTexture("null", ccui.TextureResType.plistType):hide()
+	end
+	if itemIcon.showBg ~= nil then
+		filepath = nil
+		itemIcon:getWidgetByName("img_icon_bg"):loadTexture("null", ccui.TextureResType.plistType):hide()
+	end
+	if filepath and not itemIcon.mEffectId then
+		asyncload_callback(filepath, itemIcon, function(filepath, texture)
+			if util.isObjectExist(itemIcon) and itemIcon.typeId then
+				local _img_icon_bg = itemIcon:getChildByName("img_icon_bg")
+				local _img_icon = itemIcon:getChildByName("img_icon")
+				_img_icon_bg:show():loadTexture(filepath)
+				_img_icon:setScale(0.95)
+			end
+		end)
+	end
+
+	if game.IsShield(typeId) or game.IsJewel(typeId) or game.IsCrittoken(typeId) then
+		-- UIItem.updateSpecialItemName(itemIcon, typeId)
+	end
+	if itemdef and itemIcon.updateDesp then
+		itemIcon.updateDesp(itemdef)
+	end
+	if itemIcon.showBetter then
+		if NetClient:check_better_item({mTypeID = typeId, mLevel = itemIcon.mLevel}, true) then 
+			itemIcon:getWidgetByName("img_better_equip"):show() 
+		end
+	end
+end
+
+-- 装备发生改变比如卸下
+function UIItem.handleItemChange(itemIcon, event)
+	if event.pos == itemIcon.itemPos then
+		-- if itemIcon.iconType == Const.ICONTYPE.UPGRADE then resetItem(itemIcon) return end
+		if event.pos then 
+			if util.isObjectExist(itemIcon) then
+				UIItem.updateItemIconByPos(itemIcon, event.pos)
+			end
+		end
+	end
+	if itemIcon and itemIcon.itemPos then
+		if NetClient:check_better_item(itemIcon.itemPos, true) then 
+			itemIcon:getWidgetByName("img_better_equip"):show() 
+		else
+			local netItem = NetClient:getNetItem(itemIcon.itemPos)
+			if netItem and game.checkBoxMatch(netItem.mTypeID) then
+				itemIcon:getWidgetByName("img_better_equip"):show() 
+			else
+				itemIcon:getWidgetByName("img_better_equip"):hide() 
+			end
+		end
+	end
+end
+
+function UIItem.handleItemUseLimitChange(itemIcon, event)
+	if game.IsPosInBag(itemIcon.itemPos) and event.typeId == itemIcon.typeId then
+		local netItem = NetClient:getNetItem(itemIcon.itemPos)
+		if netItem then
+			handleRedPoint(itemIcon, netItem)
+		end
+	end
+end
+
+function UIItem.updateItemIcon(itemIcon)
+	local netItem = NetClient:getNetItem(itemIcon.itemPos)
+	if netItem then
+		local itemdef = NetClient:getItemDefByID(netItem.mTypeID)
+		if not itemdef then print("not this item3") return end
+	end
+end
+
+return UIItem

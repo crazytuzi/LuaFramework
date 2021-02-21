@@ -1,0 +1,484 @@
+local PanelMiniMap={}
+
+local var = {}
+local tile_step = {[0]={0,-1},[1]={1,-1},[2]={1,0},[3]={1,1},[4]={0,1},[5]={-1,1},[6]={-1,0},[7]={-1,-1}}
+local head_key ={"head_mzs","head_fzs","head_mfs","head_ffs","head_mds","head_fds"}
+
+local ignoreNpc = {
+	["v002"] = {"传送员","每日泡点","暗殿使者","玛雅神殿","BOSS之家","转生神殿","第一男战士","第一女战士","第一男法师","第一女法师","第一男道士","第一女道士"}
+}
+
+local stretchMaps = {
+	00102, 00103
+}
+
+local function isTransferMember(npcName)
+	if string.find(npcName,"传送") then
+		return true;
+	end
+end
+
+--bossNpc名字带等级信息
+local function isBossNpc(npcName)
+	if string.find(npcName,"Lv:") then
+		return true;
+	end
+end
+
+function PanelMiniMap.initView()
+	var = {
+		xmlPanel,
+		mainRole,
+		mapScroll,
+		touchEndPos,
+		changeRoad,
+		origHeight,
+		origWidth,
+		imgMap,
+		mapPos,
+		selfImg,
+		touchBeganTime,
+		touchBeganPos,
+		roadMarks,
+		npcMarks,
+		mapConMarks,--地图连接点
+		target={},
+
+		mStretch = false,
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelMiniMap.uif")
+
+	if var.xmlPanel then
+		var.mapScroll = var.xmlPanel:getWidgetByName("mapScroll")
+			:setClippingEnabled(true)
+		local lvContentSize = var.mapScroll:getContentSize()
+		util.asyncload(var.xmlPanel, "panel_minimap_bg", "needload/bg_mmax.png")
+		util.asyncload(var.xmlPanel, "minimabg_before", "needload/minimap1.png")
+		util.asyncload(var.xmlPanel, "minimabg_after", "needload/minimap2.png")
+		local shape4 = display.newRect(
+			cc.rect(0, 0, lvContentSize.width, lvContentSize.height), 
+			{
+				fillColor = cc.c4f(0,0,0,1), borderColor = cc.c4f(0,0,0,1), 
+				borderWidth = 0
+			}
+		):addTo(var.mapScroll)
+
+		var.imgMap = ccui.ImageView:create()
+			:align(display.CENTER, lvContentSize.width * 0.5, lvContentSize.height * 0.5)
+			:addTo(var.mapScroll)
+			:setTouchEnabled(true)
+
+		var.npcMarks = ccui.Widget:create()
+			:addTo(var.imgMap, 10)
+
+		var.mapConMarks = ccui.Widget:create()
+			:addTo(var.imgMap, 10)
+
+		var.roadMarks = ccui.Widget:create()
+			:addTo(var.imgMap, 10)
+
+		local pixesmain = MainRole.updateAttr()
+		local job = pixesmain:NetAttr(Const.net_job)
+		local gender = pixesmain:NetAttr(Const.net_gender)
+		local id = (job-100) * 2 + gender - 199
+		var.selfImg = ccui.ImageView:create("img_player_icon", ccui.TextureResType.plistType):addTo(var.imgMap, 20):align(display.CENTER)
+		cc.EventProxy.new(NetClient, var.xmlPanel)
+			:addEventListener(Notify.EVENT_MAP_ENTER, PanelMiniMap.handleMapEnter)
+		PanelMiniMap.initBtns()
+		return var.xmlPanel
+	end
+end
+
+function PanelMiniMap.handleMapEnter()
+	var.npcMarks:removeAllChildren()
+	var.mapConMarks:removeAllChildren()
+	local minimap = NetClient.mNetMap
+	if minimap then
+		local filepath = string.format("minimap/%05d.png",minimap.mMiniMapID)
+			var.imgMap:loadTexture(filepath)
+			var.origWidth = var.imgMap:getContentSize().width
+
+		-- end)
+	end
+end
+
+function PanelMiniMap.onPanelOpen()
+	local minimap = NetClient.mNetMap
+	if minimap then 
+		local filepath = string.format("minimap/%05d.png",minimap.mMiniMapID)
+		if table.indexof(stretchMaps, minimap.mMiniMapID) then
+			var.mStretch = true
+		else
+			var.mStretch = false
+		end
+			var.imgMap:loadTexture(filepath)
+			var.origWidth = var.imgMap:getContentSize().width
+			PanelMiniMap.initPanel()
+			if game.aimPos then
+				var.touchEndPos = PanelMiniMap.mapPosToMini(game.aimPos)
+				var.changeRoad = true
+			end
+	end
+	
+end
+
+function PanelMiniMap.initPanel()
+	local pixesmain = MainRole.updateAttr()
+
+	local minimap = NetClient.mNetMap
+	var.xmlPanel:getWidgetByName("map_name"):setString(minimap.mName)
+	local lvContentSize = var.mapScroll:getContentSize()
+	var.origHeight = var.imgMap:getContentSize().height
+	
+	local selfPos = PanelMiniMap.mapPosToMini(cc.p(pixesmain:PAttr(Const.AVATAR_X), pixesmain:PAttr(Const.AVATAR_Y)))
+	local bgSize = var.imgMap:getContentSize()
+	var.selfImg:setPosition(selfPos):scale(var.origHeight/lvContentSize.height):show()
+	if MainRole.mDir then
+		var.selfImg:setRotation(45*MainRole.mDir-90)
+	end
+		
+	var.pos_x = var.xmlPanel:getWidgetByName("pos_x")
+	var.pos_y = var.xmlPanel:getWidgetByName("pos_y")
+	var.imgMap:addTouchEventListener(function (pSender,touch_type)
+		if touch_type == ccui.TouchEventType.began then
+
+			var.touchBeganTime = game.getTime()
+			var.touchBeganPos = pSender:getTouchBeganPosition()
+
+		elseif touch_type == ccui.TouchEventType.ended then
+			if game.getTime() - var.touchBeganTime < 125 and cc.pDistanceSQ(var.touchBeganPos, pSender:getTouchEndPosition()) < 3*3 then
+				var.touchEndPos = pSender:convertToNodeSpace(pSender:getTouchEndPosition()) 
+				local mapPos = PanelMiniMap.miniPosToMap(var.touchEndPos)
+				if mapPos then 
+					PanelMiniMap.startAutoMoveToPos(mapPos.x, mapPos.y)
+				end
+			end
+		end
+	end)
+
+	PanelMiniMap.drawMiniNpc()
+	PanelMiniMap.drawMapConn()
+	local moveStep = 0
+	local function runSelfMark(dx)
+		local heroPos = PanelMiniMap.mapPosToMini(cc.p(pixesmain:PAttr(Const.AVATAR_X),pixesmain:PAttr(Const.AVATAR_Y)))
+		if util.isObjectExist(var.selfImg) then
+			if var.touchEndPos and var.changeRoad then
+				local posTemp = PanelMiniMap.miniPosToMap(var.touchEndPos)
+				var.roadMarks:removeAllChildren()
+				if posTemp then 
+					var.mapPos = PanelMiniMap.miniPosToMap(var.touchEndPos)
+					local mList = cc.AstarPath:getInstance():getStepList()
+					local mPosRoad = {}
+					if #mList > 0 then
+						if util.isObjectExist(var.roadMarks) then
+							var.roadMarks:removeAllChildren()
+						end
+						var.changeRoad = false
+						mPosRoad[0] = cc.p(pixesmain:PAttr(Const.AVATAR_X),pixesmain:PAttr(Const.AVATAR_Y))
+						local childTag = 0
+						for i=1,#mList do
+							local dir = mList[#mList-i+1]
+							mPosRoad[i] = cc.p(mPosRoad[i-1].x+ tile_step[dir][1],mPosRoad[i-1].y+ tile_step[dir][2])
+							local interval = 3
+							if var.mStretch then
+								interval = 1
+							end
+
+							if (not var.mStretch and i%interval == 1) or (var.mStretch) then
+								local mPos = PanelMiniMap.mapPosToMini(cc.p(mPosRoad[i].x,mPosRoad[i].y))
+								local anchor = display.CENTER
+								local texture = "img_trackPoint"
+								var.target={NetClient.mNetMap.mMapID,mPosRoad[i].x,mPosRoad[i].y}
+								if i > #mList - interval then
+									anchor = display.CENTER_BOTTOM
+									texture = "img_destination"
+								end
+								local image = ccui.ImageView:create(texture, ccui.TextureResType.plistType)
+									:align(anchor, mPos.x, mPos.y)
+									:addTo(var.roadMarks, 10, childTag)
+									:scale(var.origHeight/lvContentSize.height)
+									:setAnchorPoint(cc.p(0.5,0.5))
+									childTag = childTag + 1
+								if texture~="img_destination" then
+									image:setRotation(45*dir-90)
+								end
+							end
+						end
+					end
+				end
+				moveStep = 0
+			end
+			if var.selfImg:getPositionX() ~= math.floor(heroPos.x) or var.selfImg:getPositionY() ~= math.floor(heroPos.y) then
+				moveStep = moveStep + 1
+				var.selfImg:pos(math.floor(heroPos.x), math.floor(heroPos.y))
+
+				local mDir = pixesmain:NetAttr(Const.net_dir)
+				if mDir then
+					var.selfImg:setRotation(45*mDir-90)
+				end
+
+				var.pos_x:setString(pixesmain:PAttr(Const.AVATAR_X))
+				var.pos_y:setString(pixesmain:PAttr(Const.AVATAR_Y))
+
+				local isNeed2Remove = false
+				local children = var.roadMarks:getChildren()
+				for i,v in ipairs(children) do
+					local posX,posY = v:getPosition()
+
+					if math.abs(heroPos.x-posX) + math.abs(heroPos.y-posY)< 10 then
+						if v:getTag()*2>=moveStep and v:getTag()<=moveStep then
+							isNeed2Remove = i
+							break
+						end
+					end
+				end
+				if isNeed2Remove and isNeed2Remove < 5 then
+					for i,v in ipairs(children) do
+						if i <= isNeed2Remove then
+							var.roadMarks:removeChildByTag(v:getTag())
+						else
+							break
+						end
+					end
+				end
+			end
+
+			if var.roadMarks:getChildrenCount() > 0 then
+				local selfmappos = PanelMiniMap.miniPosToMap(heroPos)
+				if selfmappos then
+					if math.abs(var.mapPos.x-selfmappos.x)<=1 and math.abs(var.mapPos.y-selfmappos.y)<=1 then
+						var.roadMarks:removeAllChildren()
+					end
+				end
+			end
+		end
+	end
+
+	var.xmlPanel:runAction(
+		cca.loop(
+			cca.seq({
+				cca.cb(runSelfMark),
+				cca.delay(0.05)
+			})
+		)
+	)
+end
+
+-------------------绘制NPC-------------------
+function PanelMiniMap.drawMiniNpc()
+	local lvContentSize = var.mapScroll:getContentSize()
+	local scale = var.origHeight / lvContentSize.height
+	var.npcMarks:removeAllChildren()
+	for i,v in ipairs(NetClient.mMiniNpc) do
+		if v.mMapID == NetClient.mNetMap.mMapID then
+			if not ignoreNpc[v.mMapID] or (ignoreNpc[v.mMapID] and not table.indexof(ignoreNpc[v.mMapID], v.mNpcName)) then
+				local mPos = PanelMiniMap.mapPosToMini(cc.p(v.mX,v.mY))
+				local path = isTransferMember(v.mNpcName) and "img_npc_transfer" or "img_npc_normal";
+				local pNpcDot = ccui.Button:create(path, "", "", ccui.TextureResType.plistType)
+					:align(display.CENTER, mPos.x, mPos.y)
+					:addTo(var.npcMarks)
+					:scale(scale)
+					pNpcDot.targetPos = cc.p(v.mX,v.mY)
+
+				pNpcDot:addClickEventListener(PanelMiniMap.touchTarget)
+
+				local dotSize = pNpcDot:getContentSize()
+				
+				local npcName = PanelMiniMap.handleNpcName(v.mNpcName)
+
+				local npc_name = ccui.Text:create()
+					:align(display.BOTTOM_CENTER, dotSize.width * 0.5, dotSize.height + 5)
+					:addTo(pNpcDot)
+					:setName("name")
+					:setString(npcName)
+					:setFontSize(14)
+					:setFontName(FONT_NAME)
+					:setColor(cc.c3b(255,255,255))
+					:setTouchEnabled(true)
+				npc_name.targetPos = cc.p(v.mX,v.mY)
+				npc_name:addClickEventListener(PanelMiniMap.touchTarget)
+			end
+		end
+	end
+end
+
+-------------------绘制地图连接点-------------------
+function PanelMiniMap.drawMapConn()
+	local lvContentSize = var.mapScroll:getContentSize()
+	local scale = var.origHeight / lvContentSize.height
+	var.mapConMarks:removeAllChildren()
+	local mapCon=NetClient.mMiniMapConn[NetClient.mNetMap.mMapID]
+	if mapCon then
+		for i=1,#mapCon do
+			local nmc = NetClient.mMapConn[mapCon[i]]
+			local mPos = PanelMiniMap.mapPosToMini(cc.p(nmc.mFromX,nmc.mFromY))
+			local pConnDot = ccui.Button:create("img_boss_icon","","",ccui.TextureResType.plistType)
+				:align(display.CENTER, mPos.x, mPos.y)
+				:addTo(var.mapConMarks)
+				:scale(scale)
+				:setTouchEnabled(true)
+			pConnDot.targetPos = cc.p(nmc.mFromX, nmc.mFromY) 
+
+			pConnDot:addClickEventListener(PanelMiniMap.touchTarget)
+
+			local dotSize = pConnDot:getContentSize()
+
+			local name_mapCon = ccui.Text:create()
+				:align(display.CENTER, dotSize.width * 0.5, dotSize.height + 10)
+				:addTo(pConnDot)
+				:setString(nmc.mDesMapName)
+				:setFontSize(18)
+				:setFontName(FONT_NAME)
+				:setColor(cc.c3b(206,209,0))
+		end
+	end
+end
+
+-- 世界坐标转小地图坐标
+function PanelMiniMap.mapPosToMini(mpos)
+	local NetMap = cc.NetClient:getInstance():getMap()
+	if not NetMap then return cc.p(0,0) end
+	local mapWidth = NetMap:LogicWidth()
+	local mapHeight = NetMap:LogicHeight()
+	return cc.p(var.origWidth / mapWidth * mpos.x, var.origHeight - var.origHeight / mapHeight * mpos.y)
+end
+
+-- 小地图坐标转世界坐标
+function PanelMiniMap.miniPosToMap(mpos)
+	local NetMap = cc.NetClient:getInstance():getMap()
+	local mapWidth = NetMap:LogicWidth()
+	local mapHeight = NetMap:LogicHeight()
+	return cc.p(mpos.x * mapWidth / var.origWidth, mapHeight - mpos.y * mapHeight / var.origHeight)	
+end
+
+function PanelMiniMap.touchTarget(pSender)
+	if pSender.flyID and pSender.flyID > 0 then
+		NetClient:DirectFly(pSender.flyID)
+		NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str="panel_minimap"})
+	elseif pSender.targetPos then
+		if MainRole._mainAvatar then
+			var.touchEndPos = PanelMiniMap.mapPosToMini(pSender.targetPos)
+			PanelMiniMap.startAutoMoveToPos(pSender.targetPos.x,pSender.targetPos.y,2)
+		end
+	end
+end
+
+function PanelMiniMap.updateListNPC(item)
+
+	local nmmn = NetClient.mMiniNpc[item.tag]
+
+	local lbl_NPC = item:getWidgetByName("lbl_NPC"):setTouchEnabled(true)
+		
+	local strName = PanelMiniMap.handleNpcName(nmmn.mNpcName)
+	local laststr = string.sub(strName,string.len(strName),string.len(strName))
+	if tonumber(laststr) and tonumber(laststr) > 0 then
+		strName = string.sub(strName,1,string.len(strName)-1)
+	end
+	local o1, o2 = string.find(strName,"】")
+	
+	if o2 and o2 > 0 then strName = string.sub(strName, o2 + 1) end
+	local o3 = string.find(strName,"%(")
+	if o3 and o3 > 0 then strName = string.sub(strName, 1, o3 - 1) end
+	lbl_NPC:setString(strName)
+	lbl_NPC.targetPos = cc.p(nmmn.mX, nmmn.mY)
+	lbl_NPC:addClickEventListener(PanelMiniMap.touchTarget)
+
+	local lbl_NPCTransmit = item:getWidgetByName("lbl_NPCTransmit"):setTouchEnabled(true)
+	lbl_NPCTransmit:addClickEventListener(PanelMiniMap.touchTarget)
+	if nmmn.mDirectFlyID and nmmn.mDirectFlyID > 0 then
+		lbl_NPCTransmit.flyID = nmmn.mDirectFlyID
+		lbl_NPCTransmit:setString(Const.str_transfer)
+	else
+		lbl_NPCTransmit.flyID = nil
+		lbl_NPCTransmit.targetPos = cc.p(nmmn.mX, nmmn.mY)
+		lbl_NPCTransmit:setString(Const.str_goto)
+	end
+
+end
+
+function PanelMiniMap.updateTransmit(item)
+
+	local mapCon=NetClient.mMiniMapConn[NetClient.mNetMap.mMapID]
+
+	local nmc = NetClient.mMapConn[mapCon[item.tag]]
+
+	local lbl_WayPoint = item:getWidgetByName("lbl_WayPoint")
+		:setTouchEnabled(true)
+		:setString(nmc.mDesMapName)
+	lbl_WayPoint.targetPos = cc.p(nmc.mFromX,nmc.mFromY)
+	lbl_WayPoint:addClickEventListener(PanelMiniMap.touchTarget)
+
+	local lbl_Transfer = item:getWidgetByName("lbl_Transfer")
+		:setTouchEnabled(true)
+		:setString(Const.str_goto)
+	lbl_Transfer.targetPos = cc.p(nmc.mFromX,nmc.mFromY)
+	lbl_Transfer:addClickEventListener(PanelMiniMap.touchTarget)
+end
+
+function PanelMiniMap.startAutoMoveToPos(tx, ty, flag)
+	var.changeRoad = true
+	MainRole._moveToNearAttack = false
+	MainRole.stopAutoFight()
+	MainRole._targetNPCName = ""
+	if flag then
+		MainRole._mainAvatar:startAutoMoveToPos(tx, ty, flag)
+	else
+		MainRole._mainAvatar:startAutoMoveToPos(tx, ty)
+	end
+end
+
+function PanelMiniMap.handleNpcName(name)
+	return string.gsub(name,"(.-)(%d-)(%(Lv:%d*%))","%1")
+end
+
+function PanelMiniMap.onPanelClose()
+	var.touchBeganTime = 0
+	var.selfImg:hide()
+	var.xmlPanel:stopAllActions()
+	var.roadMarks:removeAllChildren()
+end
+
+local btnArrs = {"btnHeCheng","btnHuiShou","btnChuanSong","btnSuiJi"}
+function PanelMiniMap.initBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		if senderName=="btnHeCheng" then
+			local mParam = {
+				name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = "是否传送到合成使者？",
+				btnConfirm = "是", btnCancel = "否",
+				confirmCallBack = function ()
+					NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "flyHeCheng",}))
+					NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str = "panel_minimap",})
+				end
+			}
+			NetClient:dispatchEvent(mParam)
+		elseif senderName=="btnHuiShou" then
+			local mParam = {
+				name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = "是否传送到回收使者？",
+				btnConfirm = "是", btnCancel = "否",
+				confirmCallBack = function ()
+					NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "flyHuiShou",}))
+					NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str = "panel_minimap",})
+				end
+			}
+			NetClient:dispatchEvent(mParam)
+		elseif senderName=="btnChuanSong" then
+			if not NetClient:BagUseItemByType(32010002) then
+				NetClient:alertLocalMsg("背包没有回城石，无法使用该功能！", "alert")
+			end
+			 -- 传送石
+		elseif senderName=="btnSuiJi" then
+			NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "useRandomStone"}))
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i]):setPressedActionEnabled(true)
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+
+
+
+return PanelMiniMap

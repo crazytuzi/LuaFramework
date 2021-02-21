@@ -1,0 +1,458 @@
+local PanelBag = class("PanelBag")
+
+--背包按钮表，按钮名做key,normalTitle按钮常态文本，selectTitle按钮选中态文本
+local bagButtons = {
+	["btnTidy"] 	= {normalTitle = Const.str_tidy},
+	 ["btnHuiShou"] 	= {normalTitle = Const.str_huishou},
+	["btnShangDian"] 	= {normalTitle = Const.str_sssd},
+}
+
+--背包状态
+local OPERATE = {
+	DROP = "btnDrop",
+	DESTORY = "btnDestory",
+}
+
+local var = {}
+--局部变量表
+--初始化面板
+local resource = {"coin","coin_bind","vcoin","vcoin_bind"}
+
+function PanelBag.initView(event)
+	var = {
+		xmlPanel,
+		isSplit = false,
+		selectPos,
+		operateName,
+		curBagNum=0,--背包新增格子数
+		xmlShop=nil,
+		xmlOpenGe=nil,
+		shopData={},
+		geNum=1,--默认开启1个
+		mark=nil,
+		geCount=0,
+		curWeaponId=nil,
+		curClothId=nil,
+		totalTime =0,
+		timeTable = {},
+
+		mShowMainEquips = true,
+
+		isPanelOpened = false,
+		layerShop= nil,
+		endPlay = false
+	}
+	--初始化局部变量,变量遵循驼峰命名
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelBag.uif")
+	-- --读取界面文件,返回根节点
+
+	if var.xmlPanel then
+		--判断xml读取成功
+		------------------------------------------------------
+		--遍历bagButtons表设置背包按钮
+		var.layerShop = var.xmlPanel:getWidgetByName("layerShop")
+		var.LayerListBg = var.xmlPanel:getWidgetByName("LayerListBg")
+		for k,v in pairs(bagButtons) do
+			local btnBag = var.xmlPanel:getWidgetByName(k)
+			if btnBag then
+				btnBag:setTitleText(v.normalTitle)
+				UIRedPoint.addUIPoint(btnBag, PanelBag.pushBagButton)
+			end
+			if event.btn == k then
+				PanelBag.pushBagButton(btnBag)
+			end
+		end
+		-- UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName("btnClose"),PanelBag.pushBagButton)
+		UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName("btnClose1"),PanelBag.pushBagButton)
+		------------------------------------------------------
+		--此处处理面板打开后固定信息的刷新,设置事件监听,设置按钮回调等操作
+		--初始化背包列表
+		PanelBag.freshBagList()
+		--打开面板后手动刷新金币状态
+		PanelBag:updateGameMoney()
+
+
+		--监听金币变化事件,事件会触发刷新函数
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelBag.updateGameMoney)
+			:addEventListener(Notify.EVENT_AVATAR_CHANGE, PanelBag.updateInnerLooks)
+			:addEventListener(Notify.EVENT_SOLT_CHANGE, PanelBag.addCellUpdate)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelBag.handlePanelData)
+			:addEventListener(Notify.EVENT_POWER_CHANGE, PanelBag.handlePowerChange)
+			:addEventListener(Notify.EVENT_FRESH_ITEM_PANEL, PanelBag.onFreshItemPanel)
+		------------------------------------------------------
+		return var.xmlPanel
+	end
+end
+
+function PanelBag.onPanelOpen()
+	var.isPanelOpened = true
+	PanelBag.freshBagList()
+	--打开背包时请求当前格子开放的CD时间
+	-- NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "reqGeOpenNeedTime"}))
+	-- PanelBag.initOpenGe()
+end
+
+function PanelBag.onFreshItemPanel(event)
+	--print("/////////////////PanelBag.onFreshItemPanel/////////////////", event.flag)
+	if var.isPanelOpened and event.flag == 0 then
+		PanelBag.freshBagList()
+	end
+end
+
+function PanelBag.handlePowerChange(event)
+	-- var.powerNum:setString(NetClient.mCharacter.mFightPoint)
+end
+
+function PanelBag.handlePanelData(event)
+	if event.type == "PanelBag" then
+		local data = util.decode(event.data)
+		if not data then return end
+		if data.cmd=="startOpenGeZi" then
+			NetClient:AddBagSlot()
+		elseif data.cmd=="senderShopData" then
+			var.shopData = data.data
+			PanelBag.initShop()
+		elseif data.cmd == "curBagNum" then
+			-- var.geCount = data.lefttime
+			-- var.totalTime = data.totalTime
+			-- var.timeTable = data.timeTable
+			-- local list = var.xmlPanel:getWidgetByName("listBag")
+			-- for i=data.bagnum-data.opennum+1,data.bagnum+1 do
+			-- 	local cell = list:getModelByIndex(i)
+			-- 	if cell then
+			-- 		PanelBag.cdRun(cell,var.geCount,var.totalTime)
+			-- 	end
+			-- end
+			-- PanelBag.updateOpenCount(var.geCount)
+		end
+	end
+end
+
+--背包格子开启成功后刷新列表
+function PanelBag.addCellUpdate(event)
+	-- PanelBag.freshBagList()
+end
+
+--初始化背包列表
+function PanelBag.freshBagList()
+	--获取列表容器
+	local list = var.xmlPanel:getWidgetByName("listBag")--:setSliderVisible(false)
+	list:reloadData(Const.ITEM_BAG_MAX, PanelBag.updateBagListByItem,nil,false)
+end
+
+--复用列表会根据当前显示范围传来容器,请求对此容器填充内容
+function PanelBag.updateBagListByItem(subItem)
+	local itemPos = subItem.tag -1
+	if subItem:getWidgetByName("mark") then
+		subItem:removeChildByName("mark")
+	end
+
+	--背包锁设置
+	subItem:getWidgetByName("black"):hide()
+	-- if subItem.tag<=Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd then
+	-- 	if var.geCount>0 and var.totalTime>0 then
+	-- 		PanelBag.cdRun(subItem,0,0)
+	-- 	end
+	-- elseif subItem.tag==(Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd+1) then
+	-- 	if var.geCount>0 and var.totalTime>0 then
+	-- 		PanelBag.updateOpenCount(var.geCount)
+	-- 		PanelBag.cdRun(subItem,var.geCount,var.totalTime)
+	-- 	end
+	-- else
+	-- 	PanelBag.cdRun(subItem,var.geCount,var.totalTime)
+	-- end
+
+	-- subItem:getWidgetByName("cell_no_open"):setVisible(subItem.tag>(Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd+1))
+	-- subItem:getWidgetByName("cellbg"):setTouchEnabled(subItem.tag>=(Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd+1))
+	--给每个物品框填充内容
+	local param = {
+		parent = subItem,
+		pos = itemPos,
+		iconType = Const.ICONTYPE.BAG,
+		tipsType = Const.TIPS_TYPE.BAG,
+		tipsPos	= cc.p(display.cx-var.xmlPanel:getContentSize().width/2+25, display.cy-var.xmlPanel:getContentSize().height/2+2),
+		tipsAnchor = cc.p(0,0),
+		hitTest = function(sender)
+		    return util.hitTest(var.xmlPanel:getWidgetByName("listBag"), sender);
+		end,
+		compare = true
+	}
+	UIItem.getItem(param)
+end
+
+--金币刷新函数
+function PanelBag:updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="lblVcoin",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	,	icon = "icon_coin"},
+			{name="lblBVcoin",	pre=Const.str_vcoinb,	value =	mainrole.mVCoinBind or 0,	icon = "icon_coin_bind"},
+			{name="lblMoney",	pre=Const.str_money,	value =	mainrole.mGameMoney or 0,	icon = "icon_money"},
+			{name="lblBMoney",	pre=Const.str_moneyb,	value =	mainrole.mGameMoneyBind or 0,	icon = "icon_money"},
+		}
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		end
+	end
+end
+
+function PanelBag.TidyCallBack(sender)
+	sender:setTitleText(Const.str_tidy)
+end
+function PanelBag.openShop()
+	local posx = var.LayerListBg:getPositionX()
+	local posy = var.LayerListBg:getPositionY()
+	local move = 200
+	if var.layerShop:isVisible() then
+		posx = posx + 200
+	else
+		posx = posx - 200
+		NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "reqShopData"}))
+	end
+	if not var.endPlay then
+		var.endPlay = true
+		if not var.layerShop:isVisible() then
+			var.LayerListBg:runAction(cc.Sequence:create(
+			cca.moveTo(10/30,posx,posy),
+			cc.CallFunc:create(function ( ... )
+					var.layerShop:show()
+					var.layerShop:setOpacity(0)
+					var.layerShop:runAction(cc.Sequence:create(
+						cca.fadeIn(0.3),
+						cc.CallFunc:create(function ( ... )
+							var.endPlay = false
+						end)
+						))
+			end)
+			))
+		else
+			var.layerShop:runAction(cc.Sequence:create(
+				cc.CallFunc:create(function ( ... )
+					var.layerShop:hide()
+					var.LayerListBg:runAction(cc.Sequence:create(
+						cca.moveTo(10/30,posx,posy),
+						cc.CallFunc:create(function ( ... )
+							var.endPlay = false
+						end)
+						))
+				end)
+				))
+		end
+	end
+end
+function PanelBag.pushBagButton(pSender)
+	local btnName = pSender:getName()
+	if btnName == "btnTidy" then
+		NetClient:SortItem(0)
+		pSender:stopAllActions()
+		util.setCountDown(pSender,Const.BagTidyIntrval,1,PanelBag.TidyCallBack)
+	elseif btnName == "btnShangDian" or btnName == "btnClose1" then
+		PanelBag.openShop()
+		return
+	elseif btnName == "btnHuiShou" then
+		if util.isObjectExist(var.xmlShop) then
+			var.xmlShop:hide()
+		end
+		local mParam = {
+			name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = "是否传送到回收使者？",
+			btnConfirm = "是", btnCancel = "否",
+			confirmCallBack = function ()
+				NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "flyHuiShou",}))
+				NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str = "menu_bag"})
+			end
+		}
+		NetClient:dispatchEvent(mParam)
+	elseif btnName == "btnClose" then
+		NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str = "menu_bag"})
+		return
+	end
+	if btnName ~= "btnTidy" then 
+		if var.operateName ~= btnName then
+			var.operateName = btnName
+			if bagButtons[btnName].selectTitle then 
+				pSender:setTitleText(bagButtons[btnName].selectTitle) 
+			end
+		end
+	end
+end
+
+--面板关闭通知函数
+function PanelBag.onPanelClose()
+	if util.isObjectExist(var.xmlShop) then
+		var.xmlShop:hide()
+	end
+	-- if util.isObjectExist(var.xmlOpenGe) then
+	-- 	var.xmlOpenGe:hide()
+	-- end
+	
+	-- if util.isObjectExist(var.xmlPanel) then
+	-- 	var.xmlPanel:getWidgetByName("listBag"):reloadData(0, PanelBag.updateBagListByItem,nil,false)
+	-- end
+	var.isPanelOpened = false
+end
+-----------------------------------------------------随身商店-----------------------------------------------------------
+function PanelBag.initShop()
+	-- var.shopData
+	-- if not var.xmlShop then
+	-- 	var.xmlShop = UILuaLoader.load("uilayout/PanelBag_shop.uif")
+	-- 		:setTouchEnabled(true)
+	-- 		:addTo(var.xmlPanel):align(display.CENTER, 236, 282) :hide():setLocalZOrder(5) 
+	-- end
+	-- var.xmlShop:setVisible(not var.xmlShop:isVisible())
+	local listShop = var.xmlPanel:getWidgetByName("listShop"):setSliderVisible(false)
+	listShop:reloadData(#var.shopData,PanelBag.updateShop,nil,false)
+	-- var.xmlShop:getWidgetByName("btnback"):addClickEventListener(function ( s )
+	-- 	var.xmlShop:hide()
+	-- end)
+end
+
+function PanelBag.updateShop(item)
+	local itemData = var.shopData[item.tag]
+	item:getWidgetByName("labName"):setString(itemData.name)
+	item:getWidgetByName("labPrice"):setString(itemData.money)
+	local res = resource[itemData.MoneyKind-99]
+	item:getWidgetByName("vcoin"):loadTexture(res,ccui.TextureResType.plistType)
+	UIItem.getItem({parent=item:getWidgetByName("icon") , typeId=itemData.id,num = itemData.num})
+	local function prsBtnItem(sender)
+		NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "shopBuy",params={storeId=sender.storeId}}))
+	end 
+	local btnBuy = item:getWidgetByName("btnBuy")
+	if not btnBuy and item.preTag then
+		btnBuy = item:getWidgetByName("btnBuy"..item.preTag)
+	end
+	btnBuy:setName("btnBuy"..item.tag)
+	item.preTag = item.tag
+
+	btnBuy.storeId = itemData.storeId
+	UILuaLoader.attachEffect(btnBuy,"outline(076900,1)")
+	UIRedPoint.addUIPoint(btnBuy , prsBtnItem)
+	-- item:getWidgetByName("renderBg"):setVisible(item.tag<1)
+end
+
+-----------------------------------------------------开背包格子-----------------------------------------------------------
+-- function PanelBag.initOpenGe()
+-- 	if not var.xmlOpenGe then
+-- 		var.xmlOpenGe = UILuaLoader.load("uilayout/PanelBag_open.uif")
+-- 			:addTo(var.xmlPanel)
+-- 			:align(display.CENTER, 422, 593/2)
+-- 			:setLocalZOrder(6)
+-- 		var.xmlOpenGe:getWidgetByName("imgOpenBg"):setTouchEnabled(true)
+-- 		util.asyncload(var.xmlOpenGe, "openbg", "needload/panel_prompt_bg.png")
+-- 		PanelBag.initBtnClick()
+-- 	end
+-- 	var.xmlOpenGe:hide()
+-- end
+
+-- function PanelBag.initBtnClick()
+-- 	local btnArr = {"btnLeft","btnRight","btnOk","btnNo","imgBg"}
+-- 	local function prsBtnClick(sender)
+-- 		local btnName = sender:getName()
+-- 		if btnName=="btnLeft" then
+-- 			if var.geNum>1 then  var.geNum=var.geNum-1 end
+-- 			PanelBag.freshNeedVcoin(var.geNum)
+-- 			var.xmlOpenGe:getWidgetByName("labOpenNum"):setString(var.geNum)
+-- 		elseif btnName=="btnRight" then
+-- 			if var.geNum<(Const.ITEM_BAG_MAX - Const.ITEM_BAG_SIZE-NetClient.mBagSlotAdd) then  var.geNum=var.geNum+1 end
+-- 			var.xmlOpenGe:getWidgetByName("labOpenNum"):setString(var.geNum)
+-- 			PanelBag.freshNeedVcoin(var.geNum)
+-- 		elseif btnName=="btnOk" then
+-- 			NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "openBagGe",param = {var.geNum}}))
+-- 			var.xmlOpenGe:hide()
+-- 		elseif btnName=="btnNo" or btnName=="imgBg" then
+-- 			var.xmlOpenGe:hide()
+-- 		end
+-- 	end
+-- 	for i=1,#btnArr do
+-- 		local btn = var.xmlOpenGe:getWidgetByName(btnArr[i])
+-- 		btn:setTouchEnabled(true)
+-- 		UIRedPoint.addUIPoint(btn,prsBtnClick)
+-- 	end
+-- end
+
+-- --倒计时设置
+-- function PanelBag.freshNeedVcoin(num)
+-- 	local needVcoin = 0
+-- 	if var.timeTable then
+-- 		num = util.bound(1, num, #var.timeTable)
+-- 		for i=1,num do
+-- 			needVcoin = needVcoin + var.timeTable[i].needVcoin;
+-- 		end		
+-- 		local labNeedDesp = var.xmlOpenGe:getWidgetByName("labNeedDesp")
+-- 		labNeedDesp:setTextAreaSize(cc.size(300,60))
+-- 		labNeedDesp:ignoreContentAdaptWithSize(false)
+-- 		labNeedDesp:setString("所需在线时长："..util.setTimeFormat(needVcoin*60*1000,2).."\n需要【"..needVcoin.."】元宝，立即开启")
+-- 	end
+-- end
+
+-- function PanelBag.updateOpenCount(etime)
+-- 	local time = etime or 1
+-- 	if var.xmlOpenGe then
+-- 		PanelBag.freshNeedVcoin(1)
+-- 		local labCount = var.xmlOpenGe:getWidgetByName("labCount")
+-- 		labCount:stopAllActions()
+-- 		labCount:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function (target)
+-- 			time = time - 1
+-- 			var.geCount = time
+-- 			if time and time >= 0 then
+-- 				labCount:setString("当前倒计时："..util.setTimeFormat(time*1000,2))
+-- 			else
+-- 				labCount:stopAllActions()
+-- 			end
+-- 		end)})))
+-- 	end
+-- end
+
+--解锁的CD动画
+-- function PanelBag.cdRun(target,time,totalTime)
+-- 	local function prsBtnClick(sender)
+-- 		local list = var.xmlPanel:getWidgetByName("listBag")
+-- 		if util.hitTest(list, sender) then 
+-- 			if var.xmlOpenGe then
+-- 				var.xmlOpenGe:setVisible(not var.xmlOpenGe:isVisible())
+-- 			end
+-- 		end
+-- 	end
+-- 	local function skillCoolDownCallBack(amark)
+-- 		amark:setVisible(false)
+-- 		if target.label then 
+-- 			target.label:removeFromParentAndCleanup();
+-- 			target.label = nil
+-- 		end
+-- 	end
+-- 	if var.xmlOpenGe then var.xmlOpenGe:hide() end
+-- 	if target.tag >= (Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd+1) then
+-- 		UIRedPoint.addUIPoint(target:getWidgetByName("cellbg"),prsBtnClick)
+-- 		target:getWidgetByName("cellbg"):setTouchEnabled(true):setSwallowTouches(false)
+-- 	end
+-- 	if target.tag == (Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd+1) and time>0 and totalTime>0 then
+-- 		local mark = target:getWidgetByName("cellbg"):getChildByName("mark")
+-- 		if not mark then
+-- 			mark = cc.ProgressTimer:create(cc.Sprite:createWithSpriteFrameName("img_cell_black"))
+-- 			:align(display.CENTER, 38, 38)
+-- 			:setScaleX(-1)
+-- 			:addTo(target:getWidgetByName("cellbg"),100)
+-- 			:setType(cc.PROGRESS_TIMER_TYPE_RADIAL)
+-- 			:setName("mark")
+-- 		end
+-- 		mark:stopAllActions()
+-- 		mark:runAction(cc.Sequence:create(cc.ProgressFromTo:create(time,(time/totalTime)*100,0),cc.CallFunc:create(skillCoolDownCallBack)))
+-- 		if not target.label then
+-- 			target.label = util.newUILabel({text = "开启",mName = "kaiqi"})
+-- 			target.label:addTo(target):setPosition(cc.p(38,38))
+-- 		end
+-- 	else
+-- 		if target:getWidgetByName("cellbg"):getChildByName("mark") then
+-- 			target:getWidgetByName("cellbg"):removeChildByName("mark")
+-- 		end
+-- 		if target:getWidgetByName("kaiqi") then 
+-- 			target:getWidgetByName("cellbg"):setTouchEnabled(false)
+-- 			target:getWidgetByName("kaiqi"):removeFromParentAndCleanup();
+-- 			target.label = nil
+-- 		end
+-- 	end
+-- 	target:getWidgetByName("cell_no_open"):setVisible(target.tag>(Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd)+1)
+-- end
+
+return PanelBag

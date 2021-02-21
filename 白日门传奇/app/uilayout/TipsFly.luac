@@ -1,0 +1,9 @@
+LUA_RET={
+{n="TipsFly",v=true,type=0,id=1,parent=0,w=404.0000,h=241.0000,},
+{n="box_fly",tag=970,t=true,c=false,v=true,type=0,id=2,parent=1,w=404.0000,h=241.0000,color="255|255|255",},
+{n="tipsbg",ud="nocache",tag=935,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=3,parent=2,w=404.0000,h=241.0000,color="255|255|255",res="img_kuan_bg",},
+{n="title",tag=52,fs=25,text="提示",ht=1,vt=1,v=true,type=3,id=4,parent=2,w=120.0000,h=28.0000,ax=0.5000,ay=0.5000,x=205.2686,y=212.6082,color="255|234|195",fr="DFYuan.ttf",},
+{n="lbl_confirm_time",tag=124,fs=20,text="1秒后自动传送",ht=1,vt=1,v=true,type=3,id=5,parent=2,w=160.0000,h=22.0000,ax=0.5000,ay=0.5000,x=204.0001,y=149.0004,color="24|209|41",fr="DFYuan.ttf",},
+{n="lbl_confirm_content",tag=947,fs=20,text="路途遥远，点击传送",ht=1,vt=1,v=true,type=3,id=6,parent=2,w=200.0000,h=22.0000,ax=0.5000,ay=0.5000,x=203.0000,y=116.9999,color="253|223|174",fr="DFYuan.ttf",},
+{n="btn_confirm",ud="outline(0e0600,1);zoomscale(-0.12)",tag=126,t=true,fs=20,text="确定",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=7,parent=2,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=206.0001,y=37.9999,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+}

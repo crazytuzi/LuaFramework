@@ -1,0 +1,116 @@
+local PanelFirstRecharge={}
+local var = {}
+
+function PanelFirstRecharge.createUiTable(parent,array)
+	parent.ui = {};
+	for _,v in ipairs(array) do
+		local node = parent:getWidgetByName(v);
+		if node then
+			parent.ui[v] = node
+		end
+	end
+	return parent.ui
+end
+
+local node_tab = {"box_recharge","btn_recharge_receive","node_close","node_effect","node_effect2","model_item_box_1","model_item_box_2","model_item_box_3","model_item_box_4","model_item_box_5","model_item_box_6","model_item_box_7"}
+
+function PanelFirstRecharge.initView()
+	var = {
+		xmlPanel = nil,	
+		serverData = nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelFirstRecharge.uif")
+	if var.xmlPanel then
+		-- util.asyncload(var.xmlPanel, "box_recharge", "needload/panel_first_recharge_bg.png");
+		var.xmlPanel:getWidgetByName("box_recharge"):loadTexture("needload/img_firstrec_bg.png")
+		PanelFirstRecharge.createUiTable(var.xmlPanel,node_tab);
+		var.xmlPanel.ui["btn_recharge_receive"]:hide()
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelFirstRecharge.handlePanelData)
+	end
+	return var.xmlPanel
+end
+
+function PanelFirstRecharge.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelFirstRecharge.onPanelData", util.encode({actionid = "init"}))
+end
+
+function PanelFirstRecharge.onPanelClose()
+	print("onPanelClose")
+end
+
+function PanelFirstRecharge.handlePanelData(event)
+	if event.type ~= "PanelFirstRecharge" then return end
+	local data = util.decode(event.data)
+	--print(event.data)
+	if data.cmd =="init" then
+		PanelFirstRecharge.update(data.table)
+	end
+end
+
+local btn_texture = {
+	[-1] = "btn_first_recharge",
+	[0] = "btn_first_receive",
+	[1] = "btn_first_receive"
+}
+
+function PanelFirstRecharge.update(needData)
+	if needData and util.isTable(needData) then
+		var.serverData = needData;
+		local awardTab = needData.awards;
+		local state = needData.state;
+		if awardTab then
+			for i=1,7 do
+				local modelItem = var.xmlPanel.ui["model_item_box_"..i]
+				local awardOnce = awardTab[i];
+				if awardOnce then
+					awardOnce.parent = modelItem;
+					UIItem.getItem(awardOnce);
+					modelItem:show();
+				else
+					modelItem:hide();
+				end
+			end
+
+			local chenghaoEffectId = 80140
+			local gameVersion = PlatformTool.getGameVersion(game.channelId)
+			if gameVersion and gameVersion > 0 then
+				if gameVersion == PlatformTool.TLXJ then
+					chenghaoEffectId = 80140
+				end
+			else
+				chenghaoEffectId = 80170
+			end
+
+			if var.xmlPanel.ui["node_effect"] then
+				util.addEffect(var.xmlPanel.ui["node_effect"],"hulu",GROUP_TYPE.EFFECT, 300028, {x=-40, y=80}, nil, true):setScale(1.2)
+			end
+			if var.xmlPanel.ui["node_effect2"] then
+				util.addEffect(var.xmlPanel.ui["node_effect2"],"chenghao",GROUP_TYPE.EFFECT, chenghaoEffectId, {x=0, y=-30}, nil, true):setScale(1.2)
+			end
+		end
+		var.xmlPanel.ui["btn_recharge_receive"]:setTouchEnabled(state<=0)
+			:setBright(state<=0)
+			:loadTextureNormal(btn_texture[state],ccui.TextureResType.plistType)
+			:loadTexturePressed(btn_texture[state],ccui.TextureResType.plistType)
+			:show()
+			:addClickEventListener(function ( sender )
+				state = sender:getTag()
+				if state ==0 then
+					if var.xmlPanel.ui["node_effect"]:getChildByName("hulu") then
+						var.xmlPanel.ui["node_effect"]:getChildByName("hulu"):stopAllActions()
+						var.xmlPanel.ui["node_effect"]:getChildByName("hulu"):removeFromParent()
+					end
+					if var.xmlPanel.ui["node_effect2"]:getChildByName("chenghao") then
+						var.xmlPanel.ui["node_effect2"]:getChildByName("chenghao"):stopAllActions()
+						var.xmlPanel.ui["node_effect2"]:getChildByName("chenghao"):removeFromParent()
+					end
+					NetClient:PushLuaTable("gui.PanelFirstRecharge.onPanelData", util.encode({actionid = "receive"}))
+				elseif state == -1 then
+					NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str = "panel_charge", from = "extend_firstPay"})
+				end
+			end):setTag(state)
+	end
+end
+
+return PanelFirstRecharge

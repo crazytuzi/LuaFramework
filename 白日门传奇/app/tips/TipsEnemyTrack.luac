@@ -1,0 +1,57 @@
+local TipsEnemyTrack = {}
+
+function TipsEnemyTrack:initView(extend)
+	if self.xmlTips then
+		util.asyncload(self.xmlTips, "tipsbg", "needload/img_kuan_bg.png")
+
+		self.lblmap = self.xmlTips:getWidgetByName("lblmap"):setString("")
+		self.lblposition = self.xmlTips:getWidgetByName("lblposition"):setString("")
+		self.enemyName = extend.enemyName
+		local btns = {"btn_go","btn_track"}
+		local function clickBtns( sender )
+			local name = sender:getName()
+			if name == btns[1] then
+				if self.map then
+					NetClient:PushLuaTable("gui.PanelFriend.onPanelData",util.encode({actionid = "gotoEnemy",enemyName = self.enemyName}))
+					TipsEnemyTrack.close(self,extend.str)
+				end
+			elseif name == btns[2] then
+				if NetClient.mCharacter.mVCoin < 200000 then
+					NetClient:PushLuaTable("server.showChongzhi","check")
+					TipsEnemyTrack.close(self,extend.str)
+					-- local param = {
+					-- 	name = Notify.EVENT_SHOW_TIPS, str = "confirm", visible = true, 
+					-- 	lblConfirm = "很抱歉,您钻石不足", btnConfirm = "充值",btnCancel = "取消",
+					-- 	confirmCallBack = function ()
+					-- 		NetClient:PushLuaTable("gui.PanelBag.handlePanelData",util.encode({actionid = "opencongzhi"}))
+					-- 	end
+					-- }
+					-- NetClient:dispatchEvent(param)
+				else
+					NetClient:PushLuaTable("gui.PanelFriend.onPanelData",util.encode({actionid = "enemyTrack",enemyName = self.enemyName}))
+				end
+			end
+		end
+
+		for k,v in pairs(btns) do
+			self.xmlTips:getWidgetByName(v):addClickEventListener(clickBtns)
+		end
+		local function handlePanelData(event)
+			if event.type == "enemyTrack" then 
+				local data = util.decode(event.data)
+				self.map = data.map
+				self.lblmap:setString(data.map)
+				self.lblposition:setString(data.x..","..data.y)
+			end
+		end
+		cc.EventProxy.new(NetClient,self.xmlTips)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, handlePanelData)
+	end
+end
+
+function TipsEnemyTrack:close()
+	self.map = nil
+	NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = self.str})
+end
+
+return TipsEnemyTrack

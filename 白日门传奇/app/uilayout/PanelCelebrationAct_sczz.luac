@@ -1,0 +1,5 @@
+LUA_RET={
+{n="PanelCelebrationAct_sczz",v=true,type=0,id=1,parent=0,w=835.0000,h=510.0000,},
+{n="tabBg",ud="nocache",tag=151,ss=true,v=true,type=1,id=2,parent=1,w=835.0000,h=508.0000,color="255|255|255",res="img_sccz",},
+{n="tip",v=false,tag=415,fs=20,text="开服前7天，真实充值达到一定金额即可重置首冲",ht=1,vt=1,type=3,id=3,parent=1,w=530.0000,h=30.0000,ax=0.5000,ay=0.5000,x=558.8621,y=125.4589,color="255|230|185",},
+}

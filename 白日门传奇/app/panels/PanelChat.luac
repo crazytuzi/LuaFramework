@@ -1,0 +1,1246 @@
+--local equip_info = 注销部分装备
+
+local PanelChat = {}
+local var = {}
+
+local CHANNEL_TAG = {
+	ALL = 1, --综合
+	-- HORN = 2,
+	WORLD = 2, 
+	GUILD = 3,
+	GROUP = 4,
+	CURRENT = 5,
+	PRIVATE = 6,
+	SYSTEM = 7,
+}
+
+local limit_level = 1
+local limit_guild_level = 1
+
+local channelInfo = {
+
+	[CHANNEL_TAG.ALL]  	  = {color = "f2e900", strChannel = Const.str_chat_system,		},
+	[CHANNEL_TAG.WORLD]   = {color = "bd5fff", strChannel = Const.str_chat_world,	voiceChanne = "VoiceChannelWorld"},
+	[CHANNEL_TAG.GUILD]   = {color = "3ff200", strChannel = Const.str_chat_guild,	voiceChanne = "VoiceChannelGuild"},
+	[CHANNEL_TAG.GROUP]   = {color = "009af2", strChannel = Const.str_chat_group,	voiceChanne = "VoiceChannelGroup"},
+	[CHANNEL_TAG.CURRENT] = {color = "f2ab00", strChannel = Const.str_chat_near,	voiceChanne = "VoiceChannelNear"},
+	[CHANNEL_TAG.PRIVATE] = {color = "C8C8C8", strChannel = Const.str_chat_private,	},
+}
+local msg_img_key ={
+	[Const.str_chat_all]	={	img = "img_chat_world",		colorStr = "fff843",	typeColor = "ff0000",	},
+	[Const.str_chat_system]	={	img = "img_chat_system",	colorStr = "ff3e3f",	typeColor = "f2e900",	},
+	[Const.str_chat_world]	={	img = "img_chat_world",		colorStr = "3ff200",	typeColor = "bd5fff",	},
+	[Const.str_chat_private]={	img = "img_chat_private",	colorStr = "FF11CF",	typeColor = "FF11CF",	},
+	[Const.str_chat_guild]	={	img = "img_chat_guild",		colorStr = "f2e900",	typeColor = "3ff200",	},
+	[Const.str_chat_group]	={	img = "img_chat_group",		colorStr = "009af2",	typeColor = "009af2",	},
+	[Const.str_chat_shout]	={	img = "img_chat_horn",		colorStr = "ffffff",	typeColor = "e60ed4",	},
+	[Const.str_chat_horn]	={	img = "img_chat_horn",		colorStr = "ffffff",	typeColor = "ff1fec",	},
+	[Const.str_chat_common]	={	img = "img_chat_common",	colorStr = "ffffff",	typeColor = "ff9743",	},
+	[Const.str_chat_near]	={	img = "img_chat_near",		colorStr = "fde5b2",	typeColor = "f2ab00",	},
+}
+
+local imgChannelLength = 46
+local margin = 10
+local charsize = 16
+
+function PanelChat.initView(extend)
+	var = {
+		xmlPanel,
+		chaIndex = 1, -- 频道index
+
+		defaultTab = CHANNEL_TAG.ALL,
+		mapInfo,
+		Amark,
+		listlen = 0,
+		chatView,
+		viewSize = cc.size(100,400),
+		cellSize = cc.size(100,70),
+		modelTable = {},
+		firstItemIndex = 0,
+		lastItemIndex = 0,
+		chatModel,
+		tabList,
+		chatLimit = 0,			--聊天等级限制
+		chatGuildLimit = 0		--行会聊天限制
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelChat.uif")
+	if var.xmlPanel then
+		-- var.xmlPanel.mAlign = display.CENTER_LEFT
+		-- var.xmlPanel.mPos = cc.p(-display.cx,0)
+		var.xmlPanel:setContentSize(var.xmlPanel:getContentSize().width, display.height)
+		-- util.asyncload(var.xmlPanel, "chat_bg", "needload/img_chat_bg.png")
+		--var.xmlPanel:getWidgetByName("chat_bg"):loadTexture("needload/img_chat_bg.png", ccui.TextureResType.localType)
+		-- local chat_bg = var.xmlPanel:getWidgetByName("chat_bg")
+		-- chat_bg:setContentSize(chat_bg:getContentSize().width, display.height)
+		-- 	:setScale9Enabled(true)
+		-- 	:setPositionY(0)
+		-- 	:setAnchorPoint(cc.p(0,0))
+		-- chat_bg:setTextureRect(cc.rect())
+		if extend.tab then var.defaultTab = extend.tab end
+
+		var.chaIndex = var.defaultTab
+		var.xmlPanel:getWidgetByName("panel_close"):setPositionY(display.cy)
+		var.headId = (MainRole._mainAvatar:NetAttr(Const.net_job)-100) *2 + MainRole._mainAvatar:NetAttr(Const.net_gender) - Const.SEX_MALE+1
+		-- var.other_box = var.xmlPanel:getWidgetByName("other_box"):hide()
+		-- var.self_box = var.xmlPanel:getWidgetByName("self_box"):hide()
+		var.chatModel = var.xmlPanel:getWidgetByName("chatModel"):hide()
+
+		-- var.voice_other_box = var.xmlPanel:getWidgetByName("voice_other_box"):hide()
+		-- var.voice_self_box = var.xmlPanel:getWidgetByName("voice_self_box"):hide()
+		local box_world = var.xmlPanel:getWidgetByName("box_world")
+		box_world:setContentSize(box_world:getContentSize().width, display.height- 150)
+
+		var.tabList = var.xmlPanel:getWidgetByName("tabList"):setTabRes("btn_groupC", "btn_groupC_sel"):setScaleEnabled(false)
+					:setTabColor(game.getColor(0xfddfae),game.getColor(0xfddfae))
+		var.tabList:setPositionY(display.height - var.tabList:getContentSize().height/2)
+		var.tabList:addTabEventListener(PanelChat.pushTabsButton)
+		var.tabList:setItemMargin(20)
+		var.xmlPanel:getWidgetByName("setLayerbg"):hide()
+			:setContentSize(display.width, display.height)
+			:setTouchEnabled(true)
+			:addClickEventListener(function ( ... )
+				select(1,...):hide()
+			end)
+		var.xmlPanel:getWidgetByName("btn_join"):setPositionY(display.cy):setTouchEnabled(true)
+		var.xmlPanel:getWidgetByName("setLayer"):setPosition(display.cx,display.cy):setTouchEnabled(true)
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_CHAT_MSG, PanelChat.handleNewChatMsg)
+ 			:addEventListener(Notify.EVENT_TALK_PANEL, PanelChat.ShowHandle)
+			:addEventListener(Notify.EVENT_VOICE_HANDLE_MSG, PanelChat.onVoiceMsgHandler)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelChat.handlePanelData)
+ 			-- :addEventListener(Notify.EVENT_VOICE_PLAY_FINISH, PanelChat.onPlayVoiceFinish)
+ 		if PLATFORM_BANSHU then
+ 			var.xmlPanel:getWidgetByName("img_input_bg"):size(260,30)
+ 		else
+ 			-- var.xmlPanel:getWidgetByName("img_input_bg"):size(230,30)
+ 		end
+		PanelChat.initContainer()
+		PanelChat.initBottomToolKit()
+		-- PanelChat.onItemChange()
+
+		NetClient:PushLuaTable("gui.PanelChat.onPanelData", util.encode({actionid = "getData"}))
+		return var.xmlPanel
+	end
+end
+
+function PanelChat.handlePanelData(event)
+	if event.type == "PanelChat" then
+		local result = util.decode(event.data)
+		if result.cmd == "getData" then
+			var.chatLimit = result.chatLimit
+			var.chatGuildLimit = result.chatGuildLimit
+		end
+	end
+end
+
+function PanelChat.isMsgShow(netChat)
+	local curChannel = channelInfo[var.chaIndex].strChannel
+	if netChat.m_strMsg ~= "" and (netChat.m_strType == curChannel or var.chaIndex ==1) then
+		return true
+	end
+end
+
+function PanelChat.pushTabsButton(pSender)
+	var.chaIndex = pSender:getTag()
+	PanelChat.initChatView()
+	PanelChat.updateChatView()
+	if UILeftBottom then
+		UILeftBottom.changeChatChannel(var.chaIndex)
+	end
+	local btn_keyboard = var.xmlPanel:getWidgetByName("btn_keyboard")
+	if not btn_keyboard.bright then btn_keyboard.bright =1 end
+
+	local inputlayer = var.xmlPanel:getWidgetByName("inputlayer")
+	local btn_press = var.xmlPanel:getWidgetByName("btn_press")
+	local btn_join = var.xmlPanel:getWidgetByName("btn_join")
+	local lblnoinfo = var.xmlPanel:getWidgetByName("lblnoinfo")
+	local showChat,title,str,color = true,"","",0xA09696
+	if var.chaIndex == CHANNEL_TAG.GUILD then
+		-- local mGuild = NetClient:getGuildByName(MainRole._mainAvatar:NetAttr(Const.net_guild_name))
+		local mGuild = MainRole._mainAvatar:NetAttr(Const.net_guild_name)
+		if not mGuild or mGuild == "" then
+			showChat = false;title = "加入行会";str = "当前未加入行会"
+		else
+			showChat = true
+		end
+	elseif var.chaIndex == CHANNEL_TAG.GROUP then
+		if #NetClient.mGroupMembers == 0 then
+			showChat = false;title = "创建队伍"	;str = "当前未加入队伍"
+		else
+			showChat = true
+		end
+	elseif var.chaIndex == CHANNEL_TAG.ALL then
+		showChat = true
+		str = "注：此频道不能发言，请切换到其他频道发言"
+		title = " "
+		color = 0xE7BA52
+	elseif var.chaIndex == CHANNEL_TAG.PRIVATE then
+		showChat = true
+		str = "注：此频道不能发言，请切换到其他频道发言"
+		title = " "
+		color = 0xE7BA52
+	else
+		showChat = true
+		title = ""
+	end
+	var.chatView:setVisible(showChat)
+	btn_join:setTitleText(title):setVisible(#title>0 and title ~=" ")
+	lblnoinfo:setString(str):setColor(game.getColor(color)):setVisible(#title>0)
+	btn_keyboard:setVisible(showChat and #title==0)
+	
+	inputlayer:setVisible(btn_keyboard.bright == 1 and #title==0)
+	btn_press:setVisible(btn_keyboard.bright==0 and #title==0)
+	if PLATFORM_BANSHU then
+		btn_keyboard:hide()
+	end
+end
+
+function PanelChat.onPanelOpen(extend)
+	if extend.tab then
+		var.defaultTab = extend.tab
+		var.chaIndex = extend.tab
+	end
+
+	game.isChatOpen = true
+
+	var.tabList:setSelectedTab(var.defaultTab)
+end
+
+function PanelChat.initChatView()
+	var.viewSize = {}
+	var.viewSize.width = var.xmlPanel:getWidgetByName("box_world"):getContentSize().width - charsize
+	var.viewSize.height = var.xmlPanel:getWidgetByName("box_world"):getContentSize().height
+	if not util.isObjectExist(var.chatView) then
+		var.chatView = cc.ScrollView:create(var.viewSize)
+		var.chatView:setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL)
+		var.chatView:ignoreAnchorPointForPosition(true)
+
+		var.chatView:setDelegate()
+		var.chatView:setClippingToBounds(true)
+		var.chatView:setBounceable(true)
+		var.chatView:addTo(var.xmlPanel:getWidgetByName("box_world")):align(display.LEFT_BOTTOM, 0, 0)
+		var.chatView:setLocalZOrder(0)
+	
+		local function scrollViewDidScroll()
+			if not util.isObjectExist(var.chatView) then return end
+
+			local container = var.chatView:getContainer()
+			local offsetY = var.chatView:getContentOffset().y
+			local height = container:getContentSize().height
+
+			--上面移除
+			if var.firstItemIndex>=1 and var.modelTable[var.firstItemIndex] and offsetY + var.modelTable[var.firstItemIndex]:getPositionY() > var.viewSize.height+30 and offsetY<0  then
+				var.modelTable[var.firstItemIndex]:removeFromParent()
+				-- print("remove first-------",var.firstItemIndex)
+				var.firstItemIndex = var.firstItemIndex + 1
+			---下面移除
+			elseif var.lastItemIndex >1 and var.modelTable[var.lastItemIndex] and
+				offsetY + var.modelTable[var.lastItemIndex]:getPositionY() + var.modelTable[var.lastItemIndex]:getContentSize().height + 10 < 0 then
+				-- print("··remove last-----",var.lastItemIndex)
+				var.modelTable[var.lastItemIndex]:removeFromParent()
+				var.lastItemIndex = var.lastItemIndex - 1
+			end
+
+ 			--上面添加
+			local firstModel = var.modelTable[var.firstItemIndex]
+			if var.firstItemIndex>1 and offsetY + var.modelTable[var.firstItemIndex]:getPositionY() + var.modelTable[var.firstItemIndex]:getContentSize().height + 10 < var.viewSize.height and not container:getChildByTag(var.firstItemIndex - 1) then
+				local item = PanelChat.getModel(var.firstItemIndex - 1)
+				local firstModel = var.modelTable[var.firstItemIndex]
+				local firstPosY = firstModel:getPositionY()
+				if item  then
+					firstPosY = firstPosY + firstModel:getContentSize().height + margin
+					item:addTo(var.chatView):align(display.BOTTOM_LEFT, 0, firstPosY)
+					var.firstItemIndex = var.firstItemIndex - 1
+					item:setTag(var.firstItemIndex)
+					-- print("first add ",var.firstItemIndex,firstPosY)
+
+					if firstPosY + item:getContentSize().height + margin > height then
+						height = firstPosY + item:getContentSize().height + margin
+						container:setContentSize(cc.size(var.viewSize.width,height))
+					end
+					if var.firstItemIndex == 1 then
+						container:setContentSize(cc.size(var.viewSize.width,firstPosY + item:getContentSize().height))
+					end
+				end
+			end
+			--下面添加
+			if var.lastItemIndex > 0 and var.modelTable[var.lastItemIndex] and offsetY + var.modelTable[var.lastItemIndex]:getPositionY() >= 0 and var.lastItemIndex < var.listlen 
+				and not container:getChildByTag(var.lastItemIndex + 1) then
+				local item = PanelChat.getModel(var.lastItemIndex + 1)
+				if item then
+					local lastModel = var.modelTable[var.lastItemIndex]
+					local modelHeight = item:getContentSize().height
+					local lastPosY = lastModel:getPositionY() - modelHeight - 10
+					var.lastItemIndex = var.lastItemIndex + 1
+					
+					item:setTag(var.lastItemIndex)
+					item:addTo(var.chatView)
+						:align(display.BOTTOM_LEFT, 0, lastPosY)
+					if lastPosY<0 then
+						local children = container:getChildren()
+						for k,v in pairs(children) do
+							v:setPositionY(v:getPositionY() - lastPosY)
+						end
+						height = container:getContentSize().height - lastPosY
+						container:setContentSize(cc.size(var.viewSize.width,height))
+						container:setPositionY(lastPosY)
+					end
+				end
+			end
+		end
+		if not var.freshHandle then
+			var.freshHandle = Scheduler.scheduleGlobal(scrollViewDidScroll,1/60)
+		end
+		-- var.chatView:registerScriptHandler(scrollViewDidScroll,cc.SCROLLVIEW_SCRIPT_SCROLL)
+	end
+	var.chatView:getContainer():removeAllChildren()
+	var.chatView:setViewSize(var.viewSize)
+	var.chatView:setContentSize(var.viewSize)
+	var.firstItemIndex = 0
+	var.lastItemIndex = 0	--if var.chatView has chaildren then reset itemindex
+end
+
+function PanelChat.getModel(index)
+	local mChannerHistory = PanelChat.updateChannelHistory()
+	local model = nil
+	local netChat = mChannerHistory[index]
+	if var.modelTable[index] then
+		return var.modelTable[index]
+	else
+		if netChat then
+			local curChannel = channelInfo[var.chaIndex].strChannel
+			if curChannel == netChat.m_strType or var.chaIndex == CHANNEL_TAG.ALL then
+				model = PanelChat.combineDialogBox(netChat)
+				if not model then return nil end
+				var.modelTable[index] = model
+				model:setTag(index)
+				model:retain()
+				return model
+			end
+		end
+	end
+end
+
+function PanelChat.getListLen()
+	local len = 0
+	local mChannerHistory = PanelChat.updateChannelHistory()
+	local netChat
+	for i=1,#mChannerHistory do
+		netChat = mChannerHistory[i]
+		if PanelChat.isMsgShow(netChat) then
+			if netChat.m_strType == Const.str_chat_system and netChat.m_strMsg ~= "" then --系统用文字
+				len = len + 1
+			else
+				len = len + 1
+			end
+		end
+	end
+	return len
+end
+
+function PanelChat.onPanelClose()
+	if util.isObjectExist(var.box_VoiceSetting) then var.box_VoiceSetting:hide() end
+	var.chaIndex	=nil
+	var.defaultTab = CHANNEL_TAG.ALL
+
+	var.mapInfo = nil
+	var.Amark = nil
+
+	if var.freshHandle then
+		Scheduler.unscheduleGlobal(var.freshHandle)
+		var.freshHandle = nil
+	end
+
+	game.isChatOpen = false
+	if util.isObjectExist(var.chatView) then
+		var.chatView:getContainer():removeAllChildren()
+	end
+	UserConfig.save()
+	NetClient:dispatchEvent({name = Notify.EVENT_VOICE_HANDLE,vis = false, send = false})
+end
+
+function PanelChat.handleNewChatMsg(event)
+	if not game.isChatOpen or not var.chaIndex or not event.msg then return end
+	local netChat = event.msg
+	local model
+	if PanelChat.isMsgShow(netChat) then
+		model = PanelChat.combineDialogBox(netChat)
+		if model then
+			var.listlen = PanelChat.getListLen()
+			local maxIndex = 0
+			for k,v in pairs(var.modelTable) do
+				if k>maxIndex then maxIndex = k end
+			end
+			if maxIndex>=200 then
+				for i=1,maxIndex-199 do
+					if var.modelTable[1] then
+						if var.modelTable[1]:getParent() then
+							var.modelTable[1]:removeFromParent()
+						end
+						var.modelTable[1]:release()
+						var.modelTable[1] = nil
+					end
+					for i=1,maxIndex-1 do
+						if var.modelTable[i+1] then
+							var.modelTable[i] = var.modelTable[i+1]
+							var.modelTable[i]:setTag(i)
+						end
+					end
+					maxIndex = maxIndex - 1
+				end
+			end
+			local container = var.chatView:getContainer()
+			local offsetY = var.chatView:getContentOffset().y
+			local containerHeight = var.chatView:getContentSize().height
+			local lastModel = container:getChildByTag(maxIndex)
+			local modelHeight = model:getContentSize().height
+			local lastPosY = var.viewSize.height
+			if lastModel  then
+				-- lastPosY = lastModel:getPositionY() - modelHeight - 10
+				if lastModel.targetPos then
+					lastPosY = lastModel.targetPos - modelHeight - 10
+				else
+					lastPosY = lastModel:getPositionY() - modelHeight - 10
+				end
+			else
+				lastPosY = lastPosY - modelHeight -10
+			end
+
+			var.modelTable[maxIndex+1] = model
+			model:retain()
+			model:setTag(maxIndex+1)
+
+			if lastPosY < 0 and var.lastItemIndex >= maxIndex then
+				local childrenOffsetY = 0
+				if lastPosY + modelHeight + 10 >0 then
+					containerHeight = containerHeight - lastPosY
+					offsetY = offsetY + lastPosY
+					childrenOffsetY = - lastPosY
+				else
+					containerHeight = containerHeight + modelHeight + 10
+					offsetY = offsetY - modelHeight - 10
+					childrenOffsetY =  modelHeight + 10
+				end
+				container:setContentSize(cc.size(var.viewSize.width,containerHeight))
+				container:setPositionY(offsetY)
+
+				local children = container:getChildren()
+				for k,v in pairs(children) do
+					v:setPositionY(v:getPositionY() + childrenOffsetY)
+				end
+			end
+			-- var.chatView:setContentOffset({x=0,y=0})
+			if var.lastItemIndex < maxIndex  then
+				-- 不添加
+			else
+				-- 添加
+				var.lastItemIndex = var.lastItemIndex + 1
+				model:addTo(var.chatView)
+					:align(display.BOTTOM_LEFT, 0,  - modelHeight -10)
+					:runAction(cca.moveTo(0.1, 0, lastPosY>0 and lastPosY or 0))
+				-- 
+				model.targetPos = lastPosY>0 and lastPosY or 0
+				if lastPosY < 0 then
+					container:runAction(cca.seq{
+						cca.cb(function() 
+							container:setPositionY(lastPosY)
+							offsetY = 0
+						end),
+						cca.moveBy(0.1, 0, -lastPosY)
+					})
+				end
+			end
+
+		end
+	end
+end
+
+function PanelChat.initEditbox(parent)
+	local function onEdit(event,editBox)
+		if event == "began" then
+		elseif event == "changed" then
+		elseif event == "ended" then
+		elseif event == "return" then
+			local msg = editBox:getText()
+			if string.sub(msg,1,1) ~= "@" then
+				msg,_ = string.gsub(msg," ","")
+				editBox:setString(msg)
+			end
+		end
+	end
+	if not parent:getChildByTag(100) then
+		var.mSendText = util.newEditBox({
+			image = "picicon/null.png",
+			size = parent:getContentSize(),
+			listener = onEdit,
+			x = 0,
+			y = 0,
+			placeHolderColor = game.getColor(0x827b6e),
+			placeHolderSize = 22,
+			anchor = cc.p(0,0),
+			fontSize = 22,
+			placeHolder = Const.str_input,
+			-- inputMode = cc.EDITBOX_INPUT_MODE_ANY,
+		})
+		parent:addChild(var.mSendText,1,100)
+	else
+		var.mSendText = parent:getChildByTag(100)
+		var.mSendText:setString("")
+	end
+end
+
+function PanelChat.changeInputModel()
+	local btn_press = var.xmlPanel:getWidgetByName("btn_press")
+	local inputlayer = var.xmlPanel:getWidgetByName("inputlayer")
+	local vis = btn_press:isVisible()
+	btn_press:setVisible( not vis)
+	inputlayer:setVisible( vis)
+end
+
+function PanelChat.setEmojVisible()
+	local container = var.xmlPanel:getWidgetByName("Container")
+	-- var.xmlPanel:runAction(cca.seq({
+	-- 	cca.moveTo(0.2, var.xmlPanel:getPositionX(), var.xmlPanel:getPositionY()+(var.xmlPanel.isShow and -height or height)),
+	-- 	cca.cb(function ()
+	-- 		var.xmlPanel.isShow = not var.xmlPanel.isShow
+	-- 	end)
+	-- }))
+	container:setVisible(not container:isVisible())
+	
+end
+
+local equip_info = {
+	{pos = Const.ITEM_WEAPON_POSITION,	etype = Const.EQUIP_TAG.WEAPON},
+	{pos = Const.ITEM_CLOTH_POSITION,	etype = Const.EQUIP_TAG.CLOTH},
+	{pos = Const.ITEM_GLOVE1_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING1_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BOOT_POSITION,	etype = Const.EQUIP_TAG.BOOT},
+
+	{pos = Const.ITEM_HAT_POSITION,		etype = Const.EQUIP_TAG.HAT},
+	{pos = Const.ITEM_NICKLACE_POSITION,etype = Const.EQUIP_TAG.NECKLACE},
+	{pos = Const.ITEM_GLOVE2_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING2_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BELT_POSITION,	etype = Const.EQUIP_TAG.BELT},
+
+	{pos = Const.ITEM_SHEN_CLOCK_POSITION,		},	--noTipsBtn = true},		--	--神器*钟
+	{pos = Const.ITEM_SHEN_QIN_POSITION,		},	--noTipsBtn = true},
+	{pos = Const.ITEM_MIRROR_ARMOUR_POSITION,	},
+	{pos = Const.ITEM_FACE_CLOTH_POSITION,		},
+	{pos = Const.ITEM_SHEN_FU_POSITION,		    },	--noTipsBtn = true},
+	{pos = Const.ITEM_SHEN_CHUI_POSITION,			},	--noTipsBtn = true},
+	{pos = Const.ITEM_DRAGON_BONE_POSITION,		},
+	{pos = Const.ITEM_CATILLA_POSITION,			},
+	--仙器*武器
+	{pos = Const.ITEM_XIAN_WEPON_POSITION,	},		--19孔位
+	--仙器*衣服
+	{pos = Const.ITEM_XIAN_CLOTH_POSITION,	},
+	--仙器*头盔
+	{pos = Const.ITEM_XIAN_HELMET_POSITION,	},
+	--仙器*项链
+	{pos = Const.ITEM_XIAN_NECKLACE_POSITION,	},
+	--仙器*护肩
+	{pos = Const.ITEM_XIAN_SHOULDER_POSITION,	},
+	--仙器*盾牌
+	{pos = Const.ITEM_XIAN_SHIELD_POSITION,	},
+	--仙器*神坠
+	{pos = Const.ITEM_XIAN_PENDANT_POSITION,	},
+	--仙器*斗笠
+	{pos = Const.ITEM_XIAN_HAT_POSITION,	},
+	--坐骑
+	{pos = Const.ITEM_MOUNT_POSITION,		},
+	--斗笠
+	{pos = Const.ITEM_BAMBOOHAT_POSITION,	},
+
+	--灵宝
+	{pos = Const.ITEM_LBSW_POSITION,	},
+	{pos = Const.ITEM_LBSS_POSITION,	},
+	{pos = Const.ITEM_LBSZ_POSITION,	},
+	{pos = Const.ITEM_LBXL_POSITION,	},
+
+	--传世
+	{pos = Const.ITEM_CS_WEPON_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_CLOTH_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_HELMET_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_NECKLACE_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_SHOULDER_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_GLOVE_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_CATILLA_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_BELT_POSITION,			etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_BOOT_POSITION,			etype = Const.EQUIP_TAG.ALL},
+
+	{pos = Const.ITEM_XZ1_POSITION,	 etype = Const.EQUIP_TAG.ALL},   --33孔位 以此类推
+	{pos = Const.ITEM_XZ2_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ3_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ4_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ5_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ6_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ7_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ8_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ9_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ10_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ11_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ12_POSITION, etype = Const.EQUIP_TAG.ALL},
+}
+local equipFlagRes = {
+	[Const.ITEM_WEAPON_POSITION] 	=	"equip_flag_weapon",
+	[Const.ITEM_CLOTH_POSITION] 	=	"equip_flag_cloth",
+	[Const.ITEM_GLOVE1_POSITION] 	=	"equip_flag_glove",
+	[Const.ITEM_RING1_POSITION] 	=	"equip_flag_ring",
+	[Const.ITEM_BOOT_POSITION] 		=	"equip_flag_boot",
+	[Const.ITEM_HAT_POSITION] 		=	"equip_flag_hat",	
+	[Const.ITEM_NICKLACE_POSITION] 	=	"equip_flag_necklace",
+	[Const.ITEM_GLOVE2_POSITION] 	=	"equip_flag_glove",
+	[Const.ITEM_RING2_POSITION] 	=	"equip_flag_ring",
+	[Const.ITEM_BELT_POSITION] 		=	"equip_flag_belt",
+
+
+
+
+}
+
+function PanelChat.clickItem(netItem)
+	local itemdef = NetClient:getItemDefByID(netItem.mTypeID)
+	if netItem and itemdef then
+		local str = var.mSendText:getText()
+		str = str.."##"..itemdef.mName..","..netItem.position..","..netItem.mDropSource.."##,"
+		var.mSendText:setText(str)
+	end
+end
+
+function PanelChat.onItemChange(event)
+	local equipList = var.xmlPanel:getWidgetByName("equipList")
+	local equips,netItem = {}
+	for k,v in pairs(equip_info) do
+		netItem = NetClient:getNetItem(v.pos)
+		if netItem then
+			table.insert(equips,netItem)
+		end
+	end
+	for i=0,Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd do
+		netItem = NetClient:getNetItem(i)
+		if netItem then
+			table.insert(equips,netItem)
+		end
+	end
+	equipList:reloadData(#equips, function(subItem)
+		local item = equips[subItem.tag]
+		UIItem.getItem({
+			parent = subItem,
+			typeId = item.mTypeID,
+			mLevel = item.mLevel,
+			mZLevel = item.mZLevel,
+			iconType = 10,
+			callBack = function ( ... )
+				PanelChat.clickItem(item)
+			end
+		})
+	end)
+end
+
+function PanelChat.initContainer() -- 表情窗 和 快捷键
+	local height = var.xmlPanel:getWidgetByName("Container"):getContentSize().height
+	var.xmlPanel:getWidgetByName("Container")
+		:setLocalZOrder(3)
+		:setSwallowTouches(true)
+		:setTouchEnabled(true)
+	local function pushEmojPng(sender)
+		local tag = sender:getTag()
+		var.mSendText:setString(var.mSendText:getText()..Const.expressions_item[tag][1])
+		-- PanelChat.changeInputModel()
+	end
+	local function initEmojPng()
+		local facelist = var.xmlPanel:getWidgetByName("emoj_bg")
+		local bgSize = facelist:getContentSize()
+		for i=1,4 do
+			for j=1,5 do
+				local id = (i-1)*5 + j
+				if not facelist:getChildByTag(id) then
+					local imgFace = ccui.Button:create()
+					imgFace:loadTextureNormal(Const.expressions_item[id][2],ccui.TextureResType.plistType)
+					imgFace:setTag(id)
+					imgFace:setPosition(cc.p(bgSize.width/5.5*j-10,bgSize.height+20-bgSize.height/5*i))
+					imgFace:setTouchEnabled(true)
+					imgFace:setScale(0.85)
+					imgFace:addClickEventListener(pushEmojPng)
+					facelist:addChild(imgFace)
+				end
+			end
+		end
+	end
+	initEmojPng()
+end
+
+function PanelChat.initBottomToolKit()
+	local btns ={
+		{name ="btn_face",		},
+		{name ="btn_keyboard",	},
+		{name ="btn_send",		},
+		{name ="btn_face_t",	},
+		{name ="btn_position",	},
+		{name ="btn_set",	},
+		{name ="btn_close",	},
+		{name ="checkbox1",	selected = UserConfig.getConf("VoiceChannelNear")},
+		{name ="checkbox2",	selected = UserConfig.getConf("VoiceChannelWorld")},
+		{name ="checkbox3",	selected = UserConfig.getConf("VoiceChannelGroup")},
+		{name ="checkbox4",	selected = UserConfig.getConf("VoiceChannelGuild")},
+		{name ="btn_join",	},
+		{name ="btn_equip_bag",	},
+
+	}
+	local function pushBtns( psender )
+		if psender:getName() =="btn_face" then
+			if var.box_VoiceSetting then var.box_VoiceSetting:hide() end
+			PanelChat.setEmojVisible()
+		elseif  psender:getName() =="btn_keyboard" then
+			PanelChat.changeInputModel()
+			if var.xmlPanel.isShow then
+				PanelChat.setEmojVisible()
+			end
+			if not psender.bright then psender.bright =1 end
+			local res = psender.bright ==1 and "img_keyboard" or "img_keyboard_sel"
+			psender:loadTextures(res,res,res,ccui.TextureResType.plistType)
+			psender.bright = 1 - psender.bright
+		elseif  psender:getName() =="btn_send" then
+			PanelChat.sendMsg()
+			if var.xmlPanel.isShow then
+				PanelChat.setEmojVisible()
+			end
+		elseif  psender:getName() =="btn_set" then
+			var.xmlPanel:getWidgetByName("setLayerbg"):show()
+
+		elseif  psender:getName() =="btn_position" then
+			--PanelChat.setEmojVisible()
+			local pos = MainRole._mainAvatar:PAttr(Const.AVATAR_X)..",".. MainRole._mainAvatar:PAttr(Const.AVATAR_Y)
+			local minimap = NetClient.mNetMap
+			var.mapInfo	= minimap.mName.." "..pos
+			var.Amark = "<a underline=00ff00 color=#00ff00 href=\'event:local_goto_"..minimap.mMapID.."_"..MainRole._mainAvatar:PAttr(Const.AVATAR_X).."_"..MainRole._mainAvatar:PAttr(Const.AVATAR_Y).."\'>"..var.mapInfo.."</a>"
+			var.mSendText:setString(var.mSendText:getText().." "..var.mapInfo.." ")
+		elseif  psender:getName() =="btn_close" then
+			var.xmlPanel:getWidgetByName("setLayerbg"):hide()
+		elseif  psender:getName() =="checkbox1" then
+			UserConfig.setConf("VoiceChannelNear",psender:isSelected())
+		elseif  psender:getName() =="checkbox2" then
+			UserConfig.setConf("VoiceChannelWorld",psender:isSelected())
+		elseif  psender:getName() =="checkbox3" then
+			UserConfig.setConf("VoiceChannelGroup",psender:isSelected())
+		elseif  psender:getName() =="checkbox4" then
+			UserConfig.setConf("VoiceChannelGuild",psender:isSelected())
+		elseif  psender:getName() =="btn_join" then
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str = var.chaIndex == CHANNEL_TAG.GUILD and "main_guild" or "main_group",from = "panel_chat"})
+		elseif  psender:getName() =="btn_face_t" then
+			var.xmlPanel:getWidgetByName("equipList"):setVisible(false)
+			var.xmlPanel:getWidgetByName("emoj_bg"):setVisible(true)
+		elseif  psender:getName() =="btn_equip_bag" then
+			var.xmlPanel:getWidgetByName("equipList"):setVisible(true)
+			var.xmlPanel:getWidgetByName("emoj_bg"):setVisible(false)
+			PanelChat.onItemChange()
+		end
+	end
+	for k,v in pairs(btns) do
+		local btn = var.xmlPanel:getWidgetByName(v.name)
+		if btn then
+			btn:addClickEventListener(pushBtns)
+			if v.selected~=nil then
+				btn:setSelected(v.selected)
+			end
+		end
+	end
+	var.xmlPanel:getWidgetByName("btn_press"):addTouchEventListener(function( sender,touchtype )
+		if sender and touchtype == ccui.TouchEventType.began then
+			NetClient:dispatchEvent({name = Notify.EVENT_VOICE_HANDLE,vis = true,channel = channelInfo[var.chaIndex].voiceChanne})
+		elseif sender and touchtype == ccui.TouchEventType.ended or touchtype == ccui.TouchEventType.canceled then
+			NetClient:dispatchEvent({name = Notify.EVENT_VOICE_HANDLE,vis = false, send = util.hitTest(sender, sender:getTouchEndPosition())})
+		else
+			NetClient:dispatchEvent({name = Notify.EVENT_VOICE_HANDLE, charVis = not util.hitTest(sender, sender:getTouchMovePosition())})
+		end
+	end)
+
+	PanelChat.initEditbox(var.xmlPanel:getWidgetByName("img_input_bg"))
+end
+
+function PanelChat.updateChatView() --刷新当前页
+	for k,v in pairs(var.modelTable) do
+		v:release()
+		v=nil
+	end
+
+	var.listlen = PanelChat.getListLen()
+	var.modelTable={}
+
+	local height = 0
+	var.firstItemIndex = var.listlen + 1
+	var.lastItemIndex = 0
+	while var.firstItemIndex >1 do
+		local item = PanelChat.getModel(var.firstItemIndex - 1)
+		var.firstItemIndex = var.firstItemIndex - 1
+		if item then
+			item:addTo(var.chatView):align(display.BOTTOM_LEFT, 0, height)
+			height = height + item:getContentSize().height + margin
+			var.modelTable[var.firstItemIndex] = item
+			item:setTag(var.firstItemIndex)
+			if var.lastItemIndex < var.firstItemIndex then
+				var.lastItemIndex = var.firstItemIndex
+			end
+			if height >= var.viewSize.height then break end
+		end
+	end
+
+	if height < var.viewSize.height then
+		local children = var.chatView:getContainer():getChildren()
+		for k,v in pairs(children) do
+			v:setPositionY(v:getPositionY() + var.viewSize.height - height + margin)
+		end
+	end
+
+	local containerHeight = var.viewSize.height
+	if var.lastItemIndex > var.firstItemIndex then
+		containerHeight = var.listlen*height/(var.lastItemIndex - var.firstItemIndex)
+	end
+	if var.firstItemIndex ==1 then
+		var.chatView:getContainer():setContentSize(cc.size(var.viewSize.width,height>var.viewSize.height and height or var.viewSize.height))
+	else
+		var.chatView:getContainer():setContentSize(cc.size(var.viewSize.width,containerHeight>var.viewSize.height and containerHeight or var.viewSize.height))
+	end
+
+	if var.chatView:minContainerOffset().y <= var.viewSize.height and var.chatView:minContainerOffset().y >0 then
+		var.chatView:setContentOffset({x=0,y=var.chatView:minContainerOffset().y},false)
+	else
+		var.chatView:setContentOffset({x=0,y=var.chatView:maxContainerOffset().y},false)
+	end
+end
+
+function PanelChat.addLabelEventListener(label)--点击头像显示快捷按钮界面
+	label:setTouchEnabled(true):addClickEventListener(function(sender)
+		if sender.data and sender.data.m_strName ~= game.chrName then
+			NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str="friendOperate", data = {
+				seedName = sender.data.m_seedName,
+				name = sender.data.m_strName,
+				job = sender.data.m_job,
+				gender = sender.data.m_gender,
+				level = sender.data.m_lv,
+				vip = sender.data.m_vip,
+				guild = sender.data.m_guild,
+			}})
+		end
+	end)
+end
+
+function PanelChat.newModelBox(netChat)
+	local colorStr = msg_img_key[netChat.m_strType].colorStr
+	local strMsg = netChat.m_strMsg
+	local isVoice = false
+	if netChat.localPath or netChat.httpPath then
+		isVoice = true
+	end
+	local name = netChat.m_strName or ""
+	local namel = ""--netChat.m_strName and "<a color=#C8C8C8 outline=\'0,0,0,0,1\' href=\'event:local_chat_"..name.."\'>"..netChat.m_strName..":</a>" or " "
+	if netChat.m_strType == Const.str_chat_private and netChat.m_MyName == game.chrName then
+		namel = netChat.m_strName and "<a color=#00cae2 outline=\'0,0,0,0,1\' href=\'event:local_chat_"..name.."\'>我对"..netChat.m_strName.."说:</a>" or " "
+	else
+		namel = netChat.m_strName and "<a color=#00cae2 outline=\'0,0,0,0,1\' href=\'event:local_chat_"..name.."\'>"..netChat.m_strName..":</a>" or " "
+	end
+	local content = namel.."<font outline=\'0,0,0,0,1\' color=#"..colorStr..">"..strMsg.."</font>"
+	strMsg = string.format("%s%s",netChat.m_strType,content)
+	strMsg,len = PanelChat.callength(strMsg)
+	len = util.bound(30, len, var.viewSize.width)
+	if isVoice then
+		local model = var.chatModel:clone():show():setAnchorPoint(cc.p(0,0))
+		local lbl_name = model:getWidgetByName("lbl_name"):setColor(game.getColor(0xc8c8c8))
+		lbl_name:setString(name)
+		local btn_model_voice = model:getWidgetByName("btn_model_voice")
+		btn_model_voice:setPosition(lbl_name:getContentSize().width+lbl_name:getPositionX()+10,model:getContentSize().height/2)
+		btn_model_voice:setContentSize(cc.size(100,30))
+		btn_model_voice:addClickEventListener(LayerVoice.playVoice)
+		btn_model_voice.filepath = netChat.localPath
+		btn_model_voice.url = netChat.httpPath
+		btn_model_voice.duration = netChat.duration
+		btn_model_voice.flag = netChat.flag
+		btn_model_voice.selfvoice = name == game.chrName
+		model:getWidgetByName("chatTime"):setString(math.ceil(netChat.duration/1000).."\"" or ""):setPosition(105,30/2)
+
+		local res = msg_img_key[netChat.m_strType].img
+		model:getWidgetByName("btn_channel"):loadTextures(res,res,res,ccui.TextureResType.plistType):setTitleText("")
+		if #name >0 then
+			lbl_name.data = netChat
+			PanelChat.addLabelEventListener(lbl_name)
+		end
+
+		return model
+	else
+		local richWidget = UIRichLabel.new({size= cc.size(len, 0), space=8,name="other"})
+		-- strMsg = "<font outline=\'0,0,0,0,10\'>"..strMsg.."</font>"
+		-- print("strmsg:"..strMsg)
+		richWidget:setRichLabel(strMsg, "panel_chat", charsize)
+		return richWidget
+	end
+end
+
+function PanelChat.combineDialogBox(netChat) --model 生产器
+	if true then
+		return PanelChat.newModelBox(netChat)
+	end
+
+	local colorStr = msg_img_key[netChat.m_strType].colorStr
+	local strMsg = netChat.m_strMsg
+	local isVoice = false
+	if netChat.localPath or netChat.httpPath then
+		isVoice = true
+	end
+	local vip = netChat.m_vip
+
+	strMsg = "<font color=#"..colorStr..">"..strMsg.."</font>"
+	local name = netChat.m_strName or ""
+	local len = 0
+	local boxType
+	strMsg,len = PanelChat.callength(strMsg)
+
+	if netChat.m_strName == game.chrName or netChat.m_MyName == game.chrName then
+		boxType = isVoice and "self_voice" or"self"
+		vip = NetClient:getPlayerModel(MainRole._mainAvatar:NetAttr(Const.net_id),5)
+	else
+		boxType = isVoice and "other_voice" or "other"
+	end
+	vip = 0
+	local maxlen = var.viewSize.width-- var.chatView:getViewSize().width
+	len = util.bound(20, len, maxlen-50)
+	local model = nil
+	local realheight,richWidget,lbl_name
+
+	if boxType == "self" then
+		model = var.self_box:clone():show():setAnchorPoint(cc.p(0,1))		
+		
+		richWidget = UIRichLabel.new({size= cc.size(len, 0), space=8,name="self"})
+		richWidget:setRichLabel(strMsg, "panel_chat", 20)
+		realheight = richWidget:getContentSize().height >48 and richWidget:getContentSize().height+10 or 48
+
+		lbl_name = model:getWidgetByName("lbl_name")
+			:setString(game.chrName)
+			:setAnchorPoint(cc.p(1,1))
+			:setPosition(maxlen - 54,realheight+23)
+		model:getWidgetByName("img_bg")
+			:setScale9Enabled(true)
+			:setAnchorPoint(cc.p(1,0))
+			:setCapInsets(cc.rect(4,34,80,4))
+			:setPosition(cc.p(maxlen-6,0))
+			:setContentSize(cc.size(len+25,realheight>48 and realheight or realheight))
+			:setOpacity(60)
+
+		richWidget:align(display.CENTER_LEFT,12,(realheight+10)/2)
+			:addTo(model:getWidgetByName("img_bg"))
+
+		model:setContentSize(len+30,model:getWidgetByName("img_bg"):getContentSize().height+26)
+		model:getWidgetByName("btn_channel")
+			:setPosition(cc.p(maxlen-4,model:getWidgetByName("img_bg"):getContentSize().height+26))
+
+	elseif boxType == "other" then
+		model = var.other_box:clone():show():setAnchorPoint(cc.p(0,1))
+		richWidget = UIRichLabel.new({size= cc.size(len, 0), space=8,name="other"})
+		richWidget:setRichLabel(strMsg, "panel_chat", 20)
+		realheight = richWidget:getContentSize().height >48 and richWidget:getContentSize().height+10 or 48
+
+		lbl_name = model:getWidgetByName("lbl_name")
+			:setString(name)
+			:setPosition(50,realheight+23)
+
+		if #name >0 then
+			lbl_name.data = netChat
+			PanelChat.addLabelEventListener(lbl_name)
+		end
+		
+		model:getWidgetByName("img_bg")
+			:setScale9Enabled(true)
+			:setAnchorPoint(cc.p(0,0))
+			:setCapInsets(cc.rect(15,35,80,5))
+			:setPosition(cc.p(6,0))
+			:setContentSize(cc.size(len+20,realheight>48 and realheight or realheight))
+			:setOpacity(60)
+
+		richWidget:align(display.CENTER_LEFT,18,(realheight+10)/2)
+			:addTo(model:getWidgetByName("img_bg"))
+		model:setContentSize(maxlen,model:getWidgetByName("img_bg"):getContentSize().height+26)
+		model:getWidgetByName("btn_channel")
+			:setPosition(cc.p(0,model:getWidgetByName("img_bg"):getContentSize().height+26))
+
+	elseif boxType =="self_voice" then
+		model = var.voice_self_box:clone():show():setAnchorPoint(cc.p(0,1))		
+		realheight = 10
+
+		lbl_name = model:getWidgetByName("lbl_name")
+			:setString(game.chrName)
+			:setAnchorPoint(cc.p(1,1))
+			:setPosition(maxlen - 50,realheight+67)
+		model:getWidgetByName("chatTime"):setString(math.ceil(netChat.duration/1000).."\"" or ""):setPositionY((realheight+35)/2)
+
+		model:getWidgetByName("btn_model_voice")
+			:setPosition(cc.p(model:getContentSize().width-50,realheight+41))
+			:addClickEventListener(LayerVoice.playVoice)
+		model:getWidgetByName("btn_model_voice").filepath = netChat.localPath
+		model:getWidgetByName("btn_model_voice").url = netChat.httpPath
+		model:getWidgetByName("btn_model_voice").duration = netChat.duration
+		model:getWidgetByName("btn_model_voice").flag = netChat.flag
+		model:getWidgetByName("btn_model_voice").selfvoice = true
+		model:getWidgetByName("img_voice_chat"):setPosition(85,(realheight+35)/2):loadTexture("img_chat_voice3", ccui.TextureResType.plistType)
+
+		model:setContentSize(model:getContentSize().width,67+realheight)
+		model:getWidgetByName("btn_channel")
+			:setPosition(cc.p(maxlen-4,model:getWidgetByName("btn_model_voice"):getContentSize().height+32))
+
+	elseif boxType =="other_voice" then
+		model = var.voice_other_box:clone():show():setAnchorPoint(cc.p(0,1))
+
+		realheight = 10
+
+		lbl_name = model:getWidgetByName("lbl_name")
+			:setString(name)
+			:setPosition(50,realheight+67)
+		lbl_name.data = netChat
+		PanelChat.addLabelEventListener(lbl_name)
+		model:getWidgetByName("chatTime"):setString(math.ceil(netChat.duration/1000).."\"" or ""):setPosition(115,(realheight+35)/2)
+
+		model:getWidgetByName("btn_model_voice")
+			:setPosition(cc.p(50,realheight+41))
+			:addClickEventListener(LayerVoice.playVoice)
+		model:getWidgetByName("btn_model_voice").filepath = netChat.localPath
+		model:getWidgetByName("btn_model_voice").url = netChat.httpPath
+		model:getWidgetByName("btn_model_voice").duration = netChat.duration
+		model:getWidgetByName("btn_model_voice").flag = netChat.flag
+		model:getWidgetByName("btn_model_voice").selfvoice = false
+		model:getWidgetByName("img_voice_chat"):setPosition(25,(realheight+35)/2):loadTexture("img_chat_voice3", ccui.TextureResType.plistType)
+
+		model:setContentSize(model:getContentSize().width+20,realheight+67)
+		model:getWidgetByName("btn_channel")
+			:setPosition(cc.p(0,model:getWidgetByName("btn_model_voice"):getContentSize().height+32))
+	end
+	local res = msg_img_key[netChat.m_strType].img
+	model:getWidgetByName("btn_channel"):loadTextures(res,res,res,ccui.TextureResType.plistType):setTitleText("")
+
+	local vipLevel = model:getWidgetByName("vipLevel")
+	if checknumber(vip)>0 then
+		vipLevel:show()
+		vipLevel:setString(string.format("[VIP%d]",vip))
+		local vipSize = vipLevel:getContentSize().width
+		local nameSize = lbl_name:getContentSize().width
+		if string.find(boxType,"other") then
+			vipLevel:setPosition(lbl_name:getPositionX(),lbl_name:getPositionY())
+			lbl_name:setPositionX(vipLevel:getPositionX()+vipSize)
+		else
+			vipLevel:setPosition(lbl_name:getPositionX()-nameSize,lbl_name:getPositionY())
+		end
+	else
+		vipLevel:hide()
+	end
+	return model
+end
+
+function PanelChat.callength( strMsg,size ) --根据字体大小计算长度
+	if not size then size = 22 end
+	local len,num = 0,0
+	local cloneStr,n = game.clearHtmlText(strMsg)
+	local length = cc.SystemUtil:getUtf8StrLen(cloneStr)
+	len = (#cloneStr+length)*(size/4) --+ n/2*15 --加超链接的要多加10像素
+
+	for j=1,#Const.expressions_item do
+		strMsg,num = string.gsub(strMsg,Const.expressions_item[j][1],"<pic src=\'img_"..Const.expressions_item[j][2].."\'/>")
+		if num>0 then
+			len = len + num * (31 - (size/2*3))
+		end
+	end
+
+	for k,v in pairs(channelInfo) do
+		strMsg,num = string.gsub(strMsg,v.strChannel,"<pic src=\'"..msg_img_key[v.strChannel].img.."\'/>",1)
+		if num>0 then
+			len = len  + num*(imgChannelLength- (size/2)*8)
+			break
+		end
+	end
+	if string.find(strMsg,"<item") then
+		strMsg,num = string.gsub(strMsg,"<item src=\"(.-)||(.-)/>",function(s1,s2)
+			len = len + size * #s1/3 --+ 30 --30是武器icon长度
+			return "<item src=\""..s1.."||"..s2.."/>"
+		end)
+	end
+	return strMsg,len
+end
+
+function PanelChat.updateChannelHistory() -- 消息筛选器
+	local mChannerHistory = {}
+	for i,v in ipairs(NetClient.mChatHistroy) do
+		if PanelChat.isMsgShow(v) then
+			table.insert(mChannerHistory,v)
+		end
+	end
+	return mChannerHistory
+end
+
+function PanelChat.execItemString(msg)
+	local startPos = 0
+	local endPos = 1
+	local result = msg
+	local enum = 0
+	result = string.gsub(result,"(##.-##)",function(v)
+		v = string.gsub(v,"##","")
+		local vv = string.split(v,",")
+		if #vv > 1 then
+			if enum < 5 then
+				local itemdef = NetClient:getItemDefByName(vv[1])
+				if itemdef then
+					local item = NetClient:getNetItem(tonumber(vv[2]))
+					if item and item.mTypeID == itemdef.mTypeID then
+						enum = enum + 1
+						return "<item src=\""..vv[1].."||"..item.mLevel.."||"..item.mZLevel.."||"..item.mDropSource.."||"..item.mCreateTime.."\"/>"
+					else
+						return vv[1]
+					end
+				end
+			else
+				return vv[1]
+			end
+		end
+		return ""
+	end)
+	return result
+end
+
+-- 是否达到需求等级
+function PanelChat.isNeedLevel(tag)
+	if tag == CHANNEL_TAG.GUILD then
+		if game.MainRoleLevelHigherThen(var.chatGuildLimit) then
+			return true
+		end
+		NetClient:alertLocalMsg(string.format( "当前等级不足%d级, 无法聊天", var.chatGuildLimit))
+	else
+		if game.MainRoleLevelHigherThen(limit_level) then
+			return true
+		end
+		NetClient:alertLocalMsg(string.format( "当前等级不足%d级, 无法聊天", var.chatLimit))
+	end
+	
+	return false
+end
+
+function PanelChat.sendMsg(isVoice)
+	-- isVoice = "<voice>|"..util.ToBase64("1234").."|10200|"..util.ToBase64("5678").."|10000"
+	local msg = var.mSendText:getText()
+	msg = game.clearHtmlText(msg)
+	if isVoice then
+		msg = isVoice
+	end
+	local mNum = 0
+	local shoutMsg = msg
+	local mainRole = CCGhostManager:getMainAvatar()
+
+	if #msg <1 then return end
+
+	msg = PanelChat.execItemString(msg)
+	-- local mModels = NetClient.mModels[mainRole:NetAttr(Const.net_id)]
+	-- local vip = NetClient:getPlayerModel(mainRole:NetAttr(Const.net_id),5)
+	-- if mModels and mModels[5] then vip =mModels[5] end
+	-- vip = string.format("%02d",vip)
+	-- msg = var.headId..vip.."||"..msg
+
+	if var.Amark and var.mapInfo then
+		msg,_ = string.gsub(msg,var.mapInfo,var.Amark)
+	end
+	local success = true
+	if string.len(msg) > 0 then
+		if PanelChat.isNeedLevel(var.chaIndex) then
+			if var.chaIndex == CHANNEL_TAG.WORLD then -- 世界
+				if string.sub(shoutMsg,1,1) == "@" then
+					NetClient:WorldChat(shoutMsg)
+				else
+					NetClient:WorldChat(msg)
+				end
+			elseif var.chaIndex == CHANNEL_TAG.GUILD then
+				if mainRole:NetAttr(Const.net_guild_title) > 101 and string.len(mainRole:NetAttr(Const.net_guild_name)) > 0 then
+					NetClient:GuildChat(msg)
+				else
+					success = false
+					NetClient:alertLocalMsg("你还没有行会！","alert")
+				end
+			elseif var.chaIndex == CHANNEL_TAG.GROUP then 
+				if #NetClient.mGroupMembers > 0 then
+					NetClient:GroupChat(msg)
+				else
+					success = false
+					NetClient:alertLocalMsg("你还没有队伍,请先创建队伍！","alert")
+				end
+			elseif var.chaIndex == CHANNEL_TAG.PRIVATE then
+				local target = NetClient.m_strPrivateChatTarget
+				if target == "" or target == nil then
+					NetClient:alertLocalMsg("你还没有聊天对象！","alert")
+					success = false
+				else
+					msg,_=string.gsub(msg,"@[^>]*:","")
+					NetClient:PrivateChat(target,msg)
+				end
+			elseif var.chaIndex == CHANNEL_TAG.CURRENT then -- 当前 地图频道
+				if string.sub(shoutMsg,1,1) ~= "@" then
+					NetClient:NormalChat(msg)
+				else
+					NetClient:NormalChat(shoutMsg)
+				end
+			elseif var.chaIndex == CHANNEL_TAG.HORN then -- 喇叭
+				NetClient:HornChat(msg)
+			elseif var.chaIndex == CHANNEL_TAG.ALL then
+				if string.sub(shoutMsg,1,1) ~= "@" then
+					NetClient:WorldChat(msg)
+				else
+					NetClient:WorldChat(shoutMsg)
+				end
+			end
+			if success and not isVoice then
+				var.Amark = nil
+				var.mapInfo = nil
+			end
+		end
+	end
+	var.mSendText:setString("")
+end
+
+function PanelChat.ShowHandle(event)
+	if event then
+		if event.result[2] == "chat" then
+			local pName = event.result[3]
+			local channel = event.result[4]
+			if channel then --切换频道
+				-- for k,v in pairs(channelInfo) do
+				-- 	if v.strChannel == pName then
+
+				-- 		var.mSendText:setString(string.sub(pName,4,9)..":")
+				-- 	end
+				-- end
+			elseif pName ~= game.chrName and pName~="" then
+				for k,v in pairs(NetClient.mChatHistroy) do
+					if v.m_strName == pName and v.m_job and v.m_uSrcId>0 then
+						NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str="friendOperate", data = {
+							seedName = v.m_seedName,
+							name = v.m_strName,
+							job = v.m_job,
+							gender = v.m_gender,
+							level = v.m_lv,
+							vip = v.m_vip,
+							guild = v.m_guild,
+						}})
+						break;
+					end
+				end
+			end
+		end
+	end
+end
+
+function PanelChat.onVoiceMsgHandler(event)
+	if event and event.params then
+		local params = string.split(event.params,"|")
+		if #params>=5 then
+			params[3] = util.ToBase64(params[3])
+			params[4] = util.ToBase64(params[4])
+		end
+		if not params[2]  then params[2] =" " end
+		PanelChat.sendMsg(table.concat( params,"|" ))
+	end
+end
+
+return PanelChat
+

@@ -1,0 +1,37 @@
+SceneHealthNotice = class("SceneHealthNotice", function(callback)
+    return display.newScene("SceneHealthNotice")
+end)
+
+function SceneHealthNotice:ctor(callback)
+	self.sucessCallBack = callback
+end
+
+function SceneHealthNotice:onEnter()
+	self.xmlScene = UILuaLoader.load("uilayout/SceneHealthNotice.uif")
+	if self.xmlScene then
+		self.xmlScene:size(cc.size(display.width, display.height))
+			:align(display.CENTER, display.cx, display.cy)
+		self:addChild(self.xmlScene)
+
+		local img_bg = self.xmlScene:getWidgetByName("img_bg"):align(display.CENTER, display.cx, display.cy)
+		asyncload_callback("needload/splash.png", img_bg, function(filepath, texture) 
+			img_bg:loadTexture(filepath)
+			img_bg:runAction(cca.seq({
+				cca.fadeIn(0.8),
+				cca.fadeOut(0.8),
+				cca.cb(function( ... )
+					if self.sucessCallBack then
+						self.sucessCallBack()
+					end
+				end)
+			}))
+		end)
+	end
+end
+
+function SceneHealthNotice:onExit()
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+
+return SceneHealthNotice

@@ -1,0 +1,14 @@
+LUA_RET={
+{n="PanelCelebrationAct_huikui",v=true,type=0,id=1,parent=0,w=835.0000,h=507.0000,},
+{n="imgTitleBg",tag=177,ss=true,sx=272,sw=272,sh=49,sy=49,v=true,type=1,id=2,parent=1,w=835.0000,h=150.0000,ay=0.5000,x=3.0000,y=448.0000,color="255|255|255",res="img_title_dit",},
+{n="labDesp",tag=62,fs=18,text="温馨提示：活动期间内使用相应战鼓碎片后，可领取战鼓碎片",vt=1,v=true,type=3,id=3,parent=1,w=650.0000,h=25.0000,ay=0.5000,x=17.0000,y=431.0000,color="254|236|191",},
+{n="awardsList",ud="1|1|0|0",tag=411,t=true,c=false,d=1,v=true,type=9,id=4,parent=1,w=820.0000,h=390.0000,x=3.0001,y=4.0000,color="255|255|255",},
+{n="render",tag=412,t=true,c=false,v=true,type=0,id=5,parent=4,w=820.0000,h=115.0000,y=275.0000,color="255|255|255",},
+{n="rendBg",tag=413,sx=186,sw=193,sh=22,sy=21,v=true,type=1,id=6,parent=5,w=815.0000,h=111.0000,x=-0.0006,y=1.0000,color="255|255|255",res="img_cell_bg",},
+{n="labDesp",tag=414,fs=20,text="",vt=1,v=true,type=3,id=7,parent=5,w=250.0000,h=25.0000,ay=0.5000,x=34.3410,y=56.0272,color="253|223|174",fr="DFYuan.ttf",},
+{n="icon1",tag=415,sx=22,sw=22,sh=22,sy=22,v=true,type=1,id=8,parent=5,w=68.0000,h=68.0000,ax=0.5000,ay=0.5000,x=393.6569,y=54.5156,color="255|255|255",res="img_cell_max",},
+{n="btnLing",ud="outline(076900,1);zoomscale(-0.12)",tag=416,t=true,fs=20,text="领取奖励",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=9,parent=5,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=603.0853,y=55.5164,color="255|255|255",tcolor="255|224|139",res="btn_red_normal",},
+{n="imgYLQ",tag=417,v=true,type=1,id=10,parent=5,w=80.0000,h=76.0000,ax=0.5000,ay=0.5000,x=604.0856,y=55.5164,color="255|255|255",res="img_has_got",},
+{n="Text_18",tag=386,fs=18,text="剩余时间：",vt=1,v=true,type=3,id=11,parent=1,w=90.0000,h=20.0000,ax=0.5000,ay=0.5000,x=536.1320,y=485.1637,color="24|209|41",fr="DFYuan.ttf",},
+{n="labCount",tag=387,fs=18,text="00:00:00",vt=1,v=true,type=3,id=12,parent=1,w=180.0000,h=25.0000,ay=0.5000,x=576.1320,y=485.1637,color="24|209|41",fr="DFYuan.ttf",},
+}

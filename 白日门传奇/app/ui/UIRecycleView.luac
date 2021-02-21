@@ -1,0 +1,52 @@
+local UIRecycleView = class("UIRecycleView", function (param)
+	return cc.ScrollView:create(param.size or cc.size(100,100))
+end)
+
+function UIRecycleView:ctor(param)
+	self._data = {}
+	self._updateCellCallback = nil
+	self:registerScriptHandler(self.scrollViewDidScroll,cc.SCROLLVIEW_SCRIPT_SCROLL)
+	self:registerScriptHandler(self.scrollViewDidZoom,cc.SCROLLVIEW_SCRIPT_ZOOM)
+end
+
+function UIRecycleView:scrollToTop()
+
+end
+
+function UIRecycleView:scrollToTop()
+
+end
+
+function UIRecycleView:setUpdateCellCallback(func)
+	if util.isFunction(func) then
+		self._updateCellCallback = func
+	end
+end
+
+function UIRecycleView:reloadData(data)
+	self._data = data
+	if util.isFunction(self._updateCellCallback) then
+		self._updateCellCallback()
+
+	end
+end
+
+function UIRecycleView:insertItemAtLast()
+
+end
+
+function UIRecycleView:insertItemAtHead()
+
+end
+
+function UIRecycleView:scrollViewDidScroll( view )
+	print("view---",view)
+	
+
+end
+
+function UIRecycleView:scrollViewDidZoom( view )
+	print("view---",view)
+end
+
+return UIRecycleView

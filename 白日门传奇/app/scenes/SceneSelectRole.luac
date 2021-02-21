@@ -1,0 +1,525 @@
+SceneSelectRole = class("SceneSelectRole", function(relogin)
+    return display.newScene("SceneSelectRole")
+end)
+
+function SceneSelectRole:ctor(relogin)
+	self._xmlScene = nil
+	self._curChar = nil
+	self._relogin = relogin
+	self.m_handler = nil
+	self.btnReName = nil
+	self.editboxReName = nil
+	self.isEditing = false
+	self._curCharTag = 1
+	self.jobTable = {
+		"zs",
+		"fs",
+		"ds"
+	}
+	self.rolePos = {
+		{
+			x = 5,
+			y = 10
+		},
+		{
+			x = 30,
+			y = 10
+		},
+		{
+			x = -10,
+			y = 30
+		},
+		{
+			x = -10,
+			y = 10
+		},
+		{
+			x = -5,
+			y = 30
+		},
+		{
+			x = -50,
+			y = -15
+		}
+	}
+	self.effectPos = {
+		{
+			x = -5,
+			y = 0
+		},
+		{
+			x = 0,
+			y = -5
+		},
+		{
+			x = 6,
+			y = 10
+		},
+		{
+			x = 0,
+			y = 0
+		},
+		{
+			x = 0,
+			y = 0
+		},
+		{
+			x = 0,
+			y = 0
+		}
+	}
+	self.roleCenter = {
+		x = 568,
+		y = 300
+	}
+	self.roleImage = nil
+	self.roleImageEffect = nil
+	self.roleImageSelect = nil
+end
+
+function SceneSelectRole:onPlatformLogout()
+	game.ExitToRelogin()
+end
+
+function SceneSelectRole:onEnter()
+
+	if PlayAudio.musicName~="sound/role.mp3" then
+	end
+
+	self.m_handler = cc.EventProxy.new(NetClient, self)
+		:addEventListener(Notify.EVENT_SOCKET_ERROR, handler(self, self.onSocketError))
+		:addEventListener(Notify.EVENT_KEYBOARD_PASSED,handler(self, self.onKeyboard))
+		:addEventListener(Notify.EVENT_LOADCHAR_LIST,handler(self, self.handleCharLoaded))
+		:addEventListener(Notify.EVENT_PLATFORM_LOGOUT,handler(self, self.onPlatformLogout))
+
+	self._xmlScene = UILuaLoader.load("uilayout/SceneSelectRole.uif")
+		:setContentSize(display.width, display.height)
+		:align(display.CENTER, display.cx, display.cy)
+		:addTo(self)
+
+	self.roleImageSelect = self._xmlScene:getWidgetByName("roleImgSelect")
+	self.roleSelectPos = {518, 348, 181}
+
+	local widgetContent = ccui.Widget:create():setContentSize(cc.size(1136,640)):align(display.CENTER, display.cx, display.cy)
+	widgetContent:addTo(self._xmlScene):setLocalZOrder(10)
+	self._xmlScene:getWidgetByName("layer_confirm"):setLocalZOrder(20)
+
+
+	local imgSelectRoleBottom = self._xmlScene:getWidgetByName("img_selectRole_bottom")
+		:align(display.CENTER, display.cx, display.cy)
+
+			imgSelectRoleBottom:loadTexture("needload/img_gate.png")
+			imgSelectRoleBottom:scale(cc.MAX_SCALE);
+
+	self.img_title = self._xmlScene:getWidgetByName("node_title")
+
+	local btn_back = self._xmlScene:getWidgetByName("btn_back")
+	local btn_backSize = btn_back:getContentSize();
+	btn_back:pos(display.left+btn_backSize.width/2+20, 45)
+	btn_back:addClickEventListener(function ()
+		return self:onKeyboard({key = "back"})
+	end)
+
+	local btn_entergame = self._xmlScene:getWidgetByName("btn_entergame")
+	local btn_entergameSize = btn_entergame:getContentSize();
+	btn_entergame:pos(display.right-btn_entergameSize.width/2-20, 45)
+	btn_entergame:addClickEventListener(handler(self, self.pushEnterGame))
+	
+	self.roleImage = ccui.ImageView:create()
+	self.roleImage:addTo(widgetContent):align(display.CENTER, self.roleCenter.x,self.roleCenter.y):setLocalZOrder(2)
+
+	self.roleImageEffect = ccui.ImageView:create()
+	self.roleImageEffect:addTo(widgetContent):align(display.CENTER, self.roleCenter.x, self.roleCenter.y):setLocalZOrder(1)
+
+	self.layer_confirm = self._xmlScene:getWidgetByName("layer_confirm"):pos(display.cx, display.cy)
+	self.layer_confirm:setLocalZOrder(200)
+	self.layer_confirm:setTouchEnabled(true)
+	self.layer_confirm:getWidgetByName("btn_confirm"):addClickEventListener(function ()
+		if self._delName and self._delSeedName then
+			NetClient:DeleteCharacter(self._delName, self._delSeedName)
+
+		end
+		self._delName = nil
+		self._delSeedName = nil
+		self.layer_confirm:hide()
+	end)
+	self.layer_confirm:getWidgetByName("btn_cancel"):addClickEventListener(function ()
+		self.layer_confirm:hide()
+	end)
+	local lbl_confirm = self.layer_confirm:getWidgetByName("lbl_confirm")
+	lbl_confirm:setString(lan.Tips_delete)
+	lbl_confirm:enableOutline(game.getColor(0x000000), 1)
+
+	if self._relogin then
+		self.m_handler:addEventListener(Notify.EVENT_CONNECT_ON, handler(self, self.onConnect))
+			:addEventListener(Notify.EVENT_AUTHENTICATE, handler(self, self.onAuth))
+		NetClient:connect(game.serverIP, game.serverPort)
+		self.isWaiting = true
+	else
+		self:handleCharLoaded()
+	end
+
+	self:playFireEffect(self._xmlScene)
+	self:playRoleFireEffect(self._xmlScene)
+end
+
+function SceneSelectRole:playFireEffect(ui)
+	local startNum = 1
+	local doorNum = 11
+	local imgFire = self._xmlScene:getWidgetByName("rightFire")
+
+	local function startAnim()
+		asyncload_callback("needload/FireEffect/"..startNum..".png", imgFire, function (filepath, texture)
+			if util.isObjectExist(imgFire) then
+				imgFire:loadTexture(filepath)
+			end
+		end)
+		startNum = startNum + 1
+		if startNum >= 12 then
+			startNum = 1
+		end
+	end
+	
+	ui:runAction(cca.repeatForever(cca.seq({cca.delay(0.1),cca.cb(startAnim)}),tonumber(11)))
+end
+
+function SceneSelectRole:playRoleFireEffect(ui)
+	local startNum = 1
+	local doorNum = 10
+
+	local function startAnim()
+		asyncload_callback("needload/SelectFireEffect/"..startNum..".png", self.roleImageEffect, function (filepath, texture)
+			if util.isObjectExist(self.roleImageEffect) then
+				self.roleImageEffect:loadTexture(filepath):setPositionY(120):setScale(1.3)
+			end
+		end)
+		startNum = startNum + 1
+		if startNum >= 11 then
+			startNum = 1
+		end
+	end
+	
+	ui:runAction(cca.repeatForever(cca.seq({cca.delay(0.1),cca.cb(startAnim)}),tonumber(10)))
+end
+
+function SceneSelectRole:showRole(tag)
+    if NetClient._netChars[tag] then
+        local role = NetClient._netChars[tag]
+        if self.roleImage then
+            local filePath = "needload/Character/role"..(role.mJob - 100 + 1).."_"..(role.mGender - 200 + 1).."/001.png"
+            asyncload_callback(filePath, self.roleImage, function(filepath, texture)
+                self.roleImage:loadTexture(filepath)
+			end)
+			
+			self.roleImageSelect:setVisible(true)
+			self.roleImageSelect:setPositionY(self.roleSelectPos[tag])
+        end
+    else
+        self.roleImage:loadTexture("img_select_title", ccui.TextureResType.plistType)
+    end
+end
+
+function SceneSelectRole:onExit()
+	cc.SpriteManager:getInstance():removeFramesByFile("uipic/SceneSelectRole")
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+function SceneSelectRole:onSocketError(event)
+	PlatformTool.showMsg("服务器连接已断开")
+	game.ExitToRelogin()
+end
+
+function SceneSelectRole:handleCharLoaded(event)
+	if #NetClient._netChars == 0 then return self:enterScene("SceneCreateRole") end
+
+	if not self.panelSelect then self.panelSelect = {} end
+    for i = 1,3 do
+        self.panelSelect[i] = self._xmlScene:getWidgetByName("Sprite_"..i)
+        self.panelSelect[i]:setTouchEnabled(true)
+        self.panelSelect[i].tag = i
+        self.panelSelect[i]:stopAllActions()
+        self.panelSelect[i]:addClickEventListener(function(sender)
+            local role = NetClient._netChars[sender.tag]
+			self:stopAllPlayerAction()
+			if role then
+				self._curChar = role
+				self:playHeroAnim(role.mJob % 100 + 1, role.mGender - 200 + 1, self.roleImage)
+				self.roleImageSelect:setVisible(true)
+				self.roleImageSelect:setPositionY(self.roleSelectPos[sender.tag])
+				local idx = role.mJob % 100 * 2 + role.mGender - 200
+				self.roleImage:align(display.CENTER, self.roleCenter.x+self.rolePos[idx + 1].x,self.roleCenter.y+self.rolePos[idx + 1].y)
+            else 
+				self:enterScene("SceneCreateRole")
+				self.panelSelect[i]:loadTexture("show", ccui.TextureResType.plistType)
+            end
+		end)
+
+		self:updatePlayerNormalInfo(self.panelSelect[i], NetClient._netChars[i])
+
+		local delteBtn = self.panelSelect[i]:getWidgetByName("btn_deleteRole")
+		delteBtn.tag = i
+		if delteBtn then
+			delteBtn:addTouchEventListener(function (sender)
+				self:pushDeleteRole(NetClient._netChars[sender.tag].mName, NetClient._netChars[sender.tag].mSeedName)
+			end)
+			
+		end
+	end
+
+	
+	self:showRole(1)
+	self:updateListCharactor()
+
+    self._curChar = NetClient._netChars[1]
+	
+    local role = NetClient._netChars[1]
+    self:playHeroAnim(role.mJob - 100 + 1, role.mGender - 200 + 1, self.roleImage)
+end
+
+function SceneSelectRole:pushDeleteRole(name, seedname)
+	self.layer_confirm:show()
+
+	self._delName = name
+	self._delSeedName = seedname
+end
+
+function SceneSelectRole:onConnect(event)
+	NetClient:Authenticate(101,game.gameTicket,0,0)
+end
+
+function SceneSelectRole:onDisConnect(event)
+end
+
+function SceneSelectRole:onAuth(event)
+	print("=================SceneSelectRole:onAuth=============")
+	print(event.result)
+	print(game.gameKey)
+	print("=================SceneSelectRole:onAuth=============")
+
+	if event.result == 100 then
+		NetClient:ListCharacter()
+	else
+		game.ExitToRelogin()
+	end
+end
+
+function SceneSelectRole:selectOneRole(tag)
+	if not NetClient._netChars[slot1] then
+		self:handleReNameVisible(false)
+
+		self._curChar = nil
+		self._curCharTag = nil
+
+		return
+	end
+
+	self._curChar = NetClient._netChars[slot1]
+	self._curCharTag = slot1
+
+	self:updateListCharactor()
+
+	if not self._curChar or string.sub(self._curChar.mName, 1, 2) ~= "CM" then
+		self:handleReNameVisible(false)
+	end
+end
+
+function SceneSelectRole:stopAllPlayerAction()
+	for i=1,3 do
+		if NetClient._netChars[i] then
+			self.roleImage:stopAllActions()
+			local role = NetClient._netChars[i]
+			local filePath = "needload/Character/role"..(role.mJob - 100 + 1).."_"..(role.mGender - 200 + 1).."/001.png"
+			asyncload_callback(filePath, self.roleImage, function(filepath, texture)
+				self.roleImage:loadTexture(filepath)
+			end)
+		end
+	end
+end
+
+function SceneSelectRole:playHeroAnim(job, gener, node, startIdx)
+	node:stopAllActions()
+
+	local startIdx = startIdx or 1
+
+	if node ~= nil then
+		local startNum = 1
+		local endNum = 8
+
+		if startIdx == 1 then
+			endNum = 8
+		end
+
+	local function startOpen()
+			local filePath = "needload/Character/role" .. job .. "_" .. gener .. "/00" .. startNum .. ".png"
+			asyncload_callback(filePath, node, function (filepath, texture)
+						if util.isObjectExist(node) then
+							node:loadTexture(filepath)
+						end
+					end)
+
+					startNum = startNum + 1
+
+					if endNum <= startNum and startIdx == 1 then
+						self:playHeroAnim(job, gener, node, startIdx + 1)
+					elseif endNum <= startNum then
+						startNum = 1
+
+						self:playHeroAnim(job, gener, node, 2)
+					end
+				end
+			
+	 if startIdx == 1 then
+	        node:runAction(cca.rep(cca.seq({cca.delay(0.1),cca.cb(startOpen)}),tonumber(endNum - 1)))
+        else
+            node:runAction(cca.rep(cca.seq({cca.delay(0.1),cca.cb(startOpen)}),tonumber(endNum - 1)))
+        end
+    end
+end
+
+function SceneSelectRole:updateListCharactor()
+	self.playerTag = {}
+	local charList = NetClient._netChars
+	for i = 1, 3 do
+		local box_role = self.panelSelect[i]
+		if box_role then
+			local hasRole
+			if charList[i] then
+				hasRole = true
+				local idx = charList[i].mJob-100+1
+				if self._curCharTag == i then
+					local idxtag = (charList[i].mJob-100)*2+charList[i].mGender-200			
+					print(idxtag)		
+					self.roleImage:align(display.CENTER, self.roleCenter.x+self.rolePos[idxtag + 1].x,self.roleCenter.y+self.rolePos[idxtag + 1].y)
+				else
+
+				end
+
+				box_role.infos = util.encode(charList[i])
+				self.playerTag[charList[i].mName] = i
+			else
+				hasRole = false
+				box_role:loadTexture("img_null", ccui.TextureResType.plistType)
+			end
+			box_role:getWidgetByName("labelName"):setVisible(hasRole)
+			box_role:getWidgetByName("labelLevel"):setVisible(hasRole)
+			box_role:getWidgetByName("jobImg"):setVisible(hasRole):setScale(0.6)
+			box_role:getWidgetByName("btn_deleteRole"):setVisible(hasRole)
+
+			if not hasRole then
+				box_role:getWidgetByName("addBtn"):show()
+			else 
+				box_role:getWidgetByName("addBtn"):hide()
+			end
+		end
+	end
+
+	self.isWaiting = false
+end
+
+function SceneSelectRole:onKeyboard(event)
+	if self.isEditing then return end
+	if event.key=="back" then
+		util.showAlert("提示","要重新选区吗？",{"确定","取消"},function (event)
+			if event.buttonIndex == 1 then
+				-- game.ExitToRelogin()
+				NetClient:disconnect()
+				NetClient:init()
+
+				self:enterScene("SceneSelectServer")
+			end
+		end,self)
+	end
+end
+
+function SceneSelectRole:pushEnterGame()
+	if self._curChar then
+		if NetClient._connected then
+			game.roleId = self._curChar.mRoleId
+			game.chrName = self._curChar.mName
+			game.seedName = self._curChar.mSeedName
+			game.job = self._curChar.mJob
+			game.gender = self._curChar.mGender
+			game.level = self._curChar.mLevel
+			game.zoneId = self._curChar.mSvrid
+			game.createTime = self._curChar.mCreateTime
+			if not game.chrName or not game.seedName or tostring(game.chrName)=="" or tostring(game.seedName)=="" then
+				PlatformTool.showMsg("角色信息错误")
+				return
+			end
+			self:enterScene("SceneLoading")
+		else
+			game.ExitToRelogin()
+		end
+	elseif not self.isWaiting then
+		self:enterScene("SceneCreateRole")
+	end
+end
+
+function SceneSelectRole:updatePlayerNormalInfo(parent, infos)
+	if not infos then
+		return
+	end
+
+	parent:getWidgetByName("labelName"):setString(infos.mName)
+	parent:getWidgetByName("labelLevel"):setString(infos.mLevel .. "级")
+	parent:getWidgetByName("jobImg"):loadTexture(self.jobTable[infos.mJob % 100 + 1], ccui.TextureResType.plistType)
+end
+
+function SceneSelectRole:handleReNameVisible(visible)
+	if visible then
+		if not self.btnReName then
+			self.btnReName = ccui.Button:create("btn_rename", "btn_rename_sel", "", ccui.TextureResType.plistType)
+				:align(display.RIGHT_CENTER, display.width * 0.95, 50)
+				:addTo(self._xmlScene)
+			self.btnReName:addClickEventListener(function ()
+				local chrname = self.editboxReName:getText()
+				if util.checkInvalidChar(chrname) then
+					util.showAlert("","名称中包含非法字符","确定")
+					return
+				elseif chrname == self._curChar.mName then
+					util.showAlert("","名称未改变","确定")
+					return
+				elseif chrname == "请输入新的名字" then
+					util.showAlert("","名称不可用","确定")
+					return
+				end
+				if self._curChar and string.sub(self._curChar.mName, 1, 2) == "CM" then
+					HttpManager:requestRename(self._curChar.mName , chrname, self)
+				end
+			end)
+			local function editBoxListener(event,editBox)
+				if event == "began" then
+					self.isEditing = true
+				elseif event == "return" then
+					self.isEditing = false
+				end
+			end
+
+			self.editboxReName = util.newEditBox({
+				image = "picicon/img_task_word_bottom.png",
+				size = cc.size(240,45),
+				color = cc.c4b(200, 200, 200,255),
+				listener = editBoxListener,
+				placeHolder = "请输入新的名字",
+				fontSize = 22,
+			}):align(display.RIGHT_CENTER, display.width * 0.95 - self.btnReName:getContentSize().width - 10, 50)
+			:addTo(self._xmlScene):setTouchEnabled(true)
+
+		end
+		self.btnReName:show()
+		self.editboxReName:show()
+	elseif self.btnReName then
+		self.btnReName:hide()
+		self.editboxReName:hide()
+	end
+end
+
+function SceneSelectRole:enterScene(sceneName)
+	if self.isEditing then return end
+	print("-------------SceneSelectRole:enterScene = "..sceneName)
+	asyncload_frames(string.format("uipic/%s", sceneName),".png",function ()
+		display.replaceScene(_G[sceneName].new())
+	end,self)
+end
+
+return SceneSelectRole

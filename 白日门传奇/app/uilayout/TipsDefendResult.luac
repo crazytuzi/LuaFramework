@@ -1,0 +1,12 @@
+LUA_RET={
+{n="TipsDefendResult",v=true,type=0,id=1,parent=0,w=638.0000,h=388.0000,},
+{n="Image_1",tag=305,v=true,type=1,id=2,parent=1,w=1136.0000,h=640.0000,ax=0.5000,ay=0.5000,x=282.0000,y=156.0000,color="255|255|255",},
+{n="box_defend_result",tag=970,t=true,c=false,v=true,type=0,id=3,parent=1,w=638.0000,h=388.0000,ax=0.5000,ay=0.5000,x=319.0000,y=150.0000,color="255|255|255",},
+{n="tips_bg",tag=122,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=4,parent=3,w=597.0000,h=466.0000,color="255|255|255",},
+{n="btn_confirm",ud="outline(0e0600,1);zoomscale(-0.12)",tag=126,t=true,fs=18,text="领取奖励",ss=true,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=5,parent=3,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=308.0000,y=50.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="word_defend_award",tag=306,v=true,type=1,id=6,parent=3,w=70.0000,h=25.0000,ax=0.5000,ay=0.5000,x=307.0000,y=228.0000,color="255|255|255",res="word_defend_award",},
+{n="word_defend_failure_tips",tag=328,v=true,type=1,id=7,parent=3,w=288.0000,h=20.0000,ax=0.5000,ay=0.5000,x=314.8366,y=147.8275,color="255|255|255",res="word_defend_failure_tips",},
+{n="award_icon1",tag=324,v=true,type=1,id=8,parent=1,w=68.0000,h=68.0000,ax=0.5000,ay=0.5000,x=224.0000,y=120.0000,color="255|255|255",res="img_cell_max",},
+{n="award_icon2",tag=325,v=true,type=1,id=9,parent=1,w=68.0000,h=68.0000,ax=0.5000,ay=0.5000,x=307.0000,y=120.0000,color="255|255|255",res="img_cell_max",},
+{n="award_icon3",tag=326,v=true,type=1,id=10,parent=1,w=68.0000,h=68.0000,ax=0.5000,ay=0.5000,x=391.0000,y=120.0000,color="255|255|255",res="img_cell_max",},
+}

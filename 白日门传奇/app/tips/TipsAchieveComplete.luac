@@ -1,0 +1,44 @@
+local TipsAchieveComplete ={}
+
+function TipsAchieveComplete:initView( extend )
+	if self.xmlTips then
+		-- util.asyncload(self.xmlTips, "tipsbg", "needload/panel_prompt_bg.png")
+		for k,v in pairs(extend) do
+			print(k,v)
+		end
+		local config = extend.param.config
+		self.playerName = extend.pName or ""
+		self.xmlTips:getWidgetByName("achievename"):setString(config.name)
+		self.xmlTips:getWidgetByName("lbl_time"):setString(config.time)
+		self.xmlTips:getWidgetByName("cangetjf"):setString(config.achieveValue)
+		self.xmlTips:getWidgetByName("icon"):loadTexture("needload/"..config.huizhang..".png",ccui.TextureResType.localType):setScale(0.55)
+		self.xmlTips:getWidgetByName("imgtaskfinish"):loadTexture("needload/"..config.jiangli..".png",ccui.TextureResType.localType):setScale(0.8)
+		local btn_go = self.xmlTips:getWidgetByName("btn_go")
+		btn_go:setScale(0.8)
+		util.addHaloToButton(btn_go, "btn_normal_light3")
+		self.xmlTips:getWidgetByName("img_jf"):setScale(0.8)
+
+		local btns = {"btn_go","btn_close"}
+		local function clickBtns( sender )
+			local name = sender:getName()
+			if name == btns[1] then
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str = "main_achieve"})
+			elseif name == btns[2] then
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = extend.str})
+		end
+
+		for k,v in pairs(btns) do
+			self.xmlTips:getWidgetByName(v):addClickEventListener(clickBtns)
+		end
+		self.xmlTips:stopAllActions()
+		self.xmlTips:runAction(cca.seq({
+			cca.delay(7),
+			cca.cb(function( ... )
+				NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = extend.str})
+			end)
+		}))
+	end
+end
+
+return TipsAchieveComplete

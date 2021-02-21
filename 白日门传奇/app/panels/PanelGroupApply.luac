@@ -1,0 +1,143 @@
+local PanelGroupApply={}
+local var = {}
+
+local jobNames = {Const.str_zs, Const.str_fs, Const.str_ds}
+local headName = {{"head_mzs","head_mfs","head_mds"},{"head_fzs","head_ffs","head_fds"}}
+local titleimgs = {
+	["tip_friend"] = "好友申请",
+	["tip_group"] = "组队申请",
+}
+function PanelGroupApply.initView()
+	var = {
+		xmlPanel,
+		key = "tip_group"
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelGroup_apply.uif");
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel,"panelBg", "needload/img_kuan_bg.png")
+
+		var.xmlPanel:getWidgetByName("btn_confirm"):addClickEventListener(function(sender) 
+			NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL,str = "panel_groupapply"})
+		end)
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_SHOW_BOTTOM, PanelGroupApply.newGroupApply)
+	end
+	return var.xmlPanel
+end
+
+function PanelGroupApply.onPanelOpen(event)
+	if event and event.key then
+		var.key = event.key
+	end
+	if titleimgs[var.key] then
+		var.xmlPanel:getWidgetByName("lbl_title"):setString(titleimgs[var.key])
+		PanelGroupApply.initAppilList(var.key)
+	end
+	if var.key == "tip_group" then
+		PanelGroupApply.inviteGroupArrs()
+	end
+end
+
+function PanelGroupApply.onPanelClose()
+	NetClient.tipsMsg[var.key] = {}
+end
+
+function PanelGroupApply.newGroupApply(event)
+	if event and event.str==var.key then
+		PanelGroupApply.initAppilList(var.key)
+	end
+end
+
+--取邀请组队或者是申请的数据
+function PanelGroupApply.inviteGroupArrs()
+	local listData = NetClient.tipsMsg["tip_group"]
+	local flag--标记是申请(apply)还是邀请(invite)
+	if #listData>0 then
+		local endData = listData[#listData]
+		print(util.encode(endData))
+		flag=endData.msgType
+	end
+	local result_apply = {}
+	local result_invite = {}
+	for i=1,#listData do
+		local itemData = listData[i]
+		itemData.index=i
+		if itemData.msgType=="apply" then
+			table.insert(result_apply,itemData)
+		else
+			table.insert(result_invite,itemData)
+		end
+	end
+	if flag=="apply" then
+		--var.xmlPanel:getWidgetByName("Image_1"):loadTexture("img_title_groupapply", ccui.TextureResType.plistType)
+		return result_apply
+	elseif flag=="invite" then
+		--var.xmlPanel:getWidgetByName("Image_1"):loadTexture("title_zdyq", ccui.TextureResType.plistType)
+		return result_invite
+	end
+	return {}
+end
+
+--初始化申请列表
+function PanelGroupApply.initAppilList(key)
+	local listDataAll = NetClient.tipsMsg[key] or {}
+	if not listDataAll then listDataAll={} end
+	local listData={}
+	if key=="tip_group" then
+		listData=PanelGroupApply.inviteGroupArrs()
+	else
+		listData=listDataAll
+	end
+	local function updateApplyList(item)
+		local itemData = listData[item.tag]
+		item:getWidgetByName("labName"):setString(itemData.name)
+		item:getWidgetByName("labJob"):setString(jobNames[itemData.job-99])
+		item:getWidgetByName("labLevel"):setString("Lv."..itemData.level)
+		item:getWidgetByName("headBg"):setScale(1.1)
+		if itemData.gender then
+			item:getWidgetByName("head"):loadTexture(headName[itemData.gender-199][itemData.job-99],ccui.TextureResType.plistType)
+		end
+		item:getWidgetByName("btnOk"):addClickEventListener(function(sender)
+			if key == "tip_group" then
+				if itemData.group_id then
+					NetClient:AgreeInviteGroup(itemData.name, itemData.group_id)
+				else
+					NetClient:AgreeJoinGroup(itemData.name)
+				end
+				PanelGroupApply.removeCurData(listDataAll,itemData.index)
+			elseif key == "tip_friend" then
+				NetClient:FriendApplyAgree(itemData.name,1)
+				PanelGroupApply.removeCurData(listData,item.tag)
+			end
+			
+		end)
+		item:getWidgetByName("btnNo"):addClickEventListener(function(sender)
+			if key =="tip_group" then
+				if itemData.group_id then
+					NetClient:PrivateChat(itemData.name, "["..MainRole._mainAvatar:NetAttr(Const.net_name).."]的组队邀请被拒绝")
+				else
+					NetClient:PrivateChat(itemData.name, "["..MainRole._mainAvatar:NetAttr(Const.net_name).."]队长拒绝了您的入队申请")
+				end
+				PanelGroupApply.removeCurData(listDataAll,itemData.index)
+			elseif key =="tip_friend" then
+				NetClient:FriendApplyAgree(itemData.name,0)
+				PanelGroupApply.removeCurData(listData,item.tag)
+			end
+			
+		end)
+	end
+	local listApply = var.xmlPanel:getWidgetByName("listApply")
+	listApply:reloadData(#listData,updateApplyList)
+end
+
+--操作后移除本条消息
+function PanelGroupApply.removeCurData(listData,index)
+	table.remove(NetClient.tipsMsg[var.key],index)
+	PanelGroupApply.initAppilList()
+	if #listData==0 then
+		NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL,str = "panel_groupapply"})
+	end
+end
+
+return PanelGroupApply

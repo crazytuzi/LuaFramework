@@ -1,0 +1,146 @@
+--[[
+--世界活动功能
+--]]
+
+local PanelActivityGuide = {}
+local var = {}
+local stateTable = {"state_wks","state_jxz","state_djbz","state_jjks","state_yjs"}
+
+function PanelActivityGuide.initView()
+	var = {
+		xmlPanel,
+		curSelectedId=nil,--当前选中的条目id
+		curItem=nil,
+		allInfo=nil,
+		actDesp=nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelActivityWorld.uif")
+	if var.xmlPanel then
+
+		-- 背景
+		util.asyncload(var.xmlPanel, "bg", "needload/bg_max1.png")
+		var.xmlPanel:getWidgetByName("img_title"):setScale(0.75)
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelActivityGuide.handlePanelData)
+			-- PanelActivityGuide.initActsList(nil)
+			NetClient:PushLuaTable("gui.PanelActivityGuide.onPanelData",util.encode({actionid = "reqActsAllInfo",params = {}}))
+
+		return var.xmlPanel
+	end
+end
+
+function PanelActivityGuide.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelActivityGuide.onPanelData",util.encode({actionid = "reqActsData",params = {}}))
+end
+
+
+function PanelActivityGuide.handlePanelData(event)
+	if event.type ~= "PanelActivityGuide" then return end
+	local data = util.decode(event.data)
+	-- print(event.data)
+	if data.cmd =="updateClientShow" then
+		PanelActivityGuide.initActsList(data.actsTable)
+	elseif data.cmd=="senderActsInfo" then
+		var.allInfo=data.actsInfo
+	end
+
+end
+
+--初始化活动列表
+function PanelActivityGuide.initActsList(data)
+	local function updateList(item)
+		local function prsBtnItem(sender)
+			if sender.name then
+				-- print(sender.name)
+				NetClient:PushLuaTable("gui.PanelActivityGuide.onPanelData",util.encode({actionid = "btnGo",nameIndex=sender.name}))
+			else
+				if var.curItem then
+					var.curItem:getWidgetByName("imgSelected"):setVisible(false)
+				end
+				sender:getWidgetByName("imgSelected"):setVisible(true)
+				var.curItem = sender
+				var.curSelectedId=sender.tag
+				PanelActivityGuide.updateSelectedInfo(data[item.tag])
+			end
+		end 
+		if var.curSelectedId==item.tag then
+			item:getWidgetByName("imgSelected"):setVisible(true)
+			var.curItem = item
+		else
+			item:getWidgetByName("imgSelected"):setVisible(false)
+		end
+		item:setTouchEnabled(true)
+		UIRedPoint.addUIPoint(item, prsBtnItem)
+
+		if not var.curItem and item.tag==1 then prsBtnItem(item) end
+
+		local itemData = data[item.tag]
+		local time = string.format("%s-%s", PanelActivityGuide.formatTime(itemData.startTime), PanelActivityGuide.formatTime(itemData.endTime))
+		local btnGo = item:getWidgetByName("btnGo"):setVisible(false)
+		--local stateBox = item:getWidgetByName("stateBox"):setVisible(true)
+		if itemData.openState==2 then--进行中
+			btnGo.name=itemData.name
+			UIRedPoint.addUIPoint(btnGo, prsBtnItem)
+			btnGo:setVisible(true)
+			item:getWidgetByName("imgState"):setVisible(false)
+			item:getWidgetByName("lanTime"):setString(time):setColor(game.getColor(0xff7800)):enableOutline(game.getColor(0x0000000),1)
+			item:getWidgetByName("labName"):setString(itemData.name):setColor(game.getColor(0xCAB25E)):enableOutline(game.getColor(0x0000000),1)
+			item:getWidgetByName("labLimit"):setString(itemData.levelLimit.."级"):setColor(game.getColor(0x46FF00)):enableOutline(game.getColor(0x0000000),1)
+			if itemData.name=="双倍经验" then
+				btnGo:setVisible(false)
+				item:getWidgetByName("imgState"):setVisible(true)
+				item:getWidgetByName("imgState"):setVisible(true):loadTexture("state_jxz", ccui.TextureResType.plistType)
+			end
+		else
+			btnGo:setVisible(false)
+			item:getWidgetByName("imgState"):setVisible(true)
+			item:getWidgetByName("imgState"):loadTexture(stateTable[itemData.openState], ccui.TextureResType.plistType)
+			item:getWidgetByName("lanTime"):setString(time):setColor(game.getColor(0xfddfae)):enableOutline(game.getColor(0x0000000),1)
+			item:getWidgetByName("labName"):setString(itemData.name):setColor(game.getColor(0xfddfae)):enableOutline(game.getColor(0x0000000),1)
+			item:getWidgetByName("labLimit"):setString(itemData.levelLimit.."级"):setColor(game.getColor(0xfddfae)):enableOutline(game.getColor(0x0000000),1)
+		end
+	end
+
+	local actsList = var.xmlPanel:getWidgetByName("actsList")
+	actsList:reloadData(#data,updateList)
+end
+
+function PanelActivityGuide.formatTime(time)
+	local hour = math.floor(time/100)
+	local min = time%100
+	return string.format("%02d:%02d", hour, min) 
+end
+
+--刷新当前选中的活动信息
+function PanelActivityGuide.updateSelectedInfo(itemData)
+	if not itemData or not var.allInfo then return end
+	local curData = var.allInfo[itemData.name]
+	if not curData then return end
+	-- print(util.encode(var.allInfo))
+	local time = string.format("%s-%s", PanelActivityGuide.formatTime(itemData.startTime), PanelActivityGuide.formatTime(itemData.endTime))
+	var.xmlPanel:getWidgetByName("labTime"):setString(time)
+	var.xmlPanel:getWidgetByName("labLimit"):setString(itemData.levelLimit.."级")
+
+	var.xmlPanel:getWidgetByName("richLabel_labDesp"):setRichLabel("<font color=#FDDFAE>"..curData.explain.."</font>","PanelActivityGuide", 16)
+
+	var.xmlPanel:getWidgetByName("list_base_attr"):requestDoLayout()
+
+	var.xmlPanel:getWidgetByName("activity_name"):setString(itemData.name)
+	for i=1,6 do
+		local x = 1
+		local awardItem = var.xmlPanel:getWidgetByName("icon"..i)
+		local param={parent=awardItem,typeId=nil}
+		if curData.awards and curData.awards[i] then
+			param={parent=awardItem,typeId=curData.awards[i].id,num=curData.awards[i].num}
+		end
+		UIItem.getItem(param)
+	end
+end
+
+
+
+
+
+
+return PanelActivityGuide

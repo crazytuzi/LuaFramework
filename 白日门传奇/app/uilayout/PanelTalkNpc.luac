@@ -1,0 +1,15 @@
+LUA_RET={
+{n="bg",id=2,parent=1,w=430,h=599,res="img_waibiankuang1",type=1,tag=157,ss=true,sx=86,sy=54,sw=28,sh=80,v=true,},
+{n="panel_close",id=46,parent=1,w=35,h=35,ax=0.5,ay=0.5,x=900,y=568,px=0.9714,py=0.9085,sel="btn_panel_close",res="btn_panel_close",type=2,tag=2,t=true,v=true,fs=20,ud="zoomscale(-0.12)",},
+{n="Image_4",id=3,parent=1,w=419,h=52,ax=0.5,ay=0.5,x=510,y=573,res="img_biaoti1",type=1,tag=410,v=true,},
+{n="Image_48",id=4,parent=1,w=844,h=548,ay=1.0,x=14,y=554,res="img_daojukuang_ditu1",type=1,tag=411,ss=true,sx=26,sy=26,sw=28,sh=28,v=true,},
+{n="Image_1_0",id=5,parent=1,w=41,h=40,ax=0.5,ay=0.5,x=25,y=19,res="img_waikuangjiantou_you1",type=1,tag=412,v=true,},
+{n="Image_2",id=6,parent=1,w=41,h=40,ax=0.5,ay=0.5,x=843,y=19,res="img_waikuangjiantou_zuo1",type=1,tag=413,v=true,},
+{n="panel_title",id=7,parent=1,w=70,h=28,ax=0.5,ay=0.5,x=435,y=579,res="img_title_transfer1",type=1,tag=168,v=true,},
+{n="npc_scroll",id=8,parent=1,w=800,h=500,ax=0.5,ay=0.5,x=435,y=275,iw=800,ih=350,type=8,tag=46,t=true,v=true,},
+{n="Image_7",id=9,parent=1,w=830,h=106,ax=0.5,ay=0.5,x=436,y=491,res="trea2_tex_bg31",type=1,tag=414,ss=true,sx=84,sy=34,sw=88,sh=38,v=true,},
+{n="Image_8",id=10,parent=1,w=825,h=3,ax=0.5,ay=0.5,x=99999437,y=106,res="forgin_line2_scale3",type=1,tag=415,ss=true,v=true,},
+{n="box_fixed",id=11,parent=1,w=844,h=548,x=12,y=3,type=0,tag=15,t=true,v=true,},
+{n="lbl_Title",id=12,parent=1,ax=0.5,ay=0.5,x=460,y=572,type=3,tag=416,v=false,fs=24,text="",},
+{n="PanelTalkNpc",id=1,type=0,parent=0,w=470,h=595,},
+}

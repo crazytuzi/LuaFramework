@@ -1,0 +1,13 @@
+LUA_RET={
+{n="PanelActivities_shabake",v=true,type=0,id=1,parent=0,w=835.0000,h=510.0000,},
+{n="img_sbk_bg",tag=151,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=835.0000,h=510.0000,y=3.0000,color="255|255|255",},
+{n="icon1",tag=1336,v=true,type=1,id=3,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=115.6436,y=143.6872,color="255|255|255",res="img_cell_max",},
+{n="icon2",tag=1337,v=true,type=1,id=4,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=203.6444,y=143.6872,color="255|255|255",res="img_cell_max",},
+{n="icon3",tag=1340,v=true,type=1,id=5,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=71.6440,y=56.6864,color="255|255|255",res="img_cell_max",},
+{n="icon4",tag=1341,v=true,type=1,id=6,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=159.6427,y=56.6864,color="255|255|255",res="img_cell_max",},
+{n="icon5",tag=1342,v=true,type=1,id=7,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=246.6433,y=56.6864,color="255|255|255",res="img_cell_max",},
+{n="Text_1",tag=213,fs=22,text="活动时间：",vt=1,v=true,type=3,id=8,parent=1,w=100.0000,h=28.0000,ay=0.5000,x=31.0011,y=476.0024,color="253|223|174",fr="DFYuan.ttf",},
+{n="Text_1_0",tag=214,fs=22,text="活动说明：",vt=1,v=true,type=3,id=9,parent=1,w=110.0000,h=25.0000,ay=0.5000,x=31.0011,y=436.0032,color="253|223|174",fr="DFYuan.ttf",},
+{n="labTimeDesp",tag=215,fs=22,text="开区第三天",vt=1,v=true,type=3,id=10,parent=1,w=500.0000,h=25.0000,ay=0.5000,x=140.0011,y=476.0040,color="24|209|41",fr="DFYuan.ttf",},
+{n="labDesp",tag=216,fs=22,text="首次攻城最终占领皇城的行会会长，将获得888元充值红包\n行会成员可获得100元充值红包！奖励会自动发放邮箱！",vt=1,v=true,type=3,id=11,parent=1,w=600.0000,h=50.0000,ay=0.5000,x=140.0011,y=423.0000,color="255|248|67",fr="DFYuan.ttf",},
+}

@@ -1,0 +1,93 @@
+local PanelDailyRecharge={}
+local var = {}
+
+-- 每日充值界面
+
+function PanelDailyRecharge.initView()
+	var = {
+		xmlPanel = nil,	
+		serverData = nil,
+		vcionNum=nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelDailyRecharge.uif")
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel, "panelBg", "needload/panel_first_recharge_bg.png")
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelDailyRecharge.handlePanelData)
+
+		var.vcionNum = ccui.TextAtlas:create("0123456789", "fonts/rechargeNum.png", 20, 60, "0")
+			:addTo(var.xmlPanel)
+			:align(display.CENTER, 550, 365)
+			:setString(0)
+
+		local function prsBtnClick(sender)
+			-- print(sender.state)
+			if sender.state==2 then
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+			elseif sender.state==1 then
+				NetClient:PushLuaTable("gui.PanelDailyRecharge.onPanelData", util.encode({actionid = "receive"}))
+			end
+		end
+		local btnState = var.xmlPanel:getWidgetByName("btnState"):setVisible(false)
+		UIRedPoint.addUIPoint(btnState,prsBtnClick)
+		PanelDailyRecharge.addEffect()
+	end
+	return var.xmlPanel
+end
+
+function PanelDailyRecharge.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelDailyRecharge.onPanelData", util.encode({actionid = "reqUpdateData"}))
+end
+
+function PanelDailyRecharge.onPanelClose()
+	
+end
+
+function PanelDailyRecharge.handlePanelData(event)
+	if event.type ~= "PanelDailyRecharge" then return end
+	local data = util.decode(event.data)
+	-- print(event.data)
+	if data.cmd =="updateRechargeAwards" then
+		PanelDailyRecharge.updatePanel(data)
+	end
+end
+
+function PanelDailyRecharge.updatePanel(data)
+	if not data then return end
+	var.vcionNum:setString(tostring(data.againc))
+	var.xmlPanel:getWidgetByName("labAllVcion"):setString("礼包总价值："..data.dataTable.value.."钻石")
+	for i=1,4 do
+		local awardItem = var.xmlPanel:getWidgetByName("icon"..i)
+		local param={parent=awardItem, typeId=data.dataTable.ids[i], num=data.dataTable.nums[i]}
+		UIItem.getItem(param)
+	end
+	local btnState = var.xmlPanel:getWidgetByName("btnState")
+	if data.againc==0 and data.ling==0 then
+		btnState:loadTextures("btn_lqjl", "btn_lqjl", "", ccui.TextureResType.plistType)
+		btnState.state=1--标记为领取
+		util.addHaloToButton(btnState, "btn_normal_light9")
+	end
+	if data.againc>0 and data.ling==0 then
+		if data.dataTable.need==700 or data.dataTable.need==600 then
+			btnState:loadTextures("btn_cdxq", "btn_cdxq", "", ccui.TextureResType.plistType)
+		else
+			btnState:loadTextures("btn_jxcz", "btn_jxcz", "", ccui.TextureResType.plistType)
+		end
+		btnState.state=2--继续充值
+		util.removeHaloFromButton(btnState)
+	end
+	if data.hideBtn then
+		btnState:setVisible(false)
+	else
+		btnState:setVisible(true)
+	end
+	var.xmlPanel:getWidgetByName("imgYlq"):setVisible(data.hideBtn)
+end
+
+function PanelDailyRecharge.addEffect()
+	--超级大黄瓜特效
+	-- local node_effect = var.xmlPanel:getWidgetByName("node_effect")
+	-- cc.AnimManager:getInstance():getPlistAnimateAsync(node_effect,4, 300028, 4, 0, 5)
+
+end
+return PanelDailyRecharge

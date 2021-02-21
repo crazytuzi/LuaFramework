@@ -1,0 +1,74 @@
+LUA_RET={
+{n="PanelHuWei_Lingchong",v=true,type=0,id=1,parent=0,w=836.0000,h=510.0000,},
+{n="img_bg",ud="nocache",tag=180,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=836.0000,h=509.0000,color="255|255|255",res="zdhs_igm",},
+{n="duduPage",v=false,tag=493,t=true,c=false,type=0,id=3,parent=1,w=823.0000,h=510.0000,color="255|255|255",},
+--imgdudu重复
+{n="imgDuDu",tag=484,sx=100,sw=100,sh=79,sy=79,v=true,type=1,id=4,parent=3,w=513.0000,h=508.0000,y=2.0431,color="255|255|255",res="zdhs_igm",},
+{n="curContent",tag=648,t=true,c=false,v=true,type=0,id=5,parent=3,w=30.0000,h=30.0000,x=15.0000,y=400.0000,color="255|255|255",},
+{n="img_cloth",ud="nocache",tag=91,sx=184,sw=184,sh=105,sy=105,v=true,type=1,id=23,parent=3,w=450.0000,h=320.0000,ax=0.5000,ay=0.5000,x=260.2092,y=176.0729,color="255|255|255",res="nimg_cwxtdj_21_1",},
+{n="lbl_hp",tag=330,fs=18,text="生    命",vt=1,v=true,type=3,id=9,parent=3,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=608.0000,y=232.0000,color="255|209|96",fr="DFYuan.ttf",},
+{n="lbl_atk",tag=331,fs=18,text="攻    击：",vt=1,v=true,type=3,id=10,parent=3,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=608.0000,y=192.0000,color="255|209|96",fr="DFYuan.ttf",},
+{n="lbl_def",tag=332,fs=18,text="防    御：",vt=1,v=true,type=3,id=11,parent=3,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=608.0000,y=149.0000,color="255|209|96",fr="DFYuan.ttf",},
+{n="lbl_hf",tag=333,fs=18,text="生命恢复：",vt=1,v=true,type=3,id=12,parent=3,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=608.0003,y=109.0000,color="255|209|96",fr="DFYuan.ttf",},
+{n="lbl_hp_val",tag=334,fs=18,text="0",vt=1,v=true,type=3,id=13,parent=3,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=715.0000,y=232.0000,color="148|255|0",fr="DFYuan.ttf",},
+{n="lbl_atk_val",tag=335,fs=18,text="0",vt=1,v=true,type=3,id=14,parent=3,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=715.0000,y=192.0000,color="148|255|0",fr="DFYuan.ttf",},
+{n="lbl_def_val",tag=336,fs=18,text="0",vt=1,v=true,type=3,id=15,parent=3,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=715.0000,y=149.0000,color="148|255|0",fr="DFYuan.ttf",},
+{n="lbl_hf_val",tag=337,fs=18,text="0",vt=1,v=true,type=3,id=16,parent=3,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=715.0000,y=109.0000,color="127|255|0",fr="DFYuan.ttf",},
+{n="btnUpgrade",tag=338,t=true,fs=18,text="嘟嘟升级",sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=129,parent=3,w=139.0000,h=37.0000,ax=0.5000,ay=0.5000,x=273.0593,y=24.8424,color="255|255|255",fr="DFYuan.ttf",tcolor="255|231|187",dis="Button_Disable",sel="Button_Press",res="btn_red3",},
+{n="Image_2",tag=92,sx=10,sw=10,sh=20,sy=20,v=true,type=1,id=26,parent=3,w=33.0000,h=144.0000,ax=0.5000,ay=0.5000,x=40.5677,y=266.8656,color="255|255|255",res=10,},
+{n="Text_1",tag=93,fs=20,text="等\n级",ht=1,vt=1,v=true,type=3,id=27,parent=26,w=22.0000,h=60.0000,ax=0.5000,ay=0.5000,x=13.1504,y=92.0505,color="255|231|187",fr="DFYuan.ttf",},
+{n="lbl_level",tag=94,fs=20,text="0",ht=1,vt=1,v=true,type=3,id=28,parent=26,w=30.0000,h=23.0000,ax=0.5000,ay=0.5000,x=13.2798,y=50.2321,color="255|222|162",fr="DFYuan.ttf",},
+{n="need_vcoin",tag=95,fs=20,text="0/10000",vt=1,v=true,type=3,id=24,parent=3,w=200.0000,h=23.0000,ax=0.5000,ay=0.5000,x=307.4794,y=57.6628,color="255|222|162",fr="DFYuan.ttf",},
+{n="Image_1",tag=264,sx=13,sw=13,sh=13,sy=13,v=true,type=1,id=25,parent=24,w=40.0000,h=41.0000,ax=0.5000,ay=0.5000,x=-34.9699,y=11.1855,color="255|255|255",res="vcoin_bind",},
+
+-- {n="leftbg",tag=649,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=6,parent=5,w=135.0000,h=298.0000,ax=0.5000,ay=0.5000,x=59.1064,y=-51.8318,color="255|255|255",res="zdhs_igm",},
+-- {n="leftbg2",tag=332,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=36,parent=5,w=135.0000,h=298.0000,ax=0.5000,ay=0.5000,x=163.2293,y=-52.1527,color="255|255|255",res="qizi",},
+
+
+
+{n="yiyiPage",tag=495,t=true,c=false,v=true,type=0,id=67,parent=1,w=823.0000,h=510.0000,color="255|255|255",},
+{n="imgYiYi",tag=145,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=68,parent=67,w=823.0000,h=510.0000,color="255|255|255",},
+{n="lbl_hp1",tag=330,fs=18,text="抗暴击率：",vt=1,v=true,type=3,id=69,parent=67,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=608.0000,y=232.0000,color="255|209|96",fr="DFYuan.ttf",},
+{n="lbl_atk1",tag=331,fs=18,text="P  K增伤：",vt=1,v=true,type=3,id=70,parent=67,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=608.0000,y=192.0000,color="255|209|96",fr="DFYuan.ttf",},
+{n="lbl_def1",tag=332,fs=18,text="P  K减伤：",vt=1,v=true,type=3,id=71,parent=67,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=608.0000,y=149.0000,color="255|209|96",fr="DFYuan.ttf",},
+{n="lbl_hf1",tag=333,fs=18,text="幸    运：",vt=1,v=true,type=3,id=72,parent=67,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=608.0003,y=109.0000,color="255|209|96",fr="DFYuan.ttf",},
+{n="lbl_hp_val1",tag=334,fs=18,text="0",vt=1,v=true,type=3,id=73,parent=67,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=715.0000,y=232.0000,color="148|255|0",fr="DFYuan.ttf",},
+{n="lbl_atk_val2",tag=335,fs=18,text="0",vt=1,v=true,type=3,id=74,parent=67,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=715.0000,y=192.0000,color="148|255|0",fr="DFYuan.ttf",},
+{n="lbl_def_val1",tag=336,fs=18,text="0",vt=1,v=true,type=3,id=75,parent=67,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=715.0000,y=149.0000,color="148|255|0",fr="DFYuan.ttf",},
+{n="lbl_hf_val1",tag=337,fs=18,text="0",vt=1,v=true,type=3,id=76,parent=67,w=120.0000,h=20.0000,ax=0.5000,ay=0.5000,x=715.0000,y=109.0000,color="127|255|0",fr="DFYuan.ttf",},
+
+{n="img_cloth1",ud="nocache",tag=91,sx=184,sw=184,sh=105,sy=105,v=true,type=1,id=123,parent=67,w=450.0000,h=320.0000,ax=0.5000,ay=0.5000,x=260.2092,y=176.0729,color="255|255|255",res="nimg_cwxtdj_21_1",},
+{n="btnUpgrade1",tag=338,t=true,fs=18,text="依依升级",sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=29,parent=67,w=139.0000,h=37.0000,ax=0.5000,ay=0.5000,x=273.0593,y=24.8424,color="255|255|255",fr="DFYuan.ttf",tcolor="255|231|187",dis="Button_Disable",sel="Button_Press",res="btn_red3",},
+{n="Image_2",tag=92,sx=10,sw=10,sh=20,sy=20,v=true,type=1,id=126,parent=67,w=33.0000,h=144.0000,ax=0.5000,ay=0.5000,x=40.5677,y=266.8656,color="255|255|255",res=10,},
+{n="Text_1",tag=93,fs=20,text="等\n级",ht=1,vt=1,v=true,type=3,id=127,parent=126,w=22.0000,h=60.0000,ax=0.5000,ay=0.5000,x=13.1504,y=92.0505,color="255|231|187",fr="DFYuan.ttf",},
+{n="lbl_level1",tag=94,fs=20,text="0",ht=1,vt=1,v=true,type=3,id=128,parent=126,w=30.0000,h=23.0000,ax=0.5000,ay=0.5000,x=13.2798,y=50.2321,color="255|222|162",fr="DFYuan.ttf",},
+{n="need_vcoin1",tag=95,fs=20,text="0/10000",vt=1,v=true,type=3,id=124,parent=67,w=200.0000,h=23.0000,ax=0.5000,ay=0.5000,x=307.4794,y=57.6628,color="255|222|162",fr="DFYuan.ttf",},
+{n="Image_11",tag=264,sx=13,sw=13,sh=13,sy=13,v=true,type=1,id=125,parent=124,w=40.0000,h=41.0000,ax=0.5000,ay=0.5000,x=-34.9699,y=11.1855,color="255|255|255",res="vcoin",},
+-- {n="Image_12",tag=264,sx=13,sw=13,sh=13,sy=13,v=true,type=1,id=126,parent=124,w=40.0000,h=41.0000,ax=0.5000,ay=0.5000,x=-34.9699,y=11.1855,color="255|255|255",res="title_effect",},
+{n="img_name2",tag=347,sx=6,sw=6,sh=27,sy=27,v=true,type=1,id=198,parent=67,w=19.0000,h=82.0000,ax=0.5000,ay=0.5000,x=690.1139,y=383.0110,color="255|255|255",res="title_effect",},
+
+
+
+{n="tablistv",ud="tabh(,)",tag=494,t=true,c=false,v=true,type=0,id=91,parent=1,w=500.0000,h=40.0000,ay=1.0000,x=86.1337,y=400.0000,color="255|255|255",},
+
+-- {n="sqBtn",tag=262,t=true,fs=14,sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=3,parent=1,w=63.0000,h=60.0000,ax=0.5000,ay=0.5000,x=786.6184,y=450.0545,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="shiquBtn",},
+-- {n="render",v=false,tag=345,t=true,c=false,type=0,id=4,parent=1,w=100.0000,h=158.0000,x=-111.1344,y=349.5868,color="255|255|255",},
+-- {n="btnMode",tag=559,t=true,fs=14,sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=5,parent=4,w=44.0000,h=151.0000,ax=0.5000,ay=0.5000,x=51.3556,y=80.0702,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",sel="Button_Press",res="tab_d_nor",},
+-- {n="btnMode1",tag=559,t=true,fs=14,sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=35,parent=1,w=44.0000,h=151.0000,ax=0.5000,ay=0.5000,x=251.3556,y=430.0702,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",sel="Button_Press",res="tab_d_nor",},
+-- {n="btnMode2",tag=559,t=true,fs=14,sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=36,parent=1,w=44.0000,h=151.0000,ax=0.5000,ay=0.5000,x=151.3556,y=430.0702,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",sel="Button_Press",res="tab_d_nor",},
+
+{n="img_name",tag=326,sx=6,sw=6,sh=27,sy=27,v=true,type=1,id=196,parent=91,w=19.0000,h=82.0000,ax=0.5000,ay=0.5000,x=24.1139,y=63.0110,color="255|255|255",res="dudu",},
+{n="img_name1",tag=347,sx=6,sw=6,sh=27,sy=27,v=true,type=1,id=197,parent=91,w=19.0000,h=82.0000,ax=0.5000,ay=0.5000,x=90.1139,y=63.0110,color="255|255|255",res="yiyi",},
+
+{n="tabList",tag=343,t=true,c=false,d=2,v=true,type=9,id=7,parent=1,w=500.0000,h=158.0000,x=28.1177,y=350.2764,color="255|255|255",},
+{n="attrLayout",tag=329,t=true,c=false,v=true,type=0,id=8,parent=1,w=300.0000,h=200.0000,x=489.0000,y=76.0000,color="255|255|255",},
+{n="settingLayout",tag=538,t=true,c=false,v=true,type=0,id=17,parent=1,w=160.0000,h=100.0000,x=10.0000,y=15.0000,color="255|255|255",},
+{n="pickCheckBox",v=false,tag=539,t=true,type=5,id=18,parent=17,w=25.0000,h=25.0000,ax=0.5000,ay=0.5000,x=23.9998,y=75.0000,color="255|255|255",nbf="btn_checkbox_big",nnf="btn_checkbox_big_sel",},
+{n="Text_61",v=false,tag=540,fs=20,text="自动拾取",ht=1,vt=1,type=3,id=19,parent=17,w=90.0000,h=20.0000,ax=0.5000,ay=0.5000,x=85.7577,y=76.3141,color="255|227|198",fr="DFYuan.ttf",},
+{n="recyleCheckBox",tag=541,t=true,v=true,type=5,id=20,parent=17,w=25.0000,h=25.0000,ax=0.5000,ay=0.5000,x=23.9086,y=39.1414,color="255|255|255",nbf="btn_checkbox_big",nnf="btn_checkbox_big_sel",},
+{n="Text_61_0",tag=542,fs=20,text="自动回收",ht=1,vt=1,v=true,type=3,id=21,parent=17,w=90.0000,h=20.0000,ax=0.5000,ay=0.5000,x=84.9277,y=39.8248,color="255|227|198",fr="DFYuan.ttf",},
+{n="recyleRmb",tag=269,fs=15,text="（累充100元即可开启）",ht=1,vt=1,v=true,type=3,id=22,parent=17,w=180.0000,h=20.0000,ax=0.5000,ay=0.5000,x=75.1561,y=5.1056,color="212|198|184",fr="DFYuan.ttf",},
+
+
+
+}

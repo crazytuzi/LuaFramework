@@ -1,0 +1,1690 @@
+local UISceneGame={}
+
+local var = {}
+
+function UISceneGame.initVar()
+		var = {
+			destlayer,
+			alivelayer,
+			scene,
+			uiPlayer,
+			playerBOSSBox,
+			smallMonsterBox,
+			playerHeadBox,
+			bossHeadBox,
+			hpBarPlayer,
+			hpBarBottom,
+			hpBarMonster,
+			hpBarSmallMonster,
+			hpLblPlayer,
+			hpLblMonster,
+			hpLblSmallMonster,
+			hpBg,
+			ghostType,
+			closePlayer,
+			closeMonster,
+			attackTargetType,
+			autoActionWidget,
+			directFlyWidget,
+			autoActionSprite,
+			taskActionWidget,
+			taskActionSprite,
+			curAcitonId,
+			mFightAtlasRed,
+			mFightAtlasGreen,
+			hide_layer,
+			mode_btn,
+			lastIndex,
+			hideState,
+			fly_x,
+			fly_y,
+			touchMap = false,
+			showTargetID = 0,
+			tickhigh = 0,
+			ticklow = 0,
+			ticknum = 0,
+			isRunningAction = false,
+			ticktime = 0,
+			upMountState = false,
+			ticklast = 0,
+			tick = 0,
+			lastAttackTime = 0,
+			selectTab = {},
+			nearbyGhosts = {},
+			mAutoSelectedGhosts = {},
+			clickAnim = {}
+		}
+		UISceneGame.m_ltPartUI = nil
+		UISceneGame.m_rtPartUI = nil
+		UISceneGame.m_rbPartUI = nil
+		UISceneGame.m_lcPartUI = nil
+		UISceneGame.m_cbPartUI = nil
+		UISceneGame.m_lbPartUI = nil
+		UISceneGame.InfoPart = nil
+	end
+
+UISceneGame.initVar();
+
+local stateImg = {
+	[100.0] = "all",
+	[102.0] = "team",
+	[104.0] = "shane",
+	[101.0] = "peace",
+	[103.0] = "guild",
+	[105.0] = "camp"
+}
+
+
+
+function UISceneGame.findingTouchStart(pos)
+	if MainRole._mainAvatar and var.destlayer then
+		NetClient.actionMoving = true
+		MainRole._mainAvatar:findingTouchStart(var.destlayer:convertToNodeSpace(pos))
+
+	end
+end
+function UISceneGame.findingTouchMove(pos)
+	if MainRole._mainAvatar and var.destlayer then
+		MainRole._targetNPCName = ""
+		NetClient.actionMoving = true
+		MainRole.stopAutoDart()
+		MainRole.stopAutoFight()
+		MainRole._mainAvatar:findingTouchMove(var.destlayer:convertToNodeSpace(pos))
+		
+
+		-- if var.mainrole:NetAttr(Const.net_level) < 50 then NetClient:dispatchEvent({name = Notify.EVENT_SHOW_GUIDE, lv = 2 }) end -- 引导点击左侧任务栏
+	end
+end
+
+function UISceneGame.findingTouchEnd(pos)
+	if MainRole._mainAvatar and var.destlayer then
+		MainRole._moveToNearAttack = false
+
+		MainRole.stopAutoFight()
+
+		NetClient.actionMoving = false
+
+		MainRole._mainAvatar:findingTouchEnd(var.destlayer:convertToNodeSpace(pos))
+	end
+end
+
+function UISceneGame.setMainUIVisible(visible)
+	local uiTable = {"m_ltPartUI","m_lcPartUI","m_lbPartUI","m_rtPartUI","m_rbPartUI","m_layerRocker"}--,"m_rcPartUI"
+	for _,v in ipairs(uiTable) do
+		UISceneGame[v]:setVisible(visible)
+	end
+end
+
+function UISceneGame.handleShowPlot(event)
+	if event then
+		UISceneGame.setMainUIVisible(not event.show)
+	end
+end
+
+function UISceneGame.handleMainUIVisible(event)
+	if event then
+		UISceneGame.setMainUIVisible(event.visible)
+	end
+end
+
+local function freshHP()
+	if not var.showTargetID or var.showTargetID <= 0 then
+		UISceneGame.hideUIPlayer() 
+		return 
+	end
+	local ghost = NetCC:getGhostByID(var.showTargetID)
+	if ghost then
+
+		-- print(math.floor(game.getTime()/100),ava:NetAttr(Const.net_attacked_time))
+		if ghost:NetAttr(Const.net_attacked_time) then
+			if game.getSkipTime() >= ghost:NetAttr(Const.net_attacked_time) or var.lastAttackTime~=ghost:NetAttr(Const.net_attacked_time) then
+				var.lastAttackTime = ghost:NetAttr(Const.net_attacked_time)
+
+				local hp = ghost:NetAttr(Const.net_hp)
+				local maxHp = ghost:NetAttr(Const.net_maxhp)
+				-- var.hpLblPlayer:setString(hp.."/"..maxHp)
+				-- var.hpLblMonster:setString(hp.."/"..maxHp)
+				-- var.hpLblSmallMonster:setString(hp.."/"..maxHp)
+				local ghostType = ghost:NetAttr(Const.net_type)
+				if ghostType == Const.GHOST_MONSTER and var.bossHeadBox:isVisible() then
+					var.bossHeadBox:getWidgetByName("img_boss_hp"):setPercent(hp,maxHp):setFontSize(14):enableOutline(game.getColor(0x490000),1)
+				elseif ghostType == Const.GHOST_PLAYER or ghostType == Const.GHOST_THIS then
+					local mp = ghost:NetAttr(Const.net_mp) or 1
+					local maxMp = ghost:NetAttr(Const.net_maxmp) or 1
+					var.uiPlayer:getWidgetByName("pos_hp"):setPercent(hp,maxHp):setFontSize( 14 ):enableOutline(game.getColor(0x490000),1)
+					var.uiPlayer:getWidgetByName("pos_mp"):setPercent(mp,maxMp):setFontSize( 14 ):enableOutline(game.getColor(0x000049),1)
+				end	
+				if ghost:NetAttr(Const.net_dead) then --死的时候手动清空指向ghost的id
+					UISceneGame.hideUIPlayer()
+					return
+				end
+			end
+		end
+	end
+end
+
+local function freshfight()
+	local ghost = NetCC:getGhostByID(var.showTargetID)
+	if NetCC:getGhostByID(var.showTargetID) then
+		local fight = ghost:NetAttr(Const.net_fight_point)
+
+		if var.hide_layer and var.mFightAtlas then
+			local award = "geen"
+
+			if NetClient.mCharacter.mFightPoint < fight then
+				var.mFightAtlasRed:show():setString(fight)
+				var.mFightAtlasGreen:hide()
+
+				award = "red"
+			else
+				var.mFightAtlasGreen:show():setString(fight)
+				var.mFightAtlasRed:hide()
+
+				award = "green"
+			end
+
+			var.uiPlayer:getWidgetByName("imgATK"):loadTexture("img_ATK_" .. award, ccui.TextureResType.plistType)
+		end
+	end
+end
+
+local function updateMonsterOwner(event)
+	if util.isObjectExist(var.bossHeadBox) and var.bossHeadBox:isVisible() then
+		if event and event.srcid ~= var.bossHeadBox.monsterID then
+			return
+		end
+		local owner = NetClient:getMonsterOwner(var.bossHeadBox.monsterID)
+		if NetClient:getMonsterOwner(var.bossHeadBox.monsterID) and owner.name then
+			var.bossHeadBox:getWidgetByName("lbl_boss_owner"):setString("归属：" .. owner.name):show()
+		else
+			var.bossHeadBox:getWidgetByName("lbl_boss_owner"):setString(""):hide()
+		end
+	end
+end
+
+function UISceneGame.hideUIPlayer()
+	var.showTargetID = 0
+
+	if var.uiPlayer and var.uiPlayer:isVisible() then
+		var.uiPlayer:hide()
+		NetClient:dispatchEvent({
+			visible = true,
+			name = Notify.EVENT_EXTEND_VISIBLE
+		})
+	end
+
+	if var.xmlOperate then
+		var.xmlOperate:hide()
+	end
+end
+
+local function setBossDropShow(data)
+	for i = 1, 6 do
+		local dropItem = var.bossHeadBox:getWidgetByName("drop" .. i)
+
+		if data["drop" .. i] and tonumber(data["drop" .. i]) > 0 then
+			UIItem.getItem({
+				num = 1,
+				parent = dropItem,
+				typeId = tonumber(data["drop" .. i])
+			})
+			dropItem:setVisible(true)
+		else
+			dropItem:setVisible(false)
+		end
+	end
+end
+
+function UISceneGame.showUIPlayer(avaID)
+	local map=NetCC:getMap()
+	if map and map:getSwitch(Const.map_fightstate)==true then return end
+	local avatar = CCGhostManager:getPixesGhostByID(avaID)
+	if avatar and util.isObjectExist(var.uiPlayer) then
+		var.uiPlayer:show()
+		var.bossHeadBox:hide()
+		var.playerHeadBox:hide()
+
+		local targetName = avatar:NetAttr(Const.net_name)
+		local targetLevel =avatar:NetAttr(Const.net_level)
+		local targetJob= avatar:NetAttr(Const.net_job)
+		local targetGender= avatar:NetAttr(Const.net_gender)
+		local guild= avatar:NetAttr(Const.net_guild_name)
+		local targetSeedName = avatar:NetAttr(Const.net_seedname)
+		-- if var.ghostType == Const.GHOST_MONSTER then targetName = game.clearNumStr(targetName) end
+		var.showTargetID=avaID
+		local hp = avatar:NetAttr(Const.net_hp)
+		local maxHp = avatar:NetAttr(Const.net_maxhp)
+		if var.ghostType == Const.GHOST_PLAYER or var.ghostType == Const.GHOST_THIS then
+			local mp = avatar:NetAttr(Const.net_mp) or 1
+			local maxMp = avatar:NetAttr(Const.net_maxmp) or 1
+			-- print(hp,maxHp,mp,maxMp,targetName,targetJob,"==========111111111111111111")
+			var.playerHeadBox:show()
+			var.uiPlayer:getWidgetByName("img_target_icon_Player"):loadTexture(game.getHeadRes(avatar:NetAttr(Const.net_job), avatar:NetAttr(Const.net_gender)), ccui.TextureResType.plistType)
+			var.uiPlayer:getWidgetByName("pos_hp"):setPercent(hp,maxHp):setFontSize( 14 ):enableOutline(game.getColor(0x490000),1)
+			var.uiPlayer:getWidgetByName("pos_mp"):setPercent(mp,maxMp):setFontSize( 14 ):enableOutline(game.getColor(0x000049),1)
+			var.uiPlayer:getWidgetByName("labPlayerName"):setString(targetName)
+			var.uiPlayer:getWidgetByName("labPlayerLevel"):setString(targetLevel)
+			local data = {
+				offx=150,
+				offy=-150,
+				showBg="hide",
+				name=targetName,
+				seedName=targetSeedName,
+				level=targetLevel,
+				job=targetJob,
+				gender = targetGender,
+				guild= guild or "暂无行会",
+			}
+			var.uiPlayer:getWidgetByName("img_target_icon_Player"):setTouchEnabled(true):addClickEventListener(function(sender)
+				if not (avaID == MainRole.mID) then
+					if not var.xmlOperate then
+						-- var.xmlOperate= UITips.showOperateTips(var.xmlOperate,var.uiPlayer,data)
+						NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str="friendOperate", data = data})
+					else
+						if var.xmlOperate:isVisible() then
+							var.xmlOperate:hide()
+						else
+							var.xmlOperate:show()
+						end
+					end
+				end
+			end)
+			NetClient:dispatchEvent({name = Notify.EVENT_EXTEND_VISIBLE, visible = false})
+		end
+		print("UISceneGame.showUIPlayer", avaID , var.ghostType, Const.GHOST_PLAYER, Const.GHOST_THIS, Const.GHOST_MONSTER, avatar:NetAttr(Const.net_isboss))
+
+		if var.ghostType == Const.GHOST_MONSTER and avatar:NetAttr(Const.net_isboss) >= 1 then
+			var.bossHeadBox:show()
+			var.bossHeadBox:getWidgetByName("lbl_boss_owner"):hide()
+
+			var.bossHeadBox.monsterID = avatar:NetAttr(Const.net_id)
+			updateMonsterOwner()
+
+			--var.bossHeadBox:getWidgetByName("img_boss_head"):loadTexture("null", ccui.TextureResType.plistType)
+			var.bossHeadBox:getWidgetByName("img_boss_head"):loadTexture("picicon/31016.png")--..avatar:NetAttr(Const.net_cloth)..".png")
+			util.addEffect(var.bossHeadBox, "headEffect", GROUP_TYPE.EFFECT, 34003, {x=51, y=45}, nil, true)
+
+			var.bossHeadBox:getWidgetByName("img_boss_hp"):setPercent(hp,maxHp):setFontSize(14):enableOutline(game.getColor(0x490000),1)
+
+			var.bossHeadBox:getWidgetByName("lbl_boss_name"):setString(targetName)
+			var.bossHeadBox:getWidgetByName("lbl_boss_level"):setString(targetLevel)
+
+			NetClient:PushLuaTable("gui.PanelBoss.onPanelData",util.encode({actionid = "reqDropItems",params = {monid=avaID}}))
+
+			NetClient:dispatchEvent({name = Notify.EVENT_EXTEND_VISIBLE, visible = false})
+		end
+	end
+end
+
+local function checkSelectAlive(srcid)
+	if not srcid then return false end
+	if MainRole.isMySlave(srcid) then return false end
+	local ghost = NetCC:getGhostByID(srcid)
+	if ghost then
+		local gtype = ghost:NetAttr(Const.net_type)
+		if gtype==Const.GHOST_MONSTER and ghost:NetAttr(Const.net_collecttime) and ghost:NetAttr(Const.net_collecttime)>0 then
+		-- print(gtype,ghost:NetAttr(Const.net_collecttime))
+			return true
+		end
+		if (gtype==Const.GHOST_PLAYER or gtype==Const.GHOST_MONSTER) and ghost:NetAttr(Const.net_dead) then
+			return false
+		end
+		return true
+	end
+end
+
+function UISceneGame.handleGhostsTouched(point)
+	
+	local map=NetCC:getMap()
+	if not map or not map:Attached() then
+		return false
+	end
+	
+	local monsterID = CCGhostManager:isTouchGhost(point,Const.GHOST_MONSTER)
+	local playerID = CCGhostManager:isTouchGhost(point,Const.GHOST_PLAYER)
+	local itemIDs = CCGhostManager:isTouchGhosts(point,Const.GHOST_ITEM)
+	-- print("UISceneGame.handleGhostsTouched and touchID:",monsterID,playerID,itemIDs)
+	if monsterID > 0 or playerID > 0 or #itemIDs>0 then
+		if (MainRole.getAimGhostID() == monsterID and monsterID > 0) or (MainRole.getAimGhostID() == playerID and playerID > 0) then
+			-- var.uiPlayer:show()
+			if (not NetClient.mSelectGridSkill) and (not NetClient.mCastGridSkill) and MainRole._mainAvatar then
+				local mAimGhost = MainRole.getAimGhost(MainRole.getAimGhostID())
+				if mAimGhost then
+					if mAimGhost.mType == Const.GHOST_MONSTER and mAimGhost.mCollectTime and mAimGhost.mCollectTime > 0 then
+						-- if mAimGhost.mHp > 0 and not NetClient.m_bCollecting then--进度条结束后m_bCollecting应该设为false
+							MainRole._moveToNearAttack = true
+						-- end
+					else
+						MainRole.startCastSkill(MainRole.checkDefaultSkillAttack())
+					end
+				end
+			end
+		elseif #itemIDs > 0 then
+			UISceneGame.startAutoMoveToPos(point)
+			local mAimGhost = MainRole.getAimGhost(itemIDs[1])
+			if mAimGhost and mAimGhost:NetAttr(Const.net_type) == Const.GHOST_ITEM then
+				MainRole._moveEndAutoPick = true
+			end
+			CCGhostManager:selectSomeOne(itemIDs[1])
+			return true
+		else
+			local tid = (monsterID > 0) and monsterID or playerID
+			if checkSelectAlive(tid) then
+				CCGhostManager:selectSomeOne(tid)
+			end
+		end
+		return true
+	end
+	
+	local ghostID = CCGhostManager:isTouchGhosts(point)
+	if #ghostID == 1 then
+		if checkSelectAlive(ghostID[1]) then
+			CCGhostManager:selectSomeOne(ghostID[1])
+		end
+		return true 
+	elseif #ghostID > 1 then
+
+		for i=1,#ghostID do
+			if checkSelectAlive(ghostID[i]) then
+				return true
+			end
+		end
+	end
+end
+
+function UISceneGame.handleGridSkillTouched(point)
+	local pos, logicPos = nil
+
+	if NetClient.mCastGridSkill then
+		pos = var.destlayer:convertToNodeSpace(point)
+		logicPos = NetCC:pixesPosToLogicPos(pos.x, pos.y)
+
+		MainRole.pushGridSkillWait(NetClient.mCastGridSkill, logicPos.x, logicPos.y)
+	elseif NetClient.mSelectGridSkill then
+		pos = var.destlayer:convertToNodeSpace(point)
+		logicPos = NetCC:pixesPosToLogicPos(pos.x, pos.y)
+		NetClient.mSelectGridSkill = nil
+
+		MainRole.pushGridSkillWait(NetClient.mSelectGridSkill, logicPos.x, logicPos.y)
+	end
+end
+
+function UISceneGame.startAutoMoveToPos(point)
+	local pos = var.destlayer:convertToNodeSpace(point)
+	local logicPos = NetCC:pixesPosToLogicPos(pos.x, pos.y)
+
+	if MainRole._mainAvatar then
+		MainRole._moveToNearAttack = false
+
+		MainRole.stopAutoFight()
+		MainRole._mainAvatar:startAutoMoveToPos(logicPos.x, logicPos.y)
+	end
+end
+
+function UISceneGame.handleMapTouched(event)
+	if event and event.pos then
+		var.touchMap = true
+
+		MainRole.stopAutoDart()
+
+		MainRole._targetNPCName = ""
+
+		UISceneGame.startAutoMoveToPos(event.pos)
+
+		if #var.clickAnim < 3 then
+			UISceneGame.addClickAnim(var.destlayer:convertToNodeSpace(event.pos))
+		elseif var.clickAnim[1] then
+			var.clickAnim[1]:removeFromParent()
+			table.remove(var.clickAnim, 1)
+			UISceneGame.addClickAnim(pos)
+		end
+	end
+end
+
+function UISceneGame.addClickAnim(pos)
+	local anim = cc.Sprite:create():align(display.CENTER, pos.x, pos.y + 10):addTo(var.destlayer):setBlendFunc({
+		src = gl.SRC_ALPHA,
+		dst = gl.ONE
+	})
+
+	anim:playAnimationForever(display.newAnimation(display.newFrames("click_%02d", 1, 6), 0.08333333333333333))
+	anim:runAction(cca.seq({
+		cca.delay(0.5),
+		cc.RemoveSelf:create(),
+		cca.cb(function ()
+			table.remove(var.clickAnim, 1)
+		end)
+	}))
+	table.insert(var.clickAnim, anim)
+end
+
+--切怪物优先级比较更简单
+local function sortMon(monA, monB)
+	if MainRole._mainAvatar and monA and monB then
+		local disA = cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(monA.mX,monA.mY))
+		local disB = cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(monB.mX,monB.mY))
+		local isBossA = monA:NetAttr(Const.net_isboss)
+		isBossA = type(isBossA) == "boolean" and 0 or isBossA
+		local isBossB = monB:NetAttr(Const.net_isboss)
+		isBossB = type(isBossB) == "boolean" and 0 or isBossB
+
+		-- 优先判定归属
+		if isBossA == isBossB then
+			if isBossA == 1 then -- 同为Boss,优先少血,同少血则优先距离
+				if monA.mHp == monB.mHp then
+					return (disA > 0 and disA < disB)
+				else
+					return monA.mHp < monB.mHp
+				end
+			else --同为小怪, 优先距离,同距离则优先少血
+				if disA == disB then
+					return monA.mHp < monB.mHp
+				else
+					return (disA > 0 and disA < disB)
+				end
+			end
+		else
+			return isBossA == 1
+		end
+	end
+end
+
+local function sortPlayer(playerA, playerB)
+	if MainRole._mainAvatar and playerA and playerB then
+		local disA = cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(playerA.mX,playerA.mY))
+		local disB = cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(playerB.mX,playerB.mY))
+		if disA == disB then
+			return playerA.mHp < playerB.mHp
+		else
+			return (disA > 0 and disA < disB)
+		end
+	end
+end
+
+function UISceneGame.getAimGhosts(ghostType, attackModel)
+	local ghosts = {}
+	if not MainRole._mainAvatar then return ghosts end
+	local netGhosts = NetCC:getNearGhost(ghostType)
+	local tempGhost
+	MainRole.updateAttr()
+
+	local myGuild = MainRole._mainAvatar:NetAttr(Const.net_guild_name)
+	local myTeam = MainRole._mainAvatar:NetAttr(Const.net_teamid)
+
+	for _,v in ipairs(netGhosts) do
+		tempGhost = MainRole.getAimGhost(v)
+		if tempGhost and cc.pDistanceSQ(cc.p(MainRole.mX, MainRole.mY),cc.p(tempGhost.mX,tempGhost.mY)) < 36 then
+			if ghostType == Const.GHOST_MONSTER then
+				table.insert(ghosts, tempGhost)
+			elseif ghostType == Const.GHOST_PLAYER then
+				if attackModel == 102 then --组队
+					if not NetClient:isGroupMember(tempGhost:NetAttr(Const.net_name)) then
+						table.insert(ghosts, tempGhost)
+					end
+				elseif attackModel == 103 then -- 行会
+					if tempGhost:NetAttr(Const.net_guild_name) ~= myGuild then
+						table.insert(ghosts, tempGhost)
+					end
+				elseif attackModel == 105 then -- 阵营
+					if tempGhost:NetAttr(Const.net_teamid) ~= myTeam then
+						table.insert(ghosts, tempGhost)
+					end
+				else --全体或者和平
+					tempGhost.ghostId = v
+					table.insert(ghosts, tempGhost)
+				end
+			elseif ghostType == Const.GHOST_NPC and  cc.pDistanceSQ(cc.p(MainRole.mX, MainRole.mY),cc.p(tempGhost.mX,tempGhost.mY)) < 2 then
+				table.insert(ghosts, tempGhost)
+			end
+		end
+	end
+
+	if ghostType == Const.GHOST_MONSTER then
+		table.sort(ghosts, sortMon)
+	elseif ghostType == Const.GHOST_PLAYER then
+		table.sort(ghosts, sortPlayer)
+	end
+	return ghosts
+end
+
+function UISceneGame.handleAutoChangeAim(event)
+	UISceneGame.hideUIPlayer()
+	CCGhostManager:selectSomeOne(0)
+
+	local curState = NetClient.mAttackMode -- 99
+	-- local curStateImg = stateImg[curState]
+	local tempType = event.targetType or Const.GHOST_MONSTER
+
+	-- 地上的攻击圈
+	local filepath = (tempType == Const.GHOST_PLAYER) and "needload/img_attack_range_player.png" or "needload/img_attack_range_monster.png"
+
+	local logicX = MainRole._mainAvatar:NetAttr(Const.net_x)
+	local logicY = MainRole._mainAvatar:NetAttr(Const.net_y)
+	local pos =  NetCC:logicPosToPixesPos(logicX, logicY)
+
+	if MainRole._mainAvatar then
+		local mainSprite = MainRole._mainAvatar:getSprite()
+		local imgAttackRange = ccui.ImageView:create()
+			-- :align(display.CENTER, pos.x + TILE_WIDTH * 0.5, pos.y - TILE_HEIGHT * 0.5)
+			-- :addTo(var.alivelayer)
+			:align(display.CENTER, TILE_WIDTH * 0.5, - TILE_HEIGHT * 0.5)
+			:addTo(mainSprite)
+			:setOpacity(0)
+		imgAttackRange:loadTexture(filepath, ccui.TextureResType.localType)
+		imgAttackRange:runAction(cca.seq({
+			cca.fadeIn(0.25),
+			cca.fadeOut(0.25), 
+			cca.removeSelf()
+		}))
+	end
+	
+
+	-- print ("handleAutoChangeAim", var.attackTargetType, tempType)
+	if not (var.attackTargetType == tempType) then
+		var.attackTargetType = tempType
+		var.nearbyGhosts = {}
+		var.mAutoSelectedGhosts = {}
+	end
+	
+
+	if not var.nearbyGhosts then var.nearbyGhosts={} end
+
+	local allGhost = UISceneGame.getAimGhosts(var.attackTargetType, curState)
+	if not allGhost or #allGhost < 1 then return end
+
+	if #var.nearbyGhosts < 1 then
+		var.nearbyGhosts = NetCC:getNearGhost(var.attackTargetType)
+	end
+	local aimID
+	if #var.mAutoSelectedGhosts < 1 then
+		aimID = allGhost[1].mID
+	else
+		for i,v in ipairs(allGhost) do
+			if not table.indexof(var.mAutoSelectedGhosts, v.mID) then
+				aimID = v.mID
+				break
+			end
+		end
+		if not aimID then
+			aimID = allGhost[1].mID
+			var.mAutoSelectedGhosts = {}
+		end
+	end
+	if aimID then
+		table.insert(var.mAutoSelectedGhosts, aimID)
+		CCGhostManager:selectSomeOne(aimID)
+	end
+end
+
+function UISceneGame.handlePanelData(event)
+	local serverData = util.decode(event.data)
+	if event.type == "PanelOne" then
+		if serverData and serverData.panelName then
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = serverData.panelName})
+		end
+	elseif event.type == "Transfer" then
+		PlayAudio.play(Const.SOUND.convey)
+	elseif event.type == "Medicine" then
+		PlayAudio.play(Const.SOUND.medicine)
+	elseif event.type == "showBossDropItems" then
+		setBossDropShow(serverData)
+	elseif event.type == "LoadAward" then
+
+	elseif event.type == "PanelOffline" then
+		if serverData.cmd == "start" then
+			var.scene:stopAllActions()
+			var.scene:runAction(cca.seq({
+				cca.rep(cca.delay(1),60),
+				cca.cb(function(target) game.ExitToReSelect() end),
+			}))
+		elseif serverData.cmd == "stop" then
+		 	var.scene:stopAllActions()
+		end
+	end
+end
+
+function UISceneGame.onKeyboard(event)
+end
+
+function UISceneGame.get_mainrole_pixespos()
+	if var.destlayer and MainRole._mainAvatar then
+		return MainRole._mainAvatar:getSprite():convertToWorldSpace(cc.p(TILE_WIDTH / 2, -TILE_HEIGHT / 2))
+	end
+end
+
+local function showTaskTips(event)
+	if event and event.tips and var.scene then
+		if util.isObjectExist(var.imgTaskTips) then
+			var.imgTaskTips:removeFromParent()
+
+			var.imgTaskTips = nil
+		end
+
+		var.imgTaskTips = ccui.ImageView:create():align(display.BOTTOM_CENTER, display.cx, display.cy - 160):addTo(var.scene, 10)
+
+		asyncload_callback(string.format("needload/%s.png", event.tips), var.imgTaskTips, function (filepath, texture)
+			var.imgTaskTips:loadTexture(filepath)
+		end)
+		var.imgTaskTips:runAction(cca.seq({
+			cca.delay(6),
+			cca.removeSelf()
+		}))
+	end
+end
+
+function game_scene_update(dx)
+	if not MAIN_IS_IN_GAME then
+		return
+	end
+
+	game.ClockTick = game.ClockTick + 1
+
+	MainRole.update()
+
+	var.tick = var.tick or 0
+	var.tick = var.tick + 1
+
+	if var.tick < 10 then
+		return
+	end
+
+	var.tick = 0
+
+	if var.showTargetID and var.showTargetID > 0 then
+		freshHP()
+	end
+
+	UIRightTop.update()
+	UIRightBottom.update()
+	UILeftTop.update()
+	UILeftCenter.update()
+	LayerGuide.updateGuidePosition()
+end
+
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_SCENE_GAME_UPDATE, "game_scene_update")
+
+function UISceneGame.onSocketError(event)
+	local waitLayer = var.scene:getChildByName("waitLayer")
+	if not waitLayer then
+		waitLayer = display.newColorLayer(cc.c4b(0,0,0,255*0.4))
+		-- waitLayer:setContentSize(cc.size(display.width,display.height))
+		waitLayer:setName("waitLayer")
+		waitLayer:setLocalZOrder(9999)
+		var.scene:addChild(waitLayer)
+
+		local layerBg = ccui.ImageView:create()
+		layerBg:loadTexture("null",ccui.TextureResType.plistType)
+			:setContentSize(cc.size(display.width,display.height))
+			:setCapInsets(cc.rect(10,10,30,30))
+			:setScale9Enabled(true)
+			:setTouchEnabled(true):setTouchSwallowEnabled(true):setOpacity(200)
+			:addTo(waitLayer):align(display.LEFT_BOTTOM, 0, 0)
+
+	end
+
+	local loadingPic = waitLayer:getChildByName("loadingPic")
+	if not loadingPic then
+		loadingPic = ccui.ImageView:create()
+					:addTo(waitLayer)
+					:align(display.CENTER, display.cx, display.cy)		
+		local curNum = 1
+		loadingPic:runAction(cca.loop(
+			cca.seq({
+				cca.delay(0.15),
+				cca.cb(function ()
+					if curNum < 6 then
+						curNum = curNum + 1
+					else
+						curNum = 1
+					end
+					asyncload_callback("needload/login/"..curNum..".png", loadingPic, function(filepath, texture) 
+						loadingPic:loadTexture(filepath)
+					end)
+				end)
+			})
+		))
+	end
+
+	MAIN_IS_IN_GAME = false
+	waitLayer:stopAllActions()
+	var.scene:stopAllActions()
+
+	cc.SocketManager:getInstance():stopSocket()
+
+	waitLayer:runAction(cca.seq({
+		cca.rep(cca.seq({
+			cca.delay(5),
+			cca.cb(function(target)
+				if MAIN_IS_IN_GAME then
+					target:stopAllActions():hide()
+					return
+				end
+				NetClient:disconnect(true)
+				print("waitLayer:", game.serverIP, game.serverPort, NetClient.kuaFuState)
+				NetClient:connect(game.serverIP, game.serverPort, NetClient.kuaFuState or 3)--,2 and)
+			end)
+		}),6),
+		cca.cb(function(target)
+			game.ExitToRelogin()
+		end)
+	}))
+end
+
+function scene_game_enter(_scene)
+	print("UISceneGame--------------------",_scene)
+	-- PlayAudio.stop(PlayAudio.curMusic)
+
+	UISceneGame.initVar()
+
+	var.tick = 0
+
+	NetClient:GameEnterMap()
+	
+	if not PLATFORM_APP_STORE then
+		if game.GetMainRole() then
+			if game.newRole then
+				game.newRole = false
+			end
+
+		end
+	end
+	MAIN_IS_IN_GAME = true
+
+	var.scene = _scene
+
+	game.downLoading=true
+	cc.DownManager:getInstance():setAllowDown(game.downLoading)
+	cc.SocketManager:getInstance():setSendPing(true)
+	-- var.mainrole = CCGhostManager:getMainAvatar()
+
+	-- MainRole._mainAvatar = MainRole._mainAvatar or CCGhostManager:getMainAvatar()
+
+	local shakedb=var.scene:getChildByName("shake_db")
+	if shakedb then
+		var.destlayer=shakedb:getChildByName("map_dest")
+		if var.destlayer then
+			var.alivelayer=shakedb:getChildByName("map_alive")
+		end
+	end
+
+	-- local function initAttackModel()
+	-- 	var.attackModel = UILuaLoader.load("uilayout/AttackModel.uif")
+	-- 	if var.attackModel then
+	-- 		var.attackModel:align(display.LEFT_CENTER, 0, display.height-150)
+	-- 			:addTo(var.scene,15)
+	-- 		UIAttackModel.init(var.attackModel)
+	-- 	end
+	-- end
+
+	local function initPanelAndPlot()
+		UISceneGame.m_LayerPanel = require("app.layers.LayerPanel").new()
+		if UISceneGame.m_LayerPanel then
+			var.scene:addChild(UISceneGame.m_LayerPanel,50)
+		end
+	end
+
+	local function initGhostHeadUI()
+		var.uiPlayer = UILuaLoader.load("uilayout/UIPlayer.uif")
+			:addTo(var.scene, 8)
+			:align(display.CENTER_TOP, display.cx + 60 , display.height)
+			:hide()
+		var.uiPlayer:getWidgetByName("playerBg"):setTouchEnabled(false)
+		var.playerHeadBox = var.uiPlayer:getWidgetByName("box_player"):hide()
+		var.uiPlayer:getWidgetByName("pos_hp"):setPercent(10,10):setFontSize( 14 )
+		var.uiPlayer:getWidgetByName("pos_mp"):setPercent(10,10):setFontSize( 14 )
+
+		var.bossHeadBox = var.uiPlayer:getWidgetByName("box_boss"):hide()
+
+		for i=1,6 do
+			local dropItem=var.bossHeadBox:getWidgetByName("drop"..i)
+			dropItem:setScale(0.49)
+		end
+
+		var.closePlayer = var.uiPlayer:getWidgetByName("btnClosePlayer"):setTouchEnabled(true)
+		var.closePlayer:addClickEventListener(function(sender)
+				UISceneGame.hideUIPlayer()
+				CCGhostManager:selectSomeOne(0)
+				MainRole._lastAimID = 0
+			end)
+		var.closePlayer:setSwallowTouches(true)
+
+	end
+
+	local function initGuidePart()
+		----------------------新手欢迎界面----------------------
+		-- if MainRole._mainAvatar:NetAttr(Const.net_level) == 1 then
+		-- print(NetClient.mTasks[1000].mState)
+		if MainRole._mainAvatar:NetAttr(Const.net_level) == 1 and NetClient.mTasks[1000].mState == 100014 then
+			NetClient:dispatchEvent({
+				name = Notify.EVENT_SHOW_TIPS, str = "welcome",
+			})
+		end
+		
+		--测试用的提示每日修改 内容
+		NetClient:PushLuaTable("item.chuansong.luaitem","zdhuishou3")
+		
+		----------------------end----------------------
+		-- if var.mainrole:NetAttr(Const.net_level) > 1 then 
+		-- 	NetClient:PushLuaTable("gui.AwardSign.firstOpen")
+		-- end
+		-----------------------夺宝历练---------------------
+		-- NetClient:PushLuaTable("gui.AwardExercise.onPanelData","open")
+
+		----------------------向服务器请求红点信息----------------------
+		NetClient:PushLuaTable("gui.moduleRedPoint.reqRedPointInfo") 
+		----------------------客户端检测红点信息----------------------
+		---背包更好装备检测---
+		NetClient:dispatchEvent({name = Notify.EVENT_CHECK_BETTER_EQUIP})
+		-------------------------邮件个数检测------------------------------------
+		NetClient:getMails()
+		-------------------------背包是否满------------------------------------
+		NetClient:checkBagFull()
+		-------------------------下载奖励------------------------------------
+		NetClient:PushLuaTable("gui.PanelLoadAward.onPanelData","downall")
+
+		-------------------------每日充值-----------------------------------
+		NetClient:PushLuaTable("gui.PanelDailyRecharge.onPanelData", util.encode({actionid = "check"}))
+		
+		-------------------------离线挂机------------------------------------
+		if not PLATFORM_TEST then
+			NetClient:PushLuaTable("gui.PanelOffline.onPanelData",util.encode({actionid = "check"}))
+		end
+
+
+		-- -------------------------背包宝箱检测------------------------------------
+		-- game.enterGameBoxMatch()
+		-------------------------是否正在抢红包------------------------------------
+		-- NetClient:PushLuaTable("npc.hongbao.isGrabHongBaoTime","")
+
+		-- if NetClient.isAfterStory then
+		-- 	NetClient.mNeedContinueTask = true
+		-- 	NetClient:dispatchEvent({name = Notify.EVENT_CONTINUE_TASK})
+		-- end
+		NetClient:FriendFresh()
+		UISceneGame.handleHPMPChange()
+
+		NetClient:PushLuaTable("player.onClientData", util.encode({actionid = "enterGame"})) 
+	end
+	--上线设置红点（特殊情况）
+	local function checkShowRed()
+		for k,v in pairs(NetClient.skillRed) do
+			if v==true then
+				NetClient:dispatchEvent({name = Notify.EVENT_SHOW_REDPOINT, lv = 2022,index =1})
+				break
+			end
+		end
+		NetClient:checkBagRedDot()
+	end
+
+	local function initGameLayer()
+		local layer_info = {
+			{name = "m_layerGuide",		script = "LayerGuide",		zOrder = 200},
+			{name = "m_layerRocker",	script = "LayerRocker",		zOrder = 6},
+			{name = "m_layerTips",		script = "LayerTips",		zOrder = 106},
+			{name = "m_layerTouch",		script = "LayerTouch",		zOrder = 300},
+			{name = "m_layerAlert",		script = "LayerAlert",		zOrder = 110},
+			{name = "m_tipsManager",	script = "UITipsManager",	zOrder = 105},
+			{name = "m_layerVoice",		script = "LayerVoice",		zOrder = 100},
+			-- {name = "m_layerBattle",	script = "LayerBattle",		zOrder = 8},
+		}
+
+		local index = 1
+		var.scene:runAction(cca.seq({
+				cca.rep(
+					cca.seq({
+						-- cca.delay(1 / 60),
+						cca.cb(function ()
+							if MAIN_IS_IN_GAME then
+								print("initGameLayer", index)
+								local v = layer_info[index]
+								UISceneGame[v.name] = _G[v.script].init()
+								if UISceneGame[v.name] then
+									var.scene:addChild(UISceneGame[v.name], v.zOrder)
+								end
+								index = index + 1
+							end
+						end)
+				}),#layer_info),
+				-- cca.cb(function ()
+				-- 	initAttackModel()
+				-- end),
+				-- cca.delay(1 / 60),
+				cca.cb(function ()
+					if MAIN_IS_IN_GAME then
+						initPanelAndPlot()
+					end
+				end),
+				-- cca.delay(1 / 60),
+				cca.cb(function ()
+					if MAIN_IS_IN_GAME then
+						initGhostHeadUI()
+					end
+				end),
+				-- cca.delay(1 / 60),
+				cca.cb(function ()
+					if MAIN_IS_IN_GAME then
+						initGuidePart()
+					end
+				end),
+				cca.cb(function ()
+					if MAIN_IS_IN_GAME then
+						UIUsageTip.init(var.scene)
+					end
+				end),
+				cca.cb(function ()
+					if MAIN_IS_IN_GAME then
+						UIQuickSuccession.init(var.scene)
+					end
+				end),
+
+				cca.cb(function ()
+					if MAIN_IS_IN_GAME then
+						UIFuncPreview.init(var.scene)
+					end
+				end),
+				cca.cb(function ()
+					if MAIN_IS_IN_GAME then
+						UIRedDot.init(var.scene)
+						checkShowRed()
+
+						if G_OpenRocker == 0 then
+							UISceneGame.m_layerRocker:setVisible(false)
+						end
+						
+					end
+				end)
+		}))
+	end
+
+	local part_infos = {
+		{name = "m_ltPartUI",xml = "LTPart", script = "UILeftTop",		zOrder = 11},--1
+		{name = "m_rtPartUI",xml = "RTPart", script = "UIRightTop",		zOrder = 9}, --1
+		{name = "m_rbPartUI",xml = "RBPart", script = "UIRightBottom",	zOrder = 9}, --1
+		{name = "m_lcPartUI",xml = "LCPart", script = "UILeftCenter",	zOrder = 10},--1
+		{name = "m_lbPartUI",xml = "LBPart", script = "UILeftBottom",	zOrder = 30},--语音，暂时有问题
+		{name = "m_tcPartUI",xml = "TCPart", script = "UITopCenter",	zOrder = 10},
+		{name = "m_cbPartUI",xml = "CBPart", script = "UICenterBottom", zOrder = 15},--1
+		{name = "InfoPart",	 xml = "InfoPart", script = "UIInfoPart",	zOrder = 300},--1
+	}
+
+	local index = 1
+
+	var.scene:runAction(cca.seq({
+		cca.rep(
+			cca.seq({
+				-- cca.delay(1 / 60),
+				cca.cb(function ()
+					if MAIN_IS_IN_GAME then
+						local v = part_infos[index]
+						print("initGamePartUI", index,v.xml)
+						UISceneGame[v.name] = UILuaLoader.load("uilayout/"..v.xml..".uif")
+						if UISceneGame[v.name] then
+							var.scene:addChild(UISceneGame[v.name], v.zOrder)
+							_G[v.script].init_ui(UISceneGame[v.name])
+						end
+						index = index + 1
+					end
+				end)
+		}),#part_infos),
+		cca.cb(initGameLayer)
+	}))
+	cc.EventProxy.new(NetClient, var.scene)
+		:addEventListener(Notify.EVENT_SHOW_PLOT, UISceneGame.handleShowPlot)
+		:addEventListener(Notify.EVENT_MAINUI_VISIBLE, UISceneGame.handleMainUIVisible)
+		:addEventListener(Notify.EVENT_MAP_TOUCHED, UISceneGame.handleMapTouched)
+		:addEventListener(Notify.EVENT_HANDLE_CHG_AVA, UISceneGame.handleAutoChangeAim)
+		:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, UISceneGame.handlePanelData)
+		:addEventListener(Notify.EVENT_SOCKET_ERROR, UISceneGame.onSocketError)
+		:addEventListener(Notify.EVENT_START_PROGRESS, UISceneGame.onShowProgressbar)
+		:addEventListener(Notify.EVENT_STOP_PROGRESS, UISceneGame.onHideProgressbar)
+		:addEventListener(Notify.EVENT_BUFF_GOT_ANIMATION, UISceneGame.handleBuffGotAnimation)
+		:addEventListener(Notify.EVENT_MAP_ENTER, UISceneGame.updatePkEnable)
+		:addEventListener(Notify.EVENT_SCENE_SHAKE, UISceneGame.onShakeScene)
+		:addEventListener(Notify.EVENT_SHOW_TASK_ANIM, UISceneGame.onSwitchTaskAnim)
+		:addEventListener(Notify.EVENT_PLATFORM_LOGOUT, UISceneGame.onPlatformLogout)
+		:addEventListener(Notify.EVENT_CONNECT_GAME_ON, UISceneGame.onConnect)
+		:addEventListener(Notify.EVENT_SELF_HPMP_CHANGE, UISceneGame.handleHPMPChange)
+		:addEventListener(Notify.EVENT_SHOW_FLY, UISceneGame.handleTaskFly)
+		:addEventListener(Notify.EVENT_MONSTER_OWNER_CHANGE, updateMonsterOwner)
+		:addEventListener(Notify.EVENT_SHOW_TASK_TIPS, showTaskTips)
+	CCGhostManager:foreachGhosts("show_dart_halo", Const.GHOST_DART)
+	CCGhostManager:foreachGhosts("handleMonsterVisible", Const.GHOST_MONSTER)
+end
+
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_SCENE_GAME_ENTER, "scene_game_enter")
+
+function UISceneGame.onConnect(event)
+	print("UISceneGame: onConnect")
+
+	if var.scene:getChildByName("waitLayer") then
+		var.scene:getChildByName("waitLayer"):hide():stopAllActions()
+	end
+
+	cc.NetClient:getInstance():initClient()
+	display.replaceScene(SceneWaiting.new())
+end
+
+function show_dart_halo(ghostType, mPixesAvatar)
+	if ghostType ~= Const.GHOST_DART then return end
+	if not mPixesAvatar then return end
+	if not MainRole then return end
+
+	local nameSprite = mPixesAvatar:getNameSprite()
+	if nameSprite then
+		show_dart_name(nameSprite, mPixesAvatar:NetAttr(Const.net_name))
+	end
+
+	local netOwner = mPixesAvatar:NetAttr(Const.net_item_owner) or -1
+	if not (MainRole and MainRole._mainAvatar) then return end
+	if MainRole._mainAvatar:NetAttr(Const.net_id) ~= netOwner then return end
+	-- my dart
+	MainRole.mDartSprite = mPixesAvatar:getSprite()
+	if not MainRole.mDartSprite then return end
+	MainRole.mDartClothSprite = mPixesAvatar:getDressSprite(0)
+	if not util.isObjectExist(MainRole.mDartHalo) then
+		MainRole.mDartHalo = ccui.ImageView:create()
+			:align(display.CENTER)
+			:addTo(var.alivelayer, -1)
+			:loadTexture("needload/img_dart_halo.png", ccui.TextureResType.localType)
+	end
+end
+
+UISceneGame.showDartHalo = show_dart_halo
+
+function UISceneGame.onPlatformLogout(event)
+	game.ExitToRelogin()
+end
+
+function UISceneGame.pushOperateBtn(sender)
+	local btnName = sender:getName()
+	local avatar = CCGhostManager:getPixesGhostByID(MainRole.getAimGhostID())
+	local pName = avatar:NetAttr(Const.net_name)
+	local exeFuncs = {
+		["btnInviteGroup"] = function ()--邀请组队
+			local pID = avatar:NetAttr(Const.net_id)
+			local nearByGroupInfo = NetClient.nearByGroupInfo[pID]
+
+			if #NetClient.mGroupMembers <= 0 then--本人没有队伍
+				if nearByGroupInfo then--选中玩家有队伍
+					NetClient:alertLocalMsg("已申请入队，请等待批准","alert")
+					NetClient:JoinGroup(nearByGroupInfo.group_id)
+				else--两个人都没队伍
+					NetClient:InviteGroup(pName)
+				end
+			else--本人有队伍
+				if nearByGroupInfo then--被邀请人有队伍
+					NetClient:alertLocalMsg("对方有队伍，无法组队","alert")
+				else--被邀请人无队伍
+					if NetClient.mCharacter.mGroupLeader ~= MainRole._mainAvatar:NetAttr(Const.net_name) then--不是队长
+						NetClient:alertLocalMsg("队长才能邀请组队","alert")
+					else
+						NetClient:InviteGroup(pName)
+					end
+
+				end
+			end
+		end,
+		["btnApplyTrade"] = function ()
+			if pName == NetClient.mTradeInviter then
+				NetClient:AgreeTradeInvite(pName)
+				table.remove(NetClient.tipsMsg["tip_trade"], 1)
+				NetClient:dispatchEvent({name = Notify.EVENT_SHOW_BOTTOM,str="tip_trade"})
+			else
+				if not UserConfig.getConf("CloseTrad") then
+					NetClient:TradeInvite(pName)
+				else
+					NetClient:alertLocalMsg(Const.str_close_trade, "alert")
+				end
+			end
+			NetClient:PushLuaTable("count.onClientData", util.encode({cmd = "点击交易"}))
+		end,
+		["btnCheckEquip"] = function ()
+			-- NetClient:dispatchEvent({name=Notify.EVENT_OPEN_PANEL,str="panel_check_equip", pName = pName})
+			NetClient:CheckPlayerEquip(pName)
+		end,
+		["btnAddFriend"] = function ()
+			if NetClient.mFriends and NetClient.mFriends[pName] and NetClient.mFriends[pName].title == 100 then
+				NetClient:alertLocalMsg("该玩家已经是您的好友","alert")
+			else
+				NetClient:FriendChange(pName,100)
+			end
+		end,
+		["btnPrivateChat"] = function ()
+			if NetClient.mFriends[pName] and NetClient.mFriends[pName].title == 102 then
+				NetClient:alertLocalMsg("已屏蔽["..pName.."]无法私聊", "alert")
+			else
+				NetClient:privateChatTo(pName)
+			end
+		end,
+	}
+	if exeFuncs[btnName] and type(exeFuncs[btnName]) == "function" and avatar then
+		exeFuncs[btnName]()
+		UISceneGame.hideUIPlayer()
+		CCGhostManager:selectSomeOne(MainRole.getAimGhostID())
+	end
+end
+
+function scene_game_exit(_scene)
+	var.scene:stopAllActions()
+	clearFramesCallback()
+
+	game.downLoading = false
+
+	cc.DownManager:getInstance():setAllowDown(game.downLoading)
+	MainRole.initVar()
+
+	var.tick = 0
+	MAIN_IS_IN_GAME = false
+
+	UISceneGame.initVar()
+	LayerAlert.exit()
+	cc.GhostManager:getInstance():remAllSkill()
+	cc.GhostManager:getInstance():remAllEffect()
+	cc.GhostManager:getInstance():remAllPixesGhost()
+	cc.NetClient:getInstance():remAllNetGhost()
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_SCENE_GAME_EXIT, "scene_game_exit")
+
+function UISceneGame.updatePkEnable(event)
+	var.clickAnim = {}
+end
+
+function UISceneGame.updatePKState(event)
+	local curState = NetClient.mAttackMode
+
+	if not var.mode_btn or not curState then
+		return
+	end
+
+	if not stateImg[curState] then
+		return
+	end
+
+	var.mode_btn:loadTextures("attack_" .. stateImg[curState], "attack_" .. stateImg[curState] .. "_sel", "", ccui.TextureResType.plistType)
+
+	local needUpdate = nil
+
+	if curState == 105 then
+		if G_AttackCamp == 0 then
+			G_AttackCamp = 1
+			needUpdate = true
+		end
+	elseif curState == 103 then
+		if G_AttackGuild == 0 then
+			G_AttackGuild = 1
+			needUpdate = true
+		end
+	elseif G_AttackGuild == 1 or G_AttackCamp == 1 then
+		G_AttackGuild = 0
+		G_AttackCamp = 0
+		needUpdate = true
+	end
+
+	if needUpdate then
+		CCGhostManager:updatePlayerName()
+	end
+end
+
+function UISceneGame.getGuideWidget(param, str)
+	local widget = nil
+
+	if param.root == "LayerPanel" and util.isObjectExist(UISceneGame.m_LayerPanel) then
+		widget = UISceneGame.m_LayerPanel:getGuideWidget(param.panel, param.node)
+	elseif UISceneGame[param.root] then
+		widget = util.getChildFromNode(UISceneGame[param.root], param.node)
+	elseif param.root == "mSubMenu" then
+		widget = util.getChildFromNode(UISceneGame.m_rbPartUI, param.node)
+	end
+
+	return widget
+end
+
+function ghost_map_meet(srcid)
+	if not MainRole then
+		return
+	end
+
+	if var.nearbyGhosts and table.indexof(var.nearbyGhosts, srcid) == false then
+		table.insert(var.nearbyGhosts, srcid)
+	end
+end
+
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_MAP_MEET, "ghost_map_meet")
+
+function ghost_map_bye(srcid)--对象死亡也会触发
+	if var.nearbyGhosts then
+		table.removebyvalue(var.nearbyGhosts, srcid)
+	end
+
+	if var.showTargetID <= 0 then
+		UISceneGame.hideUIPlayer()
+	elseif srcid == var.showTargetID then
+		UISceneGame.hideUIPlayer()
+		CCGhostManager:selectSomeOne(0)
+	end
+
+	if srcid == MainRole.getAimGhostID() then
+		MainRole.setAimGhostID(0)
+
+		if var.uiPlayer then
+			var.uiPlayer:hide()
+		end
+
+		NetClient:dispatchEvent({
+			visible = true,
+			name = Notify.EVENT_EXTEND_VISIBLE
+		})
+	end
+
+	if NetClient.mNetBuff then
+		NetClient.mNetBuff[srcid] = nil
+	end
+end
+
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_MAP_BYE, "ghost_map_bye")
+
+function after_add_net_ghost(srcid)--mapmeet绘制其他玩家完成后会调用此方法
+	if NetClient.mNetMap.mMapID == "chiwooBattle" then
+		local team_label = {"<蚩尤>", "<轩辕>"}
+		local meetPlayer = CCGhostManager:getPixesGhostByID(srcid)
+		local team_id = meetPlayer:NetAttr(Const.net_teamid)
+		local nameAddLabel = team_label[team_id] and team_label[team_id] or ""
+		local nameColor = cc.c4f(255, 0, 0, 255)
+		if team_id == 2 then
+			nameColor = cc.c4f(0, 0, 255, 255)
+		end
+		local nameSprite = UIPixesGhost.getPixesGhost(srcid):getNameSprite()
+		local mNameLabel = nameSprite:getChildByName("mNameLabel")
+		if util.isObjectExist(mNameLabel) then
+			mNameLabel:setTextColor(nameColor)
+			mNameLabel:setString(nameAddLabel..meetPlayer:NetAttr(Const.net_name))
+		end
+		util.updateNamePos(nameSprite)
+	end
+
+end
+
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_AFTER_ADD_NET_GHOST, "after_add_net_ghost")
+
+function select_some_one(selected,pixesGhost)
+	-- print(pixesGhost:NetAttr(Const.net_id))
+	local pid = pixesGhost:NetAttr(Const.net_id)
+	local pixesAvatar = CCGhostManager:getPixesAvatarByID(pid)
+	local pixesGhost = CCGhostManager:getPixesGhostByID(pid)
+	local ptype = pixesGhost:NetAttr(Const.net_type)
+	-- print("////////////////select_some_one////////////////", selected, pid);
+	if pixesAvatar or pixesGhost then
+		if selected == 0 then
+			if pixesAvatar then pixesAvatar:remEffect("selected") end
+			if pixesGhost and ptype == Const.GHOST_ITEM then pixesGhost:remEffect("selected") end
+			if MainRole.getAimGhostID() == pid then
+				MainRole.setAimGhostID(0)
+			end
+		elseif selected == 1 then
+			if NetClient.mLastAimGhost ~= pid then
+				NetClient.mLastAimGhost = pid
+				NetClient.mChangeAimFirst = true
+			end
+			MainRole._moveToNearAttack = false
+			
+			if ptype == Const.GHOST_NPC then
+				if MainRole.getGhostDistance(pixesGhost) <= 2 then
+					NetClient:NpcTalk(pid,"100")
+				else
+					MainRole.startAutoMoveToMap(NetClient.mNetMap.mMapID,pixesGhost:NetAttr(Const.net_x),pixesGhost:NetAttr(Const.net_y),3)
+				end
+			elseif ptype == Const.GHOST_ITEM then-- 捡物品
+				-- UISceneGame.startAutoMoveToPos(point)
+				-- MainRole._moveEndAutoPick=true
+				-- UISceneGame.showUIItemEffect(pid)
+			elseif ptype == Const.GHOST_NEUTRAL then
+				if MainRole.getGhostDistance(pixesGhost) <= 2 then
+					-- NetClient:NpcTalk(pid,"100")
+					NetClient:PushLuaTable("mon.menpaiNeutral.onTalk999",util.encode({actionid = "talk",pid = pid,name = pixesGhost:NetAttr(Const.net_name)}))
+				else
+					MainRole.startAutoMoveToMap(NetClient.mNetMap.mMapID,pixesGhost:NetAttr(Const.net_x),pixesGhost:NetAttr(Const.net_y),3)
+				end
+			else 
+				if var.ghostType and var.ghostType ~= ptype then
+					var.nearbyGhosts = {}
+				end
+				var.ghostType=ptype
+				if ptype == Const.GHOST_PLAYER then
+					MainRole._lastAimID=pid
+					UISceneGame.showUIPlayer(pid)
+				elseif ptype == Const.GHOST_MONSTER then
+					
+					-- if pixesGhost:NetAttr(Const.net_show_head) and pixesGhost:NetAttr(Const.net_show_head) > 0 then
+						UISceneGame.showUIPlayer(pid)
+					-- else
+						-- UISceneGame.hideUIPlayer()
+					-- end
+				elseif ptype == Const.GHOST_THIS then
+					UISceneGame.showUIPlayer(pid)
+				else
+					UISceneGame.hideUIPlayer()
+				end
+				MainRole.setAimGhostID(pid)--当前指向的角色id
+				-- MainRole.getAimGhost(MainRole.getAimGhostID())
+				-- print("************change aimGhostId***********", MainRole.getAimGhostID());
+			end
+
+			if ptype==Const.GHOST_NPC and var.selectTab.npc then
+				local savatar=CCGhostManager:getPixesAvatarByID(var.selectTab.npc)
+				if savatar then
+					savatar:remEffect("selected")
+				end
+				var.selectTab.npc=nil
+			elseif ptype~=Const.GHOST_NPC and var.selectTab.oth then
+				local savatar=CCGhostManager:getPixesAvatarByID(var.selectTab.oth)
+				if savatar then
+					savatar:remEffect("selected")
+				end
+				var.selectTab.oth=nil
+			end
+
+				local res=34004				--选中NPC特效
+				if pixesAvatar and pixesAvatar.addEffect then
+					-- table.insert(var.selectTab,pid)
+					if ptype==Const.GHOST_NPC then
+						var.selectTab.npc=pid
+					else
+						var.selectTab.oth=pid
+					end
+					pixesGhost:addEffect("selected",res,-10,cc.p(TILE_WIDTH/2,-TILE_HEIGHT/2),4)
+				end
+			-- end
+		end
+	end
+end
+
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_SELECT_SOME_ONE, "select_some_one")
+
+function UISceneGame.onHideProgressbar(event)
+	UITopCenter.hideProgressBar()
+end
+
+function UISceneGame.onShowProgressbar(event,cbt)
+	UITopCenter.showProgressBar(event)
+end
+
+function UISceneGame.showAutoActionAnima(actionid,param)
+	if var.curAcitonId == actionid or not var.scene then
+		return
+	end
+
+	if not var.autoActionWidget then
+		var.autoActionWidget = ccui.Widget:create():align(display.CENTER, display.cx, display.cy - 80):addTo(var.scene)
+		var.autoActionSprite = cc.Sprite:create():align(display.CENTER, var.autoActionWidget:getContentSize().width * 0.5, var.autoActionWidget:getContentSize().height * 0.5):addTo(var.autoActionWidget)
+	end
+
+	var.autoActionWidget:hide()
+	var.autoActionSprite:stopAllActions()
+	
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,actionid,4)
+	if cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, actionid, 4) then
+		var.curAcitonId = actionid
+
+		var.autoActionWidget:show()
+		var.autoActionSprite:runAction(cca.repeatForever(animate))
+	end
+end
+
+function UISceneGame.showTaskActionAnima(actionid)
+	if not var.scene then
+		return
+	end
+
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,actionid,4,4)
+	if cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT, actionid, 4, 4) then
+		cc.Sprite:create():align(display.CENTER, 0, 200):addTo(ccui.Widget:create():align(display.CENTER, display.cx, display.cy):addTo(var.scene, 10)):runAction(cca.seq({
+			animate,
+			cca.removeSelf()
+		}))
+	end
+end
+
+function UISceneGame.hideAutoActionAnima(actionid)
+	if actionid == var.curAcitonId then
+		if var.autoActionWidget then
+			var.autoActionWidget:hide()
+		end
+
+		if var.directFlyWidget then
+			var.directFlyWidget:hide()
+		end
+
+		if var.autoActionSprite then
+			var.autoActionSprite:stopAllActions()
+		end
+
+		var.curAcitonId = nil
+	end
+end
+
+function UISceneGame.onSwitchTaskAnim(event)
+	if event and event.effect_type then
+		UISceneGame.showTaskActionAnima(event.effect_type)
+	end
+end
+
+function UISceneGame.handleItemGotAnimation(event)
+	if event and event.typeid then
+		local itemdef = NetClient:getItemDefByID(event.typeid)
+		if itemdef then
+			asyncload_callback("picicon/"..itemdef.mIconID..".png", var.scene, function(filepath, texture)
+				if MainRole._mainAvatar then
+					local fromPos = MainRole._mainAvatar:getSprite():convertToWorldSpace(cc.p(0,0))
+					local toPos = util.getWidgetCenterPos(UISceneGame.m_rbPartUI:getWidgetByName("main_bag"))
+
+					local iconGhost = ccui.ImageView:create(filepath, ccui.TextureResType.localType)
+						:align(display.CENTER, fromPos.x + TILE_WIDTH/2, fromPos.y - TILE_HEIGHT/2)
+						:addTo(var.scene, 40)
+					iconGhost:setScale(70 / iconGhost:getContentSize().width)
+						:runAction(
+							cca.seq({
+								cca.moveTo(1, toPos.x, toPos.y),
+								cca.removeSelf()
+							})
+						)
+				end
+			end)
+		end
+	end
+end
+
+function UISceneGame.handleBuffGotAnimation(event)
+	local buff_tab = {[0] = { path = "status_dun"},
+					[7]  = "status_exp",
+					[10] = "status_wu",
+					[11] = "status_mo",
+					[12] = "status_dao",
+					[14] = "status_add_exp",
+					[30] = "status_xue",
+					[39] = "status_vip",
+					[40] = "status_guild",
+					[50] = "status_zs",
+					[56] = "status_mount",
+					[68] = "status_wing",
+					[79] = "status_guild",
+					[80] = "status_yuan",
+	}
+	if event and event.buff_id then
+		if buff_tab[event.buff_id] then
+			local fromPos = cc.p(display.cx,display.cy)
+			local toPos = util.getWidgetCenterPos(UISceneGame.m_rtPartUI:getWidgetByName("main_buff"))
+
+			local iconBg = ccui.ImageView:create("img_gezi_80", ccui.TextureResType.plistType)
+				:align(display.CENTER, fromPos.x + TILE_WIDTH/2, fromPos.y - TILE_HEIGHT/2)
+				:addTo(var.scene, 150)
+			local res_path = event.buff_level and buff_tab[event.buff_id].."_"..event.buff_level or buff_tab[event.buff_id]
+			
+			asyncload_callback("picicon/"..res_path..".png", iconGhost, function(filepath, texture)
+				local iconGhost = ccui.ImageView:create()
+				iconGhost:loadTexture(filepath)
+					:align(display.LEFT_TOP,10,83)
+					:addTo(iconBg)
+				iconBg:setScale(70 / iconGhost:getContentSize().width)
+					:runAction(
+						cca.seq({
+							cca.moveTo(1, toPos.x, toPos.y),
+							cca.removeSelf()
+						})
+					)
+			end)
+		end
+	end
+end
+
+function mainrole_auto_move(moveState, tx, ty)
+	if moveState == 0 then
+		game.isAutoMove = false
+		UISceneGame.hideAutoActionAnima(50004)
+		game.aimPos = nil
+	elseif moveState == 1 then
+		game.isAutoMove = true
+		-- print("mainrole_auto_move", tx, ty, var.touchMap, MainRole._autoFight)
+		if not var.touchMap and not MainRole._autoFight then
+			UISceneGame.showAutoActionAnima(50004)
+
+			local flag
+			if MainRole._mainAvatar then
+				flag = MainRole._mainAvatar:PAttr(Const.AVATAR_AUTOMOVE_FLAG)
+			end
+
+		end
+		var.touchMap = false
+	
+		if not (tx == 0 and ty == 0) then
+			game.aimPos = cc.p(tx, ty)
+		end
+	end
+
+
+end
+
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_MAINROLE_AUTOMOVE, "mainrole_auto_move")
+
+function UISceneGame.handleTaskFly(event)  --显示免费使用道具点击可以直接飞往目的地
+	if event and event.info then
+		-- local flyId = event.info
+		if not var.directFlyWidget and var.scene then
+			var.directFlyWidget = ccui.Button:create()
+				:align(display.CENTER, display.cx + 100, display.cy - 65 )
+				:addTo(var.scene, 10)
+			var.directFlyWidget:loadTextureNormal("picicon/fly.png",ccui.TextureResType.localType)
+			var.directFlyWidget:setTouchEnabled(true)
+			var.directFlyWidget:addClickEventListener(function(pSender)
+				-- if MainRole._mainAvatar then MainRole._mainAvatar:clearAutoMove() end
+				NetClient:PushLuaTable("player.reqDirectFly",util.encode({flyId = pSender.flyId}))
+				NetClient:dispatchEvent({name = Notify.EVENT_SHOW_FLY})
+			end)
+		end
+		var.directFlyWidget.flyId = event.info
+		var.directFlyWidget:show()
+	else
+		if var.directFlyWidget then var.directFlyWidget:hide() end
+	end
+end
+
+function UISceneGame.getCurHpIndex(ghost,perHp,all)
+	local curIndex = all
+	for i=1,all do
+		if ghost:NetAttr(Const.net_hp) <= perHp*i then
+			curIndex = i
+			return curIndex
+		end 
+	end
+	return 0
+end
+
+function UISceneGame.onShakeScene(event)
+	if var.scene and not var.isRunningAction then
+		var.scene:stopAllActions()
+
+		var.isRunningAction = true
+
+		var.scene:runAction(cca.seq({
+			cca.rep(cca.seq({
+				cca.moveBy(0.05, var.scene:getPositionX(), var.scene:getPositionY() - 40),
+				cca.moveBy(0.05, var.scene:getPositionX(), var.scene:getPositionY() + 40)
+			}), 2),
+			cca.cb(function ()
+				var.isRunningAction = false
+			end)
+		}))
+	end
+end
+
+local speicalTouch = {
+	41072,
+	42024
+}
+
+function check_touch_pos(mtype, cloth)
+	if table.indexof(speicalTouch, cloth) then
+		if PlatformTool.getConfigString("platform_tag") == "rxsc" and PlatformTool.getConfigString("version_code") == "0.6.3" then
+			return false
+		end
+
+		return true
+	end
+end
+
+local touchRect = {
+	[41072] = {
+		rectBottom = cc.rect(31, 23, 204, 150),
+		rectBody = cc.rect(54, 143, 133, 234)
+	},
+	[42024] = {
+		rectBottom = cc.rect(31, 23, 257, 80),
+		rectBody = cc.rect(54, 143, 255, 320)
+	}
+}
+
+function handleTouchPixels(cloth, x, y)
+	if not table.indexof(speicalTouch, cloth) then
+		return false
+	end
+	local temp = {"Bottom","Body"}
+	print("Touch: X = "..x..", Y = "..y)
+	for i = 1,#temp do
+		if touchRect[cloth] and cc.rectContainsPoint(touchRect[cloth]["rect"..temp[i]], cc.p(x, y)) then
+			return true
+		end
+	end
+end
+
+function UISceneGame.handleHPMPChange(event)
+	if var.scene then
+		local deathNotice = var.scene:getChildByName("deathNotice")
+		if not deathNotice then
+			deathNotice = ccui.ImageView:create("needload/img_death_notice.png",ccui.TextureResType.localType)
+				:setName("deathNotice")
+				:setScale9Enabled(true)
+				:setContentSize(display.width, display.height)
+				:setAnchorPoint(cc.p(0.5,0.5))
+				:setPosition(display.cx,display.cy)
+				:addTo(var.scene)
+				:setLocalZOrder(400)
+				:stopAllActions()
+				:hide()
+		end
+		if deathNotice and MainRole._mainAvatar  then
+			local percent = MainRole._mainAvatar:NetAttr(Const.net_hp)/MainRole._mainAvatar:NetAttr(Const.net_maxhp)
+			if 0== deathNotice:getNumberOfRunningActions() and percent<=0.2 and percent>0 and not UserConfig.getConf("ShieldRedWaring") then
+				deathNotice:show():runAction(cca.repeatForever(cca.seq({
+					cca.fadeIn(0.4),
+					cca.fadeOut(0.4)
+				})))
+			elseif percent>0.2 or percent==0 or UserConfig.getConf("ShieldRedWaring") then
+				deathNotice:stopAllActions():hide()
+			end
+		end
+	end
+end
+
+
+return UISceneGame

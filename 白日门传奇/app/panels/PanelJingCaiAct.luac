@@ -1,0 +1,837 @@
+--[[
+--超值回馈功能-精彩活动
+--]]
+
+local PanelJingCaiAct={}
+local var = {}
+
+-- 幸运站盘奖品各自展示
+local zpGz = {
+	[1] = {r=0},
+	[2] = {r=45},
+	[3] = {r=0},
+	[4] = {r=45},
+	[5] = {r=0},
+	[6] = {r=-45},
+	[7] = {r=0},
+	[8] = {r=-45},
+}
+
+function PanelJingCaiAct.initView(extend)
+	var = {
+		xmlPanel,
+		curTab=nil,
+		curXmlTab=nil,
+		xmlRuiShou=nil,
+		xmlChongZhi=nil,
+		xmlLogin=nil,
+		xmlDoubleExp=nil,
+		xmlLottery=nil,
+		xmlZheKou=nil,
+		xmlXiaoFei=nil,
+		xmlLangYa=nil,
+		xmlLongXin=nil,
+		xmlSczb=nil,
+		xmlSmsd=nil,
+		xmlZhuanPan=nil,
+		xmlRecharge=nil,
+		tabArrs={},
+		tabBtnArrs={},
+		isTen=false,
+		curAngle=0,--当前指针所在的角度
+		yuTimes=0,--剩余抽奖次数
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelJingCaiAct.uif")
+	if var.xmlPanel then
+
+		util.asyncload(var.xmlPanel, "panelBg", "needload/bg_max2.png")
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelJingCaiAct.handlePanelData)
+		--NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "reqTabList",params={}}))
+	end
+	return var.xmlPanel
+end
+--
+function PanelJingCaiAct.onPanelOpen(extend)
+	
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "reqTabList",params={}}))
+end
+
+function PanelJingCaiAct.onPanelClose()
+end
+
+function PanelJingCaiAct.handlePanelData(event)
+	if event.type ~= "PanelJingCaiAct" and event.type ~= "PanelZhuanPan" then return end
+	local data = util.decode(event.data)
+	-- print(event.data)
+	if data.cmd=="updateJingCaiTabs" then
+		PanelJingCaiAct.initTabList(data.tabTable)
+	elseif data.cmd=="updateRuiShouCount" then--跟新瑞兽活动倒计时
+		PanelJingCaiAct.updateCount(var.xmlRuiShou,data.time)
+
+	elseif data.cmd=="updateczData" then--充值
+		PanelJingCaiAct.updateRechargeData(data)
+		
+	elseif data.cmd=="updatexfData" then--消费
+		PanelJingCaiAct.updateLoginData(data)
+
+	elseif data.cmd=="updateDoubleExpCount" then--双倍
+		PanelJingCaiAct.updateCount(var.xmlDoubleExp,data.time)
+	elseif data.cmd=="updatejsczData" then--jisu
+		PanelJingCaiAct.updatejsczData(data)
+	elseif data.cmd=="updateTabRed" then---显示红点
+		PanelJingCaiAct.updateTabRed(data)
+	elseif data.cmd=="updateLangYaData" then
+		PanelJingCaiAct.updateLangYaData(data)	
+	elseif data.cmd=="updateLongXinData" then
+		PanelJingCaiAct.updateLongXinData(data)
+	elseif data.cmd=="updateLotteryData" then
+		PanelJingCaiAct.updateLotteryData(data)
+	elseif data.cmd=="updateQiangGouData" then
+		PanelJingCaiAct.updateQiangGouData(data)
+	elseif data.cmd=="updateRechargeRankData" then
+		PanelJingCaiAct.updateRechargeRankData(data)
+	------------------------------
+	elseif data.cmd=="updateRecord" then
+		if data.curWorldRecord then
+			PanelJingCaiAct.updateContent(data.curWorldRecord,"worldList",290,4,false,18, true)
+		end
+		var.xmlZhuanPan:getWidgetByName("labYuTimes"):setString("剩余次数："..data.yuTimes.."次")
+		var.yuTimes=data.yuTimes
+		PanelJingCaiAct.updateCount(var.xmlZhuanPan,data.time)
+	elseif data.cmd=="updateShowItems" then
+		PanelJingCaiAct.updateShowItems(data.dataTable, data.needVcoin)
+	elseif data.cmd=="startRotate" then
+		PanelJingCaiAct.PointRotate(data.index)
+	elseif data.cmd=="updateYuTimes" then
+		var.xmlZhuanPan:getWidgetByName("labYuTimes"):setString("剩余次数："..data.yuTimes.."次")
+		var.yuTimes=data.yuTimes
+		if data.time then
+			PanelJingCaiAct.updateCount(var.xmlZhuanPan,data.time)
+		end
+	elseif data.cmd=="openStartBtn" then
+		var.xmlZhuanPan:getWidgetByName("btnGet"):setEnabled(true)
+	end
+
+end
+
+function PanelJingCaiAct.tabPrsBtnClick(sender)
+
+	if var.curTab then 
+		var.curTab:setBrightStyle(ccui.BrightStyle.normal) 
+		var.curTab:setTitleColor(cc.c3b(195, 173, 136))
+	end
+	if var.curXmlTab then var.curXmlTab:hide() end
+	if sender.nameStr=="tabName1" then --超级瑞兽
+		PanelJingCaiAct.initRuiShou()
+		var.curXmlTab=var.xmlRuiShou
+	elseif sender.nameStr=="tabName2" then--充值
+		PanelJingCaiAct.initChongZhi()
+		var.curXmlTab=var.xmlChongZhi
+	elseif sender.nameStr=="tabName3" then-- 消费
+		PanelJingCaiAct.initLogin()
+		var.curXmlTab=var.xmlLogin
+	elseif sender.nameStr=="tabName4" then--全服双倍
+		PanelJingCaiAct.initDoubleExp()
+		var.curXmlTab=var.xmlDoubleExp
+	elseif sender.nameStr=="tabName5" then--全民探宝 
+		PanelJingCaiAct.initLottery()
+		var.curXmlTab=var.xmlLottery
+	elseif sender.nameStr=="tabName6" then--限时抢购
+		PanelJingCaiAct.initQiangGou()
+		var.curXmlTab=var.xmlZheKou
+	elseif sender.nameStr=="tabName7" then--充值豪礼
+		PanelJingCaiAct.initRecharge()
+		var.curXmlTab=var.xmlRecharge
+	elseif sender.nameStr=="tabName8" then--战鼓回馈
+		PanelJingCaiAct.initLangYa()
+		var.curXmlTab=var.xmlLangYa
+	elseif sender.nameStr=="tabName9" then--魂珠回馈
+		PanelJingCaiAct.initLongXin()
+		var.curXmlTab=var.xmlLongXin
+	elseif sender.nameStr=="tabName10" then--幸运转盘
+		PanelJingCaiAct.initZhuanPan()
+		var.curXmlTab=var.xmlZhuanPan
+	
+	end
+	sender:setBrightStyle(ccui.BrightStyle.highlight)
+	sender:setTitleColor(cc.c3b(253, 223, 174))
+	var.curTab=sender
+end
+
+--初始化活动页签列表
+function PanelJingCaiAct.initTabList(data)
+	--var.curTab=nil
+	local bDefaultTab = false;
+	local function updateList(item)
+		local itemData=data[item.tag]
+		local btn = item:getWidgetByName("btnMode")
+		btn:getWidgetByName("imgRed"):setVisible(false)
+		if btn then
+			btn:setTitleText(itemData.name)
+			btn.nameStr=itemData.nameStr
+
+			var.tabBtnArrs[itemData.nameStr]=btn
+			UILuaLoader.attachEffect(btn,"outline(000000,1)")
+			UIRedPoint.addUIPoint(btn,PanelJingCaiAct.tabPrsBtnClick)
+			-- if not var.curTab and item.tag==1 then
+			-- 	PanelJingCaiAct.tabPrsBtnClick(btn)
+			-- end
+			if var.tabArrs["tabName4"] and bDefaultTab == false then
+				bDefaultTab = true;
+				PanelJingCaiAct.tabPrsBtnClick(var.tabArrs["tabName4"])
+			end
+			var.tabArrs[itemData.nameStr]=btn
+			--print(var.tabArrs[itemData.nameStr],itemData.nameStr)
+		end
+		
+	end
+	var.tabBtnArrs={}
+	local tabList = var.xmlPanel:getWidgetByName("tabList")
+	tabList:reloadData(#data,updateList):setSliderVisible(false)
+
+	
+
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateRedpoint",params={}}))----请求红点数据
+end
+
+--刷新红点显示
+function PanelJingCaiAct.updateTabRed(data)
+
+	if data.name then
+		local tabList = var.xmlPanel:getWidgetByName("tabList")
+		if var.tabBtnArrs[data.name] then
+			local btn = var.tabBtnArrs[data.name]
+			btn:getWidgetByName("imgRed"):setVisible(data.show)
+		end
+	end
+end
+--------------------------------------------------------------全民探宝------------------------------------------------------------------
+function PanelJingCaiAct.initLottery()
+	if not var.xmlLottery then
+		var.xmlLottery=UILuaLoader.load("uilayout/PanelCelebrationAct_lottery.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+   							:show()
+   		util.asyncload(var.xmlLottery, "tabBg", "needload/PanelRewardHall/th_bg.png")
+		var.xmlLottery:getWidgetByName("btnLottery"):addClickEventListener(function( sender )
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="extend_lottory"})
+		end)
+	else
+		var.xmlLottery:show()
+	end
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateLotteryData",params={}}))
+end
+
+function PanelJingCaiAct.updateLotteryData(data)
+	PanelJingCaiAct.updateCount(var.xmlLottery,data.time)
+	for i=1,4 do
+		local itemData = data.equips[i]
+		local awardItem=var.xmlLottery:getWidgetByName("icon"..i)
+		if itemData then
+			awardItem:setVisible(true)
+			local param={parent=awardItem, typeId=itemData.id, num=itemData.num}
+			UIItem.getItem(param)
+		else
+			awardItem:setVisible(false)
+		end
+	end
+end
+--------------------------------------------------------------限时抢购------------------------------------------------------------------
+function PanelJingCaiAct.initQiangGou()
+	
+	if not var.xmlZheKou then
+		var.xmlZheKou=UILuaLoader.load("uilayout/PanelCelebrationAct_zhekou.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+   							:show()
+   		util.asyncload(var.xmlZheKou, "tabBg", "needload/Celebration/img_qianggou.png")
+	else
+		var.xmlZheKou:show()
+	end
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateQiangGouData",params={}}))
+end
+
+function PanelJingCaiAct.updateQiangGouData(data)
+	PanelJingCaiAct.updateCount(var.xmlZheKou,data.time)
+
+	local function prsBtnClick(sender)
+		NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "reqQiangGouGoods",params={index=sender.index}}))
+	end
+
+	local function updateList(item)
+		local itemData=data.goods[item.tag]
+		local id = NetClient:getItemDefByID(itemData.id)
+		item:getWidgetByName("itemName"):setString(id.mName)
+		if itemData.moneyType==102 then
+			item:getWidgetByName("labYuan"):setString("原价："..itemData.pricey.."钻石")
+		elseif itemData.moneyType==103 then
+			item:getWidgetByName("labYuan"):setString("原价："..itemData.pricey.."元宝")
+		end
+		item:getWidgetByName("labPrice"):setString(itemData.price)
+		local btnBuy=item:getWidgetByName("btnBuy")
+		btnBuy.index=item.tag
+		UILuaLoader.attachEffect(btnBuy,"outline(0e0600,1)")
+		UIRedPoint.addUIPoint(btnBuy,prsBtnClick)
+
+		if itemData.yuNum>0 then
+			btnBuy:setVisible(true)
+			item:getWidgetByName("imgYSQ"):setVisible(false)
+		else
+			btnBuy:setVisible(false)
+			item:getWidgetByName("imgYSQ"):setVisible(true)
+		end
+
+		local param={parent=item:getWidgetByName("icon"), typeId=itemData.id, num = itemData.num}
+		UIItem.getItem(param)
+
+		-- local yuNum = item:getWidgetByName("yuNum")
+		-- if not yuNum then
+		-- 	yuNum = ccui.TextAtlas:create("0123456789", "fonts/zk_num.png", 13, 19, "0")
+		-- 	:addTo(item)
+		-- 	:align(display.LEFT_BOTTOM, 102,148)
+		-- 	:setName("yuNum")
+		-- end
+		-- -- yuNum:setString(itemData.yuNum)
+		-- yuNum:setString(itemData.num)
+	end
+	local zkList = var.xmlZheKou:getWidgetByName("zkList")
+	zkList:reloadData(#data.goods,updateList):setSliderVisible(false):setTouchEnabled(false)
+end
+
+--------------------------------------------------------------充值排行、充值豪礼------------------------------------------------------------------
+function PanelJingCaiAct.initRecharge()
+	if not var.xmlRecharge then
+		var.xmlRecharge=UILuaLoader.load("uilayout/PanelJingCaiAct_xiaofei.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+							   :show()
+		util.asyncload(var.xmlRecharge, "panel_bg", "needload/img_pmh_bg.png")
+		util.asyncload(var.xmlRecharge, "img_bg", "needload/img_leichong_bg.png")
+	else
+		var.xmlRecharge:show()
+	end
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateRechargeData",params={}}))
+end
+
+function PanelJingCaiAct.updateRechargeRankData(data)
+	PanelJingCaiAct.updateCount(var.xmlRecharge,data.time)
+	for i=1,#data.awards do
+		local itemDatas = data.awards[i].awards
+		for j=1,#itemDatas do
+			local itemData = itemDatas[j]
+			local awardItem=var.xmlRecharge:getWidgetByName("icon"..i.."_"..j)
+			if itemData then
+				awardItem:setVisible(true)
+				local param={parent=awardItem, typeId=itemData.id, num=itemData.num}
+				UIItem.getItem(param)
+			else
+				awardItem:setVisible(false)
+			end
+		end
+		if data.awards[i].name~="" then
+			var.xmlRecharge:getWidgetByName("labName"..i):setString(data.awards[i].name):setVisible(true)
+			var.xmlRecharge:getWidgetByName("img"..i):setVisible(false)
+		else
+			var.xmlRecharge:getWidgetByName("labName"..i):setVisible(false)
+			var.xmlRecharge:getWidgetByName("img"..i):setVisible(true)
+		end
+	end
+	if data.myRank>0 then  
+		var.xmlRecharge:getWidgetByName("labMyRank"):setString("第"..data.myRank.."名")
+	else
+		var.xmlRecharge:getWidgetByName("labMyRank"):setString("未上榜")
+	end
+	var.xmlRecharge:getWidgetByName("labName1_0_0_1"):setString("充满"..data.needVcoin.."万钻石")
+	
+	var.xmlRecharge:getWidgetByName("labMyXiaoFei"):setString("已充值钻石："..data.curXiaoFei)
+end
+
+
+--------------------------------------------------------------全服双倍------------------------------------------------------------------
+function PanelJingCaiAct.initDoubleExp()
+	if not var.xmlDoubleExp then
+		var.xmlDoubleExp=UILuaLoader.load("uilayout/PanelCelebrationAct_doubleexp.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+   							:show()
+   		util.asyncload(var.xmlDoubleExp, "tabBg", "needload/Celebration/doubleExp.png")
+		
+	else
+		var.xmlDoubleExp:show()
+	end
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateDoubleCount",params={}}))
+end
+
+
+--------------------------------------------------------------超级瑞兽------------------------------------------------------------------
+function PanelJingCaiAct.initRuiShou()
+	if not var.xmlRuiShou then
+		var.xmlRuiShou=UILuaLoader.load("uilayout/PanelCelebrationAct_ruishou.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+   							:show()
+   		util.asyncload(var.xmlRuiShou, "tabBg", "needload/Celebration/img_ruishou_bg.jpg")
+   		
+		var.xmlRuiShou:getWidgetByName("btnVcion"):addClickEventListener(function( sender )
+			NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "reqRuiShowGo",params={}}))
+		end)
+	else
+		var.xmlRuiShou:show()
+	end
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateRsCount",params={}}))
+end
+
+--刷新超级瑞兽活动剩余时间
+function PanelJingCaiAct.updateCount(parent,time)
+	-- local time = itemData.needTime-data.onlineTime--秒
+	if not parent then return end
+	local labTime=parent:getWidgetByName("labCount"):setString("活动暂未开始")
+	if time>0 then
+		labTime:stopAllActions()
+		labTime:setString(util.setTimeFormat(time*1000,8))
+		labTime:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+			time = time-1
+			if time > 0 then
+				labTime:setString(util.setTimeFormat(time*1000,8))
+			else
+				labTime:stopAllActions()
+				labTime:setString("活动已结束")
+				if parent==var.xmlRuiShou then parent:getWidgetByName("Image_6"):setVisible(false) end
+			end
+		end)})))
+	else
+		labTime:setString("活动已结束")
+		if parent==var.xmlRuiShou then parent:getWidgetByName("Image_6"):setVisible(false) end
+	end
+end
+
+
+
+-------------------------------------------------------------累计消费------------------------------------------------------------------
+local despljxf ={
+	[1]="<font color=#E7BA52 size=18>累计消费说明：</font>",
+	[2]="<font color=#f1e8d0>活动期间，累计消费钻石达到指定档次可领取对应奖励</font>",
+}
+function PanelJingCaiAct.despljxf()
+	local mParam = {
+		name = Notify.EVENT_PANEL_ON_ALERT,
+		panel = "tips", 
+		infoTable = despljxf,
+		visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+end
+
+function PanelJingCaiAct.initLogin()
+	if not var.xmlLogin then
+		var.xmlLogin=UILuaLoader.load("uilayout/PanelJingCaiAct_xf.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+   							:show()
+   		var.xmlLogin:getWidgetByName("Button_ask"):addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelJingCaiAct.despljxf()
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+				LayerAlert.handleAlertClose()
+			end
+		end)
+	else
+		var.xmlLogin:show()
+	end
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateljxfData",params={}}))
+end
+
+function PanelJingCaiAct.updateLoginData(data)
+	PanelJingCaiAct.updateCount(var.xmlLogin,data.time)
+	local list = var.xmlLogin:getWidgetByName("list_daily")
+	local function LingCallBack(sender) ---------累计消费领取
+			NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "getljxfAward",params = {index=sender.key}}))
+	end
+	local function updateLJCZList(item)
+		--print(data.datas[item.tag].shengyu,data.datas[item.tag].times)
+		item:getWidgetByName("lbl_daily_title_cell"):setString("累计消费"..data.datas[item.tag].need.."钻石")
+		
+		
+		for i=1,5 do
+			local awardItem = item:getWidgetByName("model_item_box_"..i)
+			awardItem:setVisible(i<=#data.datas[item.tag].award)
+			if i<=#data.datas[item.tag].award then
+				-- local index=0
+				-- if data.datas[item.tag].award[i].job then
+				-- 	index = MainRole._mainAvatar:NetAttr(Const.net_job)-100
+				-- end
+				local param={parent=awardItem , typeId=data.datas[item.tag].award[i].id, num = data.datas[item.tag].award[i].num}
+				UIItem.getItem(param)
+			end
+		end
+		local btnLing = item:getWidgetByName("btnLing")
+		local state=item:getWidgetByName("img_daily_state")
+		btnLing.key = data.datas[item.tag].index
+		if data.xfnum>=data.datas[item.tag].need and data.datas[item.tag].con ==1 then ---已领取
+			state:loadTexture("txt_yilingqu", ccui.TextureResType.plistType)
+			state:setVisible(true)
+			btnLing:setVisible(false)
+		elseif data.xfnum>=data.datas[item.tag].need and data.datas[item.tag].con ==0  then  ---可领取
+			btnLing:setBright(true)
+			btnLing:setVisible(true)
+			util.addHaloToButton(btnLing, "btn_normal_light3")---呼吸灯
+			state:setVisible(false)
+		else---未达成
+			state:loadTexture("txt_weidaicheng", ccui.TextureResType.plistType)
+			btnLing:setVisible(false)
+			state:setVisible(true)
+		end 
+		UIRedPoint.addUIPoint(btnLing , LingCallBack)
+	end
+
+	list:reloadData(#data.datas,updateLJCZList)
+end
+
+--------------------------------------------------------------then--战鼓回馈------------------------------------------------------------------
+function PanelJingCaiAct.initLangYa()
+	if not var.xmlLangYa then
+		var.xmlLangYa=UILuaLoader.load("uilayout/PanelJingCaiAct_huikui.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+   							:show()
+   		var.xmlLangYa:getWidgetByName("imgTitleBg"):loadTexture("img_langyaditu",ccui.TextureResType.plistType)
+   		--util.asyncload(var.xmlLangYa, "tabBg", "needload/Celebration/img_langya_bg.jpg")
+	else
+		var.xmlLangYa:show()
+	end
+	var.xmlLangYa:getWidgetByName("imgTitleBg"):loadTexture("img_langya", ccui.TextureResType.plistType)
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateLangYaData",params={}}))
+end
+
+function PanelJingCaiAct.updateLangYaData(data)
+	PanelJingCaiAct.updateCount(var.xmlLangYa,data.time)
+	var.xmlLangYa:getWidgetByName("LabDesp"):setString("温馨提示：活动期间内获取相应战鼓碎片后，可领取战鼓碎片")
+	--var.xmlLangYa:getWidgetByName("labDesp2"):setString("获取数量")
+	
+	local function prsBtnClick(sender)
+		NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "reqLangYaAwards",params={index=sender.index}}))
+	end
+
+	local allUse = data.allUse
+	local function updateList(item)
+		local itemData = data.dataTable[item.tag]
+		item:getWidgetByName("labDesp"):setString("获取"..itemData.name.."x"..itemData.useNum)
+		local param={parent=item:getWidgetByName("icon"), typeId=itemData.id, num=itemData.num}
+		UIItem.getItem(param)
+		for i=1,#itemData.awards do
+			local award = itemData.awards[i]
+			local awardItem=item:getWidgetByName("icon"..i)
+			if award then
+				awardItem:setVisible(true)
+				local param={parent=awardItem, typeId=award.id, num=award.num}
+				UIItem.getItem(param)
+			else
+				awardItem:setVisible(false)
+			end
+		end
+		local btnLing = item:getWidgetByName("btnLing")
+		local imgYlq = item:getWidgetByName("imgYLQ")
+		if itemData.ling>0 then
+			imgYlq:setVisible(true)
+			btnLing:setVisible(false)
+			util.removeHaloFromButton(btnLing)
+			
+		else
+			imgYlq:setVisible(false)
+			btnLing:setVisible(true)
+			if allUse>=itemData.useNum then
+				btnLing:setEnabled(true)
+				util.addHaloToButton(btnLing, "btn_normal_light3")
+			else
+				util.removeHaloFromButton(btnLing)
+				btnLing:setEnabled(false)
+			end
+		end
+		btnLing.index=item.tag
+		UIRedPoint.addUIPoint(btnLing,prsBtnClick)
+	end
+
+	local awardsList = var.xmlLangYa:getWidgetByName("awardsList")
+	awardsList:reloadData(#data.dataTable,updateList):setSliderVisible(true):setTouchEnabled(true)
+end
+--------------------------------------------------------------魂珠回馈------------------------------------------------------------------
+function PanelJingCaiAct.initLongXin()
+	if not var.xmlLongXin then
+		var.xmlLongXin=UILuaLoader.load("uilayout/PanelJingCaiAct_huikui.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+   							:show()
+   		--util.asyncload(var.xmlLongXin, "tabBg", "needload/Celebration/img_langya_bg.jpg")
+   		var.xmlLongXin:getWidgetByName("imgTitleBg"):loadTexture("img_longxinditu",ccui.TextureResType.plistType)
+	else
+		var.xmlLongXin:show()
+	end
+	var.xmlLongXin:getWidgetByName("imgTitleBg"):loadTexture("img_longxin", ccui.TextureResType.plistType)
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateLongXinData",params={}}))
+end
+
+function PanelJingCaiAct.updateLongXinData(data)
+	PanelJingCaiAct.updateCount(var.xmlLongXin,data.time)
+	var.xmlLongXin:getWidgetByName("LabDesp"):setString("温馨提示：活动期间内获取相应魂珠碎片后，可领取魂珠碎片")
+	-- var.xmlLongXin:getWidgetByName("labDesp2"):setString("获取数量")
+	local function prsBtnClick(sender)
+		NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "reqLongXinAwards",params={index=sender.index}}))
+	end
+
+	local allUse = data.allUse
+	local function updateList(item)
+		local itemData = data.dataTable[item.tag]
+		item:getWidgetByName("labDesp"):setString("获取"..itemData.name.."x"..itemData.useNum)
+		for i=1,#itemData.awards do
+			local award = itemData.awards[i]
+			local awardItem=item:getWidgetByName("icon"..i)
+			if award then
+				awardItem:setVisible(true)
+				local param={parent=awardItem, typeId=award.id, num=award.num}
+				UIItem.getItem(param)
+			else
+				awardItem:setVisible(false)
+			end
+		end
+		local btnLing = item:getWidgetByName("btnLing")
+		local imgYlq = item:getWidgetByName("imgYLQ")
+		if itemData.ling>0 then
+			imgYlq:setVisible(true)
+			btnLing:setVisible(false)
+			util.removeHaloFromButton(btnLing)
+		else
+			imgYlq:setVisible(false)
+			btnLing:setVisible(true)
+			if allUse>=itemData.useNum then
+				util.addHaloToButton(btnLing, "btn_normal_light3")
+				btnLing:setEnabled(true)
+			else
+				util.removeHaloFromButton(btnLing)
+				btnLing:setEnabled(false)
+			end
+		end
+		btnLing.index=item.tag
+		UIRedPoint.addUIPoint(btnLing,prsBtnClick)
+	end
+
+	local awardsList = var.xmlLongXin:getWidgetByName("awardsList")
+	awardsList:reloadData(#data.dataTable,updateList):setSliderVisible(true):setTouchEnabled(true)
+end
+
+--------------------------------------------------------------幸运转盘------------------------------------------------------------------
+function PanelJingCaiAct.initZhuanPan()
+	if not var.xmlZhuanPan then
+		var.xmlZhuanPan=UILuaLoader.load("uilayout/PanelJingCaiAct_zp.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0, 0)
+   							:show()
+		
+		util.asyncload(var.xmlZhuanPan, "panel_bg", "needload/img_pmh_bg.png")
+
+		PanelJingCaiAct.PanelClick()
+
+		var.btn_ten = var.xmlZhuanPan:getWidgetByName("btn_ten"):setScale(0.75)
+		var.btn_ten:addClickEventListener(function (sender)
+			var.isTen = not var.isTen
+			sender:loadTextureNormal( (var.isTen and "btn_checkbox_sel") or "btn_checkbox", ccui.TextureResType.plistType)
+		end)
+
+		var.xmlZhuanPan:getWidgetByName("btnChongZhi"):addClickEventListener(function (sender)
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+		end):setScale(0.7)
+	
+		var.xmlZhuanPan:getWidgetByName("btnGet"):setScale(0.8)
+		NetClient:PushLuaTable("gui.PanelZhuanPan.handlePanelData",util.encode({actionid = "getPanelData"}))
+	else
+		var.xmlZhuanPan:show()
+	end
+	NetClient:PushLuaTable("gui.PanelZhuanPan.handlePanelData",util.encode({actionid = "updateYuTimes"}))
+end
+
+function PanelJingCaiAct.PanelClick()
+	local function prsBtnCall(sender)	
+		NetClient:PushLuaTable("gui.PanelZhuanPan.handlePanelData",util.encode({actionid = "choujiang", param= var.isTen }))
+		PanelJingCaiAct.PointRotate()
+		if (var.yuTimes>0 and not var.isTen) or (var.yuTimes>=10 and var.isTen) then
+			var.xmlZhuanPan:getWidgetByName("btnGet"):setEnabled(false)
+		end
+	end
+	local btnGet = var.xmlZhuanPan:getWidgetByName("btnGet")
+	UIRedPoint.addUIPoint(btnGet,prsBtnCall)
+end
+
+--刷新转盘显示
+function PanelJingCaiAct.updateShowItems(data, needVcoin)
+	if not data then return end
+	for i=1,#data do
+		local awardItem=var.xmlZhuanPan:getWidgetByName("icon"..data[i].index):setScale(0.9)
+		local param={parent=awardItem , typeId=data[i].id, num = data[i].num}
+		UIItem.getItem(param)
+
+		if zpGz[i] then
+			awardItem:setRotation(zpGz[data[i].index].r)
+		end
+	end
+
+	var.xmlZhuanPan:getWidgetByName("labVcoin"):setString(needVcoin)
+end
+
+function PanelJingCaiAct.updateContent(data,curScrollName,listsize,Margin,removeAll,tsize, action)
+	local scroll = var.xmlZhuanPan:getWidgetByName(curScrollName):setItemsMargin(Margin or 0):setClippingEnabled(true)
+	scroll:setDirection(ccui.ScrollViewDir.vertical)
+	scroll:setScrollBarEnabled(false)
+	if removeAll then scroll:removeAllChildren() end
+	for i=1, #data do
+		local richWidget = UIRichLabel.new({size=cc.size(listsize,35),space=2})
+		local textsize = tsize or 18
+		-- local tempInfo = util.encode(data[i])
+		richWidget:setRichLabel(data[i],35,textsize)
+		richWidget:setVisible(true)
+		scroll:pushBackCustomItem(richWidget)
+		if #scroll:getItems() > 30 then
+			scroll:removeItem(0)
+		end
+	end
+
+	if action then
+		scroll:runAction(cc.Sequence:create(
+			cc.DelayTime:create(0.1),
+			cc.CallFunc:create(function ()
+					scroll:scrollToBottom(1,true)
+				end)
+			)
+		)
+	else
+		scroll:scrollToBottom(0,true)
+	end
+end
+
+-----------------------------------------------------旋转动画----------------------------------------------------------
+function PanelJingCaiAct.PointRotate(index)
+	if not index or index<=0 then return end
+	local boxPoint=var.xmlZhuanPan:getWidgetByName("boxPoint")
+	local needRotate = 45 * index-45-var.curAngle
+	var.curAngle= 45*index-45
+
+	if needRotate<=0 then needRotate=360+needRotate end
+
+	local needTime = 0.01*(100*needRotate/270)
+
+	-- print(needTime,needRotate)
+
+	local function moveAct2(target)
+		target:runAction(cca.seq({
+			cc.EaseIn:create(cca.rotateBy(needTime,needRotate),needTime),  --135/270 --度数计算时间
+			cca.cb(function ()
+				target:stopAllActions()
+				--结束后开始抽奖刷新记录+播放飞动画
+				NetClient:PushLuaTable("gui.PanelZhuanPan.handlePanelData",util.encode({actionid = "rotateStop"}))
+				var.xmlZhuanPan:getWidgetByName("btnGet"):setEnabled(true)
+			end),
+		}))
+	end
+
+	local function moveAct(target)
+		target:runAction(cca.seq({
+			cca.rotateBy(0.3*4,360*4),
+			cca.cb(function ()
+				target:stopAllActions()
+				moveAct2(target)
+			end),
+		}))
+	end
+	-- moveAct(iconFly)
+	moveAct(boxPoint)
+end
+
+--------------------------------------------------------------累计充值-----------------------------------------------------------------
+local despljcz ={
+	[1]="<font color=#E7BA52 size=18>累计充值说明：</font>",
+	[2]="<font color=#f1e8d0>活动期间，累计充值钻石达到指定档次可领取对应奖励</font>",
+}
+function PanelJingCaiAct.despljcz()
+	local mParam = {
+		name = Notify.EVENT_PANEL_ON_ALERT,
+		panel = "tips", 
+		infoTable = despljcz,
+		visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+end
+
+function PanelJingCaiAct.initChongZhi()
+	
+	if not var.xmlChongZhi then
+		var.xmlChongZhi=UILuaLoader.load("uilayout/PanelJingCaiAct_cz.uif")
+							:addTo(var.xmlPanel:getWidgetByName("tabBox"))
+   							:align(display.LEFT_BOTTOM,0,0)
+							   :show()
+		
+   		var.xmlChongZhi:getWidgetByName("Button_ask"):setTouchEnabled(true):addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				PanelJingCaiAct.despljcz()
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+				LayerAlert.handleAlertClose()
+			end
+		end)
+	else
+		var.xmlChongZhi:show()
+	end
+	NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "updateChongZhiData",params={}}))
+end
+
+function PanelJingCaiAct.updateRechargeData(data)
+
+	--var.xmlChongZhi:getWidgetByName("labCount"):
+
+	PanelJingCaiAct.updateCount(var.xmlChongZhi,data.time)
+	local list = var.xmlChongZhi:getWidgetByName("list_daily")
+	local function LingCallBack(sender) ---------累计消费领取
+		NetClient:PushLuaTable("gui.PanelJingCaiAct.onPanelData",util.encode({actionid = "getljczAward",params = {index=sender.key}}))
+	end
+	local function LingCallBack2(sender)
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str = "panel_charge"})
+	end
+	local function updateLJCZList(item)
+		item:getWidgetByName("lbl_daily_title_cell"):setString("累计充值"..data.datas[item.tag].need.."钻石")
+		for i=1,6 do
+			local awardItem = item:getWidgetByName("model_item_box_"..i)
+			awardItem:setVisible(i<=#data.datas[item.tag].award)
+			if i<=#data.datas[item.tag].award then
+				local param={parent=awardItem , typeId=data.datas[item.tag].award[i].id, num = data.datas[item.tag].award[i].num}
+				UIItem.getItem(param)
+			end
+		end
+		local btnLing = item:getWidgetByName("btnLing")
+		local state=item:getWidgetByName("img_daily_state")
+		btnLing.key = data.datas[item.tag].index
+		util.removeHaloFromButton(btnLing)
+		if data.cznum>=data.datas[item.tag].need and data.datas[item.tag].con ==1 then ---已领取
+			state:loadTexture("txt_yilingqu", ccui.TextureResType.plistType)
+			state:setVisible(true)
+			btnLing:setVisible(false)
+		elseif data.cznum>=data.datas[item.tag].need and data.datas[item.tag].con ==0  then  ---可领取
+			btnLing:setBright(true)
+			btnLing:setVisible(true)
+			btnLing:loadTextureNormal("btn_green",ccui.TextureResType.plistType)
+			util.addHaloToButton(btnLing, "btn_normal_light3")---呼吸灯
+			state:setVisible(false)
+			UIRedPoint.addUIPoint(btnLing , LingCallBack)
+		else---未达成
+			state:loadTexture("txt_weidaicheng", ccui.TextureResType.plistType)
+			btnLing:setVisible(false)
+			state:setVisible(true)
+			--state:setVisible(false)
+			--btnLing:loadTextureNormal("btn_new2",ccui.TextureResType.plistType)
+			--btnLing:setTitleText("立即前往")
+			--UIRedPoint.addUIPoint(btnLing , LingCallBack2)
+		end 
+		
+	end
+
+	list:reloadData(#data.datas,updateLJCZList)
+end
+
+return PanelJingCaiAct

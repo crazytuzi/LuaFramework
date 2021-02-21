@@ -1,0 +1,15 @@
+LUA_RET={
+{n="PanelCelebrationAct_lottery",v=true,type=0,id=1,parent=0,w=835.0000,h=507.0000,},
+{n="tabBg",tag=151,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=835.0000,h=507.0000,color="255|255|255",},
+{n="Image_6",v=false,tag=313,type=1,id=3,parent=1,w=69.0000,h=22.0000,ax=0.5000,ay=0.5000,x=503.0000,y=520.0000,color="255|255|255",res="img_yu_time",},
+{n="labCount",tag=314,fs=18,text="00:00:00",vt=1,v=true,type=3,id=4,parent=1,w=180.0000,h=30.0000,ay=0.5000,x=587.8146,y=314.0729,color="24|209|41",fr="DFYuan.ttf",},
+{n="labDesp",tag=62,fs=18,text="活动说明：",vt=1,v=true,type=3,id=5,parent=1,w=600.0000,h=25.0000,ay=0.5000,x=17.9996,y=469.8222,color="253|223|174",fr="DFYuan.ttf",},
+{n="Image_1",tag=1492,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=6,parent=1,w=240.0000,h=200.0000,ax=0.5000,ay=0.5000,x=630.0242,y=189.3691,color="255|255|255",res="tmbg2",},
+{n="icon1",tag=63,v=true,type=1,id=7,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=577.9716,y=228.9537,color="255|255|255",res="img_cell_max",},
+{n="icon2",tag=64,v=true,type=1,id=8,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=676.9721,y=228.1531,color="255|255|255",res="img_cell_max",},
+{n="icon3",tag=65,v=true,type=1,id=9,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=576.9728,y=149.1531,color="255|255|255",res="img_cell_max",},
+{n="icon4",tag=66,v=true,type=1,id=10,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=676.9721,y=149.1533,color="255|255|255",res="img_cell_max",},
+{n="btnLottery",ud="outline(3d0e00,1);zoomscale(-0.12)",tag=68,t=true,fs=22,sx=66,sw=66,sh=40,sy=11,v=true,type=2,id=11,parent=1,w=180.0000,h=53.0000,ax=0.5000,ay=0.5000,x=632.5995,y=49.6814,color="255|255|255",tcolor="255|220|136",res="btn_lottery",},
+{n="labDesp2",tag=1284,fs=18,text="活动期间内，开启宝藏有几率获得超稀有神级副装部件",vt=1,v=true,type=3,id=12,parent=1,w=600.0000,h=25.0000,ay=0.5000,x=108.0002,y=469.8222,color="255|243|59",fr="DFYuan.ttf",},
+{n="labCount_0",tag=1334,fs=18,text="剩余时间：",vt=1,v=true,type=3,id=13,parent=1,w=83.0000,h=23.0000,ax=1.0000,ay=0.5000,x=588.8129,y=314.0733,color="24|209|41",fr="DFYuan.ttf",},
+}

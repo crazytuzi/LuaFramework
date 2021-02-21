@@ -1,0 +1,2062 @@
+--回收设置没搞好
+local game = {}
+
+game.sku = "hlsc"
+game.gameKey = "" --这个是账号
+game.gameTicket=""
+game.gameUserid = ""
+game.firstOpen = true
+game.anncVersion = "0"
+game.ClockTick = 0
+game.noSubmit = false
+game.lastSvr = nil
+game.svrRole = nil
+game.newRole = false
+game.accountId = "";
+
+game.isPlayVoice = false--是否正在播放留言
+
+local boxTable = {
+	[10099]={bindObj=10104, flag=0},
+	[10100]={bindObj=10105, flag=0},
+	[10101]={bindObj=10106, flag=0},
+	[10102]={bindObj=10107, flag=0},
+	[10103]={bindObj=10108, flag=0},
+
+	[10104]={bindObj=10099,	flag=0},
+	[10105]={bindObj=10100,	flag=0},
+	[10106]={bindObj=10101,	flag=0},
+	[10107]={bindObj=10102,	flag=0},
+	[10108]={bindObj=10103,	flag=0},
+
+}
+game.batchTable = {
+	10001,10002,10008,10012,10013,10014,10048,10025,10071,
+	10047,10051,10053,10055,10056,10057,10058,10059,10060,
+	10061,10062,10063,10064,10065,10066,10067,10068,10074,
+	10075,10076,10089,10090,10091,10092,10093,
+	10099,10100,10101,10102,10103,10104,10105,10106,10107,10108,--宝箱、钥匙
+	10124,10127,10128,10131,--强化石-金币
+	17115,--元神令
+	10079,10080,10081,
+}
+game.PROMPT_ITEM={
+	equip={},
+	diss={},
+}
+
+--清理选服相关变量
+function game.initSvrVar()
+	game.serverIP=""
+	game.serverPort=0
+	game.zoneId = ""
+	game.zoneName = ""
+
+	game.serverList={}
+
+	game.currentSvr=nil
+
+	game.giftUrl = nil
+	game.renameUrl = nil
+end
+
+local _touchingRocker = false;
+
+function game.initVar()
+	game.job = ""
+	game.gender = ""
+	game.vip = ""
+	game.level = ""
+	
+	game.firstLogin=false
+
+	game.chrName=""
+	game.seedName=""
+	game.charName =""
+	
+		
+	game.wifiOK=false
+	game.allowTrade = true
+		
+	game.lastChatMsg=""
+	game.bagFullFlag=false
+
+	game.appendText=""
+
+	game.wanderFight=false
+	game.httpLock=false
+	game.taskMon=""
+
+	game.panelTradeOpen = false
+	
+	game.isChatOpen = false
+	game.applePaying = false
+
+	game.needLoadRes = {}
+	game.needLoadNum = 0
+	game.totalLoadNum = 0
+	game.downLoading = false --是否在下载资源
+	game.downloadAll = false --是否下载了全部资源
+	game.isDownloadAllState = false --是否选择了下载全部
+	game.isGetLoadAwarded = 0 --是否领取了奖励
+
+	-- game.shortCutShow = false
+	-- game.loadCache=false
+	-- game.betterItemPos=-999
+	-- game.showLeaveMap = false
+	-- game.showBottom = ""
+	-- game.bottomPos = {}
+	-- game.LayerPanelShow = true
+
+	-- game.relivePanelOn=false
+	-- game.bagFullShow=false
+
+	-- game.rockerRun=false
+
+	-- game.warHideWing=false
+
+	game.guiding = false -- 标记引导状态
+	game.isNewFunc = false -- 标记新功能开启状态
+	game.isNewSkill = false -- 标记新技能开启状态
+	game.equipsTipsOn = false -- 装备提示面板标记
+	game.isStoryLine = false
+	game.rechargeOn = false -- 充值面板标记
+
+	game.isJumpShow = false
+	game.isAutoMove = false
+
+	game.disEnterButton = false -- 选服界面的进入游戏按钮禁用
+	game.itemSchedule = nil
+	
+	game.storyIndex = nil --剧情index避免重复
+	game.isQiangHua = nil
+
+	game.aimPos = nil
+
+	_touchingRocker = false
+end
+
+function game.cleanGame()
+	-- PlatformTool.callVoiceChat("logout_room")
+	cc.AnimManager:getInstance():remAllAnimate()
+	cc.SpriteManager:getInstance():removeAllFrames()
+	cc.CacheManager:getInstance():releaseUnused(false)
+
+	NetClient:init()
+	
+	MainRole.initVar()
+end
+
+function game.ExitToRelogin()
+
+	MAIN_IS_IN_GAME = false
+	
+	--断开socket
+	NetClient:disconnect()
+
+	game.cleanGame()
+	game.initVar()
+	game.initSvrVar()
+
+	if PLATFORM_TEST then
+		asyncload_frames("uipic/SceneSelectServer",".png",function ()
+			display.replaceScene(SceneLogin.new())
+		end)
+	else
+		PlatformTool.doSdkReLogin()
+		if device.platform == "windows" then
+			asyncload_frames("uipic/SceneSelectServer",".png",function ()
+				display.replaceScene(SceneLogin.new())
+			end)
+		end
+	end
+end
+
+function game.ExitToReSelect()
+
+	MAIN_IS_IN_GAME = false
+	print("ExitToReSelect000----------")
+	NetClient:disconnect()
+	game.initVar()
+
+	game.cleanGame()
+	asyncload_frames("uipic/SceneSelectRole",".png",function ()
+		display.replaceScene(SceneSelectRole.new(true))
+	end)
+end
+
+function game.ShowExit()
+	
+end
+
+function game.GetMainRole()
+	if not MainRole._mainAvatar then
+		MainRole._mainAvatar = MainRole.updateAttr()
+	end
+	return  MainRole._mainAvatar
+end
+	
+function game.MainRoleLevelHigherThen(level)
+	return game.GetMainRole():NetAttr(Const.net_level) >= level
+end
+
+-- local video=ccexp.VideoPlayer:create()
+-- video:setContentSize(cc.size(600,400))
+-- wdg:addChild(video)
+-- video:setFileName("res/cocosvideo.mp4")
+-- video:play()
+
+-- cc.Application:getInstance():openURL("http://www.cocos2d-x.org/")
+
+-- if not self.m_webview then
+-- 	self.m_webview=ccui.Widget:create()
+-- 	self.m_webview:setContentSize(cc.size(600,300))
+-- 	self.m_webview:setPosition(400,300)
+-- 	self.m_webview:setTouchEnabled(true)
+-- 	self:addChild(self.m_webview)
+-- 	cc.SystemUtil:showWebView(self.m_webview,"http://wwww.baidu.com")
+-- else
+-- 	self.m_webview:removeFromParent()
+-- 	self.m_webview=nil
+-- end
+
+function game.clearHtmlText(str)
+	str,n=string.gsub(str,"<[^>]*>","")
+	str,_=string.gsub(str,">","")
+	str,_=string.gsub(str,"<","")
+	return str,n
+end
+
+function game.getColor(color)
+	local r,g,b
+	r=bit.rshift(bit.band(color,0xFF0000),16)
+	g=bit.rshift(bit.band(color,0x00FF00),8)
+	b=bit.band(color,0x0000FF)
+	return cc.c3b(r,g,b)
+end
+
+function game.getColor4(color)
+	local r,g,b
+	r=bit.rshift(bit.band(color,0xFF0000),16)
+	g=bit.rshift(bit.band(color,0x00FF00),8)
+	b=bit.band(color,0x0000FF)
+	return cc.c4b(r,g,b,255)
+end
+
+function game.getColor4f(color)
+	local r,g,b
+	r=bit.rshift(bit.band(color,0xFF0000),16)
+	g=bit.rshift(bit.band(color,0x00FF00),8)
+	b=bit.band(color,0x0000FF)
+	return cc.c4f(r / 255, g / 255, b / 255, 1)
+end
+
+function game.getTime()
+	return cc.SystemUtil:getTime()
+end
+
+function game.getSkipTime()
+	if not game.initTime then
+		return 0
+	else
+		return cc.SystemUtil:getTime()-game.initTime
+	end
+	return 0
+end
+
+function game.getAngle(from,to)
+	local angle=math.atan((to.y-from.y)/(to.x-from.x))*(180/math.pi)
+	if to.x<from.x then
+		angle=angle+180
+	end
+	if to.y<=from.y then
+		angle=angle+360
+	end
+	angle=angle%360
+
+	return angle
+end
+
+function game.getPixesDirection(from,to)
+	local rot=game.getAngle(from,to)
+	if rot>=337.5 or rot<22.5 then
+		return Const.DIR_RIGHT
+	end
+	if rot>=22.5 and rot<67.5 then
+		return Const.DIR_UP_RIGHT
+	end
+	if rot>=67.5 and rot<112.5 then
+		return Const.DIR_UP
+	end
+	if rot>=112.5 and rot<157.5 then
+		return Const.DIR_UP_LEFT
+	end
+	if rot>=157.5 and rot<202.5 then
+		return Const.DIR_LEFT
+	end
+	if rot>=202.5 and rot<247.5 then
+		return Const.DIR_DOWN_LEFT
+	end
+	if rot>=247.5 and rot<292.5 then
+		return Const.DIR_DOWN
+	end
+	if rot>=292.5 and rot<337.5 then
+		return Const.DIR_DOWN_RIGHT
+	end
+	return Const.DIR_DOWN
+end
+
+function game.getLogicDirection(from,to)
+	local rot=game.getAngle(from,to)
+	if rot>=337.5 or rot<22.5 then
+		return Const.DIR_RIGHT
+	end
+	if rot>=22.5 and rot<67.5 then
+		return Const.DIR_DOWN_RIGHT
+	end
+	if rot>=67.5 and rot<112.5 then
+		return Const.DIR_DOWN
+	end
+	if rot>=112.5 and rot<157.5 then
+		return Const.DIR_DOWN_LEFT
+	end
+	if rot>=157.5 and rot<202.5 then
+		return Const.DIR_LEFT
+	end
+	if rot>=202.5 and rot<247.5 then
+		return Const.DIR_UP_LEFT
+	end
+	if rot>=247.5 and rot<292.5 then
+		return Const.DIR_UP
+	end
+	if rot>=292.5 and rot<337.5 then
+		return Const.DIR_UP_RIGHT
+	end
+	return Const.DIR_UP
+end
+
+function game.getDirectionPoint(dir,num,dx,dy)
+	local step = {{0,-1},{1,-1},{1,0},{1,1},{0,1},{-1,1},{-1,0},{-1,-1},}
+	dx = dx + step[dir+1][1]*num
+	dy = dy + step[dir+1][2]*num
+	return dx,dy
+end
+
+-- 根据装备Id 获取装备是否有类型图片
+function game.getEquipTypeWithId(typeid)
+	local itemdef = NetClient:getItemDefByID(typeid)
+	if itemdef then
+		local id = string.sub(tostring(typeid), -2)
+		id = tonumber(id)
+		if id == 52 then
+			return "lbl_zhuo"
+		elseif id == 51 then
+			return "lbl_shou"
+		elseif id == 61 then
+			return "lbl_jie"
+		elseif id == 62 then
+			return "lbl_zhi"
+		end
+	end
+	return nil
+end
+
+--------------------------新的判断item类型函数--------------------------
+function game.isEquipMent(subType)
+	return subType == Const.ITEM_TYPE_EQUIP 
+end
+
+function game.IsShenQi( type_id,id )
+	if (not id) and type_id then
+		id = NetClient:getItemDefByID(type_id)
+	end
+	if id and id.SubType == Const.ITEM_TYPE_EQUIP then
+		-- if id.mEquipType >= Const.EQUIP_TYPE_SHENQI_WEAPON and id.mEquipType <= Const.EQUIP_TYPE_SHENQI_CLOTH then
+			-- return true
+		-- end
+	end
+end
+
+function game.isXZ(subType)
+	return subType == Const.ITEM_TYPE_XZ
+end
+
+function game.isCS(subType)
+	return subType == Const.ITEM_TYPE_CS
+end
+
+function game.isXQ(subType)
+	return subType == Const.ITEM_TYPE_XQ
+end
+
+function game.isMount(subType)
+	return subType == Const.ITEM_TYPE_MOUNT
+end
+
+function game.isSQ(subType)
+	return subType == Const.ITEM_TYPE_SQ
+end
+
+function game.isLB(subType)
+	return subType == Const.ITEM_TYPE_LB
+end
+
+function game.isDL(subType)--新加斗笠
+	return subType == Const.ITEM_TYPE_DL
+end
+
+function game.isMoney(subType)
+	return subType == Const.ITEM_TYPE_MONEY
+end
+
+function game.isDrug(subType)
+	return subType == Const.ITEM_TYPE_DRUG
+end
+
+function game.isMaterial(subType)
+	return subType == Const.ITEM_TYPE_MATERIAL
+end
+
+function game.isSkillBook(subType)
+	return subType == Const.ITEM_TYPE_SKILLBOOK
+end
+
+function game.isGem(subType)
+	return subType == Const.ITEM_TYPE_GEM
+end
+
+function game.isGift(subType)
+	return subType == Const.ITEM_TYPE_GIFT
+end
+
+function game.isChest(subType)
+	return subType == Const.ITEM_TYPE_CHEST
+end
+
+function game.isBuffItem(subType)
+	return subType == Const.ITEM_TYPE_BUFF
+end
+
+function game.isFashion(subType)
+	return subType == Const.EQUIP_TYPE_FASHION_WEAPON or subType == Const.EQUIP_TYPE_FASHION_CLOTH or subType == Const.EQUIP_TYPE_FASHION_WING
+end
+
+function game.isFashionWeapon(subType)
+	return subType == Const.EQUIP_TYPE_FASHION_WEAPON
+end
+
+function game.isFashionCloth(subType)
+	return subType == Const.EQUIP_TYPE_FASHION_CLOTH
+end
+
+function game.isFashionWing(subType)
+	return subType == Const.EQUIP_TYPE_FASHION_WING
+end
+
+--新加坐骑
+function game.isFashionMount(subType)
+	return subType == Const.ITEM_FASHION_MOUNT_POSITION
+end
+
+function game.isScroll(subType)
+	return subType == Const.ITEM_TYPE_SCROLL
+end
+
+function game.isOther(subType)
+	return subType == Const.ITEM_TYPE_OTHER
+end
+------------------------------------------------------------
+
+-- function game.IsEquipment(type_id)
+	-- local id = NetClient:getItemDefByID(type_id)
+	-- if id then
+		-- return id.SubType == Const.ITEM_TYPE_EQUIP or id.SubType == Const.ITEM_TYPE_XZ or id.SubType == Const.ITEM_TYPE_XQ or 
+			   -- id.SubType == Const.ITEM_TYPE_MOUNT or id.SubType == Const.ITEM_TYPE_LB or id.SubType == Const.ITEM_TYPE_SQ or
+			   -- id.SubType == Const.ITEM_TYPE_CS
+	-- end
+-- end
+
+function game.IsEquipment(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		-- return id.SubType == Const.ITEM_TYPE_EQUIP or id.SubType == Const.ITEM_TYPE_XZ or id.SubType == Const.ITEM_TYPE_XQ or 
+			   -- id.SubType == Const.ITEM_TYPE_MOUNT or id.SubType == Const.ITEM_TYPE_LB or id.SubType == Const.ITEM_TYPE_SQ or
+			   -- id.SubType == Const.ITEM_TYPE_CS
+		-- return id.SubType == Const.ITEM_TYPE_EQUIP or id.SubType == Const.ITEM_TYPE_MATERIAL or id.SubType ==Const.ITEM_TYPE_MONEY or
+			   -- id.SubType == Const.ITEM_TYPE_DRUG or id.SubType == Const.ITEM_TYPE_SKILLITEM or id.SubType == Const.ITEM_TYPE_GEM or
+			   -- id.SubType == Const.ITEM_TYPE_GIFT or id.SubType == Const.ITEM_TYPE_BUFF or id.SubType == Const.ITEM_TYPE_CHEST or
+			   -- id.SubType == Const.ITEM_TYPE_SCROLL or id.SubType == Const.ITEM_TYPE_OTHER 
+			   return id.SubType == Const.ITEM_TYPE_EQUIP
+	end
+end
+
+function game.IsXZ(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return game.isXZ(id.SubType)
+	end
+end
+
+function game.IsCS(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return game.isCS(id.SubType)
+	end
+end
+
+function game.IsXQ(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return game.isXQ(id.SubType)
+	end	
+end
+
+function game.IsMount(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return game.isMount(id.SubType)
+	end	
+end
+
+function game.IsSQ(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return game.isSQ(id.SubType)
+	end
+end
+
+function game.IsLB(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return game.isLB(id.SubType)
+	end
+end
+function game.isDL(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return game.isDL(id.SubType)
+	end
+end
+
+--神炉四部件
+function game.IsFurnaceEquipment(type_id, id)
+	if (not id) and type_id then
+		id = NetClient:getItemDefByID(type_id)
+	end
+	if id and id.SubType == Const.ITEM_TYPE_EQUIP then
+		if id.mEquipType == Const.EQUIP_TYPE_JADE_PENDANT or id.mEquipType == Const.EQUIP_TYPE_SHIELD or id.mEquipType == Const.EQUIP_TYPE_DRAGON_HEART or id.mEquipType == Const.EQUIP_TYPE_WOLFANG then
+			return true
+		end
+	end
+end
+
+function game.IsViceEquipment(type_id, id)
+	if (not id) and type_id then
+		id = NetClient:getItemDefByID(type_id)
+	end
+	if id and id.SubType == Const.ITEM_TYPE_EQUIP then
+		if id.mEquipType >= Const.EQUIP_TYPE_JADE_PENDANT and id.mEquipType <= Const.EQUIP_TYPE_ACHIEVE_MEDAL then
+			return true
+		end
+	end
+end
+
+function game.IsViceEquipmentWithPos(pos)
+	if pos == Const.ITEM_JADE_PENDANT_POSITION or pos == Const.ITEM_WOLFANG_POSITION or pos == Const.ITEM_SHIELD_POSITION or pos == Const.ITEM_DRAGON_HEART_POSITION then
+		return true
+	end
+	return false
+end
+
+function game.IsSameFashion(type_id,pos,id)
+	if (not id) and type_id and pos then
+		id = NetClient:getItemDefByID(type_id)
+	end
+	if id and id.mEquipType*-2 == pos then
+		return true
+	end
+end
+
+function game.IsPosInDepot(pos)
+	return (pos and pos >= Const.ITEM_DEPOT_BEGIN and pos < Const.ITEM_DEPOT_END)
+end
+
+function game.IsPosInBag(pos)
+	return (pos and pos >= Const.ITEM_BAG_BEGIN and pos < Const.ITEM_BAG_MAX)
+end
+function game.IsPosInLottoryDepot(pos)
+	return (pos and pos >= Const.ITEM_LOTTERYDEPOT_BEGIN and pos < Const.ITEM_LOTTERYDEPOT_BEGIN+Const.ITEM_LOTTERYSIZE)
+end
+
+--index=1:攻击宝石  index=2：物防宝石  index=3：魔防宝石  index=4:生命宝石
+function game.getTypeGems(index)
+	local result = {}
+	for i,v in pairs(NetClient.mGemItems) do
+		-- if index==1 and v.mTypeID>=17020 and v.mTypeID<=17031 then
+		-- 	table.insert(result,1,v)
+		-- elseif index==2 and v.mTypeID>=17032 and v.mTypeID<=17043 then
+		-- 	table.insert(result,1,v)
+		-- elseif index==3 and v.mTypeID>=17044 and v.mTypeID<=17055 then
+		-- 	table.insert(result,1,v)
+		-- elseif index==4 and v.mTypeID>=17056 and v.mTypeID<=17067 then
+		-- 	table.insert(result,1,v)
+		-- end
+		table.insert(result,1,v)
+	end
+	game.getGemNums()
+
+	-- result = game.sortGemAscend(result)
+	return result
+end
+
+--升序排列宝石
+function game.sortGemAscend(gemTable)
+	local result = {}
+	for i=1,#gemTable do
+		local max=gemTable[i]
+		local temp = {}
+		for j=i,#gemTable do
+			if gemTable[j].mTypeID<=max.mTypeID then
+				temp = max
+				max = gemTable[j]
+				gemTable[j] = temp
+			end
+		end
+		result[i] = max
+	end
+	return result
+end
+
+--统计每个等级宝石数量
+function game.getGemNums()
+	local result = {}
+	for i,v in pairs(NetClient.mGemItems) do
+		local key = tostring(v.mTypeID)
+		if result[key] then
+			result[key] = result[key]+1
+		else
+			result[key] = 1
+		end
+	end
+	return result
+end
+
+
+-- local equip_fight = {
+-- 	[Const.JOB_ZS] = {mAddPower = ,mMaxHp=, mMaxMp=, mDC=, mDCMax=, mMC=, mMCMax=, mSC=, mSCMax, mAC=, mACMax=, mMAC=, mMACMax=, mBaojiProb= ,mBaojiPres= ,mAccuracy= ,mDodge= ,mLuck= , mTenacity},
+-- 	[Const.JOB_FS] = {mAddPower = ,mMaxHp=, mMaxMp=, mDC=, mDCMax=, mMC=, mMCMax=, mSC=, mSCMax, mAC=, mACMax=, mMAC=, mMACMax=, mBaojiProb= ,mBaojiPres= ,mAccuracy= ,mDodge= ,mLuck= , mTenacity},
+-- 	[Const.JOB_DS] = {mAddPower = ,mMaxHp=, mMaxMp=, mDC=, mDCMax=, mMC=, mMCMax=, mSC=, mSCMax, mAC=, mACMax=, mMAC=, mMACMax=, mBaojiProb= ,mBaojiPres= ,mAccuracy= ,mDodge= ,mLuck= , mTenacity},
+-- }
+
+-- 装备套装属性
+function game.buildEquipSuitAttr(equipGroup, job, gender, isOtherPlayer, xmlTips)
+	local suitEquip = NetClient:getEquipSuitAttr(equipGroup, 4)
+	--print(equipGroup, job, gender, isOtherPlayer)
+	local descInfo = ""
+	if suitEquip then
+		xmlTips:getWidgetByName("lbl_title"):setString("☆ "..suitEquip.mName.." ☆")
+		for j=1, 12 do
+			suitEquip = NetClient:getEquipSuitAttr(equipGroup, j)
+			if suitEquip then
+				local equips = {}
+				if isOtherPlayer then
+					equips = NetClient:getOtherEquipByGroup(equipGroup, job, gender)
+				else
+					equips = NetClient:getEquipByGroup(equipGroup, job, gender)
+				end
+				local isHave = 0
+				for k, v in pairs(equips) do
+					if isOtherPlayer then
+						isHave = isHave + 1
+					else
+						local netItem = NetClient:getNetItem(v.ePos)
+						if netItem then
+							if netItem.mTypeID == v.mTypeID or v.noType then
+								isHave = isHave + 1
+							end
+						end
+					end
+				end
+
+				local baseAttrs = {
+					{key = "物攻：", value = {min = suitEquip.mMinDc, max = suitEquip.mDc}, job = 100},
+					{key = "魔攻：", value = {min = suitEquip.mMinMc, max = suitEquip.mMc}, job = 101},
+					{key = "道攻：", value = {min = suitEquip.mMinSc, max = suitEquip.mSc}, job = 102},
+					{key = "物防：", value = {min = suitEquip.mMinAc, max = suitEquip.mAc}},
+					{key = "魔防：", value = {min = suitEquip.mMinMac, max = suitEquip.mMac}},
+					{key = "生命：", value = suitEquip.mMaxHp},
+					{key = "魔法：", value = suitEquip.mMaxMp},
+					{key = "生命加成：", value = suitEquip.mMaxHpPres},
+					{key = "魔法加成：", value = suitEquip.mMaxMpPres},
+					{key = "神圣攻击：", value = suitEquip.mHolyDamage},
+					{key = "暴击免伤：", value = suitEquip.mCritMs},
+					{key = "暴击机率：", value = suitEquip.mCritLv},
+					{key = "暴击伤害：", value = suitEquip.mCritPres},
+					{key = "伤害加成：", value = suitEquip.mDamagePres},
+					{key = "伤害减免：", value = suitEquip.mDamageJM},
+					{key = "降低死亡爆率：", value = suitEquip.mDeadEquip},
+				}
+				local str = ""
+				for k, v in ipairs(baseAttrs) do
+					if util.isTable(v.value) then
+						if v.value.max > MIN_VALUE then
+							if v.job and job == v.job then
+								str = str..v.key..v.value.min.."-"..v.value.max.."\t\t"
+							elseif not v.job then
+								str = str..v.key..v.value.min.."-"..v.value.max.."\t\t"
+							end
+						end
+					elseif v.value > MIN_VALUE then
+						if v.key == "暴击机率：" or v.key == "伤害加成：" or v.key == "伤害减免：" or v.key == "降低死亡爆率：" or v.key == "生命加成：" or v.key == "魔法加成：" then--or v.key == "暴击免伤：" then
+							v.value = (v.value / 100).."%"
+						end
+						str = str..v.key..v.value.."\t\t"
+					end
+				end
+				if isHave >= j then
+					descInfo = descInfo.."<br><pic src=\'img_expbar_green\'/> <font color=#ff1493>\t\t"..j.."件套装\t</font><font color=#B2A58B>"..str.."</font></br>"
+				end
+			end
+		end
+	end
+	if descInfo ~= "" then
+		xmlTips:getWidgetByName("noSuitAttr"):hide()
+		return descInfo
+	end
+	xmlTips:getWidgetByName("noSuitAttr"):show()
+	xmlTips:getWidgetByName("lbl_title"):setString("套装属性")
+	return ""
+end
+
+
+function game.getEquipFight(type_id)
+	local fight = 0
+	local itemdef = NetClient:getItemDefByID(type_id)
+	if itemdef then
+		-- fight = 
+	end
+	return fight
+end
+
+function game.isBetterInAvatar(pos)
+	local isInAvatar = false
+	local mItems = NetClient.mItems
+	local type_id = 0
+	local itemdef = nil
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	local tempItem
+	if util.isTable(pos) then
+		type_id = pos.mTypeID
+	elseif util.isNumber(pos) then
+		local tempItem = NetClient:getNetItem(pos)
+		isInAvatar = game.IsPosInAvatar(pos)
+		if tempItem then
+			type_id = tempItem.mTypeID
+		end
+	end
+	
+	itemdef = NetClient:getItemDefByID(type_id)
+	if not itemdef then
+		return Const.ITEM_WORSE_SELF
+	end
+	-- print("++",game.IsEquipment(type_id),game.IsPosInAvatar(pos))
+	if game.IsEquipment(type_id) and not isInAvatar then
+		if game.IsWeapon(type_id) then
+			return game.CompareItem(pos,Const.ITEM_WEAPON_POSITION)
+		elseif game.IsCloth(type_id) then
+			return game.CompareItem(pos,Const.ITEM_CLOTH_POSITION)
+		elseif game.IsHat(type_id) then
+			return game.CompareItem(pos,Const.ITEM_HAT_POSITION)
+		elseif game.IsRing(type_id) then -- 修改戒指好坏的比较逻辑
+
+			local better1, pos1 = game.CompareItem(pos,Const.ITEM_RING1_POSITION)
+
+			local better2, pos2 = game.CompareItem(pos,Const.ITEM_RING2_POSITION)
+			-- print(better1, pos1, better2, pos2)
+			if pos1 or pos2 then
+				if pos1 then
+					return Const.ITEM_BETTER_SELF, pos1, pos2
+				elseif pos2 then
+					return Const.ITEM_BETTER_SELF, pos2, pos1
+				end
+			else
+				return ((better1 < better2) and better1) or better2
+			end
+
+		elseif game.IsGlove(type_id) then  -- 修改护腕好坏的比较逻辑
+
+			local better1, pos1 = game.CompareItem(pos,Const.ITEM_GLOVE1_POSITION)
+
+			local better2, pos2 = game.CompareItem(pos,Const.ITEM_GLOVE2_POSITION)
+			-- print(better1, pos1, better2, pos2)
+			if pos1 or pos2 then
+				if pos1 then
+					return Const.ITEM_BETTER_SELF, pos1, pos2
+				elseif pos2 then
+					return Const.ITEM_BETTER_SELF, pos2, pos1
+				end
+			else
+				return ((better1 < better2) and better1) or better2
+			end
+		elseif game.IsNecklace(type_id) then
+			return game.CompareItem(pos,Const.ITEM_NICKLACE_POSITION)
+		elseif game.IsBelt(type_id) then
+			return game.CompareItem(pos,Const.ITEM_BELT_POSITION)
+		elseif game.IsBoot(type_id) then
+			return game.CompareItem(pos,Const.ITEM_BOOT_POSITION)
+		elseif game.IsWing(type_id) then
+			return game.CompareItem(pos,Const.ITEM_WING_POSITION)
+		elseif game.IsSoul(type_id) then
+			return game.CompareItem(pos,Const.ITEM_GUANZHI_POSITION)
+		elseif game.IsFashion(type_id) then
+			return game.CompareItem(pos,Const.ITEM_FASHION_POSITION)
+		elseif game.isFashionMount(type_id) then
+			return game.CompareItem(pos,Const.ITEM_FASHION_MOUNT_POSITION)				
+		end
+	end
+	return Const.ITEM_NONE_SELF
+end
+
+function game.getFightPoint(defOrAvatar, job, mUpdLevel)
+	local pointTable = {
+		[100] = {
+			mAddPower = 900,
+			mMaxHp = 1800,
+			mMaxMp = 0,
+			mDC = 32000,
+			mDCMax = 16000,
+			mMC = 0,
+			mMCMax = 0,
+			mSC = 0,
+			mSCMax = 0,
+			mAC = 7000,
+			mACMax = 5000,
+			mMAC = 7000,
+			mMACMax = 5000,
+			mBaojiProb = 60000,
+			critProb = 60000,
+			mBaojiPres = 10000,
+			critPoint = 10000,
+			mAccuracy = 0,
+			mDodge = 0,
+			mLuck = 4000000,
+			tenacity = 30000,
+		},
+		[101] = {
+			mAddPower = 2400,
+			mMaxHp = 4800,
+			mMaxMp = 0,
+			mDC = 0,
+			mDCMax = 0,
+			mMC = 32000,
+			mMCMax = 16000,
+			mSC = 0,
+			mSCMax = 0,
+			mAC = 7000,
+			mACMax = 5000,
+			mMAC = 7000,
+			mMACMax = 5000,
+			mBaojiProb = 60000,
+			critProb = 60000,
+			mBaojiPres = 10000,
+			critPoint = 10000,
+			mAccuracy = 0,
+			mDodge = 0,
+			mLuck = 4000000,
+			tenacity = 30000
+		},
+		[102] = {
+			mAddPower = 1500,
+			mMaxHp = 3000,
+			mMaxMp = 0,
+			mDC = 0,
+			mDCMax = 0,
+			mMC = 0,
+			mMCMax = 0,
+			mSC = 32000,
+			mSCMax = 16000,
+			mAC = 7000,
+			mACMax = 5000,
+			mMAC = 7000,
+			mMACMax = 5000,
+			mBaojiProb = 60000,
+			critProb = 60000,
+			mBaojiPres = 10000,
+			critPoint = 10000,
+			mAccuracy = 0,
+			mDodge = 0,
+			mLuck = 4000000,
+			tenacity = 30000
+		}
+	}
+
+	local updAttrs = {}
+	if mUpdLevel and mUpdLevel > 0 then
+		local updId = job * 10000 + defOrAvatar.mEquipType * 100 + mUpdLevel
+		local uid = NetClient.mUpgradeDesp[updId]
+		if uid then
+			updAttrs = {
+				mDC = uid.mDC,
+				mDCMax = uid.mDCMax,
+				mMC = uid.mMC,
+				mMCMax = uid.mMCMax,
+				mSC = uid.mSC,
+				mSCMax = uid.mSCMax,
+				mAC = uid.mAC,
+				mACMax = uid.mACMax,
+				mMAC = uid.mMAC,
+				mMACMax = uid.mMACMax,
+			}
+		end
+	end
+
+	local point = 0
+	for k,v in pairs(pointTable[job]) do
+		if defOrAvatar[k] then
+			point = point + (defOrAvatar[k] + (updAttrs[k] or 0)) * v
+		end
+	end
+	return point
+end
+
+function game.CompareItem(posBag, posAvatar, itemDef)
+	local mItems = NetClient.mItems
+	local itemBag = nil
+	local posBagLevel, posAvatarLevel
+
+	if util.isNumber(posBag) and mItems[posBag] then
+		itemBag = NetClient:getItemDefByID(mItems[posBag].mTypeID)
+		posBagLevel = NetClient:getNetItem(posBag).mLevel
+	elseif util.isTable(posBag) then 
+		itemBag = NetClient:getItemDefByID(posBag.mTypeID)
+		posBagLevel = posBag.mLevel
+	else
+		itemBag = itemDef
+	end
+
+	if itemBag == nil then
+		return Const.ITEM_UNUSE_SELF
+	end
+
+	local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+	if mItems[posAvatar] then
+		posAvatarLevel = NetClient:getNetItem(posAvatar).mLevel
+		local itemAvatar = NetClient:getItemDefByID(mItems[posAvatar].mTypeID)
+		-- print("itemAvatar", util.encode(itemAvatar))
+		if itemBag and itemAvatar then
+			if (itemBag.mJob == 0 or itemBag.mJob == job)
+				and (itemBag.mGender == 0 or itemBag.mGender == MainRole._mainAvatar:NetAttr(Const.net_gender) ) then
+				
+				if game.getFightPoint(itemBag, job, posBagLevel) > game.getFightPoint(itemAvatar, job, posAvatarLevel) then
+				-- if itemBag.mNeedParam > itemAvatar.mNeedParam then
+					return Const.ITEM_BETTER_SELF, posAvatar
+				elseif itemBag.mNeedParam == itemAvatar.mNeedParam then
+					return Const.ITEM_NONE_SELF
+				end
+				return Const.ITEM_WORSE_SELF
+			end
+			return Const.ITEM_UNUSE_SELF
+		end
+		return Const.ITEM_WORSE_SELF
+	else
+		if (itemBag.mJob == 0 or itemBag.mJob == job)
+			and (itemBag.mGender == 0 or itemBag.mGender == MainRole._mainAvatar:NetAttr(Const.net_gender) ) then
+			return Const.ITEM_BETTER_SELF, posAvatar
+		end
+		return Const.ITEM_UNUSE_SELF
+	end
+end
+
+local EQUIP_TAG = {
+	WEAPON = 1,CLOTH = 2,HAT = 3,RING = 4,GLOVE = 5,NECKLACE = 6,
+	BELT = 7,BOOT = 8,WING = 9,FASHION = 10,SOUL = 11,ALL = 12,
+	MOUNT = 28,
+}
+
+local checkTab = {
+	[EQUIP_TAG.WEAPON]		= "IsWeapon",
+	[EQUIP_TAG.CLOTH]		= "IsCloth", 
+	[EQUIP_TAG.HAT]			= "IsHat", 	
+	[EQUIP_TAG.RING]		= "IsRing", 	
+	[EQUIP_TAG.GLOVE]		= "IsGlove", 
+	[EQUIP_TAG.NECKLACE]	= "IsNecklace", 
+	[EQUIP_TAG.BELT]		= "IsBelt", 	
+	[EQUIP_TAG.BOOT]		= "IsBoot", 	
+	[EQUIP_TAG.WING]		= "IsWing", 	
+	[EQUIP_TAG.FASHION]		= "IsFashion", 
+	[EQUIP_TAG.SOUL]		= "IsSoul", 	
+	---新加
+	[EQUIP_TAG.MOUNT]		= "isFashionMoun",	
+	[EQUIP_TAG.ALL] = "IsEquipment", 	
+}
+
+function game.getEquipmentType(type_id)
+	if game.IsEquipment(type_id) then
+		for i,v in ipairs(checkTab) do
+			if game[v](type_id) then
+				return i
+			end
+		end
+		return false
+	end
+	return false
+end
+
+-- 根据品质获取囚犯颜色
+local dartColor = {
+	[100] = 0x00FF7F, --0x36de00,				绿
+	[101] = 0x635E5E0,		--0x1eb8ff,	    蓝
+	[102] = 0xFFA500,	--0xff0a00,				橙
+	[103] = 0xDC143C, --						红
+}
+
+function game.getDartColor(level)
+	return game.getColor(dartColor[level] or dartColor[100])
+end
+
+-- 根据品质获取颜色		
+local qualityColor = {
+	[0] = 0xffffff, --0xfff7ec,				白
+	[1] = 0x00FF7F, --0x36de00,				绿
+	[2] = 0x635E5E0,		--0x1eb8ff,	    蓝
+	[3] = 0xff1fec,	--						紫
+	[4] = 0xFFA500,	--0xff0a00,				橙
+	[5] = 0xDC143C, --						红
+	[6] = 0xFFFF00, --						金
+}
+
+function game.getItemColor(quality)
+	return game.getColor(qualityColor[quality] or qualityColor[0])
+end
+
+function game.getItemColor4f(quality)
+	return game.getColor4f(qualityColor[quality] or qualityColor[1])
+end
+
+function game.isEquipMatchGender(type_id, gender)
+	local itemdef = NetClient:getItemDefByID(type_id)
+	if not itemdef then return end
+
+	return itemdef.mGender == 0 or itemdef.mGender == gender
+end
+
+function game.isEquipMatchJob(type_id, job)
+	local itemdef = NetClient:getItemDefByID(type_id)
+	if not itemdef then return end
+
+	return itemdef.mJob == 0 or itemdef.mJob == job
+end
+
+function game.isEquipMatchType(type_id, etype)
+	return etype == game.getEquipmentType(type_id)
+end
+
+function game.IsDissipative(type_id)
+	if type_id > 20000000 and type_id < 29999999 then
+		return true
+	else
+		return false
+	end
+end
+--药品
+function game.IsDrug(type_id, itemdef)
+	itemdef = itemdef or NetClient:getItemDefByID(type_id)
+	if not itemdef then return false end
+	-- if itemdef.SubType == 3 then
+	-- 	return true
+	-- end
+	return game.isDrug(itemdef.SubType)
+end
+--材料
+function game.IsStuff(type_id)
+	local itemdef = NetClient:getItemDefByID(type_id)
+	if not itemdef then return false end
+	-- if type_id > 20000000 and type_id < 29999999 and itemdef.SubType ~= 8 then
+	-- 	return true
+	-- else
+	-- 	return false
+	-- end
+	return game.isMaterial(itemdef.SubType)
+end
+
+-- 金币
+function game.isCoin(type_id)
+	-- body
+	return type_id == 40000003 or type_id == 40000004
+end
+--[[-- 获取当前捡取物品的状态
+function game.getPickState(type_id, showType)
+	print("pick---",type_id,G_AutoPickDrug,G_AutoPickStaff,G_AutoPickCoin,G_AutoPickEquip,G_AutoPickOther)
+	local itemdef = NetClient:getItemDefByID(type_id)
+	if not itemdef then return true end
+NetClient:alertLocalMsg("当前没有可回收装备！")
+	if showType == 1 then	--说明当前掉落物品是否要显示名字
+		if itemdef.mUserCon == "" then return true end
+		local userCon = UserConfig.getConf("Show"..itemdef.mUserCon)
+		return (userCon == "{}" or nil) and true or userCon
+	end
+
+	-- 药品
+	if game.IsDrug(type_id) then
+		if G_AutoPickDrug > 0 then
+			if itemdef.mUserCon == "" then return true end
+			local userCon = UserConfig.getConf("Auto"..itemdef.mUserCon)
+			return (userCon == "{}" or nil) and true or userCon
+		else
+			return false
+		end
+	end
+
+	-- 材料
+	if game.IsStuff(type_id) then
+		if G_AutoPickStaff > 0 then
+			if itemdef.mUserCon == "" then return true end
+			local userCon = UserConfig.getConf("Auto"..itemdef.mUserCon)
+			return (userCon == "{}" or nil) and true or userCon
+		else
+			return false
+		end
+	end
+
+	-- 金币
+	if game.isCoin(type_id) then
+		return G_AutoPickCoin > 0 
+	end
+
+	-- 元宝
+	if game.isMoney(itemdef.SubType) then
+		if G_AutoPickVcoin > 0 then
+			if itemdef.mUserCon == "" then return true end
+			local userCon = UserConfig.getConf("Auto"..itemdef.mUserCon)
+			return (userCon == "{}" or nil) and true or userCon
+		else
+			return false
+		end
+	end
+
+	-- 星座仙器
+	if game.IsXZ(type_id) or game.IsXQ(type_id) then
+		if itemdef.mUserCon == "" then return true end
+		local userCon = UserConfig.getConf("Auto"..itemdef.mUserCon)
+		return (userCon == "{}" or nil) and true or userCon
+	end
+
+	-- 装备
+	if game.IsEquipment(type_id) then
+		if G_AutoPickEquip > 0 then
+			-- if itemdef.mUserCon == "" then return true end
+			local userCon = UserConfig.getConf("Auto"..itemdef.mUserCon)
+			return (userCon == "{}" or nil) and true or userCon
+		else
+			return false
+		end
+		-- if itemdef and(G_AutoPickEquipLevel >= 100 and G_AutoPickEquipLevel<=itemdef.mNeedZsLevel*10+90  or G_AutoPickEquipLevel<100 and G_AutoPickEquipLevel<= itemdef.mNeedParam) then -- 判断装备等级
+		-- 	return G_AutoPickEquip > 0
+		return false
+	end
+
+	-- 其他
+	return G_AutoPickOther > 0
+end]]--
+
+
+function game.getPickState(type_id)
+	-- print("pick---",type_id,G_AutoPickDrug,G_AutoPickStaff,G_AutoPickCoin,G_AutoPickEquip,G_AutoPickOther)
+	if game.IsDrug(type_id) then
+		return G_AutoPickDrug > 0
+	end
+
+	if game.IsStuff(type_id) then
+		return G_AutoPickStaff > 0
+	end
+
+	if game.isCoin(type_id) then
+		return G_AutoPickCoin > 0 
+	end
+	if game.IsEquipment(type_id) then
+		local itemdef = NetClient:getItemDefByID(type_id)
+		if itemdef and(G_AutoPickEquipLevel>=100 and G_AutoPickEquipLevel<=itemdef.mNeedZsLevel*10+90  or G_AutoPickEquipLevel<100 and G_AutoPickEquipLevel<= itemdef.mNeedParam) then -- 判断装备等级
+			return G_AutoPickEquip > 0
+		end
+		return false
+	end
+	return G_AutoPickOther >0
+end
+
+
+
+function game.IsWeapon(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_WEAPON
+	end
+end
+
+function game.IsCloak(type_id)
+	if type_id > 120000 and type_id < 129999 then
+		return true
+	else
+		return false
+	end
+end
+
+function game.IsCloth(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_CLOTH
+	end
+end
+
+function game.IsHat(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_HAT
+	end
+end
+
+function game.IsNecklace(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_NICKLACE
+	end
+end
+
+function game.IsGlove(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_GLOVE
+	end
+end
+
+function game.IsRing(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_RING
+	end
+end
+
+function game.IsBelt(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_BELT
+	end
+end
+
+function game.IsBoot(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_BOOT
+	end
+end
+--新加
+function game.IsWeapon1(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_WQ
+	end
+end
+
+
+function game.IsCloth1(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_YF
+	end
+end
+
+function game.IsHat1(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_TK
+	end
+end
+
+function game.IsNecklace1(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_XL
+	end
+end
+
+function game.IsGlove1(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_SZ
+	end
+end
+
+function game.IsRing1(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.ITEM_TYPE_XZ
+	end
+end
+
+function game.IsBelt1(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_YD
+	end
+end
+
+function game.IsBoot1(type_id)
+	local id = NetClient:getItemDefByID(type_id)
+	if id then
+		return id.mEquipType == Const.EQUIP_TYPE_XZ
+	end
+end
+----
+function game.IsMedal(type_id)--是否勋章
+	if type_id > 110000 and type_id < 119999 then
+		return true
+	else
+		return false
+	end
+end
+
+function game.IsWing(type_id)
+	if type_id > 130000 and type_id < 139999 then
+		return true
+	else
+		return false
+	end
+end
+
+function game.IsFashion(type_id)
+	if type_id > 150000 and type_id < 159999 then
+		return true
+	else
+		return false
+	end
+end
+function game.isFashionMount(type_id)
+	if type_id > 130000 and type_id < 139999 then
+		return true
+	else
+		return false
+	end
+end
+
+function game.IsSoul(type_id)
+	if type_id > 110000 and type_id < 119999 then
+		return true
+	else
+		return false
+	end
+end
+
+function game.IsShield(type_id) -- 护盾
+	local result, level
+	if type_id >= 190001 and type_id <= 190010 then
+		result = true
+		level = type_id - 190000
+	end
+	return result, level
+end
+
+function game.IsJewel(type_id) -- 宝石
+	local result, level
+	if type_id >= 200001 and type_id <= 200012 then
+		result = true
+		level = type_id - 200000
+	end
+	return result, level
+end
+
+function game.IsCrittoken(type_id) -- 暴击令牌
+	local result, level
+	if type_id >= 210001 and type_id <= 210024 then
+		result = true
+		level = type_id - 210000
+	end
+	return result, level
+end
+
+function game.IsPosInAvatar(pos)
+	if pos then
+		if pos > -999 and pos < 0 then
+			return true
+		else
+			return false
+		end
+	end
+	return false
+end
+
+function game.IsPassiveSkill(skill_type) --被动技能
+	if skill_type == Const.SKILL_TYPE_JiChuJianShu or 
+		skill_type == Const.SKILL_TYPE_GongShaJianShu or 
+		skill_type == Const.SKILL_TYPE_JinShenLiZhanFa then
+		-- if skill_type == Const.SKILL_TYPE_YiBanGongJi and NetClient.mCharacter.mJob == 100 then
+		-- 	return false
+		-- else
+			return true
+		-- end
+	end
+	return false
+end
+
+function game.clearNumStr(str)
+	local last,index = string.gsub(str,"%d","")
+	return last
+end
+
+function game.checkBagItem(type_id) ---验证背包是否有指定物品
+	for pos = 0, Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd - 1 do 
+		local netItem = NetClient:getNetItem(pos)
+		if netItem and netItem.mTypeID == type_id then
+			return true
+		end
+	end
+end
+
+function game.checkMainTaskPaused()
+	if game.guiding or game.isNewFunc or game.isNewSkill or game.equipsTipsOn or game.isStoryLine or game.isQiangHua or game.rechargeOn then
+		-- print(game.guiding , game.isNewFunc , game.isNewSkill , game.equipsTipsOn, game.isStoryLine, game.isQiangHua, game.rechargeOn)
+		-- print("checkMainTaskPausedcheckMainTaskPausedcheckMainTaskPausedcheckMainTaskPaused")
+		return true
+	end
+end
+
+-- function game.recordBoxMatch()
+-- 	for k,v in pairs(boxTable) do
+-- 		v.flag=0
+-- 	end
+-- 	for k,v in pairs(NetClient.bagItems) do
+-- 		if boxTable[v.mTypeID] then
+-- 			boxTable[v.mTypeID].flag=1
+-- 		end
+-- 	end
+-- 	game.enterGameBoxMatch()
+-- end
+
+-- function game.enterGameBoxMatch()
+-- 	local haveRed = false
+-- 	for i=10099,10108 do
+-- 		local state = game.checkBoxMatch(i)
+-- 		if state then haveRed=state end
+-- 	end
+-- 	if not haveRed then
+-- 		NetClient:dispatchEvent({name = Notify.EVENT_REMOVE_REDPOINT, lv = 51,index = 1})
+-- 	end
+-- end
+
+function game.checkBoxMatch(typeid)
+-- 	if typeid<10099 and typeid>10108 then return false end--不是宝箱或者钥匙
+-- 	if boxTable[typeid] and boxTable[typeid].flag==1 and boxTable[boxTable[typeid].bindObj].flag==1 then
+-- 		NetClient:dispatchEvent({name = Notify.EVENT_SHOW_REDPOINT, lv = 51,index = 1})
+-- 		return true	
+-- 	end
+	return false
+end
+
+function game.setQiangHuaTable(data)
+	if not data then return end
+	NetClient.equipTable={}
+	NetClient.equipTable=data
+	-- print(util.encode(NetClient.equipTable),"======================55555")
+	game.setQiangHuaEffect(data)
+end
+
+-- function game.getEquipQiangHuaLev(typeid)
+-- 	if not NetClient.equipTable then
+-- 		return 0 
+-- 	else
+-- 		local index = nil
+-- 		if typeid>=20001 and typeid<=20046 then--武器
+-- 			index = "-4"
+-- 		elseif typeid>=30001 and typeid<=35043 then--衣服
+-- 			index = "-6"
+-- 		elseif typeid>=40001 and typeid<=40043 then--头盔
+-- 			index = "-8"
+-- 		elseif typeid>=70001 and typeid<=70043 then--项链
+-- 			index = "-14"
+-- 		elseif typeid>=60001 and typeid<=60043 then--护腕
+-- 			if NetClient.equipTable["-12"]>NetClient.equipTable["-13"] then
+-- 				index = "-12"
+-- 			else
+-- 				index = "-13"
+-- 			end
+-- 		elseif typeid>=50001 and typeid<=50043 then--戒指
+-- 			if NetClient.equipTable["-10"]>NetClient.equipTable["-11"] then
+-- 				index = "-10"
+-- 			else
+-- 				index = "-11"
+-- 			end
+-- 		elseif typeid>=90005 and typeid<=90043 then--腰带
+-- 			index = "-18"
+-- 		elseif typeid>=100005 and typeid<=100043 then--鞋子
+-- 			index = "-20"
+-- 		end
+-- 		if index then
+-- 			return NetClient.equipTable[index]
+-- 		else
+-- 			return 0
+-- 		end
+-- 	end
+-- end
+
+function game.stopAutoFight()
+	if MainRole._mainAvatar then MainRole._mainAvatar:clearAutoMove() end
+	MainRole._moveToNearAttack = false
+	MainRole.stopAutoFight()
+end
+
+--主线是否可用
+function game.checkMainTaskUsable()
+	local tid, ts = NetClient:checkTaskState(1000)
+	if tid and ts > 1 then
+		return true
+	end
+end
+
+--强化等级对应的素材
+local resTable = {
+	["80"] =  {resPre=1000300,resLater=1000301},
+	["110"] = {resPre=1000400,resLater=1000401},
+	["140"] = {resPre=1000500,resLater=1000501},
+	["170"] = {resPre=1000600,resLater=1000601},
+	["190"] = {resPre=1000700,resLater=1000701},
+	["200"] = {resPre=1000800,resLater=1000801},
+}
+function game.getQiangHuaResid(level)
+	if resTable[tostring(level)] then
+		return resTable[tostring(level)]
+	else
+		return nil
+	end
+end
+
+--计算强化特特效显示
+function game.setQiangHuaEffect(data)
+	local lowLev = 300
+	for i,v in pairs(data) do
+		if v<=lowLev then
+			lowLev = v
+		end
+	end
+	MainRole.handleQiangHuaChange(game.getLow(lowLev))
+end
+
+function game.getLow(level)
+	if not level then return end
+	local resid = 0
+	if level>=200 then
+		resid =200
+	elseif level>=190 then
+		resid =190
+	elseif level>=170 then
+		resid =170
+	elseif level>=140 then
+		resid =140
+	elseif level>=110 then
+		resid =110
+	elseif level>=80 then
+		resid =80
+	end
+	return resid
+end
+
+local type_str = {
+	[1] = "武器",
+	[2] = "衣服",
+	[3] = "头盔",
+	[4] = "项链",
+	[5] = "手镯",
+	[6] = "戒指",
+	[7] = "腰带",
+	[8] = "鞋子",
+}
+
+function game.getItemType(typeid)
+	local strType = "道具"
+--[[	if game.IsXZ(typeid) then
+		strType = "星座"
+	elseif game.IsXQ(typeid) then
+		strType = "仙器"
+	elseif game.IsMount(typeid) then
+		strType = "坐骑"
+	-- elseif game.IsDL(typeid) then
+		-- strType = "斗笠"	
+	elseif game.IsCS(typeid) then
+		strType = "传世"
+	
+	elseif game.IsSQ(typeid) then
+		strType = "上古神器"
+	elseif game.IsLB(typeid) then
+		strType = "鸿蒙灵宝"]]--
+	if game.IsEquipment(typeid) then
+		strType = "装备"
+		local b = math.floor((typeid % 100)/10)--mxwx 获取多少位
+		strType = type_str[b] or strType
+		
+	end
+	return strType
+end
+
+local head_key ={"head_mzs","head_fzs","head_mfs","head_ffs","head_mds","head_fds"}
+
+function game.getHeadRes(job, gender)
+	local id = 1
+	if job and gender then
+		id = (job - 100) * 2 + gender - 199
+	end
+	return head_key[id]
+end
+
+-- 只有药品和回城石，传送石，随机传送石能放入快捷设置
+local shortCutItems = {
+	32010001,32010002,32010003,
+}
+--物品能否快捷设置
+function game.checkShortCutItem(typeid)
+	local itemdef = NetClient:getItemDefByID(typeid)
+	if itemdef then
+		return game.IsDrug(typeid, itemdef) or table.indexof(shortCutItems, typeid)
+	end
+
+	return false
+
+	-- return game.IsDissipative(typeid)
+end
+
+-- 战士技能
+function game.isWarriorSkill(skill_type)
+	return skill_type > Const.SKILL_TYPE_YiBanGongJi and skill_type < Const.SKILL_TYPE_ZhuRiJianFa
+end
+-- 法师技能
+function game.isWizardSkill(skill_type)
+	return skill_type > Const.SKILL_TYPE_HuoQiuShu and skill_type < Const.SKILL_TYPE_LiuXingHuoYu
+end
+--道士技能
+function game.isTaoistSkill(skill_type)
+	return skill_type > Const.SKILL_TYPE_ZhiYuShu and skill_type < Const.SKILL_TYPE_ZhaoHuanYueLing
+end
+
+function game.getSkillDesp(skill_type)
+	for _,v in ipairs(NetClient.m_skillsDesp) do
+		if v.skill_id == skill_type then
+			return v
+		end
+	end
+end
+
+-- 魔法是否充足
+function game.checkMpEnough(skill_type)
+	local nsd = game.getSkillDesp(skill_type)
+	if nsd and MainRole._mainAvatar then
+		return MainRole._mainAvatar:NetAttr(Const.net_mp) >= nsd.mConsumeMp
+	end
+end
+
+function game.getSkillCDTime(skill_type)
+	local nsd = game.getSkillDesp(skill_type)
+	if nsd then
+		-- print("game.getSkillCDTime", util.encode(nsd))
+		return nsd.mSKillCD, nsd.mPublicCD
+	end
+end
+
+function game.checkSkillCD(skill_type, alert)
+	if game.IsSwitchSkill(skill_type) then
+		return true
+	end
+
+	local mSkillCD, mPublicCD = game.getSkillCDTime(skill_type)
+	if mSkillCD and mPublicCD then
+		local time = game.getTime()
+		--  公共cd检测
+		if not NetClient.mPublicCDTime[mPublicCD] then
+			NetClient.mPublicCDTime[mPublicCD] = 0
+		end
+		if time - mPublicCD >= NetClient.mPublicCDTime[mPublicCD] then -- 公共cd满足
+			-- 自身cd检测
+			if not NetClient.mSkillCDTime[mSkillCD] then
+				NetClient.mSkillCDTime[mSkillCD] = 0
+			end
+			if time - mSkillCD >= NetClient.mSkillCDTime[skill_type] then -- 自身cd满足
+				-- print("game.checkSkillCD", skill_type, time, mPublicCD, NetClient.mPublicCDTime[mPublicCD], mSkillCD, NetClient.mPublicCDTime[mSkillCD])
+				return true
+			else
+				if alert and DEBUG==1 then
+					NetClient:alertLocalMsg("技能"..skill_type.."在CD中！", "alert")
+				end
+			end
+		else
+			if alert and DEBUG==1 then
+				print(NetClient.mPublicCDTime[mPublicCD])
+				NetClient:alertLocalMsg("技能"..skill_type.."在公共CD中！", "alert")
+			end
+		end
+	else
+		if alert and DEBUG==1 then
+			NetClient:alertLocalMsg("无法获取技能"..skill_type.."的CD时间！", "alert")
+		end
+	end
+	return false
+end
+
+-------是否被动技能，被动技能不可设置到转盘 
+-- (skill_type == Const.SKILL_TYPE_JiChuJianShu or skill_type == Const.SKILL_TYPE_JinShenLiZhanFa)
+function game.IsPassiveSkill(skill_type) --被动技能
+	local nsd = game.getSkillDesp(skill_type)
+	if nsd and nsd.mCastWay == 3 then
+		return true
+	end
+end
+
+--是否开关技能
+-- local switch_skills = {
+	
+-- }
+
+function game.IsSwitchSkill(skill_type)
+	return skill_type == Const.SKILL_TYPE_CiShaJianShu or skill_type == Const.SKILL_TYPE_BanYueWanDao
+end
+
+function game.IsLieHuoTypeSkill(skill_type)
+	return skill_type == Const.SKILL_TYPE_LieHuoJianFa or skill_type == Const.SKILL_TYPE_PoTianZhan or skill_type == Const.SKILL_TYPE_ZhuRiJianFa
+end
+
+----------------宝石相关----------------
+
+local gemConf = {
+	[Const.GEM_TYPE_HOLY] = {
+		mPriority = 1, mBegin = Const.ITEM_GEM_HOLY_BEGIN, mEnd = Const.ITEM_GEM_HOLY_END
+	},
+	[Const.GEM_TYPE_CRI_PROB] = {
+		mPriority = 2, mBegin = Const.ITEM_GEM_CRI_PROB_BEGIN, mEnd = Const.ITEM_GEM_CRI_PROB_END
+	},
+	[Const.GEM_TYPE_CRI] = {
+		mPriority = 3, mBegin = Const.ITEM_GEM_CRI_BEGIN, mEnd = Const.ITEM_GEM_CRI_END
+	},
+	[Const.GEM_TYPE_ATTACK] = {
+		mPriority = 4, mBegin = Const.ITEM_GEM_ATTACK_BEGIN, mEnd = Const.ITEM_GEM_ATTACK_END
+	},
+	[Const.GEM_TYPE_AC] = {
+		mPriority = 5, mBegin = Const.ITEM_GEM_AC_BEGIN, mEnd = Const.ITEM_GEM_AC_END
+	},
+	[Const.GEM_TYPE_MAC] = {
+		mPriority = 6, mBegin = Const.ITEM_GEM_MAC_BEGIN, mEnd = Const.ITEM_GEM_MAC_END
+	},
+	[Const.GEM_TYPE_HP] = {
+		mPriority = 7, mBegin = Const.ITEM_GEM_HP_BEGIN, mEnd = Const.ITEM_GEM_HP_END
+	},
+	[Const.GEM_TYPE_MP] = {
+		mPriority = 8, mBegin = Const.ITEM_GEM_MP_BEGIN, mEnd = Const.ITEM_GEM_MP_END
+	}
+}
+
+function game.IsGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_BEGIN and typeId < Const.ITEM_GEM_END
+end
+
+function game.IsLevelDan(typeId)
+	return typeId and typeId ~= 23100013 and typeId > Const.ITEM_LEVELDAN_BEGIN and typeId < Const.ITEM_LEVELDAN_END
+end
+
+function game.IsSelcetBox(typeId)
+	return typeId and typeId > Const.ITEM_SELECT_BEGIN and typeId < Const.ITEM_SELECT_END
+end
+
+function game.IsAttackGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_ATTACK_BEGIN and typeId < Const.ITEM_GEM_ATTACK_END
+end
+
+function game.IsACkGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_AC_BEGIN and typeId < Const.ITEM_GEM_AC_END
+end
+
+function game.IsMACkGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_MAC_BEGIN and typeId < Const.ITEM_GEM_MAC_END
+end
+
+function game.IsHpGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_HP_BEGIN and typeId < Const.ITEM_GEM_HP_END
+end
+
+function game.IsMpGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_MP_BEGIN and typeId < Const.ITEM_GEM_MP_END
+end
+
+function game.IsSpecialGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_SPECIAL_BEGIN and typeId < Const.ITEM_GEM_SPECIAL_END
+end
+--神圣宝石
+function game.IsHolyGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_HOLY_BEGIN and typeId < Const.ITEM_GEM_HOLY_END
+end
+--暴击宝石
+function game.IsCriProbGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_CRI_PROB_BEGIN and typeId < Const.ITEM_GEM_CRI_PROB_END
+end
+--暴伤宝石
+function game.IsCriGem(typeId)
+	return typeId and typeId > Const.ITEM_GEM_CRI_BEGIN and typeId < Const.ITEM_GEM_CRI_END
+end
+
+--宝石排序优先级
+function game.getGemPriority(typeId)
+	for _, v in ipairs(gemConf) do
+		if typeId > v.mBegin and typeId < v.mEnd then
+			return v.mPriority
+		end
+	end
+end
+
+function game.getGemType(typeId)
+	for gemType, v in ipairs(gemConf) do
+		if typeId > v.mBegin and typeId < v.mEnd then
+			return gemType
+		end
+	end
+end
+
+local function sortFunc(gemPos1, gemPos2)
+	local netItem1 = NetClient:getNetItem(gemPos1)
+	local netItem2 = NetClient:getNetItem(gemPos2)
+	local mPriority1 = game.getGemPriority(netItem1.mTypeID)
+	local mPriority2 = game.getGemPriority(netItem2.mTypeID)
+	if mPriority1 < mPriority2 then --先依据类别排序
+		return true
+	elseif mPriority1 == mPriority2 then -- 同类别依据等级排序
+		return netItem1.mTypeID > netItem2.mTypeID
+	end
+end
+
+--依据类型获取宝石pos的数组
+--获取宝石数组排序好(神圣》暴击》暴伤》攻击》物防》魔防》生命》魔法)
+function game.getGemsAndSort(gemType)
+	-- 宝石pos数组
+	local gemTable = {}
+	local netItem, mType
+	for pos = Const.ITEM_BAG_BEGIN, Const.ITEM_BAG_BEGIN + Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd - 1 do
+		netItem = NetClient:getNetItem(pos)
+		if netItem and game.IsGem(netItem.mTypeID) then
+			if (not gemType) then
+				table.insert(gemTable, pos)
+			elseif type(gemType) == "number" then
+				if game.getGemType(netItem.mTypeID) == gemType then
+					table.insert(gemTable, pos)
+				end
+			elseif type(gemType) == "table" then
+				mType = game.getGemType(netItem.mTypeID)
+				if table.indexof(gemType, mType) then
+					table.insert(gemTable, pos)
+				end
+			end
+		end
+	end
+	-- 进行排序
+	table.sort(gemTable, sortFunc)
+	return gemTable
+end
+
+local guildInfo = {
+	[1]={level = 1, need_exp=1000000,	opex=300,	upper_limit=15, dc=11,	buff_id=29001,},
+	[2]={level = 2, need_exp=5000000,	opex=400,	upper_limit=18, dc=16,	buff_id=29002,},
+	[3]={level = 3, need_exp=20000000,	opex=500,	upper_limit=21, dc=21,	buff_id=29003,},
+	[4]={level = 4, need_exp=50000000,	opex=600,	upper_limit=24,	dc=26,	buff_id=29004,},
+	[5]={level = 5, need_exp=100000000,	opex=800,	upper_limit=27,	dc=31,	buff_id=29005,},
+	[6]={level = 6, need_exp=300000000,	opex=1000,	upper_limit=30,	dc=36,	buff_id=29006,},
+	[7]={level = 7, need_exp=0,			opex=1200,	upper_limit=35, dc=41,	buff_id=29007,},
+}
+
+function game.getGuildMemberMax(level)
+	if guildInfo[level] then
+		return guildInfo[level].upper_limit
+	end
+	return 0
+end
+
+function game.getSkillUseState(skillid)
+	return table.indexof(NetClient.NetAutoSkills, skillid) and true or false
+end
+
+local bloodStones = {
+	20003001,
+	20003002,
+	20003003,
+} 
+
+function game.isBloodStone(type_id)
+	return type_id and table.indexof(bloodStones, type_id)
+end
+
+function game.isUsageTipProp(type_id)
+	-- local id = NetClient:getItemDefByID(type_id)
+	-- if id then
+	-- 	if id.SubType == Const.ITEM_TYPE_MONEY then
+	-- 		return true
+	-- 	elseif id.SubType == Const.ITEM_TYPE_MATERIAL then
+	-- 		return true
+	-- 	elseif game.isBloodStone(type_id) then
+	-- 		return true
+	-- 	end
+	-- end
+	return game.isBloodStone(type_id)
+end
+
+---批量使用物品
+function game.canBatchUse(type_id)
+	local itemDef = NetClient:getItemDefByID(type_id)
+	return type_id and itemDef and itemDef.mCanUse==2
+end
+
+--双击道具打开对应的面板 mxwx
+local itemsOpen = {
+	[24000001]={itemName="神将进阶丹",panelName="extend_mars"},
+	[24060001]={itemName="宝藏钥匙",  panelName="extend_lottory"},
+
+	[24020001]={itemName="黑铁矿石",  panelName="main_forge"},
+	[24020002]={itemName="青铜矿石",  panelName="main_forge"},
+	[24020003]={itemName="白银矿石",  panelName="main_forge"},
+	[24020004]={itemName="紫金矿石",  panelName="main_forge"},
+	[24070002]={itemName="时装碎片",  panelName="extend_hecheng"},
+	[24070003]={itemName="幻武碎片",  panelName="extend_hecheng"},
+	[24070004]={itemName="翅膀碎片",  panelName="extend_hecheng"},
+	[24070005]={itemName="脚印碎片",  panelName="extend_hecheng"},
+	[24070006]={itemName="坐骑碎片",  panelName="extend_hecheng"},
+	[24070007]={itemName="冰冻项链碎片",  panelName="extend_hecheng"},
+	[24070008]={itemName="斗笠碎片",  panelName="extend_hecheng"},
+	[24070001]={itemName="书页",  panelName="extend_hecheng"},
+	[24080001]={itemName="灵力宝珠",  panelName="extend_hecheng"},
+	[24080002]={itemName="神技残叶",  panelName="extend_hecheng"},
+	[24080003]={itemName="悟性灵丹",  panelName="extend_hecheng"},
+	[24090001]={itemName="神石",  panelName="main_compose"},
+	[24090002]={itemName="神石碎片",  panelName="extend_hecheng"},
+	[24090003]={itemName="盾牌升级石",  panelName="panel_shield"},
+	[24090005]={itemName="五彩神石",  panelName="main_compose"},
+	[24090006]={itemName="冰灵圣泉",  panelName="extend_hecheng"},
+	[24090009]={itemName="五彩神石碎片",  panelName="extend_hecheng"},
+	[23100101]={itemName="升级丹碎片",  panelName="extend_hecheng"},
+
+}
+function game.useItemOpen(type_id)
+	if itemsOpen[type_id] then
+		NetClient:dispatchEvent({name=Notify.EVENT_OPEN_PANEL,str=itemsOpen[type_id].panelName,value = itemsOpen[type_id].value,id=type_id})
+		return true
+	end
+	return false
+end
+
+local basic_func = {
+	"btn_main_avatar",  "btn_main_skill", "btn_main_equip", "btn_main_wing", "btn_main_puzzle", "btn_main_achieve", "btn_main_social", "btn_main_rank", "btn_main_system", 
+	"btn_main_forge", "btn_main_furnace", "btn_main_official", "btn_main_compose", "btn_main_convert", 
+	"btn_main_friend", "btn_main_group", "btn_main_guild", "btn_main_mail", "btn_main_consign"
+}
+function game.isMainButton(name)
+	return table.indexof(basic_func, name)
+end
+
+function game.setTouchingRocker(touching)
+	_touchingRocker = touching
+end
+
+function game.isTouchingRocker()
+	return _touchingRocker
+end
+
+-- 背包物品需要显示使用红点提示
+local needShowUseItems = {
+	23000001,23000002,23000003,23010001,23010002,23010003,23020001,23020002,23020003,23030001,23030002,23030003,
+}
+
+function game.checkItemShowUse(typeId)
+	local itemdef = NetClient:getItemDefByID(typeId)
+	if itemdef and itemdef.mBagShow == 1 then
+		-- print("////////////////////////////checkItemShowUse///////////////////////////", itemdef.mBagShow, itemdef.mTimesLimit, NetClient:canItemUse(typeId))
+		if (itemdef.mTimesLimit == 0) or (itemdef.mTimesLimit == 1 and NetClient:canItemUse(typeId)) then
+			return true
+		end
+	end
+	return false
+end
+
+local canSellId = {
+	32010001,32010002,32010003,
+}
+function game.checkBatchSell(typeId)
+	if table.indexof(canSellId,typeId) then 
+		return true
+	else
+		return false
+	end
+	
+end
+
+--是装备且能穿戴
+function game.checkEquipDress(pos)
+	local newItem = NetClient.mItems[pos]
+	if newItem then 
+		local itemDef = NetClient:getItemDefByID(newItem.mTypeID)
+		if not game.IsEquipment(newItem.mTypeID) then
+			return false
+		end
+		if itemDef then
+			local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+			local level = MainRole._mainAvatar:NetAttr(Const.net_level)
+			local zlevel = MainRole._mainAvatar:NetAttr(Const.net_zslevel)
+			local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+			print(gender,level,zlevel,job,"==============00000000000000000")
+			if itemDef.mJob>0 and itemDef.mJob~=job then return false end--职业不匹配
+			if itemDef.mGender>0 and gender~=itemDef.mGender then return false end--性别不匹配
+			if level<itemDef.mNeedParam or zlevel<itemDef.mNeedZsLevel then return false end--等级不匹配
+		end
+	end
+	return true
+end
+
+-- kinyz新增判断光环脚印
+function game.checkstep(itemdef)
+	if itemdef.mEquipType == 34 then
+		if itemdef.mResMale == 0 then
+			Const.STEP_ID = 0
+		else
+			Const.STEP_ID = itemdef.mResMale
+		end
+	end
+
+	if itemdef.mEquipType == 18 then
+
+		if itemdef.mResMale == 0 then
+			Const.GUANGHUAN_ID = 0
+		else
+			Const.GUANGHUAN_ID = itemdef.mResMale
+		end
+	end
+
+	print("装备类别="..itemdef.mEquipType)
+	print("装备特效="..itemdef.mResMale)
+end
+
+--获取背包里的拼图碎片pos
+function game.getPinTuPos()
+	local result = {}
+	local startId = 33000001
+	local endId = 33001809
+	for i=0,Const.ITEM_BAG_MAX do
+		local newItem = NetClient.mItems[i]
+		if newItem and newItem.mTypeID>=startId and newItem.mTypeID<=endId then
+			table.insert(result,i)
+		end
+	end
+	return result
+end
+
+function game.isPinTu(typeId)
+	local startId = 33000001
+	local endId = 33001809
+	if typeId>=startId and typeId<=endId then
+		return true
+	end
+	return false
+end
+
+function game.c3b_to_c4b(c3b,a)
+	return { r = c3b.r, g = c3b.g,  b = c3b.b, a and tonumber(a) or 255 }
+end
+
+
+return game
+

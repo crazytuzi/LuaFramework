@@ -1,0 +1,2481 @@
+local MainRole = {}
+
+local m_tile_step = {{0,-1},{1,-1},{1,0},{1,1},{0,1},{-1,1},{-1,0},{-1,-1}}
+
+--自动攻击技能
+-- local autoSkill = {
+	-- [Const.JOB_ZS] = {
+		-- Const.SKILL_TYPE_CiShaJianShu, Const.SKILL_TYPE_BanYueWanDao, Const.SKILL_TYPE_LieHuoJianFa
+	-- },
+-- 	[Const.JOB_FS] = {
+-- 		Const.SKILL_TYPE_MoFaDun, Const.SKILL_TYPE_LeiDianShu, Const.SKILL_TYPE_BingPaoXiao, Const.SKILL_TYPE_DiYuLeiGuang
+-- 	},
+-- 	[Const.JOB_DS] = {
+-- 		Const.SKILL_TYPE_YouLingDun, Const.SKILL_TYPE_ZhaoHuanShenShou, Const.SKILL_TYPE_ShiDuShu, Const.SKILL_TYPE_LingHunHuoFu
+-- 	}
+-- }
+
+--辅助技能
+local toneUpSKills = {
+	Const.SKILL_TYPE_JiTiYinShenShu,
+	Const.SKILL_TYPE_YouLingDun,
+	Const.SKILL_TYPE_QunTiZhiLiao,
+	Const.SKILL_TYPE_ShenShengZhanJiaShu
+}
+
+--无需目标技能
+local noTargetSkills = {
+	Const.SKILL_TYPE_MoFaDun,
+	Const.SKILL_TYPE_KangJuHuoHuan,
+	Const.SKILL_TYPE_DiYuLeiGuang,
+	Const.SKILL_TYPE_YeManChongZhuang,
+}
+
+-- 开关类技能 mxwx 关闭烈火和逐日没效果
+local flagSkills = {
+	-- Const.SKILL_TYPE_LieHuoJianFa, Const.SKILL_TYPE_PoTianZhan, skill_type == Const.SKILL_TYPE_ZhuRiJianFa
+	Const.SKILL_TYPE_LieHuoJianFa, Const.SKILL_TYPE_ZhuRiJian, skill_type == Const.FaSKILL_TYPE_PoTianZhan
+}
+
+--先打开再选择格子技能
+local selectGridSkills = {
+	-- Const.SKILL_TYPE_HuoQiang, 
+	Const.SKILL_TYPE_JiTiYinShenShu, 
+	Const.SKILL_TYPE_QunTiZhiLiao, 
+	Const.SKILL_TYPE_YouLingDun
+}
+
+--打开后可持续点击地面释放技能
+local castGridSkills = {
+	Const.SKILL_TYPE_HuoQiang
+}
+
+--攻击类技能需要目标
+local attackSkills = {
+	Const.SKILL_TYPE_LeiDianShu, 
+	Const.SKILL_TYPE_BingPaoXiao, 
+	Const.SKILL_TYPE_LingHunHuoFu,
+	Const.SKILL_TYPE_ShiDuShu,
+	Const.SKILL_TYPE_ShiBuYiSha,
+	Const.SKILL_TYPE_QinLongShou,
+}
+------------------------------------------------------------------------------------------------------------------
+
+local function isTaskTargetMon(mon)
+	if NetClient.mTaskTargetMap ~= NetClient.mNetMap.mMapID then
+		-- print("-------------isTaskTargetMon",NetClient.mTaskTargetMap,NetClient.mNetMap.mMapID)
+		return true
+	end
+	if NetClient.mTaskTargetMon and mon:NetAttr(Const.net_type)==Const.GHOST_MONSTER then
+		-- if NetClient.mTaskTargetMon == mon:NetAttr(Const.net_name) then
+			-- print("-------------isTaskTargetMon,net_name",mon:NetAttr(Const.net_type),mon:NetAttr(Const.net_name))
+		-- end
+		return NetClient.mTaskTargetMon == mon:NetAttr(Const.net_name)
+	else
+		-- print("-------------isTaskTargetMon,mon",mon:NetAttr(Const.net_type),mon:NetAttr(Const.net_name))
+		return true
+	end
+end
+
+local function getMonsterOwner(monster)
+	if monster then
+		local monId = monster:NetAttr(Const.net_id)
+		local owner = NetClient:getMonsterOwner(monId)
+		if owner then
+			return owner.hiterid
+		end
+	end
+	return 0
+end
+
+local function checkMoFaDun(srcid)
+	if NetClient.mNetBuff then
+		local tab = NetClient.mNetBuff[srcid]
+		if tab then
+			for i=1,13 do
+				if tab[30000+i] then return true end
+			end
+		end
+	end
+end
+
+local function checkShiDuShu(srcid)
+	if NetClient.mNetBuff then
+		local tab = NetClient.mNetBuff[srcid]
+		if tab then
+			for i=1,13 do
+				if tab[31000+i] then return true end
+			end
+		end
+	end
+end
+
+local function checkShengJiaShu(srcid)
+	if NetClient.mNetBuff then
+		local tab = NetClient.mNetBuff[srcid]
+		if tab then
+			for i=1,13 do
+				if tab[32000+i] then return true end
+			end
+		end
+	end
+end
+
+-- 自动打怪优先级比较
+local function isMonHigherPriority(monA, monB)
+	-- print("isMonHigherPriority")
+	if MainRole._mainAvatar and monA and monB then
+		local disA = cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(monA.mX,monA.mY))
+		local disB = cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(monB.mX,monB.mY))
+		local isBossA = monA:NetAttr(Const.net_isboss)
+		isBossA = type(isBossA) == "boolean" and 0 or isBossA
+		local isBossB = monB:NetAttr(Const.net_isboss)
+		isBossB = type(isBossB) == "boolean" and 0 or isBossB
+
+		local ownerA = getMonsterOwner(monA)
+		-- ownerA = type(ownerA) == "boolean" and 0 or ownerA
+		local ownerB = getMonsterOwner(monB)
+		-- ownerB = type(ownerB) == "boolean" and 0 or ownerB
+
+		local isOwnerA = (ownerA == MainRole.mID or ownerA == 0)
+		local isOwnerB = (ownerB == MainRole.mID or ownerB == 0)
+
+		local isTargetA = isTaskTargetMon(monA)
+		local isTargetB = isTaskTargetMon(monB)
+		-- print("monA is", MainRole.mID, monA:NetAttr(Const.net_name), ownerA, isBossA, disA, isTargetA)
+		-- print("monB is", MainRole.mID, monB:NetAttr(Const.net_name), ownerB, isBossB, disB, isTargetB)
+		if (isTargetA == isTargetB) then
+			-- 优先判定归属
+			-- if (isOwnerA == isOwnerB) then -- 都为我的归属怪或者都不是
+				if isBossA == isBossB then
+					if isBossA == 1 then -- 同为Boss,优先少血,同少血则优先距离
+						-- if monA.mHp == monB.mHp then
+						-- 	return (disA > 0 and disA < disB)
+						-- else
+						-- 	return monA.mHp < monB.mHp
+						-- end
+						if	(disA == disB) then		--20191023 同距离优先少血， 否则优先距离
+							return monA.mHp < monB.mHp
+						else
+							return (disA > 0 and disA < disB)		
+						end
+						
+					else --同为小怪, 优先距离,同距离则优先少血
+						if disA == disB then
+							return monA.mHp < monB.mHp
+						else
+							return (disA > 0 and disA < disB)
+						end
+					end
+				else
+					return isBossA == 1
+				end
+			-- elseif not isOwnerB then
+			-- 	if isOwnerA then
+			-- 		return true
+			-- 	end
+			-- 	if ownerA == 0 then
+			-- 		return true
+			-- 	end
+			-- end
+		else
+			return isTargetA == true
+		end
+	end
+end
+
+-- 自动打怪寻找目标怪物
+local function getAutoFightMonster()
+	local netMon, tempMon
+	local netMons=NetCC:getNearGhost(Const.GHOST_MONSTER)
+	for _,v in ipairs(netMons) do
+		tempMon = MainRole.getAimGhost(v)
+		-- print("11111111", v, tempMon)
+		if tempMon then
+			if not netMon or isMonHigherPriority(tempMon, netMon) then
+				netMon = tempMon
+			end
+		end
+	end
+	return netMon
+end
+
+--判断是否增益(辅助)技能(增益技能可对自己释放，伤害技能不能对自己释放)
+local function isToneUpSkill(skill_type)
+	return table.indexof(toneUpSKills, skill_type)
+end
+
+--判断是否无需目标技能
+local function isNoTargetSkill(skill_type)
+	return table.indexof(noTargetSkills, skill_type)
+end
+
+--判断是否点击格子释放技能
+local function isSelectGridSkill(skill_type)
+	return table.indexof(selectGridSkills, skill_type)
+end
+
+local function isCastGridSkill(skill_type)
+	return table.indexof(castGridSkills, skill_type)
+end
+
+local function isAttackSkill(skill_type)
+	return table.indexof(attackSkills, skill_type)
+end
+
+------------------技能释放对象相关函数------------------
+local function canCastSkillToAimGhost (skill_type, mAimGhost)
+	if mAimGhost.mType == Const.GHOST_PLAYER then
+		return true
+	elseif mAimGhost.mType == Const.GHOST_MONSTER then
+		return true
+	elseif mAimGhost.mType == Const.GHOST_SLAVE then
+		return true
+	elseif mAimGhost.mType == Const.GHOST_THIS then
+		return true
+	end
+	return false
+end
+
+--自动技能相关
+
+local function getDistanceSQ(mAimGhost)
+	if mAimGhost then
+		return cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(mAimGhost.mX,mAimGhost.mY))
+	end
+	return -1
+end
+
+--战士(战士技能服务器控制)
+local function getWarriorAiSkill()
+	local skill_type = Const.SKILL_TYPE_YiBanGongJi
+	if not NetClient.m_netSkill[Const.SKILL_TYPE_ZhuRiJianFa] then
+		return skill_type
+	end
+	if not game.checkMpEnough(Const.SKILL_TYPE_ZhuRiJianFa) then
+		return skill_type
+	end
+	if not game.getSkillUseState(Const.SKILL_TYPE_ZhuRiJianFa) then
+		return skill_type
+	end
+	if not game.checkSkillCD(Const.SKILL_TYPE_ZhuRiJianFa) then
+		return skill_type
+	end
+	skill_type = Const.SKILL_TYPE_ZhuRiJianFa
+	return skill_type
+end
+
+--法师群攻和单体的自动切换
+local function getWizardAiSkill(mAimGhost)
+	local skill_type = Const.SKILL_TYPE_YiBanGongJi;
+	if #NetCC:getGhostsAroundPos(mAimGhost.mX, mAimGhost.mY, Const.GHOST_MONSTER) > 1 and game.getSkillUseState(Const.SKILL_TYPE_BingPaoXiao) then -- 目标附近多只怪物
+		if NetClient.m_netSkill[Const.SKILL_TYPE_BingPaoXiao] and game.checkMpEnough(Const.SKILL_TYPE_BingPaoXiao)  then
+			skill_type = Const.SKILL_TYPE_BingPaoXiao
+		end
+	end
+	
+	if (not mAimGhost) or getDistanceSQ(mAimGhost) <= 2  then
+		if #NetCC:getGhostsAroundPos(MainRole.mX, MainRole.mY, Const.GHOST_MONSTER) > 1 and game.getSkillUseState(Const.SKILL_TYPE_DiYuLeiGuang) then -- 自身附近近多只怪物
+			if NetClient.m_netSkill[Const.SKILL_TYPE_DiYuLeiGuang] and game.checkMpEnough(Const.SKILL_TYPE_DiYuLeiGuang)  then
+				skill_type = Const.SKILL_TYPE_DiYuLeiGuang
+			end
+		end
+	end
+
+	if skill_type == Const.SKILL_TYPE_YiBanGongJi then
+		if NetClient.m_netSkill[Const.SKILL_TYPE_LeiDianShu] and game.checkMpEnough(Const.SKILL_TYPE_LeiDianShu) and game.getSkillUseState(Const.SKILL_TYPE_LeiDianShu) then
+			skill_type = Const.SKILL_TYPE_LeiDianShu
+		end
+	end
+	return skill_type
+end
+
+--道士目标没有中毒状态则施毒，否则火符
+local function getTaoistAiSkill(mAimGhost)
+	local skill_type = Const.SKILL_TYPE_YiBanGongJi
+	local mAimGhostID = mAimGhost:NetAttr(Const.net_id)
+	if not checkShiDuShu(mAimGhostID) then -- 没有中毒自动施毒术
+		if NetClient.m_netSkill[Const.SKILL_TYPE_ShiDuShu] and game.checkMpEnough(Const.SKILL_TYPE_ShiDuShu) and game.getSkillUseState(Const.SKILL_TYPE_ShiDuShu) then
+			skill_type = Const.SKILL_TYPE_ShiDuShu
+		end
+	end
+	if skill_type == Const.SKILL_TYPE_YiBanGongJi then
+		if NetClient.m_netSkill[Const.SKILL_TYPE_LingHunHuoFu] and game.checkMpEnough(Const.SKILL_TYPE_LingHunHuoFu) then
+			skill_type = Const.SKILL_TYPE_LingHunHuoFu
+		end
+	end
+	return skill_type
+end
+
+-- 有目标时的简单ai技能
+local function getEasyAiSkill(mAimGhost)
+	local skill_type = Const.SKILL_TYPE_YiBanGongJi
+	if MainRole.mJob == Const.JOB_ZS then
+		skill_type = getWarriorAiSkill(mAimGhost)
+	elseif MainRole.mJob == Const.JOB_FS then
+		skill_type = getWizardAiSkill(mAimGhost)
+	elseif MainRole.mJob == Const.JOB_DS then
+		skill_type = getTaoistAiSkill(mAimGhost)
+	end
+	return skill_type
+end
+
+-- 无目标时默认ai技能
+local function getAiSkill()
+	local skill_type = Const.SKILL_TYPE_YiBanGongJi
+	if MainRole._mainAvatar:NetAttr(Const.net_job) == Const.JOB_ZS then
+		
+	elseif MainRole._mainAvatar:NetAttr(Const.net_job) == Const.JOB_DS then
+		if NetClient.m_netSkill[Const.SKILL_TYPE_LingHunHuoFu] then
+			skill_type = Const.SKILL_TYPE_LingHunHuoFu
+		end
+	elseif MainRole._mainAvatar:NetAttr(Const.net_job) == Const.JOB_FS then
+		if NetClient.m_netSkill[Const.SKILL_TYPE_LeiDianShu] then
+			skill_type = Const.SKILL_TYPE_LeiDianShu
+		end
+	end
+
+	return skill_type
+end
+
+-- 技能mp检测，如果不足，法师默认雷电，道士默认火符 ???(为啥这么干)
+local function updateEnabledSkill(skill_type)
+	MainRole.updateAttr()
+	local aiSkill = skill_type
+	if MainRole.mJob == Const.JOB_FS then
+		aiSkill = Const.SKILL_TYPE_LeiDianShu
+		if game.checkMpEnough(skill_type) and skill_type ~= Const.SKILL_TYPE_YiBanGongJi then
+			aiSkill = skill_type
+		end
+	elseif MainRole.mJob == Const.JOB_DS then
+		aiSkill = Const.SKILL_TYPE_LingHunHuoFu
+		if game.checkMpEnough(skill_type) and skill_type ~= Const.SKILL_TYPE_YiBanGongJi then
+			aiSkill = skill_type
+		end
+	end
+	return aiSkill
+end
+
+-- 点击快捷攻击按钮释放的技能
+local function checkDefaultSkillAttack()
+	local default_skill = Const.SKILL_TYPE_YiBanGongJi
+	if MainRole._mainAvatar then
+		local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+		if job == Const.JOB_FS then
+			default_skill = Const.SKILL_TYPE_LeiDianShu
+		elseif job == Const.JOB_DS then
+			if NetClient.mChangeAimFirst then -- 切换目标后第一下攻击必毒
+				NetClient.mChangeAimFirst = false
+				if game.getSkillUseState(Const.SKILL_TYPE_ShiDuShu) then
+					default_skill = Const.SKILL_TYPE_ShiDuShu
+				end
+			else
+				default_skill = Const.SKILL_TYPE_LingHunHuoFu
+				if not checkShiDuShu(NetClient.mLastAimGhost) then
+					default_skill = Const.SKILL_TYPE_ShiDuShu
+				end
+			end
+		end
+	end
+	return default_skill
+end
+
+--判断是否和目标位置重合
+local function checkSkilCastOnwerPos(mAimGhost)
+	if MainRole.mX == mAimGhost.mX and MainRole.mY == mAimGhost.mY then
+		return true
+	end
+end
+
+-- 判断技能施法距离
+local function checkSkillCastDistance(skill_type, mAimGhost)
+	local nsd = game.getSkillDesp(skill_type)
+	if nsd then
+		if cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(mAimGhost.mX,mAimGhost.mY)) <= nsd.mMaxDis * nsd.mMaxDis then
+			return true
+		end
+	end
+	return false
+end
+
+-- 判断是否站在物品上
+local function checkStandOnItem()
+	local netGhost = NetCC:getGhostAtPos(MainRole._mainAvatar:PAttr(Const.avatar_x),MainRole._mainAvatar:PAttr(Const.avatar_y),Const.GHOST_ITEM)
+	if #netGhost>0 then
+		local item=NetCC:getGhostByID(netGhost[1])
+		local owner = item:NetAttr(Const.net_item_owner)
+		owner = type(owner) == "boolean" and 0 or owner
+
+		if owner > 0 and owner ~= MainRole.mID then
+			item=nil
+		end
+
+		if (item and item:NetAttr(Const.net_state) ~= true) or owner == -1 then
+			return true
+		end
+	end
+	return false
+end
+
+-- 额外刺杀位（除水平，垂直，对角线）
+local function isExtraCiShaPos(mAimGhost, dir)
+	if MainRole.mX+m_tile_step[dir+1][1]*2==mAimGhost.mX and math.abs(MainRole.mY+m_tile_step[dir+1][2]*2-mAimGhost.mY) == 1 then
+		print("/////////////isExtraCiShaPos///////////111111")
+		return true;
+	elseif math.abs(MainRole.mX+m_tile_step[dir+1][1]*2-mAimGhost.mX) == 1 and MainRole.mY+m_tile_step[dir+1][2]*2 == mAimGhost.mY then
+		print("/////////////isExtraCiShaPos///////////222222")
+		return true;
+	end
+end
+
+---------------------------------------------------------以上为内部函数---------------------------------------------------------
+local _aimGhostID = 0
+
+function MainRole.initVar(isDead)
+
+	-- MainRole._isDead = false
+	-- MainRole._aimGhostID = 0 -- 当前选中目标
+	_aimGhostID = 0
+	MainRole._lastAimID = 0
+
+	MainRole._readyUseSkill = true
+	MainRole._moveToNearAttack = false
+	MainRole._autoFight = false
+	MainRole._autoPick = false
+	MainRole._aiKeepAttack = false
+	MainRole._aiKeepSkill = nil
+	MainRole._readyKeepAttack = false
+	MainRole._aiKeepTime = 0
+
+	MainRole._waitSkill = nil
+
+	MainRole._curMap = ""
+	MainRole._mapMonGen = {}
+	MainRole._runToIndex = nil
+
+	MainRole._mapGhostList = {}
+	MainRole._findToGhostId = nil
+
+	MainRole._aiStartPos = nil
+	MainRole._autoMoving = false
+	MainRole._targetNPCName = ""
+	MainRole._moveEndAutoPick = false
+
+	-- MainRole._autoFightTime = 0
+	MainRole._autoItemTime = 0
+
+	MainRole._moveAndFinding=false
+	MainRole._findingDir=0
+	MainRole._lastFindingDir=0
+	-- MainRole._pickingItem=0
+	-- MainRole._lastUseSkill=0
+	MainRole._statusList = {}
+	-- if not retainGhost then
+	-- 	MainRole._mainAvatar = nil
+	-- end
+	MainRole._mainAvatar = nil
+
+	if not isDead then
+		--死亡不清理
+		MainRole.mDartSprite = nil
+		MainRole.mDartHalo = nil
+		MainRole.mDartClothSprite = nil
+	end
+
+	MainRole._pickItemDelay = nil
+
+	MainRole.needCheckPickItem = false
+
+end
+
+function MainRole.getAimGhostID()
+	return _aimGhostID
+end
+
+function MainRole.setAimGhostID(aimid)
+	_aimGhostID = aimid
+
+	MainRole._moveAndUseMagic = false
+	MainRole._moveToUseMagic = nil
+	MainRole._moveToNearAttack = false
+	-- MainRole._aiKeepAttack = false
+	MainRole._aiKeepSkill = false
+	MainRole._readyKeepAttack = false
+	MainRole._aiKeepTime = 0
+	
+	-- 这里需要做一些处理，如果改变之后的对象类型和之前不一样，可能会有问题
+end
+
+--当前地图的怪物分布，用于挂机寻怪
+function MainRole.setMapGhostList(mapid,list)
+	if mapid and list then
+		if mapid == NetClient.mNetMap.mMapID then
+			MainRole._curMap = mapid
+			MainRole._mapGhostList = clone(list)
+		end
+	else
+		MainRole._mapGhostList = {}
+	end
+end
+
+function MainRole.pushGridSkillWait(skill_type,px,py)
+	if not MainRole._aiKeepAttack and not MainRole._readyKeepAttack then
+		NetClient:UseSkill(skill_type, px, py, 0)
+	else
+		MainRole._waitSkill = {type=skill_type,px=px,py=py}
+	end
+end
+
+-- 点击快捷攻击键攻击(攻击类技能)
+function MainRole.quickAttack(skill_type)
+	MainRole.stopAutoDart()
+	MainRole.stopAutoFight()
+
+	local noAutoChange = false;
+	if not skill_type then MainRole._aiKeepAttack = true end
+	if skill_type and isAttackSkill(skill_type) then
+		noAutoChange = true
+		MainRole._aiKeepAttack = false
+	end
+	-- 非攻击类技能直接释放
+	if skill_type and not isAttackSkill(skill_type) then
+		MainRole.startCastSkill(skill_type)
+		return
+	end
+
+	if MainRole.checkCollect() then return end
+
+	if not skill_type then skill_type = checkDefaultSkillAttack() end
+
+	local mAimGhost = _aimGhostID and MainRole.getAimGhost(_aimGhostID) or nil
+	if not mAimGhost then
+		mAimGhost = getAutoFightMonster()
+		if mAimGhost then
+			CCGhostManager:selectSomeOne(mAimGhost:NetAttr(Const.net_id))
+		end
+	end
+	if mAimGhost then
+		MainRole.startCastSkill(skill_type, noAutoChange)
+	end
+end
+
+function MainRole.checkCollect()
+	local mAimGhost = MainRole.getAimGhost(_aimGhostID)
+	local pixes_main = MainRole.updateAttr()
+	-- if mAimGhost then
+	-- 	print(mAimGhost,mAimGhost.mType,mAimGhost.mCollectTime)
+	-- end
+	if mAimGhost and mAimGhost.mType == Const.GHOST_MONSTER and mAimGhost.mCollectTime and mAimGhost.mCollectTime > 0 then
+		-- if mAimGhost.mHp > 0 and not NetClient.m_bCollecting then
+			MainRole._moveToNearAttack = true
+			if pixes_main then
+				pixes_main:clearAutoMove()
+			end
+			if pixes_main and pixes_main:PAttr(Const.avatar_state)==Const.STATE_IDLE then
+				mainrole_action_start(2,pixes_main)
+			end
+		-- end
+		return true
+	end
+end
+
+function MainRole.startCastSkill(skill_type, noAutoChange)
+
+	--判断是否是持续施放技能的类型， 是的话，点击技能按钮需要取消
+	if isCastGridSkill(skill_type) then
+		if not NetClient.mCastGridSkill then
+			NetClient.mCastGridSkill = skill_type
+			NetClient:dispatchEvent({name = Notify.EVENT_GROUND_SKILL_STATE, skill_type = skill_type})
+		else
+			if skill_type ~= NetClient.mCastGridSkill then
+				NetClient.mCastGridSkill = skill_type
+				NetClient:dispatchEvent({name = Notify.EVENT_GROUND_SKILL_STATE})
+			else
+				NetClient.mCastGridSkill = nil
+				NetClient:dispatchEvent({name = Notify.EVENT_GROUND_SKILL_STATE, skill_type = skill_type})
+			end
+		end
+		return
+	end
+
+	if isSelectGridSkill(skill_type) then
+		if not NetClient.mSelectGridSkill then -- 置为选中技能等待点击地面释放
+			NetClient.mSelectGridSkill = skill_type
+			NetClient:dispatchEvent({name = Notify.EVENT_GRID_SKILL_STATE})
+		else -- 已有选中技能，则取消
+			if not (skill_type == NetClient.mSelectGridSkill) then
+				NetClient.mSelectGridSkill = skill_type
+			else
+				NetClient.mSelectGridSkill = nil
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_GRID_SKILL_STATE})
+		end
+		return
+	end
+
+	-- if NetClient.actionMoving then
+	-- 	return false
+	-- end
+
+	skill_type = updateEnabledSkill(skill_type)
+
+	if not skill_type then return end
+
+	if skill_type == Const.SKILL_TYPE_ShiDuShu then
+		NetClient.mChangeAimFirst = false
+	end
+
+	local isFlagSkill = false
+	if skill_type == Const.SKILL_TYPE_LieHuoJianFa
+	or skill_type == Const.SKILL_TYPE_PoTianZhan or skill_type == Const.SKILL_TYPE_ZhuRiJianFa 
+		or skill_type == Const.SKILL_TYPE_GongShaJianShu or skill_type == Const.SKILL_TYPE_BanYueWanDao then
+		isFlagSkill = true
+		--开关技能无需目标
+	end
+	local mAimGhost = MainRole.getAimGhost(_aimGhostID)
+	local pixes_main = MainRole.updateAttr()
+
+	-- if mAimGhost and mAimGhost.mType == Const.GHOST_MONSTER and mAimGhost.mCollectTime and mAimGhost.mCollectTime > 0 then
+	-- 	if mAimGhost.mHp > 0 and not NetClient.m_bCollecting then
+	-- 		MainRole._moveToNearAttack = true
+	-- 		if pixes_main then
+	-- 			pixes_main:clearAutoMove()
+	-- 		end
+	-- 		if pixes_main and (pixes_main:PAttr(Const.avatar_state)==Const.STATE_IDLE or pixes_main:PAttr(Const.avatar_state)==Const.STATE_PREPARE) then
+	-- 			mainrole_action_start(2,pixes_main)
+	-- 		end
+	-- 	end
+	-- 	return true
+	-- end
+
+	if not isFlagSkill and skill_type ~= Const.SKILL_TYPE_YiBanGongJi then
+		
+		if not game.checkSkillCD(skill_type) then
+			return false
+		end
+
+		if mAimGhost then
+			if skill_type == Const.SKILL_TYPE_LeiDianShu or skill_type == Const.SKILL_TYPE_BingPaoXiao or skill_type==Const.SKILL_TYPE_LingHunHuoFu
+					 or skill_type == Const.SKILL_TYPE_LiuXingHuoYu or skill_type == Const.SKILL_TYPE_ShiDuShu then
+				if pixes_main then
+					-- 位置重合，走一步
+					if checkSkilCastOnwerPos(mAimGhost) or not checkSkillCastDistance(skill_type, mAimGhost) then
+						if not MainRole._moveToUseMagic then
+							-- pixes_main:autoMoveOneStep(pixes_main:findAttackPosition(_aimGhostID,1))
+							MainRole._moveToUseMagic = skill_type
+							MainRole._moveAndUseMagic = true
+							if pixes_main and pixes_main:PAttr(Const.avatar_state)==Const.STATE_IDLE then
+								mainrole_action_start(2,pixes_main)
+							end
+						end
+						return
+					-- elseif not checkSkillCastDistance(skill_type, mAimGhost) then
+					-- 	print("checkSkillCastDistance2",skill_type)
+					-- 	-- if not MainRole._moveToUseMagic and (not game.isTouchingRocker()) then
+					-- 	if not MainRole._moveToUseMagic then
+					-- 		-- pixes_main:autoMoveOneStep(pixes_main:findAttackPosition(_aimGhostID,1))
+					-- 		MainRole._moveToUseMagic = skill_type
+					-- 		MainRole._moveAndUseMagic = true
+					-- 	end
+					-- 	return
+					end
+				end
+			end
+
+			--有目标的情况
+			local dir = MainRole.mDir
+			if skill_type ~= Const.SKILL_TYPE_YeManChongZhuang then
+				dir = game.getLogicDirection(cc.p(MainRole.mX,MainRole.mY),cc.p(mAimGhost.mX,mAimGhost.mY))
+				if dir ~= MainRole.mDir then
+					--修正服务器方向
+					NetClient:Turn(dir)
+				end
+			end
+			if isToneUpSkill(skill_type) then
+				if mAimGhost.mType == Const.GHOST_PLAYER or mAimGhost.mType == Const.GHOST_THIS or mAimGhost.mType == Const.GHOST_SLAVE then
+					--辅助类技能针对玩家目标施放
+					NetClient:UseSkill(skill_type,mAimGhost.mX,mAimGhost.mY,mAimGhost.mID)
+				else
+					--目标为怪物则辅助技能针对空地施放
+					NetClient:UseSkill(skill_type,mAimGhost.mX,mAimGhost.mY,0)
+				end
+			elseif isNoTargetSkill(skill_type) then
+				NetClient:UseSkill(skill_type,MainRole.mX,MainRole.mY,MainRole.mID)
+			else
+				-- 伤害类技能不能对自己放
+				-- print("-------------------", mAimGhost.mType, mAimGhost.mID, MainRole.mID, mAimGhost.mType == Const.GHOST_THIS);
+				if not (mAimGhost.mType == Const.GHOST_THIS) then
+					--针对群体,雷电术自动转冰咆哮
+					if not noAutoChange then
+
+					--法师
+						if skill_type == Const.SKILL_TYPE_LeiDianShu and #NetCC:getGhostsAroundPos(mAimGhost.mX,mAimGhost.mY,Const.GHOST_MONSTER) > 1 
+							and NetClient.m_netSkill[Const.SKILL_TYPE_BingPaoXiao] and game.getSkillUseState(Const.SKILL_TYPE_BingPaoXiao) then
+							skill_type = Const.SKILL_TYPE_BingPaoXiao
+						end
+
+						if skill_type == Const.SKILL_TYPE_LeiDianShu and #NetCC:getGhostsAroundPos(MainRole.mX,MainRole.mY,Const.GHOST_MONSTER) > 1
+							and NetClient.m_netSkill[Const.SKILL_TYPE_DiYuLeiGuang] and game.getSkillUseState(Const.SKILL_TYPE_DiYuLeiGuang) 
+							and getDistanceSQ(mAimGhost) <= 2 then
+							skill_type = Const.SKILL_TYPE_DiYuLeiGuang
+						end
+
+						--道士
+						if skill_type == Const.SKILL_TYPE_LingHunHuoFu then
+							local mAimGhostID = mAimGhost:NetAttr(Const.net_id)
+							if not checkShiDuShu(mAimGhostID) then -- 没有中毒自动施毒术
+								if NetClient.m_netSkill[Const.SKILL_TYPE_ShiDuShu] and game.checkMpEnough(Const.SKILL_TYPE_ShiDuShu) and game.getSkillUseState(Const.SKILL_TYPE_ShiDuShu) then
+									skill_type = Const.SKILL_TYPE_ShiDuShu
+									if checkSkilCastOnwerPos(mAimGhost) or not checkSkillCastDistance(skill_type, mAimGhost) then
+										if not MainRole._moveToUseMagic then
+											-- pixes_main:autoMoveOneStep(pixes_main:findAttackPosition(_aimGhostID,1))
+											MainRole._moveToUseMagic = skill_type
+											MainRole._moveAndUseMagic = true
+											if pixes_main and pixes_main:PAttr(Const.avatar_state)==Const.STATE_IDLE then
+												mainrole_action_start(2,pixes_main)
+											end
+										end
+										return
+									end
+								end
+							end
+						end
+					end		
+					
+					NetClient:UseSkill(skill_type,mAimGhost.mX,mAimGhost.mY,mAimGhost.mID)
+				else
+					NetClient:alertLocalMsg("不能以自己为目标","alert")
+					return
+				end
+			end
+		else
+			--无目标
+			if skill_type == Const.SKILL_TYPE_LeiDianShu or skill_type == Const.SKILL_TYPE_BingPaoXiao or skill_type==Const.SKILL_TYPE_LingHunHuoFu
+			or skill_type == Const.SKILL_TYPE_HuoLongQiYan or skill_type == Const.SKILL_TYPE_LiuXingHuoYu or skill_type == Const.SKILL_TYPE_ShiDuShu 
+			or skill_type == Const.SKILL_TYPE_QinLongShou or skill_type == Const.SKILL_TYPE_ShiBuYiSha then -- or skill_type == Const.SKILL_TYPE_HuoQiang 
+				-- local dx,dy = game.getDirectionPoint(MainRole.mDir,5,MainRole.mX,MainRole.mY)
+				-- local mNearby = NetCC:getNearestGhost(Const.GHOST_MONSTER,true)
+				-- if mNearby and G_AutoLock > 0 then
+				-- 	mAimGhost=mNearby
+				-- 	--优先寻找附近的怪物施放
+				-- 	dx = mNearby:NetAttr(Const.net_x)
+				-- 	dy = mNearby:NetAttr(Const.net_y)
+
+				-- 	CCGhostManager:selectSomeOne(mNearby:NetAttr(Const.net_id))
+
+				-- 	NetClient:UseSkill(skill_type,dx,dy,mNearby:NetAttr(Const.net_id))
+				-- elseif G_AutoLock > 0 and NetClient.mAttackMode ~= 101 then
+				-- 	--随机找一个人打
+				-- 	local player_id = MainRole.getNearGhostSort()
+				-- 	if player_id then
+				-- 		local mNearPlayer = NetCC:getGhostByID(player_id)
+				-- 		if mNearPlayer then
+				-- 			dx = mNearPlayer:NetAttr(Const.net_x)
+				-- 			dy = mNearPlayer:NetAttr(Const.net_y)
+				-- 			CCGhostManager:selectSomeOne(mNearPlayer:NetAttr(Const.net_id))
+				-- 			NetClient:UseSkill(skill_type,dx,dy,mNearPlayer:NetAttr(Const.net_id))
+				-- 		end
+				-- 	else
+				-- 		--毫无目标,依然施放在前方5格位置
+				-- 		NetClient:UseSkill(skill_type,dx,dy,0)
+				-- 	end
+				-- else
+				-- 	--默认施放在前方5格位置
+				-- 	NetClient:UseSkill(skill_type,dx,dy,0)
+				-- end
+				return false
+			else
+				--默认在自己身上
+				NetClient:UseSkill(skill_type,MainRole.mX,MainRole.mY,0)
+			end
+		end
+
+		if skill_type == Const.SKILL_TYPE_LeiDianShu or skill_type == Const.SKILL_TYPE_LingHunHuoFu
+		or skill_type == Const.SKILL_TYPE_BingPaoXiao or skill_type == Const.SKILL_TYPE_ShiDuShu then
+		-- or skill_type == Const.SKILL_TYPE_YeManChongZhuang
+			if mAimGhost and not MainRole._aiKeepAttack then
+				-- MainRole._aiKeepAttack = true
+				MainRole._readyKeepAttack = true
+				-- MainRole._aiKeepSkill = skill_type
+				-- MainRole._autoFightTime = game.getTime()
+				if pixes_main then
+					pixes_main:clearAutoMove()
+				end
+			end
+			--点击技能后持续攻击
+		end
+		-- MainRole._readyUseSkill = false
+		return true
+	else
+		--开关技能或普通攻击
+		-- if game.getTime() - NetClient.mCastSkillTime < 720 and skill_type ~= Const.SKILL_TYPE_LieHuoJianFa
+		-- and skill_type ~= Const.SKILL_TYPE_PoTianZhan and skill_type ~= Const.SKILL_TYPE_ZhuRiJianFa then
+		-- 	--非预存技能且间隔过短
+		-- 	return false
+		-- end
+		if skill_type == Const.SKILL_TYPE_YiBanGongJi then
+			-- 普通攻击最小间隔720毫秒
+			if not game.checkSkillCD(skill_type) then
+				return false
+			end
+		end
+		--随机找个人打
+		if not mAimGhost and G_AutoLock > 0 then
+			-- local mNearby = NetCC:getNearestGhost(Const.GHOST_MONSTER,true)
+			-- if mNearby then
+			-- 	CCGhostManager:selectSomeOne(mNearby:NetAttr(Const.net_id))
+			-- 	_aimGhostID = mNearby:NetAttr(Const.net_id)
+			-- 	mAimGhost = MainRole.getAimGhost(_aimGhostID)
+			-- elseif NetClient.mAttackMode ~= 101 then
+			-- 	local player_id = MainRole.getNearGhostSort()
+			-- 	if player_id then
+			-- 		local mNearPlayer = NetCC:getGhostByID(player_id)
+			-- 		if mNearPlayer then
+			-- 			CCGhostManager:selectSomeOne(mNearPlayer:NetAttr(Const.net_id))
+			-- 			_aimGhostID = player_id
+			-- 			mAimGhost = MainRole.getAimGhost(_aimGhostID)
+			-- 		end
+			-- 	end
+			-- end
+		end
+		if isFlagSkill then
+			--开关技能
+			NetClient:UseSkill(skill_type,MainRole.mX,MainRole.mY,0)
+		elseif mAimGhost and pixes_main then
+			local selfpos = (pixes_main:NetAttr(Const.net_x)==mAimGhost.mX and pixes_main:NetAttr(Const.net_y)==mAimGhost.mY)
+			if selfpos then
+				local aghosts = NetCC:getGhostsAroundPos(MainRole.mX,MainRole.mY,Const.GHOST_MONSTER,true)
+				local aghost = nil
+				if aghosts and #aghosts>1 then
+					for i=1,#aghosts do
+						aghost = NetCC:getGhostByID(aghosts[i])
+						if aghost then
+							if aghost:NetAttr(Const.net_x)~=MainRole.mX or aghost:NetAttr(Const.net_y)~=MainRole.mY then
+								_aimGhostID = aghosts[i]
+								CCGhostManager:selectSomeOne(_aimGhostID)
+								mAimGhost = MainRole.getAimGhost(_aimGhostID)
+								break
+							end
+						end
+					end
+				end
+			end
+
+			local dir = game.getLogicDirection(cc.p(MainRole.mX,MainRole.mY),cc.p(mAimGhost.mX,mAimGhost.mY))
+			-- if dir ~= MainRole.mDir then
+			-- 	--修正服务器方向
+			-- 	NetClient:Turn(dir)
+			-- end
+			--有目标普通攻击
+			-- local dis = math.floor(cc.pGetDistance(cc.p(MainRole.mX,MainRole.mY),cc.p(mAimGhost.mX,mAimGhost.mY)))
+			local dis = cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(mAimGhost.mX,mAimGhost.mY))
+			local space = 1
+			if NetClient.m_bCiShaOn and not NetClient.m_bBanYueOn and NetClient.m_netSkill[Const.SKILL_TYPE_CiShaJianShu] and not NetClient.m_bLiehuoAction then
+				space = 2
+			end
+			local cishapos = false
+			if space==2 and MainRole.mX+m_tile_step[dir+1][1]*2==mAimGhost.mX and MainRole.mY+m_tile_step[dir+1][2]*2==mAimGhost.mY then
+				cishapos = true
+			end
+			local attackpos = dis < 4
+			if (cishapos and not selfpos) or (attackpos and not selfpos) then
+				NetClient:UseSkill(skill_type,mAimGhost.mX,mAimGhost.mY,mAimGhost.mID)
+			else
+				MainRole._moveToNearAttack = true
+				pixes_main:clearAutoMove()
+
+				if pixes_main:PAttr(Const.avatar_state)==Const.STATE_IDLE then
+					mainrole_action_start(2,pixes_main)
+				end
+			end
+			-- if (not cishapos and not attackpos) or selfpos then then
+			-- 	MainRole._moveToNearAttack = true
+			-- 	pixes_main:clearAutoMove()
+
+			-- 	if pixes_main:PAttr(Const.avatar_state)==Const.STATE_IDLE then
+			-- 		mainrole_action_start(2,pixes_main)
+			-- 	end
+			-- else
+			-- 	NetClient:UseSkill(skill_type,mAimGhost.mX,mAimGhost.mY,mAimGhost.mID)
+			-- end
+		else
+			--无目标普通攻击
+			-- NetClient:UseSkill(skill_type,MainRole.mX+m_tile_step[MainRole.mDir+1][1],MainRole.mY+m_tile_step[MainRole.mDir+1][2],0)
+			return false
+		end
+		if skill_type == Const.SKILL_TYPE_YiBanGongJi then
+			if mAimGhost and not MainRole._aiKeepAttack then
+				-- MainRole._aiKeepAttack = true
+				MainRole._readyKeepAttack = true
+				-- MainRole._aiKeepSkill = skill_type
+				-- MainRole._autoFightTime = game.getTime()
+				if pixes_main then
+					pixes_main:clearAutoMove()
+				end
+			end
+			--点击技能后持续攻击
+		end
+		return true
+	end
+	return false
+end
+
+function MainRole.getAimGhost(ghostID)
+	-- local mAimGhost = CCGhostManager:getPixesGhostByID(ghostID)
+	local mAimGhost = NetCC:getGhostByID(ghostID)
+	if mAimGhost then
+		mAimGhost.mX = mAimGhost:NetAttr(Const.net_x)
+		mAimGhost.mY = mAimGhost:NetAttr(Const.net_y)
+		mAimGhost.mType = mAimGhost:NetAttr(Const.net_type)
+		mAimGhost.mID = mAimGhost:NetAttr(Const.net_id)
+		mAimGhost.mCollectTime = mAimGhost:NetAttr(Const.net_collecttime)
+		mAimGhost.mHp = mAimGhost:NetAttr(Const.net_hp)
+		mAimGhost.mName = mAimGhost:NetAttr(Const.net_name)
+		mAimGhost.mLevel = mAimGhost:NetAttr(Const.net_level)
+		return mAimGhost
+	end
+end
+
+function MainRole.updateAttr()
+	MainRole._mainAvatar = MainRole._mainAvatar or CCGhostManager:getMainAvatar()
+	if MainRole._mainAvatar then
+		MainRole.mID = MainRole._mainAvatar:NetAttr(Const.net_id)
+		MainRole.mX = MainRole._mainAvatar:NetAttr(Const.net_x)
+		MainRole.mY = MainRole._mainAvatar:NetAttr(Const.net_y)
+		MainRole.mDir = MainRole._mainAvatar:NetAttr(Const.net_dir)
+		MainRole.mJob = MainRole._mainAvatar:NetAttr(Const.net_job)
+
+		return MainRole._mainAvatar
+	end
+end
+
+function MainRole.startAutoFight(tag)
+	--print("///////////MainRole.startAutoFight//////////////", tag)
+
+	-- if game.checkMainTaskPaused() then return end -- 主线屏蔽挂机功能
+	MainRole.stopAutoPick()
+	MainRole.stopAutoFight()
+
+	MainRole._mainAvatar:clearAutoMove()
+	MainRole._autoMoving = false
+	
+	MainRole.updateAttr()
+	MainRole._aiStartPos = cc.p(MainRole.mX,MainRole.mY)
+	MainRole._autoFight = true
+	MainRole._aiKeepAttack = true
+
+	MainRole.doAutoFight()
+
+	UISceneGame.showAutoActionAnima(50005)
+	NetClient:dispatchEvent({name = Notify.EVENT_QUICKBUTTON_STATE ,state = "start", key = "fight"})
+end
+
+function MainRole.stopAutoFight()
+	MainRole._autoFight = false
+	MainRole._aiKeepAttack = false
+	MainRole._readyKeepAttack = false
+	MainRole._aiKeepSkill = nil
+	MainRole._moveAndFinding = false
+	MainRole._runToIndex = nil
+	MainRole._findToGhostId = nil
+	MainRole._moveToUseMagic = nil
+	MainRole._moveAndUseMagic = nil
+
+	MainRole._pickItemDelay = nil
+	-- _aimGhostID = 0 -- 清除目标
+	UISceneGame.hideAutoActionAnima(50005)
+	NetClient:dispatchEvent({name = Notify.EVENT_QUICKBUTTON_STATE ,state = "stop", key = "fight"})
+end
+
+function MainRole.startAutoPick()
+	-- if game.checkMainTaskPaused() then return end -- 主线屏蔽自动拾取功能
+	MainRole.stopAutoFight()
+	MainRole._autoPick = true
+	MainRole.doAutoPick()
+	NetClient:dispatchEvent({name = Notify.EVENT_QUICKBUTTON_STATE , key = "pick"})
+end
+
+function MainRole.stopAutoPick()
+	MainRole._autoPick = false
+	NetClient:dispatchEvent({name = Notify.EVENT_QUICKBUTTON_STATE , key = "pick"})
+end
+
+function MainRole.doNearAttack()
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	local mAimGhost = MainRole.getAimGhost(_aimGhostID)
+	if mAimGhost then
+		MainRole.updateAttr()
+
+		local dx = mAimGhost:NetAttr(Const.net_x)
+		local dy = mAimGhost:NetAttr(Const.net_y)
+		if mAimGhost.mType == Const.GHOST_MONSTER and mAimGhost.mCollectTime and mAimGhost.mCollectTime > 0 then
+			if mAimGhost.mHp > 0 and not NetClient.m_bCollecting then--进度条结束后m_bCollecting应该设为false
+				NetClient:StartCollect(mAimGhost.mID)
+			end
+		else
+			-- if MainRole._mainAvatar:NetAttr(Const.net_job) == Const.JOB_ZS then
+			-- 	if G_AutoBanyue==1 and NetClient.m_netSkill[Const.SKILL_TYPE_BanYueWanDao] and (#NetCC:getGhostsAroundPos(MainRole.mX,MainRole.mY,Const.GHOST_MONSTER) > 1 or MainRole._lastUseSkill == Const.SKILL_TYPE_BanYueWanDao) and game.checkMpEnough(Const.SKILL_TYPE_BanYueWanDao) then
+			-- 		NetClient:UseSkill(Const.SKILL_TYPE_BanYueWanDao,dx,dy,mAimGhost:NetAttr(Const.net_id))
+			-- 	else
+			-- 		NetClient:UseSkill(Const.SKILL_TYPE_YiBanGongJi,dx,dy,mAimGhost:NetAttr(Const.net_id))
+			-- 	end
+			-- else
+				NetClient:UseSkill(Const.SKILL_TYPE_YiBanGongJi,dx,dy,mAimGhost:NetAttr(Const.net_id))
+			-- end
+		end
+	end
+end
+
+function MainRole.update()
+	
+	local curTime = game.getTime()
+
+	if NetClient.m_bCollecting then
+		if curTime > NetClient.m_collectTime then
+			NetClient.m_bCollecting = false
+		end
+	end
+
+	if MainRole._mainAvatar and not MainRole._mainAvatar:NetAttr(Const.net_dead) then
+		if curTime - MainRole._autoItemTime > 500 then
+			MainRole._autoItemTime=curTime
+			MainRole.autoUseItem()
+		end
+
+		if MainRole._mainAvatar:PAttr(Const.avatar_state)==Const.STATE_IDLE then
+			if MainRole._waitSkill then
+				NetClient:UseSkill(MainRole._waitSkill.type,MainRole._waitSkill.px,MainRole._waitSkill.py, 0)
+				MainRole._waitSkill = nil
+			elseif MainRole.autoSkillCheckAndCast() then
+
+			else
+				MainRole.keepEasyAi()
+			end
+
+			if MainRole._autoFight then
+				if game.checkSkillCD(getAiSkill()) then
+					MainRole.doAutoFight()
+				end
+			else
+				if not MainRole._autoMoving and not MainRole._aiKeepAttack and not MainRole._readyKeepAttack then
+					if MainRole._targetNPCName and MainRole._targetNPCName~="" then
+						MainRole.MoveToContinueTask()
+					end
+				end
+			end
+		end
+
+		MainRole._isDead = false
+	else
+		if not MainRole._isDead then 
+			MainRole._isDead = true 
+			MainRole.initVar(true)
+			MainRole._mainAvatar = MainRole.updateAttr()
+			UISceneGame.hideUIPlayer() -- 死亡隐藏头像
+		end
+	end
+
+	--更新镖车光圈位置
+	if util.isObjectExist(MainRole.mDartSprite) then
+		if util.isObjectExist(MainRole.mDartHalo) then
+			local posX,posY = MainRole.mDartSprite:getPosition()
+			MainRole.mDartHalo:setPosition(posX + TILE_WIDTH * 0.5, posY - TILE_HEIGHT * 0.5)
+			if util.isObjectExist(MainRole.mDartClothSprite) then
+				MainRole.mDartHalo:setOpacity(MainRole.mDartClothSprite:getOpacity())
+			end
+		end
+	else
+		if util.isObjectExist(MainRole.mDartHalo) then
+			MainRole.mDartHalo:removeFromParent()
+			MainRole.mDartHalo = nil
+		end
+	end
+
+	if MainRole._pickItemDelay and curTime >= MainRole._pickItemDelay then
+		MainRole.pickUpItemUnderFoot()
+		MainRole._moveEndAutoPick=false
+		MainRole._pickItemDelay = nil
+		if MainRole._autoFight then
+			MainRole.startAutoFight(6)
+		end
+	end
+end
+
+function MainRole.stopAutoDart()
+	NetClient:PushLuaTable("gui.PanelDart.handlePanelData",util.encode({actionid = "reqStopAuto"}))
+end
+
+-- local hpDrag = {10173, 10006, 10005, 10004}
+local hpDrug  = {
+	20001006, 20001005, 20001004, 20001003, 20001002, 20001001 
+}
+
+local mpDrug  = {
+	20001003, 20001002, 20001001
+}
+
+
+function MainRole.autoUseItem()
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	-- if MainRole._autoFight and G_SmartLowHP==1 then --优先回城
+	-- print("MainRole.autoUseItem11111111", G_SmartLowHP, G_SmartEatHP, G_SmartEatMP)
+	-- print("MainRole.autoUseItem22222222", G_SmartLowHPPercent, G_SmartEatHPPercent, G_SmartEatMPPercent, G_AutoPickEquipLevel)
+	--特殊地图屏蔽吃药
+	-- print("/////////////////autoUseItem/////////////////", NetClient.mNetMap.mMapID)
+	if NetClient.mNetMap.mMapID == "diyi" or NetClient.mNetMap.mMapID == "yxbiqi" then
+		NetClient:alertLocalMsg("当前地图无法使用任何保护功能")
+		return
+	end
+
+	if G_SmartLowHP==1 then --优先回城，去除挂机限制
+		local hpPercent = math.floor(MainRole._mainAvatar:NetAttr(Const.net_hp)/MainRole._mainAvatar:NetAttr(Const.net_maxhp)*100)
+		if hpPercent <= tonumber(G_SmartLowHPPercent) then
+			-- 低血量触发（回城石）
+			-- print("___________",NetClient:getServerParam(1002))
+			-- if NetClient:getServerParam(1002) > 0 then
+				-- NetClient:PushLuaTable("item.chuansong.luaitem","huicheng")
+				local stoneId = UserConfig.getConf("SmartLowHPItem")
+				if tonumber(stoneId) > 0 then
+					local pos = NetClient:getNetItemById(stoneId)
+					if pos then
+						NetClient:BagUseItem(pos,stoneId,1)
+					 -------------etClient:alertLocalMsg("血量低于"..G_SmartLowHPPercent.."%，自动回城。","bottom")
+						MainRole.stopAutoFight()
+					end
+				end
+			-- end
+		end
+	end
+
+	if G_SmartEatHP==1 then -- 自动吃回血药
+		local hpPercent = math.floor(MainRole._mainAvatar:NetAttr(Const.net_hp)/MainRole._mainAvatar:NetAttr(Const.net_maxhp)*100)
+		if hpPercent <= tonumber(G_SmartEatHPPercent) then
+			for i=1,#hpDrug do
+				local pos = NetClient:getItemPosByType(hpDrug[i])
+				if pos >= 0 then
+					NetClient:BagUseItem(pos,hpDrug[i])
+					return
+				end
+			end
+		end
+	end
+	if G_SmartEatMP==1 then -- 自动吃回魔药
+		local mpPercent = math.floor(MainRole._mainAvatar:NetAttr(Const.net_mp)/MainRole._mainAvatar:NetAttr(Const.net_maxmp)*100)
+		if mpPercent <= tonumber(G_SmartEatMPPercent) then
+			for i=1,#mpDrug do
+				local pos = NetClient:getItemPosByType(mpDrug[i])
+				if pos >= 0 then
+					NetClient:BagUseItem(pos,mpDrug[i])
+					return
+				end
+			end
+		end
+	end
+end
+
+function MainRole.autoSkillCheckAndCast()--mxwx 自动释放技能
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	local pixes_main = MainRole.updateAttr()
+	if pixes_main then
+		if pixes_main:NetAttr(Const.net_job) == Const.JOB_ZS then
+			-- print("MainRole.autoSkillCheckAndCast", NetClient.mLiehuoAction, NetClient.mLiehuoType)
+			if not NetClient.mLiehuoAction then
+				if game.getSkillUseState(Const.SKILL_TYPE_ZhuRiJianFa) and NetClient.m_netSkill[Const.SKILL_TYPE_ZhuRiJianFa] then
+					if game.checkMpEnough(Const.SKILL_TYPE_ZhuRiJianFa) and game.checkSkillCD(Const.SKILL_TYPE_ZhuRiJianFa) then
+						NetClient:UseSkill(Const.SKILL_TYPE_ZhuRiJianFa,MainRole.mX,MainRole.mY,MainRole.mID)
+						return true
+					end
+				elseif game.getSkillUseState(Const.SKILL_TYPE_LieHuoJianFa) and NetClient.m_netSkill[Const.SKILL_TYPE_LieHuoJianFa] then
+					if game.checkMpEnough(Const.SKILL_TYPE_LieHuoJianFa) and game.checkSkillCD(Const.SKILL_TYPE_LieHuoJianFa) then
+						NetClient:UseSkill(Const.SKILL_TYPE_LieHuoJianFa,MainRole.mX,MainRole.mY,MainRole.mID)
+						return true
+					end
+				elseif game.getSkillUseState(Const.SKILL_TYPE_PoTianZhan) and NetClient.m_netSkill[Const.SKILL_TYPE_PoTianZhan] then ---mxwx 自动释放技能在这里添加
+					if game.checkMpEnough(Const.SKILL_TYPE_PoTianZhan) and game.checkSkillCD(Const.SKILL_TYPE_PoTianZhan) then
+						NetClient:UseSkill(Const.SKILL_TYPE_PoTianZhan,MainRole.mX,MainRole.mY,MainRole.mID)
+						return true
+					end	
+				end
+			end
+			-- 自动上魔法盾
+			if NetClient.m_netSkill[Const.SKILL_TYPE_MoFaDun] and pixes_main:NetAttr(Const.net_mount)<=0 then
+				if G_AutoShield==1 and game.checkMpEnough(Const.SKILL_TYPE_MoFaDun) and game.checkSkillCD(Const.SKILL_TYPE_MoFaDun) and game.getSkillUseState(Const.SKILL_TYPE_MoFaDun) then
+					if not checkMoFaDun(MainRole.mID) then
+						NetClient:UseSkill(Const.SKILL_TYPE_MoFaDun,MainRole.mX,MainRole.mY,MainRole.mID)
+						return true
+					end
+				end
+			end
+		elseif pixes_main:NetAttr(Const.net_job) == Const.JOB_FS then
+			-- 自动上魔法盾
+			if NetClient.m_netSkill[Const.SKILL_TYPE_MoFaDun] and pixes_main:NetAttr(Const.net_mount)<=0 then
+				if G_AutoShield==1 and game.checkMpEnough(Const.SKILL_TYPE_MoFaDun) and game.checkSkillCD(Const.SKILL_TYPE_MoFaDun) and game.getSkillUseState(Const.SKILL_TYPE_MoFaDun) then
+					if not checkMoFaDun(MainRole.mID) then
+					-- if table.nums(status)<=0 or not status["dura"] or status["dura"]<=0 then
+						-- print("autoSkillCheckAndCast mofadun")
+						NetClient:UseSkill(Const.SKILL_TYPE_MoFaDun,MainRole.mX,MainRole.mY,MainRole.mID)
+						return true
+					end
+				end
+			end
+		elseif pixes_main:NetAttr(Const.net_job) == Const.JOB_DS then
+			if NetClient.mSlaveState==0 and NetClient.m_netSkill[Const.SKILL_TYPE_ZhaoHuanShenShou] and game.getSkillUseState(Const.SKILL_TYPE_ZhaoHuanShenShou) then
+				if game.checkMpEnough(Const.SKILL_TYPE_ZhaoHuanShenShou) and game.checkSkillCD(Const.SKILL_TYPE_ZhaoHuanShenShou) then
+					NetClient:UseSkill(Const.SKILL_TYPE_ZhaoHuanShenShou,MainRole.mX,MainRole.mY,MainRole.mID)
+					return true
+				end
+			end
+			--自动圣甲术
+			if NetClient.m_netSkill[Const.SKILL_TYPE_YouLingDun] and pixes_main:NetAttr(Const.net_mount)<=0 then
+				if game.getSkillUseState(Const.SKILL_TYPE_YouLingDun) and game.checkMpEnough(Const.SKILL_TYPE_YouLingDun) and game.checkSkillCD(Const.SKILL_TYPE_YouLingDun) then
+					if not checkShengJiaShu(MainRole.mID) then
+						NetClient:UseSkill(Const.SKILL_TYPE_YouLingDun,MainRole.mX,MainRole.mY,MainRole.mID)
+						return true
+					end
+				end
+			end
+		end
+	end
+end
+
+function MainRole.handleAttacked(attacker)
+	local aimGhost=MainRole.getAimGhost(_aimGhostID)
+	local acker=NetCC:getGhostByID(attacker)
+	if not aimGhost then
+		if acker and (acker:NetAttr(Const.net_type)==Const.GHOST_MONSTER) then -- or acker:NetAttr(Const.net_type)==Const.GHOST_PLAYER)
+			CCGhostManager:selectSomeOne(attacker)
+		end
+	end
+	if MainRole._autoFight and G_AutoFightBack then
+		local aimGhost=MainRole.getAimGhost(_aimGhostID)
+		if aimGhost then
+			if aimGhost:NetAttr(Const.net_type)==Const.GHOST_PLAYER and NetClient.mAttackMode ~= 101 then
+				MainRole.startCastSkill(getAiSkill())
+			elseif aimGhost:NetAttr(Const.net_type)==Const.GHOST_MONSTER and not MainRole._moveEndAutoPick then--自动捡物品的时候不能被怪物打断
+				MainRole.startCastSkill(getAiSkill())
+			end
+		end
+	end
+end
+
+function MainRole.doAutoFight()
+	-- print("MainRole.doAutoFight11111111", MainRole._autoFight)
+	if MainRole._autoFight and not MainRole._aiKeepAttack and not MainRole._readyKeepAttack then
+		-- local mainAvatar = CCGhostManager:getMainAvatar()
+		local pixes_main = MainRole.updateAttr()
+
+		if not pixes_main or pixes_main:PAttr(Const.avatar_state) ~= Const.STATE_IDLE then
+			return
+		end
+
+		--不会打断寻路
+		-- print("MainRole.doAutoFight22222222", MainRole._autoMoving, MainRole._moveAndFinding)
+		if not MainRole._autoMoving and not MainRole._moveAndFinding then
+			local aimGhost = nil
+			if _aimGhostID > 0 then aimGhost = MainRole.getAimGhost(_aimGhostID) end
+			-- print("-------------------------doAutoFight")
+			-- 自动挂机只打任务怪
+			if aimGhost and not isTaskTargetMon(aimGhost) then aimGhost = nil end
+			-- print("-------------------------aimGhost",aimGhost)
+			if not aimGhost or aimGhost:NetAttr(Const.net_type)~=Const.GHOST_MONSTER or aimGhost:NetAttr(Const.net_dead) or aimGhost:NetAttr(Const.net_hp) <= 0 then
+				if MainRole.doAutoPick(true) then
+					return
+				end
+
+				-- local mMonster = NetCC:getNearestGhost(Const.GHOST_MONSTER)
+				local mMonster = getAutoFightMonster()
+				-- print("-------------------------getAutoFightMonster",mMonster:NetAttr(Const.net_name))
+				if mMonster and not isTaskTargetMon(mMonster) then mMonster = nil end
+				-- print("-------------------------mMonster",mMonster)
+				--只会找到活的怪物
+				if mMonster then
+					CCGhostManager:selectSomeOne(mMonster:NetAttr(Const.net_id))
+					-- -- MainRole.doAutoFight()
+					-- aimGhost = MainRole.getAimGhost(_aimGhostID) 
+					-- if aimGhost then
+					-- 	MainRole.startCastSkill(getAiSkill())
+					-- end
+				else
+					-- print("-------------------------mTaskTargetMon",mTaskTargetMon)
+					-- print(game.wanderFight,NetClient.mTaskTargetMon)
+					if not game.wanderFight and not NetClient.mTaskTargetMon then
+						if cc.pDistanceSQ(MainRole._aiStartPos,cc.p(MainRole.mX,MainRole.mY)) > 15*15 and MainRole._mainAvatar then --距离挂机起始点超过一定距离返回
+							MainRole._mainAvatar:startAutoMoveToPos(MainRole._aiStartPos.x,MainRole._aiStartPos.y)
+							MainRole._autoMoving = true
+						end
+					else
+						MainRole._moveAndFinding=true
+						if pixes_main and pixes_main:PAttr(Const.avatar_state)==Const.STATE_IDLE then
+							mainrole_action_start(2,pixes_main)
+						end
+					end
+				end
+			else
+				-- 距离超过8*8,重新选择目标
+				-- if cc.pDistanceSQ(cc.p(aimGhost:NetAttr(Const.net_x),aimGhost:NetAttr(Const.net_y)),cc.p(MainRole.mX,MainRole.mY)) > 8*8 then
+				-- 	local mMonster = NetCC:getNearestGhost(Const.GHOST_MONSTER)
+				-- 	if mMonster then
+				-- 		CCGhostManager:selectSomeOne(mMonster:NetAttr(Const.net_id))
+				-- 		MainRole.startCastSkill(getAiSkill())
+				-- 	else
+				-- 		print("monster error")
+				-- 	end
+				-- else
+				if NetClient.mCDWaitNextSKill and game.checkSkillCD(NetClient.mCDWaitNextSKill) then
+					MainRole.startCastSkill(NetClient.mCDWaitNextSKill)
+					NetClient.mCDWaitNextSKill = nil
+					MainRole.stopAutoFight()
+				else
+					MainRole.startCastSkill(getAiSkill())
+				end
+				-- end
+			end
+		else
+			local mMonster = getAutoFightMonster()
+			if mMonster then
+				MainRole._moveAndFinding=false
+			end
+		end
+	end
+end
+
+--挂机时调用自动拾取时 autoFight为true， 仅自动拾取时 autoFight为nil
+function MainRole.doAutoPick(autoFight)
+	print("------>MainRole.doAutoPick:")
+	if MainRole._autoPick or autoFight then
+		MainRole.updateAttr()
+		if not game.bagFullFlag then
+			local items=NetCC:getNearGhost(Const.GHOST_ITEM)
+			--这里写捡物品的优先逻辑
+			if #items>0 then
+				local _equip=nil
+				local _item=nil
+				local _equipdis = nil
+				local _itemdis = nil
+
+				local mainAvatarPos = cc.p(MainRole.mX, MainRole.mY)
+				for _,v in ipairs(items) do
+					local item=NetCC:getGhostByID(v)
+					if item then
+						-- print("check item picked", v, item:NetAttr(Const.net_state), item:NetAttr(Const.net_id), tostring(item))
+						local itemPosition = cc.p(item:NetAttr(Const.net_x), item:NetAttr(Const.net_y))
+						-- if item:NetAttr(Const.net_state) ~= true and (itemPosition.x ~= MainRole.mX or itemPosition.y ~= MainRole.mY) then
+						if item:NetAttr(Const.net_state) ~= true then
+							local owner = item:NetAttr(Const.net_item_owner)
+							local ittype = item:NetAttr(Const.net_itemtype)
+							if type(owner) == "number" and (owner <=0 or owner == MainRole.mID) then
+								if game.getPickState(ittype) then
+									local tempdis = cc.pGetLength(cc.p((mainAvatarPos.x - itemPosition.x) * 48, (mainAvatarPos.y - itemPosition.y) * 32))
+									if game.IsEquipment(ittype) then
+										if not _equipdis or (_equipdis > tempdis) then
+											_equipdis = tempdis
+											_equip=item
+										end
+									else
+										if not _itemdis or (_itemdis > tempdis) then
+											_itemdis = tempdis
+											_item=item
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+
+				local target=_item
+				if _equip then target=_equip end
+				if target then
+					if MainRole._mainAvatar then
+						MainRole._moveEndAutoPick=true
+						MainRole._autoMoving = true
+						MainRole._mainAvatar:startAutoMoveToPos(target:NetAttr(Const.net_x),target:NetAttr(Const.net_y))
+						CCGhostManager:selectSomeOne(target:NetAttr(Const.net_id))--自动捡物品则选中
+						-- NetClient:alertLocalMsg("捡去物品测试")--mxwx
+						return true
+					end
+				end
+			end
+		end
+	end
+end
+
+--打了一次怪物之后一直打
+function MainRole.keepEasyAi()
+	if MainRole._aiKeepAttack or MainRole._readyKeepAttack then
+		local mCurGhost = MainRole.getAimGhost(_aimGhostID)
+		if not mCurGhost or mCurGhost:NetAttr(Const.net_dead) then
+			MainRole._aiKeepAttack = false
+			MainRole._readyKeepAttack = false
+		else
+			if MainRole._aiKeepAttack then
+				local skill_type=getEasyAiSkill(mCurGhost)
+				if game.checkSkillCD(skill_type) then
+					MainRole.startCastSkill(skill_type)
+					return 1
+				end
+			end
+		end
+	end
+end
+
+function MainRole.startAutoMoveToMap(mapname,tx,ty,flag)
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	-- print("MainRole.startAutoMoveToMap",mapname,tx,ty,flag)
+	MainRole._mainAvatar = MainRole.updateAttr()
+
+	if not MainRole._mainAvatar then return end
+
+	MainRole._mainAvatar:clearAutoMove()
+	MainRole.stopAutoFight()
+	NetClient.mTargetMap = mapname
+	-- print("1111111111111111", NetClient.mNetMap.mMapID, mapname, NetClient.mNetMap.mMapID == mapname)
+	if NetClient.mNetMap.mMapID == mapname then
+		MainRole._mainAvatar:startAutoMoveToPos(tx,ty,flag)
+	else
+		NetClient.mTargetMapX = tx
+		NetClient.mTargetMapY = ty
+		if MainRole.searchCrossMapPath() then
+			NetClient.mCrossAutoMove = true
+			local mapConn = NetClient.mMapConn[NetClient.mCrossMapPath[#NetClient.mCrossMapPath]]
+			if mapConn then
+				MainRole._mainAvatar:startAutoMoveToPos(mapConn.mFromX,mapConn.mFromY)
+				-- self.mMoveToCross=true
+				table.remove(NetClient.mCrossMapPath)
+			end
+		else
+			-- --在未知暗殿自动回城
+			-- if table.indexof({"v200","v401","v402"}, NetClient.mNetMap.mMapID) or (type(NetClient.mNetMap.mName) == "string" and string.find(NetClient.mNetMap.mName,"未知暗殿")) then
+			-- 	--如果目标是暗殿使者这不回城
+			-- 	local pTask = NetClient.mTasks[1000]
+			-- 	if pTask and pTask.mInfo and type(pTask.mInfo.task_target) == "string" then
+			-- 		-- print("-------------",pTask.mInfo.task_target)
+			-- 		if string.find(pTask.mInfo.task_target,"暗殿使者")  then
+			-- 			MainRole.startAutoFight()
+			-- 			return
+			-- 		end
+			-- 	end
+			-- 	NetClient:PushLuaTable("item.chuansong.luaitem","andian")
+			-- end
+		end
+	end
+end
+
+function MainRole.searchCrossMapPath()
+	-- print("MainRole.searchCrossMapPath", util.encode(NetClient.mMiniMapConn))
+	while #NetClient.mCrossMapPath > 0 do
+		table.remove(NetClient.mCrossMapPath)
+	end
+	local q ={}
+	local closeList = {}
+	local visitSet = {}
+	local curNode = {name="",parent=-1}
+	curNode.name = NetClient.mNetMap.mMapID  --当前所在地图的mapid
+	curNode.parent = -1
+	table.insert(q,curNode)
+	while #q > 0 do
+		curNode = q[#q]
+		table.remove(q)
+		table.insert(closeList,curNode)
+		if curNode.name == NetClient.mTargetMap then
+			while curNode.parent ~= -1 do
+				table.insert(NetClient.mCrossMapPath,curNode.name)
+				curNode = closeList[curNode.parent]
+			end
+			return true
+		end
+		local p = #closeList
+		local node = NetClient.mMiniMapConn[curNode.name]
+		local size = 0
+		if node then
+			size = #node
+		end
+		for i=1,size do
+			if visitSet[node[i]] == nil then --已经遍历过的传送地图就不要再加进来了， 每个传送点都会对应传送到的地图名字
+				visitSet[node[i]] = node[i]
+				local cur={name="",parent=-1}
+				cur.name = node[i]
+				cur.parent = p
+				table.insert(q,cur)
+			end
+		end
+	end
+	return false
+end
+
+function MainRole.checkAutoMove()
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	if NetClient.mCrossAutoMove then
+		if NetClient.mTargetMap ~= NetClient.mNetMap.mMapID then
+			if #NetClient.mCrossMapPath > 0 then
+				local mapConn = NetClient.mMapConn[NetClient.mCrossMapPath[#NetClient.mCrossMapPath]]
+				if mapConn then
+					MainRole._mainAvatar:startAutoMoveToPos(mapConn.mFromX,mapConn.mFromY)
+				end
+				-- self.mMoveToCross=true
+				table.remove(NetClient.mCrossMapPath)
+			else
+				----print("The cross path list is already empty!")
+				NetClient.mCrossAutoMove = false
+			end
+		else
+			NetClient.mCrossAutoMove = false
+			MainRole._mainAvatar:startAutoMoveToPos(NetClient.mTargetMapX,NetClient.mTargetMapY,2)
+		end
+	end
+end
+
+function auto_move_start(targetX,targetY,flag)
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	-- if cc.pDistanceSQ(cc.p(targetX, targetY), cc.p(MainAvatar:PAttr(Const.AVATAR_X), MainAvatar:PAttr(Const.AVATAR_Y))) >= 30*30 then--超过一定距离才显示骑马
+		-- NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_FLOATING , btn = "main_mount" , visible = true})
+	-- end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_AUTOMOVE_START,"auto_move_start")
+
+
+function MainRole.MoveToContinueTask()
+	-- 借用此处设个变量
+	MainRole._readyKeepAttack = false
+
+	if MainRole._mainAvatar then
+		MainRole._mainAvatar:clearAutoMove()
+	end
+
+	if MainRole._targetNPCName=="autofightstart" then
+		MainRole._targetNPCName = ""
+		MainRole.startAutoFight(1)
+	elseif MainRole._targetNPCName~="" then
+		local pGhost=NetCC:findGhostByName(MainRole._targetNPCName)
+		if pGhost then
+			if pGhost:NetAttr(Const.net_type)==Const.GHOST_NPC then
+				local netId = pGhost:NetAttr(Const.net_id)
+				if netId then
+					MainRole.updateAttr()
+					if cc.pDistanceSQ(cc.p(MainRole.mX,MainRole.mY),cc.p(pGhost:NetAttr(Const.net_x),pGhost:NetAttr(Const.net_y))) <= 8 then
+						NetClient:NpcTalk(netId,"100")
+						MainRole._targetNPCName = ""
+					end
+				end
+			elseif pGhost:NetAttr(Const.net_type)==Const.GHOST_MONSTER then
+				MainRole._targetNPCName = ""
+				MainRole.startAutoFight(2)
+			end
+		end
+	end
+end
+
+function auto_move_end(targetX,targetY,flag)
+	print("auto_move_end", MainRole._pickItemDelay)
+
+	
+
+	MainRole._autoMoving = false
+	if MainRole._pickItemDelay then return end
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	-- if MainAvatar then
+		MainRole._mainAvatar:clearAutoMove()
+	-- end
+	-- print(targetX,targetY)
+	local result = NetCC:getGhostAtPos(targetX, targetY, Const.GHOST_NPC)
+	if result and result[1] then
+		local targetGhost = CCGhostManager:getPixesAvatarByID(result[1])
+		if targetGhost then
+			local npcGhost = CCGhostManager:getPixesAvatarByID(result[1])
+			if npcGhost and npcGhost:NetAttr(Const.net_type) == Const.GHOST_NPC then
+				-- print("NetClient:NpcTalk11")
+				NetClient:NpcTalk(result[1],"100")
+			end
+		end
+	end
+
+	MainRole.MoveToContinueTask()
+
+	-- NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_FLOATING , btn = "main_mount" , visible = false})
+	-----------------寻路终止自动显示挂机-------- ---------
+	-- if (#(NetCC:getNearGhost(Const.GHOST_MONSTER)) > 0 or #(NetCC:getNearGhost(Const.GHOST_ITEM)) > 0) then
+	-- 	NetClient:dispatchEvent({name = Notify.EVENT_HANDLE_FLOATING , btn = "main_auto" , visible = true})
+	-- end
+
+	-----------------寻路终止自动捡物品-----------------
+	if MainRole._moveEndAutoPick then
+		if not MainRole._pickItemDelay and checkStandOnItem() then
+			MainRole._pickItemDelay = game.getTime() + 400   --捡去速度
+		end
+		-- MainRole.pickUpItemUnderFoot()
+		-- MainRole._moveEndAutoPick=false
+	end
+
+	if not MainRole._pickItemDelay then
+
+		if MainRole._autoFight then
+			MainRole.doAutoFight()
+		end
+		if MainRole._autoPick then
+			MainRole.doAutoPick()
+
+		end
+	end
+
+	-- 捡取物品
+	MainRole.pickUpItemUnderFoot()
+	UISceneGame.hideAutoActionAnima(50004)
+
+	NetClient:dispatchEvent({name = Notify.EVENT_MOVE_END})
+	NetClient:dispatchEvent({name = Notify.EVENT_SHOW_FLY})
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_AUTOMOVE_END,"auto_move_end")
+
+local function findNearestItemMonster(PixesMainAvatar)
+	if PixesMainAvatar then
+		local mItem
+		local tempItem = NetCC:getNearestItem(0)
+		if tempItem and tempItem:NetAttr(Const.net_state) ~= true and 
+			(tempItem:NetAttr(Const.net_x)~=PixesMainAvatar:NetAttr(Const.net_x) or 
+			tempItem:NetAttr(Const.net_y)~=PixesMainAvatar:NetAttr(Const.net_y)) then
+			mItem = tempItem
+			local owner = mItem:NetAttr(Const.net_item_owner) or 0
+			local ittype = mItem:NetAttr(Const.net_itemtype) or 0
+			if owner >0 and owner ~= MainRole.mID then
+				mItem=nil
+			end
+			if not game.getPickState(ittype) then
+				mItem=nil
+			end
+		end
+		local mMonster = NetCC:getNearestGhost(Const.GHOST_MONSTER)
+		if mMonster and not isTaskTargetMon(mMonster) then mMonster = nil end
+		if NetClient:isBagFull() then mItem = nil end
+		return mItem,mMonster
+	end
+end
+
+
+-- 脚印精灵层
+function addStepSprite( num,parent,name,group,id,pos,ap,isblend,loop,fun )
+	if not parent then return end
+	if not name then return end
+	if parent:getChildByName(name) then return end
+	if not id then return end
+	if not util.isNumber(group) then
+		group = 4
+	end
+	local effectSprite = cc.Sprite:create()
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(4, id, 4, 3)
+	effectSprite:setName(name)
+	parent:addChild(effectSprite)
+	if animate then
+		
+		effectSprite:runAction(cca.repeatForever(cca.seq({
+			--cca.scaleTo(0, 1),--调放大倍数动态代码muyi
+			cca.rep(animate,num),-- 调循环次数动态代码muyi
+			cca.moveTo(5.0,MainRole.mX,MainRole.mY),
+			cca.removeSelf(),
+			cca.delay(num)
+		})))
+
+		
+	end
+	if not isblend then
+		effectSprite:setBlendFunc({src=gl.SRC_ALPHA,dst=gl.ONE})
+	end
+	
+	--local parentSize = parent:getContentSize()
+	--effectSprite:setPosition(cc.p(parentSize.width * parentSize.height * 0.5))
+	--if pos and pos.x then
+	--	effectSprite:setPositionX(pos.x)
+	--end
+	--if pos and pos.y then
+	--	effectSprite:setPositionY(pos.y)
+	--end
+	if not ap then
+		effectSprite:setAnchorPoint(cc.p(0.5,0.5))
+	end
+	if not pos then
+		local parentSize = parent:getContentSize()
+		effectSprite:setPositionX(parentSize.width * 0.5)
+		effectSprite:setPositionY(parentSize.height * 0.5)
+	end
+	
+	-- print("我执行了")
+	return effectSprite
+end
+
+
+-- knyz脚步开始
+function step_go(dir)
+	local mSprite = MainRole._mainAvatar:getSprite()
+	local effectSprite = cc.Sprite:create()
+	local scene = cc.Director:getInstance():getRunningScene()
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(4, 50031, 4, 3)
+	effectSprite:setName("spriteEffect1"..tostring(Const.STEP_NUM))
+	local posX = MainRole.mX-38
+	local posY = MainRole.mY-145
+	effectSprite:align(display.CENTER, posX , posY)
+	effectSprite:addTo(mSprite)
+	if dir == 0 then
+		posY = posY - 130
+	end
+	if dir == 1 then
+		posX = posX - 130
+		posY = posY - 130
+	end
+	if dir == 2 then
+		posX = posX - 130
+	end
+	if dir == 3 then
+		posX = posX - 130
+		posY = posY + 130
+	end
+	if dir == 4 then
+		posY = posY + 130
+	end
+	if dir == 5 then
+		posX = posX + 130
+		posY = posY + 130
+	end
+	if dir == 6 then
+		posX = posX + 130
+	end
+	if dir == 7 then
+		posX = posX + 130
+		posY = posY - 130
+	end
+
+	local size = mSprite:getBoundingBox()
+	effectSprite:runAction(cca.repeatForever(cca.seq({
+		cc.EaseBackOut:create(cc.MoveTo:create(2.4,cc.p(posX,posY))),
+		cca.rep(animate,1),
+		cca.fadeOut(0.5),
+		cca.fadeIn(0.5),
+		cca.fadeTo(1.6,0),
+		cca.removeSelf()		
+	})))
+	Const.STEP_NUM = Const.STEP_NUM +1
+end
+function mainrole_action_start(index,PixesMainAvatar)
+	if PixesMainAvatar then
+	local mSprite = MainRole._mainAvatar:getSprite()
+	if Const.STEP1_X ~= MainRole._mainAvatar:NetAttr(Const.net_x) or Const.STEP1_Y ~= MainRole._mainAvatar:NetAttr(Const.net_y) then
+	if NetClient.mCharacter.step_effid ~= 0 then--mxwx 脚印链接服务器端
+		Const.STEP1_X = MainRole._mainAvatar:NetAttr(Const.net_x)
+		Const.STEP1_Y = MainRole._mainAvatar:NetAttr(Const.net_y)
+		NetClient:PushLuaTable("gui.StepGo.handlePanelData", util.encode({effid = NetClient.mCharacter.step_effid}))
+	else
+	end
+	
+end
+		if index == 1 then
+			if MainRole._moveToUseMagic and not MainRole._moveAndUseMagic then
+				MainRole.startCastSkill(MainRole._moveToUseMagic, true)
+				MainRole._moveToUseMagic = nil
+				-- MainRole._aiKeepAttack = true
+			elseif MainRole._readyKeepAttack then
+				-- MainRole._aiKeepAttack = true
+				MainRole._readyKeepAttack = false
+			elseif MainRole._waitSkill then
+				NetClient:UseSkill(MainRole._waitSkill.type,MainRole._waitSkill.px,MainRole._waitSkill.py, 0)
+				MainRole._waitSkill = nil
+				return 1 -- 返回1,action被lua劫持, 不执行c++
+			-- elseif MainRole.autoSkillCheckAndCast() then
+			-- 	return 1
+			end
+			if not MainRole._moveToNearAttack and not MainRole._moveAndUseMagic then
+				return MainRole.keepEasyAi()
+			end
+		elseif index == 2 then
+			if MainRole._moveAndUseMagic then
+				local  mAimGhost = nil
+				if _aimGhostID > 0 then
+					mAimGhost = MainRole.getAimGhost(_aimGhostID)
+				end
+				if mAimGhost and mAimGhost:NetAttr(Const.net_type) ~= Const.GHOST_NPC then
+					if mAimGhost and not mAimGhost:NetAttr(Const.net_dead) then
+						MainRole.updateAttr()
+						if MainRole._moveToUseMagic and (checkSkilCastOnwerPos(mAimGhost) or not checkSkillCastDistance(MainRole._moveToUseMagic, mAimGhost)) then
+							PixesMainAvatar:autoMoveOneStep(PixesMainAvatar:findAttackPosition(_aimGhostID,1))
+						else
+							if MainRole._moveToUseMagic then
+								local _moveToUseMagic = MainRole._moveToUseMagic
+								MainRole._moveToUseMagic = nil
+								MainRole.startCastSkill(_moveToUseMagic, true)
+								MainRole._moveToUseMagic = nil
+								-- MainRole._aiKeepAttack = true
+								MainRole._moveAndUseMagic = false
+							end
+						end
+						return 1
+					end
+				end
+				MainRole._moveAndUseMagic = false
+			elseif MainRole._moveToNearAttack then
+				local  mAimGhost = nil
+				if _aimGhostID > 0 then
+					mAimGhost = MainRole.getAimGhost(_aimGhostID)
+				end
+				if mAimGhost and mAimGhost:NetAttr(Const.net_type) ~= Const.GHOST_NPC then
+					if mAimGhost and not mAimGhost:NetAttr(Const.net_dead) then
+						if not PixesMainAvatar:autoMoveOneStep(PixesMainAvatar:findAttackPosition(_aimGhostID)) then
+							MainRole.doNearAttack()
+							--寻找到刺杀位之后砍一次就停止，等待手动操作
+							MainRole._moveToNearAttack=false
+							-- MainRole._aiKeepAttack = true
+						end
+						return 1
+					else
+						MainRole._moveToNearAttack=false
+					end
+				end
+			-- end
+			elseif MainRole._runToIndex and MainRole._mapMonGen[MainRole._runToIndex] then
+				local tmon = MainRole._mapMonGen[MainRole._runToIndex]
+				local mItem,mMonster = findNearestItemMonster(PixesMainAvatar)
+				if mItem or mMonster then
+					MainRole._moveAndFinding=false
+					MainRole._runToIndex = nil
+					MainRole.startAutoFight(3)
+
+				elseif cc.pDistanceSQ(cc.p(PixesMainAvatar:NetAttr(Const.net_x),PixesMainAvatar:NetAttr(Const.net_y)),cc.p(tmon.x,tmon.y))
+					< 3*3 then
+					if not MainRole._mapMonGen[MainRole._runToIndex].visit then
+						MainRole._mapMonGen[MainRole._runToIndex].visit = 0
+					end
+					MainRole._mapMonGen[MainRole._runToIndex].visit = MainRole._mapMonGen[MainRole._runToIndex].visit + 1
+					MainRole._runToIndex = nil
+				end
+			elseif MainRole._findToGhostId and MainRole._mapGhostList[MainRole._findToGhostId] then
+				local tmon = MainRole._mapGhostList[MainRole._findToGhostId]
+				local mItem,mMonster = findNearestItemMonster(PixesMainAvatar)
+				if mItem or mMonster then
+					MainRole._moveAndFinding=false
+					MainRole._findToGhostId = nil
+					MainRole.startAutoFight(4)
+
+				elseif cc.pDistanceSQ(cc.p(PixesMainAvatar:NetAttr(Const.net_x),PixesMainAvatar:NetAttr(Const.net_y)),cc.p(tmon.x,tmon.y))
+					< 5*5 then
+					-- print("near monster ",MainRole._findToGhostId)
+					MainRole._mapGhostList[MainRole._findToGhostId] = nil
+					MainRole._findToGhostId = nil
+				end
+			elseif MainRole._moveAndFinding then
+				local mItem,mMonster = findNearestItemMonster(PixesMainAvatar)
+				if not mItem and not mMonster then
+					-- MainRole._findingDir=MainRole.mDir
+					-- MainRole.randMove()
+					MainRole._runToIndex = MainRole.RunToMapMonster()
+					print(MainRole._runToIndex)
+					if MainRole._runToIndex and MainRole._mapMonGen[MainRole._runToIndex] then
+						local tmon = MainRole._mapMonGen[MainRole._runToIndex]
+						MainRole._mainAvatar:startAutoMoveToPos(tmon.x,tmon.y)
+						if game.isAutoMove then
+							return 1
+						end
+					elseif MainRole.RunToFindMonster() then
+						local tmon = MainRole._mapGhostList[MainRole._findToGhostId]
+						MainRole._mainAvatar:startAutoMoveToPos(tmon.x,tmon.y)
+						return 1
+					else
+						if not NetClient.mMapGhostReq and game.wanderFight then
+							-- print("=======##########====reqFindMapGhost======###########===",table.concat(NetClient.mNetMap))
+							NetClient:reqFindMapGhost(NetClient.mNetMap.mMapID,10)
+						elseif NetClient.mMapGhostRes then
+							MainRole._moveAndFinding=false
+						end
+					end
+				else
+					MainRole._moveAndFinding=false
+					-- MainRole.doAutoFight()
+					-- MainRole.doAutoPick()
+				end
+			-- else
+				-- MainRole.doAutoFight()
+			end
+		end
+	end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_MAINROLE_ACTIONSTART,"mainrole_action_start")
+
+local function easyCompDistance(pos,pos1,pos2)
+	return (math.abs(pos1.x-pos.x)+math.abs(pos1.y-pos.y))<(math.abs(pos2.x-pos.x)+math.abs(pos2.y-pos.y))
+end
+
+function MainRole.RunToFindMonster()
+	local pixes_main = MainRole.updateAttr()
+	local mpos = {x=MainRole.mX,y=MainRole.mY}
+	local ret = nil
+	MainRole._findToGhostId = nil
+
+	for k,v in pairs(MainRole._mapGhostList) do
+		if mpos.x~=v.x or mpos.y~=v.y then
+			if not ret then
+				ret = v
+			end
+			if easyCompDistance(mpos,v,ret) then
+				ret = v
+			end
+		end
+	end
+
+	if ret then
+		MainRole._findToGhostId = ret.id
+		-- print("=======##########====MainRole._findToGhostId======",MainRole._findToGhostId)
+		return ret.id
+	end
+end
+
+function MainRole.RunToMapMonster()
+	if not MainRole._mapMonGen or MainRole._curMap ~= NetClient.mNetMap.mMapID then
+		if NetClient.mMapMonGen and #NetClient.mMapMonGen>0  and NetClient.mMapMonGenId == NetClient.mNetMap.mMapID then
+			MainRole._mapMonGen = clone(NetClient.mMapMonGen)
+			MainRole._curMap = NetClient.mNetMap.mMapID
+		else
+			MainRole._mapMonGen = {}
+			MainRole._curMap = ""
+		end
+	end
+	if #MainRole._mapMonGen>0 then
+		local pixes_main = MainRole.updateAttr()
+		local mpos = {x=MainRole.mX,y=MainRole.mY}
+		local idx,ret
+		local size = #MainRole._mapMonGen
+		for i=1,size do
+			if NetClient.mTaskTargetMon then
+				if MainRole._mapMonGen[i].name == NetClient.mTaskTargetMon then
+					ret = MainRole._mapMonGen[i]
+					idx = i
+					break
+				end
+			else
+				if not MainRole._mapMonGen[i].visit then
+					MainRole._mapMonGen[i].visit = 0
+				end
+				if mpos.x~=MainRole._mapMonGen[i].x or mpos.y~=MainRole._mapMonGen[i].y then
+					if not ret then
+						ret = MainRole._mapMonGen[i]
+						idx = i
+					end
+					if MainRole._mapMonGen[i].visit < ret.visit then
+						ret = MainRole._mapMonGen[i]
+						idx = i
+					elseif MainRole._mapMonGen[i].visit == ret.visit and easyCompDistance(mpos,MainRole._mapMonGen[i],ret) then
+						ret = MainRole._mapMonGen[i]
+						idx = i
+					end
+					-- print(ret)
+				end
+			end
+		end
+		if ret then
+			-- print("===========MainRole.RunToMapMonster============",idx)
+			return idx
+		end
+	end
+end
+
+function MainRole.randMove()
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	-- if MainAvatar then
+		if MainRole._mainAvatar:actionWalk(MainRole._findingDir) >0 then
+			return
+		else
+			local dirb=(MainRole._findingDir+4)%8
+			local dir2=MainRole._findingDir
+			local dirs={0,1,2,3,4,5,6,7}
+			table.removebyvalue(dirs,dirb)
+			table.removebyvalue(dirs,dir2)
+
+			while #dirs>0 do
+				local key=math.floor(math.random(0,100))%(#dirs)
+				key=key+1
+				if MainRole._mainAvatar:actionWalk(dirs[key]) >0 then
+					MainRole._findingDir=dirs[key]
+					return
+				else
+					table.remove(dirs,key)
+				end
+			end
+		end
+	-- end
+end
+
+function MainRole.getNearGhostSort()
+	local mGhost = NetCC:getNearGhost(Const.GHOST_PLAYER,true)
+	-- local MainAvatar = CCGhostManager:getMainAvatar()
+	local mResult = {}
+	if #mGhost>0 then
+		for _,v in ipairs(mGhost) do
+			local nearplayer=NetCC:getGhostByID(v)
+			if nearplayer then
+				local mplayer = {}
+				local sameGroup = false
+				local sameGuild = false
+				if #NetClient.mGroupMembers > 0 then
+					for i=1,#NetClient.mGroupMembers do
+						if NetClient.mGroupMembers[i].name == nearplayer:NetAttr(Const.net_name) then
+							sameGroup = true
+						end
+					end
+				end
+				if nearplayer:NetAttr(Const.net_guild_name) ~= MainRole._mainAvatar:NetAttr(Const.net_guild_name) then
+					sameGuild = true
+				end
+				if not sameGroup and not sameGuild then
+					mplayer.id = v
+					mplayer.dis = cc.pDistanceSQ(cc.p(nearplayer:NetAttr(Const.net_x),nearplayer:NetAttr(Const.net_y)),
+											cc.p(MainRole._mainAvatar:NetAttr(Const.net_x),MainRole._mainAvatar:NetAttr(Const.net_y)))
+					table.insert(mResult,mplayer)
+				end
+			end
+		end
+	end
+	local sortfunction = function(q,w) return tonumber(w.dis) < tonumber(q.dis) end
+	table.sort( mResult, sortfunction )
+	if #mResult > 0 then
+		return mResult[1].id
+	end
+	return nil
+end
+
+function MainRole.showSkillName(skill_type)
+	-- if skill_type == Const.SKILL_TYPE_YiBanGongJi or not MainRole._mainAvatar then return end -- 一般攻击不显示技能名称
+	-- 	local mSprite = MainRole._mainAvatar:getSprite()
+	-- 	if mSprite then
+	-- 		local skill_name = ccui.ImageView:create()
+	-- 		local filepath = "fonts/skillname"..skill_type..".png"
+	-- 		skill_name:setPosition(24,60);
+	-- 		mSprite:addChild(skill_name,20)
+	-- 		asyncload_callback(filepath, skill_name, function(filepath, texture)
+	-- 			skill_name:loadTexture(filepath)
+	-- 			skill_name:runAction(cc.Sequence:create(
+	-- 				cca.spawn(
+	-- 					{cc.Sequence:create(
+	-- 						cc.EaseSineIn:create(cca.scaleTo(0.3,1.5)),
+	-- 						cc.EaseSineOut:create(cca.scaleTo(0.2,1)),
+	-- 						cc.EaseQuarticActionIn:create(cc.ScaleTo:create(0.5, 0.5))
+	-- 						),
+	-- 						cca.moveTo(1.0,100,150)
+	-- 					}
+	-- 				),
+	-- 				cca.removeSelf()
+	-- 			))
+	-- 		end)
+	-- end
+end
+
+function MainRole.checkMonKilled(paramID)
+	if paramID and paramID > 0 then
+		local netGhost = NetCC:getGhostByID(paramID)
+		if netGhost and NetClient.mTasks[1000] and NetClient.mTasks[1000].mInfo then
+			if netGhost:NetAttr(Const.net_name) == NetClient.mTasks[1000].mInfo.target_name then
+				--向服务器发送变装请求
+				-- local mainGhost = NetCC:getMainGhost()
+				if MainRole._mainAvatar and MainRole._mainAvatar:NetAttr(Const.net_bemonster) == 1 then
+					NetClient:PushLuaTable("task.task1000.onClientData","")
+				end
+			end
+		end
+	end
+end
+
+local needShiftEquips = {
+		-- ["审判之杖"]	={
+		-- 	old = {name = "炼狱斧",		id = 20008},
+		-- 	new = {name = "审判之杖",	id = 20011},
+		-- },
+		-- ["骨玉法杖"]	={
+		-- 	old = {name = "魔杖",		id = 20009},
+		-- 	new = {name = "骨玉法杖",	id = 20012},
+		-- },
+		-- ["无极刀"]	={
+		-- 	old = {name = "天尊银蛇",	id = 20010},
+		-- 	new = {name = "无极刀",		id = 20013},
+		-- },
+
+		-- ["战将屠龙"]	={
+		-- 	old = {name = "审判之杖",	id = 20011},
+		-- 	new = {name = "战将屠龙",	id = 20014},
+		-- },
+		-- ["法灵龙牙"]	={
+		-- 	old = {name = "骨玉法杖",	id = 20012},
+		-- 	new = {name = "法灵龙牙",	id = 20015},
+		-- },
+		-- ["道尊灵扇"]	={
+		-- 	old = {name = "无极刀",		id = 20013},
+		-- 	new = {name = "道尊灵扇",	id = 20016},
+		-- },
+}
+
+function MainRole.checkShiftEquip()
+	local weaponDressed = NetClient:getNetItem(Const.ITEM_WEAPON_POSITION)
+	if weaponDressed then
+		local itemdef = NetClient:getItemDefByID(weaponDressed.mTypeID)
+		if itemdef and needShiftEquips[itemdef.mName]then
+			local equipData = needShiftEquips[itemdef.mName]
+			if weaponDressed.mLevel == 0 then
+				for pos=0, Const.ITEM_BAG_SIZE - 1 do
+					local weaponInBag = NetClient:getNetItem(pos)
+					if weaponInBag then
+						local itemdef2 = NetClient:getItemDefByID(weaponInBag.mTypeID)
+						if itemdef2 and itemdef2.mName == equipData.old.name then
+							if weaponInBag.mLevel > 0 then
+								NetClient:PushLuaTable("gui.moduleGuide.onClientData", util.encode({actionid = "showshift", param = {itemdef.mName}}))
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+function mainrole_action_end(PixesMainAvatar)
+	-- if MainRole._moveAndFinding then
+	-- 	local mItem
+	-- 	local tempItem = NetCC:getNearestItem(0)
+	-- 	if tempItem and tempItem:NetAttr(Const.net_state) ~= true and 
+	-- 		(tempItem:NetAttr(Const.net_x)~=PixesMainAvatar:NetAttr(Const.net_x) or 
+	-- 		tempItem:NetAttr(Const.net_y)~=PixesMainAvatar:NetAttr(Const.net_y)) then
+	-- 		mItem = tempItem
+	-- 		local owner = mItem:NetAttr(Const.net_item_owner) or 0
+	-- 		local ittype = mItem:NetAttr(Const.net_itemtype) or 0
+	-- 		if owner >0 and owner ~= MainRole.mID then
+	-- 			mItem=nil
+	-- 		end
+	-- 		if not game.getPickState(ittype) then
+	-- 			mItem=nil
+	-- 		end
+	-- 	end
+	-- 	local mMonster = NetCC:getNearestGhost(Const.GHOST_MONSTER)
+	-- 	if not mItem and not mMonster then
+	-- 		MainRole._findingDir=MainRole.mDir
+	-- 		MainRole.randMove()
+	-- 	else
+	-- 		MainRole._moveAndFinding=false
+	-- 		MainRole.doAutoFight()
+	-- 		MainRole.doAutoPick()
+	-- 	end
+	-- else
+	-- 	MainRole.doAutoFight()
+	-- end
+	-- print("mainrole_action_end", MainRole._mainAvatar, MainRole._mainAvatar:PAttr(Const.avatar_state), Const.STATE_WALK)
+	-- if MainRole._mainAvatar then
+	-- 	if not MainRole._pickItemDelay then
+	-- 		MainRole._pickItemDelay = game.getTime() + 400
+	-- 	end
+		-- MainRole.pickUpItemUnderFoot()
+	-- end
+	if MainRole.needCheckPickItem then --action结束之后需要检测当前位置有没有需要拾取的道具
+		-- print("////////////////////rocker mainrole_action_end//////////////")
+		MainRole.pickUpItemUnderFoot()
+		MainRole.needCheckPickItem = false
+	end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_MAINROLE_ACTIONEND,"mainrole_action_end")
+
+function handle_ghost_die(srcid,avatar)
+	local ghostType
+	if avatar and avatar.remEffect then
+		ghostType = avatar:NetAttr(Const.net_type)
+		if ghostType~=Const.GHOST_PLAYER then
+			avatar:remEffect("selected")
+		end
+	end
+	if srcid == _aimGhostID then 
+		_aimGhostID = 0
+		-- MainRole.doAutoFight() 
+		-- MainRole.doAutoPick()
+	end
+	if srcid == MainRole.mID then
+		UISceneGame.hideUIPlayer()
+		CCGhostManager:selectSomeOne(0)
+	else
+		ghost_map_bye(srcid)
+	end
+	-- 死亡刷新名字
+	if ghostType == Const.GHOST_MONSTER then
+		show_monster_title(srcid, avatar:getNameSprite())
+	elseif ghostType == Const.GHOST_PLAYER then
+		show_player_title(srcid, avatar:getNameSprite())
+	end
+end
+cc.LuaEventListener:addLuaEventListener(EVENT.LUAEVENT_GHOST_DIE,"handle_ghost_die")
+
+function MainRole.setStatus(statusid,dura,param)
+	-- if MainRole._statusList[statusid] then
+	-- 	if dura > 0 then
+	-- 		MainRole._statusList[statusid].id = statusid
+	-- 		MainRole._statusList[statusid].dura = dura
+	-- 		MainRole._statusList[statusid].param = param
+	-- 	else
+	-- 		MainRole._statusList[statusid] = nil
+	-- 	end
+	-- else
+	-- 	if dura > 0 then
+	-- 		MainRole._statusList[statusid] = {}
+	-- 		MainRole._statusList[statusid].id = statusid
+	-- 		MainRole._statusList[statusid].dura = dura
+	-- 		MainRole._statusList[statusid].param = param
+	-- 	end
+	-- end
+end
+
+function MainRole.getStatuSize()
+	local size = 0
+	-- if MainRole._statusList then
+	-- 	for id,status in pairs(MainRole._statusList) do
+	-- 		if status.dura and status.dura > 0 then
+	-- 			size = size + 1
+	-- 		end
+	-- 	end
+	-- end
+	return size
+end
+
+function MainRole.addGhostEffect(srcid,binid,mtype)
+	local ghost = NetCC:getGhostByID(srcid)
+	local pixesAvatar = CCGhostManager:getPixesAvatarByID(srcid)
+	if ghost and (ghost:NetAttr(Const.net_type) == Const.GHOST_PLAYER or ghost:NetAttr(Const.net_type) == Const.GHOST_THIS) then
+		if mtype == "relive" then
+			if ghost:NetAttr(Const.net_dead) and ghost:NetAttr(Const.net_hp) > 0 then
+				if pixesAvatar then
+					local mSprite = pixesAvatar:getSprite()
+					if mSprite then
+						if not mSprite:getChildByName("relive_action") then
+							-- local reliveAnim = cc.AnimManager:getInstance():getBinAnimate(4,binid,0,true)
+							if reliveAnim then
+								local topAnim = cc.Sprite:create()
+									:align(display.CENTER, 5, 60)
+									:addTo(mSprite,10)
+									:setName("relive_action")
+									:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+
+								topAnim:runAction(cca.seq({
+									reliveAnim,
+									cca.removeSelf()
+								}))
+							end
+						end
+					end
+				end
+			end
+		elseif mtype == "entermap" then
+			if pixesAvatar then
+				local mSprite = pixesAvatar:getSprite()
+				if mSprite then
+					if not mSprite:getChildByName("fly_action") then
+						-- local reliveAnim = cc.AnimManager:getInstance():getBinAnimate(4,binid,0,true)
+						if reliveAnim then
+							local topAnim = cc.Sprite:create()
+								:align(display.CENTER, 5, 100)
+								:addTo(mSprite,10)
+								:setName("fly_action")
+								:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+
+							topAnim:runAction(cca.seq({
+								reliveAnim,
+								cca.removeSelf()
+							}))
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+function MainRole.handleEquipChange(pos)
+	-- local mainAvatar = CCGhostManager:getMainAvatar()
+	-- if not mainAvatar then return end
+	-- local mSprite = mainAvatar:getSprite()
+	-- if not mSprite then return end
+	-- if pos == Const.ITEM_CLOTH_POSITION then
+	-- 	local netItem = NetClient:getNetItem(pos)
+	-- 	mainAvatar:remEffect("protectBody")
+	-- 	if netItem and netItem.mLevel >= 0 then
+	-- 		local res = 980001 + math.floor((netItem.mLevel - 1) / 3) + 1
+	-- 		mainAvatar:addEffect("protectBody",res,-10,cc.p(14,50),0,true)
+	-- 	end
+	-- end
+end
+
+function MainRole.pickUpItemUnderFoot() --拾取打怪掉落的道具
+	if not game.bagFullFlag then
+		local netGhost = NetCC:getGhostAtPos(MainRole._mainAvatar:PAttr(Const.avatar_x),MainRole._mainAvatar:PAttr(Const.avatar_y),Const.GHOST_ITEM)
+		if #netGhost>0 then
+			local item=NetCC:getGhostByID(netGhost[1])
+			local owner = item:NetAttr(Const.net_item_owner)
+			owner = type(owner) == "boolean" and 0 or owner
+			-- if owner > 0 and owner ~= MainRole.mID then
+			-- 	item=nil
+			-- end
+
+			if item then
+				item:setNetValue(Const.net_state, true)
+				NetClient:PickUp(netGhost[1], item:NetAttr(Const.net_x) , item:NetAttr(Const.net_y))
+				-- NetClient:alertLocalMsg("捡去测试99999") --mxwx 自动回收
+				NetClient:PushLuaTable("item.chuansong.luaitem","zdhuishou1")
+			end
+		end
+	end
+end
+
+
+--强化特效
+
+function MainRole.handleQiangHuaChange(level)
+	local mainAvatar = MainRole.updateAttr()
+	if not mainAvatar then return end
+	local mSprite = mainAvatar:getSprite()
+	if not mSprite then return end
+	mainAvatar:remEffect("haloLater")
+	mainAvatar:remEffect("haloPre")
+	local resid = game.getQiangHuaResid(level)
+	if resid then
+		mainAvatar:addEffect("haloPre",resid.resPre,10,cc.p(0,50),0,true)--腰间光换前
+		mainAvatar:addEffect("haloLater",resid.resLater,-10,cc.p(0,50),0,true)--腰间光环后
+	end
+end
+
+function MainRole.isMySlave(id)
+	if MainRole._mainAvatar and id then
+		local mAimGhost = MainRole.getAimGhost(id)
+		if mAimGhost:NetAttr(Const.net_type) == Const.GHOST_SLAVE then
+			-- local name = mAimGhost:NetAttr(Const.net_name)
+			local ownerID = mAimGhost:NetAttr(Const.net_item_owner)
+			-- local myName = MainRole._mainAvatar:NetAttr(Const.net_name)
+			local myID = MainRole._mainAvatar:NetAttr(Const.net_id)
+			-- if string.find(name, myName) then
+			-- 	return true
+			-- end
+			return myID == ownerID
+		end
+	end
+	return false
+end
+
+function MainRole.getGhostDistance(ghost)
+	local ghostX = ghost:NetAttr(Const.net_x)
+	local ghostY = ghost:NetAttr(Const.net_y)
+	MainRole.updateAttr()
+	local disX = MainRole.mX - ghostX
+	local disY = MainRole.mY - ghostY
+	return math.sqrt(disX * disX + disY * disY)
+end
+
+function MainRole.completeCollect(srcid)
+	local mAimGhost = MainRole.getAimGhost(_aimGhostID)
+	if mAimGhost and srcid == mAimGhost.mID then
+		if NetClient.m_bCollecting then
+			NetClient.m_bCollecting = false
+		end
+	end
+end
+
+-------------------------------战士技能逻辑-------------------------------
+-- if pixes_main and NetClient.m_bCiShaOn and not NetClient.m_bBanYueOn and NetClient.m_netSkill[Const.SKILL_TYPE_CiShaJianShu] and pixes_main:NetAttr(Const.net_weapon)>0 and not NetClient.m_bLiehuoAction then
+-- 	space = 2
+-- end
+local cDirWalkX = {0,1,1,1,0,-1,-1,-1}
+local cDirWalkY = {-1,-1,0,1,1,1,0,-1}
+local function NextX(x, dir)
+	return x + cDirWalkX[dir + 1]
+end
+local function NextY(y, dir)
+	return y + cDirWalkY[dir + 1]
+end
+local function hasWeapon()
+	-- return MainRole._mainAvatar:NetAttr(Const.net_weapon) > 0
+	return true
+end
+
+local function canCastCiSha()
+	local mAimGhost = MainRole.getAimGhost(_aimGhostID)
+	if mAimGhost then
+		MainRole.updateAttr()
+		if NetClient.m_bCiShaOn and NetClient.m_netSkill[Const.SKILL_TYPE_CiShaJianShu] then
+			if math.abs(MainRole.mX-mAimGhost.mX)<=2 and math.abs(MainRole.mY-mAimGhost.mY)<=2 then
+				return true
+			end
+		end
+
+		-- local dir = game.getLogicDirection(cc.p(MainRole.mX,MainRole.mY),cc.p(mAimGhost.mX,mAimGhost.mY))
+		-- local space = 1
+		-- if NetClient.m_bCiShaOn and not NetClient.m_bBanYueOn and NetClient.m_netSkill[Const.SKILL_TYPE_CiShaJianShu] then
+		-- 	space = 2
+		-- end
+		-- local cishapos = false
+		-- if space==2 and MainRole.mX+m_tile_step[dir+1][1]*2==mAimGhost.mX and MainRole.mY+m_tile_step[dir+1][2]*2==mAimGhost.mY then
+		-- 	cishapos = true
+		-- end
+		-- return cishapos
+	end
+end
+
+local function canCastBanYue()
+	if NetClient.m_bBanYueOn and NetClient.m_netSkill[Const.SKILL_TYPE_BanYueWanDao] then
+		-- 判断目标周围怪物数量
+		MainRole.updateAttr()
+		local monNum = 0
+		local pos_x, pos_y, result
+		for i= -1, 2 do
+			pos_x = NextX(MainRole.mX, (MainRole.mDir+i+8)%8)
+			pos_y = NextY(MainRole.mY, (MainRole.mDir+i+8)%8)
+			result = NetCC:getGhostAtPos(pos_x, pos_y, Const.GHOST_PLAYER)
+			if result and #result > 0 then
+				monNum = monNum + #result
+			end
+			if monNum >= 2 then
+				break
+			end
+			result = NetCC:getGhostAtPos(pos_x, pos_y, Const.GHOST_MONSTER)
+			if result and #result > 0 then
+				monNum = monNum + #result
+			end
+			if monNum >= 2 then
+				break
+			end
+			result = NetCC:getGhostAtPos(pos_x, pos_y, Const.GHOST_SLAVE)
+			--增加神将归属判断
+			if result and #result > 0 then
+				for i,v in ipairs(result) do
+					if not MainRole.isMySlave(v) then
+						monNum = monNum + 1
+					end
+				end
+			end
+			if monNum >= 2 then
+				break
+			end
+		end
+		if monNum >= 2 then
+			return true
+		end
+	end
+end
+
+function MainRole.getWarriorSkill()
+	local skill_type = Const.SKILL_TYPE_YiBanGongJi
+	if canCastBanYue() and game.checkMpEnough(Const.SKILL_TYPE_BanYueWanDao) then
+		skill_type = Const.SKILL_TYPE_BanYueWanDao
+	elseif canCastCiSha() and game.checkMpEnough(Const.SKILL_TYPE_CiShaJianShu) then
+		skill_type = Const.SKILL_TYPE_CiShaJianShu
+	end
+	return skill_type
+end
+
+function MainRole.canCastLieHuo()
+	local mAimGhost = MainRole.getAimGhost(_aimGhostID)
+	if mAimGhost then
+		MainRole.updateAttr()
+		if math.abs(MainRole.mX-mAimGhost.mX)<2 and math.abs(MainRole.mY-mAimGhost.mY)<2 then
+			return true
+		end
+	end
+end
+
+MainRole.checkDefaultSkillAttack = checkDefaultSkillAttack
+MainRole.isAttackSkill = isAttackSkill
+MainRole.isSelectGridSkill = isSelectGridSkill
+MainRole.isCastGridSkill = isCastGridSkill
+
+return MainRole

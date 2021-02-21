@@ -1,0 +1,15 @@
+LUA_RET={
+{n="TipsCompose",v=true,type=0,id=1,parent=0,w=400.0000,h=400.0000,},
+{n="tips_bg",tag=325,ss=true,sx=30,sw=16,sh=16,sy=30,v=true,type=1,id=2,parent=1,w=400.0000,h=400.0000,color="255|255|255",res="img_tips_bg",},
+{n="lbl_name",tag=326,fs=20,text="城主",ht=1,vt=1,v=true,type=3,id=3,parent=2,w=40.0000,h=20.0000,ay=0.5000,x=33.0000,y=366.0000,color="255|0|0",},
+{n="lbl_bind",tag=327,fs=18,text="类型:",ht=1,vt=1,v=true,type=3,id=4,parent=2,w=45.0000,h=18.0000,ay=0.5000,x=129.0000,y=335.0000,color="255|165|0",},
+{n="img_icon_frame",tag=337,sx=22,sw=22,sh=22,sy=22,v=true,type=1,id=5,parent=2,w=68.0000,h=68.0000,ax=0.5000,ay=0.5000,x=66.0000,y=313.0000,color="255|255|255",res="img_cell_max",},
+{n="img_icon_bg",tag=338,v=true,type=1,id=6,parent=5,w=50.0000,h=50.0000,ax=0.5000,ay=0.5000,x=38.0000,y=38.0000,color="255|255|255",res="null",},
+{n="img_icon",tag=339,v=true,type=1,id=7,parent=5,w=51.0000,h=55.0000,ax=0.5000,ay=0.5000,x=37.0000,y=38.0000,color="255|255|255",res="cityking_stamp",},
+{n="lbl_type",tag=370,fs=18,text="装备",ht=1,vt=1,v=true,type=3,id=8,parent=2,w=36.0000,h=18.0000,ay=0.5000,x=178.0000,y=335.0000,color="255|165|0",},
+{n="lbl_bind_1",tag=322,fs=18,text="等级:",ht=1,vt=1,v=true,type=3,id=9,parent=2,w=45.0000,h=18.0000,ay=0.5000,x=129.0000,y=306.0000,color="255|165|0",},
+{n="lbl_level",tag=323,fs=18,text="60",ht=1,vt=1,v=true,type=3,id=10,parent=2,w=18.0000,h=18.0000,ay=0.5000,x=178.0000,y=306.0000,color="255|165|0",},
+{n="lbl_desp",tag=324,fs=18,text="物品描述:",ht=1,vt=1,v=true,type=3,id=11,parent=2,w=81.0000,h=18.0000,ay=0.5000,x=19.0000,y=256.0000,color="255|165|0",},
+{n="list",ud="1|1|0|0",tag=371,t=true,c=false,d=1,v=true,type=9,id=12,parent=1,w=370.0000,h=200.0000,x=15.0000,y=40.0000,color="255|255|255",},
+{n="render",tag=372,t=true,c=false,v=true,type=0,id=13,parent=12,w=370.0000,h=36.0000,y=164.0000,color="255|255|255",},
+}

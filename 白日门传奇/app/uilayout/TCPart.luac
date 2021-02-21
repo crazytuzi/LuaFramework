@@ -1,0 +1,12 @@
+LUA_RET={
+{n="TCPart",v=true,type=0,id=1,parent=0,w=480.0000,h=320.0000,},
+{n="layerFuben",tag=472,t=true,c=false,v=true,type=0,id=2,parent=1,w=200.0000,h=200.0000,ax=0.5000,ay=1.0000,x=240.0000,y=320.0000,color="255|255|255",},
+{n="lbl_fuben_info2",tag=588,fs=20,text="",v=true,type=3,id=3,parent=2,ax=0.5000,ay=0.5000,x=100.0000,y=99.9731,color="255|255|255",},
+{n="img_fb_countDown",tag=194,v=true,type=1,id=4,parent=2,w=178.0000,h=30.0000,ax=0.5000,ay=0.5000,x=99.0000,y=158.9731,color="255|255|255",res="img_breakup_djs",},
+{n="img_fuben_info3",v=false,tag=195,type=1,id=5,parent=2,w=196.0000,h=68.0000,ax=0.5000,ay=0.5000,x=100.0000,y=99.0000,color="255|255|255",res="img_bu_susha",},
+{n="layerPassStar",tag=589,t=true,c=false,v=true,type=0,id=6,parent=1,w=432.0000,h=273.0000,ax=0.5000,ay=1.0000,x=240.0000,y=95.0000,color="255|255|255",},
+{n="img_vectory",tag=193,sx=84,sw=84,sh=41,sy=41,v=true,type=1,id=7,parent=6,w=256.0000,h=127.0000,ax=0.5000,ay=0.5000,x=213.6699,y=275.4375,color="255|255|255",res="img_breakup_vector",},
+{n="progress_bar_bg",tag=800,sx=94,sw=94,sh=11,sy=11,v=true,type=1,id=8,parent=1,w=285.0000,h=34.0000,ax=0.5000,ay=0.5000,x=240.0000,y=-256.4033,color="255|255|255",res="img_progress_bar_bg",},
+{n="img_lbl_tip",tag=147,sx=53,sw=53,sh=12,sy=12,v=true,type=1,id=9,parent=8,w=163.0000,h=38.0000,ax=0.5000,ay=0.5000,x=145.2922,y=49.3845,color="255|255|255",res="caijizhong",},
+{n="progress_bar",ud="UILoadingBar",tag=801,ss=true,sx=57,sw=59,sh=3,sy=2,v=true,type=1,id=10,parent=8,w=285.0000,h=34.0000,ax=0.5000,ay=0.5000,x=142.8788,y=17.2484,color="255|255|255",res="img_progress_bar",},
+}

@@ -1,0 +1,1004 @@
+local PanelFriend = {}
+
+local var = {}
+
+local SELECTED_STATE = {
+	ON = 1,
+	OFF = 2,
+}
+
+-- 好友界面
+
+local pageInfos = {
+	[1] = {title = 99 	, name = "recentContacts" ,	hint="暂时没有找到与您等级相近的玩家"},
+	[2] = {title = 100  , name = "FriendList" ,		hint="您还没有好友，点击推荐可以找到好友"},
+	[3] = {title = 101	, name = "EnemyList" ,		hint="击杀您的玩家自动记录为您的仇人"},
+	[4] = {title = 102	, name = "BlackList" ,		hint="这里显示您在聊天界面中屏蔽的玩家"},
+	[5] = {title = 0	, name = "searchFriends" ,	hint="查找玩家"},
+}
+
+local operateBtns = {
+	InvGroup = "InvGroup",
+	Private = "Private",
+	ChkInfo = "ChkInfo",
+	Delete = "Delete",
+	Onekey = "Onekey",
+}
+
+local chatBtns = {
+	[1] = {name= "btn_switch",	},
+	[2] = {name= "btn_face",	},
+	[3] = {name= "btn_press",	touch = true },
+	[4] = {name= "btn_send",	},
+	[5] = {name= "btn_xuanyan",	},
+	[6] = {name= "btn_deleteenemy",	},
+	[7] = {name= "btn_enemytrack",	},
+	[8] = {name= "btn_fresh_friend",},
+	[9] = {name= "btn_find",	},
+	[10]= {name="btn_position", },
+	[11]= {name ="btn_equip_bag",	},
+	[12]= {name ="btn_face_t",	},
+}
+
+local head_key ={"head_mzs","head_fzs","head_mfs","head_ffs","head_mds","head_fds"}
+
+function PanelFriend.initView()
+	var = {
+		xmlPanel,
+		listFriend,
+		-- listEnemy,
+
+		pageIndex = 1,
+		editbox,
+		editboxFind,
+		handleItemTouchRecomnendLast ={},
+		player = {},
+		tabh,
+		pageFriend,
+		pageFind,
+		pageEnemy,
+		pageBlack,
+
+		chatself,
+		chatother,
+		dieRecord = {},
+		layerbg,
+		chatTarget = nil,
+		listChat,
+		Container
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelFriend.uif")
+
+	if var.xmlPanel then
+		var.listFriend = var.xmlPanel:getWidgetByName("listFriend")
+		-- var.listEnemy = var.xmlPanel:getWidgetByName("listEnemy"):setSliderVisible(false)
+
+		var.tabh = var.xmlPanel:getWidgetByName("page_tab")
+		var.tabh:addTabEventListener(PanelFriend.pushTab);
+		var.tabh:setTabRes("tab2_nor", "tab2_sel")
+
+		cc.EventProxy.new(NetClient, var.xmlPanel)
+			:addEventListener(Notify.EVENT_FRIEND_FRESH, PanelFriend.refreshPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelFriend.handlePanelData)
+			:addEventListener(Notify.EVENT_CHAT_MSG, PanelFriend.handleNewChatMsg)
+			:addEventListener(Notify.EVENT_CHAT_RECENT, PanelFriend.handleChatRecentChange)
+
+		-- util.asyncload(var.xmlPanel, "friend_find_bg", "needload/img_f_add_bg.jpg")
+		util.asyncload(var.xmlPanel, "img_bg", "needload/bg_max2.png")
+
+		if PLATFORM_BANSHU then
+			var.tabh:hideTab({3,4})
+		end
+		var.pageFind = var.xmlPanel:getWidgetByName("pageFind");
+		var.pageFriend = var.xmlPanel:getWidgetByName("pageFriend");
+		var.pageEnemy = var.xmlPanel:getWidgetByName("pageEnemy");
+
+		var.chatself = var.xmlPanel:getWidgetByName("chatself");
+		--var.chatself:getChildByName("contentbg"):setRotation(-180)
+		var.chatother = var.xmlPanel:getWidgetByName("chatother");
+		var.pageFind:setPosition(cc.p(38,9)):setVisible(false):setSwallowTouches(true):setTouchEnabled(true)
+		var.pageEnemy:setVisible(false);
+		-- var.xmlPanel:getWidgetByName("btn_xuanyan"):hide()
+		var.listChat = var.xmlPanel:getWidgetByName("listChat");
+		var.Container = var.xmlPanel:getWidgetByName("Container");
+
+		var.layerbg = var.xmlPanel:getWidgetByName("layerbg")
+		-- 添加好友
+		--var.xmlPanel:getWidgetByName("btn_add_friend"):setTag(5):addClickEventListener(PanelFriend.pushTab)
+		if not var.editbox then
+			local img_input_bg = var.xmlPanel:getWidgetByName("img_input_bg")
+			var.editbox = util.newEditBox({
+				name = "chatinput",
+				image = "picicon/null.png",
+				size = img_input_bg:getContentSize(),
+				listener = PanelFriend.onEdit,
+				color = cc.c4b(200, 200, 200,255),
+				x = 0,
+				y = 0,
+				fontSize = 22,
+				-- inputMode = cc.EDITBOX_INPUT_MODE_ANY,
+				placeHolderColor = game.getColor(0x827b6e),
+				placeHolderSize = 22,
+				anchor = cc.p(0,0),
+				placeHolder = Const.str_input,
+			})
+			var.editbox:align(display.BOTTOM_LEFT,0,0)
+				:setPlaceHolder(Const.str_input)
+				:addTo(img_input_bg)
+				:setString("")
+				:setAnchorPoint(cc.p(0,0))
+				:setVisible(true)
+		end
+
+		return var.xmlPanel
+	end
+end
+
+function PanelFriend.onPanelOpen()	
+	for k,v in pairs(chatBtns) do
+		local sender = var.xmlPanel:getWidgetByName(v.name)
+		if sender then
+			if v.touch then
+				sender:addTouchEventListener(PanelFriend.pushOperateBtns)
+			else
+				sender:addClickEventListener(PanelFriend.pushOperateBtns)
+			end
+		end
+		if PLATFORM_BANSHU and v.name == "btn_switch" then
+			sender:hide()
+		end
+	end
+	var.tabh:setSelectedTab(1);--最近联系人
+	PanelFriend.initFaceList()
+	var.xmlPanel:setPositionY(display.cy)
+	var.Container:setPosition(cc.p(-380, 390))
+end
+
+function PanelFriend.pushTab(sender)
+	var.pageIndex = sender:getTag();
+	if var.pageIndex == 1 then
+		-- var.xmlPanel:getWidgetByName("Image_52"):hide()
+		-- var.xmlPanel:getWidgetByName("Image_48"):show()
+		-- var.xmlPanel:getWidgetByName("Image_7_0"):show()
+		-- var.xmlPanel:getWidgetByName("Image_51"):show()
+		--var.layerbg:loadTexture("needload/img_friend_bg.jpg", ccui.TextureResType.localType)
+		PanelFriend.refreshPanel(var.pageIndex)
+	elseif var.pageIndex == 2 then
+		--var.xmlPanel:getWidgetByName("Image_52"):hide()
+		-- var.xmlPanel:getWidgetByName("Image_48"):show()
+		-- var.xmlPanel:getWidgetByName("Image_7_0"):show()
+		-- var.xmlPanel:getWidgetByName("Image_51"):show()
+		--var.layerbg:loadTexture("needload/img_friend_bg.jpg", ccui.TextureResType.localType)
+		PanelFriend.refreshPanel(var.pageIndex)
+	elseif var.pageIndex == 3 then
+		--var.xmlPanel:getWidgetByName("Image_52"):show()
+		-- var.xmlPanel:getWidgetByName("Image_48"):show()
+		-- var.xmlPanel:getWidgetByName("Image_7_0"):show()
+		-- var.xmlPanel:getWidgetByName("Image_51"):show()
+		--var.layerbg:loadTexture("needload/img_enemy_bg.jpg", ccui.TextureResType.localType)
+		PanelFriend.refreshPanel(var.pageIndex)
+		PanelFriend.onUpdatePageEnemy()
+	elseif var.pageIndex == 4 then
+		--var.xmlPanel:getWidgetByName("Image_52"):hide()
+		-- var.xmlPanel:getWidgetByName("Image_48"):show()
+		-- var.xmlPanel:getWidgetByName("Image_7_0"):show()
+		-- var.xmlPanel:getWidgetByName("Image_51"):show()
+		--var.layerbg:loadTexture("needload/img_friend_bg.jpg", ccui.TextureResType.localType)
+		PanelFriend.refreshPanel(var.pageIndex)
+	elseif var.pageIndex == 5 then
+		--var.xmlPanel:getWidgetByName("Image_52"):hide()
+		-- var.xmlPanel:getWidgetByName("Image_48"):hide()
+		-- var.xmlPanel:getWidgetByName("Image_7_0"):hide()
+		-- var.xmlPanel:getWidgetByName("Image_51"):hide()
+		
+		
+		--var.layerbg:loadTexture("null", ccui.TextureResType.plistType)
+		PanelFriend.onUpdatePageFind()
+	end
+	--var.layerbg:ignoreContentAdaptWithSize(false)
+	var.pageFriend:setVisible(table.indexof({1,2,4},var.pageIndex)~=false);
+	var.listFriend:setVisible(var.pageIndex ~= 5)
+	var.pageEnemy:setVisible(var.pageIndex == 3)
+	var.pageFind:setVisible(var.pageIndex == 5)
+
+	var.listChat:setVisible(var.pageIndex ~= 4)
+	var.xmlPanel:getWidgetByName("img_Background"):setVisible(var.pageIndex ~= 4)
+
+	var.chatTarget = nil
+end
+
+function PanelFriend.onUpdatePageEnemy(enemyName)
+	local dieRecords = UserConfig.getInfos(enemyName,"DieRecords") or {}
+	local deathList = var.pageEnemy:getWidgetByName("deathList");
+	deathList:setVisible(#dieRecords>0)
+	local t = dieRecords[#dieRecords]
+	if not t then
+		t = NetClient:getPlayerInfo(enemyName) or {}
+	end
+	var.pageEnemy:getWidgetByName("lblenemylv"):getWidgetByName("content"):setString(t.level or "")
+	local job = t.job
+	if checknumber(t.job)>0 then
+		job = util.getJobName(t.job)
+	end
+	var.pageEnemy:getWidgetByName("lblenemyjob"):getWidgetByName("content"):setString(job or "")
+	local pGhost = NetCC:findGhostByName(enemyName)
+	if pGhost then
+		t.power = pGhost:NetAttr(Const.net_fight_point)
+	end
+	var.pageEnemy:getWidgetByName("lblenemypower"):getWidgetByName("content"):setString(t.power or "")
+	var.pageEnemy:getWidgetByName("lblenemyguild"):getWidgetByName("content"):setString(t.guild or "")
+
+	deathList:reloadData(#dieRecords, function( subItem )
+		local d = dieRecords[subItem.tag]
+		local str = subItem:getWidgetByName("modelRecord1")
+		if not str then
+			-- str = UIRichLabel.new({size=cc.size(subItem:getContentSize().width-10,30),name = "modelRecord1"})
+			str = UIRichLabel.new({ignoreSize = true,name = "modelRecord1"})
+			str:addTo(subItem):setPosition(cc.p(10,10))
+		end
+
+		local time = os.date("%Y-%m-%d %H:%M",d.time);
+		str:setRichLabel("<font color=#18d129>"..time.."</font><font color=#edb846>在<font color=#00ff00>"..d.map.."</font>被<font color=#ff0000>"..d.name.."</font>击杀！</font>", "parent", 18)
+	end)
+end
+
+function PanelFriend.onUpdatePageFind()
+	local inputFind = var.pageFind:getWidgetByName("inputFind")
+	var.editboxFind = inputFind:getWidgetByName("editboxFind")
+
+	-- var.pageFind:setBackGroundImage("needload/img_f_add_bg.jpg")
+	if not var.editboxFind then
+		var.editboxFind = util.newEditBox({
+			name = "editboxFind",
+			image = "picicon/null.png",
+			size = inputFind:getContentSize(),
+			listener = PanelFriend.onEdit,
+			color = cc.c4b(200, 200, 200,255),
+			x = 0,
+			y = 0,
+			fontSize = 22,
+			-- inputMode = cc.EDITBOX_INPUT_MODE_ANY,
+			placeHolderColor = game.getColor(0x827b6e),
+			placeHolderSize = 22,
+			anchor = cc.p(0,0),
+			placeHolder = Const.str_input,
+		})
+		var.editboxFind:align(display.BOTTOM_LEFT,0,0)
+			:setPlaceHolder(Const.str_input)
+			:addTo(inputFind)
+			:setAnchorPoint(cc.p(0,0))
+	end
+	var.editboxFind:setString("")
+	PanelFriend.freshFindList({});
+end
+
+function PanelFriend.changeInputModel()
+	local btn_press = var.xmlPanel:getWidgetByName("btn_press")
+	local inputlayer = var.xmlPanel:getWidgetByName("inputlayer")
+	local vis = btn_press:isVisible()
+	btn_press:setVisible( not vis)
+	inputlayer:setVisible( vis)
+end
+
+function PanelFriend.onEdit(event,editBox)
+	-- if event == "ended" then
+	-- end
+end
+
+function PanelFriend.initFaceList()
+	local function pushEmojPng(sender)
+		local tag = sender:getTag()
+		var.editbox:setString(var.editbox:getText()..Const.expressions_item[tag][1])
+		-- PanelFriend.changeInputModel()
+	end
+	local facelist = var.xmlPanel:getWidgetByName("emoj_bg")
+	local bgSize = facelist:getContentSize()
+	for i=1,4 do
+		for j=1,5 do
+			local id = (i-1)*5 + j
+			if not facelist:getChildByTag(id) then
+				local imgFace = ccui.Button:create()
+				imgFace:loadTextureNormal(Const.expressions_item[id][2],ccui.TextureResType.plistType)
+				imgFace:setTag(id)
+				imgFace:setPosition(cc.p(bgSize.width/5.5*j-10,bgSize.height+28-bgSize.height/5*i))
+				imgFace:setTouchEnabled(true)
+				imgFace:setScale(0.8)
+				imgFace:addClickEventListener(pushEmojPng)
+				facelist:addChild(imgFace)
+			end
+		end
+	end
+end
+
+function PanelFriend.setEmojVisible()
+	local containerHeight = var.xmlPanel:getWidgetByName("Container"):getContentSize().height
+	local heightAddition = display.cy - var.xmlPanel:getContentSize().height/2
+	local height = containerHeight - heightAddition
+	var.Container:setPositionX(var.xmlPanel.isShow and -380 or 170)
+	var.xmlPanel.isShow = not var.xmlPanel.isShow
+	-- var.xmlPanel:runAction(cca.seq({
+	-- 	cca.cb(function(target)
+	-- 		--print(var.xmlPanel.isShow,heightAddition,containerHeight)
+	-- 		var.Container:setPositionX(var.xmlPanel.isShow and -280 or 0)
+	-- 	end),
+	-- 	cca.moveTo(0.2, var.xmlPanel:getPositionX() + (var.xmlPanel.isShow and -280 or 280), var.xmlPanel:getPositionY()),--()+(var.xmlPanel.isShow and -height or height)),
+	-- 	cca.cb(function ()
+	-- 		var.xmlPanel.isShow = not var.xmlPanel.isShow
+	-- 	end)
+	-- }))
+end
+
+function PanelFriend.execItemString(msg)
+	local startPos = 0
+	local endPos = 1
+	local result = msg
+	local num = 0
+	result=string.gsub(result,"(##.-##)",function(v)
+		v=string.gsub(v,"##","")
+		local vv=string.split(v,",")
+		if #vv>1 then
+			if num<3 then
+				local itemdef = NetClient:getItemDefByName(vv[1])
+				if itemdef then
+					local item = NetClient:getNetItem(tonumber(vv[2]))
+					if item then
+						num = num + 1
+						return "<item src=\""..vv[1]..","..item.mLevel..","..item.mZLevel.."\"/>"
+					end
+				end
+			else
+				return vv[1]
+			end
+		end
+		return ""
+	end)
+	return result
+end
+
+function PanelFriend.pushOperateBtns(sender,touchType)
+	local btnFuncs = {
+		["btn_switch"] = function ()
+			PanelFriend.changeInputModel()
+			if var.xmlPanel.isShow then
+				PanelFriend.setEmojVisible()
+			end
+
+			if not sender.bright then sender.bright =1 end
+			local res = sender.bright ==1 and "img_keyboard" or "img_keyboard_sel"
+			sender:loadTextures(res,res,res,ccui.TextureResType.plistType)
+			sender.bright = 1 - sender.bright
+		end,
+		["btn_face"] = function ()
+			PanelFriend.setEmojVisible()
+		end,
+		["btn_press"] = function ()
+			if not NetClient.m_strPrivateChatTarget or NetClient.m_strPrivateChatTarget=="" then
+				if touchType == ccui.TouchEventType.began then
+					NetClient:alertLocalMsg("请先选择私聊对象！", "alert")
+				end
+				return
+			end
+			if sender and touchType == ccui.TouchEventType.began then
+				NetClient:dispatchEvent({name = Notify.EVENT_VOICE_HANDLE,vis = true,chanel = "VoiceChannelPrivate"})
+			elseif sender and touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then
+				NetClient:dispatchEvent({name = Notify.EVENT_VOICE_HANDLE,vis = false, send = util.hitTest(sender, sender:getTouchEndPosition())})
+			else
+				NetClient:dispatchEvent({name = Notify.EVENT_VOICE_HANDLE, charVis = not util.hitTest(sender, sender:getTouchMovePosition())})
+			end
+		end,
+		["btn_send"] = function (isVoice)
+			local msg = var.editbox:getText();
+			-- isVoice = "<voice>|"..util.ToBase64("1234").."|1000|"..util.ToBase64("5678").."|5"
+			msg = game.clearHtmlText(msg)
+			if isVoice then
+				msg = isVoice
+			end
+			if #msg <1 then return end
+
+			--装备换算
+			msg = PanelFriend.execItemString(msg)
+
+			--换算地图坐标
+			if var.Amark and var.mapInfo then
+				msg,_ = string.gsub(msg,var.mapInfo,var.Amark)
+			end
+			if var.chatTarget == "" or var.chatTarget == nil then
+				NetClient:alertLocalMsg("你还没有聊天对象！","alert")
+			else
+				msg,_=string.gsub(msg,"@[^>]*:","")
+				NetClient:PrivateChat(var.chatTarget,msg)
+			end
+			if var.xmlPanel.isShow then
+				PanelFriend.setEmojVisible()
+			end
+			var.editbox:setString("")
+			var.mapInfo	= nil
+			var.Amark 	= nil
+		end,
+		["btn_find"] = function()
+			if var.editboxFind then
+				local pName = var.editboxFind:getText();
+				if #pName<=0 then
+					return NetClient:alertLocalMsg("请输入玩家姓名！")
+				end
+				local data = {actionid = "searchFriends", param = {var.editboxFind:getText()},}
+				NetClient:PushLuaTable("gui.PanelFriend.onPanelData", util.encode(data))
+			end
+		end,
+		["btn_xuanyan"] = function()
+			NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str = "revenge"})--复仇宣言
+		end,
+		["btn_deleteenemy"] = function()
+			if var.chatTarget ~= "" or var.chatTarget ~= nil then
+				NetClient:FriendChange(var.chatTarget,0)
+			end
+		end,
+		["btn_enemytrack"] = function()
+			if var.chatTarget then
+				NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str = "enemytrack",enemyName = var.chatTarget})--仇人追踪
+			end
+		end,
+		["btn_fresh_friend"] = function()
+			local data = {actionid = "recommendPlayer"}
+			NetClient:PushLuaTable("gui.PanelFriend.onPanelData", util.encode(data))
+		end,
+		["btn_position"] = function()
+			PanelFriend.setEmojVisible()
+			local pos = MainRole._mainAvatar:PAttr(Const.AVATAR_X)..",".. MainRole._mainAvatar:PAttr(Const.AVATAR_Y)
+			local minimap = NetClient.mNetMap
+			var.mapInfo	= minimap.mName.." "..pos
+			var.Amark = "<a underline=00ff00 color=#00ff00 href=\'event:local_goto_"..minimap.mMapID.."_"..MainRole._mainAvatar:PAttr(Const.AVATAR_X).."_"..MainRole._mainAvatar:PAttr(Const.AVATAR_Y).."\'>"..var.mapInfo.."</a>"
+			var.editbox:setString(var.editbox:getText().." "..var.mapInfo.." ")
+		end,
+		["btn_face_t"] = function()
+			var.xmlPanel:getWidgetByName("equipList"):setVisible(false)
+			var.xmlPanel:getWidgetByName("emoj_bg"):setVisible(true)
+		end,	
+		["btn_equip_bag"] = function()
+			var.xmlPanel:getWidgetByName("equipList"):setVisible(true)
+			var.xmlPanel:getWidgetByName("emoj_bg"):setVisible(false)
+			PanelFriend.onItemChange()
+		end,	
+
+	}
+	if btnFuncs[sender:getName()] then
+		btnFuncs[sender:getName()]()
+	end
+end
+
+local equip_info = {
+	{pos = Const.ITEM_WEAPON_POSITION,	etype = Const.EQUIP_TAG.WEAPON},
+	{pos = Const.ITEM_CLOTH_POSITION,	etype = Const.EQUIP_TAG.CLOTH},
+	{pos = Const.ITEM_GLOVE1_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING1_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BOOT_POSITION,	etype = Const.EQUIP_TAG.BOOT},
+
+	{pos = Const.ITEM_HAT_POSITION,		etype = Const.EQUIP_TAG.HAT},
+	{pos = Const.ITEM_NICKLACE_POSITION,etype = Const.EQUIP_TAG.NECKLACE},
+	{pos = Const.ITEM_GLOVE2_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING2_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BELT_POSITION,	etype = Const.EQUIP_TAG.BELT},
+
+	{pos = Const.ITEM_MIRROR_ARMOUR_POSITION,	},
+	{pos = Const.ITEM_FACE_CLOTH_POSITION,		},
+	{pos = Const.ITEM_DRAGON_BONE_POSITION,		},
+	{pos = Const.ITEM_CATILLA_POSITION,			},
+
+	--仙器*武器
+	{pos = Const.ITEM_XIAN_WEPON_POSITION,	},		--19孔位
+	--仙器*衣服
+	{pos = Const.ITEM_XIAN_CLOTH_POSITION,	},
+	--仙器*头盔
+	{pos = Const.ITEM_XIAN_HELMET_POSITION,	},
+	--仙器*项链
+	{pos = Const.ITEM_XIAN_NECKLACE_POSITION,	},
+	--仙器*护肩
+	{pos = Const.ITEM_XIAN_SHOULDER_POSITION,	},
+	--仙器*盾牌
+	{pos = Const.ITEM_XIAN_SHIELD_POSITION,	},
+	--仙器*神坠
+	{pos = Const.ITEM_XIAN_PENDANT_POSITION,	},
+	--仙器*斗笠
+	{pos = Const.ITEM_XIAN_HAT_POSITION,	},
+	--坐骑
+	{pos = Const.ITEM_MOUNT_POSITION,		},
+	--斗笠
+	{pos = Const.ITEM_BAMBOOHAT_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+
+	--神器*钟
+	{pos = Const.ITEM_SHEN_CLOCK_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+	--神器*琴
+	{pos = Const.ITEM_SHEN_QIN_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+	--神器*锤
+	{pos = Const.ITEM_SHEN_CHUI_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+	--神器*斧
+	{pos = Const.ITEM_SHEN_FU_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+
+	--灵宝 圣文 圣石 圣珠 项链
+	{pos = Const.ITEM_LBSW_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+	{pos = Const.ITEM_LBSS_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+	{pos = Const.ITEM_LBSZ_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+	{pos = Const.ITEM_LBXL_POSITION,	 etype = Const.EQUIP_TAG.ALL },
+
+	--传世
+	{pos = Const.ITEM_CS_WEPON_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_CLOTH_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_HELMET_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_NECKLACE_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_SHOULDER_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_GLOVE_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_CATILLA_POSITION,		etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_BELT_POSITION,			etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_CS_BOOT_POSITION,			etype = Const.EQUIP_TAG.ALL},
+
+	{pos = Const.ITEM_XZ1_POSITION,	 etype = Const.EQUIP_TAG.ALL },   --42孔位 以此类推
+	{pos = Const.ITEM_XZ2_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ3_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ4_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ5_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ6_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ7_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ8_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ9_POSITION,	 etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ10_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ11_POSITION, etype = Const.EQUIP_TAG.ALL},
+	{pos = Const.ITEM_XZ12_POSITION, etype = Const.EQUIP_TAG.ALL},
+}
+
+function PanelFriend.clickItem(sender)
+	local netItem = sender.netItem
+	local itemdef = NetClient:getItemDefByID(netItem.mTypeID)
+	if netItem and itemdef then
+		local str = var.editbox:getText()
+		str = str.."##"..itemdef.mName..","..netItem.position.."##,"
+		var.editbox:setText(str)
+	end
+end
+
+function PanelFriend.onItemChange(event)
+	local equipList = var.xmlPanel:getWidgetByName("equipList")
+	local equips,netItem = {}
+	for k,v in pairs(equip_info) do
+		netItem = NetClient:getNetItem(v.pos)
+		if netItem then
+			table.insert(equips,netItem)
+		end
+	end
+	for i=0,Const.ITEM_BAG_SIZE + NetClient.mBagSlotAdd do
+		netItem = NetClient:getNetItem(i)
+		if netItem then
+			table.insert(equips,netItem)
+		end
+	end
+	equipList:reloadData(#equips, function(subItem)
+		local item = equips[subItem.tag]
+		subItem:getWidgetByName("cellbg"):setTouchEnabled(true):setTouchSwallowEnabled(false)
+		-- local itemdef = NetClient:getItemDefByID(item.mTypeID)
+		-- if itemdef then
+		-- 	subItem:getWidgetByName("icon")
+		-- 		:setTouchSwallowEnabled(false)
+		-- 		:loadTextureNormal("picicon/"..itemdef.mIconID..".png")
+		-- 		:addClickEventListener(PanelFriend.clickItem)
+		-- 	subItem:getWidgetByName("icon").netItem = item
+		-- end
+		subItem:getWidgetByName("cellbg"):addClickEventListener(PanelFriend.clickItem)
+		subItem:getWidgetByName("cellbg").netItem = item
+		UIItem.getItem({
+			parent = subItem,--:getWidgetByName("cellbg"),
+			typeId = item.mTypeID,
+			mLevel = item.mLevel,
+			mZLevel = item.mZLevel,
+			iconType = 10,
+			customCallFunc = function(...) print("---",...) end,
+			callBack = function ( ... )
+				print("···")
+			end
+		})
+		subItem:setTouchEnabled(false):setTouchSwallowEnabled(false)
+		subItem:getWidgetByName("item_icon"):setTouchEnabled(false):setTouchSwallowEnabled(false)
+	end)
+end
+
+function PanelFriend.handleNewChatMsg(event)
+	local netChat = event.msg;
+	if netChat.m_strType == "【私聊】" then
+		if netChat.m_strName == NetClient.m_strPrivateChatTarget then
+			PanelFriend.inputNewMsg(netChat);
+		end
+	end
+end
+
+function PanelFriend.callength( strMsg,size ) --根据字体大小计算长度
+	if not size then size = 22 end
+	local len,num = 0,0
+	local cloneStr,n = game.clearHtmlText(strMsg)
+	local length = cc.SystemUtil:getUtf8StrLen(cloneStr)
+	len = (#cloneStr+length)*(size/4) --+ n/2*15 --加超链接的要多加10像素
+	for j=1,#Const.expressions_item do
+		strMsg,num = string.gsub(strMsg,Const.expressions_item[j][1],"<pic src=\'img_"..Const.expressions_item[j][2].."\'/>")
+		if num>0 then
+			len = len + num * (31 - (size/2*3))
+		end
+	end
+
+	if string.find(strMsg,"<item") then
+		strMsg,num = string.gsub(strMsg,"<item src=\"(.-),(.-)/>",function(s1,s2)
+			len = len + size * #s1/3 --+ 30 --30是武器icon长度
+			return "<item src=\""..s1..","..s2.."/>"
+		end)
+	end
+	return strMsg,len
+end
+
+function PanelFriend.inputNewMsg(netChat)
+	local listChat = var.xmlPanel:getWidgetByName("listChat");
+	local isVoice,boxType = false,""
+	if netChat.localPath or netChat.httpPath then
+		isVoice = true
+		if netChat.m_strName == game.chrName or netChat.m_MyName == game.chrName then
+			boxType = isVoice and "self_voice" or"self"
+		else
+			boxType = isVoice and "other_voice" or "other"
+		end
+	end
+	local chatModel,contentbg,other,richtext
+	if(netChat.m_MyName and netChat.m_MyName == game.chrName) then
+		chatModel = var.chatself:clone();
+		other = false
+	else
+		chatModel = var.chatother:clone();
+		other = true
+	end
+	contentbg = chatModel:getWidgetByName("contentbg");
+	local lbl_name = chatModel:getWidgetByName("lbl_name");
+	lbl_name:setString(netChat.m_MyName or netChat.m_strName)
+	
+	richtext = chatModel:getWidgetByName("richtext");
+	local strMsg,len = PanelFriend.callength(netChat.m_strMsg,24)
+	len = util.bound(10, len, 380)
+	local isRich = false
+	if not richtext then
+		if strMsg == "?" or strMsg == "~" or (tonumber(strMsg) ~= nil and ((tonumber(strMsg) >= 0 and tonumber(strMsg) <= 9))) then
+			richtext = ccui.Text:create("", FONT_NAME, 20)
+			richtext:addTo(contentbg)
+				:pos(22, 15)
+				:setFontSize(20)
+				:enableOutline(cc.c4b(24,19,11,200), 1)
+				:setTextColor(cc.c4b(255,236,223,255))
+				:setAnchorPoint(cc.p(0,0))
+		else
+			isRich = true
+			richtext = UIRichLabel.new({size= cc.size(len,0),name="richtext",})
+			richtext:addTo(contentbg):setPosition(cc.p(22,15))
+		end
+
+	end
+	for j=1,#Const.expressions_item do
+		strMsg,num = string.gsub(strMsg,Const.expressions_item[j][1],"<pic src=\'img_"..Const.expressions_item[j][2].."\'/>")
+	end
+	local img_voice_chat = contentbg:getWidgetByName("img_voice_chat")
+	local chatTime = chatModel:getWidgetByName("chatTime")
+	if not isVoice then
+		if img_voice_chat then img_voice_chat:hide() end
+		chatTime:hide()
+		-- strMsg = "<font color=#ffffff>"..strMsg.."</font>"
+		if isRich then
+			richtext:setRichLabel(strMsg)
+		else
+			richtext:setString(strMsg)--e8ba52
+		end
+	else
+		chatTime:show():setString(math.ceil(netChat.duration/1000).."''")
+		if not img_voice_chat then
+			img_voice_chat = ccui.ImageView:create("img_chat_voice3",ccui.TextureResType.plistType)
+				:addTo(contentbg):setName("img_voice_chat")
+		end
+		if boxType == "self_voice" then
+			img_voice_chat:setRotation(0):setPosition(contentbg:getContentSize().width,26)
+			chatTime:setPosition(cc.p(-1,26))
+			contentbg.selfvoice = true
+		elseif boxType == "other_voice" then
+			contentbg.selfvoice = false
+			chatTime:setPosition(cc.p(150,26))
+			img_voice_chat:setRotation(180):setPosition(30,26)
+		end
+		contentbg:setTouchEnabled(true)
+		contentbg.filepath = netChat.localPath
+		contentbg.url = netChat.httpPath
+		contentbg.flag = netChat.flag
+		contentbg.duration = netChat.duration
+
+		contentbg:addClickEventListener(LayerVoice.playVoice)
+	end
+	local msgSize = richtext:getContentSize();
+	if isVoice then msgSize = cc.size(120,26) end
+	contentbg:setPositionY(msgSize.height+30)
+	contentbg:setContentSize(cc.size(msgSize.width + 27,msgSize.height+30));
+	contentbg:setScale9Enabled(true)
+		:setCapInsets(cc.rect(8,34,80,4))
+
+	chatModel:setContentSize(cc.size(chatModel:getContentSize().width,msgSize.height+32+40));
+
+	local headbg = chatModel:getWidgetByName("headbg"):setScale(0.9)
+	local head = chatModel:getWidgetByName("head")
+	local job,gender,id,player
+	if other then
+		player = NetClient:getPlayerInfo(netChat.m_strName)
+		if player then
+			job = player.job
+			gender = player.gender
+		end
+		richtext:setPosition(cc.p(20,15))
+	else
+		job = MainRole._mainAvatar:NetAttr(Const.net_job)
+		gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+		richtext:setPosition(cc.p(10,15))
+	end
+	if job and gender then
+		id = (job-100) * 2 + gender - 199
+		--根据职业选择对应的头像框
+		head:loadTexture(head_key[id], ccui.TextureResType.plistType):setScale(1.2)
+	end
+	headbg:setPositionY(msgSize.height+25)
+
+	listChat:pushBackCustomItem(chatModel)
+	listChat:jumpToBottom()
+	if #listChat:getItems()>=50 then
+		listChat:removeItem(0)
+	end
+end
+
+function PanelFriend.refreshChat()
+	local listChat = var.xmlPanel:getWidgetByName("listChat");
+	listChat:removeAllItems()
+	local target = NetClient.m_strPrivateChatTarget
+	if target == "" or target == nil then return end
+	local player = NetClient:getPlayerInfo(target)
+	if not player then
+		return 
+	end
+	local msgs = {}
+	for k,v in pairs(NetClient.mChatHistroy) do --读取私聊信息列表
+		if v.m_strName and v.m_strName == target and v.m_strType == Const.str_chat_private then
+			table.insert(msgs,v)
+		end
+	end
+	listChat:setItemsMargin(5);
+	for k,v in ipairs(msgs) do
+		PanelFriend.inputNewMsg(v);
+	end
+end
+
+function PanelFriend.handlePanelData(event)
+	if event.type ~= "PanelFriend" then return end
+	local serverTable = util.decode(event.data)
+	if serverTable.cmd == "recommendPlayer" then
+		PanelFriend.freshFindList(serverTable.data,"recommend")
+	elseif serverTable.cmd == "searchFriends" then
+		local t = {};
+		if serverTable.isFind then
+			table.insert(t,serverTable.data);
+			PanelFriend.freshFindList(t,"find");
+		else
+			NetClient:alertLocalMsg("暂无该玩家！","alert")
+		end
+	elseif serverTable.cmd =="getRevenge" then
+		NetClient:dispatchEvent({name = Notify.EVENT_REVENGE_CHANGE,str = serverTable.str})
+	end
+end
+
+function PanelFriend.freshFindList(data,typed)
+	local listfind = var.xmlPanel:getWidgetByName("listfind")
+	if typed == "find" then
+		var.xmlPanel:getWidgetByName("img_addfriend_bg"):setContentSize(cc.size(818.00,398))
+		var.xmlPanel:getWidgetByName("Image_61"):hide()
+		var.xmlPanel:getWidgetByName("btn_fresh_friend"):hide()
+	else
+		var.xmlPanel:getWidgetByName("btn_fresh_friend"):show()
+		var.xmlPanel:getWidgetByName("Image_61"):show()
+		
+		var.xmlPanel:getWidgetByName("img_addfriend_bg"):setContentSize(cc.size(818.00,398))
+	end
+	listfind:reloadData(#data,function( item )
+		local d = data[item.tag];
+		item:getWidgetByName("lblName"):setString(d.name);
+		item:getWidgetByName("lblLevel"):setString(d.level.."级");
+		item:getWidgetByName("lblJob"):setString(Const.job_name[d.job]);
+
+		local id = (d.job-100) * 2 + d.gender - 199
+		--loadTexture(head_key[id], ccui.TextureResType.plistType):setScale(0.72)
+		item:getWidgetByName("img_head"):addClickEventListener(function(sender)
+			if d.name ~= game.name then
+				NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str="friendOperate", data = d, btnType= nil})
+			end
+		end)
+		local btn_add = item:getWidgetByName("btn_add")
+		btn_add:setVisible(d.name ~= game.chrName)
+		btn_add:addClickEventListener(function (sender)
+			local title = NetClient:getRelation(d.name)
+			if title == 100 then
+				NetClient:alertLocalMsg(d.name.."已经是您好友了", "alert")
+			else
+				NetClient:FriendChange(d.name,100)
+			end
+		end)
+	end,0,false)
+end
+
+function PanelFriend.setFriendListInfos(friendName,friendInfo,index)
+	-- local FriendListInfos = UserConfig.getInfos(friendName, "FriendList")
+	UserConfig.setInfos(friendName, friendInfo,pageInfos[index].name)
+	UserConfig.save(pageInfos[index].name)
+end
+
+function PanelFriend.getFriendListInfos(friendName,index)
+	return UserConfig.getInfos(friendName, pageInfos[index].name)
+end
+
+function PanelFriend.refreshPanel(event)
+
+	PanelFriend.refreshList(var.pageIndex)
+	local listChat = var.xmlPanel:getWidgetByName("listChat");
+	listChat:removeAllItems()
+end
+
+function PanelFriend.refreshList(tabIndex)
+	var.chatTarget = nil
+	local pageListInfos = {}
+	if pageInfos[tabIndex] then
+
+		if tabIndex ==1 then
+			pageListInfos = NetClient.chatRecent
+		else
+			for _,v in pairs(NetClient.mFriends) do
+				if v.title == pageInfos[tabIndex].title then
+					local tempTable
+					if v.online_state == 1 then
+						tempTable = v
+						PanelFriend.setFriendListInfos(v.name,v,tabIndex)
+					else
+						tempTable = PanelFriend.getFriendListInfos(v.name,tabIndex) or v
+						tempTable.online_state = 0
+					end
+					table.insert(pageListInfos, tempTable)
+				end
+			end
+		end
+	end
+
+	local function sortF(fa, fb)
+		if checkint(fa.state) == checkint(fb.state) then
+			return checkint(fa.level)> checkint(fb.level)
+		else
+			return checkint(fa.online_state)> checkint(fb.online_state)
+		end
+	end
+	table.sort( pageListInfos, sortF)
+
+	local function updateList(item)
+		print(item.tag, "---------------------------------------------------------")
+		local d = pageListInfos[item.tag]
+
+		local lblTables = {
+			["job"]			= {widgetName = "lblJob",	string = Const.job_name[d.job], vis = tabIndex~=4},
+			["name"]		= {widgetName = "lblName",	},
+			["level"]		= {widgetName = "lblLevel", plusString = "级",	pos = cc.p(200, 28)},
+			["online"]		= {widgetName = "lblOnlineState", pos = cc.p(222.00,tabIndex ==4 and 68 or 48),string = Const.online[d.online_state], color = Const.onlineColor[d.online_state]},
+			["shield"]		= {widgetName = "btn_shield", vis = tabIndex==4},
+		}
+
+		item.online_state = d.online_state
+		for k,v in pairs(lblTables) do
+			if k == "name" then
+				item.name = d.name
+			end
+
+			local widget = item:getWidgetByName(v.widgetName)
+			local strValue
+			if v.string then
+				strValue = v.string
+			else
+				strValue = (d[k] or "")..(v.plusString~=nil and v.plusString or "")
+			end
+			if strValue == nil or strValue == "" or strValue == 0 or strValue == "0" then
+				strValue = Const.str_unknown
+			end
+			if widget:getDescription() == "Label" then
+				widget:setString(strValue)
+			end
+			if v.color then
+				widget:setColor(game.getColor(v.color))
+			end
+			if v.pos then
+				widget:setPosition(v.pos)
+			end
+			if v.vis~=nil then
+				widget:setVisible(v.vis)
+			end
+		end
+		local id = (d.job-100) * 2 + d.gender - 199
+		item:getWidgetByName("Image_13"):setScale(0.8)
+		item:getWidgetByName("img_head"):loadTexture(head_key[id], ccui.TextureResType.plistType)
+		if d.online_state == 0 and head_key[id] then
+			item:getWidgetByName("img_head"):getVirtualRenderer():setState(1)
+		else
+			item:getWidgetByName("img_head"):getVirtualRenderer():setState(0)
+		end
+		local btn_shield = item:getWidgetByName("btn_shield")
+		btn_shield:setTouchEnabled(true)
+		btn_shield:addClickEventListener(function(sender)
+			NetClient:FriendChange(d.name,0)
+		end)
+		local head_mask = item:getWidgetByName("img_head");
+		head_mask:setTouchEnabled(true):setTouchSwallowEnabled(false)
+		head_mask:addClickEventListener(function(sender)
+			var.listFriend.selectItem = sender:getParent()
+			PanelFriend.handleItemTouch(var.listFriend.selectItem)
+			-- NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str="friendOperate", data = d, btnType= (var.pageIndex==2 and "call" or nil)})
+		end)
+		item.d = d
+		item:setTouchEnabled(true)
+		item:addClickEventListener(PanelFriend.handleItemTouch)
+		if d.name == NetClient.m_strPrivateChatTarget then
+			PanelFriend.handleItemTouch(item)
+		end
+	end
+
+	var.listFriend:setVisible(#pageListInfos>0):setSliderVisible(false)
+	var.listFriend:reloadData(#pageListInfos,updateList,nil,false)
+end
+
+function PanelFriend.handleItemTouch(sender)
+	if var.listFriend.selectItem then
+		var.listFriend.selectItem:getWidgetByName("randerbg"):loadTexture("list_bg3", ccui.TextureResType.plistType)
+	end
+
+	NetClient.m_strPrivateChatTarget = sender.d.name;
+	sender:getWidgetByName("randerbg"):loadTexture("list_bg3", ccui.TextureResType.plistType)
+	if table.indexof({1,2,4},var.pageIndex)~=false then
+		PanelFriend.refreshChat();
+	elseif var.pageIndex == 3 then
+		PanelFriend.onUpdatePageEnemy(sender.d.name)
+	end
+	var.chatTarget = sender.name
+	if var.selectLast then
+		var.selectLast:getWidgetByName("randerbg"):loadTexture("list_bg3",ccui.TextureResType.plistType)
+	end
+	var.selectLast = sender
+	if var.selectLast:getWidgetByName("randerbg") then
+		var.selectLast:getWidgetByName("randerbg"):loadTexture("list_bg3_sel",ccui.TextureResType.plistType)
+	end
+	if var.listFriend.selectItem == sender then
+		NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str="friendOperate", data = sender.d, btnType= (var.pageIndex==2 and "call" or nil)})
+	end
+	
+	var.listFriend.selectItem = sender
+	-- NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS,str="friendOperate", data = sender.d})
+end
+
+function PanelFriend.handleChatRecentChange(event)
+	if var.pageIndex ~=1 then return end
+	PanelFriend.refreshList(1)
+end
+
+function PanelFriend.onPanelClose()
+	if var.xmlPanel and not tolua.isnull(var.xmlPanel) then
+		UserConfig.save("FriendList")
+		UserConfig.save("recentContacts")
+		if util.isObjectExist(var.tabh) then
+			var.tabh:setSelectedTab(1);
+		end
+	end
+	NetClient.tipsMsg["tip_private"] = {}
+	NetClient:dispatchEvent({name = Notify.EVENT_VOICE_HANDLE,vis = false, send = false})
+end
+
+function PanelFriend.checkPanelClose()
+	if var.pageIndex == 5 then
+		var.tabh:setSelectedTab(2);
+		return false
+	end
+	return true
+end
+
+return PanelFriend

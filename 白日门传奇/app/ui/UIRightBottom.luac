@@ -1,0 +1,661 @@
+local UIRightBottom={}
+
+local var = {}
+local m_tile_step = {
+	{
+		0,
+		-1
+	},
+	{
+		1,
+		-1
+	},
+	{
+		1,
+		0
+	},
+	{
+		1,
+		1
+	},
+	{
+		0,
+		1
+	},
+	{
+		-1,
+		1
+	},
+	{
+		-1,
+		0
+	},
+	{
+		-1,
+		-1
+	}
+}
+
+local skillPos = {
+	[Const.JOB_ZS] = {
+		Const.SKILL_TYPE_YiBanGongJi,
+		Const.SKILL_TYPE_BanYueWanDao,
+		Const.SKILL_TYPE_YeManChongZhuang,
+		Const.SKILL_TYPE_LieHuoJianFa,
+		Const.SKILL_TYPE_GongShaJianShu
+	},
+	[Const.JOB_FS] = {
+		Const.SKILL_TYPE_LeiDianShu,
+		Const.SKILL_TYPE_BingPaoXiao,
+		Const.SKILL_TYPE_HuoQiang,
+		Const.SKILL_TYPE_KangJuHuoHuan,
+		Const.SKILL_TYPE_MoFaDun
+	},
+	[Const.JOB_DS] = {
+		Const.SKILL_TYPE_LingHunHuoFu,
+		Const.SKILL_TYPE_QunTiZhiLiao,
+		Const.SKILL_TYPE_JiTiYinShenShu,
+		Const.SKILL_TYPE_YouLingDun,
+		Const.SKILL_TYPE_ZhaoHuanShenShou
+	}
+}
+
+local btnInfo = {
+	panaceaBtn = "main_puzzle",
+	friendBtn = "main_friend",
+	payBtn = "main_consign",
+	rankBtn = "btn_main_rank",
+	equipBtn = "main_convert",
+	forgeBtn = "main_forge",
+	composeBtn = "main_compose",
+	officalBtn = "main_official",
+	dressBtn = "main_dress",     --装扮
+	stoveBtn = "main_furnace",
+	shieldBtn = "panel_shield",  --神兵
+	emailBtn = "main_mail",
+	settingBtn = "menu_setting",
+	cuttingBtn = "panel_cutting",
+	flyBtn = "btn_main_wing",
+	guildBtn = "main_guild",
+	skillBtn = "main_skill"
+}
+
+local stateImg = {
+	[100.0] = "all",
+	[102.0] = "team",
+	[104.0] = "shane",
+	[101.0] = "peace",
+	[103.0] = "guild",
+	[105.0] = "camp"
+}
+
+local function handleSwitchUIMode(event)
+	if not var.rightBottom then
+		return
+	end
+
+	local posX, posY = nil
+	
+	local btnMainBag = var.rightBottom:getWidgetByName("btn_main_bag")
+	if var.rightBottom:getWidgetByName("btn_main_bag") then
+		posX, posY = btnMainBag:getPosition()
+
+		if event.mode == Const.UI_COMPLETE and posY < 62 then
+			btnMainBag:stopAllActions()
+			btnMainBag:runAction(cca.moveTo(0.5, posX, 62))
+		elseif event.mode == Const.UI_SIMPLIFIED and posY > -62 then
+			btnMainBag:stopAllActions()
+			btnMainBag:runAction(cca.moveTo(0.5, posX, -62))
+		end
+	end
+
+	local boxBasicFunc = var.rightBottom:getWidgetByName("box_basic_func")
+	if var.rightBottom:getWidgetByName("box_basic_func") then
+		posX, posY = boxBasicFunc:getPosition()
+
+		if event.mode == Const.UI_COMPLETE and posY < 12 then
+			boxBasicFunc:stopAllActions()
+			boxBasicFunc:runAction(cca.moveTo(0.5, posX, 12))
+		elseif event.mode == Const.UI_SIMPLIFIED and posY > -112 then
+			boxBasicFunc:stopAllActions()
+			boxBasicFunc:runAction(cca.moveTo(0.5, posX, -112))
+		end
+	end
+end
+
+local function pushQuickButton(sender)
+	if sender:getName() == "main_autofight" then
+		if MainRole._autoFight then
+			MainRole.stopAutoFight()
+            if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) then
+                NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel", util.encode({
+					actionid = "reqZhaoHui",
+					params = {
+						type = "world"
+					}
+				}))
+            end   
+		else
+			MainRole.startAutoFight()
+            if  NetClient:getNetItem(Const.ITEM_MOUNT_SWITCH_POSITION) then
+                NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel", util.encode({
+					actionid = "reqZhaoHui",
+					params = {
+						type = "world"
+					}
+				}))
+            end   
+			-- NetClient:alertLocalMsg("程序小哥哥正在制作中！")
+		end
+	elseif sender:getName() == "main_autopick" then
+		if MainRole._autoPick then
+			MainRole.stopAutoPick()
+		else
+			MainRole.startAutoPick()
+			-- NetClient:alertLocalMsg("程序小哥哥正在制作中！")
+		end
+	end
+end
+
+local function handleQuickButtonState(event)
+	if event.key == "fight" then
+		if event.state then
+			local imageFigthState = var.rightBottom:getWidgetByName("imageFigthState")
+
+			if event.state == "start" then
+				imageFigthState:loadTexture("null", ccui.TextureResType.plistType)
+				util.addEffect(imageFigthState, "imageFightEffect", GROUP_TYPE.EFFECT, 80050, nil, nil, true):setVisible(true)
+			else
+				if imageFigthState:getChildByName("imageFightEffect") then
+					imageFigthState:getChildByName("imageFightEffect"):stopAllActions()
+					imageFigthState:getChildByName("imageFightEffect"):removeSelf()
+				end
+
+				imageFigthState:loadTexture("img_autoFight", ccui.TextureResType.plistType)
+			end
+		end
+	elseif event.key == "pick" then
+		-- Nothing
+	end
+end
+
+function UIRightBottom.init_ui(rightBottom)
+	var = {
+			rightBottom,
+			sIcon = {},
+			mShortCut = {},
+			xmlAnDian,
+			isShowSkill = true,		 --默认显示技能界面
+			lastClickItem = nil,	
+			btnAutoFight,
+			isShowSkillEnd = true,   --表示当前动画是否已经执行结束
+			monItemCache = {},
+			isState = 1,
+			allPlayers = {},
+			npcBox = nil,			 --Npc 对话框
+	}
+	var.rightBottom = rightBottom:align(display.RIGHT_BOTTOM, display.width, 0)	
+
+
+	local srcid = MainRole._mainAvatar:NetAttr(Const.net_id)
+	local mountVisible = false
+	if game.MainRoleLevelHigherThen(Const.min_mount_open_level) and NetClient:getPlayerModel(srcid,7)>0 then
+		mountVisible = true
+	end
+	
+	UIRedPoint.addUIPoint(var.rightBottom:getWidgetByName("btn_main_bag"), function (sender)
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "menu_bag"})
+	end)
+
+	var.npcBox = var.rightBottom:getChildByName("npcBox"):addClickEventListener(function (sender)
+		NetClient:NpcTalk(sender:getTag(),"100")
+	end)
+	asyncload_callback("picicon/70000017.png", var.rightBottom:getWidgetByName("Image_3"), function (filepath, texture)
+				var.rightBottom:getWidgetByName("Image_3"):loadTexture(filepath)
+			end)
+	
+		
+		-- cc.EventProxy.new(NetClient, centerBottom):addEventListener(Notify.EVENT_MOUNT_CHANGE, function ()
+			-- if NetClient:checkGuiButton("extend_mars") then
+				-- if zcBtn then
+					-- zcBtn:show()
+				-- end
+			-- elseif zcBtn then
+				-- zcBtn:hide()
+			-- end
+		-- end)
+		
+	-- 坐骑按钮
+--[[	local changeMount = var.rightBottom:getWidgetByName("mountBtn")
+	if changeMount then
+		changeMount:addClickEventListener(function (sender)
+			-- NetClient:ChangeMount()
+			
+			if data == 1 then
+			-- NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="mountopen"}))	
+			NetClient:alertLocalMsg("穿装备测试1")---穿戴
+			end
+			
+			if data == 0 then
+			-- NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="mountopen"}))	
+			NetClient:alertLocalMsg("穿装备测试0000")---穿戴
+			end
+			
+		end)
+	end]]--
+	local changeMount = var.rightBottom:getWidgetByName("mountBtn")
+	if changeMount then
+		changeMount:addClickEventListener(function (sender)
+			NetClient:ChangeMount()
+		end)
+	end
+	local function handleMountChange(event)
+		if not (NetClient:getNetItem(Const.ITEM_MOUNT_POSITION)) then
+			changeMount:hide()
+			-- NetClient:alertLocalMsg("穿装备测试3")
+			return
+		else
+			changeMount:show()
+			-- NetClient:alertLocalMsg("穿装备测试2")---穿戴
+			local changeMount = var.rightBottom:getWidgetByName("mountBtn"):addClickEventListener(function (sender)
+			if var.isState == 1 then
+			MainRole.stopAutoFight()
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel", util.encode({
+					actionid = "reqZhaoHuan",
+					params = {
+						type = "world"
+					}
+				}))
+				-- if result.mount >=0 then
+				-- NetClient:alertLocalMsg("穿装备测试000000")---穿戴
+				-- end
+			else
+			
+				NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel", util.encode({
+					actionid = "reqZhaoHui",
+					params = {
+						type = "world"
+					}
+				}))
+			end
+		end)
+			-- NetClient:PushLuaTable("gui.PanelFashion.onOpenPanel",  util.encode({actionid="mountopen"}))	
+		end
+		-- 穿戴坐骑
+		if event.pos then
+			if event.pos == Const.ITEM_MOUNT_POSITION then
+				changeMount:show()
+				-- NetClient:alertLocalMsg("穿装备测试4")---穿戴
+			elseif event.pos == 56 then
+				changeMount:hide()
+				-- NetClient:alertLocalMsg("穿装备测试5")
+				return
+			end
+		end
+		local mount = MainRole._mainAvatar:NetAttr(Const.net_mount)
+		if mount> 0  then
+			-- NetClient:alertLocalMsg("穿装备测试6")---穿戴
+			
+			
+				changeMount:loadTextureNormal("menu_zuoqi_down", ccui.TextureResType.plistType)
+		else
+		-- NetClient:alertLocalMsg("穿装备测试7")---穿戴
+			changeMount:loadTextureNormal("menu_zuoqi_up", ccui.TextureResType.plistType)
+		end
+	end
+
+	cc.EventProxy.new(NetClient,rightBottom)
+			:addEventListener(Notify.EVENT_QUICKBUTTON_STATE, handleQuickButtonState)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, UIRightBottom.handlePanelData)
+			:addEventListener(Notify.EVENT_SWITCH_UI_MODE, handleSwitchUIMode)
+			:addEventListener(Notify.EVENT_MOUNT_CHANGE, handleMountChange)
+
+	handleMountChange({pos = Const.ITEM_MOUNT_POSITION})
+	-- 更多按钮
+	var.moreBtnPanel = var.rightBottom:getWidgetByName("moreBtnPanel")
+	var.monBox = var.rightBottom:getWidgetByName("monBox")
+	var.rightBottom:getWidgetByName("targetBtnBg"):setScale(0.8)
+	
+	for i=1,4 do
+		local item = var.monBox:getChildByName("item"..i)
+		var.monItemCache[i] = item
+		var.monItemCache[i].atkbg = item:getChildByName("atkbg")
+		var.monItemCache[i].name = item:getChildByName("lbl_name")
+		var.monItemCache[i].level = item:getChildByName("lbl_level")
+		var.monItemCache[i].atkbg:addClickEventListener(function(sender) 
+			local p = var.allPlayers[sender:getTag()]
+			if p and p.ghostId then
+				if var.lastClickItem then
+					var.lastClickItem.atkbg:loadTextureNormal("common_atk_red", ccui.TextureResType.plistType)
+				end
+				var.lastClickItem = var.monItemCache[sender:getTag()]
+				var.lastClickItem.ghostId = p.ghostId
+				var.lastClickItem.atkbg:loadTextureNormal("common_atk_orange", ccui.TextureResType.plistType)
+				CCGhostManager:selectSomeOne(p.ghostId)
+				MainRole.quickAttack()
+			end
+		end):setTag(i)
+	end
+	
+	var.monRender = var.monBox:getWidgetByName("monRender")
+	
+	-- 技能面板相关操作
+	var.skill_touch = var.rightBottom:getWidgetByName("skill_touch")
+	var.skill_touch_posy = var.skill_touch:getPositionY()
+
+	var.btnAutoFight = var.skill_touch:getWidgetByName("main_autofight")
+	UIRedPoint.addUIPoint(var.btnAutoFight, pushQuickButton)
+	local changePanel = function(sender) 
+		if not var.isShowSkillEnd then
+			return 
+		end
+
+		var.isShowSkillEnd = false
+		if var.isShowSkill then
+			var.isShowSkill = false
+			var.skill_touch:runAction(cc.Sequence:create(
+				cc.Spawn:create(
+					cc.MoveTo:create(0.3, cc.p(300, 0)),
+					cc.FadeOut:create(0.3)
+				),
+				cc.CallFunc:create(function()
+					var.isShowSkillEnd = true
+					sender:loadTextureNormal("nicon_zidong_3_2", ccui.TextureResType.plistType)
+				end)
+			))
+
+			var.moreBtnPanel:runAction(cc.Sequence:create(
+				cc.Spawn:create(
+					cc.MoveTo:create(0.3, cc.p(0, 0)),
+					cc.FadeIn:create(0.3)
+				)
+			))
+		else
+			var.isShowSkill = true
+			var.skill_touch:runAction(cc.Sequence:create(
+				cc.Spawn:create(
+					cc.MoveTo:create(0.3, cc.p(0, 0)),
+					cc.FadeIn:create(0.3)
+				),
+				cc.CallFunc:create(function()
+					var.isShowSkillEnd = true
+					sender:loadTextureNormal("nicon_zidong_3", ccui.TextureResType.plistType)
+				end)
+			))
+
+			var.moreBtnPanel:runAction(cc.Sequence:create(
+				cc.Spawn:create(
+					cc.MoveTo:create(0.3, cc.p(300, 0)),
+					cc.FadeOut:create(0.3)
+				)
+			))
+		end
+	end
+
+	-- 切换按钮
+	local changeBtn = var.rightBottom:getWidgetByName("changeBtn")
+	changeBtn:addClickEventListener(changePanel)
+
+	local targetMon = function(sender)
+		if var.monBox:isVisible() then
+			var.monBox:hide()
+		else
+			var.monBox:show()
+		end
+	end
+
+	-- 目标按钮
+	local targetBtn = var.rightBottom:getWidgetByName("targetBtn")
+	targetBtn:addClickEventListener(targetMon)
+
+	local boxBasicFunc = var.rightBottom:getWidgetByName("box_basic_func")
+
+	local tipsList = var.rightBottom:getWidgetByName("tipsList")
+
+	UISkillModel.init(var.skill_touch)
+	UIBasicFunc.init(boxBasicFunc)
+
+	UIBottomTipManager.init(rightBottom)
+
+	UINewsManager.init(tipsList)
+
+	for k,v in pairs(btnInfo) do
+		UIRedPoint.addUIPoint(var.moreBtnPanel:getWidgetByName(k),function(sender)
+			if v ~= "" then
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = v})
+			end
+		end)
+	end
+end
+
+function UIRightBottom.showBagFull(event)
+		var.rightBottom:getWidgetByName("btn_main_bag"):getWidgetByName("img_bag_full"):setVisible(event.vis or false)
+
+		if not var.rightBottom:getWidgetByName("btn_main_bag"):getChildByName("redPoint") then
+			return
+		end
+
+		var.rightBottom:getWidgetByName("btn_main_bag"):getChildByName("redPoint"):setVisible(not event.vis)
+	end
+	
+function UIRightBottom.updateMonPlayer(allAtkGhost)
+	local num = #allAtkGhost >= 4 and 4 or #allAtkGhost
+	for i=1, 4 do
+		if var.monItemCache[i] and i <= num then
+			var.monItemCache[i]:show()
+			var.monItemCache[i].name:setString(allAtkGhost[i].mName)
+			var.monItemCache[i].level:setString(allAtkGhost[i].mLevel)
+			if var.lastClickItem and var.lastClickItem.ghostId == allAtkGhost[i].ghostId then
+				var.monItemCache[i].atkbg:loadTextureNormal("common_atk_orange", ccui.TextureResType.plistType)
+			else
+				var.monItemCache[i].atkbg:loadTextureNormal("common_atk_red", ccui.TextureResType.plistType)
+			end
+		else
+			var.monItemCache[i]:hide()
+		end
+	end
+end
+
+function UIRightBottom.update()
+	if not var.rightBottom then 
+		return
+	end
+	if not var.btnAutoFight then 
+		return 
+	end
+	if MainRole._autoFight ~= var.btnAutoFight._selected then
+		var.btnAutoFight:loadTextureNormal(MainRole._autoFight and "btn_auto_on" or "btn_auto", ccui.TextureResType.plistType)
+		var.btnAutoFight._selected = MainRole._autoFight
+	end
+
+	if UIBottomTipManager then UIBottomTipManager.update() end
+
+	--更新当前被选目标
+	local allAtkGhost = UISceneGame.getAimGhosts(Const.GHOST_PLAYER, NetClient.mAttackMode)
+	if allAtkGhost and #allAtkGhost >= 0 and var.monBox:isVisible() then
+		var.allPlayers = allAtkGhost
+		UIRightBottom.updateMonPlayer(allAtkGhost)
+	end 
+		
+	--更新当前npc
+	local allGhost = UISceneGame.getAimGhosts(Const.GHOST_NPC, curState)
+	if not allGhost or #allGhost < 1 then 
+		var.npcBox:hide()
+		return 
+	end
+
+	if var.npcBox:isVisible() == false then
+		var.npcBox:getChildByName("Text_1"):setString(allGhost[1].mName)
+		var.npcBox:setTag(allGhost[1].mID)
+		var.npcBox:show()
+	else
+		var.npcBox:getChildByName("Text_1"):setString(allGhost[1].mName)
+		var.npcBox:setTag(allGhost[1].mID)
+	end
+end
+
+function UIRightBottom.handleNewFuncOpened(event)
+		if not event or event.mType == "rbpart" then
+			if not NetClient.m_func.rbpart then
+				return
+			end
+
+			if NetClient.m_func.rbpart.main_fly then
+				-- Nothing
+			end
+		end
+	end
+	
+function UIRightBottom.handlePanelData(event)
+	local data = util.decode(event.data)
+	local mount = MainRole._mainAvatar:NetAttr(Const.net_mount)
+	if event.type=="weiZhiAnDian" then
+		UIRightBottom.updateAndianBoss(data)
+	elseif event.type=="hideWeiZhiAnDian" then
+		if var.xmlAnDian then var.xmlAnDian:hide() end
+	elseif mount  then
+	local data = util.decode(event.data)
+		if data.cmd == "huWeiZhaoHuan" then
+			var.isState = 2
+			var.rightBottom:getWidgetByName("mountBtn"):loadTextureNormal("menu_zuoqi_down", ccui.TextureResType.plistType)
+		elseif data.cmd == "huWeiZhaoHui" then
+			var.isState = 1
+			var.rightBottom:getWidgetByName("mountBtn"):loadTextureNormal("menu_zuoqi_up", ccui.TextureResType.plistType)
+		end
+		
+	end
+	if event and event.type =="showhongbao" then
+		local data = util.decode(event.data)
+		local btnhongbao = var.rightBottom:getWidgetByName("btnhongbao")
+		
+		local openHongbao = function(sender)
+			local animSprite = btnhongbao:getChildByName("animSprite")
+			if not animSprite then
+				animSprite = cc.Sprite:create()
+					:align(display.CENTER,btnhongbao:getContentSize().width/2-24,btnhongbao:getContentSize().height/2+2)
+					:addTo(btnhongbao):setName("animSprite"):setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+			end
+			animSprite:stopAllActions()
+			btnhongbao:setTouchEnabled(false)
+			if anim then
+				animSprite:runAction(cca.seq{
+					anim,
+					cca.cb(function()
+						NetClient:PushLuaTable("npc.hongbao.openHongBao",event.data)
+						btnhongbao:hide()
+					end),
+					cca.removeSelf(),
+				})
+			end
+		end
+		if not btnhongbao then
+			btnhongbao = ccui.Button:create()
+			btnhongbao:setTouchEnabled(true)
+			btnhongbao:loadTextures("icon_red_packet","icon_red_packet","",ccui.TextureResType.plistType)
+			btnhongbao:addTo(var.rightBottom):align(display.CENTER, -display.cx, display.cy-100):setName("btnhongbao")
+		end
+		btnhongbao:setVisible(data.visible)
+		btnhongbao:setTouchEnabled(true)
+		btnhongbao:addClickEventListener(openHongbao)
+		btnhongbao:stopAllActions()
+		btnhongbao:runAction(cca.repeatForever(cca.seq({
+			cca.delay(1),
+			cca.moveBy(0.1, 0, 10),
+			cca.moveBy(0.05, 0, -5),
+			cca.moveBy(0.05, 0, 5),
+			cca.moveBy(0.1, 0, -10),
+			})))
+	end
+end
+
+function UIRightBottom.updateAndianBoss(data)
+	if not data then data={} end
+	local selectIndex = nil--当前选中条目
+	local curItem = nil
+	local sortFunc = function(a,b)
+		return a.upTime < b.upTime
+	end
+	table.sort(data, sortFunc)
+	if not var.xmlAnDian then 
+		var.xmlAnDian=UILuaLoader.load("uilayout/anDianTip.uif")
+		var.xmlAnDian:align(display.LEFT_CENTER, -400,330)
+					 :addTo(var.rightBottom)
+					 :show() 
+		var.xmlAnDian:getWidgetByName("imgTitleBg"):setTouchEnabled(true)
+		var.xmlAnDian:getWidgetByName("labLink"):setTouchEnabled(true):addClickEventListener(function(sender)
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "panel_minimap"})
+		end)
+		var.xmlAnDian:getWidgetByName("imgBg"):setTouchEnabled(true)
+		var.xmlAnDian:getWidgetByName("btnShou"):addClickEventListener(function(sender)
+			local listBoss = var.xmlAnDian:getWidgetByName("listBoss")
+			if listBoss:isVisible() then
+				listBoss:setVisible(false)
+				sender:setRotation(90)
+				var.xmlAnDian:getWidgetByName("imgBg"):setVisible(false)
+			else
+				listBoss:setVisible(true)
+				sender:setRotation(0)
+				var.xmlAnDian:getWidgetByName("imgBg"):setVisible(true)
+			end
+		end)
+	else
+		var.xmlAnDian:show()
+	end
+	local countTime = 0
+	local labLink=var.xmlAnDian:getWidgetByName("labLink")
+	labLink:stopAllActions()
+	labLink:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+		countTime = countTime+1
+	end)})))
+
+	local function updateList(item)
+		local itemData = data[item.tag]
+		if not itemData then return end
+		if selectIndex and selectIndex==item.tag then
+			item:getWidgetByName("imgSelect"):setVisible(true)
+			curItem=item
+		else
+			item:getWidgetByName("imgSelect"):setVisible(false)
+		end
+		local function prsBtnClick(item)
+			NetClient:PushLuaTable("mon.bossRefresh.onPanelData",util.encode({actionid = "reqGotoTarget",index=itemData.index}))
+			if curItem then
+				curItem:getWidgetByName("imgSelect"):setVisible(false)
+			end
+			item:getWidgetByName("imgSelect"):setVisible(true)
+			curItem = item
+			selectIndex=item.tag
+		end
+		item:setTouchEnabled(true)
+		UIRedPoint.addUIPoint(item,prsBtnClick)  
+		item:getWidgetByName("bossName"):setString(itemData.bossName)
+		local labCount = item:getWidgetByName("bossCount")
+		labCount:stopAllActions()
+		local time = itemData.upTime-countTime
+		if time<=0 then
+			labCount:setString("可击杀"):setColor(game.getColor(0x30ff00))
+		else
+			labCount:setString(util.setTimeFormat(time*1000,3).." 后刷新"):setColor(game.getColor(0xE7BA52))
+			labCount:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+				time = time - 1
+				if time > 0 then
+					labCount:setString(util.setTimeFormat(time*1000,3).." 后刷新"):setColor(game.getColor(0xE7BA52))
+				else
+					labCount:stopAllActions()
+					labCount:setString("可击杀"):setColor(game.getColor(0x30ff00))
+					print("可击杀",time)
+				end
+			end)})))
+		end
+	end
+	local listBoss = var.xmlAnDian:getWidgetByName("listBoss")
+	listBoss:reloadData(#data,updateList):setTouchEnabled(true)
+
+end
+function UIRightBottom.set_Skill_Pos( skill_type )
+		var.skill_touch:runAction(cca.seq({
+			cca.moveTo(0.2, var.skill_touch:getPositionX(), var.skill_touch:getPositionY() + 65 * (skill_type and 1 or -1))
+		}))
+	end
+	
+return UIRightBottom

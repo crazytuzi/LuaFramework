@@ -1,0 +1,12 @@
+LUA_RET={
+{n="TipsGotCallFriend",v=true,type=0,id=1,parent=0,w=387.0000,h=225.0000,},
+{n="tipsbg",tag=951,sx=86,sw=28,sh=80,sy=54,v=true,type=1,id=2,parent=1,w=387.0000,h=225.0000,color="255|255|255",res="img_kuan_bg",},
+{n="btn_agree",ud="outline(000000,1);zoomscale(-0.12)",tag=1151,t=true,fs=20,text="确定",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=3,parent=1,w=85.0000,h=33.0000,ax=0.5000,ay=0.5000,x=289.0000,y=33.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_refuse",ud="outline(000000,1);zoomscale(-0.12)",tag=1152,t=true,fs=20,text="拒绝",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=4,parent=1,w=85.0000,h=32.0000,ax=0.5000,ay=0.5000,x=103.0000,y=33.0000,color="255|255|255",tcolor="234|221|191",res="btn_orange_normal",},
+{n="lbl1",tag=1153,fs=18,text="您的好友",vt=1,v=true,type=3,id=5,parent=1,w=72.0000,h=18.0000,ay=0.5000,x=21.0446,y=158.3115,color="231|186|82",},
+{n="lblname",tag=1154,fs=18,text="玩家玩家玩家玩",ht=1,vt=1,v=true,type=3,id=6,parent=1,w=150.0000,h=18.0000,ax=0.5000,ay=0.5000,x=177.0450,y=158.3115,color="255|236|223",},
+{n="Text_9_1",tag=1155,fs=18,text="召唤您去帮忙",vt=1,v=true,type=3,id=7,parent=1,w=108.0000,h=18.0000,ax=0.5000,ay=0.5000,x=313.0456,y=158.3115,color="231|186|82",},
+{n="lbl1_0",tag=1179,fs=18,text="是否前去?",vt=1,v=true,type=3,id=8,parent=1,w=100.0000,h=20.0000,ay=0.5000,x=131.0446,y=126.3115,color="231|186|82",},
+{n="lblcountdown",tag=1180,fs=14,text="取消倒计时30秒",ht=1,vt=1,v=true,type=3,id=9,parent=1,w=150.0000,h=14.0000,ax=0.5000,ay=0.5000,x=185.6405,y=80.5208,color="241|226|185",},
+{n="Text_1",tag=1015,fs=25,text="好友召唤",ht=1,vt=1,v=true,type=3,id=10,parent=1,w=120.0000,h=28.0000,ax=0.5000,ay=0.5000,x=195.8582,y=198.5377,color="255|230|185",fr="DFYuan.ttf",},
+}

@@ -1,0 +1,188 @@
+local UINewsManager = {}
+local var = {}
+local temp = {}
+local configTable = {
+	tip_red_packet = {
+		imgName = "null",
+		name = "红包",
+		imgMode = "tip_red_packet",
+		panelKey = "main_guild",
+		index = 1,
+		page = "hongbao"
+	},
+	tip_private = {
+		name = "聊",
+		imgName = "word_chat",
+		panelKey = "main_friend",
+		index = 2,
+		tab = 1
+	},
+	tip_guild = {
+		name = "帮",
+		imgName = "word_guild",
+		panelKey = "main_guild",
+		index = 3,
+		tab = 2,
+		page = "apply"
+	},
+	tip_trade = {
+		index = 4,
+		name = "易",
+		imgName = "word_yi",
+		tipsKey = "confirm"
+	},
+	tip_friend = {
+		index = 5,
+		name = "友",
+		imgName = "word_friend",
+		panelKey = "panel_groupapply"
+	},
+	tip_mail = {
+		index = 6,
+		name = "邮",
+		imgName = "word_mail",
+		panelKey = "main_mail"
+	},
+	tip_group = {
+		index = 7,
+		name = "队",
+		imgName = "word_group",
+		panelKey = "panel_groupapply"
+	},
+	tip_king = {
+		index = 8,
+		name = "皇",
+		imgName = "word_huang",
+		tipsKey = "confirm"
+	},
+	tip_activity = {
+		index = 9,
+		name = "活",
+		imgName = "word_huo",
+		panelKey = "panel_acttip"
+	}
+}
+
+function UINewsManager.prsItemClick(sender)
+	print(sender.key)
+	local itemData = configTable[sender.key]
+	if itemData then
+		if itemData.panelKey then
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = itemData.panelKey,key = sender.key, page = itemData.page})
+			var.listData[sender.key] = nil
+		elseif itemData.tipsKey then
+			if sender.key =="tip_trade" then
+				local traderName = NetClient.tipsMsg["tip_trade"][1]--NetClient.mTradeInviter
+				local pGhost = NetCC:findGhostByName(traderName)
+				if pGhost then
+					traderName = pGhost:NetAttr(Const.net_name)
+				end
+				if traderName then
+					local param = {
+						name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = "["..traderName.."]请求与您交易",
+						btnConfirm = "交易", btnCancel = "取消",
+						confirmCallBack = function ()
+							NetClient:AgreeTradeInvite(traderName)
+						end,
+						cancelCallBack = function ()
+							NetClient:CloseTrade()
+							NetClient:PrivateChat(traderName, traderName, "["..game.chrName.."]拒绝了您的交易请求")
+						end
+					}
+					NetClient:dispatchEvent(param)
+					table.remove(NetClient.tipsMsg[sender.key],1)
+				end
+			elseif sender.key =="tip_king" then
+				local result = NetClient.tipsMsg["tip_king"][1]--NetClient.mTradeInviter
+				if result then
+					local param = {
+						name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = result.msg,
+						btnConfirm = "确定", btnCancel = "取消",
+						confirmCallBack = function ()
+							NetClient:PushLuaTable(result.callFunc,result.book)
+						end
+					}
+					table.remove(NetClient.tipsMsg[sender.key],1)
+					NetClient:dispatchEvent(param)
+
+				end
+			end
+			if #NetClient.tipsMsg[sender.key]<1 then
+				var.listData[sender.key] = nil
+			end
+		end
+	end
+	UINewsManager.updateButtonList()
+end
+
+function UINewsManager.updateTipsList(item)
+	local idx = item.tag
+	local imgWord = item:getWidgetByName("imgWord")
+	print(temp[idx].imgName)
+	imgWord = item:getWidgetByName("imgWord"):loadTextureNormal(temp[idx].imgName, ccui.TextureResType.plistType)
+	if temp[idx].imgMode then
+	end
+	
+	imgWord.key=temp[idx].key
+	UIRedPoint.addUIPoint(imgWord,UINewsManager.prsItemClick)
+end
+
+function UINewsManager.updateButtonList()
+	temp = {}
+	for k,v in pairs(var.listData) do
+		v.key = k
+		table.insert(temp,v)
+	end
+	table.sort(temp,function( A,B )
+		return A.index<B.index
+	end)
+	var.tipsList:reloadData(#temp,UINewsManager.updateTipsList)
+	var.tipsList:setPositionX(-560-(#temp*57)/2)
+end
+
+function UINewsManager.handleBottomHandler( event )
+	if event.str then
+		if configTable[event.str] then
+			NetClient.tipsMsg[event.str] = NetClient.tipsMsg[event.str] or {}
+
+			if not var.listData[event.str] and table.nums(NetClient.tipsMsg[event.str])>0 then
+				var.listData[event.str] = configTable[event.str]
+				UINewsManager.updateButtonList()
+			elseif var.listData[event.str] and table.nums(NetClient.tipsMsg[event.str])==0 then
+				var.listData[event.str] = nil
+				UINewsManager.updateButtonList()
+			end
+		end
+	end
+end
+
+function UINewsManager.init(tipsList)
+	var = {
+		tipsList=nil,
+		listData = {},
+	}
+	if not var.tipsList then
+		var.tipsList=tipsList
+		var.tipsList:setTouchEnabled(false)
+	end
+
+	cc.EventProxy.new(NetClient,tipsList)
+		:addEventListener(Notify.EVENT_SHOW_BOTTOM,UINewsManager.handleBottomHandler)
+
+	UINewsManager.initAfter()
+end
+
+function UINewsManager.initAfter()
+	local update = false
+	for k,v in pairs(configTable) do
+		if util.isTable(NetClient.tipsMsg[k]) and table.nums(NetClient.tipsMsg[k])>0 then
+			var.listData[k] = v
+			update = true
+		end
+	end
+	if update then
+		UINewsManager.updateButtonList()
+	end
+end
+
+return UINewsManager

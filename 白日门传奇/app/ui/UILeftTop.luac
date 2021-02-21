@@ -1,0 +1,833 @@
+--530行VIP动态注销了
+local UILeftTop={}
+
+local var = {}
+local nettick=0
+
+local function handleSwitchUIMode(event)
+	if not var.leftTop then
+		return
+	end
+
+	if var.leftTop:getWidgetByName("box_left_top") then
+		local posX, posY = var.leftTop:getWidgetByName("box_left_top"):getPosition()
+
+		if event.mode == Const.UI_COMPLETE and posX < 0 then
+			var.leftTop:getWidgetByName("box_left_top"):stopAllActions()
+			var.leftTop:getWidgetByName("box_left_top"):runAction(cca.moveTo(0.5, 0, posY))
+		elseif event.mode == Const.UI_SIMPLIFIED and posX > -500 then
+			var.leftTop:getWidgetByName("box_left_top"):stopAllActions()
+			var.leftTop:getWidgetByName("box_left_top"):runAction(cca.moveTo(0.5, -500, posY))
+		end
+	end
+
+	if var.leftTop:getWidgetByName("box_simple_head") then
+		local posX, posY  = var.leftTop:getWidgetByName("box_simple_head"):getPosition()
+
+		if event.mode == Const.UI_COMPLETE and posX > -500 then
+			var.leftTop:getWidgetByName("box_simple_head"):stopAllActions()
+			var.leftTop:getWidgetByName("box_simple_head"):runAction(cca.moveTo(0.5, -500, posY))
+		elseif event.mode == Const.UI_SIMPLIFIED and posX < 0 then
+			var.leftTop:getWidgetByName("box_simple_head"):stopAllActions()
+			var.leftTop:getWidgetByName("box_simple_head"):runAction(cca.moveTo(0.5, 0, posY))
+		end
+	end
+end
+
+local function updateAvatarPower(event)
+	if not MainRole._mainAvatar then
+		return
+	end
+
+	if event.srcId == MainRole._mainAvatar:NetAttr(Const.net_id) then
+		var.simplePowerBar:setPercent(event.power, event.maxPower)
+	end
+end
+
+local iconTable = {
+	{
+		20005,
+		20006,
+		20007
+	},
+	{
+		29002,
+		29002,
+		29002
+	},
+	{
+		40005,
+		40006,
+		40007
+	},
+	{
+		20005,
+		20006,
+		20007
+	}
+}
+local previewRes = {
+	recycle = "preview_shortdesp_recycle",
+	mon = "preview_shortdesp_kill",
+	boss = "preview_shortdesp_kill",
+	upgrade = "preview_shortdesp_upgrade",
+	level = "preview_shortdesp_level"
+}
+local euqipRes = {}
+
+function UILeftTop.init_ui(lefttop)
+    var ={
+    	leftTop,
+    	boxHead,
+
+    	simpleHpBar,
+    	simplePowerBar,
+
+    	hpBar,
+    	mpBar,
+    	pos_hp,
+    	pos_mp,
+    	lbl_hp,
+    	lbl_mp,
+    	-- taskFlag,
+    	mFightAtlas,
+    	mMoveSp={},
+    	tagIndex=1000,
+    	mScrollWidget,
+    	-- mainAvatar = CCGhostManager:getMainAvatar(),
+    	hide_layer,
+    	pingState=0,
+    	replaceWait=false,
+    	preivewIcon,
+    	levelUPAnim,
+    	vipLevel=0,
+		buffLayer,
+	}
+	var.leftTop = lefttop:align(display.LEFT_TOP, display.left, display.top)
+	var.boxHead = lefttop:getWidgetByName("box_head")
+	-- lefttop:setPosition(cc.p(display.left,display.top))
+
+	var.boxHead:getWidgetByName("Button_chongzhi"):addClickEventListener(function ()
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+	end)
+
+	-- 神将按钮
+	local extend_mars = var.leftTop:getWidgetByName("extend_mars")
+
+	-- 按钮回调
+	local function pushExtendButton(sender)
+		local btnName = sender:getName()
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = btnName})
+	end
+
+	UIRedPoint.addUIPoint(extend_mars, pushExtendButton)
+	local extend_marsbg = var.leftTop:getWidgetByName("extend_marsbg"):hide()
+
+	if NetClient:checkGuiButton("extend_mars") then --按钮是否可见
+		if extend_marsbg then 
+			extend_marsbg:show()
+		end
+	end
+
+	-- 按钮刷新
+	local function handleExtendButtons()
+		if NetClient:checkGuiButton("extend_mars") then --按钮是否可见
+			if extend_marsbg then 
+				extend_marsbg:show()
+			end
+		elseif extend_mars then
+			--extend_mars:removeFromParent()
+		end
+	end
+
+	cc.EventProxy.new(NetClient, boxExtend)
+		:addEventListener(Notify.EVENT_GUI_BUTTON, handleExtendButtons)
+
+	lefttop:getWidgetByName("box_left_top"):setTouchEnabled(true)
+	local btn_main_buff = lefttop:getWidgetByName("btn_main_buff"):setPressedActionEnabled(true)
+	btn_main_buff:getTitleRenderer():setAdditionalKerning(0)
+	local buffList = btn_main_buff:getWidgetByName("buffList"):hide()
+	local buff_content = btn_main_buff:getWidgetByName("buff_content"):hide()
+	btn_main_buff:addClickEventListener(function (sender)
+		buff_content:setVisible(buffList.num and not buffList:isVisible())
+		buffList:setVisible(not buffList:isVisible())
+		if buffList:isVisible() and not buffList.num then
+			buffList:setVisible(false)
+		end
+	end)
+	var.buffLayer = lefttop:getWidgetByName("buffLayer"):hide():setPosition(display.cx,var.leftTop:getContentSize().height-display.cy)
+
+	var.pos_hp=lefttop:getWidgetByName("pos_hp");
+	var.pos_mp=lefttop:getWidgetByName("pos_mp");
+	local function pushMenu(sender)
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar"})
+	end
+
+	local function pushVip(sender)
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "panel_vip" , } )
+	end
+
+	local vip_panel = nil
+	local fight_bg = lefttop:getWidgetByName("fight_bg")
+	local hide_layer = ccui.Layout:create()
+	
+	hide_layer:setAnchorPoint(cc.p(0,1))
+	hide_layer:setContentSize(cc.size(300,30))
+	hide_layer:setClippingEnabled(true)
+	hide_layer:setPosition(cc.p(fight_bg:getContentSize().width+48,fight_bg:getContentSize().height/2+10))
+	hide_layer:setName("hide_layer")
+	hide_layer:setVisible(true)
+	-- hide_layer:align(display.LEFT_BOTTOM, 140, display.height/2-81)
+	var.boxHead:addChild(hide_layer)
+
+	--火特效
+	util.addEffect(fight_bg, "pointEffect", GROUP_TYPE.EFFECT, 80060):setPositionY(4)
+
+	var.mFightAtlas = display.newBMFontLabel({font ="fonts/zjm_zhandouli.fnt"}):setScale(0.8)
+		:align(display.LEFT_BOTTOM, 38, -6)
+		:addTo(fight_bg)
+		:show()
+
+	local str_hp = ""
+	local str_maxhp = ""
+	local str_mp = ""
+	local str_maxmp = ""
+	local str_level = ""
+	-- local mModels
+	local viplv = 0
+	local str_power = ""
+	local str_maxpower = ""
+
+	if MainRole._mainAvatar then
+		str_hp = MainRole._mainAvatar:NetAttr(Const.net_hp)
+		str_maxhp = MainRole._mainAvatar:NetAttr(Const.net_maxhp)
+		str_mp = MainRole._mainAvatar:NetAttr(Const.net_mp)
+		str_maxmp = MainRole._mainAvatar:NetAttr(Const.net_maxmp)
+		str_level = MainRole._mainAvatar:NetAttr(Const.net_level)
+
+		str_power = MainRole._mainAvatar:NetAttr(Const.net_power) or 1
+		str_maxpower = MainRole._mainAvatar:NetAttr(Const.net_maxpower) or 1
+		-- mModels = NetClient.mModels[MainRole._mainAvatar:NetAttr(Const.net_id)]
+		viplv = NetClient:getPlayerModel(MainRole._mainAvatar:NetAttr(Const.net_id),5)
+	end
+
+	var.vipLevel = lefttop:getWidgetByName("word_vip"):setScale(0.8)
+	if viplv > 0 and viplv < 10 then 
+		var.vipLevel:loadTexture("icon_VIP"..viplv, ccui.TextureResType.plistType)
+	else
+		if viplv > 0 then
+			var.vipLevel:removeChildByName("vipEffect")	--VIP同步，Q:962872954
+			var.vipLevel:loadTexture("null", ccui.TextureResType.plistType):setScale(1)
+			util.addEffect(var.vipLevel, "vipEffect", GROUP_TYPE.EFFECT, 70000 + viplv, nil, nil, true)
+		end
+	end
+
+	var.hpBar = lefttop:getWidgetByName("pos_hp"):setPercent(str_hp,str_maxhp):setFontSize( 14 ):enableOutline(game.getColor(0x490000),1)
+	local lblHpBar = lefttop:getWidgetByName("pos_hp"):getLabel()
+	if lblHpBar then
+		lblHpBar:getVirtualRenderer():setAdditionalKerning(2)
+	end
+
+	var.mpBar = lefttop:getWidgetByName("pos_mp"):setPercent(str_mp,str_maxmp):setFontSize( 14 ):enableOutline(game.getColor(0x000049),1)
+	local lblMpBar = lefttop:getWidgetByName("pos_mp"):getLabel()
+	if lblMpBar then
+		lblMpBar:getVirtualRenderer():setAdditionalKerning(2)
+	end
+
+	var.simpleHpBar = lefttop:getWidgetByName("img_simple_hp"):setPercent(str_hp,str_maxhp)
+	var.simpleHpBar:getLabel():hide()
+
+	--print(str_power, str_maxpower)
+	var.simplePowerBar = lefttop:getWidgetByName("img_simple_inner_power"):setPercent(str_power,str_maxpower)
+	var.simplePowerBar:getLabel():hide()
+
+
+	local btn_menu = lefttop:getWidgetByName("btn_menu")
+	local btn_vip = lefttop:getWidgetByName("btn_vip")
+	if PLATFORM_BANSHU then
+		btn_vip:setVisible(false):setPressedActionEnabled(true)
+	end
+
+	if PLATFORM_BANSHU then btn_vip:hide() end
+
+	UIRedPoint.addUIPoint(btn_menu, pushMenu)
+	var.mScrollWidget = UIScrollFight.initWidget(UILeftTop.freshFight)
+	var.mScrollWidget:setPosition(cc.p(fight_bg:getContentSize().width,fight_bg:getContentSize().height/2+15))
+	fight_bg:addChild(var.mScrollWidget)
+
+	UILeftTop.freshFight(NetClient.mCharacter.mFightPoint)  --获取玩家攻击力
+	table.insert(UIRedPoint.UIBtnTab, {btn_menu, pushMenu})
+	if not PLATFORM_BANSHU then
+		table.insert(UIRedPoint.UIBtnTab,{btn_vip,pushVip})
+		UIRedPoint.addUIPoint(btn_vip,pushVip)
+	end
+	local head_key ={"head_mzs","head_fzs","head_mfs","head_ffs","head_mds","head_fds"}
+
+	-- MainRole._mainAvatar =  CCGhostManager:getMainAvatar()
+	local rolemain_pic = lefttop:getWidgetByName("rolemain_pic")
+	if MainRole._mainAvatar then
+		local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+		local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+		local id = (job-100) * 2 + gender - 199
+		rolemain_pic:loadTexture(head_key[id],ccui.TextureResType.plistType)
+	end
+	lefttop:getWidgetByName("lblLevel"):setString(MainRole._mainAvatar:NetAttr(Const.net_level))
+	--眼睛特效
+	util.addEffect(rolemain_pic, "yanEffect", GROUP_TYPE.EFFECT, 34114):setPositionY(32)
+
+	var.levelUPAnim = UILuaLoader.load("uilayout/upToLevel.uif")
+	if var.levelUPAnim then
+		var.levelUPAnim:addTo(lefttop)
+		:align(display.CENTER, display.cx, -display.cy/2)
+		:hide()
+	end
+	lefttop:getWidgetByName("btn_exit")
+		-- :align(display.LEFT_CENTER, display.left+5, 10)
+		:hide()
+		:addClickEventListener(function (sender)
+			NetClient:PushLuaTable("gui.moduleShortCut.reqShortCut", util.encode({actionid = "exitCopy"}))
+		end)
+
+	cc.EventProxy.new(NetClient, lefttop)
+		:addEventListener(Notify.EVENT_SELF_HPMP_CHANGE, UILeftTop.freshHPMP)
+		:addEventListener(Notify.EVENT_LEVEL_CHANGE, UILeftTop.handleLevelChange)
+		:addEventListener(Notify.EVENT_ATTRIBUTE_CHANGE,UILeftTop.updatefight)
+		:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, UILeftTop.handlePanelData)
+		:addEventListener(Notify.EVENT_CHANGE_MAP, UILeftTop.handleChangeMap)
+		:addEventListener(Notify.EVENT_MODEL_SET, UILeftTop.modelChange)
+		:addEventListener(Notify.EVENT_BUFF_CHANGE, UILeftTop.buffChange)
+		--:addEventListener(Notify.EVENT_SWITCH_UI_MODE, handleSwitchUIMode)
+		:addEventListener(Notify.EVENT_INNERPOWER_CHANGE, updateAvatarPower)
+
+	if NetClient.previewData and NetClient.previewData.show then
+		UILeftTop.initNotice(NetClient.notice)
+	end
+
+	local boxAttack = lefttop:getWidgetByName("box_attack")
+	UIAttackModel.init(boxAttack)
+
+	UILeftTop.buffChange({srcId = MainRole.mID})
+end
+
+function UILeftTop.updatefight()
+		if var.mFightAtlas then
+			UILeftTop.freshFight(NetClient.mCharacter.mFightPoint)
+		end
+	end
+	
+function UILeftTop.handlePanelData(event)
+		if event.type == "equippreview" then
+			UILeftTop.initNotice(util.decode(event.data))
+		end
+	end
+	
+function UILeftTop.changeAct()
+	UIScrollFight.AddNewFight(var.mScrollWidget,1234,15668)
+	end
+	
+function UILeftTop.freshHPMP(event)
+	if MainRole and MainRole._mainAvatar and event.param then
+		local hp = 		MainRole._mainAvatar:NetAttr(Const.net_hp)
+		local maxhp = 	MainRole._mainAvatar:NetAttr(Const.net_maxhp)
+		local mp =		MainRole._mainAvatar:NetAttr(Const.net_mp)
+		local maxmp = 	MainRole._mainAvatar:NetAttr(Const.net_maxmp)
+
+		local power = MainRole._mainAvatar:NetAttr(Const.net_power)
+		local maxpower = MainRole._mainAvatar:NetAttr(Const.net_maxpower)
+
+		var.hpBar:setPercent(hp,maxhp)
+		var.mpBar:setPercent(mp,maxmp)
+
+		var.simpleHpBar:setPercent(hp,maxhp)
+		var.simplePowerBar:setPercent(power,maxpower)
+	end
+end
+
+function UILeftTop.handleLevelChange(event)
+		var.leftTop:getWidgetByName("lblLevel"):setString(event.level)
+
+		if not util.isObjectExist(var.levelUPAnim) then
+			return
+		end
+
+		local level = nil
+
+		if event.level and type(event.level) == "number" then
+			UILeftTop.refreshLevel(event.level)
+		end
+	end
+	
+function UILeftTop.refreshLevel(targetLevel)
+		var.leftTop:getWidgetByName("lblLevel"):setString(targetLevel)
+		NetClient:alertLocalMsg("恭喜您升级到" .. targetLevel .. "级", "post")
+		UILeftTop.freshHPMP({
+			param = {
+				hp = MainRole._mainAvatar:NetAttr(Const.net_hp),
+				maxhp = MainRole._mainAvatar:NetAttr(Const.net_maxhp),
+				mp = MainRole._mainAvatar:NetAttr(Const.net_mp),
+				maxmp = MainRole._mainAvatar:NetAttr(Const.net_maxmp)
+			}
+		})
+	end
+	
+function UILeftTop.alertLevelMsg(curLevel,targetLevel,delay)
+
+	local levelDiff = targetLevel-curLevel or 1
+	local levelText,moveToX,moveToY
+	if levelDiff <= 1 then
+		levelText = "提升到    级!"
+		moveToX=display.width/2-18
+		moveToY=-220
+	else
+		moveToX=display.width/2-140
+		moveToY=-220
+		levelText = "提升到    级!瞬间直升了    级!"
+	end	
+
+	NetClient:dispatchEvent({name = Notify.EVENT_SCENE_SHAKE})
+
+	local parentLayer = cc.Layer:create():addTo(var.leftTop)
+
+	levelUp = ccui.Text:create("", FONT_NAME, 36)
+	:setColor(Const.color(9))
+	:addTo(parentLayer)
+	:align(display.CENTER, 100, -220)
+	:size(cc.size(display.width, display.height))
+	:setString(targetLevel)
+
+	depict = ccui.Text:create("", FONT_NAME, 30)
+	:setColor(cc.c3b(200,200,0))
+	:addTo(parentLayer)
+	:align(display.CENTER, 50, -220)
+	:size(cc.size(display.width, display.height))
+	:setString(levelText)
+
+	depict:runAction(
+		cca.seq({
+			cca.moveTo(0.5, display.width/2-40, -220),
+			cca.delay(1.5),
+			cca.hide(),
+		}))
+
+	levelUp:runAction(
+		cca.seq({
+			cca.moveTo(0.5, moveToX, moveToY),
+			cca.delay(1.5),
+			cca.hide(),
+		}))
+
+	if levelDiff > 1 then
+		levelDir = ccui.Text:create("", FONT_NAME, 36)
+		:setColor(Const.color(9))
+		:addTo(parentLayer)
+		:align(display.CENTER, 100, -220)
+		:size(cc.size(display.width, display.height))
+		:setString(levelDiff)
+
+		levelDir:runAction(
+		cca.seq({
+			cca.moveTo(0.5, display.width/2+110, -220),
+			cca.delay(1.5),
+			cca.moveTo(0.5, 0, 400),
+			cca.scaleTo(0.5,0.3,0.3),
+			cca.hide(),
+			cca.callFunc(function ()
+				if delay then
+					UILeftTop.refreshLevel(targetLevel)
+				end	
+			end)	
+
+		}))
+	else
+		UILeftTop.refreshLevel(targetLevel)
+	end	
+
+end
+
+function UILeftTop.fightChange(add, all)
+
+	local hander
+	local fight_bg = var.leftTop:getWidgetByName("fight_bg")
+	local hide_layer = fight_bg:getWidgetByName("hide_layer")
+	local mAdd = UIScrollFight.IntToStringTab(add)
+	local mAll = UIScrollFight.IntToStringTab(all)
+	if mAdd and mAll then
+		local sprite_bg = ccui.Widget:create()
+		sprite_bg:setPosition(cc.p((Const.VISIBLE_WIDTH-Const.VISIBLE_X)/2,-(Const.VISIBLE_Y+Const.VISIBLE_HEIGHT)/2))
+		sprite_bg:setName("sprite_bg_"..var.tagIndex)
+		sprite_bg:setTag(var.tagIndex)
+		var.leftTop:addChild(sprite_bg)
+		for i = 0, 10 do
+			local fight_sprite
+			if i <= #mAdd then
+				if i == 0 then
+					fight_sprite = ccui.ImageView:create()
+					fight_sprite:loadTexture("img_power",ccui.TextureResType.plistType)
+					if add < 0 then
+						fight_sprite:loadTexture("img_power",ccui.TextureResType.plistType)
+					end
+				else
+					fight_sprite = ccui.ImageView:create()
+					fight_sprite:loadTexture("img_power_"..mAdd[i],ccui.TextureResType.plistType)
+					fight_sprite:setVisible(true)
+				end
+				-- fight_sprite:setScale(1.5)
+				fight_sprite:setPosition(cc.p(15*(i-1-math.floor(#mAdd/2)),0))
+				sprite_bg:addChild(fight_sprite)
+			end
+		end
+
+		local function runNumScroll()
+			hide_layer:setVisible(false)
+			for i = 1000, var.tagIndex - 1 do
+				if var.leftTop:getChildByTag(i) then
+					if not var.leftTop:getChildByTag(i):getActionByTag(i) then
+						var.leftTop:getChildByTag(i):stopAllActions()
+						var.leftTop:removeChildByTag(i)
+					end
+				end
+			end
+			if var.mScrollWidget then
+				var.mScrollWidget:setVisible(true)
+				UIScrollFight.AddNewFight(var.mScrollWidget, add, all)
+			end
+		end
+
+		local function runActionBottom()
+			if hander then
+				Scheduler.unscheduleGlobal(hander)
+				hander = nil
+			end
+			if sprite_bg then
+				local action = cc.Sequence:create(
+							cc.EaseSineOut:create(cc.MoveTo:create(1.0, cc.p(fight_bg:getPositionX()+fight_bg:getContentSize().width+24*#mAll-60,
+								fight_bg:getPositionY()-fight_bg:getContentSize().height - 80))),cc.CallFunc:create(runNumScroll))
+				action:setTag(var.tagIndex)
+				sprite_bg:runAction(action)
+				var.tagIndex = var.tagIndex + 1
+			end
+		end
+		hander = Scheduler.scheduleGlobal(runActionBottom,0.01)
+	end
+end
+
+function UILeftTop.freshFight(number)
+	if var.mScrollWidget then
+		var.mScrollWidget:setVisible(false)
+		if var.leftTop:getChildByTag(var.tagIndex-1) and not var.leftTop:getChildByTag(var.tagIndex-1):getActionByTag(var.tagIndex-1) then
+			var.leftTop:getChildByTag(var.tagIndex-1):stopAllActions()
+			var.leftTop:removeChildByTag(var.tagIndex-1)
+		end
+	end
+	
+	var.mFightAtlas:setString(number)
+	--VIP动态 注释 内部报错 未发现问题
+	-- local mModels = NetClient.mModels[MainRole._mainAvatar:NetAttr(Const.net_id)]
+	-- local viplv = NetClient:getPlayerModel(MainRole._mainAvatar:NetAttr(Const.net_id),5)
+	-- if viplv > 0 and viplv < 10 then 
+		-- var.vipLevel:loadTexture("icon_VIP"..viplv, ccui.TextureResType.plistType)
+	-- else
+		-- if viplv > 0 then
+			-- var.vipLevel:loadTexture("null", ccui.TextureResType.plistType):setScale(1)
+			-- -- if var.vipLevel:getChildByName("vipEffect") then
+				-- -- util.updateEffect(var.vipLevel, "vipEffect", 70000 + viplv)
+			-- -- else
+				-- -- util.addEffect(var.vipLevel, "vipEffect", GROUP_TYPE.EFFECT, 70000 + viplv, nil, nil, true)
+			-- -- end
+		-- end
+	-- end
+end
+
+function UILeftTop.modelChange(event)
+	if event.modelId == 5 then
+		local viplv = NetClient:getPlayerModel(MainRole._mainAvatar:NetAttr(Const.net_id),5)
+		if viplv > 0 and viplv < 10 then 
+			var.vipLevel:loadTexture("icon_VIP"..viplv, ccui.TextureResType.plistType)
+		else
+			if viplv > 0 then
+				var.vipLevel:loadTexture("null", ccui.TextureResType.plistType):setScale(1)
+				if var.vipLevel:getChildByName("vipEffect") then	--VIP同步注释，Q:962872954
+					util.updateEffect(var.vipLevel, "vipEffect", 70000 + viplv, GROUP_TYPE.EFFECT)	
+				else
+					util.addEffect(var.vipLevel, "vipEffect", GROUP_TYPE.EFFECT, 70000 + viplv, nil, nil, true)
+				end	--VIP同步注释，Q:962872954
+			end
+		end
+	end
+end
+
+function UILeftTop.resetTick()
+	end
+	
+function UILeftTop.update()
+		if not var.leftTop then
+			return
+		end
+
+		if var.pingState == 0 then
+			NetClient.mPingDelay = game.ClockTick
+		end
+
+		local delay = 0
+
+		if NetClient.mPingDelay ~= 0 then
+			delay = (game.ClockTick - NetClient.mPingDelay) * 1000 / CONFIG_FPS
+		end
+
+		local state=1
+
+		if delay < 1500 then
+			state = 1
+		elseif delay >= 1500 and delay < 2400 then
+			state = 1
+		elseif delay >= 10000 and var.pingState > 0 and not var.replaceWait then
+			-- Nothing
+		end
+
+		var.pingState = state
+	end
+	
+function UILeftTop.initNotice(data)
+	-- UILeftTop.initLevOpenNotice(data)
+	if NetClient.previewData and NetClient.previewData.show then
+		local function updatePreviewIcon()
+			if var.preivewIcon then
+				local item = var.preivewIcon:getWidgetByName("item"):setCascadeOpacityEnabled(true)
+				-- local param={
+				-- 	parent=item , 
+				-- 	typeId=NetClient.previewData.showEquip
+				-- }
+				-- UIItem.getItem(param)
+				-- item:setTouchEnabled(false)
+				var.preivewIcon:getWidgetByName("item"):loadTexture("picicon/"..NetClient.previewData.showEquip..".png", ccui.TextureResType.localType)
+				
+				local condition = NetClient.previewData.condition
+				if previewRes[condition.mType] then
+					var.preivewIcon:getWidgetByName("imgShortDesp"):loadTexture(previewRes[condition.mType], ccui.TextureResType.plistType):show()
+				else
+					var.preivewIcon:getWidgetByName("imgShortDesp"):hide()
+				end
+				if condition.mType == "level" then
+					var.preivewIcon:getWidgetByName("lblNeedLevel"):setString(condition.num):show()
+				else
+					var.preivewIcon:getWidgetByName("lblNeedLevel"):hide()
+				end
+			end
+		end
+
+		if not var.preivewIcon then
+			local pSize = var.leftTop:getContentSize()
+			asyncload_frames("uipic/PreviewIcon", ".png", function ()
+				var.preivewIcon = UILuaLoader.load("uilayout/PreviewIcon.uif")
+					:align(display.RIGHT_CENTER, pSize.width*0.4, pSize.height * 0.6)
+					:addTo(var.leftTop)
+					:setTouchEnabled(true)
+					:setName("previewIcon")
+				UIRedPoint.addUIPoint(var.preivewIcon, function (pSender)
+					NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "panel_equippreview"})
+				end)
+
+				local frames = {}
+				local spriteFrameCache = cc.SpriteFrameCache:getInstance()
+				for i=1,3 do
+					local frameName = string.format("preview_light_%d", i)
+					local frame = spriteFrameCache:getSpriteFrame(frameName)
+					frames[#frames + 1] = frame
+				end
+
+				local animation = display.newAnimation(frames, 1 / 4) -- 0.5 秒播放 8 桢
+				local lightSprite = cc.Sprite:create()
+					:align(display.CENTER, 58, 55)
+					:addTo(var.preivewIcon, -1)
+				lightSprite:playAnimationForever(animation)
+				updatePreviewIcon()
+			end,var.leftTop)
+		else
+			updatePreviewIcon()
+		end
+	else
+		if var.preivewIcon then
+			var.preivewIcon:removeFromParent()
+			var.preivewIcon = nil
+		end
+	end
+end
+
+function UILeftTop.initLevOpenNotice(data)
+		local pSize = var.leftTop:getContentSize()
+
+		if not var.openNotice then
+			var.openNotice = UILuaLoader.load("uilayout/PanelOpenNotice.uif"):align(display.RIGHT_CENTER, pSize.width * 0.5, pSize.height * 0.55):addTo(var.leftTop):setTouchEnabled(false):setLocalZOrder(0)
+
+			local imgBg = var.openNotice:getWidgetByName("imgBg")
+			local filepath = "needload/img_newfunc_frame2.png"
+			asyncload_callback(filepath, imgBg, function(filepath, texture)
+				imgBg:loadTexture(filepath)
+			end)
+
+			var.openNotice:setTouchEnabled(true)
+			var.openNotice:addTouchEventListener(function (pSender,pType)
+				if pType == ccui.TouchEventType.began then
+					transition.pauseTarget(pSender)
+				elseif pType == ccui.TouchEventType.ended or pType == ccui.TouchEventType.canceled then
+					transition.resumeTarget(pSender)
+				end
+			end)
+			var.openNotice:stopAllActions()
+		end
+
+		if data.nextData then
+			local funcIcon = var.openNotice:getWidgetByName("imgIcon")
+
+			if data.nextData.mType == "menu" then
+				asyncload_callback("picicon/" .. data.nextData.func .. ".png", funcIcon, function (filepath, texture)
+					funcIcon:loadTexture(filepath, ccui.TextureResType.localType)
+				end)
+				funcIcon:setScale(0.7)
+			elseif data.nextData.mType == "rtpart" then
+				funcIcon:setScale(0.8)
+				funcIcon:loadTexture(data.nextData.func, ccui.TextureResType.plistType)
+			elseif data.nextData.mType == "rcpart" then
+				funcIcon:setScale(0.7)
+				funcIcon:loadTexture(data.nextData.func, ccui.TextureResType.plistType)
+			end
+
+			var.openNotice:getWidgetByName("labDesp"):setString(data.nextData.level .. "级开放" .. data.nextData.name)
+		end
+
+		if data.sum == 999 then
+			var.openNotice:setVisible(false)
+
+			var.openNotice = nil
+		end
+	end
+	
+function UILeftTop.handleChangeMap(event)
+		var.leftTop:getWidgetByName("btn_exit"):hide()
+	end
+	
+function UILeftTop.getMyBuff(buffId)
+	local myBuffs = {}
+	if NetClient.mNetBuff[MainRole.mID] then
+		for k,v in pairs(NetClient.mNetBuff[MainRole.mID]) do
+			if util.isTable(v.buffdef) and v.buffdef.ui%10 > 0 then--ui>0显示
+				if not buffId then
+					table.insert(myBuffs,v)
+				elseif buffId == k then
+					return v
+				end
+			end
+		end
+		if #myBuffs>1 then
+			table.sort(myBuffs,function(a,b)
+				return a.buffdef.uisort<b.buffdef.uisort
+			end)
+		end
+	end
+	return myBuffs
+end
+
+function UILeftTop.showBuffDesp(srcId,buffId)
+	if srcId and buffId then
+		local buffDef = NetCC:getBuffDef(buffId)
+		local myBuff = UILeftTop.getMyBuff(buffId)
+		if myBuff and buffDef and buffDef.name then
+			var.buffLayer:show()
+			local buff_icon = var.buffLayer:getWidgetByName("buff_icon")
+			local buffDesp = var.buffLayer:getWidgetByName("buffDesp")
+			buff_icon:loadTexture(buffDef.icon,ccui.TextureResType.plistType)
+			-- buff_icon:setContentSize(30, 30)
+			buff_icon:setScale(28/20):pos(15,15)
+			var.buffLayer:getWidgetByName("buffname"):setString(buffDef.name)
+			local desp = buffDef.desp
+			-- desp = string.gsub(buffDef.desp,"%b<>",function(s)
+			-- 	if string.find(s,"br") then 
+			-- 		return "\n"
+			-- 	else 
+			-- 		return s 
+			-- 	end 
+			-- end)
+			desp = string.gsub(desp,"%%","%%%%")
+			local timeRemain
+			local validType = math.floor(buffDef.ui/10)
+			if validType == 4 then
+				desp = desp.."<br>剩余血量：<font color=#00ff00>"..myBuff.timeRemain.."</font>";
+			elseif validType == 1 then
+				timeRemain = myBuff.timeRemain + myBuff.starttime-os.time()
+				desp = desp.."<br>剩余时间：<font color=#00ff00>%s</font>";
+			end
+			var.buffLayer:stopAllActions()
+			local richDesp = buffDesp:getWidgetByName("richDesp")
+			if not richDesp then
+				richDesp = UIRichLabel.new({space = 3, size = buffDesp:getContentSize(),name="richDesp",anchor=cc.p(0,1)}):addTo(buffDesp):setPosition(cc.p(0,buffDesp:getContentSize().height))
+			end
+			local strdesp
+			if timeRemain then
+				strdesp = string.format(desp,util.setTimeFormat(timeRemain*1000))
+				richDesp:setRichLabel(strdesp,"",16)
+				var.buffLayer:runAction(cca.rep(cca.seq({
+					cca.delay(1),
+					cca.cb(function(target)
+						if timeRemain>0 then
+							timeRemain = timeRemain -1
+							strdesp = string.format(desp,util.setTimeFormat(timeRemain*1000))
+							richDesp:setRichLabel(strdesp,"",16)
+						else
+							var.buffLayer:hide():stopAllActions()
+						end
+					end)
+					}),timeRemain)
+				)
+			else
+				richDesp:setRichLabel(desp,"",16)
+			end
+		end
+	else
+		var.buffLayer:hide():stopAllActions()
+	end
+end
+
+function UILeftTop.buffChange(event)
+	if MainRole._mainAvatar and event.srcId == MainRole.mID and (not event.opCode or event.opCode<=4) then
+		local myBuffs = UILeftTop.getMyBuff()
+		local btn_main_buff = var.leftTop:getWidgetByName("btn_main_buff")
+		btn_main_buff:setTitleText("BUFF*"..table.nums(myBuffs))
+		local buffList = btn_main_buff:getWidgetByName("buffList"):setTouchEnabled(false)
+		local buff_content = var.leftTop:getWidgetByName("buff_content")
+		local width = (#myBuffs>6 and 6 or #myBuffs)*35
+		local height = math.ceil(#myBuffs/6)*35+3
+		buffList.num = #myBuffs>0
+		buff_content:setContentSize(cc.size(width,height))
+		if buffList:isVisible() then
+			buffList:setVisible(buffList.num)
+		end
+		buffList:reloadData(#myBuffs, function( subItem )
+			local d = myBuffs[subItem.tag]
+			local icon = "null"
+			-- if buffdef then
+			icon =d.buffdef.icon 
+			-- end
+			local buffbtn = subItem:getWidgetByName("icon")
+			buffbtn.buffId = d.buffId
+			buffbtn.srcId = event.srcId
+			
+			buffbtn:loadTextureNormal(icon,ccui.TextureResType.plistType)
+			-- buffbtn:setContentSize(28, 28)
+			buffbtn:pos(17,16)
+			buffbtn:setTouchEnabled(true)
+			buffbtn:setEnabled(d.enable)
+			if not buffbtn.touch then
+				buffbtn.touch = true
+				buffbtn:addTouchEventListener(function(sender,TouchType)
+					if TouchType == ccui.TouchEventType.began then
+						UILeftTop.showBuffDesp(sender.srcId,sender.buffId)
+					elseif TouchType ~= ccui.TouchEventType.moved then
+						UILeftTop.showBuffDesp()
+					end
+				end)
+			end
+		end, 0, false)
+	end
+end
+
+return UILeftTop

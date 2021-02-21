@@ -1,0 +1,444 @@
+local PanelNeiGong={}
+local lblhint = {
+	"<font color=#E7BA52 size=18>神龙提升/突破</font>",
+	'<font color=#00ff00>1.神龙提升:</font>使用青龙鳞片提升神龙可获得属性加成',
+	'<font color=#00ff00>2.材料获取:</font>神龙塔、BOSS爆出、商城购买',
+	'<font color=#00ff00>3.神龙突破:</font>神龙升阶后点击升级球可转到神龙突破，使用青龙内丹突破可获得属性加成！',
+	--'<font color=#00ff00>4.超级属性:</font>提升神龙后点击回城卷上面红色按钮可加神圣之力4-10秒，CD时间60秒',
+}
+
+function PanelNeiGong.initView(event)
+	var = {
+		xmlPanel,
+		preTab,
+		pageIndex = 1,
+		towerLV = 1,
+		preBtn,
+		pressed = 1,
+		xmlBuy,
+		fireworks,
+		fireworks2,
+		fireworks3,
+		fireworks4,		
+		
+		buyData=nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelNeiGong.uif")
+	if var.xmlPanel then
+		var.xmlPanel:align(display.BOTTOM_LEFT, 0, 0)
+		local ysBg = var.xmlPanel:getWidgetByName("ysBg")
+		for i=1,12 do
+			local point = ysBg:getWidgetByName("circle"..i):hide()
+			point:setAnchorPoint(0.5,0.5)
+			point:setLocalZOrder(3)
+			local size = point:getContentSize()
+			local selfX,selfY = point:getPosition()
+			point:setPosition(cc.pSub(cc.p(selfX,selfY),cc.p(-size.width/2,size.height/2)))
+			local action = cc.Sprite:create()
+				:setName("ys_action")
+				:addTo(point)
+				:align(display.CENTER,0,46)
+				:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+			if i<12 then
+				local nextPoint = ysBg:getWidgetByName("circle"..(i+1))
+				local otherX,otherY= nextPoint:getPosition()
+				local imgProgress = ccui.ImageView:create("",ccui.TextureResType.plistType)
+				-- local imgProgress = ccui.ImageView:create("img_progress-bar",ccui.TextureResType.plistType) ---线路
+
+				:addTo(ysBg,2)
+				:align(display.CENTER, selfX+size.width/2,selfY-size.height/2)
+				:setName("progressBar"..i)
+
+				local rotation = math.deg(cc.pToAngleSelf(cc.pSub(cc.p(selfX,selfY),cc.p(otherX,otherY))))
+				local length = cc.pGetLength(cc.pSub(cc.p(selfX,selfY),cc.p(otherX,otherY)))
+				imgProgress:setScale9Enabled(true)
+				imgProgress:setCapInsets(cc.rect(5,5,274,1))
+				imgProgress:setContentSize(length,11)
+				imgProgress:setRotation(-rotation)
+				imgProgress:setAnchorPoint(1,0.5)
+				imgProgress:hide()
+				
+				PanelNeiGong.NeiGongAnimate()	---测试动态	
+								
+			end
+
+		end
+		ysBg:hide()
+		local pageView = var.xmlPanel:getWidgetByName("pageView")
+	
+			
+			
+			
+		local pushButtons = function(sender)
+			if sender:getName() == "btn_allattr" then--总属性按钮(屏蔽了)
+				var.pressed = 1 - var.pressed
+				sender:setBrightStyle(1-var.pressed)
+				var.xmlPanel:getWidgetByName("box_singleattr"):setVisible(var.pressed == 1)--主页面
+				var.xmlPanel:getWidgetByName("box_allattr"):setVisible(var.pressed == 0)--副页面
+			elseif sender:getName() == "btn_upgrade" then
+				NetClient:PushLuaTable("gui.PanelNeiGong.onPanelData",util.encode({ actionid = "promote"}))
+
+			elseif sender:getName() == "BtnLeft" then
+				local pageIndex = pageView:getCurPageIndex()
+				local maxNum = #pageView:getPages()
+				if pageIndex>0 then
+					pageIndex = pageIndex-1
+					pageView:scrollToPage(pageIndex)
+				end
+			elseif sender:getName() == "BtnRight" then
+				local pageIndex = pageView:getCurPageIndex()
+				local maxNum = #pageView:getPages()
+				if pageIndex < maxNum-1 then
+					pageIndex = pageIndex+1
+					pageView:scrollToPage(pageIndex)
+				end
+			elseif sender:getName() == "BtnJiaose" then
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_avatar"})
+				NetClient:dispatchEvent({name = Notify.EVENT_CLOSE_PANEL, str = "menmenu_qinglong"})
+
+			end
+		end
+		local btns = {
+			[1] ={name = "btn_allattr",	text="",},--总属性按钮(屏蔽了)
+			[2] ={name = "btn_upgrade",	text="内功升级",},
+			[3] ={name = "BtnLeft",		text="",},
+			[4] ={name = "BtnRight",	text="",},
+			[5] ={name = "BtnJiaose",	text="返回角色",},
+
+		}
+		for k,v in pairs(btns) do
+			local btn = var.xmlPanel:getWidgetByName(v.name)
+			btn:addClickEventListener(pushButtons)
+			btn:setTitleText(v.text)
+		end
+		var.xmlPanel:getWidgetByName("BtnLeft"):setBright(false)
+
+		
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA,PanelNeiGong.onPanelData)
+	
+
+		local tips = var.xmlPanel:getWidgetByName("topoTips")
+		tips:setTouchEnabled(true)
+		tips:addClickEventListener(function(sender)
+			tips:hide()
+		end)
+		local btn_info = var.xmlPanel:getWidgetByName("btn_info")
+		btn_info:setTouchEnabled(true):addTouchEventListener(function(sender,eventType)
+			if eventType == ccui.TouchEventType.began then
+				NetClient:dispatchEvent({
+				name = Notify.EVENT_PANEL_ON_ALERT, panel = "tips", visible = true, infoTable = lblhint,
+					})
+			elseif eventType == ccui.TouchEventType.ended or eventType == ccui.TouchEventType.canceled  then
+				NetClient:dispatchEvent({
+				name = Notify.EVENT_PANEL_ON_ALERT, panel = "all", visible = false })
+			end
+		end)
+		PlayAudio.play("sound/MallWellCome.mp3")
+		return var.xmlPanel
+	end
+end
+
+function PanelNeiGong.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelNeiGong.onPanelData",util.encode({ actionid = "fresh"}))
+	NetClient:PushLuaTable("gui.PanelNeiGong.onPanelData",util.encode({actionid = "checkRedPoint"}))
+end
+
+function PanelNeiGong.initPageview(ysLv,ystpLv)
+
+	local ysBg = var.xmlPanel:getWidgetByName("ysBg")
+	local pageView = var.xmlPanel:getWidgetByName("pageView")
+	for i = 1,ysLv do
+		local layout = pageView:getPage(i-1)
+		if not layout then
+			layout = ccui.Layout:create()
+			layout:setContentSize(pageView:getContentSize())
+			local clonePage = ysBg:clone():show()
+			clonePage:setPosition(cc.p(0,0))
+			layout:addChild(clonePage)
+			pageView:addPage(layout)
+		---	PanelNeiGong.NeiGongAnimate2()	---12星测试动态	
+		end
+	end
+
+	pageView:addEventListener(function(sender,eventType)
+		if eventType == ccui.PageViewEventType.turning then
+			PanelNeiGong.updatePageView(pageView:getCurPageIndex())
+
+			
+		end
+	end)
+end
+
+function PanelNeiGong.initTips(tipsData)
+	local topoTableView = var.xmlPanel:getWidgetByName("topoTableView")
+	local function updatetopoTableView(subItem)
+		subItem:getWidgetByName("Text_info"):setString(tipsData[subItem.tag])
+	end
+
+	topoTableView:reloadData(#tipsData, updatetopoTableView,0,false)
+	topoTableView:setSliderVisible(false)
+end
+
+function PanelNeiGong.updatePageView(pageIndex)
+	local Jie = pageIndex+1
+	local pageView = var.xmlPanel:getWidgetByName("pageView")
+	local maxNum = #pageView:getPages()
+	
+	
+	----放这里报错
+	-- local  expPool = pData.expPool
+	-- local  exp = pData.exp
+	
+	
+	
+	var.xmlPanel:getWidgetByName("BtnLeft"):setBright(pageIndex>0)
+	var.xmlPanel:getWidgetByName("BtnRight"):setBright(pageIndex<maxNum-1)
+
+	var.xmlPanel:getWidgetByName("img_jie_level"):loadTexture("img_order"..Jie,ccui.TextureResType.plistType)
+	var.xmlPanel:getWidgetByName("img_jie_level"):setVisible(Jie>0 and Jie<=10)
+	
+			-- var.xmlPanel:getWidgetByName("lbl_min"):setString(expPool)
+		-- var.xmlPanel:getWidgetByName("lbl_max"):setString(exp)		
+	
+	
+	local tips = var.xmlPanel:getWidgetByName("topoTips")
+	local function showUpTips(sender)
+		tips:show()
+		local tag = sender.tag
+		local innerTips = tips:getWidgetByName("innerTips")
+		local Btn_skip = tips:getWidgetByName("Btn_skip")
+		innerTips:setVisible(tag == 0)
+		innerTips:setPosition(cc.p(sender:getPositionX(),sender:getPositionY()-90))
+
+		Btn_skip:setVisible(tag == 1)
+		Btn_skip:setPosition(cc.p(sender:getPositionX()+20,sender:getPositionY()+20))
+		Btn_skip:addClickEventListener(function(sender)
+			pageView:scrollToPage(var.tpJie-1)
+			tips:hide()
+		end)
+		--print("var.yslAttr=",var.yslAttr)
+		PanelNeiGong.initTips()	
+
+	end
+	local page = pageView:getPage(pageIndex)
+	if var.jie>0 and var.jie<=10 then
+	
+		for i=1,12 do
+			local circleIndex = pageIndex*12 + i
+			local curYSIndex = (var.jie-1)*12+ var.xing
+			curYSIndex = curYSIndex<0 and 0 or curYSIndex
+
+			if i<12 then
+				local progressBar = page:getWidgetByName("progressBar"..i)
+				progressBar:setVisible(pageIndex<var.jie-1 or i<var.xing-1)
+
+			end
+
+			local circleVisible = pageIndex < var.jie-1 or i <= var.xing
+			local circle = page:getWidgetByName("circle"..i):setVisible(circleVisible)
+			circle.tag = -1
+
+
+			local ys_action = circle:getChildByName("ys_action")
+			if not ys_action then
+				ys_action = cc.Sprite:create()
+				:setName("ys_action")
+				:addTo(circle)
+				:align(display.CENTER,0,46)
+				:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+				-- PanelNeiGong.NeiGongAnimate2()	---进阶动态	
+			end
+			ys_action:stopAllActions()
+
+			ys_action:setVisible(actionVisible)
+
+
+			circle:loadTexture(circleImg,ccui.TextureResType.plistType)
+			if var.jie==10 and var.xing == 12 then
+				page:getWidgetByName("circle9"):show()
+				page:getWidgetByName("circle10"):loadTexture("img_Goal-has-been-reached",ccui.TextureResType.plistType)	
+				
+			end
+
+		end
+					
+	end
+	
+end
+
+
+
+
+function PanelNeiGong.onPanelData(event)
+
+	if event.type == "PanelNeiGong" then
+		local pData = util.decode(event.data)
+
+		if pData and pData.cmd =="update" then --xmlPanel
+
+			var.jie = pData.ysJie
+			var.xing = pData.ysXing
+
+			var.neigong = pData.neigong
+
+			if var.jie ==0 then var.jie=1 end
+			if var.xing ==0 then var.xing=1 end
+
+
+			if var.xing >12 then 
+			var.xing = 1;
+			var.jie = var.jie+1
+			
+			end
+			
+			
+			
+			
+			if var.jie >10 then 
+			var.jie=10;
+			var.xing=12 
+			end
+
+		local  job = MainRole._mainAvatar:NetAttr(Const.net_job)
+		local  val = {"valWarrior","valMage","valPriests"}
+		-- local level = pData.level
+		var.xmlPanel:getWidgetByName("lbl_power_value"):setString(pData.Data[val[job-99]])
+		var.xmlPanel:getWidgetByName("lbl_reduce_injury"):setString((pData.Data.dtr/100).."%")
+					PanelNeiGong.initPageview(var.jie)
+			local pageView = var.xmlPanel:getWidgetByName("pageView")
+			local pageIndex = pData.pageIndex and pData.pageIndex -1 or var.jie-1
+
+			pageView:scrollToPage(pageIndex)
+						
+			var.xmlPanel:getWidgetByName("lbl_1"):setString(pData.chenghao)
+
+			var.xmlPanel:getWidgetByName("lbl_xing"):setString(pData.ysXing)
+
+			if pData.ysJie>=10 and pData.ysXing >=12 then
+				var.xmlPanel:getWidgetByName("btn_upgrade"):hide()--满级隐藏升级按钮
+
+				var.xmlPanel:getWidgetByName("lbl_5"):setString("已升至最高阶")
+	
+
+			end
+			
+		var.xmlPanel:getWidgetByName("lbl_min"):setString(pData.expPool)
+		var.xmlPanel:getWidgetByName("lbl_max"):setString(pData.exp)
+		
+		local progressBar = var.xmlPanel:getWidgetByName("progressBar")
+		var.xmlPanel.runanimate = false
+
+		if var.xmlPanel.init then
+			progressBar:setPercent(pData.expPool,pData.exp)
+			if pData.expPool>= pData.exp and not pData.up then  --动态亮条
+				runAmination({target = progressBar, animateId = 60014, scale = 1.2 }) -- 可以升级特效
+			end
+		elseif pData.up then
+			if progressBar:getChildByName("60014") then
+				progressBar:getChildByName("60014"):removeFromParent()
+			end
+			
+		end
+						-- local  expPool = pData.expPool
+	-- local  exp = pData.exp
+	
+	---------------------------------------------------------测试动态成功
+			-- local circle = var.xmlPanel:getWidgetByName("circle"..(pData.ysXing+1)) 
+				-- if pData.expPool>=pData.exp then
+				-- util.addHaloToButton(circle, "btn_normal_light3")
+				-- end
+				
+	--------------------------------------------------------------------	
+				
+		local btn_upgrade = var.xmlPanel:getWidgetByName("btn_upgrade")
+		if pData.expPool>=pData.exp then   ---按键发光
+			util.addHaloToButton(btn_upgrade, "btn_normal_light3")
+		elseif btn_upgrade:getWidgetByName(("img_bln")) then
+			btn_upgrade:removeChildByName("img_bln")
+		end
+		var.xmlPanel.init = true
+		-- var.xmlPanel.lbl_level:setString(level)  ---等级显示
+
+			end
+		end
+	end
+
+
+function runAmination(params)
+		local target = params.target
+		local animateId = params.animateId
+		local times = checknumber(params.times)
+		local callBack = params.callBack
+		local pos = params.pos or cc.p(0,0)
+		local scale = params.scale or 1
+		local anchor = params.anchor or cc.p(0.5,0.5)
+
+		local sprite = target:getChildByName(animateId)
+		if not sprite then
+			sprite = cc.Sprite:create():addTo(target)
+			:setName(animateId)
+		end
+		sprite:setPosition(pos):setScale(scale):setAnchorPoint(anchor)
+		sprite:stopAllActions()
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(4,animateId,4)
+		if times ==0 then
+			sprite:runAction(cca.repeatForever(animate))
+		else
+			sprite:runAction(cca.seq({
+				cca.rep(animate,times),
+				cca.cb(function()
+					if type(callBack) == "function" then callBack() end
+				end),
+				cca.removeSelf()
+			}))
+		end
+	end
+
+
+
+function PanelNeiGong.NeiGongAnimate()
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(246,310)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(4,50013,4,4)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,10000),
+			cca.removeSelf(),
+		}))
+	end
+end
+
+
+function PanelNeiGong.NeiGongAnimate2()
+	var.fireworks2 = cc.Sprite:create():addTo(var.xmlPanel):pos(300,400)
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(4,50022,4,4)
+	if animate then
+		var.fireworks2:stopAllActions()
+		var.fireworks2:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.removeSelf(),
+		}))
+	end
+end
+
+
+
+function PanelNeiGong.getBlockedArea()
+	return {"pageView"}
+end
+
+function PanelNeiGong.onPanelClose()
+	var.xing 	= 0
+	var.jie 	= 0
+	var.tpJie 	= 0
+	var.tpXing 	= 0
+	
+end
+
+
+
+
+return PanelNeiGong

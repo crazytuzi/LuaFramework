@@ -1,0 +1,12 @@
+LUA_RET={
+{n="TipsAddFriend",v=true,type=0,id=1,parent=0,w=412.0000,h=298.0000,},
+{n="tipsbg_0",tag=853,ss=true,sx=86,sw=28,sh=80,sy=54,v=true,type=1,id=2,parent=1,w=412.0000,h=298.0000,color="255|255|255",res="img_waibiankuang",},
+{n="Image_48",tag=854,ss=true,sx=26,sw=28,sh=28,sy=26,v=true,type=1,id=3,parent=1,w=380.0000,h=250.0000,ay=1.0000,x=15.0000,y=258.0000,color="255|255|255",res="img_daojukuang_ditu",},
+{n="Image_17",tag=857,v=true,type=1,id=4,parent=1,w=271.0000,h=29.0000,ax=0.5000,ay=0.5000,x=213.0000,y=167.0000,color="255|255|255",res="img_mingzidi",},
+{n="title",tag=1138,v=true,type=1,id=5,parent=1,w=136.0000,h=28.0000,ax=0.5000,ay=0.5000,x=206.0000,y=274.0000,color="255|255|255",res="img_title_request",},
+{n="btn_agree",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1151,t=true,fs=22,text="同意",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=6,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=115.0000,y=73.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+{n="btn_refuse",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1152,t=true,fs=22,text="拒绝",v=true,type=2,id=7,parent=1,w=110.0000,h=40.0000,ax=0.5000,ay=0.5000,x=302.0000,y=73.0000,color="255|255|255",tcolor="234|221|191",sel="btn_new2",res="btn_new2",},
+{n="lbl1",tag=1153,fs=20,text="玩家",v=true,type=3,id=8,parent=1,w=40.0000,h=20.0000,ax=0.5000,ay=0.5000,x=56.0000,y=166.0000,color="231|186|82",},
+{n="lblname",tag=1154,fs=20,text="玩家玩家玩家玩",v=true,type=3,id=9,parent=1,w=140.0000,h=20.0000,ax=0.5000,ay=0.5000,x=148.0000,y=166.0000,color="255|236|223",},
+{n="Text_9_1",tag=1155,fs=20,text="请求添加您为好友",v=true,type=3,id=10,parent=1,w=160.0000,h=20.0000,ax=0.5000,ay=0.5000,x=301.0000,y=166.0000,color="231|186|82",},
+}

@@ -1,0 +1,82 @@
+-- 右上角小地图模块
+local UIMiniMap = {}
+local var = {}
+
+
+local function mapPosToMini(mapPos)
+
+	local targetX = mapPos.x * (512 / NetCC:getMap():LogicWidth())
+	local targetY = mapPos.y * (512 / NetCC:getMap():LogicHeight())
+	return cc.p(targetX,targetY)
+end
+
+local function updateGhost()
+	if not var.mapImg then return end
+	if not var.addGhostPoint then
+
+	end
+
+	if MainRole._mainAvatar then
+		var.miniPos = mapPosToMini(cc.p(MainRole._mainAvatar:NetAttr(Const.net_x),MainRole._mainAvatar:NetAttr(Const.net_y)))
+
+	end
+
+end
+
+local function handleMapEnter(event)
+	local minimap = NetClient.mNetMap.mMiniMapID
+	if minimap  then
+		if var.lblMapName then
+			local strMapName = NetClient.mNetMap.mName
+			local pos = string.find(strMapName,"%[")
+			if pos and pos > 0 then
+				strMapName = string.sub(strMapName, 0, pos - 1)
+			end
+			var.lblMapName:setString(strMapName)
+		end
+
+
+	end
+end
+
+local function initBoxMiniMap()
+	var.lblMapName = var.boxMiniMap:getWidgetByName("lbl_map_name2"):setLocalZOrder(2)
+	var.lblMapPos = var.boxMiniMap:getWidgetByName("lbl_map_pos2"):setLocalZOrder(2)
+	-- var.boxMiniMap:getWidgetByName("mini_map_bg"):setLocalZOrder(2)
+	UIRedPoint.addUIPoint(var.boxMiniMap:setTouchEnabled(true), function (pSender)
+		NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "panel_minimap" ,startPos = pSender:getWorldPosition() ,noBg=false} )
+	end)
+end
+
+
+function UIMiniMap.init(boxMiniMap)
+	var = {
+		boxMiniMap,
+		lblMapName,
+		lblMapPos,
+	}
+	var.boxMiniMap = boxMiniMap
+
+	if var.boxMiniMap then
+		initBoxMiniMap()
+		handleMapEnter()
+
+		cc.EventProxy.new(NetClient, boxMiniMap)
+			:addEventListener(Notify.EVENT_MAP_ENTER, handleMapEnter)
+	end
+end
+
+function UIMiniMap.update()
+	if not var.boxMiniMap then return end
+	if not MainRole._mainAvatar then return end
+	
+	if var.lblMapPos then 
+		var.lblMapPos:setString("X:"..MainRole._mainAvatar:NetAttr(Const.net_x).." Y:"..MainRole._mainAvatar:NetAttr(Const.net_y))
+	end
+
+	local miniPos = mapPosToMini(cc.p(MainRole._mainAvatar:NetAttr(Const.net_x),MainRole._mainAvatar:NetAttr(Const.net_y)))
+
+
+end
+
+return UIMiniMap

@@ -1,0 +1,194 @@
+local PanelShenqi = {}
+local var = {}
+
+function PanelShenqi.initView()
+	var = {
+		xmlPanel,
+		progressBar,
+		labBar,
+		labBar1,
+		curShenqiId=nil,
+		fireworks=nil,
+		ShenqiLevel=0,
+		shenqiWai=nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelShenqi.uif")
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelShenqi.handlePanelData)
+		PanelShenqi.initBtn()
+
+		local shenqiEff = var.xmlPanel:getWidgetByName("imgshenqi"):getChildByName("shenqiEff")
+		var.xmlPanel:getWidgetByName("imgshenqi"):setTouchEnabled(true)
+	--	if not shenqiEff then
+	--		shenqiEff = cc.Sprite:create()
+	--		shenqiEff:setName("shenqiEff")
+	--		shenqiEff:setPosition(250,230)
+	--				:setTouchEnabled(false)
+	--				:addTo(var.xmlPanel)
+	--		local animate = cc.AnimManager:getInstance():getPlistAnimate(4,50028, 4, 5)
+	--		shenqiEff:runAction(cca.repeatForever(animate))
+	--	end			
+		--------------------------------------------	
+		
+		local titleFloor = var.xmlPanel:getChildByName("titleFloor")
+		if not titleFloor then
+			titleFloor = cc.Sprite:create()
+						:setName("titleFloor")
+						:align(display.CENTER, 209, 197)
+						:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+						:addTo(var.xmlPanel:getChildByName("img_left_bg"))
+			cc.AnimManager:getInstance():getPlistAnimateAsync(titleFloor,4,50028,0,0,0,true)
+		end
+		return var.xmlPanel
+	end
+end
+
+function PanelShenqi.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelShenqi.handlePanelData", util.encode({actionid = "reqShenqiData"}))
+	-- PanelShenqi.startAnimOne()
+end
+
+function PanelShenqi.onPanelClose()
+	-- MainRole.handleShenqiChange(var.ShenqiLevel)
+end
+
+function PanelShenqi.handlePanelData(event)
+	if event.type ~= "PanelShenqi" then return end
+	local data = util.decode(event.data)
+	if data.cmd=="updateShenqi" then
+		 PanelShenqi.updateShenqi(data)
+	elseif data.cmd=="" then
+
+	end
+end
+
+function PanelShenqi.initBtn()
+	local btnArrs = {"btn_shenji"}
+	local function btnCallBack(sender)
+		local btnName = sender:getName()
+		if btnName=="btn_shenji" then
+			NetClient:PushLuaTable("gui.PanelShenqi.handlePanelData", util.encode({actionid = "reqShenqiShenJi"}))
+		--elseif btnName=="btn_suipian" then
+		--	NetClient:PushLuaTable("gui.PanelShenqi.handlePanelData",util.encode({actionid = "chsuipian",}))
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn , btnCallBack)
+	end
+end
+
+function PanelShenqi.updateShenqi(data)
+	for i=1,10 do
+		for i=1,6 do
+			var.xmlPanel:getWidgetByName("labCur"..i):setString(data.curTable[i])
+		end
+		if i<=data.starNum then
+			var.xmlPanel:getWidgetByName("imgStar"..i):setVisible(true)
+
+		else
+			var.xmlPanel:getWidgetByName("imgStar"..i):setVisible(false)
+		end
+	end
+	if not util.isObjectExist(var.progressBar) then
+		local bar = var.xmlPanel:getWidgetByName("bar")
+		var.labBar = var.xmlPanel:getWidgetByName("labbar")
+		var.progressBar = UIProgressBar.new(bar,var.labBar)
+		var.labBar1 = var.xmlPanel:getWidgetByName("labbar1")
+		var.progressBar = UIProgressBar.new(bar,var.labBar1)
+	end
+	local num = tonumber(302*data.ownChip/data.needChip)
+	if var.progressBar.setPercentByMaxValue then
+		var.progressBar:setPercentByMaxValue(num,302)
+		var.progressBar:setVisible(true)
+	end
+	var.labBar:setString("拥有数量:"..data.ownChip)
+	var.labBar1:setString("升阶数量:"..data.needChip)
+	PanelShenqi.startAnimOne(data.level)
+	PanelShenqi.showShenqiAnimation(data.level)
+end
+
+--分割
+-- 参数:待分割的字符串,分割字符
+-- 返回:子串表.(含有空串)
+function lua_string_split(str, split_char)
+    local sub_str_tab = {};
+    while (true) do
+        local pos = string.find(str, split_char);
+        if (not pos) then
+            sub_str_tab[#sub_str_tab + 1] = str;
+            break;
+        end
+        local sub_str = string.sub(str, 1, pos - 1);
+        sub_str_tab[#sub_str_tab + 1] = sub_str;
+        str = string.sub(str, pos + 1, #str);
+    end
+
+    return sub_str_tab;
+end
+--称号特效
+function PanelShenqi.startAnimOne(level)
+	local resData = game.setShenqiEffect(level)
+	if not resData then resData={resNei=85001,name="承影剑"} end
+	if resData and resData.resNei~=var.curShenqiId then
+		local contentBox = var.xmlPanel:getWidgetByName("contentBox")
+		if not var.fireworks then
+			var.fireworks = cc.Sprite:create():addTo(contentBox):pos(210, 30)--28
+		end
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(4, resData.resNei, 4, 5)
+		var.curShenqiId=resData.resNei
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate, 1000),
+			cca.removeSelf()
+		}))
+		contentBox:stopAllActions()
+		contentBox:runAction(cca.loop(
+				cca.seq({
+					cca.moveBy(1, 0, 10),
+					cca.moveBy(1, 0, -10),
+				})
+			)
+		)
+		var.xmlPanel:getWidgetByName("labChName"):setString(resData.name)
+	end
+
+end
+function PanelShenqi.showShenqiAnimation(level)
+	local data_shenqi={85001,85002,85003,85004,85005,85006,85007,85008,85009,85000,81013}
+	local img_shenqil = var.xmlPanel:getWidgetByName("img_shenqi_view"):getChildByName("img_shenqi")
+	if not img_shenqil then
+		img_shenqil = cc.Sprite:create()
+		img_shenqil:addTo(var.xmlPanel:getWidgetByName("img_shenqi_view")):align(display.CENTER, 23, 23):setName("img_shenqi")
+	end
+	if level>=1 and level<=10 then
+		level = 1
+	elseif level>=11 and level<=20 then
+		level = 2
+	elseif level>=21 and level<=30 then
+		level = 3
+	elseif level>=31 and level<=40 then
+		level = 4
+	elseif level>=41 and level<=50 then
+		level = 5
+	elseif level>=51 and level<=60 then
+		level = 6
+	elseif level>=61 and level<=70 then
+		level = 7
+	elseif level>=71 and level<=80 then
+		level = 8
+	elseif level>=81 and level<=90 then
+		level = 9
+	elseif level>=91 and level<=100 then
+		level = 10
+	end
+	if level >= 1 and level <= 10 then
+		local filepath = "vipassana/shenqi/"..data_shenqi[level+1]..".png"
+		asyncload_callback(filepath, img_shenqil, function(filepath, texture)
+			img_shenqil:setTexture(filepath)
+		end)
+	end
+end
+
+return PanelShenqi

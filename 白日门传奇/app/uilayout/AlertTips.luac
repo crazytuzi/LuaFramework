@@ -1,0 +1,48 @@
+LUA_RET = {
+	{
+		n = "AlertTips",
+		parent = 0,
+		v = true,
+		type = 0,
+		id = 1,
+		w = 340,
+		h = 274
+	},
+	{
+		id = 2,
+		type = 1,
+		h = 274,
+		sy = 44,
+		w = 340,
+		ss = true,
+		n = "tipsInfoBg",
+		res = "img_bg5",
+		tag = 107,
+		ay = 0.5,
+		ax = 0.5,
+		parent = 1,
+		v = true,
+		y = 136.281,
+		color = "255|255|255",
+		sh = 59,
+		x = 168.8027
+	},
+	{
+		n = "tipsList",
+		d = 1,
+		h = 220,
+		type = 9,
+		w = 310,
+		parent = 1,
+		tag = 240,
+		ax = 0.5,
+		color = "255|255|255",
+		c = false,
+		v = true,
+		y = 135.0707,
+		id = 3,
+		ay = 0.5,
+		x = 169.4554,
+		t = true
+	}
+}

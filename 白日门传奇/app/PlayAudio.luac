@@ -1,0 +1,171 @@
+local PlayAudio={}
+
+PlayAudio.cache={}
+PlayAudio.musicName=""
+PlayAudio.effstate = true
+PlayAudio.musstate = true
+PlayAudio.playAudios = {}			-- 表示当前正在播放的声音
+
+local preloadlist = {
+"sound/walk.mp3",
+"sound/role.mp3",
+"sound/gold.mp3",
+"sound/equipweapon.mp3",
+"sound/equipcloth.mp3",
+"sound/click.mp3",
+"sound/btnclose.mp3",
+"sound/btnclick.mp3",
+"sound/bagsort.mp3",
+"sound/accept.mp3",
+"sound/50001.mp3",
+"sound/30700.mp3",
+"sound/30600.mp3",
+"sound/30401.mp3",
+"sound/30400.mp3",
+"sound/30300.mp3",
+"sound/30200.mp3",
+"sound/30100.mp3",
+"sound/30002.mp3",
+"sound/30001.mp3",
+"sound/30000.mp3",
+"sound/20500.mp3",
+"sound/20400.mp3",
+"sound/20300.mp3",
+"sound/20201.mp3",
+"sound/20200.mp3",
+"sound/20100.mp3",
+"sound/20001.mp3",
+"sound/10400.mp3",
+"sound/10300.mp3",
+"sound/10200.mp3",
+"sound/10100.mp3",
+"sound/10010.mp3",
+"sound/10000.mp3",
+}
+
+function PlayAudio.preload()
+	for k,v in ipairs(preloadlist) do
+		ccexp.AudioEngine.preload(v)
+	end
+end
+
+function PlayAudio.mapMusic(mapid)
+	if PLATFORM_BANSHU then return end
+	if G_SwitchMusic > 0 or not mapid then 
+		return
+	end
+
+	if mapid == "tucheng" then
+		if PlayAudio.musicName~="sound/tucheng.mp3" then
+			music = "sound/tucheng.mp3"
+		end
+	elseif mapid == "dierdalu" then
+		if PlayAudio.musicName~="sound/dierdalu.mp3" then
+			music = "sound/dierdalu.mp3"
+		end
+	else
+		if PlayAudio.musicName~="sound/fight.mp3" then
+			music = "sound/fight.mp3"
+		end
+	end
+
+	PlayAudio.music(music)
+end
+
+function PlayAudio.music(music)
+	if PLATFORM_BANSHU then return end
+
+	if G_SwitchMusic > 0 or not music or not PlayAudio.musstate then 
+		return
+	end
+
+	if PlayAudio.cache["music"] and PlayAudio.musicName~="" then
+		ccexp.AudioEngine:stop(PlayAudio.cache["music"])
+		PlayAudio.cache["music"]=cc.AUDIO_INVAILD_ID
+		ccexp.AudioEngine:uncache(PlayAudio.musicName)
+	end
+
+	PlayAudio.musicName = music
+	PlayAudio.cache["music"]=ccexp.AudioEngine:play2d(music,true,0.7)
+end
+
+function PlayAudio.playcallback(id,sound)
+	--print("=====================play end:"..id.."="..sound)
+	if device.platform == "ios" then
+		-- if sound and PlayAudio.cache[sound] then
+			ccexp.AudioEngine:stop(id)
+		-- end
+	end
+
+	-- 如果当前声音播放完毕则删除
+	local params = string.split(sound, ".")
+
+	if #params >= 2 then
+		params = string.split(params[1], "/")
+	end
+ 	if #params >= 2 then
+		local soundid = params[2]
+		if(PlayAudio.playAudios[soundid] ~= nil) then
+			PlayAudio.playAudios[soundid] = nil
+		end
+	end
+end
+
+function PlayAudio.playcallnull(id,sound)
+
+end
+
+function PlayAudio.play(sound,volume)
+	-- if PLATFORM_BANSHU then return end
+	
+	if not volume then volume = 0.7 end
+
+	if G_SwitchEffect > 0 or not sound or not PlayAudio.effstate then 
+		return
+	end
+
+	-- if PlayAudio.cache[sound] then
+	-- 	ccexp.AudioEngine:setFinishCallback(PlayAudio.cache[sound],PlayAudio.playcallnull)
+	-- end
+	PlayAudio.cache[sound]=ccexp.AudioEngine:play2d(sound,false,volume)
+	ccexp.AudioEngine:setFinishCallback(PlayAudio.cache[sound],PlayAudio.playcallback)
+end
+
+function PlayAudio.stop(sound)
+	if sound and PlayAudio.cache[sound] then
+		ccexp.AudioEngine:stop(PlayAudio.cache[sound])
+		PlayAudio.cache[sound]=cc.AUDIO_INVAILD_ID
+		ccexp.AudioEngine:uncache(sound)
+	end
+	if sound == "music" then
+		PlayAudio.musicName=""
+	end
+end
+
+function PlayAudio.pause()
+
+	PlayAudio.effstate = false
+	PlayAudio.musstate = false
+
+	-- ccexp.AudioEngine:pauseAll()
+end
+
+function PlayAudio.resume()
+
+	PlayAudio.effstate = true
+	PlayAudio.musstate = true
+
+	-- ccexp.AudioEngine:resumeAll()
+end
+function checkBackgrounM()
+	-- body
+	-- if UserConfig and UserConfig["getInfos"] then
+	-- 	local sm=UserConfig.getInfos("G_SwitchMusic","Data")
+		if G_SwitchMusic and G_SwitchMusic<1 then
+			PlayAudio.stop("music")
+		end
+	-- end
+	
+end
+checkBackgrounM()
+return PlayAudio

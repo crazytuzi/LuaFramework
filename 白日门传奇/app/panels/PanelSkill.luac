@@ -1,0 +1,854 @@
+--技能有问题最后修复
+local PanelSkill = {}
+local var = {}
+local pageKeys = {
+	"skill", "show", 
+}
+local state = LayerBattle.STATE
+local pos1 = cc.p(120,110)
+local pos2 = cc.p(390,110)
+local pos3 = cc.p(180,110)
+local skillConfig = skillFrameRate.skillConfig
+local SKILL_LEVEL_MAX = 10
+local SKILL_LEVEL_EXT_MAX = 13
+local function hideAllPages()
+	local pageName
+	for i,v in ipairs(pageKeys) do
+		pageName = "xmlPage"..string.ucfirst(v)
+		if var[pageName] then
+			var[pageName]:hide()
+		end
+	end
+end
+ -- page变量，初始化函数，刷新函数使用字符窜拼接
+local function showPanelPage(index)
+	local key = pageKeys[index]
+	if not (key and table.indexof(pageKeys, key))then return end
+	local name = "role"
+	if key == "show" then
+		name = "show"
+	end
+	--var.title:loadTexture("img_"..name.."_title",ccui.TextureResType.plistType)
+	var.lastTabIndex = index
+	hideAllPages()
+	local pageName = "xmlPage"..string.ucfirst(key)
+	local initFunc = "initPage"..string.ucfirst(key)
+	local openFunc = "openPage"..string.ucfirst(key)
+	if not var[pageName] and PanelSkill[initFunc] then
+		PanelSkill[initFunc]()
+	end
+	if var[pageName] then
+		if PanelSkill[openFunc] then
+			PanelSkill[openFunc]()
+		end
+		var[pageName]:show()
+	end
+end
+
+local function pushTabButtons(sender)
+	showPanelPage(sender:getTag())
+end
+
+---------------------------------------以上为内部函数---------------------------------------
+function PanelSkill.initView(extend)
+	var = {
+		boxTab,
+		xmlPanel,
+		xmlPageSkill,
+		xmlPageShow,
+		title,
+
+		-- 技能
+		skillInfo={},
+		jobID,
+		curSelectImg=nil,
+		curSkill=nil,		--记录当前选中的技能（设置自动释放和升级用）
+		curIndex=1,		
+		skillsDesp = {},
+		curSelectLevel,		--当前选中的技能等级
+		skillItemCache = {},
+		
+		defaultSkill = nil,
+		richLev,
+		richSld,
+		richBook,
+
+		panelExtend = nil,
+
+		gemAutoVcoin = false,
+
+		lastTabIndex = 1,
+
+		replaceVcion=0,
+
+	}
+
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelSkill.uif")
+
+	if var.xmlPanel then
+
+		-- 加载背景
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max1.png")
+
+		--var.title = var.xmlPanel:getWidgetByName("panel_title")
+		var.boxTab = var.xmlPanel:getWidgetByName("box_tab")
+		var.boxTab:getParent():setLocalZOrder(10)
+		var.boxTab:addTabEventListener(pushTabButtons)
+		-- var.boxTab:setSelectedTab(1)
+		local opened = NetClient:checkFuncOpenedByID(10015)
+		if not opened then
+			var.boxTab:hideTab(5)
+		end
+		return var.xmlPanel
+	end
+end
+
+function PanelSkill.onPanelOpen(extend)
+	var.panelExtend = extend
+	local opened = NetClient:checkFuncOpenedByID(10015)
+	if not opened then
+		var.boxTab:hideTab(5)
+	end
+	--技能特殊处理
+	var.defaultSkill = nil
+	if var.panelExtend then
+		if var.panelExtend.skillId and var.panelExtend.skillId > 0 and NetClient.m_netSkill[var.panelExtend.skillId] then
+			var.defaultSkill = var.panelExtend.skillId
+		end
+	end
+
+	if extend and util.isNumber(extend.index) then
+		var.boxTab:setSelectedTab(extend.index)
+	else
+		var.boxTab:setSelectedTab(1)
+	end
+end
+
+function PanelSkill.onPanelClose()
+	
+end
+
+--------------------------------------技能--------------------------------------
+function PanelSkill.openPageSkill()
+
+end
+function PanelSkill.initPageSkill()
+	--------获取技能是否自动释放
+	local function getAutoCastState(skill_type)
+		return table.indexof(NetClient.NetAutoSkills, skill_type) and true or false
+	end
+
+	--------更新自动释放按钮状态
+	local function updateAutoCastButton()
+		local imgSwitch = var.xmlPageSkill:getWidgetByName("imgSwitch")
+		if imgSwitch then
+			local value = getAutoCastState(var.curSkill)
+			if  var.curSkill==Const.SKILL_TYPE_BanYueWanDao then
+				value = NetClient.m_bBanYueOn
+			elseif var.curSkill==Const.SKILL_TYPE_CiShaJianShu then
+				value = NetClient.m_bCiShaOn
+			end
+			if value then
+				imgSwitch:loadTexture("gw_checkbox_11",ccui.TextureResType.plistType)
+			else
+				imgSwitch:loadTexture("gw_checkbox_1",ccui.TextureResType.plistType)
+			end
+		end
+	end
+
+	local function updateSkillDesp(nsd)
+		nsd = nsd or game.getSkillDesp(var.curSkill)
+		local netSkill = NetClient.m_netSkill[var.curSkill]
+		var.xmlPageSkill:getWidgetByName("curSkillName"):setString(nsd.mName)
+		var.xmlPageSkill:getWidgetByName("cur_fw"):setString(nsd.mRangeDesp)--技能范围
+		-- var.xmlPageSkill:getWidgetByName("cur_sh"):setString(nsd.mDamageDesp)
+		var.xmlPageSkill:getWidgetByName("cur_cd"):setString(nsd.mCDDesp)
+		-- var.xmlPageSkill:getWidgetByName("cur_xg"):setString(nsd.mExtEffectDesp)--附加效果
+
+
+		-- print("next info is ", nsd.mName, nsd.mRangeDespNext, nsd.mDamageDespNext, nsd.mCDDespNext, nsd.mExtEffectDespNext)
+		-- 技能下一级
+		var.xmlPageSkill:getWidgetByName("nextSkillName"):setString(nsd.mName)
+		var.xmlPageSkill:getWidgetByName("next_fw"):setString(nsd.mRangeDespNext)
+		-- var.xmlPageSkill:getWidgetByName("next_sh"):setString(nsd.mDamageDespNext)
+		var.xmlPageSkill:getWidgetByName("next_cd"):setString(nsd.mCDDespNext)
+		-- var.xmlPageSkill:getWidgetByName("next_xg"):setString(nsd.mExtEffectDespNext)
+		-- if var.xmlPageSkill:getChildByName(T)
+		local cur_sh = var.xmlPageSkill:getWidgetByName("curskllbg"):getChildByName("richcur_sh")
+		if not cur_sh then
+			cur_sh = UIRichLabel.new({size=cc.size(270,25), space=1, name="richcur_sh",outline = {0,0,0,255,1}})
+			cur_sh:addTo(var.xmlPageSkill:getWidgetByName("curskllbg")):pos(102,56)
+		end
+		cur_sh:setRichLabel("<font color=#fddfae>"..nsd.mDamageDesp.."</font>",nil, 15)
+
+		local next_sh = var.xmlPageSkill:getWidgetByName("nexskillbg"):getChildByName("rinext_sh")
+		if not next_sh then
+			next_sh = UIRichLabel.new({size=cc.size(270, 25), space=3, name="rinext_sh",outline = {0,0,0,255,1}})
+			next_sh:addTo(var.xmlPageSkill:getWidgetByName("nexskillbg")):pos(102, 56)
+		end
+		next_sh:setRichLabel("<font color=#fddfae>"..nsd.mDamageDespNext.."</font>",nil,15)
+
+		local cur_xg = var.xmlPageSkill:getWidgetByName("curskllbg"):getChildByName("ricur_xg")
+		if not cur_xg then
+			cur_xg = UIRichLabel.new({size=cc.size(280, 40), space=1, name="ricur_xg",outline = {0,0,0,255,1}})
+			cur_xg:addTo(var.xmlPageSkill:getWidgetByName("curskllbg")):pos(102, 50):setAnchorPoint(cc.p(0, 1))
+		end
+		cur_xg:setRichLabel("<font color=#fddfae>"..nsd.mExtEffectDesp.."</font>",nil,15)
+
+		local next_xg = var.xmlPageSkill:getWidgetByName("nexskillbg"):getChildByName("rinext_xg")
+		if not next_xg then
+			next_xg = UIRichLabel.new({size=cc.size(280,25), space=3, name="rinext_xg",outline = {0,0,0,255,1}})
+			next_xg:addTo(var.xmlPageSkill:getWidgetByName("nexskillbg")):pos(102, 50):setAnchorPoint(cc.p(0, 1))
+		end
+		next_xg:setRichLabel("<font color=#fddfae>"..nsd.mExtEffectDespNext.."</font>",nil,15)
+
+
+		local curLevel = MainRole._mainAvatar:NetAttr(Const.net_level)
+		-- var.xmlPageSkill:getWidgetByName("needLev"):setString(MainRole._mainAvatar:NetAttr(Const.net_level).."/"..nsd.mNeedLevel)--角色等级需求
+		-- var.xmlPageSkill:getWidgetByName("skill_sld"):setString(netSkill.mExp.."/"..nsd.mNeedExp)--技能熟练度
+		if curLevel>=nsd.mNeedLevel then
+			var.richLev:setRichLabel("<font color=#18d129>"..curLevel.."/"..nsd.mNeedLevel.."</font>","PanelSkill",16)
+		else
+			var.richLev:setRichLabel("<font color=#FF3E3f>"..curLevel.."/"..nsd.mNeedLevel.."</font>","PanelSkill",16)
+		end
+		-- if netSkill.mExp>=nsd.mNeedExp then
+		-- 	var.richSld:setRichLabel("<font color=#18d129>"..netSkill.mExp.."/"..nsd.mNeedExp.."</font>","PanelSkill",16)
+		-- else
+		-- 	var.richSld:setRichLabel("<font color=#FF3E3f>"..netSkill.mExp.."/"..nsd.mNeedExp.."</font>","PanelSkill",16)
+		-- end
+
+		if netSkill.mLevel == 10 then
+			--特殊处理
+			local needBook = "神★"..nsd.mName;
+			if NetClient:hasItem(needBook) then
+				var.richBook:setRichLabel("<font color=#18d129>"..needBook.."</font>", 12)
+			else
+				var.richBook:setRichLabel("<font color=#FF3E3f>"..needBook.."</font>", 12)
+			end
+		else
+			var.richBook:setRichLabel("<font color=#FF3E3f>".."无".."</font>", 15)
+		end
+
+		if netSkill.mLevel>=SKILL_LEVEL_EXT_MAX or 
+			(netSkill.mLevel>=SKILL_LEVEL_MAX and (netSkill.skill_id == Const.SKILL_TYPE_JiChuJianShu 
+				or netSkill.skill_id == Const.SKILL_TYPE_JinShenLiZhanFa)
+			) then
+			var.richLev:setRichLabel("<font color=#FFFF00>Max</font>","PanelSkill", 15)
+			--var.richSld:setRichLabel("<font color=#FFFF00>Max</font>","PanelSkill", 16)
+		end
+		var.xmlPageSkill:getWidgetByName("curSkillLev"):setString("Lv"..netSkill.mLevel)
+		var.curSelectLevel=netSkill.mLevel
+		if netSkill.mLevel < nsd.mLevelMax then
+			var.xmlPageSkill:getWidgetByName("nextSkillLev"):setString("Lv"..netSkill.mLevel+1)
+		else
+			var.xmlPageSkill:getWidgetByName("nextSkillLev"):setString("")
+		end
+
+		local btnUp = var.xmlPageSkill:getWidgetByName("btnUp")
+		local imgRed = var.xmlPageSkill:getWidgetByName("imgRed"):hide()
+
+		if MainRole._mainAvatar:NetAttr(Const.net_level)<nsd.mNeedLevel or netSkill.mExp<nsd.mNeedExp then
+			btnUp:setEnabled(false)
+			util.removeHaloFromButton(btnUp)
+			-- imgRed:setVisible(false)
+		else
+			btnUp:setEnabled(true)
+			if netSkill.mLevel < SKILL_LEVEL_EXT_MAX then
+				util.addHaloToButton(btnUp, "btn_normal_light3")
+			end
+			-- imgRed:setVisible(true)
+		end
+
+		if var.curSkill==Const.SKILL_TYPE_LeiDianShu or var.curSkill==Const.SKILL_TYPE_LingHunHuoFu then
+			var.xmlPageSkill:getWidgetByName("ConAuto"):setVisible(false)
+		else
+			var.xmlPageSkill:getWidgetByName("ConAuto"):setVisible(true)
+		end
+	end
+
+	local function prsSkillItem(sender)
+		local nsd = var.skillsDesp[sender.tag]
+		if not NetClient.m_netSkill[nsd.skill_id] then
+			return
+		end
+
+		-- if var.curSelectImg then var.curSelectImg:setVisible(false) end
+		-- var.curSelectImg = sender:getWidgetByName("imgClick"):setVisible(true)
+		if var.skillbtn then var.skillbtn:setEnabled(true) end
+		var.skillbtn = sender:getWidgetByName("skillbtn"):setEnabled(false)
+
+		var.curSkill = nsd.skill_id
+		var.curIndex = sender.tag
+		updateSkillDesp(nsd);
+		updateAutoCastButton()
+	end
+
+	local function initListSkill()
+		local listSkill = var.xmlPageSkill:getWidgetByName("listSkill")
+
+		local function updateSkillRedDot(item)
+			local skillIcon = item:getWidgetByName("skillIcon")
+			if not skillIcon then return end
+			local redDot = skillIcon:getChildByName("redPoint")
+			if not redDot then
+				UIRedDot.addRedPointToTarget(skillIcon)
+				redDot = skillIcon:getChildByName("redPoint")
+				if redDot then
+					-- local pSize = skillIcon:getContentSize()
+					-- redDot:align(display.CENTER, pSize.width * 0.85, pSize.height * 0.85)
+				end
+			end
+			if not redDot then return end
+			local nsd = var.skillsDesp[item.tag]
+			redDot:setVisible(NetClient.skillRed[nsd.skill_id] and true or false)
+		end
+
+		var.skillsDesp = {}
+		for k,v in pairs(NetClient.m_netSkill) do
+			if v.mTypeID ~= Const.SKILL_TYPE_YiBanGongJi then -- todo
+				table.insert(var.skillsDesp, game.getSkillDesp(v.mTypeID))
+			end
+		end
+		
+		local function sortF(nsd1, nsd2)
+			return nsd1.mOrderID < nsd2.mOrderID
+		end
+		table.sort(var.skillsDesp, sortF)
+
+		-- print("var.skillsDesp", util.encode(var.skillsDesp))
+		local skillIcon, path--, skillBtnUp
+		local function updateSkillList(item)
+			item:setTouchEnabled(true)
+			UIRedPoint.addUIPoint(item , prsSkillItem)
+
+			if not var.skillItemCache[item.tag] then
+				var.skillItemCache[item.tag] = item
+			end
+			-- 技能熟练度
+
+			local richSld = item:getWidgetByName("richWidget")
+			if not richSld then
+				richSld = UIRichLabel.new({size=cc.size(200,25), space=3, name="richWidget"})
+				richSld:addTo(item):pos(110, 30)
+			end
+			
+			richSld:setRichLabel("0/0","pageSkill", 16)
+
+			local nsd = var.skillsDesp[item.tag]
+			local netSkill = NetClient.m_netSkill[nsd.skill_id]
+
+			skillIcon = item:getWidgetByName("skillIcon")
+			-- skillBtnUp = item:getWidgetByName("skillBtnUp")
+
+			-- skillBtnUp:setTouchEnabled(true)
+			-- -- 初始化升级按钮
+			-- UIRedPoint.addUIPoint(skillBtnUp, function() 
+			-- 	NetClient:PushLuaTable("gui.PanelSkill.onPanelData", util.encode({cmd = "levelUp", skillLevel=var.curSelectLevel,skillType = var.curSkill}))
+			-- end)
+
+			path = "picicon/skill"..nsd.skill_id..".png"
+			if netSkill.mLevel > 10 then
+				path = "picicon/skill"..nsd.skill_id.."_angry.png"
+			end
+			skillIcon:loadTexture(path)
+
+			-- 当前技能是否可以升级
+			if MainRole._mainAvatar:NetAttr(Const.net_level) < nsd.mNeedLevel or netSkill.mExp < nsd.mNeedExp then
+				--skillBtnUp:setEnabled(false)
+			else
+				--skillBtnUp:setEnabled(true)
+			end
+			
+			item:getWidgetByName("skillName"):setString(nsd.mName)
+			item:getWidgetByName("skillOpen"):setString(""):hide()
+			-- local skillBar = item:getWidgetByName("skillBar")
+			-- if not iskindof(skillBar,"UILoadingBar") then
+			-- 	skillBar = UILoadingBar.new({image = skillBar})
+			-- 	skillBar:setFontSize( 14 ):setName("skillBar")
+			-- end 
+			if netSkill then
+				item:getWidgetByName("skillLev"):setString("Lv."..netSkill.mLevel)
+				--skillBar:setPercent(netSkill.mExp,nsd.mNeedExp)
+				richSld:setRichLabel("<font color=#FDDFAE>"..lan.Skill_Mastery..netSkill.mExp.."/"..nsd.mNeedExp.."</font>","PanelSkill",14)
+				skillIcon:getVirtualRenderer():setState(0)
+				if netSkill.mLevel>=SKILL_LEVEL_EXT_MAX or 
+					(netSkill.mLevel>=SKILL_LEVEL_MAX and (netSkill.skill_id == Const.SKILL_TYPE_JiChuJianShu 
+						or netSkill.skill_id == Const.SKILL_TYPE_JinShenLiZhanFa)
+					) then
+					--skillBar:setFormatString("")
+					--skillBar:setFormat2String("Max")
+							-- else
+					richSld:setRichLabel("<font color=#18d129>"..lan.Skill_Mastery.."Max".."</font>","PanelSkill",14)
+				end
+			else
+				item:getWidgetByName("skillLev"):setString("Lv.0")
+				--skillBar:setPercent(0,nsd.mNeedExp)
+				richSld:setRichLabel("<font color=#FDDFAE>"..lan.Skill_Mastery.."0/"..nsd.mNeedExp.."</font>","PanelSkill",14)
+				skillIcon:getVirtualRenderer():setState(1)
+			end
+			
+			if not var.curSelectImg then
+				if not var.defaultSkill then
+					if item.tag == 1 then
+						prsSkillItem(item)
+					end
+				elseif var.defaultSkill == nsd.skill_id then
+					prsSkillItem(item)
+				end
+			end
+			updateSkillRedDot(item)
+		end
+		listSkill:reloadData(#var.skillsDesp, updateSkillList)--:setSliderVisible(false)
+	end
+
+	local function onSkillStateChange(event)
+		if  event.skill_type==Const.SKILL_TYPE_BanYueWanDao or event.skill_type==Const.SKILL_TYPE_CiShaJianShu then
+			updateAutoCastButton()
+		end
+	end
+
+	local function onSkillLevelUp(event)
+		if event.skill_type == var.curSkill then
+			updateSkillDesp()
+			PanelSkill.updateFreshItemByIndex(var.curIndex)
+		end
+		--initListSkill()
+	end
+
+	local function initBtnClick()
+		local btnArr = {"btnUp","btnSet","imgSwitch"}
+		local function prsBtnClick(sender)
+			local btnName = sender:getName()
+			if btnName=="imgSwitch" then
+				-- PanelSkill.updateAutoCastButton(skill_type)
+				local state = not getAutoCastState(var.curSkill)
+				NetClient:PushLuaTable("gui.PanelSkill.onPanelData", util.encode({cmd = "autoCast", skillType = var.curSkill, state = state}))
+				
+				----测试代码,提前设置按钮状态
+				-- local imgSwitch = var.xmlPageSkill:getWidgetByName("imgSwitch")
+				-- if imgSwitch then
+					if  var.curSkill==Const.SKILL_TYPE_BanYueWanDao then
+						NetClient:UseSkill(Const.SKILL_TYPE_BanYueWanDao,MainRole.mX,MainRole.mY,0)
+						state = NetClient.m_bBanYueOn
+					elseif var.curSkill==Const.SKILL_TYPE_CiShaJianShu then
+						NetClient:UseSkill(Const.SKILL_TYPE_CiShaJianShu,MainRole.mX,MainRole.mY,0)
+						state = NetClient.m_bCiShaOn
+					end
+					-- btnAutoCast:setBrightStyle(state and ccui.BrightStyle.normal or ccui.BrightStyle.highlight )
+					if state then
+						sender:loadTexture("btn_skill_open",ccui.TextureResType.plistType)
+					else
+						sender:loadTexture("btn_skill_close",ccui.TextureResType.plistType)
+					end
+
+				-- end
+			elseif btnName=="btnUp" then
+				NetClient:PushLuaTable("gui.PanelSkill.onPanelData", util.encode({cmd = "levelUp", index=var.curIndex,skillType = var.curSkill}))
+			elseif btnName=="btnSet" then
+				NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "panel_quickset",mParam={type=1}})
+			end
+		end
+		for i=1,#btnArr do
+			local btn = var.xmlPageSkill:getWidgetByName(btnArr[i])
+			btn:setTouchEnabled(true)
+			UIRedPoint.addUIPoint(btn,prsBtnClick)
+		end
+	end
+
+	var.xmlPageSkill = UILuaLoader.load("uilayout/PanelAvatar_skill.uif")
+	if var.xmlPageSkill then
+		-- 加载背景
+		--util.asyncload(var.xmlPageSkill, "skill_bg", "needload/img_bag_bg.png")
+		--util.asyncload(var.xmlPageSkill, "skill2_bg", "needload/img_bg_middle.png")
+		--util.asyncload(var.xmlPageSkill, "img_border", "needload/panel_skill_bg.jpg")
+		-- print("////////////////////////", var.xmlPageSkill, var.xmlPanel)
+		var.xmlPageSkill:align(display.LEFT_BOTTOM, 107, 11):addTo(var.xmlPanel)
+
+		var.jobID = MainRole._mainAvatar:NetAttr(Const.net_job)
+		
+		initListSkill()
+		initBtnClick()
+
+		cc.EventProxy.new(NetClient, var.xmlPageSkill)
+			:addEventListener(Notify.EVENT_SKILL_LEVEL_UP, onSkillLevelUp)
+			:addEventListener(Notify.EVENT_SKILL_STATE, onSkillStateChange)
+			:addEventListener(Notify.EVENT_SWITCH_AUTO_SKILL, function (event)
+				if event.skillType == var.curSkill and event.skillType~=Const.SKILL_TYPE_BanYueWanDao and event.skillType~=Const.SKILL_TYPE_CiShaJianShu then
+					updateAutoCastButton()
+				end
+			end)
+		
+		var.richLev=UIRichLabel.new({size=cc.size(200,25), space=3, name="richWidget"})
+		var.richLev:addTo(var.xmlPageSkill):pos(530,65)
+		var.richLev:setRichLabel("0/0","pageSkill",18)
+
+		-- var.richSld=UIRichLabel.new({size=cc.size(200,25), space=3, name="richWidget"})
+		-- var.richSld:addTo(var.xmlPageSkill):pos(620,112)
+		-- var.richSld:setRichLabel("0/0","pageSkill",20)
+
+		-- 技能书需求
+		var.richBook=UIRichLabel.new({size=cc.size(200,25), space=3, name="richWidget"})
+		var.richBook:addTo(var.xmlPageSkill):pos(530, 85)
+		var.richBook:setRichLabel("无","pageSkill",18)
+	end
+
+end
+
+function PanelSkill.updateFreshItemByIndex(index)
+	if index and var.skillItemCache[index] then
+		local item = var.skillItemCache[index]
+		-- 技能熟练度
+		local richSld = item:getWidgetByName("richWidget")
+		if richSld then
+			local nsd = var.skillsDesp[item.tag]
+			local netSkill = NetClient.m_netSkill[nsd.skill_id]
+			skillIcon = item:getWidgetByName("skillIcon")
+			path = "picicon/skill"..nsd.skill_id..".png"
+			if netSkill.mLevel > 10 then
+				path = "picicon/skill"..nsd.skill_id.."_angry.png"
+			end
+			skillIcon:loadTexture(path)
+			item:getWidgetByName("skillName"):setString(nsd.mName)
+
+			if netSkill then
+				item:getWidgetByName("skillLev"):setString("Lv."..netSkill.mLevel)
+				richSld:setRichLabel("<font color=#FDDFAE>"..lan.Skill_Mastery..netSkill.mExp.."/"..nsd.mNeedExp.."</font>","PanelSkill",14)
+				skillIcon:getVirtualRenderer():setState(0)
+				if netSkill.mLevel>=SKILL_LEVEL_EXT_MAX or 
+					(netSkill.mLevel>=SKILL_LEVEL_MAX and (netSkill.skill_id == Const.SKILL_TYPE_JiChuJianShu 
+						or netSkill.skill_id == Const.SKILL_TYPE_JinShenLiZhanFa)
+					) then
+					richSld:setRichLabel("<font color=#18d129>"..lan.Skill_Mastery.."Max".."</font>","PanelSkill",14)
+				end
+			else
+				item:getWidgetByName("skillLev"):setString("Lv.0")
+				richSld:setRichLabel("<font color=#FDDFAE>"..lan.Skill_Mastery.."0/"..nsd.mNeedExp.."</font>","PanelSkill",14)
+				skillIcon:getVirtualRenderer():setState(1)
+			end
+		end
+	end
+end
+
+---------------------------------------展示-----------------------------------------
+function PanelSkill.openPageShow()
+	
+	NetClient:PushLuaTable("gui.PanelSkill.onPanelData", util.encode({cmd = "skillPreview"}))
+end
+
+function PanelSkill.initPageShow()
+	local function initListSkill()
+		local listSkill = var.xmlPageShow:getWidgetByName("listSkill")
+		local playGround = var.xmlPageShow:getWidgetByName("playGround")
+
+		local btnStart = var.xmlPageShow:getWidgetByName("btnStart"):setLocalZOrder(6)
+		local curSelectImg = nil
+		local skillbtn = nil		--当前按下的技能btn
+		local curSkill = nil
+		-- local showSprite = cc.Sprite:create():addTo(var.xmlPageShow):pos(561, 250)
+		local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+		local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+
+		local function runAvatarAction(target,action,dir,cloth,weapon,wing)
+			dir = dir or 2
+			local flip = dir>4
+			dir = dir>4 and 8-dir or dir
+			local clothId = cloth or MainRole._mainAvatar:NetAttr(Const.net_cloth)
+			local weaponId = weapon or MainRole._mainAvatar:NetAttr(Const.net_weapon)
+			local wingId = wing or MainRole._mainAvatar:NetAttr(Const.net_wing)
+			local shadowId = 28000
+			clothId = clothId
+			-- weaponId = weaponId*100 + action
+			-- wingId = wingId*100 + action
+			local clothSprite = target:getChildByName("clothSprite") or cc.Sprite:create():addTo(target):pos(0,0):setName("clothSprite")
+			local weaponSprite = target:getChildByName("weaponSprite") or  cc.Sprite:create():addTo(target):pos(0,0):setName("weaponSprite")
+			local wingSprite = target:getChildByName("wingSprite") or  cc.Sprite:create():addTo(target):pos(0,0):setName("wingSprite")
+			local shadowSprite = target:getChildByName("shadowSprite") or  cc.Sprite:create():addTo(target):pos(0,0):setName("shadowSprite")
+			clothSprite:setOpacity(255):setLocalZOrder(table.indexof(LayerBattle.zorderTable[dir+1], "cloth"))
+			weaponSprite:setOpacity(255):setLocalZOrder(table.indexof(LayerBattle.zorderTable[dir+1], "weapon"))
+			wingSprite:setOpacity(255):setLocalZOrder(table.indexof(LayerBattle.zorderTable[dir+1], "wing"))
+			shadowSprite:setOpacity(255):setLocalZOrder(table.indexof(LayerBattle.zorderTable[dir+1], "shadow"))
+			local clothAnimate = clothId>0 and LayerBattle.getActionAnimate(0,clothId,action,dir) or cca.hide()
+			local weaponAnimate = weaponId >0 and LayerBattle.getActionAnimate(1,weaponId,action,dir) or cca.hide()
+			local wingAnimate = wingId>0 and LayerBattle.getActionAnimate(3,wingId,action,dir) or cca.hide()
+			local shadowAnimate = shadowId>0 and LayerBattle.getActionAnimate(0,shadowId,action,dir) or cca.hide()
+			clothSprite:setFlippedX(flip)
+			weaponSprite:setFlippedX(flip)
+			wingSprite:setFlippedX(flip)
+			-- shadowSprite:setFlippedX(flip)
+			local actionOnce
+			if action == LayerBattle.STATE.PREPARE then
+				actionOnce = cca.spawn({
+					cc.TargetedAction:create(clothSprite,cca.rep(clothAnimate,30)),
+					cc.TargetedAction:create(weaponSprite,cca.rep(weaponAnimate,30)),
+					cc.TargetedAction:create(wingSprite,cca.rep(wingAnimate,30)),
+					cc.TargetedAction:create(shadowSprite,cca.rep(shadowAnimate,30)),
+				})
+			elseif action == LayerBattle.STATE.IDLE then 
+				actionOnce = cca.spawn({
+					cc.TargetedAction:create(clothSprite,clothAnimate),
+					cc.TargetedAction:create(weaponSprite,weaponAnimate),
+					cc.TargetedAction:create(wingSprite,wingAnimate),
+					cc.TargetedAction:create(shadowSprite,shadowAnimate),
+				})
+			else
+				actionOnce = cca.spawn({
+					cc.TargetedAction:create(clothSprite,cca.seq({clothAnimate})),
+					cc.TargetedAction:create(weaponSprite,cca.seq({weaponAnimate})),
+					cc.TargetedAction:create(wingSprite,cca.seq({wingAnimate})),
+					cc.TargetedAction:create(shadowSprite,cca.seq({shadowAnimate})),
+				})
+			end
+			return actionOnce
+		end
+
+		local function newSkillAnimate(selfNode,otherNode,dir)
+			local actionOnce
+			if not dir then
+				dir = job == 100 and 2 or 4
+			end
+			local showSprite = selfNode:getParent():getChildByName("showSprite") or cc.Sprite:create():addTo(selfNode:getParent()):setName("showSprite")
+			showSprite:pos(selfNode:getPosition()):stopAllActions()
+			local resId = var.previewSkills[curSkill].mEffectResID
+			local conf = skillConfig[resId]
+			-- resId = 30702
+			local zorder = conf.mine.zorder or 1
+			if conf.mine.rep2  then--魔法盾
+				local animate1 = LayerBattle.newSkillAnimateWithFrameData(conf.mine.res1,dir)--施法
+				local animate2 = LayerBattle.newSkillAnimateWithFrameData(conf.mine.res2,dir)--持续
+				local animate3 = LayerBattle.newSkillAnimateWithFrameData(conf.mine.res3,dir)--消失
+				actionOnce = cca.seq({animate1,cca.rep(animate2,conf.mine.rep2),animate3,cca.removeSelf()})
+			elseif not conf.huoqiang and conf.other and conf.other.res1 then
+				local animate1 = LayerBattle.newSkillAnimateWithFrameData(resId,dir)--施法
+				local animate2 = LayerBattle.newSkillAnimateWithFrameData(conf.other.res1,dir)--持续
+				local animate3 = cca.show()
+				if conf.mine.res2 then
+					local spritefly = cc.Sprite:create():addTo(selfNode:getParent()):setPosition(selfNode:getPositionX(),60+otherNode:getPositionY()):setRotation(90)
+					local animatefly = LayerBattle.newSkillAnimateWithFrameData(conf.mine.res2,dir)--飞行
+					animate3 = cc.TargetedAction:create(spritefly,cca.seq({
+						cca.spawn({
+							animatefly,
+							cca.moveTo(12/30,otherNode:getPositionX(),60+otherNode:getPositionY()),
+						}),
+						cca.removeSelf()
+					}))
+				end
+				actionOnce = cca.seq({animate1,animate3,cca.place(otherNode:getPosition()),animate2,cca.cb(function(target)
+					if resId == 30200 or resId == 30202 then
+						for k,v in pairs(otherNode:getChildren()) do
+							v:setColor(cc.GREEN)
+						end
+					end
+				end),cca.removeSelf()})
+			elseif conf.huoqiang then--火墙
+				local animate1 = LayerBattle.newSkillAnimateWithFrameData(conf.mine.res1,dir)
+				local animate2 = LayerBattle.newSkillAnimateWithFrameData(conf.other.res1,dir)
+				local ozorder= otherNode:getLocalZOrder()
+				local ox,oy = otherNode:getPosition()
+				local sprite1 = cc.Sprite:create():addTo(otherNode:getParent()):setLocalZOrder(ozorder-1):pos(ox-66,oy)
+				local sprite2 = cc.Sprite:create():addTo(otherNode:getParent()):setLocalZOrder(ozorder+1):pos(ox,oy-44)
+				local sprite3 = cc.Sprite:create():addTo(otherNode:getParent()):setLocalZOrder(ozorder-1):pos(ox+66,oy)
+				local sprite4 = cc.Sprite:create():addTo(otherNode:getParent()):setLocalZOrder(ozorder-1):pos(ox,oy+44)
+				local sprite5 = cc.Sprite:create():addTo(otherNode:getParent()):setLocalZOrder(ozorder-1):pos(ox,oy)
+				actionOnce = cca.seq({
+					animate1,
+					cca.hide(),
+					cca.spawn({
+						cc.TargetedAction:create(sprite1,cca.seq({cca.rep(animate2:clone(),30),cca.removeSelf()})),
+						cc.TargetedAction:create(sprite2,cca.seq({cca.rep(animate2:clone(),30),cca.removeSelf()})),
+						cc.TargetedAction:create(sprite3,cca.seq({cca.rep(animate2:clone(),30),cca.removeSelf()})),
+						cc.TargetedAction:create(sprite4,cca.seq({cca.rep(animate2:clone(),30),cca.removeSelf()})),
+						cc.TargetedAction:create(sprite5,cca.seq({cca.rep(animate2:clone(),30),cca.removeSelf()})),
+					}),
+					cca.removeSelf(),
+				})
+			elseif conf.mine.opacity then--群体隐身
+				local animate = LayerBattle.newSkillAnimateWithFrameData(resId,dir)
+				actionOnce = cca.seq({
+					animate,
+					cca.cb(function()
+						selfNode:getChildByName("clothSprite"):setOpacity(conf.mine.opacity)
+						selfNode:getChildByName("weaponSprite"):setOpacity(conf.mine.opacity)
+						selfNode:getChildByName("wingSprite"):setOpacity(conf.mine.opacity)
+						selfNode:getChildByName("shadowSprite"):setOpacity(conf.mine.opacity)
+					end),
+					cca.removeSelf()
+				})
+			else
+				local animate = LayerBattle.newSkillAnimateWithFrameData(resId,dir)
+				if animate then
+					showSprite:stopAllActions():show()
+					actionOnce = cca.seq({animate,cca.cb(function()
+						if resId == 30700 or resId == 30701 then--虎卫
+							otherNode:show()
+						end
+					end),cca.removeSelf()})
+				else
+					NetClient:alertLocalMsg("该技能无特效", "alert")
+					btnStart:show()
+					actionOnce = cca.hide()
+				end
+			end
+			showSprite:setLocalZOrder(zorder)
+			if conf.mine.move then
+				selfNode:runAction(cca.moveBy(0.6,conf.mine.move.x,conf.mine.move.y))
+				showSprite:runAction(cca.spawn({
+					cca.moveBy(0.6,conf.mine.move.x,conf.mine.move.y),
+					actionOnce
+				}))
+			else
+				showSprite:runAction(actionOnce)				
+			end
+		end
+
+		local function resetAnimatePlayer(resId)
+			local conf = skillConfig[resId]
+			assert(resId==0 or conf,"conf nil"..resId)
+			playGround:removeAllChildren()
+			local avatarSprite = playGround:getChildByName("avatarSprite") or cc.Sprite:create():addTo(playGround):setName("avatarSprite"):setPosition(pos1)
+			local otherSprite = playGround:getChildByName("otherSprite") or cc.Sprite:create():addTo(playGround):setName("otherSprite"):setPosition(pos2)
+			if conf and conf.mine then
+				local skillaction = runAvatarAction(avatarSprite,LayerBattle.STATE.STAND,conf.mine.dir)
+				avatarSprite:setPosition(conf.mine.pos)
+				avatarSprite:runAction(cca.loop(skillaction))
+				avatarSprite:show():setLocalZOrder(1)
+			end
+			if conf and conf.other then
+				local skillaction = runAvatarAction(otherSprite,LayerBattle.STATE.STAND,conf.other.dir,conf.other.cloth,conf.other.weapon,conf.other.wing)
+				otherSprite:setPosition(conf.other.pos)
+				otherSprite:runAction(cca.loop(skillaction))
+				otherSprite:setVisible(conf.other.vis==1):setLocalZOrder(1)
+			end
+			return avatarSprite,otherSprite
+		end
+		local function stopPlay()
+			btnStart:show()
+			resetAnimatePlayer(0)
+		end
+		local function startPlay()
+			if curSkill then
+				btnStart:hide()
+				local resId = var.previewSkills[curSkill].mEffectResID;
+				local conf = skillConfig[resId];
+				local dir = conf.mine.dir;
+				local avatarSprite,otherSprite = resetAnimatePlayer(resId)
+				local action = job == 100 and LayerBattle.STATE.ATTACK or LayerBattle.STATE.SKILL
+				if conf.mine.action then
+					action = conf.mine.action
+				end
+				local skillaction = runAvatarAction(avatarSprite,action,dir)
+				local prepareAction = runAvatarAction(avatarSprite,LayerBattle.STATE.PREPARE,dir)
+				avatarSprite:setPosition(conf.mine.pos)
+
+				avatarSprite:runAction(cca.seq({
+					cca.rep(
+						cca.seq({
+							cca.cb(function(target)
+								newSkillAnimate(avatarSprite,otherSprite,conf.mine.skilldir)
+							end),
+							skillaction,prepareAction
+						}),
+						conf.rep or 1
+					),
+					cca.cb(function(target)
+						btnStart:show()
+						otherSprite:show()
+						local idleaction = runAvatarAction(avatarSprite,LayerBattle.STATE.IDLE,dir)
+						target:stopAllActions():runAction(cca.repeatForever(idleaction))
+					end)
+				}))
+			end
+		end
+		UIRedPoint.addUIPoint(btnStart, startPlay)
+
+		local function prsSkillItem(sender)
+			local nsd = var.previewSkills[sender.tag]
+			-- if curSelectImg then curSelectImg:hide() end
+			-- curSelectImg = sender:getWidgetByName("imgClick"):show()
+			-- curSelectImg:show()
+			if skillbtn then skillbtn:setEnabled(false) end
+			skillbtn = sender:getWidgetByName("skillbtn"):setEnabled(true)
+
+			stopPlay()
+			curSkill = sender.tag
+			resetAnimatePlayer(nsd.mEffectResID);
+			-- print("prsSkillItem//////", util.encode(nsd))
+			var.xmlPageShow:getWidgetByName("lbl_skill_desp"):setString(nsd.desp)
+			var.xmlPageShow:getWidgetByName("lbl_skill_name"):setString(nsd.name)
+		end
+
+		local skillIcon = nil
+		local function updateSkillList(item)
+			item:setTouchEnabled(true)
+			UIRedPoint.addUIPoint(item, prsSkillItem)
+
+			local nsd = var.previewSkills[item.tag]
+			skillIcon = item:getWidgetByName("skillIcon")
+			local icon = nsd.skill_id
+			local imgFire = item:getWidgetByName("imgFire")
+			-- if nsd.level == 11 then
+			if nsd.angrySkill then
+				icon = icon.."_angry"
+				--imgFire:loadTexture("img_fire_angry", ccui.TextureResType.plistType):show()
+			elseif nsd.staticSkill then
+				--imgFire:loadTexture("img_fire_peace", ccui.TextureResType.plistType):show()
+			else
+				--imgFire:loadTexture("img_fire_peace", ccui.TextureResType.plistType):hide()
+			end
+			-- print(nsd.skill_id,nsd.name,"picicon/skill"..icon..".png")
+			skillIcon:loadTexture("picicon/skill"..icon..".png")
+			item:getWidgetByName("skillName"):setString(nsd.name)
+
+			-- item:getWidgetByName("imgClick"):setVisible(curSkill == item.tag)
+			-- if not curSelectImg then
+			-- 	-- if not var.defaultSkill then
+			-- 		if item.tag == 1 then
+			-- 			prsSkillItem(item)
+			-- 		end
+			-- 	-- elseif var.defaultSkill == nsd.skill_id then
+			-- 	-- 	prsSkillItem(item)
+			-- 	-- end
+			-- end
+			item:getWidgetByName("skillbtn"):setEnabled(curSkill == item.tag)
+			if not skillbtn then
+				if not var.defaultSkill then
+					if item.tag == 1 then
+						prsSkillItem(item)
+					end
+				end
+			end
+		end
+
+
+		local function handlePanelData(event)
+			if event.type ~= "PanelSkill" then return end
+			local data = util.decode(event.data)
+			if data.cmd == "preview" then
+				var.previewSkills = data.skills
+				local listSkill = var.xmlPageShow:getWidgetByName("listSkill")
+				-- if curSelectImg then curSelectImg:hide() end
+				curSelectImg = nil
+				listSkill:reloadData(#var.previewSkills, updateSkillList):setSliderVisible(false)
+			end
+		end
+
+		print("1111111")
+		cc.EventProxy.new(NetClient, var.xmlPageShow)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, handlePanelData)
+	end
+
+
+	var.xmlPageShow = UILuaLoader.load("uilayout/PanelSkill_show.uif")
+	if var.xmlPageShow then
+
+		util.asyncload(var.xmlPageShow, "img_bg", "needload/bg_max.png")
+		var.xmlPageShow:align(display.LEFT_BOTTOM, 0, 0):addTo(var.xmlPanel)
+
+		var.jobID = MainRole._mainAvatar:NetAttr(Const.net_job)
+
+		initListSkill()
+	end
+
+end
+
+
+return PanelSkill

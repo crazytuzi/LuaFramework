@@ -1,0 +1,228 @@
+local PanelCutting={}
+local var = {}
+
+-- 打野刀、切割界面
+
+local skillTable = {
+	{iconRes="img_cj", skillName="惩戒之力",    skillZb="被动技能", openLev=1, skillDesp="切割触发概率提升1.5倍！",},
+}
+
+function PanelCutting.initView()
+	var = {
+		xmlPanel,
+		powerNum,
+		curHuweiId=nil,
+		curWeaponId=nil,
+		xmlBuyExp=nil,
+		buyExpData=nil,
+		curVcion=0,
+		curBVcion=0,
+		curMoney=0,
+		xmlBuyDan=nil,
+		buyDanData=nil,
+		richtext=nil,
+		levelBar,
+		expBar,
+		hwLevel=1,--神将等级
+		skillIndex=nil,--记录当前查看tips的编号
+		huWeiName=nil,
+		xmlNewSkill=nil,
+		huiState=false,--是否处于技能开启动画期间
+		openCj=0,
+
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelCutting.uif");
+    if var.xmlPanel then
+        util.asyncload(var.xmlPanel, "bg", "needload/bg_max2.png")
+        util.asyncload(var.xmlPanel, "leftBg", "needload/PanelAvatar/img_ditu9.png")
+        
+        PanelCutting.initBtns()
+		PanelCutting.initSkillBtns()
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelCutting.updateGameMoney)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelCutting.handlePanelData)
+	end
+	return var.xmlPanel
+end
+
+function PanelCutting.onPanelOpen()
+	PanelCutting.updateGameMoney(nil)
+	NetClient:PushLuaTable("gui.PanelCutting.handlePanelData",util.encode({actionid = "reqPanelData",params={}}))
+	
+end
+
+function PanelCutting.onPanelClose()
+	NetClient:PushLuaTable("gui.PanelCutting.handlePanelData",util.encode({actionid = "panelClose",params={}}))
+end
+
+function PanelCutting.handlePanelData(event)
+	if event.type ~= "PanelCutting" then return end
+	local data = util.decode(event.data)
+	if data.cmd=="updateCutting" then
+		PanelCutting.updateData(data)
+	elseif data.cmd=="updateBtnHalo" then
+		-- PanelCutting.updateBtnHalo(data)
+	end
+end
+
+
+function PanelCutting.updateData(data)
+    var.xmlPanel:getWidgetByName("curHp"):setString(data.curData["maxhp"])
+	var.xmlPanel:getWidgetByName("curGj"):setString(data.curData["wgmin"].."-"..data.curData["wgmax"])
+    var.xmlPanel:getWidgetByName("curGd"):setString(data.curData["gddamage"])
+    var.xmlPanel:getWidgetByName("curQg"):setString((data.curData["cuttingProb"] / 100).."%")
+    var.xmlPanel:getWidgetByName("curQgSh"):setString((data.curData["cuttingPres"] / 100).."%")
+    
+	if data.isFull == 0 then
+        var.xmlPanel:getWidgetByName("nextHp"):setString(data.nextData["maxhp"])
+        var.xmlPanel:getWidgetByName("nextGj"):setString(data.nextData["wgmin"].."-"..data.curData["wgmax"])
+        var.xmlPanel:getWidgetByName("nextGd"):setString(data.nextData["gddamage"])
+        var.xmlPanel:getWidgetByName("nextQg"):setString((data.nextData["cuttingProb"] / 100).."%")
+        var.xmlPanel:getWidgetByName("nextQgSh"):setString((data.nextData["cuttingPres"] / 100).."%")
+	end
+
+	var.xmlPanel:getWidgetByName("labName"):setString("切割伤害 "..(data.curData["cuttingPres"] / 100).."% ("..data.name..")")
+	var.xmlPanel:getWidgetByName("richLabel_attrdesc"):setRichLabel("<font color=#FFEEC7>攻击怪物概率触发,直接切割怪物<font color=#2DFF00>"..(data.curData["cuttingPres"] / 100).."%生命上限</font></font>", "", 15)
+	--更新星星
+	 local curStar = data.curLevel % 10 == 0 and 10 or 90 % 10
+	for i=0,9 do
+		--当前神将还没升满
+		if data.isFull == 0 then
+			if i < data.curLevel then
+				var.xmlPanel:getWidgetByName("star"..i):loadTexture("star", ccui.TextureResType.plistType)
+			else
+				var.xmlPanel:getWidgetByName("star"..i):loadTexture("star_an", ccui.TextureResType.plistType)
+			end	
+		else
+			var.xmlPanel:getWidgetByName("star"..i):setVisible(false)
+		end
+	end
+
+	util.addEffect(var.xmlPanel, "resEffect", GROUP_TYPE.EFFECT, 34074, {x=130,y=150}, nil, true)
+
+	local btnJinJie = var.xmlPanel:getWidgetByName("btnJinJie")
+	if data.canUpgrade then
+		util.addHaloToButton(btnJinJie, "btn_normal_light3")
+	else
+		util.removeHaloFromButton(btnJinJie)
+    end
+	local lblVcoin = NetClient.mCharacter.mVCoin
+	if data.needDiamond > 0 then
+        if data.needDiamond < lblVcoin then
+            var.xmlPanel:getWidgetByName("lblVcoin"):setString(data.needDiamond.."/"..lblVcoin):setColor(cc.c3b(0, 255, 0))
+        else
+            var.xmlPanel:getWidgetByName("lblVcoin"):setString(data.needDiamond.."/"..NetClient.mCharacter.mVCoin):setColor(cc.c3b(255, 0, 0))
+        end
+    else
+        var.xmlPanel:getWidgetByName("lblVcoin"):setString(0)
+    end
+	
+	
+	--检查惩戒之力是否已经学会
+	var.openCj = data.openCj
+	if data.openCj == 1 then
+		var.xmlPanel:getWidgetByName("cj_skill"):getVirtualRenderer():setState(0)
+	else
+		var.xmlPanel:getWidgetByName("cj_skill"):getVirtualRenderer():setState(1)
+	end
+	
+	if data.up then
+		local fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(280, 360)
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,60015,4)
+		fireworks:runAction(cca.seq({
+			cca.rep(animate, 1),
+			cca.cb(function ()
+				
+			end),
+			cca.removeSelf()
+		}))
+	end
+end
+
+--跟新钻石和绑元变化
+function PanelCutting.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		var.curVcion=mainrole.mVCoin or 0
+		var.curBVcion=mainrole.mVCoinBind or 0
+		var.curMoney=mainrole.mGameMoney or 0
+		if var.xmlBuyExp then
+			var.xmlBuyExp:getWidgetByName("lblVcoin"):setString(var.curVcion)
+			var.xmlBuyExp:getWidgetByName("lblMoney"):setString(var.curMoney)
+		end
+		if var.xmlBuyDan then
+			var.xmlBuyDan:getWidgetByName("lblDiamond"):setString(var.curVcion)
+			var.xmlBuyDan:getWidgetByName("lblVcoin"):setString(var.curBVcion)
+		end
+
+	end
+end
+
+function PanelCutting.updateSkillInfo()
+	local boxTips = var.xmlPanel:getWidgetByName("box_skill_tip")
+	local skillData = skillTable[1]
+	local skillIcon = boxTips:getWidgetByName("skillIcon")
+	skillIcon:loadTexture(skillData.iconRes, ccui.TextureResType.plistType)
+	boxTips:getWidgetByName("skillName"):setString(skillData.skillName)
+	boxTips:getWidgetByName("skillZb"):setString(skillData.skillZb)
+	boxTips:getWidgetByName("skillDesp"):setString(skillData.skillDesp)
+
+	return true
+end
+
+function PanelCutting.initSkillBtns()
+	local boxTips = var.xmlPanel:getWidgetByName("box_skill_tip")
+	local function prsBtnClick(sender, touchType)
+		if touchType == ccui.TouchEventType.began then
+			local size = boxTips:getContentSize()
+			local pSize = sender:getContentSize()
+			PanelCutting.updateSkillInfo()
+			boxTips:setPosition(470,160):setVisible(true)
+		elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+			boxTips:setVisible(false)
+		end
+	end
+
+	var.xmlPanel:getWidgetByName("cj_skill")
+				:setTouchEnabled(true)
+				:addTouchEventListener(prsBtnClick)
+
+end
+
+-----------------------------------------按钮操作-----------------------------------------------
+local btnArrs = {"btnJinJie"}
+function PanelCutting.initBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		-- print(senderName)
+        if senderName=="btnJinJie" then
+			NetClient:PushLuaTable("gui.PanelCutting.handlePanelData",util.encode({actionid = "reqJinJie",params={}}))
+		elseif senderName=="btnZhaoHuan" then
+			NetClient:PushLuaTable("gui.PanelCutting.handlePanelData",util.encode({actionid = "reqZhaoHuan",params={}}))
+		elseif senderName=="btnZhaoHui" then
+			NetClient:PushLuaTable("gui.PanelCutting.handlePanelData",util.encode({actionid = "reqZhaoHui",params={}}))
+		elseif senderName=="btnBuyExp" then
+			if var.xmlBuyDan then var.xmlBuyDan:hide() end
+			if var.xmlBuyExp and var.xmlBuyExp:isVisible() then
+				var.xmlBuyExp:hide()
+			else
+				NetClient:PushLuaTable("gui.PanelCutting.handlePanelData",util.encode({actionid = "reqBuyExpData",params={}}))
+			end
+		elseif senderName=="btnBuyDan" then
+			if var.xmlBuyExp then var.xmlBuyExp:hide() end
+			if var.xmlBuyDan and var.xmlBuyDan:isVisible() then
+				var.xmlBuyDan:hide()
+			else
+				NetClient:PushLuaTable("gui.PanelCutting.handlePanelData",util.encode({actionid = "reqBuyDanData",params={}}))
+			end
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+
+end
+
+return PanelCutting

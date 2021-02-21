@@ -1,0 +1,17 @@
+LUA_RET={
+{n="TipsAchieveComplete",v=true,type=0,id=1,parent=0,w=588,h=200,ax=0,ay=0,},
+{n="finishbg",tag=126,v=true,type=1,ss=true,sx=25,sw=26,sh=26,sy=25,id=2,parent=1,w=588,h=176,ax=0,ay=0,x=0,y=0,res="img_tips_bg",},
+{n="Image_49",tag=226,v=true,type=1,id=3,parent=1,w=216,h=44,ax=0.5,ay=0.5,x=298,y=171,res="img_btd",},
+{n="Image_51",tag=228,v=true,type=1,id=4,parent=3,w=112,h=33,ax=0.5,ay=0.5,x=108,y=22,res="title_chengjiudacheng",},
+{n="icon",tag=127,v=true,type=1,id=5,parent=1,w=76,h=76,ax=0.5,ay=0,x=72,y=48,res="null",},
+{n="imgtaskfinish",tag=128,v=true,type=1,id=6,parent=1,w=422,h=36,ax=0.5,ay=0.5,x=347,y=79,},
+{n="lbl_time",tag=129,v=true,type=3,fs=18,text="(2016年2月2日)",id=7,parent=1,ax=0.5,ay=0.5,x=488,y=124,fr="DFYuan.ttf",color="177|161|116",olc="0,0,0,255",},
+{n="btn_go",tag=130,t=true,ud="outline(076900,1);zoomscale(-0.12)",v=true,type=2,fs=20,text="立即激活",ss=true,sx=15,sw=90,sh=23,sy=11,id=8,parent=1,w=120,h=45,ax=0.5,ay=0.5,x=462,y=31,tcolor="255|224|139",sel="btn_green",res="btn_green",},
+{n="canget",tag=132,v=true,type=3,fs=20,text="激活可获得",id=9,parent=1,ax=0,ay=0.5,x=155,y=29,fr="DFYuan.ttf",color="255|216|0",olc="0,0,0,255",},
+{n="Image_50",tag=227,v=true,type=1,ss=true,sx=7,sw=10,sh=10,sy=7,id=10,parent=1,w=100,h=24,ax=0.5,ay=0.5,x=340,y=29,res="img_shujudikuang",},
+{n="img_jf",tag=133,v=true,type=1,id=11,parent=1,w=34,h=34,ax=0.5,ay=0.5,x=293,y=32,res="img_achieve_jf",},
+{n="cangetjf",tag=134,v=true,type=3,fs=18,text="0",id=12,parent=1,ax=0.5,ay=0.5,x=342,y=29,fr="DFYuan.ttf",color="253|223|174",olc="0,0,0,255",},
+{n="btn_close",tag=195,t=true,ud="zoomscale(-0.12)",v=true,type=2,fs=14,ss=true,sx=15,sw=41,sh=49,sy=11,id=13,parent=1,w=71,h=71,ax=0.5,ay=0.5,x=574,y=166,tcolor="65|65|70",sel="btn_panel_close",res="btn_panel_close",},
+{n="canget_0",tag=196,v=true,type=3,fs=20,text="恭喜您达成成就",id=14,parent=1,ax=0,ay=0.5,x=126,y=125,fr="DFYuan.ttf",color="24|209|41",olc="0,0,0,255",},
+{n="achievename",tag=197,v=true,type=3,fs=20,text="经验加成",id=15,parent=1,ax=0,ay=0.5,x=278,y=125,fr="DFYuan.ttf",color="253|223|174",olc="0,0,0,255",},
+}

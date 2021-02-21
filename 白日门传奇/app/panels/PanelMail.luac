@@ -1,0 +1,257 @@
+local PanelMail = {}
+local var = {}
+local MAIL_STATES = {
+	DELETE = 2,
+	RECEIVE = 1
+}
+
+function PanelMail.initView(event)
+		var = {
+			xmlPanel,
+			boxMailContent,
+			lblNoMails,
+			scrollMailContent,
+			listMails,
+			btnGetAward,
+			btnDeleteMail,
+			btnCleanMails,
+			btnOnekeyAward,
+			pushItem,
+			isReceive,
+			Text_day,
+			openState = false,
+			pushItemIdx = 1,
+			xmlPanel = UILuaLoader.load("uilayout/PanelMail.uif")
+		}
+
+		if var.xmlPanel then
+			var.boxMailContent = var.xmlPanel:getWidgetByName("box_mail_content"):hide()
+			var.lblNoMails = var.xmlPanel:getWidgetByName("lbl_no_mails"):setVisible(false)
+			var.listMails = var.xmlPanel:getWidgetByName("list_mails")
+			var.btnGetAward = var.xmlPanel:getWidgetByName("btn_get_award")
+			var.btnDeleteMail = var.xmlPanel:getWidgetByName("btn_delete_mail")
+			var.btnCleanMails = var.xmlPanel:getWidgetByName("btn_clean_mails")
+			var.btnOnekeyAward = var.xmlPanel:getWidgetByName("btn_onekey_award")
+			var.scrollMailContent = var.xmlPanel:getWidgetByName("scroll_mail_content")
+
+			util.asyncload(var.xmlPanel, "img_bg", "needload/bg_max1.png")
+			util.asyncload(var.xmlPanel, "contentBg", "needload/email_bg.png")
+			var.btnGetAward:addClickEventListener(function (sender)
+				if var.pushItemIdx and NetClient.mails[var.pushItemIdx] and sender.state == MAIL_STATES.RECEIVE then
+					NetClient:getMailAward(NetClient.mails[var.pushItemIdx].id)
+				end
+			end)
+			var.btnDeleteMail:addClickEventListener(function (sender)
+				if var.pushItemIdx and NetClient.mails[var.pushItemIdx] then
+					print(MAIL_STATES.DELETE, sender.state)
+
+					if sender.state == MAIL_STATES.DELETE then
+						NetClient:deleteMail(NetClient.mails[var.pushItemIdx].id)
+					else
+						NetClient:alertLocalMsg("还有附件未提取！", "alert")
+					end
+				end
+			end)
+			var.btnCleanMails:addClickEventListener(function (sender)
+				for i = 1, #NetClient.mails do
+					if NetClient.mails[i].isReceive ~= 0 or #NetClient.mails[i].item == 0 then
+						NetClient:deleteMail(NetClient.mails[i].id)
+					else
+						NetClient:alertLocalMsg("还有附件未提取！", "alert")
+					end
+				end
+			end)
+			var.btnOnekeyAward:addClickEventListener(function (sender)
+				for i = 1, #NetClient.mails do
+					NetClient:getMailAward(NetClient.mails[i].id)
+				end
+			end)
+			cc.EventProxy.new(NetClient, var.xmlPanel):addEventListener(Notify.EVENT_GET_MAILS, PanelMail.refreshPanel)
+
+			return var.xmlPanel
+		end
+	end
+	
+function PanelMail.onPanelOpen()
+		var.openState = true
+
+		NetClient:getMails()
+	end
+	
+function PanelMail.refreshPanel(event)
+		if not var.openState then
+			return
+		end
+
+		function itemCallBack(sender)
+			if util.isObjectExist(var.pushItem) then
+				var.pushItem:setTouchEnabled(true)
+				var.pushItem:getParent():getWidgetByName("img_highlight"):hide()
+				var.pushItem:getParent():getWidgetByName("lbl_mail_title")
+			end
+
+			sender:setTouchEnabled(false)
+			sender:getParent():getWidgetByName("img_highlight"):show()
+			sender:getParent():getWidgetByName("lbl_mail_title")
+
+			var.pushItem = sender
+			var.pushItemIdx = sender.tag
+			var.isReceive = sender.isReceive
+
+			PanelMail.updateMailContent(sender.tag)
+			var.btnGetAward:setVisible(var.isReceive == 0)
+
+			if sender.isReceive == 0 and #NetClient.mails[sender.tag].item > 0 then
+				var.btnGetAward.state = MAIL_STATES.RECEIVE
+				var.btnDeleteMail.state = MAIL_STATES.RECEIVE
+			else
+				var.btnDeleteMail.state = MAIL_STATES.DELETE
+				var.btnGetAward.state = MAIL_STATES.DELETE
+
+				var.btnGetAward:setVisible(false)
+			end
+
+			PanelMail.handleRedPoint(sender:getParent(), sender.tag)
+		end
+
+		var.pushItem = nil
+		var.pushItemIdx = 1
+
+		var.listMails:reloadData(#NetClient.mails, function (item)
+			item:getWidgetByName("img_highlight"):hide()
+
+			local time = NetClient.mails[item.tag].date
+
+			item:getWidgetByName("lbl_day_remain"):setString(PanelMail.updateTime(time))
+
+			if math.floor(15 - tonumber((os.time() - time) / 3600 / 24)) == 0 then
+				NetClient:deleteMail(NetClient.mails[item.tag].id)
+			end
+
+			item:getWidgetByName("lbl_mail_title"):setTouchEnabled(false):enableOutline(game.getColor(0), 1):setString(NetClient.mails[item.tag].title)
+
+			local render_bg = item:getWidgetByName("render")
+
+			render_bg:setTouchEnabled(true):setSwallowTouches(false)
+
+			render_bg.tag = item.tag
+			render_bg.isReceive = NetClient.mails[item.tag].isReceive
+
+			render_bg:addClickEventListener(itemCallBack)
+
+			if item.tag == var.pushItemIdx then
+				itemCallBack(render_bg)
+			end
+
+			PanelMail.handleRedPoint(item, item.tag)
+		end)
+		var.listMails:show()
+		var.boxMailContent:setVisible(#NetClient.mails > 0)
+		var.lblNoMails:setVisible(#NetClient.mails == 0)
+	end
+	
+function PanelMail.updateMailContent(mailIdx)
+			--print(mailIdx,"==============")
+	local singleMail = NetClient.mails[mailIdx]
+	if singleMail then
+		NetClient:readMail(singleMail.id)
+		singleMail.isOpen = 1
+		if util.checkMailPriority(singleMail) == 0 then--如果看过后没有红点了，则tips的个数和红点提示相应的要修改
+			if table.indexof(NetClient.tipsMsg["tip_mail"], singleMail.id) then
+				table.remove(NetClient.tipsMsg["tip_mail"])
+				cc.UserDefault:getInstance():setStringForKey("Mail_tips","1")
+				NetClient:dispatchEvent({name = #NetClient.tipsMsg["tip_mail"] > 0 and Notify.EVENT_SHOW_REDPOINT or Notify.EVENT_REMOVE_REDPOINT, lv = 8,index = 1})
+				
+			end
+		end
+		
+		--:setString(singleMail.content)
+
+		--local scroll = var.xmlPanel:getWidgetByName("npc_scroll")
+		var.scrollMailContent:setContentSize(cc.size(440, 220))
+		var.scrollMailContent:setInnerContainerSize(cc.size(440, 220))
+		var.scrollMailContent:setClippingEnabled(true)
+		-- var.scrollMailContent:removeAllChildren()
+		local innerSize = var.scrollMailContent:getInnerContainerSize()
+		local contentSize = var.scrollMailContent:getContentSize()
+		local labelTalk = var.scrollMailContent:getWidgetByName("labelTalk")
+		if not labelTalk then
+			labelTalk = UIRichLabel.new({size=cc.size(contentSize.width-20, 0), space=20,})
+				:align(display.LEFT_BOTTOM,0,0)
+				:addTo(var.scrollMailContent)
+				:setName("labelTalk")
+		end
+		local msgSize = labelTalk:setRichLabel(singleMail.content, "", 20)
+		if msgSize.height < contentSize.height then
+			labelTalk:setPosition(cc.p(0,contentSize.height-msgSize.height))
+		end
+
+		var.scrollMailContent:setInnerContainerSize(cc.size(innerSize.width,msgSize.height))
+		
+		var.scrollMailContent:setBounceEnabled(true)
+
+		--var.scrollMailContent:setBounceEnabled(false)
+
+		var.xmlPanel:getWidgetByName("text_mail_title"):setString(NetClient.mails[mailIdx].title)
+		print(singleMail.date)
+		PanelMail.updateTime(singleMail.date)
+
+		for i = 1, 5 do
+			local icon = var.xmlPanel:getWidgetByName("img_mailIcon_"..i)
+			if i <= #singleMail.item then
+				local param = {
+					parent = icon,
+					typeId = singleMail.item[i].id,
+					num = singleMail.item[i].count
+				}
+				UIItem.getItem(param)
+				icon:setVisible(NetClient.mails[mailIdx].isReceive==0)
+			else
+				icon:hide()
+			end
+		end
+		end
+	end
+	
+function PanelMail.updateTime(timeSecond)
+		local date = os.date("%Y-%m-%d", timeSecond)
+		local week = Const.nums[tonumber(os.date("%w", timeSecond))]
+		local time = os.date("%H:%M", timeSecond)
+		return string.format("%s %s", date,  time)
+	end
+	
+function PanelMail.handleRedPoint(widget, tag)
+		if #NetClient.mails[tag].item > 0 then
+			if NetClient.mails[tag].isReceive == 0 then
+				widget:getWidgetByName("img_item_flag"):loadTexture("img_award", ccui.TextureResType.plistType)
+			else
+				widget:getWidgetByName("img_item_flag"):loadTexture("img_award_disble", ccui.TextureResType.plistType)
+			end
+		else
+			widget:getWidgetByName("img_item_flag"):setVisible(false)
+		end
+
+		if util.checkMailPriority(NetClient.mails[tag]) == 1 then
+			widget:getWidgetByName("img_read_flag"):loadTexture("img_mail_new_flag", ccui.TextureResType.plistType)
+			widget:getWidgetByName("img_read"):setVisible(true)
+		else
+			widget:getWidgetByName("img_read_flag"):loadTexture("img_mail_opne_flag", ccui.TextureResType.plistType)
+			widget:getWidgetByName("img_read"):setVisible(false)
+		end
+	end
+	
+function PanelMail.onPanelClose()
+		var.openState = false
+		var.pushItemIdx = 1
+
+		PanelMail.refreshPanel()
+
+		NetClient.tipsMsg.tip_mail = {}
+
+		NetClient:dispatchEvent({
+			str = "tip_mail",
+			noAction = true,
+			name = Notify.EVENT_SHOW_BOTTOM
+		})
+	end
+return PanelMail

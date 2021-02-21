@@ -1,0 +1,349 @@
+local PanelBoss={}
+local var = {}
+local btnArrs = {"btnXinShou","btnZhiJia","btnMaYa","btnSanRen","btnZanZhu","btnFuBen"}
+local gameVersion = nil
+function PanelBoss.initView(extend)
+	var = {
+		bossData = nil,
+		xmlPanel,
+		tabData={},
+		preButton,
+		tabIndex=nil,
+		curTypeSelected=nil,
+		fireworks=nil,
+		page_tab,
+		pageIndex,
+		bossName={},
+		txtLev=nil,
+		txtMate=nil,
+		selectTab =1,
+		needIndex = nil,
+		tabName = {
+			"tab_1","tab_2","btn_personal_boss"
+		},
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelBoss.uif");
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelBoss.handlePanelData)
+		PanelBoss.initBtns()
+
+		util.asyncload(var.xmlPanel, "img_bg", "needload/bg_max2.png")
+		util.asyncload(var.xmlPanel, "imgBoss", "needload/img_boss.png")
+		-- var.page_tab = var.xmlPanel:getWidgetByName("page_tab")
+		-- var.page_tab:addTabEventListener(PanelBoss.pushTab)
+		-- var.page_tab:setTabRes("tab_v4","tab_v4_sel", ccui.TextureResType.plistType)
+		-- PanelBoss.initTabList()
+		-- util.asyncload(var.xmlPanel, "panelinnerBg", "needload/img_boss_bg.jpg")
+
+		-- -- local btnPersonalBoss = var.page_tab:getItemByIndex(3)
+		-- if btnPersonalBoss then
+		-- 	btnPersonalBoss:setName("btn_personal_boss")
+		-- end
+		gameVersion = PlatformTool.getGameVersion(PlatformTool.getPlatformId())
+		for i,v in ipairs(var.tabName) do
+			var.xmlPanel:getWidgetByName(var.tabName[i]):setTag(i)
+			UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName(var.tabName[i]),PanelBoss.pushTab)
+		end
+
+		if gameVersion and gameVersion == PlatformTool.DJDZY then
+			var.xmlPanel:getWidgetByName("tab_1"):loadTextures("bstz","tzdl","tzdl",ccui.TextureResType.plistType)
+		end
+		-- var.xmlPanel:getWidgetByName("Text_5"):setRotation(90)
+		-- var.xmlPanel:getWidgetByName("Text_3"):setRotation(90)
+	end
+	return var.xmlPanel
+end
+
+function PanelBoss.onPanelOpen(event)
+	if event.mParam and tonumber(event.mParam.tab) then
+		var.selectTab = event.mParam.tab
+	end
+	if event.mParam and tonumber(event.mParam.needIndex) then
+		var.needIndex = event.mParam.needIndex
+	end
+	PanelBoss.pushTab(var.xmlPanel:getWidgetByName(var.tabName[var.selectTab]))
+end
+
+function PanelBoss.onPanelClose()
+	var.selectTab = 1
+	-- var.page_tab:setSelectedTab(1)
+	var.bossData = nil
+	PanelBoss.pushTab(var.xmlPanel:getWidgetByName(var.tabName[1]))
+end
+
+function PanelBoss.pushTab(sender)
+	var.tabIndex=nil
+	sender:setTouchEnabled(true)
+	var.pageIndex = sender:getTag();
+	var.xmlPanel:getWidgetByName("labTime"):setVisible(var.pageIndex<3)
+	-- var.tabName
+	for i,v in ipairs(var.tabName) do
+		if i == var.pageIndex then
+			var.xmlPanel:getWidgetByName(var.tabName[i]):setBrightStyle(1)
+		else
+			var.xmlPanel:getWidgetByName(var.tabName[i]):setBrightStyle(0)
+		end
+	end
+	if var.pageIndex ~= 3 then
+		PanelBoss.setEnterCondition(nil)
+	end
+	if var.pageIndex == 1 then
+		var.xmlPanel:getWidgetByName("btnlayer"):show()
+		var.xmlPanel:getWidgetByName("btnFuBen"):hide()
+		NetClient:PushLuaTable("gui.PanelBoss.onPanelData",util.encode({actionid = "btnCS",params = {1}}))
+	elseif var.pageIndex == 2 then
+		var.xmlPanel:getWidgetByName("btnlayer"):show()
+		var.xmlPanel:getWidgetByName("btnFuBen"):hide()
+		NetClient:PushLuaTable("gui.PanelBoss.onPanelData",util.encode({actionid = "btnYeWai",params = {1}}))
+	elseif var.pageIndex == 3 then
+		var.xmlPanel:getWidgetByName("btnlayer"):hide()
+		var.xmlPanel:getWidgetByName("btnFuBen"):show()
+		NetClient:PushLuaTable("gui.PanelBoss.onPanelData",util.encode({actionid = "btnGeRen",params = {1}}))
+	end
+end
+
+function PanelBoss.handlePanelData(event)
+	if event.type ~= "PanelBoss" then return end
+	local data = util.decode(event.data)
+	-- print(event.data)
+	if data.cmd =="updateKeKill" then
+		PanelBoss.initBossNameList(data.monTable)
+	-- elseif data.cmd=="updateCsBoss" then
+		-- PanelBoss.initBossNameList(data.monTable)
+	elseif data.cmd=="updateWorldBoss" then
+		PanelBoss.initBossNameList(data.monTable)
+	-- elseif data.cmd=="updateCsBossDesp" then
+		-- PanelBoss.updateBossDesp(data.monTable)
+		-- PanelBoss.updateBtnShow(data.monTable)
+	elseif data.cmd=="senderWorldBossDesp" then
+		PanelBoss.updateBossDesp(data.monTable)
+		PanelBoss.updateBtnShow(data.monTable)
+		
+	elseif data.cmd=="updatePersonalBossName" then
+		-- PanelBoss.initTabList(data.monTable)
+		PanelBoss.initBossNameList(data.monTable,"Personal")
+	elseif data.cmd=="senderPersonalBossDesp" then
+		PanelBoss.updateBossDesp(data.monTable)
+		PanelBoss.setEnterCondition(data.needDesp)
+	end
+end
+
+--个人BOSS副本寻找默认显示页签
+function PanelBoss.getSelectTab(data)
+	if data then
+		for i=1,#data do
+			local itemData = data[i]
+			if itemData and itemData.useTimes and itemData.allTimes and itemData.useTimes<itemData.allTimes then
+				return i
+			end
+		end
+	end
+	return 1
+end
+
+--初始化BOSS名字列表
+function PanelBoss.initBossNameList(data,tabType)
+	var.bossName=data
+	if var.needIndex then
+		var.tabIndex = var.needIndex
+		var.needIndex = nil
+	end
+	local function prsBtnClick(sender,touchType)
+	-- print(var.pageIndex,"=============")
+		if var.pageIndex == 1 then
+			NetClient:PushLuaTable("gui.PanelBoss.onPanelData",util.encode({actionid = "reqYeWaiBossOne",params = {index=sender.tag}}))--请求个人BOSS当前选中数据
+		end
+		var.tabIndex=sender.tag
+		if var.preButton then
+			var.preButton:setBrightStyle(0)
+		end
+		sender:setBrightStyle(1)
+		var.preButton=sender
+	end
+	local function updateBossNamePic(item)
+		local btnBoss = item:getWidgetByName("btnBoss"):setTouchSwallowEnabled(false):setTouchEnabled(true)
+		local itemData = var.bossName[item.tag]
+		local monName = string.split(itemData.monName, "[")
+		-- btnBoss:setTitleText(itemData.monName)
+		btnBoss.tag=itemData.index
+		
+		-- if gameVersion and gameVersion > 0 then
+			-- if gameVersion == PlatformTool.DJDZY then
+				-- item:getWidgetByName("lbl_name"):setString(monName[1]):show()
+			-- else
+				-- item:getWidgetByName("img_name"):loadTexture("img_cs_title"..itemData.index, ccui.TextureResType.plistType):show()
+			-- end
+		-- else
+			
+			item:getWidgetByName("img_name"):loadTexture("img_cs_title"..itemData.index, ccui.TextureResType.plistType):show()
+		-- end
+		
+		if var.tabIndex and var.tabIndex==item.tag then
+			btnBoss:setBrightStyle(1)
+			prsBtnClick(btnBoss)
+		else
+			btnBoss:setBrightStyle(0)
+		end
+		UILuaLoader.attachEffect(btnBoss,"outline(0e0600,1)")
+		UIRedPoint.addUIPoint(btnBoss,prsBtnClick)
+		if tabType then
+			if not var.tabIndex and item.tag==PanelBoss.getSelectTab(data) then
+				prsBtnClick(btnBoss)
+			end
+		else
+			if not var.tabIndex and item.tag==1 then
+				prsBtnClick(btnBoss)
+			end
+		end
+		item:setName("item_boss"..item.tag)
+		btnBoss:setSwallowTouches(false)
+	end
+	local listBoss = var.xmlPanel:getWidgetByName("listBoss")
+	listBoss:reloadData(#var.bossName, updateBossNamePic)
+	if var.tabIndex then
+		listBoss:autoMoveToIndex(var.tabIndex)
+	end
+end
+
+--刷新右侧boss详细信息
+function PanelBoss.updateBossDesp(data)
+	PanelBoss.showMonInfo(data)
+end
+
+--野外的化刷新3个按钮信息
+function PanelBoss.updateBtnShow(data)
+	if data then
+		var.bossData = data
+		local mapNum = 5
+		for i = 1, mapNum do
+			local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+			if data["map"..i] then
+				-- 说明当前有地图导航
+				if btn and #data["map"..i] < 3 then
+					btn:setVisible(false)
+				else
+					btn:setVisible(true)
+				end
+				if data["map"..i][3] then
+					btn:setTitleText(data["map"..i][3])
+					btn:setTag(i)
+				end
+			elseif btn then
+				btn:setVisible(false)				
+			end
+		end
+	end
+end
+
+--个人副本进入条件
+function PanelBoss.setEnterCondition(data)
+	if not var.txtLev or not var.txtMate then
+		var.txtLev = UIRichLabel.new({size=cc.size(300,25),space=2})
+		var.txtLev:addTo(var.xmlPanel):align(display.LEFT_CENTER,300,58)		
+		var.txtMate = UIRichLabel.new({size=cc.size(300,25),space=2})
+		var.txtMate:addTo(var.xmlPanel):align(display.LEFT_CENTER,300,30)
+	end
+	if not data then
+		var.txtLev:setRichLabel("",20,19)
+		var.txtMate:setRichLabel("",20,19)
+		return
+	end
+	if #data>=2 then
+		var.txtLev:setRichLabel(data[1],20,19)
+		var.txtLev:setPositionY(53)
+		var.txtMate:setRichLabel(data[2],20,19)
+	else
+		var.txtLev:setRichLabel(data[1],20,19)
+		var.txtLev:setPositionY(39)
+		var.txtMate:setRichLabel("",20,19)
+	end
+
+end
+
+--刷新右侧怪物信息
+function PanelBoss.showMonInfo(monData)
+	if monData.monName then
+		var.xmlPanel:getWidgetByName("labBossName"):setString("BOSS名称："..monData.monName)
+	end
+	if monData.monLev then
+		var.xmlPanel:getWidgetByName("labBossLevel"):setString("BOSS等级："..monData.monLev.."级")
+	end
+	if monData.freshTime then
+		var.xmlPanel:getWidgetByName("labTime"):setString("复活时间："..((monData.freshTime+120000)/60000).."分钟"):setVisible(true)
+	else
+		var.xmlPanel:getWidgetByName("labTime"):setVisible(false)
+	end
+	if monData.drop then
+		for i=1,6 do
+			if monData.drop[i] then
+				local awardItem=var.xmlPanel:getWidgetByName("icon"..i)
+				local param={parent=awardItem, typeId=tonumber(monData.drop[i]), num=1}
+				UIItem.getItem(param)
+			end
+		end
+	end
+	if monData.monImg then
+		PanelBoss.successAnimate(monData.monImg)
+	end
+end
+
+--加载怪物动画
+function PanelBoss.successAnimate(id)
+	if id=="" then return end
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlPanel:getWidgetByName("imgBoss"))
+		var.fireworks:setPosition(515, 241)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(0,id, 4, 12)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,10000),
+			cca.removeSelf()
+		}))
+	end
+end
+
+---------------------------------------------------------按钮操作----------------------------------------------------------
+
+function PanelBoss.initBtns()
+	local function prsBtnClick(sender)
+		if var.pageIndex == 3 then
+			if sender:getName() == "btnFuBen" then
+				NetClient:PushLuaTable("gui.PanelBoss.onPanelData",util.encode({actionid = "reqEnterBossFuBen",params = {index = var.tabIndex}}))
+			end
+		else
+			local tag = sender:getTag()
+			local bData = var.bossData["map"..tag]
+
+			if not bData then
+				NetClient:PushLuaTable("gui.PanelBoss.onPanelData", util.encode({actionid = "enterMap1", flyId = bData[1]}))
+			else
+				-- NetClient.alertLocalMsg("当前数据有误！请关闭重试。")
+			end
+		end
+		
+		-- if var.pageIndex == 3 then
+			-- if sender:getName() == "btnFuBen" then
+				-- NetClient:PushLuaTable("gui.PanelBoss.onPanelData",util.encode({actionid = "reqEnterBossFuBen",params = {index = var.tabIndex}}))
+			-- end
+		-- else
+			local tag = sender:getTag()
+			local bData = var.bossData["map"..tag]
+			if bData and bData[4] then
+				NetClient:PushLuaTable("gui.PanelBoss.onPanelData", util.encode({actionid = "enterMap", flyId = bData[4]}))
+			end
+		-- end
+		
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		if btn then
+			UIRedPoint.addUIPoint(btn,prsBtnClick) 
+		end
+	end
+end
+
+
+return PanelBoss

@@ -1,0 +1,52 @@
+local TipsWelcome = {}
+
+function TipsWelcome:initView( extend )
+	if self.xmlTips then
+		self.xmlTips:setContentSize(display.width, display.height):setTouchEnabled(true):setSwallowTouches(true)
+		self.xmlTips:getWidgetByName("box_start_game"):align(display.CENTER, display.cx, display.height * 0.5)
+		local imgStartGame = self.xmlTips:getWidgetByName("img_start_game")
+		imgStartGame:loadTexture("needload/img_start_game.png")
+		self.xmlTips:getWidgetByName("btn_start_game"):addClickEventListener(function ()
+			NetClient:dispatchEvent({name = Notify.EVENT_CONTINUE_TASK})
+			NetClient:PushLuaTable("task.task1000.reqTaskTips", "")
+			for i=5000,5005 do
+				local item = NetClient:getNetItem(i)
+				if item then
+					NetClient:BagUseItem(item.position,item.mTypeID)
+				end
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = extend.str})
+		end):setOpacity(0)
+		local awardItem = self.xmlTips:getWidgetByName("btn_start_game")
+		local effectSprite = cc.Sprite:create()
+			:setAnchorPoint(cc.p(0.5,0.5))
+			:setPosition(cc.p(99.5, 36))
+			:addTo(awardItem)
+		cc.AnimManager:getInstance():getPlistAnimateAsync(effectSprite,GROUP_TYPE.EFFECT, 50017, 4, 0, 5)
+		-- local node_effect = self.xmlTips:getWidgetByName("node_effect")
+		-- util.addEffect(node_effect, "wingEffect", GROUP_TYPE.WING, 52002, {x=0, y=0}, nil, true)
+
+		-- local img_role = cc.Sprite:create()
+		-- img_role:addTo(node_effect):setPositionY(50)
+		-- local filepath = string.format("vipassana/fashion/15200009.png")
+		-- asyncload_callback(filepath, img_role, function(filepath, texture)
+			-- img_role:setTexture(filepath)
+		-- end)
+
+		-- local img_weapon = cc.Sprite:create()
+		-- img_weapon:addTo(node_effect):setPositionY(50)
+		-- local filepath = string.format("vipassana/fashionweapon/15200020.png")
+		-- asyncload_callback(filepath, img_weapon, function(filepath, texture)
+			-- img_weapon:setTexture(filepath)
+		-- end)
+
+		-- util.addEffect(node_effect, "wingEffect", GROUP_TYPE.WING, 52002, {x=0, y=0}, nil, true)
+	end
+end
+function TipsWelcome:closeCall()
+
+end
+-- NetClient:dispatchEvent({
+-- 	name = Notify.EVENT_SHOW_TIPS, str = "useItem", typeId = netItem.mTypeID,num = netItem.num,pos = netItem.pos
+-- })
+return TipsWelcome

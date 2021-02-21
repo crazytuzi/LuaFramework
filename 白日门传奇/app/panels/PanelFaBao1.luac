@@ -1,0 +1,196 @@
+local PanelFaBao = {}
+local var = {}
+
+function PanelFaBao.initView()
+	var = {
+		xmlPanel,
+		progressBar,
+		labBar,
+		labBar1,
+		curFaBaoId=nil,
+		fireworks=nil,
+		FaBaoLevel=0,
+		fabaoWai=nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelFaBao.uif")
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelFaBao.handlePanelData)
+		PanelFaBao.initBtn()
+
+		local fabaoEff = var.xmlPanel:getWidgetByName("imgfabao"):getChildByName("fabaoEff")
+		var.xmlPanel:getWidgetByName("imgfabao"):setTouchEnabled(true)
+		if not fabaoEff then
+			fabaoEff = cc.Sprite:create()
+			fabaoEff:setName("fabaoEff")
+			fabaoEff:setPosition(310,230)
+					:setTouchEnabled(false)
+					:addTo(var.xmlPanel)
+			local animate = cc.AnimManager:getInstance():getPlistAnimate(4,50027, 4, 5)
+			fabaoEff:runAction(cca.repeatForever(animate))
+		end			
+		--------------------------------------------	
+		
+		local titleFloor = var.xmlPanel:getChildByName("titleFloor")
+		if not titleFloor then
+			titleFloor = cc.Sprite:create()
+						:setName("titleFloor")
+						:align(display.CENTER, 209, 197)
+						:setBlendFunc({src = gl.SRC_ALPHA, dst = gl.ONE})
+						:addTo(var.xmlPanel:getChildByName("img_left_bg"))
+			cc.AnimManager:getInstance():getPlistAnimateAsync(titleFloor,4,50028,0,0,0,true)
+		end
+		return var.xmlPanel
+	end
+end
+
+function PanelFaBao.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelFaBao.handlePanelData", util.encode({actionid = "reqFaBaoData"}))
+	-- PanelFaBao.startAnimOne()
+end
+
+function PanelFaBao.onPanelClose()
+	-- MainRole.handleFaBaoChange(var.FaBaoLevel)
+end
+
+function PanelFaBao.handlePanelData(event)
+	if event.type ~= "PanelFaBao" then return end
+	local data = util.decode(event.data)
+	if data.cmd=="updateFaBao" then
+		 PanelFaBao.updateFaBao(data)
+	elseif data.cmd=="" then
+
+	end
+end
+
+function PanelFaBao.initBtn()
+	local btnArrs = {"btn_shenji"}
+	local function btnCallBack(sender)
+		local btnName = sender:getName()
+		if btnName=="btn_shenji" then
+			NetClient:PushLuaTable("gui.PanelFaBao.handlePanelData", util.encode({actionid = "reqFaBaoShenJi"}))
+	--	elseif btnName=="btn_suipian" then
+	--		NetClient:PushLuaTable("gui.PanelFaBao.handlePanelData",util.encode({actionid = "chsuipian",}))
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn , btnCallBack)
+	end
+end
+
+function PanelFaBao.updateFaBao(data)
+	for i=1,10 do
+		for i=1,6 do
+			var.xmlPanel:getWidgetByName("labCur"..i):setString(data.curTable[i])
+		end
+		if i<=data.starNum then
+			var.xmlPanel:getWidgetByName("imgStar"..i):setVisible(true)
+		else
+			var.xmlPanel:getWidgetByName("imgStar"..i):setVisible(false)
+		end
+	end
+	if not util.isObjectExist(var.progressBar) then
+		local bar = var.xmlPanel:getWidgetByName("bar")
+		var.labBar = var.xmlPanel:getWidgetByName("labbar")
+		var.progressBar = UIProgressBar.new(bar,var.labBar)
+		var.labBar1 = var.xmlPanel:getWidgetByName("labbar1")
+		var.progressBar = UIProgressBar.new(bar,var.labBar1)
+	end
+	local num = tonumber(302*data.ownChip/data.needChip)
+	if var.progressBar.setPercentByMaxValue then
+		var.progressBar:setPercentByMaxValue(num,302)
+		var.progressBar:setVisible(true)
+	end
+	var.labBar:setString("拥有法宝石:"..data.ownChip)
+	var.labBar1:setString("消耗法宝石:"..data.needChip)
+	PanelFaBao.startAnimOne(data.level)
+	PanelFaBao.showFaBaoAnimation(data.level)
+end
+
+--分割
+-- 参数:待分割的字符串,分割字符
+-- 返回:子串表.(含有空串)
+function lua_string_split(str, split_char)
+    local sub_str_tab = {};
+    while (true) do
+        local pos = string.find(str, split_char);
+        if (not pos) then
+            sub_str_tab[#sub_str_tab + 1] = str;
+            break;
+        end
+        local sub_str = string.sub(str, 1, pos - 1);
+        sub_str_tab[#sub_str_tab + 1] = sub_str;
+        str = string.sub(str, pos + 1, #str);
+    end
+
+    return sub_str_tab;
+end
+--称号特效
+function PanelFaBao.startAnimOne(level)
+	local resData = game.setFaBaoEffect(level)
+	if not resData then resData={resNei=68991,name="酷炫法宝"} end
+	if resData and resData.resNei~=var.curFaBaoId then
+		local contentBox = var.xmlPanel:getWidgetByName("contentBox")
+		if not var.fireworks then
+			var.fireworks = cc.Sprite:create():addTo(contentBox):pos(150, 50)--28
+		end
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(4, resData.resNei, 4, 5)
+		var.curFaBaoId=resData.resNei
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate, 1000),
+			cca.removeSelf()
+		}))
+		contentBox:stopAllActions()
+		contentBox:runAction(cca.loop(
+				cca.seq({
+					cca.moveBy(1, 0, 10),
+					cca.moveBy(1, 0, -10),
+				})
+			)
+		)
+		var.xmlPanel:getWidgetByName("labChName"):setString(resData.name)
+	end
+
+end
+function PanelFaBao.showFaBaoAnimation(level)
+	local data_fabao={68991,68992,68993,68994,68995,68996,68997,68998,68999,69810,69811,69812,81013}
+	local img_fabaol = var.xmlPanel:getWidgetByName("img_fabao_view"):getChildByName("img_fabao")
+	if not img_fabaol then
+		img_fabaol = cc.Sprite:create()
+		img_fabaol:addTo(var.xmlPanel:getWidgetByName("img_fabao_view")):align(display.CENTER, 23, 23):setName("img_fabao")
+	end
+	if level>=1 and level<=10 then
+		level = 1
+	elseif level>=11 and level<=20 then
+		level = 2
+	elseif level>=21 and level<=30 then
+		level = 3
+	elseif level>=31 and level<=40 then
+		level = 4
+	elseif level>=41 and level<=50 then
+		level = 5
+	elseif level>=51 and level<=60 then
+		level = 6
+	elseif level>=61 and level<=70 then
+		level = 7
+	elseif level>=71 and level<=80 then
+		level = 8
+	elseif level>=81 and level<=90 then
+		level = 9
+	elseif level>=91 and level<=100 then
+		level = 10
+	elseif level>=101 and level<=110 then
+		level = 11
+	elseif level>=111 and level<=120 then
+		level = 12		
+	end
+	if level >= 1 and level <= 12 then
+	local filepath = "vipassana/fabao/"..data_fabao[level+1]..".png"
+	asyncload_callback(filepath, img_fabaol, function(filepath, texture)
+		img_fabaol:setTexture(filepath)
+	end)
+end
+end
+return PanelFaBao

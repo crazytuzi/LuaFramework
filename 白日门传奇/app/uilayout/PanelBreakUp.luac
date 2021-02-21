@@ -1,0 +1,103 @@
+LUA_RET={
+-- {n="panel_bg",id=2,parent=1,w=926,h=599,res="img_waibiankuang",type=1,tag=260,ss=true,sx=86,sy=54,sw=28,sh=80,v=true,},
+{n="panel_bg",ud="nochace",tag=260,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=997.0000,h=576.0000,color="255|255|255",res="bg_max2",},
+-- {n="Image_4",id=3,parent=1,w=419,h=52,ax=0.5,ay=0.5,x=465,y=576,res="img_biaoti",type=1,tag=261,v=true,},
+-- {n="Image_48",id=4,parent=1,w=897,h=549,ay=1.0,x=13,y=561,res="img_daojukuang_ditu",type=1,tag=262,ss=true,sx=26,sy=26,sw=28,sh=28,v=true,},
+{n="rightBg",tag=357,ss=true,sx=19,sw=19,sh=207,sy=145,v=true,type=1,id=5,parent=1,w=273.0000,h=518.0000,ax=0.5000,ay=0.5000,x=829.4757,y=268.0000,color="255|255|255",res="shukuang2",},
+{n="panel_close",tag=531,t=true,fs=14,sx=7,sw=7,sh=11,sy=11,v=true,type=2,id=93,parent=1,w=33.0000,h=32.0000,ax=0.5000,ay=0.5000,x=948.5697,y=544.8512,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="btn_close",},
+
+{n="img_title",tag=229,sx=34,sw=34,sh=14,sy=14,v=true,type=1,id=3,parent=1,w=98.0000,h=29.0000,ax=0.5000,ay=0.5000,x=449.8278,y=536.9601,color="255|255|255",res="chuangtianguan",},
+{n="leftBg",tag=356,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=4,parent=1,w=657.0000,h=508.0000,ax=0.5000,ay=0.5000,x=363.6426,y=266.1887,color="255|255|255",},
+
+-- {n="Image_2",id=5,parent=1,w=41,h=40,ax=0.5,ay=0.5,x=906,y=19,res="img_waikuangjiantou_zuo",type=1,tag=263,v=true,},
+-- {n="Image_1",id=6,parent=1,w=41,h=40,ax=0.5,ay=0.5,x=25,y=19,res="img_waikuangjiantou_you",type=1,tag=264,v=true,},
+{n="PageView",id=7,parent=1,w=880,h=533,ax=0.5,ay=0.5,x=462,y=286,type=10,tag=511,t=true,v=true,ud="asyncPageview",},
+{n="lbl_section_info",id=10,parent=9,ax=0.5,ay=0.5,x=471,y=98,color="24|209|41",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=111,v=true,fs=20,text="11",ols=1,},
+
+--更改为进入
+-- {n="btn_challenge",id=11,parent=9,w=235,h=62,ax=0.5,ay=0.5,x=621,y=52,tcolor="255|220|136",sel="btn_npc_talk",res="btn_npc_talk",type=2,tag=260,ss=true,sx=15,sy=11,sw=205,sh=40,t=true,v=true,fs=22,text="进入",ud="outline(3d0e00,1);zoomscale(-0.12)",},
+{n="btn_challenge",ud="outline(000000,1);zoomscale(-0.12)",tag=255,t=true,fs=24,text="进入",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=11,parent=17,w=120.0000,h=40.0000,ax=0.5000,ay=0.5000,x=141.9177,y=30.0000,color="255|255|255",tcolor="255|224|139",res="btn_red_normal",},
+
+{n="btn_chart",id=12,parent=9,w=75,h=77,ax=0.5,ay=0.5,x=63,y=52,tcolor="234|221|191",sel="btn_breakup_chart",res="btn_breakup_chart",type=2,tag=259,ss=true,sx=15,sy=11,sw=45,sh=55,t=true,v=true,fs=22,ud="zoomscale(-0.12)",},
+
+{n="lbl_section_info_0",id=13,parent=9,ax=0.5,ay=0.5,x=612,y=98,color="255|204|0",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=271,v=true,fs=20,text="副本卷轴",ols=1,},
+
+{n="bottomLayout",id=9,parent=8,w=844,h=200,x=-2,y=-6,type=0,tag=83,v=true,c=true,},
+{n="imgmiemoling",id=14,parent=8,w=202,h=28,ax=0.5,ay=0.5,x=110,y=501,type=1,tag=257,ss=true,sx=13,sy=7,sw=20,sh=32,v=true,},
+{n="btn_right",id=15,parent=8,w=60,h=107,ax=0.5,ay=0.5,x=845,y=310,tcolor="65|65|70",sel="img_jiantou",res="img_jiantou",type=2,tag=326,t=true,v=true,fs=14,ud="zoomscale(-0.12)",},
+{n="btn_left",id=16,parent=8,w=60,h=107,ax=0.5,ay=0.5,x=28,y=310,tcolor="65|65|70",sel="img_jiantou",res="img_jiantou",type=2,tag=325,t=true,v=true,fs=14,ud="zoomscale(-0.12)",},
+{n="bottomParent",id=8,parent=1,w=870,h=524,x=26,y=23,type=0,tag=84,v=true,c=true,},
+-- {n="progressBar_forground",id=19,parent=18,w=312,h=25,res="progress_yinyantiao",type=6,tag=252,ss=true,v=true,},
+-- {n="progressBar",id=20,parent=18,w=262,h=15,ax=0.5,ay=0.5,x=155,y=13,res="progressbar_yinyantiao",type=6,tag=251,ss=true,sx=10,sy=3,sw=11,sh=9,v=true,},
+-- {n="progressBar_bg",id=18,parent=17,w=312,h=25,x=7,y=13,res="progress_yinyantiao",type=1,tag=250,ss=true,sx=29,sy=7,sw=28,sh=11,v=true,},
+-- {n="box_6",id=21,parent=17,w=50,h=48,ax=0.5,ay=0.5,x=113,y=68,tcolor="65|65|70",res="img_box_1",type=2,tag=253,t=true,v=true,fs=14,},
+-- {n="box_12",id=22,parent=17,w=50,h=48,ax=0.5,ay=0.5,x=199,y=68,tcolor="65|65|70",res="img_box_2",type=2,tag=254,t=true,v=true,fs=14,},
+-- {n="box_18",id=23,parent=17,w=50,h=48,ax=0.5,ay=0.5,x=285,y=68,tcolor="65|65|70",res="img_box_3",type=2,tag=255,t=true,v=true,fs=14,},
+{n="lb_6",id=25,parent=24,ax=0.5,ay=0.5,x=10,y=-10,color="253|223|174",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=257,v=true,fs=18,text="6",ols=1,},
+-- {n="img_star_light_1",id=24,parent=17,w=35,h=35,ax=0.5,ay=0.5,x=103,y=26,res="img_star_stren_light",type=1,tag=256,v=true,},
+{n="lb_12",id=27,parent=26,ax=0.7,ay=0.3,x=14,y=-14,color="253|223|174",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=259,v=true,fs=18,text="12",ols=1,},
+-- {n="img_star_light_1_0",id=26,parent=17,w=35,h=35,ax=0.5,ay=0.5,x=195,y=26,res="img_star_stren_light",type=1,tag=258,v=true,},
+{n="lb_18",id=29,parent=28,ax=0.5,ay=0.5,x=10,y=-10,color="253|223|174",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=261,v=true,fs=20,text="18",ols=1,},
+-- {n="img_star_light_1_1",id=28,parent=17,w=35,h=35,ax=0.5,ay=0.5,x=284,y=26,res="img_star_stren_light",type=1,tag=260,v=true,},
+{n="box_baoxiang",id=17,parent=1,w=340,h=70,ax=1.0,x=900,y=19,type=0,tag=232,t=true,v=true,},
+{n="img_moji",id=31,parent=30,w=151,h=166,ax=0.5,ay=0.5,x=78,y=95,res="img_moji",type=1,tag=70,v=true,},
+{n="btntask",id=32,parent=30,w=74,h=74,ax=0.5,x=80,y=73,tcolor="65|65|70",res="ta_sel",type=2,tag=256,v=true,fs=14,},
+
+--有用
+{n="lbltask",id=33,parent=30,ax=0.5,ay=0.5,x=80,y=9968,color="24|209|41",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=559,v=true,fs=18,text="挑战次数:0/10",ols=1,},
+
+{n="star1",id=34,parent=30,w=20,h=20,ax=0.5,ay=0.5,x=46,y=180,res="img_star_light",type=1,tag=222,v=true,},
+{n="star2",id=35,parent=30,w=20,h=20,ax=0.5,ay=0.5,x=80,y=188,res="img_star_light",type=1,tag=223,v=true,},
+{n="star3",id=36,parent=30,w=20,h=20,ax=0.5,ay=0.5,x=111,y=180,res="img_star_light",type=1,tag=224,v=true,},
+{n="img_dragon_light",id=38,parent=37,w=197,h=48,ax=0.5,ay=0.5,x=99,y=25,res="img_boss_light",type=1,tag=281,v=true,},
+
+{n="bossname",id=39,parent=37,ax=0.5,ay=0.5,x=98,y=23,color="255|233|143",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=226,v=true,fs=20,text="半兽人统领",ols=1,},
+{n="boss_name_bg",id=37,parent=30,w=197,h=48,ax=0.5,ay=0.5,x=80,y=61,res="img_breakup_name_bg",type=1,tag=225,v=true,},
+
+{n="lbltask_achieve",id=40,parent=30,ax=0.5,ay=0.5,x=80,y=9,color="255|204|0",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=227,v=true,fs=16,text="挑战次数:0/10",ols=1,},
+{n="img_circle",id=41,parent=30,w=56,h=56,ax=0.5,ay=0.5,x=78,y=85,res="img_last_pass_light",type=1,tag=82,v=false,},
+{n="modelbtn",id=42,parent=30,w=1,h=1,tcolor="65|65|70",type=2,tag=339,ss=true,sx=-15,sy=-11,sw=29,sh=22,t=true,v=true,fs=14,},
+{n="imgLight",id=43,parent=30,w=107,h=106,ax=0.5,ay=0.5,x=79,y=126,res="ta_nor",type=1,tag=367,v=false,},
+{n="modeltask",id=30,parent=1,w=160,h=180,x=-407,y=283,type=0,tag=557,t=true,v=true,},
+-- {n="img_title",id=44,parent=1,w=111,h=43,ax=0.5,ay=0.5,x=465,y=581,res="img_title_breakup",type=1,tag=221,v=true,},
+{n="Image_chapterbg",id=45,parent=1,w=224,h=42,ax=0.5,ay=0.5,x=464,y=529,res="img_wenzilan",type=1,tag=2970,v=true,},
+{n="Image_chapternum",id=46,parent=1,w=95,h=22,ax=0.5,ay=0.5,x=465,y=529,res="img_zhangjie",type=1,tag=2971,v=true,},
+{n="Image_4_0",id=49,parent=48,w=419,h=52,ax=0.5,ay=0.5,x=284,y=453,res="img_biaoti",type=1,tag=73,v=true,},
+{n="Image_48_0",id=50,parent=48,w=535,h=366,ay=1.0,x=16,y=438,res="img_daojukuang_ditu",type=1,tag=72,ss=true,sx=26,sy=26,sw=28,sh=28,v=true,},
+{n="Image_5",id=51,parent=48,w=519,h=350,ax=0.5,ay=0.5,x=283,y=255,type=1,tag=71,v=true,},
+{n="taskimg",id=52,parent=48,w=144,h=64,ax=0.5,ay=0.5,x=288,y=391,res="img_big_normal",type=1,tag=242,v=true,},
+{n="lblinfo_level_1",id=53,parent=48,ax=1.0,ay=0.5,x=462,y=404,color="24|209|41",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=244,v=true,fs=18,text="等级:",ols=1,},
+{n="lblinfo_num_1",id=54,parent=48,ax=1.0,ay=0.5,x=499,y=373,color="24|209|41",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=245,v=true,fs=18,text="副本卷轴:",ols=1,},
+{n="Image_8",id=55,parent=48,w=348,h=48,ax=0.5,ay=0.5,x=295,y=277,res="img_diwen",type=1,tag=74,v=true,},
+{n="imgrecommendpower",id=56,parent=1,w=92,h=21,ax=0.5,ay=0.5,x=248,y=270,res="img_bu_recommendpower",type=1,tag=85,v=true,},
+{n="lblinfo_danger",id=58,parent=57,ay=0.5,x=-40,y=10,color="255|0|0",type=3,tag=587,v=true,fs=20,text="(极度危险)",},
+{n="lblinfo_power",id=57,parent=48,ay=0.5,x=300,y=269,type=3,tag=248,v=true,fs=20,text="     ",},
+{n="awardicon1",id=59,parent=48,w=76,h=76,ax=0.5,ay=0.5,x=245,y=167,res="img_cell",type=1,tag=249,v=true,},
+{n="awardicon2",id=60,parent=48,w=76,h=76,ax=0.5,ay=0.5,x=344,y=167,res="img_cell",type=1,tag=250,v=true,},
+
+{n="btn_enter",id=61,parent=48,w=120,h=45,ax=0.5,ay=0.5,x=298,y=45,tcolor="255|224|139",sel="btn_green",res="btn_green",type=2,tag=255,ss=true,sx=15,sy=11,sw=90,sh=23,t=true,v=true,fs=24,text="进入",ud="outline(076900,1);zoomscale(-0.12)",},
+
+{n="lblinfo_level",id=62,parent=48,ay=0.5,x=470,y=404,color="24|209|41",type=3,tag=585,v=true,fs=18,text="0",},
+{n="lblinfo_num",id=63,parent=48,ay=0.5,x=508,y=373,color="24|209|41",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=586,v=true,fs=18,text="0",ols=1,},
+-- {n="Image_54_0",id=64,parent=48,w=70,h=28,ax=0.5,ay=0.5,x=288,y=454,res="img_title_breakup_info",type=1,tag=242,v=true,},
+{n="Image_54",id=65,parent=48,w=108,h=21,ax=0.5,ay=0.5,x=299,y=231,res="img_pass_bu_award",type=1,tag=241,v=true,},
+{n="imgtaskinfo",id=66,parent=48,w=112,h=22,ax=0.5,ay=0.5,x=300,y=336,res="img_bu_normal",type=1,tag=240,v=true,},
+{n="Image_16",id=67,parent=48,w=41,h=40,ax=0.5,ay=0.5,x=25,y=20,res="img_waikuangjiantou_you",type=1,tag=1920,v=true,},
+{n="Image_17",id=68,parent=48,w=41,h=40,ax=0.5,ay=0.5,x=540,y=20,res="img_waikuangjiantou_zuo",type=1,tag=1921,v=true,},
+{n="layerinfobg",id=48,parent=47,w=566,h=477,ax=0.5,ay=0.5,x=422,y=296,res="",type=1,tag=265,ss=true,sx=98,sy=66,sw=18,sh=68,t=true,v=false,},
+{n="imgFirstPass",id=70,parent=69,w=46,h=46,ax=0.5,ay=0.5,x=211,y=183,type=1,tag=244,v=true,},
+{n="Image_56",id=71,parent=69,w=91,h=22,ax=0.5,ay=0.5,x=84,y=216,res="img_first_pass_bg",type=1,tag=243,v=true,},
+{n="img_firstpass_title",id=72,parent=69,w=136,h=22,ax=0.5,ay=0.5,x=205,y=274,res="img_first_pass_breakup",type=2,tag=220,ss=true,sx=9,sy=7,sw=142,sh=7,v=true,fs=24,},
+{n="lbl_first_task_name",id=73,parent=69,ax=0.5,ay=0.5,x=200,y=78,color="255|62|63",fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=222,v=true,fs=20,text="完成邪恶甘虫",ols=1,},
+{n="btn_first_sure",id=74,parent=69,w=120,h=45,ax=0.5,ay=0.5,x=200,y=36,tcolor="234|221|191",sel="btn_green",res="btn_green",type=2,tag=224,ss=true,sx=15,sy=11,sw=90,sh=23,t=true,v=true,fs=22,text="确 定",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="img_icon",id=77,parent=76,w=68,h=68,ax=0.5,ay=0.5,x=40,y=75,res="img_cell",type=1,tag=227,v=true,},
+{n="render",id=76,parent=75,w=80,h=140,type=0,tag=226,t=true,v=true,},
+{n="firstList",id=75,parent=69,w=320,h=140,x=47,y=73,type=9,tag=225,t=true,v=true,d=2,ud="1|1|0|0",},
+{n="layerFirstPass",id=69,parent=5,w=412,h=298,ax=0.5,ay=0.5,x=428,y=302,res="img_waibiankuang",type=0,tag=221,t=true,v=true,},
+{n="layerInfo",id=47,parent=1,w=844,h=593,ax=0.5,ay=0.5,x=420,y=-313,type=0,tag=241,t=true,v=true,},
+{n="Image_3",id=78,parent=1,w=46,h=46,ax=0.5,ay=0.5,x=-432,y=203,type=1,tag=1306,v=true,},
+
+{n="PanelBreakUp",v=true,type=0,id=1,parent=0,w=997.0000,h=576.0000,},
+
+
+}

@@ -1,0 +1,165 @@
+local PanelZhanChongRecharge={}
+local var = {}
+
+function PanelZhanChongRecharge.createUiTable(parent,array)
+	parent.ui = {};
+	for _,v in ipairs(array) do
+		local node = parent:getWidgetByName(v);
+		if node then
+			parent.ui[v] = node
+		end
+	end
+	return parent.ui
+end
+
+local node_tab = {"box_recharge","btn_recharge_receive","node_close","model_item_box_1","model_item_box_2","model_item_box_3","model_item_box_4","label_title","img_icon"}
+
+function PanelZhanChongRecharge.initView()
+	var = {
+		xmlPanel = nil,	
+		serverData = nil,
+		curSelect = nil,
+		curSelectIdx = 1,
+		tabList,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelZhanChongRecharge.uif")
+	if var.xmlPanel then
+		var.xmlPanel:getWidgetByName("box_recharge"):loadTexture("needload/bg_max1.png")
+		var.xmlPanel:getWidgetByName("img_top"):loadTexture("needload/buy_pack_top.jpg")
+		var.xmlPanel:getWidgetByName("img_content"):loadTexture("needload/buy_pack_content.png")
+		PanelZhanChongRecharge.createUiTable(var.xmlPanel,node_tab);
+		var.xmlPanel.ui["btn_recharge_receive"]:hide()
+
+		util.addEffect(var.xmlPanel, "effect", GROUP_TYPE.EFFECT, 300032, {x=420, y=220}, nil, true)
+
+		var.vcoinLabel = ccui.TextAtlas:create("0123456789","fonts/clip_zhandouli_shuzi.png", 15.2, 25,"0")
+			:setName("vcoinLabel")
+			:addTo(var.xmlPanel)
+			:align(display.CENTER_LEFT, 395, 490)
+			:setString("0")
+			:setScale(1.3)
+		var.tabList = var.xmlPanel:getWidgetByName("tabList")
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelZhanChongRecharge.handlePanelData)
+	end
+	return var.xmlPanel
+end
+
+function PanelZhanChongRecharge.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelZhanChongRecharge.onPanelData", util.encode({actionid = "init"}))
+end
+
+function PanelZhanChongRecharge.onPanelClose()
+end
+
+function PanelZhanChongRecharge.handlePanelData(event)
+	if event.type ~= "PanelZhanChongRecharge" then return end
+	local data = util.decode(event.data)
+	if data.cmd =="init" then
+		PanelZhanChongRecharge.freshList(data.table)
+	elseif data.cmd == "sucessAnimate" then
+		PanelZhanChongRecharge.sucessAnimate(data.type)
+	end
+end
+
+local btn_texture = {
+	[-1] = "btn_zc_buy",
+	[0] = "btn_zc_buy",
+	[1] = "btn_zc_receive"
+}
+
+function PanelZhanChongRecharge.sucessAnimate()
+	-- local fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(350, 380)
+	-- local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,50021,4)
+	-- -- print(animate:getAnimation():setDelayPerUnit(36/40))
+	-- fireworks:runAction(cca.seq({
+	-- 	cca.rep(animate, 1),
+	-- 	cca.cb(function ()
+			
+	-- 	end),
+	-- 	cca.removeSelf()
+	-- }))
+	--var.xmlPanel.ui["btn_recharge_receive"]:setTouchEnabled(false)
+end
+
+function PanelZhanChongRecharge.freshList(awardData)
+	var.curSelectIdx = 1
+	var.tabList:removeAllItems()
+	local subItemModel = var.xmlPanel:getWidgetByName("render")
+	for i=1, #awardData do
+		local subItem = subItemModel:clone():show()
+		if subItem then
+			PanelZhanChongRecharge.updateLeftTabItem(subItem, awardData[i], i)
+            var.tabList:pushBackCustomItem(subItem)
+		end
+	end
+end
+
+function PanelZhanChongRecharge.updateLeftTabItem(item, data, idx)
+    if not item then return end
+    local btnMode = item:getWidgetByName("btnMode")
+    btnMode:setTouchEnabled(true)
+	btnMode.index = idx
+	btnMode.data = data
+	btnMode:addClickEventListener(PanelZhanChongRecharge.clickTab)
+	item:getWidgetByName("img_lbl"):loadTexture("lbl_btn_"..data.type, ccui.TextureResType.plistType)
+    local res = "lbl_list_nor"
+    if idx == var.curSelectIdx then
+        res = "lbl_list_sel"
+		if var.curSelect ~= btnMode then
+            PanelZhanChongRecharge.clickTab(btnMode)
+        end
+        var.curSelect = btnMode
+    end
+    btnMode:loadTextures(res,res,res,ccui.TextureResType.plistType)
+end
+
+-- 点击左边Tab触发
+function PanelZhanChongRecharge.clickTab(item)
+    local res = "lbl_list_nor"
+	if util.isObjectExist(var.curSelect) then
+		var.curSelect:loadTextures(res,res,res,ccui.TextureResType.plistType)
+	end
+	res = "lbl_list_sel"
+    item:loadTextures(res,res,res,ccui.TextureResType.plistType)
+    var.curSelect = item
+	var.curSelectIdx = item.index
+
+	PanelZhanChongRecharge.freshRightPanel(item.data)
+end
+
+function PanelZhanChongRecharge.freshRightPanel(data)
+	if not data then return end
+	var.xmlPanel:getWidgetByName("label_title"):loadTexture("lbl_zc_title"..data.type, ccui.TextureResType.plistType)
+	var.vcoinLabel:setString(data.needDiamond)
+	local awardTab = data.awards;
+	local state = data.state;
+	if awardTab then
+		for i=1,4 do
+			local modelItem = var.xmlPanel.ui["model_item_box_"..i]
+			local awardOnce = awardTab[i];
+			if awardOnce then
+				awardOnce.parent = modelItem;
+				UIItem.getItem(awardOnce);
+				modelItem:show();
+			else
+				modelItem:hide();
+			end
+		end
+	end
+
+	var.xmlPanel.ui["btn_recharge_receive"]:setTouchEnabled(state<=0)
+		:setBright(state<=0)
+		:loadTextureNormal(btn_texture[state],ccui.TextureResType.plistType)
+		:loadTexturePressed(btn_texture[state],ccui.TextureResType.plistType)
+		:show()
+		:addClickEventListener(function ( sender )
+			if state == 0 then
+				NetClient:PushLuaTable("gui.PanelZhanChongRecharge.onPanelData", util.encode({actionid = "receive", type = data.type}))
+			else
+				NetClient:alertLocalMsg("您已经领取该奖励，不可重复购买领取！")
+			end
+		end)
+end
+
+return PanelZhanChongRecharge

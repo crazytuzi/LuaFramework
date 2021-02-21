@@ -1,0 +1,8 @@
+LUA_RET={
+{n="PanelGuild_log",v=true,type=0,id=1,parent=0,w=835.0000,h=510.0000,},
+{n="Text_1",tag=750,fs=18,text="时间",v=true,type=3,id=2,parent=1,w=39.0000,h=23.0000,ax=0.5000,ay=0.5000,x=160.4832,y=487.5870,color="255|120|0",fr="DFYuan.ttf",},
+{n="Text_1_0",tag=751,fs=18,text="消息记录",v=true,type=3,id=3,parent=1,w=76.0000,h=23.0000,ax=0.5000,ay=0.5000,x=512.4825,y=487.5870,color="255|120|0",fr="DFYuan.ttf",},
+{n="list_log",ud="1|6|0|0",tag=576,t=true,c=false,d=1,v=true,type=9,id=4,parent=1,w=823.0000,h=450.0000,x=5.0000,y=16.0000,color="255|255|255",},
+{n="render",tag=577,t=true,c=false,v=true,type=0,id=5,parent=4,w=888.0000,h=46.0000,y=404.0000,color="255|255|255",},
+{n="lbl_log_time",tag=581,fs=20,text="时间",ht=1,vt=1,v=true,type=3,id=6,parent=5,w=180.0000,h=25.0000,ax=0.5000,ay=0.5000,x=153.0000,y=23.0000,color="253|223|174",fr="DFYuan.ttf",},
+}

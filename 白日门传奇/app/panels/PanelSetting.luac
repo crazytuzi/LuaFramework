@@ -1,0 +1,307 @@
+--从新更改回城石判定设置在 MainRole.MainRole.autoUseItem()
+
+local PanelSetting = {}
+local var = {}
+
+local sysBtnName = {"btn_change_role", "btn_change_account", "btn_contact", "btn_wpgl"}
+local pages = {
+	{
+		{ checkbox = "ckbox1",	con = "SmartEatHP",		name="智能吃药"},
+		{ checkbox = "ckbox2",	con = "SmartLowHP",		name="生命值低回城"},
+		{ checkbox = "ckbox3",	con = "AutoPickDrug",	name="自动拾取药品"},
+		{ checkbox = "ckbox4",	con = "AutoPickStaff",	name="自动拾取道具"},
+		{ checkbox = "ckbox5",	con = "AutoPickEquip",	name="自动拾取装备"},
+		-- { checkbox = "ckbox6",	con = "SmartEatMP",		name="智能回魔"},
+		{ checkbox = "ckbox7",	con = "AutoPickCoin",	name="自动拾取金币"},
+		{ checkbox = "ckbox8",	con = "AutoPickOther",	name="自动拾取其他"},
+		{ checkbox = "ckbox9",	con = "AutoPickVcoin",	name="自动拾取元宝"},
+				-- { checkbox = "ckbox10",	con = "AutoEP10",		name="测试一"},
+		-- { checkbox = "ckbox11",	con = "AutoEP15",		name="测试二"},
+	},
+	{
+		{ checkbox = "cbox1",	con = "ShieldMonster",	name="屏蔽普通怪物"},
+		{ checkbox = "cbox2",	con = "ShieldPet",		name="屏蔽战神和道士宝宝"},
+		{ checkbox = "cbox3",	con = "ShieldWing",		name="屏蔽翅膀"},
+		{ checkbox = "cbox4",	con = "ShieldGuild",	name="屏蔽本公会玩家"},
+		{ checkbox = "cbox5",	con = "ShieldAllPlayer",name="屏蔽所有玩家"},
+		{ checkbox = "cbox6",	con = "ShieldTitle",	name="屏蔽称号"},
+		{ checkbox = "cbox7",	con = "ShieldShadow",	name="屏蔽影子"},
+		{ checkbox = "cbox8",	con = "ShieldRedWaring",name="屏蔽全屏闪红"},
+		{ checkbox = "cbox9",	con = "SwitchMusic",	name="屏蔽背景音乐"},
+		{ checkbox = "cbox10",	con = "SwitchEffect",	name="屏蔽背景音效"},
+		{ checkbox = "cbox11",	con = "ShieldAddFriend",name="拒绝他人加我好友"},--
+		{ checkbox = "cbox12",	con = "CloseTrade",		name="拒绝他人向我发起交易"},
+		{ checkbox = "cbox13",	con = "SaveEnergy",		name="开启节能模式"},
+		{ checkbox = "cbox14",	con = "OpenRocker",		name="开启摇杆"},
+		{ checkbox = "cbox15",	con = "ShieldBOSS",		name="屏蔽BOSS精简"},
+		{ checkbox = "cbox16",	con = "ShieldHair",		name="屏蔽斗笠"},
+	},
+}
+
+local percentKey ={
+	["modelbox1"] = {con = "SmartEatHPPercent",	},
+	["modelbox2"] = {con = "SmartLowHPPercent",	},
+	-- ["modelbox3"] = {con = "AutoPickEquipLevel",},
+	-- ["modelbox4"] = {con = "SmartEatMPPercent",	},
+}
+
+local transStone = {
+	["回城石"] = 32010002,
+	["随机传送石"] = 32010003,
+}
+
+function PanelSetting.initView()
+	var = {
+		xmlPanel,
+		pageinit = {},
+		hpSlider = nil,		--智能吃药
+		useSlider = nil,	--使用
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelSetting.uif")
+	if var.xmlPanel then
+		local page1 = var.xmlPanel:getWidgetByName("page1")
+		local page2 = var.xmlPanel:getWidgetByName("page2")
+		local function pushBtnGuide(sender)
+			local tag = sender:getTag()
+			page1:setVisible(tag == 1)
+			page2:setVisible(tag == 2)
+			PanelSetting.refreshPage(tag)
+			var.pageinit[tag] = true;
+		end
+		-- var.xmlPanel:getWidgetByName("pagebg1"):loadTexture("needload/img_setting_1.jpg",ccui.TextureResType.localType)
+		-- var.xmlPanel:getWidgetByName("pagebg2"):loadTexture("needload/img_setting_2.jpg",ccui.TextureResType.localType)
+
+		-- 加载背景
+		local imgBg = var.xmlPanel:getChildByName("bg")
+		asyncload_callback("needload/bg_max2.png", imgBg, function (filepath, texture)
+			if utilapp.isObjectExist(imgBg) then
+				imgBg:loadTexture(filepath)
+			end
+		end)
+
+		util.asyncload(var.xmlPanel, "bg2", "needload/setting2.jpg")
+
+		var.xmlPanel:getWidgetByName("page_tab"):addTabEventListener(pushBtnGuide)
+		local function pushSysBtn(sender)
+			local btn_name = sender:getName()
+			if btn_name == sysBtnName[1] then
+				game.ExitToReSelect()
+			elseif btn_name == sysBtnName[2] then
+				game.ExitToRelogin()
+			elseif btn_name == sysBtnName[3] then
+				game.ShowExit()
+			elseif btn_name == sysBtnName[4] then
+				NetClient:dispatchEvent({name = Notify.EVENT_SHOW_TIPS, str = "tips_wpgl"})
+			end
+		end
+		for i,v in ipairs(sysBtnName) do
+			var.xmlPanel:getWidgetByName(v):addClickEventListener(pushSysBtn)
+			local btn_change_role = var.xmlPanel:getWidgetByName(v)
+			--UILuaLoader.attachEffect(btn_change_role,"outline(076900,1)")
+		end
+
+		local percentValue = {}
+		for k,v in pairs(percentKey) do
+			local con = UserConfig.getConf(v.con)
+			if not con then
+				con = 60
+			end
+			percentValue[k] = con
+			local box = page1:getWidgetByName(k)
+			print(k)
+			if box then
+				box:getChildByName("lbl_percent"):setString(con.."%")
+			end
+		end
+		
+		
+
+		var.hpSlider = ccui.Slider:create("bar_bg", "point_orange", ccui.TextureResType.plistType)
+			:loadProgressBarTexture("bar_green", ccui.TextureResType.plistType)
+			:setName("hpSlider"):addTo(page1)
+			:setMaxPercent(100)
+			:pos(515, 223)
+			:setPercent(percentValue["modelbox1"])
+			:setScale9Enabled(true)
+			:setCapInsets(cc.rect(4,4,2,2))
+			:setCapInsetProgressBarRebderer(cc.rect(1,1,1,1))
+			:setContentSize(cc.size(300, 20))
+			:addEventListener(function (sender, eventType)
+				local curNum = sender:getPercent()
+				page1:getWidgetByName("modelbox1"):getChildByName("lbl_percent"):setString(curNum.."%")
+				UserConfig.setConf(percentKey["modelbox1"].con, curNum)
+			end)
+
+		var.useSlider = ccui.Slider:create("bar_bg", "point_orange", ccui.TextureResType.plistType)
+			:loadProgressBarTexture("bar_green", ccui.TextureResType.plistType)
+			:setName("useSlider"):addTo(page1)
+			:setMaxPercent(100)
+			:pos(515, 170)
+			:setPercent(percentValue["modelbox2"])
+			:setScale9Enabled(true)
+			:setCapInsets(cc.rect(4,4,2,2))
+			:setCapInsetProgressBarRebderer(cc.rect(1,1,1,1))
+			:setContentSize(cc.size(300, 20))
+			:addEventListener(function (sender, eventType)
+				local curNum = sender:getPercent()
+				page1:getWidgetByName("modelbox2"):getChildByName("lbl_percent"):setString(curNum.."%")
+				UserConfig.setConf(percentKey["modelbox2"].con, curNum)
+			end)
+
+		if PLATFORM_BANSHU then
+			var.xmlPanel:getWidgetByName("page_tab"):hideTab(2)
+		end
+		var.xmlPanel:getWidgetByName("page_tab"):setTabRes("tab2_nor","tab2_sel",ccui.TextureResType.plistType)
+		return var.xmlPanel
+	end
+end
+
+function PanelSetting.onPanelOpen()
+	var.pageinit = {};
+	var.xmlPanel:getWidgetByName("page_tab"):setSelectedTab(1)
+
+	-- 角色信息 暂时屏蔽
+	-- var.xmlPanel:getWidgetByName("lbl_name"):setString(MainRole._mainAvatar:NetAttr(Const.net_name))
+	local job = MainRole._mainAvatar:NetAttr(Const.net_job)
+	local gender = MainRole._mainAvatar:NetAttr(Const.net_gender)
+	-- var.xmlPanel:getWidgetByName("lbl_job"):setString(Const.job_name[job])
+	-- var.xmlPanel:getWidgetByName("lbl_lv"):setString(MainRole._mainAvatar:NetAttr(Const.net_level).."级")
+
+	local id = (job-100) * 2 + gender - 199
+	local head_key ={"head_mzs","head_fzs","head_mfs","head_ffs","head_mds","head_fds"}
+	var.xmlPanel:getWidgetByName("img_head"):loadTexture(head_key[id], ccui.TextureResType.plistType):setScale(1.2);
+
+	local data = {"回城石"}
+	PanelSetting.initMultiSelectBtn(data,table.keyof(transStone,UserConfig.getConf("SmartLowHPItem")))
+end
+
+function PanelSetting.refreshPage(curIndex)
+	local btns = pages[curIndex]
+	local b = nil
+	local click = function( sender )
+		UserConfig.setConf(sender.con,sender:isSelected())
+	end
+	for k,v in pairs(btns) do
+		b =	var.xmlPanel:getWidgetByName(v.checkbox)
+		b:setSelected(UserConfig.getConf(v.con))
+		b.con = v.con
+		b:addClickEventListener(click)
+	end
+end
+
+function PanelSetting.initMultiSelectBtn(data,selected)
+	local modelmultichoose = var.xmlPanel:getWidgetByName("modelmultichoose")
+	local btn_arrow_down = var.xmlPanel:getWidgetByName("btn_arrow_down")
+	local choosebtns = {}
+	local function clickArrow(sender)
+		if not sender.show then
+			sender.show = true
+			for i,v in ipairs(choosebtns) do
+				v:runAction(cca.seq({
+					cca.show(),
+					cca.place(74.5, 13 - (i-1)*32),
+				}))
+			end
+		else
+			sender.show = false
+			for i,v in ipairs(choosebtns) do
+				v:runAction(cca.seq({
+					cca.place(74.5, 13),
+					cca.cb(function(target) target:setVisible(target.tag ==1) end)
+				}))
+			end
+		end
+	end
+	-- local selected = data[1]
+	local function clickItem(sender)
+		clickArrow(btn_arrow_down)
+		if sender.tag>1 then
+			selected = sender:getTitleText()
+			choosebtns[sender.tag]:setTitleText(choosebtns[1]:getTitleText())
+			choosebtns[1]:setTitleText(selected)
+			if transStone[selected] then
+				UserConfig.setConf("SmartLowHPItem", transStone[selected])
+			end
+		end
+	end
+	for i=1,#data do
+		local btn = modelmultichoose:getWidgetByName("choose"..i)
+		if btn then
+			btn:setTitleText(data[i])
+			table.insert(choosebtns,btn)
+			btn.tag = i
+			btn:setPosition(cc.p(71,13)):setVisible(i==1)
+			btn:addClickEventListener(clickItem)
+			if data[i] == selected then
+				clickItem(btn)
+			end
+		end
+	end
+	btn_arrow_down.show = false
+	btn_arrow_down:addClickEventListener(clickArrow)
+end
+
+function PanelSetting.initCheckBtn(btn, btnName)
+	local function pushCheckBtn(sender)
+		sender.enabled = not sender.enabled
+		UserConfig.setConf(btnName,sender.enabled)
+	end
+	btn.enabled = UserConfig.getConf(btnName)
+	btn:addClickEventListener(pushCheckBtn)
+end
+
+function PanelSetting.initPercentBox( widget,bindName )
+	-- local btn_descrase = widget:getWidgetByName("btn_descrase")
+	-- local lbl_percent = widget:getWidgetByName("lbl_percent")
+	-- local btn_add = widget:getWidgetByName("btn_add")
+	local formatStr = "%d%%"
+	if percentKey[bindName] then
+		widget.percent = UserConfig.getConf(percentKey[bindName].con)
+		if not widget.percent then
+			widget.percent = 60;
+			UserConfig.setConf(percentKey[bindName].con, widget.percent)
+		end
+	end
+	local setString = function()
+		local str = ""
+		if percentKey[bindName].con == "AutoPickEquipLevel" then
+			widget.percent = util.bound(10,widget.percent,180)
+			if widget.percent >= 100 then
+				formatStr = "%d转";str = (widget.percent)/10;
+			else
+				formatStr = "%d级";str=widget.percent;
+			end
+		else
+			widget.percent = util.bound(10,widget.percent,90)
+			str = widget.percent
+		end
+		--lbl_percent:setString(string.format(formatStr,str))
+	end
+	local function click(sender)
+		if sender:getName() == "btn_descrase" then
+			widget.percent = widget.percent -10
+		else
+			widget.percent = widget.percent +10
+		end
+		setString()
+		if percentKey[bindName] then
+			UserConfig.setConf(percentKey[bindName].con, widget.percent)
+		end
+	end
+	setString()
+	--btn_descrase:addClickEventListener(click)
+	--btn_add:addClickEventListener(click)
+end
+
+function PanelSetting.onPanelClose()
+	-- for m,n in pairs(pages) do
+	-- 	if var.pageinit[m] then
+	-- 		for k,v in pairs(n) do
+	-- 			UserConfig.getConf(v.con,var.xmlPanel:getWidgetByName(v.checkbox):isSelected())
+	-- 		end
+	-- 	end
+	-- end
+	UserConfig.save()
+end
+
+return PanelSetting

@@ -1,0 +1,17 @@
+LUA_RET={
+{n="PanelRewardHall_fifteenLogin",v=true,type=0,id=1,parent=0,w=835.0000,h=510.0000,},
+{n="box_daily",tag=151,ss=true,sx=15,sw=672,sh=50,sy=50,v=true,type=1,id=2,parent=1,w=835.0000,h=164.0000,ax=0.5000,ay=0.5000,x=418.7529,y=427.5872,color="255|255|255",res="img_ditu_leiji",},
+{n="lbl_daily_title",tag=295,fs=22,text="累计登入天数：",vt=1,v=true,type=3,id=3,parent=1,w=150.0000,h=22.0000,ay=0.5000,x=312.1458,y=367.4058,color="255|165|0",fr="DFYuan.ttf",},
+{n="lbl_daily_num",tag=296,fs=22,text="",v=true,type=3,id=4,parent=1,ax=0.5000,ay=0.5000,x=478.8179,y=365.2529,color="223|189|0",},
+{n="lbl_daily_title_end",tag=297,fs=22,text="天",vt=1,v=true,type=3,id=5,parent=1,w=24.0000,h=26.0000,ay=0.5000,x=499.0535,y=367.4058,color="255|165|0",fr="DFYuan.ttf",},
+{n="list_daily",ud="1|1|0|2",tag=194,t=true,c=false,d=1,v=true,type=9,id=6,parent=1,w=823.0000,h=345.0000,color="255|255|255",},
+{n="render",tag=195,t=true,c=false,sx=268,sw=268,sh=36,sy=36,v=true,type=0,id=7,parent=6,w=823.0000,h=110.0000,y=235.0000,color="255|255|255",res="img_cell_bg",},
+{n="lbl_daily_title_cell",tag=196,fs=22,text="第一天",ht=1,vt=1,v=true,type=3,id=8,parent=7,w=140.0000,h=30.0000,ax=0.5000,ay=0.5000,x=85.0000,y=57.0000,color="253|223|174",},
+{n="btn_daily_receive",ud="outline(0e0600,1);zoomscale(-0.12)",tag=198,t=true,fs=20,text="领取奖励",sx=33,sw=33,sh=12,sy=11,v=true,type=2,id=9,parent=7,w=85.0000,h=33.0000,ax=0.5000,ay=0.5000,x=657.0013,y=55.0002,color="255|255|255",tcolor="253|223|174",res="btn_red_normal",},
+{n="lbl_get_state",tag=204,fs=20,text="",ht=1,vt=1,v=true,type=3,id=10,parent=7,ax=0.5000,ay=0.5000,x=655.6899,y=55.3446,color="255|255|255",},
+{n="model_item_box_1",tag=199,v=true,type=1,id=11,parent=7,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=204.0014,y=54.0000,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_2",tag=200,v=true,type=1,id=12,parent=7,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=280.0013,y=54.0001,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_3",tag=201,v=true,type=1,id=13,parent=7,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=357.0016,y=54.0001,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_4",tag=202,v=true,type=1,id=14,parent=7,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=433.0011,y=54.0001,color="255|255|255",res="img_cell_max",},
+{n="model_item_box_5",tag=203,v=true,type=1,id=15,parent=7,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=510.0013,y=54.0001,color="255|255|255",res="img_cell_max",},
+}

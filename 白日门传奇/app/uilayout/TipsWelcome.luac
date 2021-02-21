@@ -1,0 +1,7 @@
+LUA_RET={
+{n="TipsWelcome",v=true,type=0,id=1,parent=0,w=1136.0000,h=640.0000,},
+{n="box_start_game",t=true,c=false,v=true,type=0,id=2,parent=1,w=832.0000,h=512.0000,ax=0.5000,ay=0.5000,x=568.0000,y=320.0000,color="255|255|255",},
+{n="img_start_game",tag=1,sx=299,sw=299,sh=175,sy=175,v=true,type=1,id=3,parent=2,w=909.0000,h=532.0000,x=-20.2177,y=-22.4648,color="255|255|255",res="c9e01ffa_139765",},
+{n="btn_start_game",tag=4,t=true,fs=22,sx=36,sw=36,sh=14,sy=14,v=true,type=2,id=4,parent=2,w=199.0000,h=72.0000,ax=0.5000,ay=0.5000,x=560.0261,y=82.6212,color="255|255|255",tcolor="234|221|191",res="btn_start_game",},
+{n="node_effect",tag=488,v=true,type=1,id=5,parent=2,w=46.0000,h=46.0000,ax=0.5000,ay=0.5000,x=130.0000,y=259.2224,color="255|255|255",},
+}

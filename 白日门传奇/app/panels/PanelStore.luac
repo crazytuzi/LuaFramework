@@ -1,0 +1,289 @@
+local PanelStore = {}
+local var = {}
+local res = {"coin","coin_bind","vcoin","vcoin_bind"}
+
+function PanelStore.initView(extend)
+	var = {
+		xmlPanel,
+		defaultTab = 1,
+		curTabIndex = 0,
+		tabName = {
+			"tab_1","tab_2","tab_3","tab_4"
+		},
+		curItemData = {}
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelStore.uif")
+	if var.xmlPanel then
+		var.xmlPanel:getWidgetByName("store_bg"):loadTexture("needload/panel_lottery_bg.png")
+		var.xmlPanel:getWidgetByName("store_kuang"):loadTexture("needload/img_store_kuang.png")
+		var.listShop = var.xmlPanel:getChildByName("listShop")
+		for i,v in ipairs(var.tabName) do
+			UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName(var.tabName[i]),function ( sender )
+				PanelStore.selectTabIndex( i )
+			end)
+		end
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelStore.handlePanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelStore.updateGameMoney)
+		PanelStore.updateGameMoney()
+		UIRedPoint.addUIPoint(var.xmlPanel:getWidgetByName("btn_charge"),function ( sender )
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "panel_charge"})
+		end)
+		return var.xmlPanel
+	end
+end
+
+function PanelStore.onPanelOpen(extend)
+	PanelStore.selectTabIndex( var.defaultTab )
+end
+function PanelStore.selectTabIndex( index )
+	if var.curTabIndex == index then return end
+	var.curTabIndex = index
+	for i,v in ipairs(var.tabName) do
+		if i == var.curTabIndex then
+			var.xmlPanel:getWidgetByName(var.tabName[i]):setBrightStyle(1)
+			var.xmlPanel:getWidgetByName(var.tabName[i]):getChildByName("txtName"):setColor(game.getColor(0xfddfae))
+		else
+			var.xmlPanel:getWidgetByName(var.tabName[i]):getChildByName("txtName"):setColor(game.getColor(0xc3ad88))
+			var.xmlPanel:getWidgetByName(var.tabName[i]):setBrightStyle(0)
+		end
+	end
+	NetClient:PushLuaTable("gui.PanelStore.onPanelData", util.encode({actionid = "fresh",tab = var.curTabIndex}))
+end
+function PanelStore.handlePanelData(event)
+	if event.type ~= "PanelStore" then return end
+	local result = util.decode(event.data)
+	if result.cmd == "fresh" then
+		PanelStore.freshPanel( result )
+	end
+end
+function PanelStore.freshPanel(result)
+	local data = result.storeData
+	table.sort(data,function(a,b)
+		return a.position < b.position
+	end)
+	var.curItemData = data
+	var.listShop:reloadData(#data, PanelStore.updateListShop,nil,false)
+end
+function PanelStore.updateListShop( subItem )
+	local d = var.curItemData[subItem.tag]
+	if d then
+		subItem:getWidgetByName("lblname"):setString(d.name):enableOutline(cc.c4b(0, 0, 0, 255),1)
+		subItem:getWidgetByName("lblcoin"):setString(d.money)
+		
+		subItem:getWidgetByName("coin"):loadTexture(res[d.MoneyKind-99],ccui.TextureResType.plistType)
+		subItem:getWidgetByName("coin"):setScale(0.95)
+		UIItem.getItem({
+			parent = subItem:getWidgetByName("icon"),
+			typeId = d.itemBaseId,
+			num = d.itemNum,
+			bind = 2-d.bind,
+		})
+		local btn_buy = subItem:getWidgetByName("btn_buy"):setTitleColor(game.getColor(0xffe08b))
+		btn_buy:getTitleRenderer():enableOutline(game.getColor4(0x000000), 1)
+		btn_buy.data = d
+		btn_buy:addClickEventListener(PanelStore.clickBuy)
+	end
+end
+--金币刷新函数
+function PanelStore.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="lblVcoin",	value =	mainrole.mVCoin or 0	,	},
+			{name="lblBVcoin",	value =	mainrole.mVCoinBind or 0,	},
+			{name="lblMoney",	value =	mainrole.mGameMoney or 0,	},
+			{name="lblBMoney",	value =	mainrole.mGameMoneyBind or 0,},
+		}
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		end
+	end
+end
+
+
+local MoneyKind = {
+	[100] = {name = "金币",		 value = "mGameMoney" },
+	[101] = {name = "绑定金币",	 value = "mGameMoneyBind" },
+	[102] = {name = "钻石",		 value = "mVCoin" },
+	[103] = {name = "元宝",		 value = "mVCoinBind" },
+}
+
+--初始化使用tips
+local function showBuyTips(data, maxNumber, callback)
+	local typeId = data.itemBaseId
+	local propTips = UILuaLoader.load("uilayout/PropsUseTips.uif")
+					 :align(display.CENTER, display.cx, display.cy)
+	local itemdef  = NetClient:getItemDefByID(typeId)
+
+	if propTips then
+		util.asyncload(propTips, "img_bg", "needload/img_kuan_bg.png")
+		propTips:getChildByName("labName"):setString(itemdef.mName)
+										  :setColor(game.getItemColor(itemdef.mItemBg))
+		
+		local path = "picicon/iconbg"..itemdef.mItemBg..".png"
+		propTips:getWidgetByName("itembg"):loadTexture(path)
+
+		path = "picicon/"..itemdef.mIconID..".png"
+		propTips:getWidgetByName("itemIcon"):loadTexture(path)
+
+		propTips:getChildByName("costLayout"):show()
+
+		local itemNum = NetClient:getTypeItemNum(typeId) or 0
+		propTips:getChildByName("labNum"):setString(itemNum)
+
+		--propTips:getWidgetByName("img_title"):loadTexture("f_jiaoyi", ccui.TextureResType.plistType)
+		local img_cost = propTips:getWidgetByName("img_cost")
+		img_cost:loadTexture(res[data.MoneyKind - 100 + 1], ccui.TextureResType.plistType)
+		local lbl_cost = propTips:getWidgetByName("lbl_cost")
+
+		local curNum = 1
+		local maxNum = maxNumber and maxNumber or 1
+
+		local useSlider = propTips:getWidgetByName("useSlider")
+		local numEditBox = propTips:getWidgetByName("editNumBox")
+		lbl_cost:setString(tostring(curNum * data.money))
+		local function onEdit(event, editBox)
+			if event == "began" then
+			elseif event == "changed" then
+			elseif event == "ended" then
+			elseif event == "return" then
+				local msg = tonumber(editBox:getText())
+				if msg then
+					curNum = msg
+					editBox:setString(curNum)
+					lbl_cost:setString(tostring(curNum * data.money))
+				else
+					NetClient:alertLocalMsg("非法字符请重新输入！")
+				end
+			end
+		end
+
+		if not numEditBox then
+			local parent = propTips:getWidgetByName("editNum")
+			numEditBox = util.newEditBox({
+				image = "picicon/null.png",
+				size = parent:getContentSize(),
+				listener = onEdit,
+				x = 0,
+				y = 0,
+				placeHolderColor = game.getColor(0x827b6e),
+				placeHolderSize = 22,
+				anchor = cc.p(0,0),
+				fontSize = 22,
+				placeHolder = Const.str_input,
+				inputMode = cc.EDITBOX_INPUT_MODE_NUMERIC,
+			}):setString(curNum):addTo(parent)
+		end
+
+		if not useSlider then
+			-- useSlider = ccui.Slider:create("common_progressbg", "common_slider", ccui.TextureResType.plistType)
+			-- 	:loadProgressBarTexture("common_progress", ccui.TextureResType.plistType)
+			-- 	:setName("useSlider"):addTo(propTips:getWidgetByName("SliderPanel"))
+			-- 	:setMaxPercent(maxNumber)
+			-- 	:pos(153, 30)
+			-- 	:setPercent(curNum)
+
+			-- useSlider:addEventListener(function (sender, eventType) 
+			-- 	curNum = sender:getPercent()
+			-- 	numEditBox:setString(curNum)
+			-- 	
+			-- end)
+
+			useSlider = true    --暂时去掉滑动条
+
+			-- +
+			propTips:getWidgetByName("reduceBtn"):addClickEventListener(function (sender, eventType)
+				if curNum <= 0 then
+					return
+				end
+				curNum = curNum - 1
+				numEditBox:setString(tostring(curNum))
+				--useSlider:setPercent(curNum)
+				lbl_cost:setString(tostring(curNum * data.money))
+			end)
+
+			-- -
+			propTips:getWidgetByName("addBtn"):addClickEventListener(function (sender, eventType)
+				if curNum >= maxNum then
+					return
+				end
+				curNum = curNum + 1
+				numEditBox:setString(tostring(curNum))
+				--useSlider:setPercent(curNum)
+				lbl_cost:setString(tostring(curNum * data.money))
+			end)
+
+
+			propTips:getWidgetByName("maxBtn"):addClickEventListener(function (sender, eventType)
+				if curNum >= maxNum then
+					return
+				end
+				curNum = maxNum
+				numEditBox:setString(tostring(curNum))
+				lbl_cost:setString(tostring(curNum * data.money))
+			end)
+
+			propTips:getWidgetByName("btnConfrim"):addClickEventListener(function (sender, eventType) 
+				if callback then
+					callback(curNum)
+				end
+			end)
+
+			propTips:getWidgetByName("btnCancel"):addClickEventListener(function (sender, eventType)
+				propTips:removeFromParent()
+			end)
+
+			propTips:setName("buyTips")
+		end
+	end
+
+	return propTips
+end
+
+function PanelStore.clickBuy(sender)
+	local data = sender.data
+	if data.MoneyKind ~=101 and NetClient.mCharacter[MoneyKind[data.MoneyKind].value]  < data.money or 
+		data.MoneyKind == 101 and NetClient.mCharacter["mGameMoney"] + NetClient.mCharacter["mGameMoneyBind"] < data.money
+	 then
+		if data.MoneyKind == 102 then
+			NetClient:PushLuaTable("server.showChongzhi","check")
+		else
+			NetClient:alertLocalMsg(MoneyKind[data.MoneyKind].name.."不足", "alert")
+		end
+	else
+		--购买
+		local maxNumber = 1
+		if data.MoneyKind == 101 then
+			maxNumber = NetClient.mCharacter["mGameMoneyBind"] / data.money
+		elseif data.MoneyKind == 102 then
+			maxNumber = NetClient.mCharacter["mVCoin"] / data.money
+		elseif data.MoneyKind == 103 then
+			maxNumber = NetClient.mCharacter["mVCoinBind"] / data.money
+		end
+
+		maxNumber = 99
+		showBuyTips(data, maxNumber, function (curNumber)
+			local param = {
+				name = Notify.EVENT_SHOW_TIPS, str = "confirm",
+				lblConfirm = string.format("你确定要花费%d%s购买%s？",data.money * curNumber, MoneyKind[data.MoneyKind].name,data.name), 
+				btnConfirm = "确定", btnCancel = "取消",
+				confirmCallBack = function ()
+					NetClient:PushLuaTable("gui.PanelStore.onPanelData", util.encode({actionid = "buy",id = data.id,tab = var.curTabIndex, buyNum = curNumber}))
+				end,
+				checkBox = "storeNotShowAgain"
+			}
+			NetClient:dispatchEvent(param)
+			var.xmlPanel:getChildByName("buyTips"):removeFromParent()
+		end):addTo(var.xmlPanel)
+	end
+end
+
+function PanelStore.onPanelClose()
+	-- if util.isObjectExist(var.tabList) then
+	-- 	var.tabList:setSelectedTab(var.defaultTab)
+	-- end
+end
+
+return PanelStore

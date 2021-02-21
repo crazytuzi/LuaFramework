@@ -1,0 +1,105 @@
+local TipsQuickBuy = {}
+
+local buyButtons = {
+	"btn_buy_dec", "btn_buy_inc", "btn_buy_max", "btn_commit", "btn_cancel"
+}
+
+
+function TipsQuickBuy:initView(extend)
+	self.buyItem = nil -- 购买物品id
+	self.itemPrice = 0
+	self.buyNum = 1
+	self.totalCost = 0
+	self.commitCallFunc = nil
+
+	local function updateItemNumAndCost()
+		self.xmlTips:getWidgetByName("lbl_buy_num"):setString(self.buyNum)
+		self.xmlTips:getWidgetByName("lbl_price_total"):setString(self.buyNum * self.itemPrice)
+	end
+
+	local function decBuyItemNum()
+		if self.buyNum > 1 then
+			self.buyNum = self.buyNum - 1
+			updateItemNumAndCost()
+		end
+	end
+
+	local function incBuyItemNum()
+		if (self.buyNum + 1) * self.itemPrice <= NetClient.mCharacter.mVCoin then
+			self.buyNum = self.buyNum + 1
+			updateItemNumAndCost()
+		end
+	end
+
+	local function pushBuyButton(sender)
+		local btnName = sender:getName()
+		if btnName == "btn_buy_dec" then
+			decBuyItemNum()
+		elseif btnName == "btn_buy_inc" then
+			incBuyItemNum()
+		elseif btnName == "btn_buy_max" then
+			self.buyNum = math.floor(NetClient.mCharacter.mVCoin / self.itemPrice)
+			updateItemNumAndCost()
+		elseif btnName == "btn_commit" then
+			if self.commitCallFunc then
+				self.commitCallFunc(self.buyNum)
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = extend.str})
+		elseif btnName == "btn_cancel" then
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = extend.str})
+		end
+	end
+
+	local function initBuyButtons()
+		local btnBuy
+		for _,v in ipairs(buyButtons) do
+			btnBuy = self.xmlTips:getWidgetByName(v)
+			if btnBuy then
+				UIRedPoint.addUIPoint(btnBuy, pushBuyButton)
+			end
+		end
+	end
+
+	local function updateItemInfo()
+		if self.buyItem then
+			local itemDef = NetClient:getItemDefByID(self.buyItem)
+			if itemDef then
+				local lblItemName = self.xmlTips:getWidgetByName("lbl_item_name")
+				lblItemName:setString(itemDef.mName)
+				if not self.itemPrice then
+					self.itemPrice = itemDef.mPrice
+				end
+				local lblPriceNum = self.xmlTips:getWidgetByName("lbl_price_num")
+				lblPriceNum:setString(itemDef.mPrice)
+			end
+		end
+	end
+
+	if self.xmlTips then
+		--util.asyncload(self.xmlTips, "tips_bg", "needload/panel_prompt_bg.png")
+		--util.asyncload(self.xmlTips, "img_buy_innerbg", "needload/img_buy_innerBg.jpg")
+		initBuyButtons()
+		if extend.itemId then
+			self.buyItem = extend.itemId
+			local itemBg = self.xmlTips:getWidgetByName("item_bg")
+			UIItem.getItem({parent=itemBg, typeId=extend.itemId})
+			updateItemInfo()
+		end
+		if extend.itemPrice then
+			self.itemPrice = extend.itemPrice
+		end
+		if extend.commitCallFunc then
+			self.commitCallFunc = extend.commitCallFunc
+		end
+
+		updateItemNumAndCost()
+		
+		cc.EventProxy.new(NetClient,self.xmlTips)
+			:addEventListener(Notify.EVENT_NOTIFY_GETITEMDESP, function (event)
+				if self.buyItem == event.type_id then
+					updateItemInfo()
+				end
+			end)
+	end
+end
+return TipsQuickBuy

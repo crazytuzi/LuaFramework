@@ -1,0 +1,55 @@
+local PanelShaozhuAward = class("PanelShaozhuAward")
+
+local var = {}
+
+local rate = {
+	[1] = 1,
+	[2] = 2,
+	[3] = 3,
+	[4] = 5,
+	[5] = 8,
+	[6] = 10,
+	[7] = 15,
+	[8] = 30,
+	
+	}
+
+function PanelShaozhuAward.initView(event)
+	var = {
+		xmlPanel = nil,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelShaozhuAward.uif");
+	if var.xmlPanel then
+		if event.mParam ~= nil then
+			var.xmlPanel:getWidgetByName("lbl_pass_section"):setString(event.mParam.pass_title_str)
+			var.xmlPanel:getWidgetByName("lbl_exp_total"):setString(event.mParam.exp_str)
+			util.asyncload(var.xmlPanel, "bg", "needload/img_kuan_bg.png")
+
+			for i = 1, 8 do 
+				local btn = var.xmlPanel:getWidgetByName("btn_get"..i)
+				btn:setTag(i)
+				btn:addClickEventListener(PanelShaozhuAward.btnGetExpClick)	
+
+				local box = var.xmlPanel:getWidgetByName("box_award"..i)
+				local lbl_cost = var.xmlPanel:getWidgetByName("lbl_cost"..i)
+				local lbl_exp = var.xmlPanel:getWidgetByName("lbl_exp"..i)
+				local exp = event.mParam.exp * rate[i]
+				lbl_exp:setString(tostring(exp).."个")
+				-- lbl_cost:setString(event.mParam.needVcoin[i].."钻石")
+				local x = lbl_cost:getContentSize().width + 10
+				lbl_exp:setPositionX(x)
+				local w = x + lbl_exp:getContentSize().width
+				box:setContentSize(w, 10)
+				box:setPositionX(btn:getPositionX())
+			end	
+		end
+	end
+	
+	return var.xmlPanel
+end
+
+function PanelShaozhuAward.btnGetExpClick(sender)
+	NetClient:PushLuaTable("npc.task.n018.btnGetAward",util.encode({actionid = "getAward",params={id = sender:getTag()}}))
+end
+
+return PanelShaozhuAward

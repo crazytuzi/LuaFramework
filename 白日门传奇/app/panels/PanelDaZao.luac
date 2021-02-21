@@ -1,0 +1,520 @@
+--按键不对，最后从新调整
+local PanelDaZao={}
+local var = {}
+
+--锻造界面
+
+local despQiangHua ={
+	[1] = 	"<font color=#E7BA52 size=18>创世神装说明：</font>",
+	[2] =	"<font color=#f1e8d0>1、消耗同部位的创世神装部件和主装备即可打造创世神装</font>",
+	[3] =	"<font color=#f1e8d0>2、创世神装具有特殊属性和强力技能</font>",
+	[4] =	"<font color=#f1e8d0>3、打造后的创世神装可进行拆分，无损获得源材料，拆分后的创世神装属性加成与技能全部消失</font>",
+	[5] =	"<font color=#f1e8d0>4、拆分后重新获得的创世神装部件依然可用于其他创世神装的打造</font>",
+	[6] =	"<font color=#f1e8d0>4、创世神装部件可在运营活动中获得</font>",
+}
+
+local despJiCheng ={
+	[1] = 	"<font color=#E7BA52 size=18>拆分说明：</font>",
+	[2] =	"<font color=#f1e8d0>1、目标装备必须是打造过的创世装备</font>",
+	[3] =	"<font color=#f1e8d0>2、拆分装备可返还对应的创世道具材料</font>",
+}
+
+--获取身上可以签名的装备
+local roleEquipPos = {
+	{pos = Const.ITEM_WEAPON_POSITION,	etype = Const.EQUIP_TAG.WEAPON},
+	{pos = Const.ITEM_CLOTH_POSITION,	etype = Const.EQUIP_TAG.CLOTH},
+	{pos = Const.ITEM_GLOVE1_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING1_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BOOT_POSITION,	etype = Const.EQUIP_TAG.BOOT},
+
+	{pos = Const.ITEM_HAT_POSITION,		etype = Const.EQUIP_TAG.HAT},
+	{pos = Const.ITEM_NICKLACE_POSITION,etype = Const.EQUIP_TAG.NECKLACE},
+	{pos = Const.ITEM_GLOVE2_POSITION,	etype = Const.EQUIP_TAG.GLOVE},
+	{pos = Const.ITEM_RING2_POSITION,	etype = Const.EQUIP_TAG.RING},
+	{pos = Const.ITEM_BELT_POSITION,	etype = Const.EQUIP_TAG.BELT}
+}
+
+function PanelDaZao.initView()
+	var = {
+		xmlPanel,
+		xmlDZ=nil,
+		xmlCF=nil,
+		bagEquips,
+		roleEquips,
+		curEquips,
+		curDzPos= -9999,	--当前盛世装备的pos
+		curDzPos2 = -9999,	--当前盛世附带装备
+		curTab=nil,--记录当前选中的页签
+
+		oldPos=nil,--继承原始装备pos
+		oldTypeid=nil,
+		newPos=nil,--继承装备pos
+		newTypeid=nil,
+		shopData=nil,
+		tablistv,
+		tablisth,
+		curEquipName="",
+		qhLevel=0,--当前放入的有强化等级装备的强化等级
+		fireworks=nil,
+		curEquipType=nil,--记录当前选中的是背包装备还是身上装备
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelDaZao.uif");
+
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelDaZao.handlePanelData)
+		PanelDaZao.updateGameMoney()
+		PanelDaZao.initTabs()
+		PanelDaZao.initEquipList("roleEquips")
+		util.asyncload(var.xmlPanel, "panel_bg", "needload/bg_max2.png")
+
+		var.xmlPanel:getWidgetByName("btn_shengshi"):setBrightStyle(1)
+	end
+	return var.xmlPanel
+end
+
+function PanelDaZao.handlePanelData(event)
+	if event.type ~= "PanelDaZao" then return end
+	local data = util.decode(event.data)
+	if data.cmd =="updateShengshi" then
+		-- NetClient:alertLocalMsg("当前装备已经打造过，无法继续打造！")
+		PanelDaZao.updateShengshi(data)
+	elseif data.cmd=="chaifenSucess" then
+	-- NetClient:alertLocalMsg("当前装备已经打造过，无法继续打造！")
+		PanelDaZao.setYuanEquip(nil)
+			
+		local fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(380, 380)
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,50021,4)
+		fireworks:runAction(cca.seq({
+			cca.rep(animate, 1),
+			cca.cb(function ()
+				
+			end),
+			cca.removeSelf()
+		}))
+	elseif data.cmd=="senderShopData" then	
+		var.shopData={}
+		var.shopData = data.data
+		PanelDaZao.initShop()
+	elseif data.cmd=="dazaoSucess" then
+		PanelDaZao.successAnimate(60050)
+		var.xmlDZ:getWidgetByName("labNeedMoney"):setString(0)
+	end
+end
+
+function PanelDaZao.onPanelOpen()
+	PanelDaZao.getRoleEquips()
+end
+
+function PanelDaZao.onPanelClose()
+	
+end
+
+--金币刷新函数
+function PanelDaZao.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="lblVcoin",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	,	icon = "icon_coin"},
+		}
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			local curNum = tonumber(var.xmlPanel:getWidgetByName(v.name):getString()) or 0
+			var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		end
+	end
+end
+
+-----------------------------------------------------背包操作部分---------------------------------------------------
+--技能根据操作显示背包和身上的装备（强化装备锁定后只显示未强化装备；为强化装备选定后只显示强化装备，二者都选中显示全部，二者都没没选显示已强化的）
+function PanelDaZao.initJcEquipList()
+	var.oldPos=nil
+	var.newPos=nil	
+end
+
+--初始化背包装备或身上装备
+function PanelDaZao.initEquipList(type)
+	if type=="bagEquips" then
+		var.curEquips=PanelDaZao.getQiangHuaEquips()
+		var.curEquipType="bagEquips"
+	elseif type=="roleEquips" then
+		var.curEquips=PanelDaZao.getRoleEquips()
+		var.curEquipType="roleEquips"
+	end
+	local equipList = var.xmlPanel:getWidgetByName("equipList")
+	equipList:reloadData(Const.ITEM_BAG_SIZE,PanelDaZao.updateList):setSliderVisible(false)
+end
+
+--获取背包可以盛世的装备
+function PanelDaZao.getQiangHuaEquips()
+	local maxNum = Const.ITEM_BAG_SIZE+NetClient.mBagSlotAdd 
+	local result = {}
+	local lowPinJie = 30
+	local result = {}
+	for i=0,maxNum-1 do
+		local netItem = NetClient:getNetItem(i)
+		if netItem then
+			local itemDef = NetClient:getItemDefByID(netItem.mTypeID)
+			if game.isEquipMent(itemDef.SubType) then
+				local pinJie = tonumber(itemDef.mIconDesc)
+				if pinJie and pinJie > lowPinJie then
+					table.insert(result, netItem.position)
+				end
+			end
+		end
+	end
+	return result
+end
+
+function PanelDaZao.getRoleEquips()
+	local lowPinJie = 30
+	local result = {}
+	for i=1,#roleEquipPos do
+		local netItem = NetClient:getNetItem(roleEquipPos[i].pos)
+		if netItem then
+			local itemDef = NetClient:getItemDefByID(netItem.mTypeID)
+			if game.isEquipMent(itemDef.SubType) then
+				local pinJie = tonumber(itemDef.mIconDesc)
+				if pinJie and pinJie > lowPinJie then
+					table.insert(result, netItem.position)
+				end
+			end
+		end
+	end
+	return result
+end
+
+function PanelDaZao.updateList(item)
+	local itemPos=var.curEquips[item.tag] or -9999
+	local param = {
+		parent = item,
+		pos = itemPos,
+		iconType = Const.ICONTYPE.DEPOT,
+		-- tipsType = Const.TIPS_TYPE.BAG,
+		callBack = function ()
+			if var.curTab==1 then
+				PanelDaZao.changeShengShiEquip(itemPos)
+			elseif var.curTab==2 then
+				PanelDaZao.setYuanEquip(itemPos)
+			end
+		end,
+		doubleCall = function ()
+		
+		end,
+	}
+	UIItem.getItem(param)
+	if item.tag == 1 then
+		item:setName("item_upgrade")
+	else
+		item:setName("")
+	end
+end
+
+-------------------------------------------------------盛世部分-----------------------------------------------------
+--左侧强化装备显示
+function PanelDaZao.changeShengShiEquip(pos)
+	local netItem = NetClient:getNetItem(pos)
+	if not netItem then return end
+	-- if netItem.mShengshiId > 0 then 
+		-- NetClient:alertLocalMsg("当前装备已经打造过，无法继续打造！")
+		-- return 
+	-- end
+	local itemdef = NetClient:getItemDefByID(netItem.mTypeID)
+	-- print(util.encode(item_define))
+	-- print(netItem.mLevel)
+	if itemdef then 
+		-- var.xmlQH:getWidgetByName("labEquipName"):setString(itemdef.mName.." +"..netItem.mLevel)
+		var.curEquipName=itemdef.mName
+	end
+	local param = {
+		parent = var.xmlDZ:getWidgetByName("iconEquip"),
+		pos = pos,
+		iconType = Const.ICONTYPE.BAG,
+		tipsType = Const.TIPS_TYPE.BAG,
+		callBack = function ()
+
+		end,
+	}
+	UIItem.getItem(param)
+	if pos==-9999 then
+		-- local param={parent=var.xmlQH:getWidgetByName("iconClip"), typeId=nil}
+		-- UIItem.getItem(param)
+		var.xmlDZ:getWidgetByName("labNeedMoney"):setString(0):setColor(cc.c3b(247,186,52))
+	else
+		NetClient:PushLuaTable("gui.PanelDaZao.handlePanelData",util.encode({actionid = "curShengshiEquip",params={pos=pos}}))
+	end
+	var.curDzPos = pos
+end
+
+--打造成功特效
+function PanelDaZao.successAnimate(effectid)
+	if not var.fireworks then
+		var.fireworks = cc.Sprite:create():addTo(var.xmlDZ):pos(300, 450)
+	end
+	local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,effectid,4)
+	if animate then
+		var.fireworks:stopAllActions()
+		var.fireworks:runAction(cca.seq({
+			cca.rep(animate,1),
+			cca.removeSelf(),
+			cca.cb(function ()
+				var.fireworks=nil
+			end),
+		}))
+	end
+
+	local param={parent=var.xmlDZ:getWidgetByName("iconEquip"), typeId=nil}
+	UIItem.getItem(param)
+	local param={parent=var.xmlDZ:getWidgetByName("iconEquip2"), typeId=nil}
+	UIItem.getItem(param)
+	local param={parent=var.xmlDZ:getWidgetByName("targetEquip"), typeId=nil}
+	UIItem.getItem(param)
+
+	var.curDzPos = -9999
+	var.curDzPos2 = -9999
+end
+
+--盛世数据刷新
+function PanelDaZao.updateShengshi(data)
+	if not data or not var.xmlDZ then return end
+	if data.needVcion then
+		local moneyLabel = var.xmlDZ:getWidgetByName("labNeedMoney"):setString(NetClient.mCharacter.mVCoin.."/"..data.needVcion)
+		if NetClient.mCharacter.mVCoin > data.needVcion then
+			moneyLabel:setColor(cc.c3b(247,186,52))
+		else
+			moneyLabel:setColor(cc.c3b(255,0,0))
+		end
+	end
+
+	--从背包查找材料到
+	table.sort(data.dataTable, function(a, b)
+		return a.needTypeId > b.needTypeId
+	end)
+
+	local shengshiId = 0
+	for k, v in pairs(data.dataTable) do
+		local pos = NetClient:getNetItemById(v.needTypeId)
+		if pos then
+			local param = {
+				parent = var.xmlDZ:getWidgetByName("iconEquip2"),
+				pos = v.needTypeId,
+				iconType = Const.ICONTYPE.BAG,
+				tipsType = Const.TIPS_TYPE.BAG,
+				callBack = function ()
+				-- NetClient:alertLocalMsg("当前装备已经打造过，无法继续打造！")
+				end,
+			}
+			
+			UIItem.getItem(param)
+			shengshiId = tonumber(data.shengshiId)
+			var.curDzPos2 = pos
+			-- NetClient:alertLocalMsg("当前装备已经打造过，无法继续打造！")
+			-- break
+		end
+	end
+	-- var.xmlDZ:getWidgetByName("targetEquip"):loadTexture("picicon/"..data.chipTypeId..".png"):setScale(1)
+
+	-- 合成预览
+	-- if shengshiId == 0 then
+		local pos = NetClient:getNetItemById(data.chipTypeId)
+		local param = {
+			parent = var.xmlDZ:getWidgetByName("targetEquip"),
+			pos = pos,
+			iconType = Const.ICONTYPE.BAG,
+			tipsType = Const.TIPS_TYPE.BAG,
+			shengshiId = shengshiId,
+			callBack = function ()
+			end,
+		}
+		UIItem.getItem(param)
+	-- end
+end
+
+--切换页签时清空强化面板数据
+function PanelDaZao.clearDaZaoData()
+	var.curDzPos = -9999
+	var.curDzPos2 = -9999
+	var.xmlDZ:removeFromParent()
+	var.xmlDZ=nil
+end
+
+-----------------------------------------------------拆分部分---------------------------------------------------
+--设置原始装备
+function PanelDaZao.setYuanEquip(pos)
+	local netItem = NetClient:getNetItem(pos)
+	if netItem then
+		if netItem.mLevel > 0 then
+			local ssItem = NetClient:getSSEquipAttr(netItem.mTzluck)
+			local tIcon = 24091002
+			if ssItem then
+				tIcon = NetClient:getItemDefByID(ssItem.mNeedItemId).mIconID
+			end
+			--创世装备
+			local param = {
+				parent = var.xmlCF:getWidgetByName("targetEquip"),
+				pos      = pos,
+				tipsType = Const.TIPS_TYPE.UPGRADE,
+				enmuPos = 6,
+				customCallFunc = function()
+					PanelDaZao.setYuanEquip(nil)
+					PanelDaZao.initEquipList(var.curEquipType)
+				end,
+			}
+			UIItem.getItem(param)
+
+			--创世装备
+			local param = {
+				parent = var.xmlCF:getWidgetByName("iconEquip"),
+				pos      = pos,
+				iconType = Const.ICONTYPE.BAG,
+				tipsType = Const.TIPS_TYPE.BAG,
+				shengshiId = 1,
+			}
+			UIItem.getItem(param)
+			--材料
+			local param = {
+				parent = var.xmlCF:getWidgetByName("iconEquip2"),
+				typeId = tIcon or 24091002,
+				iconType = Const.ICONTYPE.BAG,
+				tipsType = Const.TIPS_TYPE.BAG,
+				shengshiId = 0,
+			}
+			UIItem.getItem(param)
+
+			var.oldPos=pos
+			var.oldTypeid=netItem.mTypeID
+		else
+			NetClient:alertLocalMsg("当前装备不是创世装备无法分解！", "alert")
+		end
+		PanelDaZao.initEquipList(var.curEquipType)
+	end
+	if not pos then
+		local param={parent=var.xmlCF:getWidgetByName("iconEquip"), typeId=nil}
+		UIItem.getItem(param)
+		local param={parent=var.xmlCF:getWidgetByName("iconEquip2"), typeId=nil}
+		UIItem.getItem(param)
+		local param={parent=var.xmlCF:getWidgetByName("targetEquip"), typeId=nil}
+		UIItem.getItem(param)
+		var.oldPos=nil
+		var.oldTypeid=nil
+		var.newPos=nil
+		var.newTypeid=nil
+	end
+end
+
+--切换页签清理继承慢板数据
+function PanelDaZao.clearChafenData()
+	var.oldPos=nil
+	var.newPos=nil
+	if var.xmlCF then
+		var.xmlCF:removeFromParent()
+		var.xmlCF=nil
+	end
+end
+
+----------------------------------------页签操作-----------------------------------------------
+function PanelDaZao.initTabs()
+	local function pressTabV(sender)
+		local name = sender:getName()
+		if name== "btn_shengshi" then
+			PanelDaZao.initXmlContent("shengshi")
+			var.curTab=1
+			PanelDaZao.clearChafenData()
+		elseif name=="btn_chaifen" then
+			PanelDaZao.initXmlContent("chaifen")
+			var.curTab=2
+			PanelDaZao.clearDaZaoData()
+		end
+		PanelDaZao.initEquipList(var.curEquipType)
+	end
+	local function pressTabH(sender)
+		local tag = sender:getTag()
+		if tag==1 then
+			PanelDaZao.initEquipList("roleEquips")
+		elseif tag==2 then
+			PanelDaZao.initEquipList("bagEquips")
+		end
+	end
+	var.tablistv = var.xmlPanel:getWidgetByName("tab_button")
+	var.tablistv:addTabEventListener(pressTabV)
+
+	PanelDaZao.initXmlContent("shengshi")
+	var.curTab = 1
+	PanelDaZao.clearChafenData()
+	
+	var.tablisth = var.xmlPanel:getWidgetByName("tablisth")
+	var.tablisth:addTabEventListener(pressTabH)
+	var.tablisth:setSelectedTab(1)
+	var.tablisth:setTabRes("tab_red","tab_red_sel")
+end
+
+--初始化页签模块
+function PanelDaZao.initXmlContent(type)
+	if var.xmlDZ then var.xmlDZ:hide() end
+	if var.xmlCF then var.xmlCF:hide() end
+
+	if type=="shengshi" then
+		if not var.xmlDZ then
+			var.xmlDZ = UILuaLoader.load("uilayout/PanelDaZao_Shengshi.uif")
+			if var.xmlDZ then
+				var.xmlDZ:addTo(var.xmlPanel:getWidgetByName("tabContent")):align(display.LEFT_BOTTOM, 0, 0):show()
+				var.xmlDZ:getWidgetByName("btnDZ"):addTouchEventListener(function(sender) 
+					if var.curDzPos == -9999 then
+						NetClient:alertLocalMsg("当前没有可打造的装备！")
+						return
+					elseif var.curDzPos2 == -9999 then
+						NetClient:alertLocalMsg("当前缺少可打造材料！")
+						return
+					end
+					NetClient:PushLuaTable("gui.PanelDaZao.handlePanelData",util.encode({actionid = "startShengshiEquip", params={pos=var.curDzPos,pos2=var.curDzPos2}}))
+				end)
+			end
+			util.asyncload(var.xmlDZ, "img_bg", "needload/img_shengshi.jpg")
+		else
+			var.xmlDZ:show()
+		end
+		var.xmlDZ:getWidgetByName("btn_dazaohelp"):setTouchEnabled(true)
+		PanelDaZao.initDesp(var.xmlDZ,"btn_dazaohelp",despQiangHua)
+	elseif type=="chaifen" then
+		if not var.xmlCF then
+			var.xmlCF = UILuaLoader.load("uilayout/PanelDaZao_Chaifen.uif")
+			if var.xmlCF then
+				var.xmlCF:addTo(var.xmlPanel:getWidgetByName("tabContent")):align(display.LEFT_BOTTOM, 0, 0):show()
+				var.xmlCF:getWidgetByName("btnCF"):addClickEventListener(function(sender)
+					if var.oldPos then
+						NetClient:PushLuaTable("gui.PanelDaZao.handlePanelData",util.encode({actionid = "startChaifenEquip",params={pos=var.oldPos}}))
+					end
+				end)
+			end
+			util.asyncload(var.xmlCF, "img_bg", "needload/img_chaifen.jpg")
+		else
+			var.xmlCF:show()
+		end
+
+		var.xmlCF:getWidgetByName("btn_chaifenhelp"):setTouchEnabled(true)
+		PanelDaZao.initDesp(var.xmlCF,"btn_chaifenhelp",despJiCheng)
+	end
+end
+
+function PanelDaZao.initDesp(xmlPanel,btnName,despTable)
+	local btnDesp=xmlPanel:getWidgetByName(btnName)
+	btnDesp:addTouchEventListener(function (pSender, touchType)
+		if touchType == ccui.TouchEventType.began then
+			PanelDaZao.duanZaoDesp(despTable)
+		elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+			LayerAlert.handleAlertClose()
+		end
+	end)
+end
+
+function PanelDaZao.duanZaoDesp(despTable)
+	local mParam = {
+	name = Notify.EVENT_PANEL_ON_ALERT,
+	panel = "tips", 
+	infoTable = despTable,
+	visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+end
+
+return PanelDaZao

@@ -1,0 +1,15 @@
+LUA_RET={
+{n="PanelCelebrationAct_chongzhi",v=true,type=0,id=1,parent=0,w=835.0000,h=507.0000,},
+{n="tabBg",tag=151,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=835.0000,h=507.0000,color="255|255|255",},
+{n="icon1",tag=406,v=true,type=1,id=3,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=313.3125,y=187.5362,color="255|255|255",res="img_cell_max",},
+{n="icon2",tag=407,v=true,type=1,id=4,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=388.3086,y=187.5362,color="255|255|255",res="img_cell_max",},
+{n="icon3",tag=408,v=true,type=1,id=5,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=464.3093,y=187.5362,color="255|255|255",res="img_cell_max",},
+{n="icon4",tag=409,v=true,type=1,id=6,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=540.3091,y=187.5362,color="255|255|255",res="img_cell_max",},
+{n="icon5",tag=410,v=true,type=1,id=7,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=616.3062,y=187.5362,color="255|255|255",res="img_cell_max",},
+{n="icon6",tag=411,v=true,type=1,id=8,parent=1,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=691.3046,y=187.5362,color="255|255|255",res="img_cell_max",},
+{n="btnChongZhi",ud="outline(3d0e00,1);zoomscale(-0.12)",tag=412,t=true,fs=22,sx=53,sw=53,sh=16,sy=16,v=true,type=2,id=9,parent=1,w=180.0000,h=53.0000,ax=0.5000,ay=0.5000,x=520.0000,y=95.0000,color="255|255|255",fr="DFYuan.ttf",tcolor="255|255|0",res="btn_chongzhi",},
+{n="btnLing",ud="outline(3d0e00,1);zoomscale(-0.12)",tag=306,t=true,fs=22,sx=53,sw=53,sh=16,sy=16,v=true,type=2,id=10,parent=1,w=180.0000,h=53.0000,ax=0.5000,ay=0.5000,x=520.0000,y=95.0000,color="255|255|255",fr="DFYuan.ttf",tcolor="255|255|0",res="btn_lingqu",},
+{n="imgYLQ",v=false,tag=75,type=1,id=11,parent=1,w=102.0000,h=36.0000,ax=0.5000,ay=0.5000,x=512.0000,y=92.8267,color="255|255|255",res="img_yilingqu",},
+{n="Text_18",tag=99,fs=18,text="剩余时间：",vt=1,v=true,type=3,id=12,parent=1,w=100.0000,h=20.0000,ax=0.5000,ay=0.5000,x=579.5511,y=473.6779,color="24|209|41",fr="DFYuan.ttf",},
+{n="labCount",tag=100,fs=18,text="00:00:00",vt=1,v=true,type=3,id=13,parent=1,w=180.0000,h=25.0000,ay=0.5000,x=618.5505,y=473.6779,color="24|209|41",fr="DFYuan.ttf",},
+}

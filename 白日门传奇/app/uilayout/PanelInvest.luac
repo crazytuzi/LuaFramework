@@ -1,0 +1,8 @@
+LUA_RET={
+{n="PanelInvest",v=true,type=0,id=1,parent=0,w=997.0000,h=576.0000,},
+{n="panel_bg",tag=381,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=997.0000,h=576.0000,y=3.0000,color="255|255|255",res="bg_max2",},
+{n="panel_close",tag=314,t=true,fs=14,sx=7,sw=7,sh=11,sy=11,v=true,type=2,id=3,parent=1,w=33.0000,h=32.0000,ax=0.5000,ay=0.5000,x=948.8449,y=548.0779,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="btn_close",},
+{n="box_tab",ud="tabv(钻石投资,官印投资,元宝投资)",tag=33,t=true,c=false,v=true,type=0,id=4,parent=1,w=100.0000,h=500.0000,x=871.0000,y=26.0375,color="255|255|255",},
+{n="tabBox",tag=43,v=true,type=1,id=5,parent=1,w=835.0000,h=510.0000,x=33.5000,y=10.2083,color="255|255|255",},
+{n="titleTxt",tag=260,sx=28,sw=28,sh=8,sy=8,v=true,type=1,id=6,parent=1,w=98.0000,h=29.0000,ax=0.5000,ay=0.5000,x=500.7234,y=548.9208,color="255|255|255",res="touzijihua",},
+}

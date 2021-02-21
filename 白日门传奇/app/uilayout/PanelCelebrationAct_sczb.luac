@@ -1,0 +1,17 @@
+LUA_RET={
+{n="PanelCelebrationAct_sczb",v=true,type=0,id=1,parent=0,w=835.0000,h=507.0000,},
+{n="tabBg",tag=151,ss=true,v=true,type=1,id=2,parent=1,w=835.0000,h=507.0000,color="255|255|255",},
+{n="labDesp",tag=322,fs=18,text="温馨提示：合区第二天、第四天攻沙，获胜方会长将获得以上表述奖励，奖励会在攻城结束后自动发放到玩家邮箱里面！",vt=1,v=true,type=3,id=3,parent=1,w=580.0000,h=70.0000,ay=0.5000,x=29.0789,y=44.2634,color="254|236|191",},
+{n="reward2",tag=150,t=true,c=false,v=true,type=0,id=4,parent=1,w=160.0000,h=220.0000,x=211.5172,y=140.0000,color="255|255|255",},
+{n="renderBg",tag=156,sx=51,sw=51,sh=66,sy=66,v=true,type=1,id=5,parent=4,w=156.0000,h=200.0000,y=10.0000,color="255|255|255",res="img_rec_bg",},
+{n="itemName",tag=157,fs=18,text="合服第三天",ht=1,vt=1,v=true,type=3,id=6,parent=4,w=160.0000,h=20.0000,ax=0.5000,ay=0.5000,x=78.5318,y=192.3041,color="253|223|174",},
+{n="icon1",tag=159,ss=true,sx=16,sw=36,sh=36,sy=16,v=true,type=1,id=7,parent=4,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=80.0000,y=135.0000,color="255|255|255",res="img_cell_max",},
+{n="icon2",tag=325,ss=true,sx=16,sw=36,sh=36,sy=16,v=true,type=1,id=8,parent=4,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=80.0000,y=58.0000,color="255|255|255",res="img_cell_max",},
+{n="reward4",tag=211,t=true,c=false,v=true,type=0,id=9,parent=1,w=160.0000,h=220.0000,x=471.2382,y=140.0000,color="255|255|255",},
+{n="renderBg",tag=212,sx=51,sw=51,sh=66,sy=66,v=true,type=1,id=10,parent=9,w=156.0000,h=200.0000,y=10.0000,color="255|255|255",res="img_rec_bg",},
+{n="itemName",tag=213,fs=18,text="合服第三天",ht=1,vt=1,v=true,type=3,id=11,parent=9,w=160.0000,h=20.0000,ax=0.5000,ay=0.5000,x=78.5318,y=192.3041,color="253|223|174",},
+{n="icon1",tag=214,ss=true,sx=16,sw=36,sh=36,sy=16,v=true,type=1,id=12,parent=9,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=80.0000,y=135.0000,color="255|255|255",res="img_cell_max",},
+{n="icon2",tag=215,ss=true,sx=16,sw=36,sh=36,sy=16,v=true,type=1,id=13,parent=9,w=64.0000,h=64.0000,ax=0.5000,ay=0.5000,x=80.0000,y=58.0000,color="255|255|255",res="img_cell_max",},
+{n="labCount",tag=445,fs=18,text="00:00:00",vt=1,v=true,type=3,id=14,parent=1,w=180.0000,h=20.0000,ay=0.5000,x=619.0001,y=475.0000,color="24|209|41",fr="DFYuan.ttf",},
+{n="Text_18",tag=446,fs=18,text="剩余时间：",vt=1,v=true,type=3,id=15,parent=1,w=90.0000,h=20.0000,ax=0.5000,ay=0.5000,x=574.0004,y=475.0000,color="24|209|41",fr="DFYuan.ttf",},
+}

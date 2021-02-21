@@ -1,0 +1,1009 @@
+local PanelHuWei={}
+local var = {}
+
+local pageKeys = {"shenjiang", "lingchong"}
+
+-- 神将界面
+
+local despCall ={
+	[1] ="<font color=#E7BA52 size=18>召唤说明：</font>",
+	[2] ="<font color=#f1e8d0>1.玩家死亡后，神将将自动消失</font>",
+	[3] ="<font color=#f1e8d0>2.神将阶数越高，属性和技能越多</font>",
+	[4] ="<font color=#f1e8d0>3.进阶时需要达到升级等级并消耗相   应神将进阶丹</font>",
+}
+
+local skillTable = {
+	{iconRes="hw_skill_1", skillName="增伤",    skillZb="被动技能", openLev=1, OpenMB=0, OpenQG=0, skillDesp="阶级越高，对怪物造成的伤害越高",},
+	{iconRes="hw_skill_2", skillName="免伤",    skillZb="被动技能", openLev=1, OpenMB=0,OpenQG=0, skillDesp="免疫怪物造成的一切伤害",},
+	{iconRes="hw_skill_3", skillName="暴击",    skillZb="被动技能", openLev=8, OpenMB=0, OpenQG=0, skillDesp="20%概率触发暴击",},
+	-- {iconRes="hw_skill_3", skillName="增血",    skillZb="被动技能", openLev=3, skillDesp="自身血量增加50%",},
+	
+	{iconRes="hw_skill_4", skillName="神圣攻击",skillZb="被动技能", openLev=7, OpenMB=0, OpenQG=0, skillDesp="无视防御攻击",},
+	{iconRes="hw_skill_5", skillName="神将守护",    skillZb="被动技能", openLev=9, OpenMB=0,OpenQG=0, skillDesp="主角受到的伤害减少10%",},
+	{iconRes="hw_skill_6", skillName="神将附身",    skillZb="被动技能", openLev=10, OpenMB=0,OpenQG=0, skillDesp="神将攻击力的50%增加到主角上",},
+	{iconRes="hw_skill_7", skillName="神将麻痹",  skillZb="被动技能", openLev=1, OpenMB=2,OpenQG=0, skillDesp="额外增加30%麻痹",},
+	{iconRes="hw_skill_8", skillName="神将切割",skillZb="被动技能", openLev=10, OpenMB=0,OpenQG=2, skillDesp="10%几率暴力切割5%血量",},
+
+	-- {iconRes="hw_skill_8", skillName="横扫千军",  skillZb="主动技能", openLev=999, skillDesp="神将超猛技、 群麻",},
+}
+
+local function hideAllPages()
+	local pageName
+	for i,v in ipairs(pageKeys) do
+		pageName = "xmlPage"..string.ucfirst(v)
+		if var[pageName] then
+			var[pageName]:hide()
+		end
+	end
+end
+
+ -- page变量，初始化函数，刷新函数使用字符窜拼接
+ local function showPanelPage(index)
+	local key = pageKeys[index]
+	if not (key and table.indexof(pageKeys, key))then return end
+	var.lastTabIndex = index
+	var.curPageName = key
+	hideAllPages()
+	local pageName = "xmlPage"..string.ucfirst(key)
+	local initFunc = "initPage"..string.ucfirst(key)
+	local openFunc = "openPage"..string.ucfirst(key)
+	if not var[pageName] and PanelHuWei[initFunc] then
+		PanelHuWei[initFunc]()
+	end
+	if var[pageName] then
+		if PanelHuWei[openFunc] then
+			PanelHuWei[openFunc]()
+		end
+		var[pageName]:show()
+	end
+end
+
+-- 点击tab按钮
+local function pushTabButtons(sender)
+	local opened, level, funcName
+	opened = true
+	local tag = sender:getTag()
+	if pageKeys[tag] == "reborn" then
+		opened, level, funcName = NetClient:checkFuncOpenedByID(10014)
+	elseif pageKeys[tag] == "gem" then
+		opened, level, funcName = NetClient:checkFuncOpenedByID(10015)
+	end
+
+	if not opened then
+		var.boxTab:setTabSelected(var.lastTabIndex)
+		NetClient:alertLocalMsg(funcName.."功能暂未开放，"..level.."级开放")
+		return
+	end
+
+	showPanelPage(sender:getTag())
+end
+
+function PanelHuWei.initView()
+	var = {
+		xmlPanel,
+		xmlPageShenjiang,
+		xmlPageLingchong,
+		boxTab,
+		tabList,
+		curSelectIdx = 1,
+		curSelect = nil,
+		powerNum,
+		curHuweiId=nil,
+		curWeaponId=nil,
+		xmlBuyExp=nil,
+		buyExpData=nil,
+		curVcion=0,
+		curBVcion=0,
+		curMoney=0,
+		xmlBuyDan=nil,
+		buyDanData=nil,
+		richtext=nil,
+		levelBar,
+		expBar,
+		hwLevel=1,--神将等级
+		OpenMB=0,
+		OpenQG=0,
+		skillIndex=nil,--记录当前查看tips的编号
+		huWeiName=nil,
+		xmlNewSkill=nil,
+		huiState=false,--是否处于技能开启动画期间
+
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelHuWei.uif");
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel, "bg", "needload/bg_max2.png")
+		
+		-- var.levelBar=var.xmlPanel:getWidgetByName("levelBar"):setPercent(0,100):setFontSize(14):enableOutline(game.getColor(0x000000),1)
+		-- var.expBar=var.xmlPanel:getWidgetByName("expBar"):setPercent(0,100):setFontSize(14):enableOutline(game.getColor(0x000000),1)
+
+		var.boxTab = var.xmlPanel:getWidgetByName("box_tab")
+		var.boxTab:setTabRes("tab2_nor", "tab2_sel", ccui.TextureResType.plistType)
+		var.boxTab:getParent():setLocalZOrder(10)
+		var.boxTab:setItemMargin(10)
+		var.boxTab:addTabEventListener(pushTabButtons)
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelHuWei.updateGameMoney)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelHuWei.handlePanelData)
+	end
+	return var.xmlPanel
+end
+
+function PanelHuWei.onPanelOpen()
+	var.boxTab:setSelectedTab(1)
+end
+
+function PanelHuWei.onPanelClose()
+	NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "panelClose",params={}}))
+end
+
+function PanelHuWei.handlePanelData(event)
+	if event.type ~= "PanelHuWei" then return end
+	local data = util.decode(event.data)
+	-- if data.cmd =="senderExpData" then
+		-- PanelHuWei.initBuyExp(data)
+	-- elseif data.cmd=="senderDanData" then
+		-- PanelHuWei.initBuyDan(data)
+	if data.cmd=="updateHuWei" then
+		PanelHuWei.updateData(data)
+	elseif data.cmd=="huWeiZhaoHuan" then--神将召唤成功
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHuibtnZhaoHui"):setVisible(true)
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHuan"):setVisible(false)
+	elseif data.cmd=="huWeiZhaoHui" then
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHui"):setVisible(false)
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHuan"):setVisible(true)
+		-- PanelHuWei.btnCallCd(data.curCD)
+	elseif data.cmd=="updateBtnHalo" then
+		PanelHuWei.updateBtnHalo(data)
+	-- elseif data.cmd == "updateLingchong" then
+		-- PanelHuWei.updateLingchongData(data)
+	end
+end
+
+----------------------------------神将------------------------------------
+function PanelHuWei.initPageShenjiang()
+	var.xmlPageShenjiang = UILuaLoader.load("uilayout/PanelHuWei_Shenjiang.uif")
+	if var.xmlPageShenjiang then
+		var.xmlPageShenjiang:align(display.LEFT_BOTTOM, 29, 9):addTo(var.xmlPanel)
+		PanelHuWei.initSkillBtns()
+		PanelHuWei.initBtns()
+		PanelHuWei.initDesp()
+
+		util.asyncload(var.xmlPageShenjiang, "leftBg", "needload/PanelAvatar/img_ditu3.png")
+		asyncload_callback("effect/3166200_wu.png", var.xmlPageShenjiang:getWidgetByName("Image_2_22"), function (filepath, texture)
+				var.xmlPageShenjiang:getWidgetByName("Image_2_22"):loadTexture(filepath)
+			end)
+			asyncload_callback("fonts/spering14.png", var.xmlPageShenjiang:getWidgetByName("Image_2_23"), function (filepath, texture)
+				var.xmlPageShenjiang:getWidgetByName("Image_2_23"):loadTexture(filepath)
+			end)
+
+		var.xmlPageShenjiang:getWidgetByName("labCurTimes"):setVisible(false)
+		var.xmlPageShenjiang:getWidgetByName("labTimesDesp"):setVisible(false)
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHuan"):setVisible(false)
+
+		var.xmlPageShenjiang:getWidgetByName("attrBg"):setOpacity(255 * 0.2)
+		var.xmlPageShenjiang:getWidgetByName("attrBg1"):setOpacity(255 * 0.2)
+		var.xmlPageShenjiang:getWidgetByName("attrBg0"):setOpacity(255 * 0.2)
+	end
+end
+
+function PanelHuWei.openPageShenjiang()
+	PanelHuWei.updateGameMoney(nil)
+	NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqPanelData",params={}}))
+	var.xmlPanel:getWidgetByName("img_title"):loadTexture("shenjiang", ccui.TextureResType.plistType)
+end
+
+function PanelHuWei.updateBtnHalo(data)
+	local btnExp = var.xmlPageShenjiang:getWidgetByName("btnBuyExp")
+	local btnDan = var.xmlPageShenjiang:getWidgetByName("btnBuyDan")
+	if tonumber(data.haloExp)<=0 then
+		util.addHaloToButton(btnExp, "btn_normal_light12")
+	else
+		util.removeHaloFromButton(btnExp)
+	end
+	if tonumber(data.haloDan)<=0 then
+		util.addHaloToButton(btnDan, "btn_normal_light12")
+	else
+		util.removeHaloFromButton(btnDan)
+	end
+end
+
+--召唤按钮倒计时
+function PanelHuWei.btnCallCd(cdTime)
+	local btnCall = var.xmlPageShenjiang:getWidgetByName("btnZhaoHuan"):setVisible(true)
+	btnCall:stopAllActions()
+	if cdTime<=0 then
+		btnCall:setTitleText("召唤神将")
+	else
+		local time = cdTime
+		btnCall:setTitleText("冷却("..time..")")
+		btnCall:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function (target)
+			time = time - 1
+			if time and time > 0 then
+				btnCall:setTitleText("冷却("..time..")")
+			else
+				btnCall:setTitleText("召唤神将")
+				target:stopAllActions()
+			end
+		end)})))
+	end
+end
+
+function PanelHuWei.updateData(data)
+	if not data then return end
+	var.xmlPageShenjiang:getWidgetByName("curHp"):setString(data.curData["maxhp"])
+	var.xmlPageShenjiang:getWidgetByName("curGj"):setString(data.curData["wgmin"].."-"..data.curData["wgmax"])
+	var.xmlPageShenjiang:getWidgetByName("curWf"):setString(data.curData["wfmin"].."-"..data.curData["wfmax"])
+	var.xmlPageShenjiang:getWidgetByName("curMf"):setString(data.curData["mfmin"].."-"..data.curData["mfmax"])
+	--.xmlPageShenjiang:getWidgetByName("curHx"):setString(data.curData["huixue"])
+	var.xmlPageShenjiang:getWidgetByName("curMb"):setString((data.curMb).."%")
+	-- var.xmlPageShenjiang:getWidgetByName("curQg"):setString((data.curQg / 100).."%")
+	-- var.xmlPageShenjiang:getWidgetByName("curQgSh"):setString((data.curQgSh / 100).."%")
+	var.xmlPageShenjiang:getWidgetByName("curGd"):setString(data.curData["gddamage"])
+	-- var.xmlPageShenjiang:getWidgetByName("curAtkSpeed"):setString((data.curAtkSpeed / 1000).."秒")
+
+	if data.isFull == 0 then
+		var.xmlPageShenjiang:getWidgetByName("nextHp"):setString(data.nextData["maxhp"])
+		var.xmlPageShenjiang:getWidgetByName("nextGj"):setString(data.nextData["wgmin"].."-"..data.nextData["wgmax"])
+		var.xmlPageShenjiang:getWidgetByName("nextWf"):setString(data.nextData["wfmin"].."-"..data.curData["wfmax"])
+		var.xmlPageShenjiang:getWidgetByName("nextMf"):setString(data.nextData["mfmin"].."-"..data.curData["mfmax"])
+		var.xmlPageShenjiang:getWidgetByName("nextGd"):setString(data.nextData["gddamage"])
+		--var.xmlPageShenjiang:getWidgetByName("nextHx"):setString(data.nextData["huixue"])
+		var.xmlPageShenjiang:getWidgetByName("nextMb"):setString((data.nextMb).."%")
+		-- var.xmlPageShenjiang:getWidgetByName("nextQg"):setString((data.nextQg / 100).."%")
+		-- var.xmlPageShenjiang:getWidgetByName("nextQgSh"):setString((data.nextQgSh / 100).."%")
+		-- var.xmlPageShenjiang:getWidgetByName("nextAtkSpeed"):setString((data.nextAtkSpeed / 1000).."秒")
+	else
+		var.xmlPageShenjiang:getWidgetByName("nextBox"):setVisible(false)
+		var.xmlPageShenjiang:getWidgetByName("curBox"):setPositionX(620)
+	end
+	-- var.powerNum:setString(data.curData["wgmax"])
+	--var.powerNum:setString(data.addFightPoint or 0)
+
+	--var.xmlPageShenjiang:getWidgetByName("labFailDesp"):setString("10次内必定成功："..data.failNum.."/10")
+	--var.xmlPageShenjiang:getWidgetByName("labTiaoJian"):setString("神将等级达到"..data.needLevel.."级")
+	local labXiaohao = var.xmlPageShenjiang:getWidgetByName("labXiaoHao"):setString(NetClient.mCharacter.mVCoinBind.."/"..data.nextBVcion)
+	if NetClient.mCharacter.mVCoinBind < data.nextBVcion then
+		labXiaohao:setColor(game.getColor(0xff0000))
+	else
+		labXiaohao:setColor(game.getColor(0xffdea2))
+	end
+	--var.levelBar:setPercent(data.curLevel,data.needLevel)
+
+	--var.expBar:setPercent(data.curExp,data.needExp)
+
+	var.xmlPageShenjiang:getWidgetByName("labHwName"):setString(data.name)
+
+	-- var.xmlPageShenjiang:getWidgetByName("labCurTimes"):setString(data.enableNum)
+	-- local labCount = var.xmlPageShenjiang:getWidgetByName("labTimesDesp")
+	-- labCount:stopAllActions()
+	-- if data.enableNum>=12 then
+	-- 	labCount:setString("(已达今日最大召唤次数)")
+	-- else
+	-- 	local time = data.countTimes
+	-- 	labCount:setString("("..util.setTimeFormat(time*1000,3).."后增加一次)")
+	-- 	labCount:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function (target)
+	-- 		time = time - 1
+	-- 		if time and time >= 0 then
+	-- 			labCount:setString("("..util.setTimeFormat(time*1000,3).."后增加一次)")
+	-- 		else
+	-- 			target:stopAllActions()
+	-- 		end
+	-- 	end)})))
+	-- end
+	var.hwLevel=data.curJie
+	var.OpenMB=data.isOpenMB
+	var.OpenQG=data.isOpenQG
+
+	for i=1,6 do
+		local skillIcon = var.xmlPageShenjiang:getWidgetByName("skillIcon"..i):setVisible(true)
+		-- local m = 0
+		-- if not data.skillNum and var.huiState then m=1 end
+		if skillTable[i].openLev <= var.hwLevel then
+			skillIcon:getVirtualRenderer():setState(0)
+		else
+			skillIcon:getVirtualRenderer():setState(1)
+		end
+		-- if data.skillNum and i==data.skillNum and var.huiState==false then
+		-- 	skillIcon:getVirtualRenderer():setState(0)
+		-- end
+	end
+
+	local skillIcon = var.xmlPageShenjiang:getWidgetByName("skillIcon7"):setVisible(true)
+	if data.isOpenMB==1 then
+		skillIcon:getVirtualRenderer():setState(0)
+	else
+		skillIcon:getVirtualRenderer():setState(1)
+	end
+
+	skillIcon = var.xmlPageShenjiang:getWidgetByName("skillIcon8"):setVisible(true)
+	if data.isOpenQG == 1 then
+		skillIcon:getVirtualRenderer():setState(0)
+	else
+		skillIcon:getVirtualRenderer():setState(1)
+	end
+
+	-- skillIcon = var.xmlPageShenjiang:getWidgetByName("skillIcon3"):setVisible(true)
+	-- if data.isOpenAS then
+		-- skillIcon:getVirtualRenderer():setState(0)
+	-- else
+		-- skillIcon:getVirtualRenderer():setState(1)
+	-- end
+
+	--更新星星
+	
+	local curStar = data.curLevel % 10 == 0 and 10 or data.curLevel % 10
+	for i=0,9 do
+		--当前神将还没升满
+		if data.isFull == 0 then
+			if i < curStar then
+				var.xmlPageShenjiang:getWidgetByName("star"..i):loadTexture("star", ccui.TextureResType.plistType)
+			else
+				var.xmlPageShenjiang:getWidgetByName("star"..i):loadTexture("star_an", ccui.TextureResType.plistType)
+			end	
+		else
+			var.xmlPageShenjiang:getWidgetByName("star"..i):setVisible(false)
+		end
+	end
+
+	if var.huWeiName and var.huWeiName ~= data.name then
+		--神将获得新技能
+		-- if data.skillNum then
+		-- 	PanelHuWei.openNewSkill(data.skillNum)
+		-- else
+			PanelHuWei.openNewSkill(data.curJie)
+		--end
+	end
+	var.huWeiName=data.name
+
+	PanelHuWei.updateHuWei(data.weapRes,data.huweiRes)
+
+	-- print(data.curJie,"=====",data.skillNum)
+	local btnZhaoHuan = var.xmlPageShenjiang:getWidgetByName("btnZhaoHuan")
+	if data.state==1 then--有神将
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHui"):setVisible(true)
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHuan"):setVisible(false)
+		util.removeHaloFromButton(btnZhaoHuan)
+	else
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHui"):setVisible(false)
+		var.xmlPageShenjiang:getWidgetByName("btnZhaoHuan"):setVisible(true)
+		util.addHaloToButton(btnZhaoHuan)
+	end
+	local btnJinJie = var.xmlPageShenjiang:getWidgetByName("btnJinJie")
+	if data.canUpgrade then
+		util.addHaloToButton(btnJinJie, "btn_normal_light3")
+	else
+		util.removeHaloFromButton(btnJinJie)
+	end
+	if data.up then
+		local fireworks = cc.Sprite:create():addTo(var.xmlPageShenjiang):pos(280, 360)
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,60015,4)
+		fireworks:runAction(cca.seq({
+			cca.rep(animate, 1),
+			cca.cb(function ()
+				
+			end),
+			cca.removeSelf()
+		}))
+	end
+end
+
+--神将形象展示
+function PanelHuWei.updateHuWei(weapRes,huweiRes)
+	local box = var.xmlPageShenjiang:getChildByName("box_cloth_weap")
+	local img_role = box:getChildByName("img_role")
+	local img_weapon = box:getChildByName("img_weapon")
+	
+	--设置衣服内观
+	if not img_role then
+		img_role = cc.Sprite:create()
+		img_role:addTo(box):align(display.CENTER, 90, 80):setName("img_role")
+	end
+
+	box:stopAllActions()
+	-- local startNum = 1
+	-- local animNum  = 5
+	
+	local filepath = "vipassana/huwei/"..huweiRes..".png"
+	asyncload_callback(filepath, img_role, function(filepath, texture)
+		img_role:setTexture(filepath)
+	end)
+	
+end
+
+--跟新钻石和绑元变化
+function PanelHuWei.updateGameMoney(event)
+	if var.xmlPageShenjiang then
+		local mainrole = NetClient.mCharacter
+		var.curVcion=mainrole.mVCoin or 0
+		var.curBVcion=mainrole.mVCoinBind or 0
+		var.curMoney=mainrole.mGameMoney or 0
+		if var.xmlBuyExp then
+			var.xmlBuyExp:getWidgetByName("lblVcoin"):setString(var.curVcion)
+			var.xmlBuyExp:getWidgetByName("lblMoney"):setString(var.curMoney)
+		end
+		if var.xmlBuyDan then
+			var.xmlBuyDan:getWidgetByName("lblDiamond"):setString(var.curVcion)
+			var.xmlBuyDan:getWidgetByName("lblVcoin"):setString(var.curBVcion)
+		end
+
+	end
+end
+
+--神将技能tips点击
+function PanelHuWei.initSkillBtns()
+	local boxTips = var.xmlPageShenjiang:getWidgetByName("box_skill_tip")
+	local function prsBtnClick(sender,touchType)
+		local senderName = sender:getName()
+		-- print(senderName,sender:getPositionX(),sender:getPositionY())
+		if touchType == ccui.TouchEventType.began then
+			if PanelHuWei.updateSkillInfo(sender.index) then
+				local size = boxTips:getContentSize()
+				local pSize = sender:getContentSize()
+				if sender.index >= 4 and sender.index ~= 7 then
+					boxTips:setPosition(sender:getPositionX()-pSize.width/2-size.width,sender:getPositionY()-size.height/3):setVisible(true)
+				else
+					boxTips:setPosition(sender:getPositionX()+pSize.width/2,sender:getPositionY()-size.height/3):setVisible(true)
+				end
+			end
+		elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+			boxTips:setVisible(false)
+		end
+	end
+	for i=1,8 do
+		local btn = var.xmlPageShenjiang:getWidgetByName("skillBg"..i):setTouchEnabled(true)
+		btn.index=i
+		btn:addTouchEventListener(prsBtnClick)
+	end
+end
+
+--设置神将技能面板数据
+function PanelHuWei.updateSkillInfo(index)  --var.isOpen=data.isOpenMB
+	if var.skillIndex==index then return true end
+	local boxTips = var.xmlPageShenjiang:getWidgetByName("box_skill_tip")
+	var.skillIndex=index
+	local skillData = skillTable[index]
+	local skillIcon = boxTips:getWidgetByName("skillIcon")
+	skillIcon:loadTexture(skillData.iconRes, ccui.TextureResType.plistType)
+	boxTips:getWidgetByName("skillName"):setString(skillData.skillName)
+	boxTips:getWidgetByName("skillZb"):setString(skillData.skillZb)
+	boxTips:getWidgetByName("skillDesp"):setString(skillData.skillDesp)
+	if skillData.openLev <= var.hwLevel and skillData.OpenMB~= var.OpenMB and skillData.OpenQG~= var.OpenQG then
+		boxTips:getWidgetByName("skillOpen"):setString("该技能已经成功激活")
+	else
+		if skillData.openLev == 99 then
+			boxTips:getWidgetByName("skillOpen"):setString("使用技能书开启")
+		elseif skillData.OpenMB== var.OpenMB then
+			boxTips:getWidgetByName("skillOpen"):setString("使用技能书开启")
+		elseif skillData.OpenQG== var.OpenQG then
+			boxTips:getWidgetByName("skillOpen"):setString("使用技能书开启")
+		else
+			boxTips:getWidgetByName("skillOpen"):setString("神将品阶提升值至"..skillData.openLev.."级开启")
+		end
+	end
+	return true
+end
+
+
+
+---------------------------------灵宠---------------------------------------
+function PanelHuWei.initPageLingchong(data)
+		var.xmlPageLingchong = UILuaLoader.load("uilayout/PanelHuWei_Lingchong.uif")
+		var.xmlPageLingchong:align(display.LEFT_BOTTOM, 33, 12):addTo(var.xmlPanel)
+
+		util.asyncload(var.xmlPageLingchong, "img_bg", "needload/zdhs_igm.png")
+		
+		var.xmlDuDu = var.xmlPageLingchong:getWidgetByName("duduPage")
+		var.xmlDuDu:setVisible(false)
+
+		var.xmlYiYi = var.xmlPageLingchong:getWidgetByName("yiyiPage")
+
+		var.xmlYiYi:setVisible(false)
+		
+	if var.xmlDuDu then
+	
+		PanelHuWei.initLingchongTabs()
+
+		end
+			return var.xmlPanel
+	end
+
+local btnTabName = {
+	"btn_tab_post", "btn_tab_chop"
+}
+	
+function PanelHuWei.initLingchongTabs()
+		var.tablistv = var.xmlPageLingchong:getWidgetByName("tablistv")
+		local function pressTabV(sender)
+		local tag = sender:getTag()
+			if tag == 1 then
+				PanelHuWei.initDuDu()
+			elseif tag == 2 then
+				PanelHuWei.initYiYi()
+			end
+		end
+		var.tablistv:setSelectedTab(1)
+		var.tablistv:setItemMargin(20)
+		
+		var.tablistv:addTabEventListener(pressTabV)
+		var.tablistv:setSelectedTab(1)
+		var.tablistv:setTabRes("tab_d_nor","tab_d_sel")
+		
+end		
+
+function PanelHuWei.initDuDu()
+		if var.xmlYiYi:isVisible() then
+			var.xmlYiYi:hide()
+		end
+
+
+		if not var.initDuDu then
+			var.xmlDuDu:setVisible(true)
+
+			var.initDuDu = true
+
+			PanelHuWei.initDuDu1()
+		else
+			var.xmlDuDu:show()
+		end
+
+		NetClient:PushLuaTable("gui.PanelLingchong.handlePanelData", util.encode({
+			actionid = "reqPanelData",
+			params = {}
+		}))
+	end
+	
+	function PanelHuWei.initYiYi()
+		if var.xmlDuDu:isVisible() then
+			var.xmlDuDu:hide()
+		end
+
+
+		if not var.initYiYi then
+			var.xmlYiYi:setVisible(true)
+
+			var.initYiYi = true
+
+			PanelHuWei.initYiYi1()
+		else
+			var.xmlYiYi:show()
+		end
+
+		NetClient:PushLuaTable("gui.PanelLingchong.handlePanelData", util.encode({
+			actionid = "reqPanelData1",
+			params = {}
+		}))
+	end
+
+function PanelHuWei.openPageLingchong()
+		cc.EventProxy.new(NetClient, var.xmlPageLingchong):addEventListener(Notify.EVENT_PUSH_PANEL_DATA, function (event)
+		if event.type ~= "PanelHuWei" then return end
+		local data = util.decode(event.data)
+			if data.cmd == "updateLingchong" then
+				PanelHuWei.initDuDu1(data)
+			elseif data.cmd == "updateLingchong1" then
+				PanelHuWei.initYiYi1(data)	
+			end
+		end)
+		NetClient:PushLuaTable("gui.PanelLingchong.handlePanelData",util.encode({actionid = "reqPanelData",params={}}))
+		var.xmlPanel:getWidgetByName("img_title"):loadTexture("lingchong", ccui.TextureResType.plistType)
+		var.tabList = var.xmlPageLingchong:getWidgetByName("tabList")	
+
+end
+
+
+
+function PanelHuWei.initDuDu1(data)
+
+		if not data then return end
+
+		var.xmlPageLingchong:getWidgetByName("recyleCheckBox"):addClickEventListener(function(sender) 
+			NetClient:PushLuaTable("gui.PanelLingchong.handlePanelData", util.encode({actionid="updateAutoRecyle", param=sender:isSelected() and 1 or 0}))
+		end)
+	
+	local btnUpgrade=var.xmlDuDu:getWidgetByName("btnUpgrade"):addClickEventListener(function (sender)--升级按键
+			NetClient:PushLuaTable("gui.PanelLingchong.handlePanelData", util.encode({actionid="reqJinJie"}))
+		end)
+
+if data.autoPick == 1 then
+		var.xmlPageLingchong:getWidgetByName("recyleCheckBox"):setSelected(true)
+	else
+		var.xmlPageLingchong:getWidgetByName("recyleCheckBox"):setSelected(false)
+	end
+	--嘟嘟属性
+	
+	 var.xmlDuDu:getWidgetByName("lbl_hp_val"):setString(data.curData.maxhp)	
+	 var.xmlDuDu:getWidgetByName("lbl_atk_val"):setString(data.curData.wgmin.."-"..data.curData.wgmax)
+	 var.xmlDuDu:getWidgetByName("lbl_def_val"):setString(data.curData.wfmin.."-"..data.curData.wfmax)	
+	 var.xmlDuDu:getWidgetByName("lbl_hf_val"):setString(data.curData.huixue)
+
+	local lbl_level = var.xmlDuDu:getWidgetByName("lbl_level"):setString(data.dudulevel >= 50 and "满" or data.dudulevel)
+	
+	if data.nextBVcion then
+		local lbl_needVcoin = var.xmlPageLingchong:getWidgetByName("need_vcoin"):setString(data.nextBVcion.."/"..NetClient.mCharacter.mVCoinBind)
+		if data.nextBVcion > NetClient.mCharacter.mVCoinBind then
+			lbl_needVcoin:setColor(game.getColor(0xff0000))
+		else
+			lbl_needVcoin:setColor(game.getColor(0xffdea2))
+		end
+	else
+		var.xmlPageLingchong:getWidgetByName("need_vcoin"):hide()
+	end
+
+	if data.needRecyleRmb then
+		var.xmlPageLingchong:getWidgetByName("recyleRmb"):setString("（累充"..data.needRecyleRmb.."元即可开启）")
+	end
+
+	PanelHuWei.clickTab(data)
+	
+	if data.up then
+	
+		local fireworks = cc.Sprite:create():addTo(var.xmlPageLingchong):pos(280, 360)
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,60015,4)
+		fireworks:runAction(cca.seq({
+			cca.rep(animate, 1),
+			cca.cb(function ()
+				
+			end),
+			cca.removeSelf()
+		}))
+	end
+end
+
+function PanelHuWei.initYiYi1(data)
+
+	if not data then return end
+		local btnUpgrade1=var.xmlPageLingchong:getWidgetByName("btnUpgrade1"):addClickEventListener(function (sender)
+			NetClient:PushLuaTable("gui.PanelLingchong.handlePanelData", util.encode({actionid="yiyireqJinJie"}))	
+		end)
+	--依依属性
+	
+		var.xmlYiYi:getWidgetByName("lbl_hp_val1"):setString(data.nextData.mTenacity)	
+		var.xmlYiYi:getWidgetByName("lbl_atk_val2"):setString(data.nextData.mPKIncrement)
+		var.xmlYiYi:getWidgetByName("lbl_def_val1"):setString(data.nextData.mPKReduce)	
+		var.xmlYiYi:getWidgetByName("lbl_hf_val1"):setString(data.nextData.mLuck)
+	
+	local lbl_level1 = var.xmlPageLingchong:getWidgetByName("lbl_level1"):setString(data.yiyilevel >= 50 and "满" or data.yiyilevel)
+
+	if data.nextBVcion then
+		local lbl_needVcoin = var.xmlPageLingchong:getWidgetByName("need_vcoin1"):setString(data.nextBVcion.."/"..NetClient.mCharacter.mVCoin)
+		if data.nextBVcion > NetClient.mCharacter.mVCoin then
+			lbl_needVcoin:setColor(game.getColor(0xff0000))
+		else
+			lbl_needVcoin:setColor(game.getColor(0xffdea2))
+		end
+	else
+		var.xmlPageLingchong:getWidgetByName("need_vcoin"):hide()
+	end
+	PanelHuWei.clickTab1(data)
+
+	if data.up then
+	
+		local fireworks = cc.Sprite:create():addTo(var.xmlPageLingchong):pos(280, 360)
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,60015,4)
+		fireworks:runAction(cca.seq({
+			cca.rep(animate, 1),
+			cca.cb(function ()
+				
+			end),
+			cca.removeSelf()
+		}))
+	end
+end
+
+function PanelHuWei.clickTab(data)
+	local img_cloth = var.xmlPageLingchong:getWidgetByName("img_cloth")
+	img_cloth:stopAllActions()
+
+	-- 播放神将动画
+	local img_role = img_cloth:getChildByName("img_role")
+	--设置衣服内观
+	if not img_role then
+		img_role = cc.Sprite:create()
+		img_role:addTo(img_cloth):align(display.CENTER, 120, 135):setName("img_role"):setScale(1.25)
+	end
+	local animNum = 23
+	local startNum = 1
+	-- local data= "dudu"
+	-- local data=data.name
+	local function playLingChongAnim()
+		local filepath = "vipassana/huwei/".."dudu"..startNum..".png"
+		asyncload_callback(filepath, img_role, function(filepath, texture)
+			img_role:setTexture(filepath)
+		end)
+
+		startNum = startNum + 1
+		if startNum > animNum then
+			startNum = 1
+		end
+	end
+
+	img_cloth:runAction(cca.repeatForever(cca.seq({cca.delay(0.25), cca.cb(playLingChongAnim)})))
+
+
+end
+function PanelHuWei.clickTab1(data)
+	local img_cloth = var.xmlPageLingchong:getWidgetByName("img_cloth1")
+	img_cloth:stopAllActions()
+
+	-- 播放神将动画
+	local img_role = img_cloth:getChildByName("img_role")
+	--设置衣服内观
+	if not img_role then
+		img_role = cc.Sprite:create()
+		img_role:addTo(img_cloth):align(display.CENTER, 155, 145):setName("img_role"):setScale(1.25)
+	end
+	local animNum = 20
+	local startNum = 1
+	local function playLingChongAnim()
+		local filepath = "vipassana/huwei/".."yiyi"..startNum..".png"
+		asyncload_callback(filepath, img_role, function(filepath, texture)
+			img_role:setTexture(filepath)
+		end)
+
+		startNum = startNum + 1
+		if startNum > animNum then
+			startNum = 1
+		end
+	end
+
+	img_cloth:runAction(cca.repeatForever(cca.seq({cca.delay(0.25), cca.cb(playLingChongAnim)})))
+
+
+end
+
+
+-----------------------------------------快捷购买神将经验丹-----------------------------------------------
+function PanelHuWei.initBuyExp(data)
+	if not var.xmlBuyExp then
+		var.xmlBuyExp = UILuaLoader.load("uilayout/PanelHuWei_buyExp.uif")
+				:addTo(var.xmlPanel):align(display.CENTER, 234, 280)
+				:show()
+		local function prsBtnItem(sender)
+			local senderName = sender:getName()
+			if senderName=="btnback" then
+				var.xmlBuyExp:hide()
+			elseif senderName=="btnUse" then
+				NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqExpDanUse",params={}}))
+			end
+		end 
+		UIRedPoint.addUIPoint(var.xmlBuyExp:getWidgetByName("btnback"), prsBtnItem)
+		UIRedPoint.addUIPoint(var.xmlBuyExp:getWidgetByName("btnUse"), prsBtnItem)
+		var.xmlBuyExp:getWidgetByName("imgBg"):setTouchEnabled(true)
+		var.xmlBuyExp:getWidgetByName("btnChongZhi"):setTouchEnabled(true):addClickEventListener(function ()
+   			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+   		end)
+
+		var.richtext=UIRichLabel.new({size=cc.size(350,0), space=3, name="richWidget"})
+		var.richtext:addTo(var.xmlBuyExp):pos(30,465)
+		local text = "拥有战神经验珠(小)：<font color=#00ff00>0</font>"
+		var.richtext:setRichLabel(text,"PanelHuWei",16)
+
+		-- 加载背景图
+		util.asyncload(var.xmlBuyExp, "imgBg", "needload/img_bg_middle.png")
+	else
+		var.xmlBuyExp:show()
+	end
+	var.buyExpData=data.data
+	local listBuyExp = var.xmlBuyExp:getWidgetByName("listBuyExp")
+	if #var.buyExpData > 0 then
+		listBuyExp:reloadData(#var.buyExpData,PanelHuWei.updateBuyExp):setSliderVisible(false)
+	end
+	var.xmlBuyExp:getWidgetByName("lblVcoin"):setString(var.curVcion)
+	var.xmlBuyExp:getWidgetByName("lblMoney"):setString(var.curMoney)
+	PanelHuWei.updateOwnUse(data.ownData)
+end
+
+function PanelHuWei.updateOwnUse(data)
+	local text = "拥有"..data.itemName.."：<font color=#00ff00>"..data.num.."</font>"
+	var.richtext:setRichLabel(text,"PanelHuWei",16)
+end
+
+function PanelHuWei.updateBuyExp(item)
+	local itemData = var.buyExpData[item.tag]
+	if itemData.bvcion>0 then
+		item:getWidgetByName("vcoin"):loadTexture("vcoin_bind", ccui.TextureResType.plistType)
+		item:getWidgetByName("labPrice"):setString(itemData.bvcion)
+	else
+		item:getWidgetByName("vcoin"):loadTexture("vcoin", ccui.TextureResType.plistType)
+		item:getWidgetByName("labPrice"):setString(itemData.vcion)
+	end
+	if itemData.con then
+		item:getWidgetByName("labYuTimes"):setVisible(true):setString("剩余："..(itemData.maxNum-itemData.con).."/"..itemData.maxNum)
+	else
+		item:getWidgetByName("labYuTimes"):setVisible(false)
+	end
+	item:getWidgetByName("labName"):setString(itemData.name)
+	local awardItem=item:getWidgetByName("icon")
+	local param={parent=awardItem , typeId=itemData.id, num=awardItem.num}
+	UIItem.getItem(param)
+
+	local function prsBtnItem(sender)
+		NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqBuyTheExp",params={index=sender.index}}))
+	end 
+	local btnBuy = item:getWidgetByName("btnBuy")
+	btnBuy.index=item.tag
+	UIRedPoint.addUIPoint(btnBuy , prsBtnItem)
+end
+
+-----------------------------------------快捷购买进阶丹-----------------------------------------------
+function PanelHuWei.initBuyDan(data)
+	if not var.xmlBuyDan then
+		var.xmlBuyDan = UILuaLoader.load("uilayout/PanelHuWei_buyDan.uif")
+				:addTo(var.xmlPanel):align(display.CENTER, 192, 290)
+				:show()
+		local function prsBtnItem(sender)
+			var.xmlBuyDan:hide()
+		end 
+		UIRedPoint.addUIPoint(var.xmlBuyDan:getWidgetByName("btnback"), prsBtnItem)
+		var.xmlBuyDan:getWidgetByName("imgBg"):setTouchEnabled(true)
+		var.xmlBuyDan:getWidgetByName("btnChongZhi"):setTouchEnabled(true):addClickEventListener(function ()
+   			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str="panel_charge"})
+		   end)
+		   
+		-- 加载背景图
+		util.asyncload(var.xmlBuyDan, "imgBg", "needload/img_kuan_bg.png")
+	else
+		var.xmlBuyDan:show()
+	end
+	var.buyDanData=data.data
+	local listBuyDan = var.xmlBuyDan:getWidgetByName("listBuyDan")
+	listBuyDan:reloadData(#var.buyDanData,PanelHuWei.updateBuyDan):setSliderVisible(false)
+	var.xmlBuyDan:getWidgetByName("lblDiamond"):setString(var.curVcion)
+	var.xmlBuyDan:getWidgetByName("lblVcoin"):setString(var.curBVcion)
+end
+
+function PanelHuWei.updateBuyDan(item)
+	local itemData = var.buyDanData[item.tag]
+	if itemData.bvcion>0 then
+		item:getWidgetByName("vcoin"):loadTexture("vcoin_bind", ccui.TextureResType.plistType)
+		item:getWidgetByName("labPrice"):setString(itemData.bvcion)
+	else
+		item:getWidgetByName("vcoin"):loadTexture("vcoin", ccui.TextureResType.plistType)
+		item:getWidgetByName("labPrice"):setString(itemData.vcion)
+	end
+	if itemData.con then
+		item:getWidgetByName("labYuTimes"):setVisible(true):setString("剩余："..(itemData.maxNum-itemData.con).."/"..itemData.maxNum)
+	else
+		item:getWidgetByName("labYuTimes"):setVisible(false)
+	end
+	item:getWidgetByName("labName"):setString(itemData.name)
+	local awardItem=item:getWidgetByName("icon")
+	local param={parent=awardItem, typeId=itemData.id, num=itemData.num}
+	UIItem.getItem(param)
+
+	local function prsBtnItem(sender)
+		NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqBuyTheDan",params={index=sender.index}}))
+	end 
+	local btnBuy = item:getWidgetByName("btnBuy")
+	btnBuy.index=item.tag
+	UIRedPoint.addUIPoint(btnBuy , prsBtnItem)
+end
+
+-----------------------------------------按钮操作-----------------------------------------------
+local btnArrs = {"btnJinJie","btnZhaoHuan","btnZhaoHui","btnBuyExp","btnBuyDan"}
+function PanelHuWei.initBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		-- print(senderName)
+		if senderName=="btnJinJie" then
+			NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqJinJie",params={}}))
+		elseif senderName=="btnZhaoHuan" then
+			NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqZhaoHuan1",params={}}))
+		elseif senderName=="btnZhaoHui" then
+			NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqZhaoHui1",params={}}))
+		elseif senderName=="btnBuyExp" then
+			if var.xmlBuyDan then var.xmlBuyDan:hide() end
+			if var.xmlBuyExp and var.xmlBuyExp:isVisible() then
+				var.xmlBuyExp:hide()
+			else
+				NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqBuyExpData",params={}}))
+			end
+		elseif senderName=="btnBuyDan" then
+			if var.xmlBuyExp then var.xmlBuyExp:hide() end
+			if var.xmlBuyDan and var.xmlBuyDan:isVisible() then
+				var.xmlBuyDan:hide()
+			else
+				NetClient:PushLuaTable("gui.PanelHuWei.handlePanelData",util.encode({actionid = "reqBuyDanData",params={}}))
+			end
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPageShenjiang:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+-----------------------------------------------------召唤说明----------------------------------------------------------
+function PanelHuWei.initDesp()
+	-- local btnDesp=var.xmlPanel:getWidgetByName("btnDesp"):setTouchEnabled(true)
+	-- btnDesp:addTouchEventListener(function (pSender, touchType)
+	-- 	if touchType == ccui.TouchEventType.began then
+	-- 		PanelHuWei.openCallDesp()
+	-- 	elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+	-- 		LayerAlert.handleAlertClose()
+	-- 	end
+	-- end)
+end
+
+function PanelHuWei.openCallDesp()
+	local mParam = {
+	name = Notify.EVENT_PANEL_ON_ALERT,
+	panel = "tips", 
+	infoTable = despCall,
+	visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+
+end
+
+-----------------------------------------------------新技能提示----------------------------------------------------------
+function PanelHuWei.openNewSkill(skillLev)
+	if skillLev <= 3 or skillLev>10 or not skillTable[skillLev] then return end
+	if skillTable[skillLev].openLev < var.hwLevel then
+		local skillIcon = var.xmlpage:getWidgetByName("skillIcon"..skillTable[skillLev].openLev)
+		--skillIcon:getVirtualRenderer():setState(1)
+
+		var.huiState=true
+		if not var.xmlNewSkill then
+			var.xmlNewSkill = UILuaLoader.load("uilayout/PanelHuWei_newSkill.uif")
+					:addTo(var.xmlPanel):align(display.LEFT_BOTTOM, 0, 0)
+					:show()
+			local function prsBtnItem(sender)
+				var.xmlNewSkill:hide()
+				PanelHuWei.iconFly(sender.level,2)	
+			end 
+			local imgBg=var.xmlNewSkill:getWidgetByName("imgBg"):setTouchEnabled(true)
+			local boxSkill=var.xmlNewSkill:getWidgetByName("box_new_skill"):setTouchEnabled(true)
+			UIRedPoint.addUIPoint(imgBg, prsBtnItem)
+			UIRedPoint.addUIPoint(boxSkill, prsBtnItem)
+		else
+			var.xmlNewSkill:show()
+		end
+		var.xmlNewSkill:getWidgetByName("skillName"):setString("【"..skillTable[skillLev].skillName.."】")
+		skillIcon:loadTexture(skillTable[skillLev].iconRes, ccui.TextureResType.plistType)
+		PanelHuWei.iconFly(skillLev,1)
+		var.xmlNewSkill:getWidgetByName("imgBg").level=skillLev
+		var.xmlNewSkill:getWidgetByName("box_new_skill").level=skillLev
+	end
+end
+
+function PanelHuWei.iconFly(level,start)
+	local skillBg = var.xmlPanel:getWidgetByName("skillBg"..level)
+	local flyIcon=var.xmlPanel:getWidgetByName("flyIcon"):setPosition(skillBg:getPosition()):setVisible(true):loadTexture(skillTable[level].iconRes, ccui.TextureResType.plistType)
+	-- local tempPos = util.getWidgetCenterPos(boxSkill.icon)
+	-- local endPos = var.skillModel:convertToNodeSpace(tempPos)
+	local targetPosx = var.xmlPanel:getWidgetByName("skillBg"..level):getPositionX()
+	local targetPosy = var.xmlPanel:getWidgetByName("skillBg"..level):getPositionY()
+	local function moveAct2(target)
+		target:stopAllActions()
+		target:runAction(cca.seq({
+			cca.moveTo(0.5, targetPosx, targetPosy),
+			cca.cb(function ()
+				-- target:stopAllActions()
+				var.xmlNewSkill:hide()
+				var.huiState=false
+			end),
+		}))
+	end
+
+	local function moveAct(target)
+		target:stopAllActions()
+		target:runAction(cca.seq({
+			cca.delay(7), 
+			cca.cb(function() 
+				-- target:stopAllActions()
+				var.xmlNewSkill:hide()
+				moveAct2(target) 
+			end),
+		}))
+	end
+	if start==1 then
+		moveAct(flyIcon)
+	else
+		moveAct2(flyIcon)
+	end
+end
+
+
+return PanelHuWei

@@ -1,0 +1,22 @@
+LUA_RET={
+{n="imgTipsBg",id=3,parent=2,w=334,h=387,ax=0.5,ay=0.5,x=150,y=251,px=0.5017,py=0.5031,res="img_wk",type=1,tag=104,ss=true,sx=17,sy=15,sw=66,sh=70,v=true,},
+{n="labName",id=4,parent=2,w=150,h=25,ay=0.5,x=100,y=375,color="253|223|174",px=0.3334,py=0.8300,fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=106,v=true,fs=18,text="快乐的小二",vt=1,ols=1,},
+{n="labLevel",id=5,parent=2,w=100,h=25,ay=0.5,x=270,y=379,color="253|223|174",px=0.3334,py=0.7780,type=3,tag=107,v=true,fs=18,text="99级",vt=1,},
+{n="labJob",id=6,parent=2,w=100,h=25,ay=0.5,x=100,y=9363,color="253|223|174",px=0.3334,py=0.7260,type=3,tag=108,v=true,fs=18,text="战士",vt=1,},
+{n="labGuild",id=7,parent=2,w=150,h=25,ay=0.5,x=100,y=337,color="253|223|174",px=0.3334,py=0.6740,type=3,tag=109,v=true,fs=18,text="大雕飞舞",vt=1,},
+{n="labName_0",id=8,parent=2,w=100,h=25,ay=0.5,x=13,y=375,color="255|143|22",px=0.0439,py=0.8300,fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=197,v=true,fs=18,text="角色名字：",vt=1,ols=1,},
+{n="labLevel_0",id=9,parent=2,w=100,h=25,ay=0.5,x=183,y=379,color="255|143|22",px=0.0439,py=0.7780,type=3,tag=198,v=true,fs=18,text="等   级：",vt=1,},
+{n="labJob_0",id=10,parent=2,w=100,h=25,ay=0.5,x=13,y=9363,color="255|143|22",px=0.0439,py=0.7260,type=3,tag=199,v=true,fs=18,text="职    业：",vt=1,},
+{n="labGuild_0",id=11,parent=2,w=100,h=25,ay=0.5,x=13,y=337,color="255|143|22",px=0.0439,py=0.6740,type=3,tag=200,v=true,fs=18,text="帮   会：",vt=1,},
+
+-- {n="img_mo_bg",id=12,parent=2,w=67,h=19,ax=0.5,ay=0.5,x=262,y=413,px=0.8738,py=0.8278,res="tmbg2",type=1,tag=123,v=true,},
+{n="lbl_title",tag=364,fs=25,text="操 作",ht=1,vt=1,v=true,type=3,id=12,parent=2,w=80.0000,h=28.0000,ax=0.5000,ay=0.5000,x=159.0002,y=412.1877,color="253|223|174",pfr="DFYuan.ttf",},
+
+
+{n="content",id=2,parent=1,w=300,h=500,x=0,y=-49,px=0.0005,py=-0.1247,type=0,tag=105,t=true,v=true,solid=1,},
+{n="btnMode",id=15,parent=14,w=120,h=45,ax=0.5,ay=0.5,x=68,y=25,px=0.5037,py=0.5000,tcolor="255|224|139",sel="btn_red_normal",res="btn_red_normal",type=2,tag=224,ss=true,sx=15,sy=11,sw=90,sh=23,t=true,v=true,fs=20,ud="outline(7c2b03,1);zoomscale(-0.12)",},
+{n="render",id=14,parent=13,w=135,h=50,y=200,py=0.8000,type=0,tag=219,t=true,v=true,solid=1,},
+{n="listBtn",id=13,parent=1,w=280,h=250,x=10,y=14,px=0.0343,py=0.0357,type=9,tag=218,t=true,v=true,d=1,ud="2|2|10|10",},
+{n="Image_1",id=16,parent=1,w=354,h=2,ax=0.5,ay=0.5,x=151,y=269,px=0.5046,py=0.6739,res="neigong_line_1",type=1,tag=361,ss=true,v=true,},
+{n="TipsPlayerOperate",id=1,type=0,parent=0,w=300,h=400,},
+}

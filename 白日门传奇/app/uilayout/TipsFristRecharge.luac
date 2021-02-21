@@ -1,0 +1,9 @@
+LUA_RET={
+{n="TipsFristRecharge",tag=78,v=true,type=0,id=1,parent=0,w=233.0000,h=379.0000,},
+{n="img_bg",tag=79,sx=56,sw=56,sh=100,sy=100,v=true,type=1,id=2,parent=1,w=233.0000,h=379.0000,ax=0.5000,ay=0.5000,x=117.4028,y=189.6371,color="255|255|255",res="diban",},
+{n="richLayout",tag=81,t=true,c=true,v=true,type=0,id=3,parent=1,w=200.0000,h=220.0000,x=16.4671,y=20.0628,color="255|255|255",},
+{n="effect_node",tag=82,v=true,type=1,id=4,parent=1,w=46.0000,h=46.0000,ax=0.5000,ay=0.5000,x=122.0404,y=180.4787,color="255|255|255",},
+{n="Image_2",tag=80,sx=48,sw=48,sh=14,sy=14,v=true,type=1,id=5,parent=1,w=147.0000,h=45.0000,ax=0.5000,ay=0.5000,x=113.4229,y=118.7369,color="255|255|255",res="sqzssbkd",},
+{n="recharge_Btn",tag=83,t=true,fs=14,sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=6,parent=1,w=146.0000,h=59.0000,ax=0.5000,ay=0.5000,x=117.6791,y=52.5242,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",sel="Button_Press",res="lijiczbtn",},
+{n="panel_close",tag=113,t=true,fs=14,sx=9,sw=9,sh=11,sy=11,v=true,type=2,id=7,parent=1,w=38.0000,h=44.0000,ax=0.5000,ay=0.5000,x=214.3444,y=331.4645,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",sel="Button_Press",res="x",},
+}

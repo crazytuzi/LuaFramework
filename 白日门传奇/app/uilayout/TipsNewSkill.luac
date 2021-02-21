@@ -1,0 +1,11 @@
+LUA_RET={
+{n="TipsNewSkill",v=true,type=0,id=1,parent=0,w=1136.0000,h=640.0000,},
+{n="box_new_skill",t=true,c=false,v=true,type=0,id=2,parent=1,w=476.0000,h=92.0000,ax=0.5000,ay=0.5000,x=568.0000,y=320.0000,color="255|255|255",},
+{n="img_new_skill_inner",tag=179,ss=true,sx=25,sw=26,sh=30,sy=27,v=true,type=1,id=3,parent=2,w=455.0000,h=84.0000,ax=0.5000,ay=0.5000,x=238.0000,y=46.0000,color="255|255|255",res="img_new_skill_inner",},
+{n="img_new_skill_bg",tag=1,ss=true,sx=20,sw=20,sh=20,sy=20,v=true,type=1,id=4,parent=2,w=476.0000,h=100.0000,ax=0.5000,ay=0.5000,x=238.0000,y=46.0000,color="255|255|255",res="img_cell_black",},
+{n="img_icon_bg",tag=3,v=true,type=1,id=5,parent=2,w=70.0000,h=70.0000,ax=0.5000,ay=0.5000,x=73.0000,y=45.0000,color="255|255|255",res="btn_skill_small",},
+{n="img_skill_icon",tag=276,v=true,type=1,id=6,parent=2,w=50.0000,h=50.0000,ax=0.5000,ay=0.5000,x=72.9999,y=46.0000,color="255|255|255",res="null",},
+{n="lbl_skill_tips1",tag=2,fs=20,text="恭喜你学会了新技能",ht=1,vt=1,v=true,type=3,id=7,parent=2,w=220.0000,h=23.0000,ay=0.5000,x=95.9999,y=63.0000,color="208|190|163",fr="DFYuan.ttf",},
+{n="lbl_skill_name",tag=277,fs=20,text="【】",ht=1,vt=1,v=true,type=3,id=8,parent=2,w=140.0000,h=50.0000,ay=0.5000,x=296.0001,y=62.0000,color="48|255|0",fr="DFYuan.ttf",},
+{n="lbl_skill_tips2",tag=278,fs=20,text="点击后学习",ht=1,vt=1,v=true,type=3,id=9,parent=2,w=160.0000,h=23.0000,ax=0.5000,ay=0.5000,x=241.0000,y=28.0000,color="239|181|99",fr="DFYuan.ttf",},
+}

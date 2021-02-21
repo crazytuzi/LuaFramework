@@ -1,0 +1,76 @@
+local TipsConfirm = {}
+
+function TipsConfirm:initView( extend )
+	if self.xmlTips then
+		
+		util.asyncload(self.xmlTips, "tipsbg", "needload/img_kuan_bg.png")
+		local onClickConfirm, onClickCancel = extend.confirmCallBack,extend.cancelCallBack
+		local btns = {
+			["btnConfirm"] = Const.str_titletext_confirm,--"是"
+			["btnCancel"] = Const.str_titletext_cancel,--"否"
+		}
+		local checkBox = self.xmlTips:getWidgetByName("checkBox")
+		if not checkBox then
+			checkBox = AlertCheckbox.new("")
+				:addTo(self.xmlTips)
+				:setPosition(cc.p(120,100))
+				:setName("checkBox")
+				:hide()
+				:setString("下次不再提示")
+		end
+
+		local function clickBtns( sender )
+			local name = sender:getName()
+			if name == "btnConfirm" then
+				if util.isFunction(onClickConfirm) then
+					onClickConfirm()
+				end
+			elseif name == "btnCancel" then
+				if util.isFunction(onClickCancel) then
+					onClickCancel()
+				end
+			end
+			if util.isString(extend.checkBox) and checkBox:isSelected() then
+				NetClient.AlertCheckbox[extend.checkBox] = true
+			end
+			NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = extend.str})
+		end
+		local btn
+		for k,v in pairs(btns) do
+			btn = self.xmlTips:getWidgetByName(k)
+			btn:addClickEventListener(clickBtns)
+			btn:setTitleText(extend[k] or v)
+		end
+
+		if util.isString(extend.lblConfirm) then
+			self.xmlTips:getWidgetByName("lbl_confirm_content"):setString(extend.lblConfirm)
+		elseif util.isTable(extend.lblConfirm) then
+			local list_confirm_content = self.xmlTips:getWidgetByName("list_confirm_content")
+			list_confirm_content:removeAllItems()
+			for i,v in ipairs(extend.lblConfirm) do
+				local richLabel = UIRichLabel.new({size = cc.size(list_confirm_content:getContentSize().width, 25), space=3,name = "hintMsg"..i})
+				richLabel:setRichLabel(v)
+				list_confirm_content:pushBackCustomItem(richLabel)
+			end
+		end
+		if util.isString(extend.checkBox) then
+			checkBox:show()
+			if NetClient.AlertCheckbox[extend.checkBox] then
+				onClickConfirm()
+				NetClient:dispatchEvent({name = Notify.EVENT_HIDE_TIPS,str = self.str})
+			end
+		end
+	end
+end
+
+function TipsConfirm:closeCall()
+	
+end
+-- local param = {
+-- 	name = Notify.EVENT_SHOW_TIPS, str = "confirm", lblConfirm = result.str, btnConfirm = result.labelConfirm,btnCancel = result.labelCancel,
+-- 	confirmCallBack = function ()
+-- 		self:PushLuaTable(result.callFunc,result.book)
+-- 	end
+-- }
+-- NetClient:dispatchEvent(param)
+return TipsConfirm

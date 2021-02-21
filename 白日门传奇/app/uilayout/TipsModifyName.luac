@@ -1,0 +1,10 @@
+LUA_RET={
+{n="TipsModifyName",v=true,type=0,id=1,parent=0,w=404.0000,h=241.0000,},
+{n="box_modifyName",tag=970,t=true,c=false,v=true,type=0,id=2,parent=1,w=404.0000,h=241.0000,color="255|255|255",},
+{n="tipsbg",ud="nocache",tag=935,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=3,parent=2,w=404.0000,h=241.0000,color="255|255|255",res="img_kuan_bg",},
+{n="Button_1",tag=99,t=true,fs=14,sx=15,sw=15,sh=11,sy=11,v=true,type=2,id=4,parent=2,w=33.0000,h=32.0000,ax=0.5000,ay=0.5000,x=381.3673,y=206.6422,color="255|255|255",tcolor="65|65|70",dis="Button_Disable",res="btn_close",},
+{n="title",tag=52,fs=25,text="角色名修改",ht=1,vt=1,v=true,type=3,id=5,parent=2,w=200.0000,h=28.0000,ax=0.5000,ay=0.5000,x=201.7460,y=214.0000,color="255|234|195",fr="DFYuan.ttf",},
+{n="lbl_confirm_time",tag=124,fs=20,text="请输入你要修改的角色名",ht=1,vt=1,v=true,type=3,id=6,parent=2,w=240.0000,h=22.0000,ax=0.5000,ay=0.5000,x=204.0004,y=161.0005,color="24|209|41",fr="DFYuan.ttf",},
+{n="Image_1",tag=98,sx=75,sw=75,sh=9,sy=9,v=true,type=1,id=7,parent=2,w=230.0000,h=30.0000,ax=0.5000,ay=0.5000,x=204.1692,y=109.0541,color="255|255|255",res="attrBg",},
+{n="btn_confirm",ud="outline(0e0600,1);zoomscale(-0.12)",tag=126,t=true,fs=20,text="确定",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=8,parent=2,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=205.0002,y=36.9999,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+}

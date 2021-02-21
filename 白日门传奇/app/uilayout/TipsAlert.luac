@@ -1,0 +1,7 @@
+LUA_RET={
+{n="TipsAlert",v=true,type=0,id=1,parent=0,w=388.0000,h=239.0000,},
+{n="tipsbg",ud="nocache",tag=863,ss=true,sx=15,sw=15,sh=15,sy=15,v=true,type=1,id=2,parent=1,w=388.0000,h=239.0000,color="255|255|255",res="img_kuan_bg",},
+{n="Text_1",tag=794,fs=25,text="系统提示",ht=1,vt=1,v=true,type=3,id=3,parent=1,w=120.0000,h=28.0000,ax=0.5000,ay=0.5000,x=196.5388,y=210.3006,color="255|230|184",fr="DFYuan.ttf",},
+{n="lbl_confirm_content",tag=124,fs=20,text="",ht=1,vt=1,v=true,type=3,id=4,parent=1,w=340.0000,h=90.0000,ax=0.5000,ay=0.5000,x=195.7069,y=127.1021,color="197|139|34",},
+{n="btnConfirm",ud="outline(0e0600,1);zoomscale(-0.12)",tag=126,t=true,fs=22,sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=5,parent=1,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=191.0008,y=38.9999,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+}

@@ -1,0 +1,205 @@
+local PanelShield={}
+local var = {}
+
+-- 
+function PanelShield.initView()
+	var = {
+		xmlPanel,
+		powerNum,
+		curHuweiId=nil,
+		curWeaponId=nil,
+		xmlBuyExp=nil,
+		buyExpData=nil,
+		curVcion=0,
+		curBVcion=0,
+		curMoney=0,
+		xmlBuyDan=nil,
+		buyDanData=nil,
+		richtext=nil,
+		levelBar,
+		expBar,
+		openCj=0,
+
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelShield.uif");
+    if var.xmlPanel then
+        util.asyncload(var.xmlPanel, "bg", "needload/bg_max2.png")
+        util.asyncload(var.xmlPanel, "leftBg", "needload/PanelAvatar/img_ditu9.png")
+		
+			asyncload_callback("map/v102/v102_r8_c17.png", var.xmlPanel:getWidgetByName("Image_2_22"), function (filepath, texture)
+				var.xmlPanel:getWidgetByName("Image_2_22"):loadTexture(filepath)
+			end)
+			-- asyncload_callback("fonts/spering14.png", var.xmlPanel:getWidgetByName("Image_2_23"), function (filepath, texture)
+				-- var.xmlPanel:getWidgetByName("Image_2_23"):loadTexture(filepath)
+			-- end)
+        
+        PanelShield.initBtns()
+
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelShield.updateGameMoney)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelShield.handlePanelData)
+	end
+	return var.xmlPanel
+end
+
+function PanelShield.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelShield.handlePanelData",util.encode({actionid = "reqPanelData",params={}}))
+	-- var.xmlPanel:xmlPanel("img_title"):loadTexture("shouhushenbing", ccui.TextureResType.plistType)
+end
+
+function PanelShield.onPanelClose()
+	NetClient:PushLuaTable("gui.PanelShield.handlePanelData",util.encode({actionid = "panelClose",params={}}))
+end
+
+function PanelShield.handlePanelData(event)
+	if event.type ~= "PanelShield" then return end
+	local data = util.decode(event.data)
+	if data.cmd=="updatePanelShield" then
+		PanelShield.updateData(data)
+	elseif data.cmd=="updateBtnHalo" then
+		-- PanelShield.updateBtnHalo(data)
+	end
+end
+
+
+function PanelShield.updateData(data)
+	var.xmlPanel:getWidgetByName("curHp"):setString(data.curData.maxhp)
+	var.xmlPanel:getWidgetByName("curGd"):setString(data.curData.wfmin.."-"..data.curData.wfmax)
+
+	if data.isFull == 0 then
+		var.xmlPanel:getWidgetByName("nextHp"):setString(data.nextData.maxhp)
+		var.xmlPanel:getWidgetByName("nextGd"):setString(data.nextData.wfmin.."-"..data.nextData.wfmax)
+	end
+		var.xmlPanel:getWidgetByName("recyleCheckBox"):addClickEventListener(function(sender) --开关盾牌特效
+			NetClient:PushLuaTable("gui.PanelShield.handlePanelData", util.encode({actionid="setshieldres", param=sender:isSelected() and 1 or 0}))
+		end)
+		
+    local number = NetClient:getTypeItemNum(data.curDanNum)
+
+
+    if data.needDanNum and data.needDanNum <= 0 then
+        var.xmlPanel:getWidgetByName("richLabel_attrdesc"):hide()
+    else
+        if number > data.needDanNum then
+            var.xmlPanel:getWidgetByName("richLabel_attrdesc"):setRichLabel("<font color=#00FF00><font color=#00FF00>"..number.."/"..data.needDanNum.."</font></font>", "", 15)
+        else
+            var.xmlPanel:getWidgetByName("richLabel_attrdesc"):setRichLabel("<font color=#ff0000>消耗：<font color=#ff0000>"..number.."/"..data.needDanNum.."</font></font>", "", 15)
+        end
+    end
+
+    var.xmlPanel:getWidgetByName("labName"):setString("神兵阶数："..data.curLevel)
+
+    local resEffect = var.xmlPanel:getChildByName("resEffect")
+    if not resEffect then
+        util.addEffect(var.xmlPanel, "resEffect", GROUP_TYPE.WING, data.huweiRes, {x=310,y=250}, nil, true):setScale(1.3)
+    else
+        util.updateEffect(var.xmlPanel, "resEffect", data.huweiRes, GROUP_TYPE.WING)
+    end
+
+	local btnJinJie = var.xmlPanel:getWidgetByName("btnJinJie")
+	if data.canUpgrade then
+		util.addHaloToButton(btnJinJie, "btn_normal_light3")
+	else
+		util.removeHaloFromButton(btnJinJie)
+    end
+	
+    local lblVcoin = NetClient.mCharacter.mVCoin
+    if data.needDiamond > 0 then
+        if data.needDiamond > lblVcoin then
+            var.xmlPanel:getWidgetByName("lblVcoin"):setString(data.needDiamond.."/"..lblVcoin):setColor(cc.c3b(255, 0, 0))
+        else
+            var.xmlPanel:getWidgetByName("lblVcoin"):setString(data.needDiamond.."/"..NetClient.mCharacter.mVCoin):setColor(cc.c3b(0, 255, 0))
+        end
+    else
+        var.xmlPanel:getWidgetByName("lblVcoin"):setString(0)
+    end
+	
+	if data.str then
+		var.xmlPanel:getWidgetByName("recyleRmb"):setString("盾牌当前状态【 "..data.str.." 】")
+	end	
+
+		-- var.xmlPanel:getWidgetByName("recyleRmb"):setString("元即可开启）")
+	if data.autoPick == 1 then
+		var.xmlPanel:getWidgetByName("recyleCheckBox"):setSelected(true)
+		-- var.xmlPanel:getWidgetByName("recyleRmb"):setString("盾牌"..data.str)
+	else
+		var.xmlPanel:getWidgetByName("recyleCheckBox"):setSelected(false)
+		-- var.xmlPanel:getWidgetByName("recyleRmb"):setString("盾牌"..data.str)
+	end	
+    
+    if data.curDanNum and data.curDanNum > 0 then
+        local param = {
+            parent	 = var.xmlPanel:getWidgetByName("needItem"),
+            iconType = Const.ICONTYPE.DEPOT,
+            typeId   = data.curDanNum
+        }
+        UIItem.getItem(param)
+    else
+        var.xmlPanel:getWidgetByName("needItem"):hide()
+    end
+	
+	if data.up then
+		local fireworks = cc.Sprite:create():addTo(var.xmlPanel):pos(280, 360)
+		local animate = cc.AnimManager:getInstance():getPlistAnimate(GROUP_TYPE.EFFECT,60015,4)
+		fireworks:runAction(cca.seq({
+			cca.rep(animate, 1),
+			cca.cb(function ()
+				
+			end),
+			cca.removeSelf()
+		}))
+	end
+end
+
+--跟新钻石和绑元变化
+function PanelShield.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		var.curVcion=mainrole.mVCoin or 0
+		var.curBVcion=mainrole.mVCoinBind or 0
+		var.curMoney=mainrole.mGameMoney or 0
+		if var.xmlBuyExp then
+			var.xmlBuyExp:getWidgetByName("lblVcoin"):setString(var.curVcion)
+			var.xmlBuyExp:getWidgetByName("lblMoney"):setString(var.curMoney)
+		end
+		if var.xmlBuyDan then
+			var.xmlBuyDan:getWidgetByName("lblDiamond"):setString(var.curVcion)
+			var.xmlBuyDan:getWidgetByName("lblVcoin"):setString(var.curBVcion)
+		end
+
+	end
+end
+
+function PanelShield.updateSkillInfo()
+	local boxTips = var.xmlPanel:getWidgetByName("box_skill_tip")
+	local skillData = skillTable[1]
+	local skillIcon = boxTips:getWidgetByName("skillIcon")
+	skillIcon:loadTexture(skillData.iconRes, ccui.TextureResType.plistType)
+	boxTips:getWidgetByName("skillName"):setString(skillData.skillName)
+	boxTips:getWidgetByName("skillZb"):setString(skillData.skillZb)
+	boxTips:getWidgetByName("skillDesp"):setString(skillData.skillDesp)
+	if var.openCj > 0 then
+		boxTips:getWidgetByName("skillOpen"):setString("该技能已经成功激活")
+	else
+		boxTips:getWidgetByName("skillOpen"):setString("购买超值特惠礼包获得技能书")
+	end
+	return true
+end
+
+-----------------------------------------按钮操作-----------------------------------------------
+local btnArrs = {"btnJinJie"}
+function PanelShield.initBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		-- print(senderName)
+		if senderName=="btnJinJie" then
+			NetClient:PushLuaTable("gui.PanelShield.handlePanelData",util.encode({actionid = "reqJinJie",params={}}))
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		UIRedPoint.addUIPoint(btn,prsBtnClick)
+	end
+end
+
+return PanelShield

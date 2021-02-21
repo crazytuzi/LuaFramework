@@ -1,0 +1,417 @@
+local PanelLottery={}
+local var = {}
+local LOTTERY_MY_MAX_LENGTH = 30
+
+function PanelLottery.initView()
+	var = {
+		xmlPanel,
+		myLotteryInfos=nil,
+		roleName,
+		xmlLottery=nil,
+		xmlLotteryBag=nil,
+		worldListAction = false,
+		serverday=0,
+		noShowTip=false,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelLottery.uif");
+	if var.xmlPanel then
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelLottery.handlePanelData)
+			:addEventListener(Notify.EVENT_GAME_MONEY_CHANGE, PanelLottery.updateGameMoney)
+		var.roleName = MainRole._mainAvatar:NetAttr(Const.net_name)
+		var.xmlLottery = var.xmlPanel:getWidgetByName("lotteryBglayer")
+		var.xmlPanel:getWidgetByName("bar"):setLabelVisible(false)
+		util.asyncload(var.xmlPanel, "panelBg", "needload/panel_lottery_bg.png")
+		util.asyncload(var.xmlPanel, "lotteryBg", "needload/panel_lottery_bg2.jpg")
+		var.xmlPanel:getWidgetByName("panelBg"):setLocalZOrder(12)
+		var.xmlPanel:getWidgetByName("imgTitle"):setLocalZOrder(13)
+		var.xmlPanel:getWidgetByName("panel_close"):setLocalZOrder(14)
+		PanelLottery:updateGameMoney()
+		PanelLottery.initTabs()
+		PanelLottery.initBtns()
+	end
+	return var.xmlPanel
+end
+
+function PanelLottery.onPanelOpen()
+	PanelLottery.updateMyLotteryRecord()
+	NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "reqShowItems",params={}}))
+end
+
+function PanelLottery.onPanelClose()
+	
+end
+
+--金币刷新函数
+function PanelLottery.updateGameMoney(event)
+	if var.xmlPanel then
+		local mainrole = NetClient.mCharacter
+		local moneyLabel = {
+			{name="labVcion",	pre=Const.str_vcoin,	value =	mainrole.mVCoin or 0	,	icon = "icon_coin"},
+			-- {name="lblBVcoin",	pre=Const.str_vcoinb,	value =	mainrole.mVCoinBind or 0,	icon = "icon_coin_bind"},
+			-- {name="lblMoney",	pre=Const.str_money,	value =	mainrole.mGameMoney or 0,	icon = "icon_money"},
+			-- {name="lblBMoney",	pre=Const.str_moneyb,	value =	mainrole.mGameMoneyBind or 0,	icon = "icon_money"},
+		}
+		--建临时表遍历设属性
+		for _,v in ipairs(moneyLabel) do
+			local curNum = tonumber(var.xmlPanel:getWidgetByName(v.name):getString()) or 0
+			var.xmlPanel:getWidgetByName(v.name):setString(v.value)
+		end
+	end
+end
+
+function PanelLottery.handlePanelData(event)
+	if event.type ~= "PanelLottery" then return end
+	-- print(event.data)
+	local data = util.decode(event.data)
+	if data.cmd =="updateLotteryRecord" then
+		PanelLottery.updatePanel(data)
+	elseif data.cmd=="updateShowItems" then
+		PanelLottery.updateShowItems(data.dataTable)
+		var.serverday=data.serverday
+	elseif data.cmd=="updateBoxsState" then--跟新宝箱的显示
+		PanelLottery.updateBoxsState(data)
+	elseif data.cmd=="startSort" then	
+		NetClient:SortItem(3)
+	elseif data.cmd=="showBoxTips" then
+		if var.noShowTip then 
+			PanelLottery.onBoxDesp(data.desp)
+		end
+	end
+end
+
+--初始化页签
+function PanelLottery.initTabs()
+	local function pressTabH(sender)
+		local tag = sender:getTag()
+		if tag==1 then
+			var.xmlLottery:show()
+			if var.xmlLotteryBag then var.xmlLotteryBag:hide() end
+		elseif tag==2 then
+			var.xmlLottery:hide()
+			PanelLottery.initLotteryBag()
+			NetClient:SortItem(3)
+		end
+	end
+	var.tablisth = var.xmlPanel:getWidgetByName("box_tab")
+	var.tablisth:addTabEventListener(pressTabH)
+	var.tablisth:setSelectedTab(1)
+	-- var.tablisth:setTabRes("btn_lottery","btn_lottery_sel")
+end
+
+--刷新宝箱显示状态
+function PanelLottery.updateBoxsState(data)
+	if not data then return end
+	local bar = var.xmlPanel:getWidgetByName("bar")
+	for i=1,#data.dataTable do
+		local itemData = data.dataTable[i]
+		local btnBox = var.xmlPanel:getWidgetByName("btnBox"..i)
+
+		bar:setPercent(data.lotteryNum,50):setLabelVisible(false)
+		bar:setFontSize(14):enableOutline(game.getColor(0x000049),1)
+		if data.lotteryNum>=itemData.needNum then
+			-- btnBox:loadTextures("btn_box_liang", "btn_box_liang", "", ccui.TextureResType.plistType)
+			-- btnBox:setTouchEnabled(true)
+			if itemData.ling==1 then
+				var.xmlPanel:getWidgetByName("imgLing"..i):setVisible(true)
+				-- btnBox:setTouchEnabled(false)
+				btnBox:removeChildByName("img_bln")
+			else
+				var.xmlPanel:getWidgetByName("imgLing"..i):setVisible(false)
+				util.addHaloToButton(btnBox, "btn_normal_light10",nil,75,70)
+			end
+		else
+			-- btnBox:setTouchEnabled(false)
+			-- btnBox:loadTextures("btn_box_hui", "btn_box_hui", "", ccui.TextureResType.plistType)
+		end
+
+	end
+end
+
+--刷新展示的道具
+function PanelLottery.updateShowItems(data)
+	for i=1,14 do
+		local id = data[i]
+		if id then
+			local awardItem=var.xmlPanel:getWidgetByName("icon"..i)
+			local param={parent=awardItem, typeId=id}
+			local itemdef = NetClient.mItemDesp[id]
+			local effectID = 65078
+			if itemdef then
+				if itemdef.mItemBg > 0 then
+					effectID = itemdef.mItemBg + effectID - 3
+				end
+			end
+			UIItem.getItem(param)
+			util.addEffect(awardItem,"spriteEffect",4,effectID,{x = 33 , y = 32})
+		end
+	end
+end
+
+--打开面板刷新个人寻宝记录
+function PanelLottery.updateMyLotteryRecord()
+	var.myLotteryInfos = UserConfig.getInfos(var.roleName, "LotteryList")
+	if not var.myLotteryInfos then
+		var.myLotteryInfos={}
+	else
+		PanelLottery.updateContent(var.myLotteryInfos,"myList",300,2,true,18, false)
+	end
+end
+
+function PanelLottery.updatePanel(data)
+	var.xmlPanel:getWidgetByName("labJiFen"):setString(data.curJiFen)
+	if data.curRecord then
+		PanelLottery.getMyGongXunListInfos(data.curRecord)
+	end
+	if data.curWorldRecord then
+		var.worldListAction = true
+		PanelLottery.updateContent(data.curWorldRecord,"worldList",300,2,false,18, var.worldListAction)
+		
+	end
+	PanelLottery.updateKeyNum(data.keyNum)
+end
+
+--刷新寻宝消耗的显示
+function PanelLottery.updateKeyNum(keynum)
+	if keynum>=1 then
+		var.xmlPanel:getWidgetByName("labNeed1"):setString("宝藏钥匙*1")
+	else
+		var.xmlPanel:getWidgetByName("labNeed1"):setString("100000元宝")
+	end
+	if keynum>=5 then
+		var.xmlPanel:getWidgetByName("labNeed5"):setString("宝藏钥匙*5")
+	else
+		var.xmlPanel:getWidgetByName("labNeed5"):setString("500000元宝")
+	end
+	if keynum>=10 then
+		var.xmlPanel:getWidgetByName("labNeed10"):setString("宝藏钥匙*10")
+	else
+		var.xmlPanel:getWidgetByName("labNeed10"):setString("1000000元宝")
+	end
+end
+
+--每来一条记录并删除多余的
+function PanelLottery.getMyGongXunListInfos(lotteryRecord)
+	if not var.myLotteryInfos then
+		var.myLotteryInfos = UserConfig.getInfos(var.roleName,"LotteryList")
+	end
+	table.insert(var.myLotteryInfos,lotteryRecord)
+	if #var.myLotteryInfos>LOTTERY_MY_MAX_LENGTH then
+		table.remove(var.myLotteryInfos,1)
+	end
+	UserConfig.setInfos(var.roleName,var.myLotteryInfos,"LotteryList")
+	PanelLottery.updateContent({lotteryRecord},"myList",300,2,false,18, true)
+end
+
+--个人信息是每次推新增的，全服信息是每次推10条，所以更新全服信息时要把list的child全remove
+function PanelLottery.updateContent(data,curScrollName,listsize,Margin,removeAll,tsize, action)
+	local scroll = var.xmlPanel:getWidgetByName(curScrollName):setItemsMargin(Margin or 0):setClippingEnabled(true)
+	scroll:setDirection(ccui.ScrollViewDir.vertical)
+	scroll:setScrollBarEnabled(false)
+	if removeAll then scroll:removeAllChildren() end
+	for i=1, #data do
+		local richWidget = UIRichLabel.new({size=cc.size(listsize,20),space=2})
+		local textsize = tsize or 18
+		-- local tempInfo = util.encode(data[i])
+		richWidget:setRichLabel(data[i],20,textsize)
+		richWidget:setVisible(true)
+		scroll:pushBackCustomItem(richWidget)
+		if #scroll:getItems()>20 then
+			scroll:removeItem(0)
+		end
+	end
+
+	if action then
+		scroll:runAction(cc.Sequence:create(
+			cc.DelayTime:create(0.1),
+			cc.CallFunc:create(function ()
+					scroll:scrollToBottom(1,true)
+				end)
+			)
+		)
+	else
+		scroll:scrollToBottom(0,true)
+	end
+end
+
+
+--宝箱操作
+local boxArrs = {"btnBox1","btnBox2","btnBox3","btnBox4","btnBox5"}
+function PanelLottery.initBoxs()
+	for i=1,#boxArrs do
+		local btn = var.xmlPanel:getWidgetByName(boxArrs[i])
+		btn.index=i
+   		btn:addTouchEventListener(function (pSender, touchType)
+			if touchType == ccui.TouchEventType.began then
+				var.noShowTip=true
+				NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "reqBoxAward",params={index=pSender.index}}))
+			elseif touchType == ccui.TouchEventType.ended or touchType == ccui.TouchEventType.canceled then	
+				var.noShowTip=false
+				LayerAlert.handleAlertClose()
+			end
+		end)
+	end
+end
+
+-----------------------------------------按钮操作-----------------------------------------------
+local btnArrs = {"btnLottery1","btnLottery5","btnLottery10","btnDuiHuan","btnChongZhi","btnGetAll","btnTidy","btnHuiShou"}
+function PanelLottery.initBtns()
+	local function prsBtnClick(sender)
+		local senderName = sender:getName()
+		-- print(senderName)
+		if senderName=="btnLottery1" then
+			NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "startLottery",params={times=1}}))
+		elseif senderName=="btnLottery5" then
+			NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "startLottery",params={times=5}}))
+		elseif senderName=="btnLottery10" then
+			NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "startLottery",params={times=10}}))
+		elseif senderName=="btnDuiHuan" then
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "main_convert"})
+		elseif senderName=="btnChongZhi" then
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL, str = "panel_charge"})
+		elseif senderName=="btnGetAll" then--寻宝仓库一键提取
+			PanelLottery.onekeyGetAll()
+		elseif senderName=="btnTidy" then--寻宝仓库-整理
+			NetClient:SortItem(3)
+		-- elseif senderName=="btnBox1" then
+		-- 	PanelLottery.onBoxDesp()
+		-- 	NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "reqBoxAward",params={index=1}}))
+		-- elseif senderName=="btnBox2" then
+		-- 	NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "reqBoxAward",params={index=2}}))
+		-- elseif senderName=="btnBox3" then
+		-- 	NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "reqBoxAward",params={index=3}}))
+		-- elseif senderName=="btnBox4" then
+		-- 	NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "reqBoxAward",params={index=4}}))
+		-- elseif senderName=="btnBox5" then
+		-- 	NetClient:PushLuaTable("gui.PanelLottery.handlePanelData",util.encode({actionid = "reqBoxAward",params={index=5}}))
+		elseif senderName=="btnHuiShou" then
+			PanelLottery.onekeyHuiShou()
+		end
+	end
+	for i=1,#btnArrs do
+		local btn = var.xmlPanel:getWidgetByName(btnArrs[i])
+		-- print(btn,"=====================")
+		if btn then
+			UIRedPoint.addUIPoint(btn,prsBtnClick)
+		end
+	end
+	PanelLottery.initBoxs()
+end
+
+---------------------------------------------------------寻宝仓库------------------------------------------------------------
+function PanelLottery.initLotteryBag()
+	if not var.xmlLotteryBag then
+		var.xmlLotteryBag=UILuaLoader.load("uilayout/PanelLottery_bag.uif")
+							:addTo(var.xmlPanel)
+   							:align(display.CENTER,570,306)
+   							:show()
+   							:setLocalZOrder(10)
+   		util.asyncload(var.xmlLotteryBag, "bagBg", "needload/panel_lottery_bag.jpg")
+   		PanelLottery.initBtns()
+   		if var.serverday>7 then
+   			var.xmlLotteryBag:getWidgetByName("btnHuiShou"):setTitleText("回收2转以下装备")
+   		-- elseif var.serverday>7 then
+   		-- 	var.xmlLotteryBag:getWidgetByName("btnHuiShou"):setTitleText("回收1转以下装备")
+   		else
+   			var.xmlLotteryBag:getWidgetByName("btnHuiShou"):setTitleText("回收90级以下装备")
+   		end
+	else
+		var.xmlLotteryBag:show()
+	end
+	PanelLottery.initBagList()
+end
+
+--初始化寻宝背包列表
+function PanelLottery.initBagList(data)
+
+	local function updateList(item)
+		local index = item.tag - 1 + 3000
+		local param = {
+			parent = item,
+			pos = index,
+			-- titleText = Const.str_get_out,
+			-- iconType = Const.ICONTYPE.TREASURE,
+			-- tipsType = Const.TIPS_TYPE.TREASURE,
+			tipsType = Const.TIPS_TYPE.UPGRADE,
+			-- callBack = function ()
+			-- 	-- NetClient:UndressItem(index)
+			-- end,
+			enmuPos = 6,
+			customCallFunc = function()
+				NetClient:takeItemFromLottory(index)
+			end,
+			-- doubleCall = function()
+			-- 	NetClient:takeItemFromLottory(index)
+			-- end,
+			compare = true
+		}
+		UIItem.getItem(param)
+	end
+	local listBag = var.xmlLotteryBag:getWidgetByName("listBag")
+	listBag:reloadData(300,updateList):setSliderVisible(false)
+end
+
+--寻宝仓库物品一键提取
+function PanelLottery.onekeyGetAll()
+	local bagNum = NetClient:getLeftBagNum()--背包空余格子数
+	local textInfo
+	if bagNum > 0 then
+		local index = 0
+		for i=0,300 do
+			local netItem = NetClient:getNetItem(3000+i)
+			if netItem then
+				NetClient:UndressItem(3000+i)
+				index = index + 1
+			end
+			if index >= bagNum then
+				NetClient:alertLocalMsg("已成功提取"..index.."个，背包已满无法继续提取！","alert")
+				return
+			else
+				if index == 0 then
+					textInfo = "仓库内没有物品可以提取！"
+				else
+					textInfo = "已成功提取仓库内所有物品！"
+				end
+			end
+		end
+	else
+		textInfo = "背包已满无法提取！"
+	end
+	if textInfo then
+		NetClient:alertLocalMsg(textInfo,"alert")
+	end
+end
+
+--一键回收转生装备
+function PanelLottery.onekeyHuiShou()
+	-- local zLev = 1
+	-- if var.serverday>7 then zLev=2 end
+	local posTable = {}
+	-- for i=0,300 do
+	-- 	local nItem = NetClient:getNetItem(3000+i)
+	-- 	if nItem then
+	-- 		local itemDef = NetClient:getItemDefByID(nItem.mTypeID)
+	-- 		if itemDef and itemDef.mNeedZsLevel<=zLev and game.IsEquipment(nItem.mTypeID) and itemDef.mEquipType<11 then
+	-- 			table.insert(posTable,#posTable+1,(3000+i))
+	-- 		end
+	-- 	end
+	-- end
+	-- if #posTable>0 then
+		NetClient:PushLuaTable("gui.PanelUpgrade.onPanelData", util.encode({actionid = "lotteryhuishou",param = posTable}))
+	-- else
+	-- 	NetClient:alertLocalMsg("宝藏背包无可回收装备！","alert")
+	-- end
+end
+
+function PanelLottery.onBoxDesp(desp)
+	local mParam = {
+		name = Notify.EVENT_PANEL_ON_ALERT,
+		panel = "tips", 
+		infoTable = desp,
+		visible = true, 
+	}
+	NetClient:dispatchEvent(mParam)
+end
+
+
+return PanelLottery

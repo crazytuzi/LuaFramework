@@ -1,0 +1,40 @@
+LUA_RET={
+{n="panel_minimap_bg",id=2,parent=1,w=1083,h=640,ay=1.0,x=135,y=593,py=1.0000,type=1,tag=1,v=true,},
+{n="panel_close",id=3,parent=1,w=35,h=35,ax=0.5,ay=0.5,x=900,y=562,px=0.9714,py=0.9085,sel="Button_Press",res="btn_close",type=2,tag=2,t=true,v=true,fs=20,ud="zoomscale(-0.12)",},
+{n="mapScroll",id=4,parent=1,w=540,h=380,x=210,y=159,px=0.1776,py=0.2488,iw=712,ih=395,type=8,tag=55,t=true,v=true,},
+{n="img_pos_bg",id=5,parent=1,w=600,h=28,ax=0.5,ay=0.5,x=548,y=9539,px=0.5063,py=0.8434,res="img_minimap_bg21",type=1,tag=31,ss=true,sx=267,sy=9,sw=276,sh=10,v=true,},
+{n="map_name",id=6,parent=1,w=150,h=25,ay=0.5,x=140,y=9560,color="253|223|174",px=0.1814,py=0.8461,fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=15,v=true,fs=20,text="",vt=1,ols=1,},--地图
+{n="pos_current",id=7,parent=1,w=150,h=25,ay=0.5,x=270,y=9560,color="200|192|172",px=0.6917,py=0.8470,type=3,tag=24,v=true,fs=20,text="",ht=1,vt=1,},--坐标
+{n="pos_current1",id=12,parent=1,w=150,h=25,ay=0.5,x=495,y=9560,color="200|192|172",px=0.6917,py=0.8470,type=3,tag=24,v=true,fs=25,text="地图",ht=1,vt=1,},
+{n="pos_current2",id=13,parent=1,w=150,h=25,ay=0.5,x=9770,y=517,color="200|192|172",px=0.6917,py=0.8470,res="btn_new4",type=3,tag=24,t=true,v=true,fs=25,text="地图界面",ht=1,vt=1,},
+--{n="btnCangKu",id=8,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=837000,y=450,px=0.2592,py=0.1621,tcolor="234|221|191",sel="btn_new",res="btn_new",type=2,tag=32,t=true,v=true,fs=22,text="仓库",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn2",id=9,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=493,px=0.4285,py=0.1621,tcolor="234|221|191",sel="btn_select_sel",res="btn_red_chang",type=2,tag=34,t=true,v=true,fs=20,text="荒墟山谷    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn1",id=14,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=530,px=0.2592,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=32,t=true,v=true,fs=20,text="暮色森林    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn3",id=10,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=456,px=0.5978,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=35,t=true,v=true,fs=20,text="魔首之窟    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn4",id=18,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=419,px=0.7671,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=36,t=true,v=true,fs=20,text="灵台圣地    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn5",id=19,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=382,px=0.7671,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=36,t=true,v=true,fs=20,text="阴阳界墟    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn6",id=21,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=345,px=0.7671,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=36,t=true,v=true,fs=20,text="天空王座    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn7",id=22,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=308,px=0.7671,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=36,t=true,v=true,fs=20,text="无畏天宫    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn11",id=23,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=290,y=510,px=0.7671,py=0.1621,tcolor="234|221|191",sel="btn_red_normal",res="btn_red_normal",type=2,tag=36,t=true,v=true,fs=18,text="进入地图",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn8",id=24,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=271,px=0.7671,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=36,t=true,v=true,fs=20,text="幽冥炼狱    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn9",id=25,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=234,px=0.7671,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=36,t=true,v=true,fs=20,text="众神之域    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="btn10",id=26,parent=1,w=110,h=48,ax=0.5,ay=0.5,x=820,y=197,px=0.7671,py=0.1621,tcolor="234|221|191",sel="btn_red_chang",res="btn_red_chang",type=2,tag=36,t=true,v=true,fs=20,text="封神之地    ",ud="outline(0e0600,1);zoomscale(-0.12)",},
+{n="Text_2",id=45,parent=1,ay=0.5,x=240,y=148,color="253|223|174",px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="250,50,0,0",type=3,tag=60,v=true,fs=20,text="温馨提示：",ols=1,},
+{n="Text_3",id=46,parent=1,ay=0.5,x=490,y=128,color="253|223|174",px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="0,0,0,255",type=3,tag=60,v=true,fs=20,text="为您提供转生地图传送服务",ols=1,},
+{n="Text_4",id=47,parent=1,ay=0.5,x=520,y=568,color="253|223|174",px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="250,50,0,0",type=3,tag=60,v=true,fs=20,text="转生地图",ols=1,},
+{n="Text_4_1",id=50,parent=1,ay=0.5,x=860,y=525,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[1转]",ols=1,},
+{n="Text_4_2",id=51,parent=1,ay=0.5,x=860,y=485,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[3转]",ols=1,},
+{n="Text_4_3",id=52,parent=1,ay=0.5,x=860,y=451,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[5转]",ols=1,},
+{n="Text_4_4",id=53,parent=1,ay=0.5,x=860,y=414,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[7转]",ols=1,},
+{n="Text_4_5",id=54,parent=1,ay=0.5,x=860,y=377,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[9转]",ols=1,},
+{n="Text_4_6",id=55,parent=1,ay=0.5,x=860,y=340,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[11转]",ols=1,},
+{n="Text_4_7",id=56,parent=1,ay=0.5,x=860,y=303,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[13转]",ols=1,},
+{n="Text_4_8",id=57,parent=1,ay=0.5,x=860,y=266,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[15转]",ols=1,},
+{n="Text_4_9",id=58,parent=1,ay=0.5,x=860,y=229,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[17转]",ols=1,},
+{n="Text_4_10",id=59,parent=1,ay=0.5,x=860,y=192,tcolor="234|221|191",fs=20,px=0.6674,py=0.7492,fr="DFYuan.ttf",olc="183,150,250,255",type=3,tag=60,v=true,fs=16,text="[20转]",ols=1,},
+
+
+{n="PanelChuanSong",id=1,type=0,parent=0,w=1083,h=640,},
+
+}
+

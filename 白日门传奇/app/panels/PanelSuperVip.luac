@@ -1,0 +1,40 @@
+local PanelSuperVip = {}
+local var = {}
+
+function PanelSuperVip.initView(event)
+	var = {
+		xmlPanel,
+	}
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelSuperVip.uif")
+	if var.xmlPanel then
+		util.asyncload(var.xmlPanel, "img_border", "needload/img_supervip_bg.jpg")
+		
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelSuperVip.handlePanelData)
+		local str = ""
+		var.xmlPanel:getWidgetByName("lblinfo"):setString(str)
+		var.xmlPanel:getWidgetByName("btn_charge"):addClickEventListener(function()
+			NetClient:dispatchEvent({name = Notify.EVENT_OPEN_PANEL,str = "panel_charge"})
+		end)
+
+		return var.xmlPanel
+	end
+end
+
+function PanelSuperVip.handlePanelData(event)
+	if event.type == "PanelSuperVip" then
+		local pData = util.decode(event.data)
+		if pData then
+			local lblqq = var.xmlPanel:getWidgetByName("lblqq")
+			lblqq:setString(pData.qqinfo)
+		end
+	end
+end
+function PanelSuperVip.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelSuperVip.handlePanelData",util.encode({actionid = "fresh",tag = PlatformTool.getPlatformId()}))	
+end
+
+function PanelSuperVip.onPanelClose()
+	
+end
+return PanelSuperVip

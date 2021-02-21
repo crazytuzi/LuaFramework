@@ -1,0 +1,7 @@
+LUA_RET={
+{n="TipsUseItem",v=true,type=0,id=1,parent=0,w=142.0000,h=205.0000,},
+{n="tipsbg",tag=1137,ss=true,sx=22,sw=24,sh=24,sy=22,v=true,type=1,id=2,parent=1,w=142.0000,h=205.0000,ax=0.5000,ay=0.5000,x=71.0000,y=102.0000,color="255|255|255",res="img_tips_common_minibg",},
+{n="icon",tag=1149,sx=22,sw=22,sh=22,sy=22,v=true,type=1,id=3,parent=2,w=68.0000,h=68.0000,ax=0.5000,ay=0.5000,x=73.0002,y=118.0002,color="255|255|255",res="img_cell_max",},
+{n="btn_close",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1152,t=true,fs=22,sx=9,sw=9,sh=9,sy=9,v=true,type=2,id=4,parent=2,w=28.0000,h=28.0000,ax=0.5000,ay=0.5000,x=122.0003,y=187.0003,color="255|255|255",tcolor="234|221|191",res="btn_close",},
+{n="btn_use",ud="outline(0e0600,1);zoomscale(-0.12)",tag=1151,t=true,fs=18,text="装备",sx=33,sw=33,sh=10,sy=10,v=true,type=2,id=5,parent=2,w=100.0000,h=33.0000,ax=0.5000,ay=0.5000,x=71.0000,y=39.0000,color="255|255|255",tcolor="234|221|191",res="btn_red_normal",},
+}

@@ -1,0 +1,184 @@
+local txtTypeStr = {
+	"活动",
+	"开服",
+	"促销",
+	"提示",
+	"警告",
+	"攻略",
+	"通知"
+}
+
+SceneNotice = class("SceneNotice", function()
+    return display.newScene("SceneNotice")
+end)
+
+function SceneNotice:ctor()
+	self.xmlPanel=nil
+	self.box_annc=nil
+	self.btn_Enter=nil
+	self.anncList=nil
+	self.list_type=nil
+	self.updateComplete=false
+	self.anncTitle = nil
+end
+
+function SceneNotice:onEnter()
+	self.xmlPanel = UILuaLoader.load("uilayout/SceneNotice.uif")
+
+	if self.xmlPanel then
+		self.box_annc = self.xmlPanel:getChildByName("box_annc")
+
+		self.box_annc:setPosition(cc.p(display.cx, display.cy))
+
+		self.btn_enter = self.box_annc:getChildByName("btn_enter")
+		
+		local imgBg = self.xmlPanel:getChildByName("Image_Bg"):align(display.CENTER, display.cx, display.cy)
+		asyncload_callback("needload/img_battle.png", self.xmlPanel:getChildByName("Image_Bg"):align(display.CENTER, display.cx, display.cy), function (filepath, texture)
+			if utilapp.isObjectExist(imgBg) then
+				imgBg:loadTexture(filepath):scale(cc.MAX_SCALE)
+			end
+		end)
+		util.asyncload(self.xmlPanel, "box_annc", "needload/img_notice.png")
+		self.btn_enter:addClickEventListener(function (sender)
+			print("进入游戏")
+			self:doLogin()
+		end)
+
+		self.anncTitle = self.box_annc:getWidgetByName("annc_Title")
+
+		self:addChild(self.xmlPanel)
+
+		self.updateComplete = true
+
+		self.box_annc:setVisible(false)
+		self:showAnnc()
+	end
+end
+
+function SceneNotice:openDoor(ui)
+	local startNum = 1
+	local doorNum = 7
+	local img_left = ui:getWidgetByName("img_leftdoor")
+	local img_right = ui:getWidgetByName("img_rightdoor")
+
+	img_right:setFlippedX(true)
+	img_left:setPositionX(display.cx)
+	img_right:setPositionX(display.cx)
+
+	local function startOpen()
+		asyncload_callback("needload/OpenDoor/img_door"..startNum..".jpg", img_left, function (filepath, texture)
+			if util.isObjectExist(img_left) then
+				img_left:loadTexture(filepath):scale(display.height/640)
+			end
+			if util.isObjectExist(img_right) then
+				img_right:loadTexture(filepath):scale(display.height/640)
+			end
+		end)
+		startNum = startNum + 1
+		if startNum >= 8 then
+			img_left:runAction(cca.fadeOut(0.5))
+			img_right:runAction(cca.fadeOut(0.5))
+			self:showAnnc()
+		end
+	end
+	
+	ui:runAction(cca.rep(cca.seq({cca.delay(0.25),cca.cb(startOpen)}),tonumber(7)))
+end
+
+function SceneNotice:showAnnc(  )
+	self.box_annc:setVisible(true)
+	self:getAnncInfo()
+end
+
+function SceneNotice:onExit()
+	cc.SpriteManager:getInstance():removeFramesByFile("uipic/SceneNotice")
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+function SceneNotice:doLogin(args)
+	if self.updateComplete then
+		self.updateComplete = false
+
+		asyncload_frames("uipic/SceneSelectServer", ".png", function ()
+			if game.gameKey and game.gameKey ~= "" then
+				display.replaceScene(SceneSelectServer.new())
+			else
+				display.replaceScene(SceneLogin.new())
+			end
+		end)
+	end
+end
+
+function SceneNotice:getAnncInfo()
+	self.anncList = self.box_annc:getChildByName("list_type")
+	self.anncList:setTouchEnabled(true)
+	self.anncList:setBounceEnabled(true)
+	local scroll_ptinfo=self.box_annc:getChildByName("scroll_annc")
+	local fileUtils = cc.FileUtils:getInstance()
+
+	local path=fileUtils:getWritablePath().."annc.json"
+	if fileUtils:isFileExist(path) then
+		local anncStr=fileUtils:getStringFromFile(path)
+		anncStr=string.gsub(anncStr,"\\","")
+		local anncTab1=string.split(anncStr,"###")
+		game.annc={}
+		for k,v in pairs(anncTab1) do
+			local anncTab2=string.split(v,"|||")
+			if anncTab2 and #anncTab2>1 then
+				local annc={}
+				annc["title"] = anncTab2[1]
+				--annc["type1"] = tonumber(anncTab2[2])  -- 左上角类型[活动，公告，促销]
+				annc["type2"] = 2  			 -- 右上角类型[hot，new]
+				annc["content"]=anncTab2[2]
+				table.insert(game.annc, annc)
+			end
+		end
+		if not self.list_type then
+			local params={
+				list=self.anncList,
+				layout={repeatY=#anncTab1,repeatX=1,spaceX=0,spaceY=9},
+				updateItemfunc=function(item)
+					local index=item.index
+					-- 标题
+					local title = item:getChildByName("title");
+					title:setString(item.data.title)
+
+					-- 角标
+					local imgType = item:getChildByName("img_type")
+				--	imgType:loadTexture("img_type"..item.data.type1, ccui.TextureResType.plistType)
+					
+					-- 类型
+					local txtType = item:getChildByName("txt_type")
+					if txtType then
+						txtType:setRotation(-45):setString(txtTypeStr[item.data.type1])
+					end
+				end,
+				selectItemfunc=function(item)
+					local child=scroll_ptinfo:getChildByName("rich_annc")
+					if child then
+						scroll_ptinfo:removeChild(child)
+					end
+          			local rich_label = utilapp.newRichLabel(cc.size(550,0),5)
+					rich_label:setName("rich_annc")
+					rich_label:setAnchorPoint(cc.p(0.5, 1))
+					scroll_ptinfo:addChild(rich_label)
+					local anncMsg=item.data["content"]
+					self.anncTitle:setString(item.data.title)
+					utilapp.setRichLabel(rich_label,anncMsg, "", 22, "0x4d4d4d")
+					scroll_ptinfo:setInnerContainerSize(cc.size(550,rich_label:getRealHeight()))
+
+					local realHeight = rich_label:getRealHeight() < 410 and 410 or rich_label:getRealHeight()
+					rich_label:setPosition(cc.p(scroll_ptinfo:getContentSize().width/2, realHeight))
+					rich_label:setVisible(true)
+				end,
+				data=game.annc
+			}
+			self.list_type=UIList.new(params)
+			self.list_type:setSelectedIndex(1)
+			self.anncList:show()
+		end
+	end
+	self.box_annc:show()
+end
+
+return SceneNotice

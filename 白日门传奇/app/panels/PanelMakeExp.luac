@@ -1,0 +1,78 @@
+local PanelMakeExp = {}
+local var = {}
+
+function PanelMakeExp.initView()
+	var = {
+		xmlPanel,
+		expNum,
+		levNum
+	}
+	-- var.xmlPanel = cc.XmlLayout:widgetFromXml("uilayout/PanelMakeExp/PanelMakeExp.xml")
+	var.xmlPanel = UILuaLoader.load("uilayout/PanelMakeExp.uif")
+	if var.xmlPanel then
+		PanelMakeExp.onPanelOpen()
+		-- var.levNum = ccui.TextAtlas:create("0123456789", "fonts/makeExp_lev.png", 35, 56, "0")
+		-- 	:addTo(var.xmlPanel)
+		-- 	:align(display.LEFT_TOP, 540,250)
+		-- 	:setString(0)
+		PanelMakeExp.PanelClick()
+
+		-- util.runDelayCallfunc(var.xmlPanel, 0.1, function()
+		-- 	util.asyncload(var.xmlPanel:getParent(), "innerBg", "needload/makeExp_bg.jpg", true)
+		-- end)
+
+		-- var.xmlPanel:runAction(cca.seq({cca.delay(0.1), cca.callFunc(function() 
+		-- 	util.asyncload(var.xmlPanel:getParent(), "innerBg", "uilayout/PanelMakeExp/makeExp_bg.jpg", true)
+		-- end)}))
+		cc.EventProxy.new(NetClient,var.xmlPanel)
+			:addEventListener(Notify.EVENT_PUSH_PANEL_DATA, PanelMakeExp.handlePanelData)
+		var.xmlPanel:getWidgetByName("imageLeft"):setScale(0.86)
+		var.xmlPanel:getWidgetByName("imageRight"):setScale(0.86)
+	end
+	return var.xmlPanel
+end
+
+function PanelMakeExp.PanelClick()
+	local function prsBtnCall(sender)
+		NetClient:PushLuaTable("gui.PanelMakeExp.handlePanelData","getMakeExp")--请求领取经验
+	end
+	local btnGet = var.xmlPanel:getWidgetByName("btnGet")
+	UIRedPoint.addUIPoint(btnGet,prsBtnCall)
+end
+
+function PanelMakeExp.onPanelOpen()
+	NetClient:PushLuaTable("gui.PanelMakeExp.handlePanelData","getPanelData")--刷新面板数据
+end
+
+
+function PanelMakeExp.handlePanelData(event)
+	local data=util.decode(event.data)
+	if event.type=="panelNeedData" then
+		PanelMakeExp.updatePanelData(data)
+	end
+
+end
+ 
+function PanelMakeExp.updatePanelData(data)
+	var.xmlPanel:getWidgetByName("labelexp"):setString(data.exp)
+	var.xmlPanel:getWidgetByName("labVcion"):setString(data.vcion)
+	var.xmlPanel:getWidgetByName("labLev"):setString(data.upLev)
+	var.xmlPanel:getWidgetByName("lab_times"):setString(data.times)
+
+	local labTime = var.xmlPanel:getWidgetByName("lbl_time")
+	--if labTime:getString()=="" then data.time=3000*1000 end --处理掉线是不现实倒计时
+	if data.time>0 then
+		labTime:stopAllActions()
+		labTime:runAction(cca.repeatForever(cca.seq({cca.delay(1), cca.callFunc(function ()
+			data.time = data.time - 1000
+			if data.time > 0 then
+				labTime:setString(util.setTimeFormat(data.time,2))
+			else
+				labTime:stopAllActions()
+			end
+		end)})))
+	end
+
+end
+
+return PanelMakeExp

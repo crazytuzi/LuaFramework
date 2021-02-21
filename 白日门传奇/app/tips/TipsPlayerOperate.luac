@@ -1,0 +1,15 @@
+local TipsPlayerOperate = class("TipsPlayerOperate")
+
+function TipsPlayerOperate:initView( extend )
+	self.xmlTips = UILuaLoader.load("uilayout/TipsPlayerOperate.uif") -- 布局文件统一叫xmlTips
+	if self.xmlTips then
+
+
+		return self.xmlTips
+	end
+end
+
+function aa( ... )
+	
+end
+return TipsPlayerOperate

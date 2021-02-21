@@ -1,0 +1,148 @@
+SceneWaiting = class("SceneWaiting", function ()
+	return display.newScene("SceneWaiting")
+end)
+
+function SceneWaiting:ctor()
+	print("SceneWaiting:ctor()")
+
+	self.maxWaitingTime = 5
+	self._loadUI = nil
+	self._percent = 0
+	self.reconnect = 0
+end
+
+function SceneWaiting:onConnect(event)
+	self:stopAllActions()
+	cc.CacheManager:getInstance():releaseUnused(false)
+end
+
+function SceneWaiting:onConnect(event)
+	print("SceneWaiting:onConnect")
+	NetClient:Authenticate(101, game.gameTicket, 0, 0)
+end
+
+function SceneWaiting:onAuth(event)
+	if event.result == 100 then
+		NetClient:EnterGame(game.chrName, game.seedName)
+	else
+		game.ExitToRelogin()
+	end
+end
+
+function SceneWaiting:onResEnterGame(event)
+	print("SceneWaiting:onResEnterGame " .. event.result)
+
+	if event.result == 100 then
+		-- Nothing
+	elseif event.result == 103 then
+		util.showAlert("提示", "当前账号在线", {
+			"再试一次",
+			"取消"
+		}, function (event)
+			if event.buttonIndex == 1 then
+				self:runAction(cca.seq({
+					cca.delay(5),
+					cca.cb(function ()
+						NetClient:EnterGame(game.chrName, game.seedName)
+					end)
+				}))
+			else
+				game.ExitToRelogin()
+			end
+		end, self)
+	else
+		game.ExitToRelogin()
+	end
+end
+
+function SceneWaiting:onPlatformLogout()
+	game.ExitToRelogin()
+end
+
+function SceneWaiting:onEnter()
+	print("SceneWaiting:onEnter()")
+
+	MAIN_IS_IN_GAME = false
+
+	asyncload_frames("uipic/SceneLoading",".png",function ()
+		self.maxWaitingTime = 5
+
+		self._loadUI = UILuaLoader.load("uilayout/SceneWaiting.uif")
+			:setContentSize(cc.size(display.width, display.height))
+			:align(display.CENTER, display.cx, display.cy)
+			:addTo(self)
+
+		local img_sceneBg = self._loadUI:getWidgetByName("img_sceneBg")
+		
+		img_sceneBg:loadTexture("needload/2.png",ccui.TextureResType.localType)
+		local size = self._loadUI:getContentSize()
+		img_sceneBg:align(display.CENTER, size.width/2, size.height/2)
+		if display.height > 640 then
+			img_sceneBg:scale(display.height/640)
+		end
+
+		local seceneBarBg = self._loadUI:getWidgetByName("seceneBarBg"):align(display.CENTER, display.cx, display.bottom + 70)
+		local barLight = self._loadUI:getWidgetByName("bar_light")
+		local mask = self._loadUI:getWidgetByName("mask")
+		self._loadUI:getWidgetByName("lbl_hint"):align(display.CENTER, display.cx, display.bottom + 30)
+
+		self._percent = 0;
+		local function runLoading()
+			self._percent = self._percent + 1
+
+			if NetClient._connected then
+				if NetClient.mNetMap.mMapID then
+					game.noSubmit = true
+					cc.Director:getInstance():replaceScene(cc.SceneGame:create())
+				end
+			else
+				PlatformTool.showMsg("服务器连接已断开")
+				game.ExitToRelogin()
+			end
+
+			if self._percent > 300 then
+				self:stopAllActions()
+				game.ExitToRelogin()
+			end
+			local width = math.max(self._percent/3*831/100, 10)
+			mask:size(width + 80,83)
+			barLight:pos(40 + 8.9 * self._percent/3, 10)		
+		end
+		self:runAction(cca.repeatForever(
+			cca.seq({
+				cca.delay(1/10),
+				cca.cb(runLoading)
+			})
+		));
+		if PLATFORM_BANSHU then
+			local url = CONFIG_TEST_URL..game.gameKey
+			
+			local function httpcallback(request)
+				if request.status==200 then
+			        NetClient:Authenticate(101,game.gameKey,0,0);
+			    end
+		    end
+		    util.httpRequest(url,httpcallback,self)
+		else
+			print("NetClient:Authenticate(101,game.gameKey,0,0);")
+			NetClient:Authenticate(101,game.gameTicket,0,0);
+		end
+	end,self)
+end
+
+function SceneWaiting:onEnterTransitionFinish()
+
+	NetClient:init()
+	MainRole.initVar()
+
+	cc.EventProxy.new(NetClient,self)
+		:addEventListener(Notify.EVENT_CONNECT_ON,handler(self,self.onConnect))
+		:addEventListener(Notify.EVENT_AUTHENTICATE,handler(self,self.onAuth))
+		:addEventListener(Notify.EVENT_RES_ENTER_GAME,handler(self,self.onResEnterGame))
+		:addEventListener(Notify.EVENT_PLATFORM_LOGOUT,handler(self, self.onPlatformLogout))
+
+	print("SceneWaiting:onEnterTransitionFinish()")
+
+end
+
+return SceneWaiting
