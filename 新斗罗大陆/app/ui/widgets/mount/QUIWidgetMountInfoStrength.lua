@@ -1,0 +1,584 @@
+local QUIWidget = import("...widgets.QUIWidget")
+local QUIWidgetMountInfoStrength = class("QUIWidgetMountInfoStrength", QUIWidget)
+local QStaticDatabase = import("....controllers.QStaticDatabase")
+local QUIWidgetItemsBox = import("...widgets.QUIWidgetItemsBox")
+local QUIWidgetAnimationPlayer = import("...widgets.QUIWidgetAnimationPlayer")
+local QQuickWay = import("....utils.QQuickWay")
+local QUIViewController = import("...QUIViewController")
+local QUIWidgetMountBox = import("...widgets.mount.QUIWidgetMountBox")
+local QUIWidgetActorDisplay = import("..actorDisplay.QUIWidgetActorDisplay")
+local QActorProp = import("....models.QActorProp")
+
+function QUIWidgetMountInfoStrength:ctor(options)
+	local ccbFile = "ccb/Widget_Weapon_jinglian_05.ccbi"
+	local callBacks = {
+			{ccbCallbackName = "onTriggerTouch", callback = handler(self, QUIWidgetMountInfoStrength._onTriggerTouch)},
+			{ccbCallbackName = "onTriggerClickItem1", callback = handler(self, self._onTriggerClickItem1)},
+			{ccbCallbackName = "onTriggerClickItem2", callback = handler(self, self._onTriggerClickItem2)},
+			{ccbCallbackName = "onTriggerClickItem3", callback = handler(self, self._onTriggerClickItem3)},
+			{ccbCallbackName = "onTriggerClickLink", callback = handler(self, self._onTriggerClickLink)},
+			{ccbCallbackName = "onTriggerUpgrade1", callback = handler(self, self._onTriggerUpgrade1)},
+			{ccbCallbackName = "onTriggerUpgrade5", callback = handler(self, self._onTriggerUpgrade5)},
+		}
+	QUIWidgetMountInfoStrength.super.ctor(self,ccbFile,callBacks,options)
+
+	self._expItems = {}
+	self._eatNum = 0
+	self._changeLevel = 0
+	self._attributeInfo = {}
+	self._parent = options.parent
+end
+
+function QUIWidgetMountInfoStrength:setInfo(actorId)
+	self._actorId = actorId
+	local heroInfo = remote.herosUtil:getHeroByID(self._actorId)
+	local mountId = heroInfo.zuoqi.zuoqiId
+	self:setMountId(mountId)
+end
+
+function QUIWidgetMountInfoStrength:setMountId(mountId)
+	self._mountId = mountId
+	self._mountConfig = db:getCharacterByID(self._mountId)
+	self._mountInfo = remote.mount:getMountById(self._mountId)
+	self._maxLevel = math.min(remote.user.level * 2 , db:getConfiguration().MOUNT_MAX_LEVEL.value)
+
+	self._ccbOwner.node_mount:removeAllChildren()
+	local avatar = QUIWidgetActorDisplay.new(self._mountId)
+	self._ccbOwner.node_mount:addChild(avatar)
+	if self._mountConfig.aptitude == APTITUDE.SSR then
+		self._ccbOwner.node_mount:setScaleX(0.8)
+	else
+		self._ccbOwner.node_mount:setScaleX(-0.8)
+	end
+		
+	self._ccbOwner.node_normal:setVisible(false)
+	self._ccbOwner.node_max:setVisible(false)
+
+	local maxLevel = db:getConfiguration().MOUNT_MAX_LEVEL.value
+	if self._mountInfo.enhanceLevel >= maxLevel then
+		self._ccbOwner.node_max:setVisible(true)
+		self:showMountMaxInfo()
+	else
+		self._ccbOwner.node_normal:setVisible(true)
+		self:showMountInfo()
+		self:setExpItems()	
+	end
+	
+    self:setSABC()
+end
+
+function QUIWidgetMountInfoStrength:setSABC()
+    local aptitudeInfo = db:getActorSABC(self._mountId)
+    q.setAptitudeShow(self._ccbOwner, aptitudeInfo.lower)
+
+    self._ccbOwner["node_bg_b"]:setVisible(false)
+    self._ccbOwner["node_bg_a"]:setVisible(false)
+    self._ccbOwner["node_bg_a+"]:setVisible(false)
+    self._ccbOwner["node_bg_s"]:setVisible(false)
+    self._ccbOwner["node_bg_ss"]:setVisible(false)
+    self._ccbOwner["node_bg_ss+"]:setVisible(false)
+    self._ccbOwner["node_bg_"..aptitudeInfo.lower]:setVisible(true)
+end
+
+function QUIWidgetMountInfoStrength:showMountMaxInfo()
+	local props = db:getMountStrengthenBylevel(self._mountConfig.aptitude, self._mountInfo.enhanceLevel)
+	local index = 1
+	index = self:setTotalPropTF(index, "生    命:", props.hp_value)
+	index = self:setTotalPropTF(index, "攻    击:", props.attack_value)
+	index = self:setTotalPropTF(index, "物理防御:", props.armor_physical)
+	index = self:setTotalPropTF(index, "法术防御:", props.armor_magic)
+end
+
+function QUIWidgetMountInfoStrength:setTotalPropTF(index, name, value)
+	if index > 4 then return index end
+	if value ~= nil then
+		self._ccbOwner["tf_prop_name"..index]:setString(name)
+		self._ccbOwner["tf_prop_value"..index]:setString(value)
+	end
+	return index + 1
+end
+
+function QUIWidgetMountInfoStrength:showMountInfo()
+	if self._mountInfo.enhanceLevel >= self._maxLevel then
+		self._ccbOwner.node_item:setVisible(false)
+		self._ccbOwner.node_limit:setVisible(true)
+		self._ccbOwner.node_btn_upgrade_1:setVisible(false)
+		self._ccbOwner.node_btn_upgrade_5:setVisible(false)
+	else
+		self._ccbOwner.node_limit:setVisible(false)
+		self._ccbOwner.node_item:setVisible(true)
+		self._ccbOwner.node_btn_upgrade_1:setVisible(true)
+		self._ccbOwner.node_btn_upgrade_5:setVisible(true)
+	end
+
+	local reformLevel = self._mountInfo.reformLevel or 0
+    local nameStr = self._mountConfig.name or ""
+    if reformLevel > 0 then
+        nameStr = nameStr.."+"..reformLevel
+    end
+    self._ccbOwner.tf_name:setString(nameStr)
+
+	local fontColor = QIDEA_QUALITY_COLOR[remote.mount:getColorByMountId(self._mountId)] or COLORS.b
+	self._ccbOwner.tf_name:setColor(fontColor)
+	self._ccbOwner.tf_name = setShadowByFontColor(self._ccbOwner.tf_name, fontColor)
+	
+	self._ccbOwner.tf_level:setString(self._mountInfo.enhanceLevel.."/"..self._maxLevel)
+	self:updateProgress(self._mountInfo.enhanceExp, self._mountInfo.enhanceLevel)
+
+	local oldConfig = db:getMountStrengthenBylevel(self._mountConfig.aptitude, self._mountInfo.enhanceLevel)
+	self._ccbOwner.tf_cur_title:setString(self._mountInfo.enhanceLevel.."级属性")
+	local index = 1
+	index = self:setPropTF(index, true, "生    命:", oldConfig.hp_value)
+	index = self:setPropTF(index, true, "攻    击:", oldConfig.attack_value)
+	index = self:setPropTF(index, true, "物理防御:", oldConfig.armor_physical)
+	index = self:setPropTF(index, true, "法术防御:", oldConfig.armor_magic)
+
+	local newConfig = db:getMountStrengthenBylevel(self._mountConfig.aptitude, self._mountInfo.enhanceLevel + 1)
+	if newConfig ~= nil then
+		self._ccbOwner.tf_next_title:setString((self._mountInfo.enhanceLevel+1).."级属性")
+		index = 1
+		index = self:setPropTF(index, false, "生    命:", newConfig.hp_value)
+		index = self:setPropTF(index, false, "攻    击:", newConfig.attack_value)
+		index = self:setPropTF(index, false, "物理防御:", newConfig.armor_physical)
+		index = self:setPropTF(index, false, "法术防御:", newConfig.armor_magic)
+	end
+end
+
+function QUIWidgetMountInfoStrength:setPropTF(index, isOld, name, value)
+	if index > 4 then return index end
+	if value ~= nil then
+		if isOld == true then
+			self._ccbOwner["tf_cur_name"..index]:setString(name)
+			self._ccbOwner["tf_cur_value"..index]:setString("+"..value)
+		else
+			self._ccbOwner["tf_next_name"..index]:setString(name)
+			self._ccbOwner["tf_next_value"..index]:setString("+"..value)
+			self._ccbOwner["tf_next_value"..index]:setColor(GAME_COLOR_LIGHT.property)
+		end
+	end
+	return index + 1
+end
+
+function QUIWidgetMountInfoStrength:setExpItems()
+	self._materials = {}
+	local materialConfig = db:getMountMaterialById(self._mountId)
+	local materials = string.split(materialConfig.shengji_daoju, "^")
+	self._masterProp, self._masterLevel = db:getMountMasterInfo(self._mountConfig.aptitude, self._mountInfo.enhanceLevel)
+	for i = 1, 3, 1 do
+		local itemId = tonumber(materials[i])
+		if itemId ~= nil then
+			self._ccbOwner["node_item"..i]:setVisible(true)
+			if self._materials[i] == nil then
+				self._materials[i] = itemId
+			end
+			if self._expItems[i] == nil then
+				self._expItems[i] = QUIWidgetItemsBox.new()
+				self._ccbOwner["item"..i]:addChild(self._expItems[i])
+			end
+			local count = remote.items:getItemsNumByID(itemId) or 0
+			self._expItems[i]:setGoodsInfo(itemId, ITEM_TYPE.ITEM, count)
+
+			self._ccbOwner["item_layer"..i]:setVisible(count<=0)
+			local itemConfig = db:getItemByID(itemId)
+			if itemConfig ~= nil then
+				self._ccbOwner["tf_exp"..i]:setString("经验＋"..(itemConfig.zuoqi_exp or 0))
+			end
+		else
+			self._ccbOwner["node_item"..i]:setVisible(false)
+		end
+	end
+end
+
+--设置进度条
+function QUIWidgetMountInfoStrength:updateProgress(exp, level, addExp, isAnimation)		
+	exp = exp or 0
+	local nextExp = db:getMountStrengthenBylevel(self._mountConfig.aptitude, level)
+	if nextExp ~= nil then
+		self._ccbOwner.tf_progress:setString(exp.."/"..nextExp.strengthen_zuoqi)
+		self._ccbOwner.sp_progress:setScaleX(exp/nextExp.strengthen_zuoqi)
+		if addExp == nil then
+			return 
+		end
+		exp = exp + addExp
+		if isAnimation then
+			self._ccbOwner.tf_progress:setString(exp.."/"..nextExp.strengthen_zuoqi)
+			local scaleX = exp/nextExp.strengthen_zuoqi
+			scaleX = math.min(1, scaleX)
+			local ccArr = CCArray:create()
+			if exp >= nextExp.strengthen_zuoqi then
+				ccArr:addObject(CCScaleTo:create(0.15, 2, 2))
+				ccArr:addObject(CCCallFunc:create(function ()
+					self:updateProgress(0, level + 1, exp - nextExp.strengthen_zuoqi, true)
+				end))
+			else
+				ccArr:addObject(CCScaleTo:create(0.15, (exp/nextExp.strengthen_zuoqi)*2, 2))
+			end
+			self._ccbOwner.sp_progress:runAction(CCSequence:create(ccArr))
+		else
+			if exp >= nextExp.strengthen_zuoqi then
+				self:updateProgress(0, level + 1, exp - nextExp.strengthen_zuoqi, false)
+			else
+				self._ccbOwner.tf_progress:setString(exp.."/"..nextExp.strengthen_zuoqi)
+				self._ccbOwner.sp_progress:setScaleX(exp/nextExp.strengthen_zuoqi)
+			end
+		end
+	end
+end
+
+function QUIWidgetMountInfoStrength:_onDownHandler(index)
+	if self._timeHandler ~= nil then
+		scheduler.unscheduleGlobal(self._timeHandler)
+		self._timeHandler = nil
+	end
+	self._oldLevel = self._mountInfo.enhanceLevel
+	self._oldMasterLevel = self._masterLevel
+	self._selectIndex = index
+	self._itemIndex = index
+	self._itemId = self._materials[index]
+	self._isUp = false
+	self._isEating = false
+	self._addNum = 1
+	self._changeLevel = 0
+	self._eatNum = 0
+
+	self._delayTime = 0.2
+	-- 延时一秒 如果一秒内未up或者移动则连续吃经验
+	self._timeHandler = scheduler.performWithDelayGlobal(handler(self, self._eatExpItemsForEach), self._delayTime)
+end
+
+function QUIWidgetMountInfoStrength:_onUpHandler()
+	if self._isUp == true then return end
+	if self._timeHandler ~= nil then
+		scheduler.unscheduleGlobal(self._timeHandler)
+		self._timeHandler = nil
+	end
+	self._isUp = true
+	if self._isEating == false then
+		self:_eatExpItem()
+	else
+		self._isEating = false
+	end
+	self:upGrade()
+end
+
+function QUIWidgetMountInfoStrength:_eatExpItemsForEach(index)
+	if self._timeHandler ~= nil then
+		scheduler.unscheduleGlobal(self._timeHandler)
+		self._timeHandler = nil
+	end
+	self._isEating = true
+	self._timeHandler = scheduler.performWithDelayGlobal(handler(self, self._eatExpItem), self._delayTime)
+end
+
+function QUIWidgetMountInfoStrength:_eatExpItem()
+	local itemNum = remote.items:getItemsNumByID(self._itemId) or 0
+	if itemNum > 0 then
+		if itemNum < self._addNum then
+			self._addNum = itemNum or 0
+		end
+		local itemConfig = db:getItemByID(self._itemId)
+		local exp = itemConfig.zuoqi_exp or 0 
+		exp = exp * self._addNum
+
+		local isSucc, addLevel, currExp = self:mountEatExp(exp) --检查是否能吃，吃完了能升级吗
+		if isSucc then
+			self:addEatNum() --累加吃经验道具
+			self:_showEatNum(exp) --在经验条上显示经验飘动数据
+			self:setExpItems() --设置经验道具的数量
+			self:_showEffect() --显示吃经验飞动的效果
+
+			--更新经验条
+			self._mountInfo.enhanceExp = currExp
+			self._mountInfo.enhanceLevel = self._mountInfo.enhanceLevel + addLevel
+			self._ccbOwner.tf_level:setString(self._mountInfo.enhanceLevel.."/"..self._maxLevel)
+			self:updateProgress(self._mountInfo.enhanceExp, self._mountInfo.enhanceLevel)
+
+			if addLevel > 0 then
+				self:showUpGradeEffect(addLevel)
+			end
+
+			if self._isEating == true then --如果在吃经验中则加快吃的速度 
+				self._delayTime = self._delayTime - 0.02
+				self._delayTime = self._delayTime > 0.05 and self._delayTime or 0.05
+				self._addNum = self._addNum + 2 
+				self._addNum = self._addNum >= 10 and 10 or self._addNum
+				self._timeHandler = scheduler.performWithDelayGlobal(handler(self, self._eatExpItem), self._delayTime)
+			end
+		else
+			self:_onUpHandler()
+			return
+		end
+	else
+		self:_onUpHandler()
+		local dropType = QQuickWay.ITEM_DROP_WAY
+    	QQuickWay:addQuickWay(dropType, self._itemId, nil, nil, nil, "暗器精炼材料不足，请查看获取途径~")
+	end
+end
+
+function QUIWidgetMountInfoStrength:addEatNum()
+	if remote.items:removeItemsByID(self._itemId, self._addNum, false) == false then
+		return
+	end
+	self._eatNum = self._eatNum + self._addNum
+end
+
+
+function QUIWidgetMountInfoStrength:_showEatNum(exp)
+	if self._numEffect == nil then
+		self._numEffect = QUIWidgetAnimationPlayer.new()
+		self._ccbOwner.node_exp:addChild(self._numEffect)
+	end
+	self._numEffect:playAnimation("effects/Tips_add.ccbi", function(ccbOwner)
+				ccbOwner.content:setString(" ＋"..exp)
+            end)
+end
+
+function QUIWidgetMountInfoStrength:_showEffect()
+	local effectFun1 = function ()
+		local actionHandler = nil
+		local item = QUIWidgetItemsBox.new()
+		item:setGoodsInfo(self._itemId, "item", 0)
+		self._ccbOwner["item"..self._itemIndex]:addChild(item)
+
+		local position1 = self._ccbOwner.node_exp:convertToWorldSpaceAR(ccp(0, 0))
+		local position2 = self._ccbOwner["item"..self._itemIndex]:convertToWorldSpaceAR(ccp(0, 0))
+
+		local targetPosition = ccp(position1.x - position2.x , position1.y - position2.y + 80)
+
+		local moveTo = CCMoveTo:create(0.1, targetPosition)
+		local scale = CCScaleTo:create(0.1, 0)
+		local func = CCCallFunc:create(function()
+				item:removeFromParent()
+				item = nil
+				actionHandler = nil
+			end)
+		local array1 = CCArray:create()
+		array1:addObject(moveTo)
+		array1:addObject(scale)
+		local ccspawn = CCSpawn:create(array1)
+
+		local array2 = CCArray:create()
+		array2:addObject(ccspawn)
+		array2:addObject(func)
+		local ccsequence = CCSequence:create(array2)
+		actionHandler = item:runAction(ccsequence)
+	end
+	local effectFun2 = function ()
+    	local effect = QUIWidgetAnimationPlayer.new()
+    	self._ccbOwner["item"..self._itemIndex]:addChild(effect)
+    	effect:playAnimation("ccb/effects/UseItem2.ccbi", nil, function()
+                effect:disappear()
+                effect = nil
+            end)
+	end
+	effectFun1()
+	scheduler.performWithDelayGlobal(effectFun2, 0.1)
+end
+
+function QUIWidgetMountInfoStrength:mountEatExp(exp)
+	local nextExp = db:getMountStrengthenBylevel(self._mountConfig.aptitude, self._mountInfo.enhanceLevel)
+	if nextExp == nil then
+		return false
+	end
+	if nextExp.zuoqi_level >= self._maxLevel then
+		return false, 0, 0
+	end
+	local addLevel = 0
+	local currentExp = self._mountInfo.enhanceExp + exp
+	while true do
+		if currentExp >= nextExp.strengthen_zuoqi then
+			addLevel = addLevel + 1
+			currentExp = currentExp - nextExp.strengthen_zuoqi
+			nextExp = db:getMountStrengthenBylevel(self._mountConfig.aptitude, self._mountInfo.enhanceLevel + addLevel)
+			if nextExp == nil then
+				return true, addLevel, 0
+			end
+		else
+			break
+		end
+	end
+	return true, addLevel, currentExp
+end
+
+function QUIWidgetMountInfoStrength:showUpGradeEffect(addLevel)
+	local masterProp, masterLevel = db:getMountMasterInfo(self._mountConfig.aptitude, self._mountInfo.enhanceLevel)
+	if masterLevel > self._masterLevel then
+		self:_onUpHandler()
+	end
+	self:strengthenSucceed(addLevel, masterLevel - self._masterLevel)
+end
+
+function QUIWidgetMountInfoStrength:strengthenSucceed(addLevel, masterLevel)
+	local effectShow = QUIWidgetAnimationPlayer.new()
+	effectShow:setPositionY(45)
+	self._ccbOwner.node_mount:addChild(effectShow,999)
+	effectShow:playAnimation("ccb/effects/qianghua_effect_g.ccbi",nil,function ()
+		effectShow:removeFromParent()
+	end)
+	app.sound:playSound("equipment_enhance")
+	self._changeLevel = self._changeLevel + addLevel
+	self:showUpdateEffect(addLevel, masterLevel)
+end
+
+function QUIWidgetMountInfoStrength:showUpdateEffect(addLevel, masterLevel)
+	if addLevel > 0 then
+		local oldConfig = db:getMountStrengthenBylevel(self._mountConfig.aptitude, self._mountInfo.enhanceLevel - addLevel)
+		local newConfig = db:getMountStrengthenBylevel(self._mountConfig.aptitude, self._mountInfo.enhanceLevel)
+
+        self.attributeNum = 1
+		self:_setAttributeInfo("攻击：", oldConfig.attack_value, newConfig.attack_value)
+		self:_setAttributeInfo("生命：", oldConfig.hp_value, newConfig.hp_value)
+		self:_setAttributeInfo("命中：", oldConfig.hit_rating, newConfig.hit_rating)
+		self:_setAttributeInfo("闪避：", oldConfig.dodge_rating, newConfig.dodge_rating)
+		self:_setAttributeInfo("暴击：", oldConfig.critical_rating, newConfig.critical_rating)
+		self:_setAttributeInfo("格挡：", oldConfig.block_rating, newConfig.block_rating)
+		self:_setAttributeInfo("攻速：", oldConfig.haste_rating, newConfig.haste_rating)
+		self:_setAttributeInfo("物理防御：", oldConfig.armor_physical, newConfig.armor_physical)
+		self:_setAttributeInfo("法术防御：", oldConfig.armor_magic, newConfig.armor_magic)
+		self:_setAttributeInfo("生命百分比：", string.format("%0.3f",(oldConfig.hp_percent or 0) * 100), string.format("%0.3f",(newConfig.hp_percent or 0) * 100))
+		self:_setAttributeInfo("攻击百分比：", string.format("%0.3f",(oldConfig.attack_percent or 0) * 100), string.format("%0.3f",(newConfig.attack_percent or 0) * 100))
+	end
+	if masterLevel > 0 then
+		self._parent:enableTouchSwallowTop()
+	end
+	self:_showSucceedEffect(masterLevel)
+end
+
+function QUIWidgetMountInfoStrength:_setAttributeInfo(str, oldValue, newValue)
+	local value = tonumber(string.format("%0.3f",(newValue or 0) - (oldValue or 0)))
+	if self.attributeNum <= 4 and value ~= 0 then
+		table.insert(self._attributeInfo, {name = str, value = value})
+        self.attributeNum = self.attributeNum + 1
+	end
+end
+
+function QUIWidgetMountInfoStrength:_showSucceedEffect(masterLevel)
+	self._ccbOwner.node_animation:removeAllChildren()
+	local ccbFile = "ccb/effects/mountstrenghtSccess.ccbi"
+	local strengthenEffectShow = QUIWidgetAnimationPlayer.new()
+	self._ccbOwner.node_animation:addChild(strengthenEffectShow)
+	strengthenEffectShow:setPosition(ccp(0, 200))
+	strengthenEffectShow:playAnimation(ccbFile, function()
+			for i=1,4 do
+				strengthenEffectShow._ccbOwner["node_"..i]:setVisible(false)
+			end
+			strengthenEffectShow._ccbOwner.title_enchant:setVisible(false)
+			strengthenEffectShow._ccbOwner.title_skill:setVisible(false)
+			strengthenEffectShow._ccbOwner.title_strengthen:setString("等级  ＋"..self._changeLevel)
+			if self._attributeInfo ~= nil then
+				local index = 1
+				strengthenEffectShow._ccbOwner.node_1:setVisible(false)
+				strengthenEffectShow._ccbOwner.node_2:setVisible(false)
+				for _,propInfo in ipairs(self._attributeInfo) do
+					strengthenEffectShow._ccbOwner["tf_name"..index]:setString(propInfo.name .. "  ＋" .. propInfo.value)
+					strengthenEffectShow._ccbOwner["node_"..index]:setVisible(true)
+					index = index + 1
+					if index > 4 then
+						break
+					end
+				end
+			end
+
+			self._changeLevel = 0
+			self._attributeInfo = {}
+		end, function()
+			if masterLevel > 0 then
+				if self._parent ~= nil then 
+					self._parent:disableTouchSwallowTop()
+				end
+				local successTip = app.master.MOUNT_MASTER_TIP
+				if app.master:getMasterShowState(successTip) then
+					local mountInfo = remote.mount:getMountById(self._mountId)
+					local mountConfig = db:getCharacterByID(self._mountId)
+					local masterProp, masterLevel = db:getMountMasterInfo(mountConfig.aptitude, mountInfo.enhanceLevel)
+					local newMasterInfo = db:getMountMasterInfoByLevel(mountConfig.aptitude, masterLevel)
+
+					app:getNavigationManager():pushViewController(app.middleLayer, {uiType=QUIViewController.TYPE_DIALOG, uiClass = "QUIDialogMountTalentSuccess",
+						options = { mountId = self._mountId, successTip = successTip,mountConfig = mountConfig,newMasterInfo = newMasterInfo,mountInfo = mountInfo}},{isPopCurrentDialog = false})
+				end
+			end
+		end)
+end
+
+function QUIWidgetMountInfoStrength:upGrade()
+	-- body
+	if self._eatNum > 0 then
+		local eatNum = self._eatNum
+		self._eatNum = 0
+		local itemId = self._materials[self._itemIndex]
+		remote.mount:mountEnhanceRequest(self._mountId, {{type = itemId, count = eatNum}}, function ()
+			remote.herosUtil:dispatchEvent({name = remote.herosUtil.EVENT_REFESH_BATTLE_FORCE})
+		end)
+	end
+end
+
+function QUIWidgetMountInfoStrength:upGradeByLevel(addLevel)
+	local info = remote.mount:strengthToLevel(self._mountInfo.zuoqiId, addLevel)
+	if info.statusCode ~= nil then
+		if info.statusCode == 1 then
+			app.tip:floatTip("等级不可超过等级上限")
+		elseif info.statusCode == 2 and info.dropItemId ~= nil then
+    		QQuickWay:addQuickWay(QQuickWay.ITEM_DROP_WAY, self._materials[#self._materials], nil, nil, nil, "暗器精炼材料不足，请查看获取途径~")
+		end
+		return
+	end
+	local eatItems = {}
+	for _,v in ipairs(info.eatItems) do
+		table.insert(eatItems, {type = v.id, count = v.count})
+	end
+
+	local oldLevel = self._mountInfo.enhanceLevel
+	remote.mount:mountEnhanceRequest(self._mountInfo.zuoqiId, eatItems, function ()
+		remote.herosUtil:dispatchEvent({name = remote.herosUtil.EVENT_REFESH_BATTLE_FORCE})
+
+		if self.class then
+			local _, masterLevel1 = QStaticDatabase:sharedDatabase():getMountMasterInfo(self._mountConfig.aptitude, oldLevel)
+			local _, masterLevel2 = QStaticDatabase:sharedDatabase():getMountMasterInfo(self._mountConfig.aptitude, oldLevel + info.addLevel)
+			self:strengthenSucceed(info.addLevel, masterLevel2 - masterLevel1)
+		end
+	end)
+end
+
+function QUIWidgetMountInfoStrength:_onTriggerClickItem1(event)
+	if tonumber(event) == CCControlEventTouchDown then
+		self:_onDownHandler(1)
+	else
+		self:_onUpHandler(1)
+	end
+end
+
+function QUIWidgetMountInfoStrength:_onTriggerClickItem2(event)
+	if tonumber(event) == CCControlEventTouchDown then
+		self:_onDownHandler(2)
+	else
+		self:_onUpHandler(2)
+	end
+end
+
+function QUIWidgetMountInfoStrength:_onTriggerClickItem3(event)
+	if tonumber(event) == CCControlEventTouchDown then
+		self:_onDownHandler(3)
+	else
+		self:_onUpHandler(3)
+	end
+end
+
+function QUIWidgetMountInfoStrength:_onTriggerClickLink(event)
+	app:getNavigationManager():pushViewController(app.mainUILayer, {uiType = QUIViewController.TYPE_DIALOG, uiClass = "QUIDialogInstance", options = {isQuickWay = true}})
+end
+
+function QUIWidgetMountInfoStrength:_onTriggerUpgrade1(event)
+    if q.buttonEventShadow(event, self._ccbOwner.btn_upgrade_1) == false then return end
+	app.sound:playSound("common_small")
+
+	self:upGradeByLevel(1)
+end
+
+function QUIWidgetMountInfoStrength:_onTriggerUpgrade5(event)
+    if q.buttonEventShadow(event, self._ccbOwner.btn_upgrade_5) == false then return end
+	app.sound:playSound("common_small")
+
+	self:upGradeByLevel(5)
+end
+
+return QUIWidgetMountInfoStrength

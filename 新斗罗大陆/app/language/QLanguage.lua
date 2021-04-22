@@ -1,0 +1,3 @@
+function GetLuaLocalization(source_language_string)
+	return source_language_string
+end
