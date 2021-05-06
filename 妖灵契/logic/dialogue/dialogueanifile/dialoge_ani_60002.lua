@@ -1,0 +1,47 @@
+module(...)
+--dialogueani editor build
+DATA={
+	[1]={
+		cmdList={
+			[1]={
+				args={
+					[1]={[1]=[[玩家名称]],},
+					[2]={[1]=302,},
+					[3]={[1]=-2.78,[2]=0.4,},
+					[4]={[1]=-90,},
+					[5]={[1]=1,},
+				},
+				cmdType=[[player]],
+				func=[[AddPlayer]],
+				name=[[生成人物]],
+			},
+		},
+		delay=1,
+		idx=1,
+		startTime=0,
+		type=[[player]],
+	},
+	[2]={
+		cmdList={
+			[1]={
+				args={[1]={[1]=1,[2]=[[玩家名称]],},[2]={[1]=[[sleepHouse1]],},},
+				cmdType=[[player]],
+				func=[[PlayerDoAction]],
+				name=[[人物动作]],
+			},
+		},
+		delay=10,
+		idx=2,
+		startTime=1,
+		type=[[player]],
+	},
+}
+
+CONFIG={
+	isLoop=1,
+	isStroy=0,
+	isTrigger=1,
+	loopTime=28,
+	minTriggerLevel=1,
+	name=[[剧场动画名_60002]],
+}

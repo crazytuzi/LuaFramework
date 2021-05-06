@@ -1,0 +1,12 @@
+CLimitRewardView = require "logic.limitreward.CLimitRewardView"
+CCostScoreBuyView = require "logic.limitreward.CCostScoreBuyView"
+
+CTotalPayPage = require "logic.limitreward.CTotalPayPage"
+CLimitDrawPage = require "logic.limitreward.CLimitDrawPage"
+CLimitSkinPage = require "logic.limitreward.CLimitSkinPage"
+CCostScorePage = require "logic.limitreward.CCostScorePage"
+CRechargeScorePage = require "logic.limitreward.CRechargeScorePage"
+CYiYuanLiBaoPage = require "logic.limitreward.CYiYuanLiBaoPage"
+CRushPayPage = require "logic.limitreward.CRushPayPage"
+CLimitPayPage = require "logic.limitreward.CLimitPayPage"
+CLoopPayPage = require "logic.limitreward.CLoopPayPage"

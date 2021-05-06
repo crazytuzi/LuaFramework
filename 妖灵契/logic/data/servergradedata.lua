@@ -1,0 +1,48 @@
+module(...)
+--auto generate data
+ExpLimit={
+	[1]={
+		exp_percent=1.2,
+		grade={max=-6,min=-99999999,},
+		help_desc=[[[00ff00]额外获得主角经验：20%]],
+		id=1,
+		war_desc=[[[00ff00]额外获得主角经验：20%]],
+	},
+	[2]={
+		exp_percent=1.0,
+		grade={max=-1,min=-5,},
+		help_desc=[[[00ff00]获得主角经验：100%]],
+		id=2,
+		war_desc=[[]],
+	},
+	[3]={
+		exp_percent=0.2,
+		grade={max=4,min=0,},
+		help_desc=[[[ff0000]超出服务器等级，经验降低为20%]],
+		id=3,
+		war_desc=[[[ff0000]超出服务器等级，经验降低为20%]],
+	},
+	[4]={
+		exp_percent=0.0,
+		grade={max=99999999,min=5,},
+		help_desc=[[[ff0000]超出服务器等级5级不再获得经验]],
+		id=4,
+		war_desc=[[[ff0000]超出服务器等级5级不再获得经验]],
+	},
+}
+
+DATA={
+	[1]={days=0,server_grade=40,},
+	[2]={days=1,server_grade=45,},
+	[3]={days=2,server_grade=50,},
+	[4]={days=3,server_grade=55,},
+	[5]={days=5,server_grade=60,},
+	[6]={days=8,server_grade=65,},
+	[7]={days=12,server_grade=70,},
+	[8]={days=17,server_grade=75,},
+	[9]={days=24,server_grade=80,},
+	[10]={days=33,server_grade=85,},
+	[11]={days=45,server_grade=90,},
+	[12]={days=59,server_grade=95,},
+	[13]={days=77,server_grade=100,},
+}

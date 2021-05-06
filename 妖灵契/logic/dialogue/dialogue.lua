@@ -1,0 +1,13 @@
+CDialogueMainView = require "logic.dialogue.CDialogueMainView"
+CDialogueOptionView = require "logic.dialogue.CDialogueOptionView"
+CDialogueNormalPage = require "logic.dialogue.CDialogueNormalPage"
+CDialogueStoryStartView = require "logic.dialogue.CDialogueStoryStartView"
+CDialogueCtrl = require "logic.dialogue.CDialogueCtrl"
+CDialogueAniView = require "logic.dialogue.CDialogueAniView"
+CDialogueLayerActorBox = require "logic.dialogue.CDialogueLayerActorBox"
+CDialogueLayerAniView = require "logic.dialogue.CDialogueLayerAniView"
+
+CDialogueAniCmd = require "logic.dialogue.CDialogueAniCmd"
+CDialogueAniUnit = require "logic.dialogue.CDialogueAniUnit"
+CDialogueEffect = require "logic.dialogue.CDialogueEffect"
+CDialogueAniCtrl = require "logic.dialogue.CDialogueAniCtrl"

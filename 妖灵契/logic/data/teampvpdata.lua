@@ -1,0 +1,34 @@
+module(...)
+--auto generate data
+Reward={
+	[1]={
+		desc=[[第1名奖励]],
+		id=1,
+		weeky_award={[1]={id=1003,num=200,},[2]={id=1009,num=400,},},
+	},
+	[2]={
+		desc=[[第2名奖励]],
+		id=2,
+		weeky_award={[1]={id=1003,num=150,},[2]={id=1009,num=300,},},
+	},
+	[3]={
+		desc=[[第3名奖励]],
+		id=3,
+		weeky_award={[1]={id=1003,num=120,},[2]={id=1009,num=150,},},
+	},
+	[4]={
+		desc=[[第4-20名奖励]],
+		id=4,
+		weeky_award={[1]={id=1003,num=100,},[2]={id=1009,num=50,},},
+	},
+	[5]={
+		desc=[[第21-50名奖励]],
+		id=5,
+		weeky_award={[1]={id=1003,num=80,},},
+	},
+	[6]={
+		desc=[[50名以后]],
+		id=6,
+		weeky_award={[1]={id=1003,num=50,},},
+	},
+}

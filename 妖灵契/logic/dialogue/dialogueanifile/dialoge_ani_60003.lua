@@ -1,0 +1,53 @@
+module(...)
+--dialogueani editor build
+DATA={
+	[1]={
+		cmdList={
+			[1]={
+				args={
+					[1]={[1]=[[玩家名称]],},
+					[2]={[1]=11011,},
+					[3]={[1]=-2.44,[2]=0.5,},
+					[4]={[1]=-90,},
+					[5]={[1]=1,},
+				},
+				cmdType=[[player]],
+				func=[[AddPlayer]],
+				name=[[生成人物]],
+			},
+		},
+		delay=0,
+		idx=1,
+		startTime=0,
+		type=[[player]],
+	},
+	[2]={
+		cmdList={
+			[1]={
+				args={[1]={[1]=1,[2]=[[玩家名称]],},[2]={[1]=[[idleHouse]],},},
+				cmdType=[[player]],
+				func=[[PlayerDoAction]],
+				name=[[人物动作]],
+			},
+			[2]={
+				args={[1]={[1]=1,[2]=[[玩家名称]],},[2]={[1]=-90,},},
+				cmdType=[[player]],
+				func=[[SetPlayerFaceTo]],
+				name=[[设置人物朝向]],
+			},
+		},
+		delay=5,
+		idx=2,
+		startTime=0,
+		type=[[player]],
+	},
+}
+
+CONFIG={
+	isLoop=1,
+	isStroy=0,
+	isTrigger=0,
+	loopTime=0,
+	minTriggerLevel=1,
+	name=[[剧场动画名_60003]],
+}

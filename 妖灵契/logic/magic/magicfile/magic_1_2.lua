@@ -1,0 +1,54 @@
+module(...)
+--magic editor build
+DATA={
+	atk_stophit=true,
+	cmds={
+		[1]={
+			args={action_name=[[runWar]],action_time=0.7,excutor=[[atkobj]],},
+			func_name=[[PlayAction]],
+			start_time=0,
+		},
+		[2]={args={alive_time=0.5,},func_name=[[Name]],start_time=0,},
+		[3]={
+			args={
+				begin_type=[[current]],
+				calc_face=true,
+				ease_type=[[Linear]],
+				end_relative={base_pos=[[vic]],depth=0,relative_angle=0,relative_dis=1.5,},
+				end_type=[[end_relative]],
+				excutor=[[atkobj]],
+				look_at_pos=true,
+				move_time=0.5,
+				move_type=[[line]],
+			},
+			func_name=[[Move]],
+			start_time=0.1,
+		},
+		[4]={args={add_type=[[insert]],},func_name=[[GroupCmd]],start_time=0.6,},
+		[5]={args={},func_name=[[End]],start_time=0.6,},
+	},
+	group_cmds={
+		["1"]={
+			[1]={args={duration=[[1.7]],},func_name=[[GroupTime]],start_time=0,},
+			[2]={
+				args={action_name=[[attack4]],action_time=1,excutor=[[atkobj]],},
+				func_name=[[PlayAction]],
+				start_time=0,
+			},
+			[3]={args={hurt_delta=0,},func_name=[[VicHitInfo]],start_time=1,},
+		},
+		["2"]={
+			[1]={args={duration=[[1.7]],},func_name=[[GroupTime]],start_time=0,},
+			[2]={
+				args={action_name=[[attack3]],action_time=1,excutor=[[atkobj]],},
+				func_name=[[PlayAction]],
+				start_time=0,
+			},
+			[3]={args={hurt_delta=0,},func_name=[[VicHitInfo]],start_time=1,},
+		},
+	},
+	pre_load_res={},
+	run_env=[[war]],
+	type=1,
+	wait_goback=true,
+}

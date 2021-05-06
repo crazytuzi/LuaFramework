@@ -1,0 +1,5 @@
+CAudioPlayer = require "logic.audio.CAudioPlayer"
+CSpeechRecordView = require "logic.audio.CSpeechRecordView"
+CAudioCtrl = require "logic.audio.CAudioCtrl"
+AudioTools = require "logic.audio.AudioTools"
+CSpeechCtrl = require "logic.audio.CSpeechCtrl"

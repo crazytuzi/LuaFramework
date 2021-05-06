@@ -1,0 +1,24 @@
+module(...)
+--magic editor build
+DATA={
+	atk_stophit=false,
+	cmds={
+		[1]={
+			args={
+				consider_hight=false,
+				damage_follow=true,
+				face_atk=false,
+				hurt_delta=0,
+				play_anim=true,
+			},
+			func_name=[[VicHitInfo]],
+			start_time=0.1,
+		},
+		[2]={args={},func_name=[[End]],start_time=0.2,},
+	},
+	group_cmds={},
+	pre_load_res={},
+	run_env=[[war]],
+	type=1,
+	wait_goback=true,
+}

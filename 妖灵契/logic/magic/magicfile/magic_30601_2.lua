@@ -1,0 +1,51 @@
+module(...)
+--magic editor build
+DATA={
+	atk_stophit=false,
+	cmds={
+		[1]={
+			args={
+				alive_time=1,
+				effect={
+					is_cached=true,
+					magic_layer=[[center]],
+					path=[[Effect/Magic/magic_eff_306/Prefabs/magic_eff_30601_hit.prefab]],
+					preload=true,
+				},
+				effect_dir_type=[[forward]],
+				effect_pos={base_pos=[[vic]],depth=0,relative_angle=0,relative_dis=0,},
+				excutor=[[vicobj]],
+			},
+			func_name=[[StandEffect]],
+			start_time=0,
+		},
+		[2]={args={},func_name=[[End]],start_time=0.2,},
+		[3]={
+			args={
+				alive_time=0.1,
+				ease_hide_time=0.1,
+				ease_show_time=0,
+				excutor=[[vicobj]],
+				mat_path=[[Material/effect_Fresnel_Green01.mat]],
+			},
+			func_name=[[ActorMaterial]],
+			start_time=0.3,
+		},
+		[4]={
+			args={
+				consider_hight=false,
+				damage_follow=true,
+				face_atk=true,
+				hurt_delta=0,
+				play_anim=true,
+			},
+			func_name=[[VicHitInfo]],
+			start_time=0.3,
+		},
+	},
+	group_cmds={},
+	pre_load_res={[1]=[[Effect/Magic/magic_eff_306/Prefabs/magic_eff_30601_hit.prefab]],},
+	run_env=[[war]],
+	type=1,
+	wait_goback=true,
+}

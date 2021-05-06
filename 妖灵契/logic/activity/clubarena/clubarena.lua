@@ -1,0 +1,5 @@
+CClubArenaCtrl = require "logic.activity.clubarena.CClubArenaCtrl"
+CClubArenaPage = require "logic.activity.clubarena.CClubArenaPage"
+CClubArenaRewardView = require "logic.activity.clubarena.CClubArenaRewardView"
+CClubArenaHistoryView = require "logic.activity.clubarena.CClubArenaHistoryView"
+CClubArenaWarResultView = require "logic.activity.clubarena.CClubArenaWarResultView"

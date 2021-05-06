@@ -1,0 +1,33 @@
+CFriendInfoView = require "logic.friend.CFriendInfoView"
+CFriendMainView = require "logic.friend.CFriendMainView"
+CFindFrdView    = require "logic.friend.CFindFrdView"
+CFriendApplyView= require "logic.friend.CFriendApplyView"
+CFriendSetView  = require "logic.friend.CFriendSetView"
+CPartnerShowView= require "logic.friend.CPartnerShowView"
+CFrdTagView     = require "logic.friend.CFrdTagView"
+CReportView     = require "logic.friend.CReportView"
+
+CFriendPage     = require "logic.friend.CFriendPage"
+CMailPage       = require "logic.friend.CMailPage"
+CRecentPage     = require "logic.friend.CRecentPage"
+CTeamerPage     = require "logic.friend.CTeamerPage"
+CInfoEditPage   = require "logic.friend.CInfoEditPage"
+
+CTalkPart       = require "logic.friend.CTalkPart"
+CMailListPart   = require "logic.friend.CMailListPart"
+CMailDetailPart = require "logic.friend.CMailDetailPart"
+
+CAttachItem     = require "logic.friend.CAttachItem"
+CMailCtrl       = require "logic.friend.CMailCtrl"
+CFriendItem     = require "logic.friend.CFriendItem"
+CMailItem       = require "logic.friend.CMailItem"
+CRecentItem     = require "logic.friend.CRecentItem"
+CTeamerItem     = require "logic.friend.CTeamerItem"
+CFrdGroupItem	= require "logic.friend.CFrdGroupItem"
+CFriendMsgBox   = require "logic.friend.CFriendMsgBox"
+CTalkMsg        = require "logic.friend.CTalkMsg"
+
+CBirthPopupBox  = require "logic.friend.CBirthPopupBox"
+
+CFriendCtrl     = require "logic.friend.CFriendCtrl"
+CTalkCtrl       = require "logic.friend.CTalkCtrl"

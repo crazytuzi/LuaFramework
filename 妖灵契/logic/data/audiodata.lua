@@ -1,0 +1,50 @@
+module(...)
+--auto generate data
+DATA={
+	bgm_1010={defalut_rate=0.4,filename=[[bgm_1010]],},
+	bgm_2000={defalut_rate=0.4,filename=[[bgm_2000]],},
+	bgm_2010={defalut_rate=0.5,filename=[[bgm_2010]],},
+	bgm_2020={defalut_rate=0.4,filename=[[bgm_2020]],},
+	bgm_2040={defalut_rate=0.4,filename=[[bgm_2040]],},
+	bgm_2060={defalut_rate=0.3,filename=[[bgm_2060]],},
+	bgm_2104={defalut_rate=0.4,filename=[[bgm_2104]],},
+	bgm_6000={defalut_rate=0.5,filename=[[bgm_6000]],},
+	bgm_boss={defalut_rate=0.4,filename=[[bgm_boss]],},
+	bgm_login={defalut_rate=0.6,filename=[[bgm_login]],},
+	bgm_pve={defalut_rate=0.4,filename=[[bgm_pve]],},
+	bgm_pvp={defalut_rate=0.4,filename=[[bgm_pvp]],},
+}
+
+WAR={
+	[1]={filename={[1]=[[bgm_pve]],[2]=[[bgm_pve]],},wartype=1,},
+	[2]={filename={[1]=[[bgm_pvp]],},wartype=2,},
+	[3]={filename={[1]=[[bgm_boss]],},wartype=3,},
+	[4]={filename={[1]=[[bgm_pve]],},wartype=4,},
+	[5]={filename={[1]=[[bgm_pve]],},wartype=5,},
+	[6]={filename={[1]=[[bgm_pvp]],},wartype=6,},
+	[7]={filename={[1]=[[bgm_pve]],},wartype=7,},
+	[8]={filename={[1]=[[bgm_pve]],},wartype=8,},
+	[9]={filename={[1]=[[bgm_pve]],},wartype=9,},
+	[10]={filename={[1]=[[bgm_boss]],},wartype=10,},
+	[11]={filename={[1]=[[bgm_pvp]],},wartype=11,},
+	[12]={filename={[1]=[[bgm_pvp]],},wartype=12,},
+	[13]={filename={[1]=[[bgm_pve]],},wartype=13,},
+	[14]={filename={[1]=[[bgm_boss]],},wartype=14,},
+	[15]={filename={[1]=[[bgm_pvp]],},wartype=15,},
+	[16]={filename={[1]=[[bgm_pve]],},wartype=16,},
+	[10001]={filename={[1]=[[bgm_pve]],},wartype=10001,},
+	[10004]={filename={[1]=[[bgm_pve]],},wartype=10004,},
+	[14008]={filename={[1]=[[bgm_pve]],},wartype=14008,},
+}
+
+NORMAL={
+	[1010]={filename=[[bgm_1010]],resid=1010,},
+	[2000]={filename=[[bgm_2000]],resid=2000,},
+	[2001]={filename=[[bgm_2104]],resid=2001,},
+	[2010]={filename=[[bgm_2010]],resid=2010,},
+	[2020]={filename=[[bgm_2020]],resid=2020,},
+	[2040]={filename=[[bgm_2040]],resid=2040,},
+	[2060]={filename=[[bgm_2060]],resid=2060,},
+	[2104]={filename=[[bgm_2104]],resid=2104,},
+	[6000]={filename=[[bgm_6000]],resid=6000,},
+}

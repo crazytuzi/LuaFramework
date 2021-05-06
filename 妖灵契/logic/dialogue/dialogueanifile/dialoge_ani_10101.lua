@@ -1,0 +1,82 @@
+module(...)
+--dialogueani editor build
+DATA={
+	[1]={
+		cmdList={
+			[1]={
+				args={
+					[1]={[1]=[[神父]],},
+					[2]={[1]=1009,},
+					[3]={[1]=12.2,[2]=25,},
+					[4]={[1]=-165,},
+					[5]={[1]=1,},
+				},
+				cmdType=[[player]],
+				func=[[AddPlayer]],
+				name=[[生成人物]],
+			},
+			[2]={
+				args={
+					[1]={[1]=1,[2]=[[神父]],},
+					[2]={
+						[1]=[[今天的风儿甚是喧嚣！主上保佑终于借到想要的书了！]],
+					},
+				},
+				cmdType=[[player]],
+				func=[[PlayerSay]],
+				name=[[剧场冒泡说话]],
+			},
+		},
+		delay=5,
+		idx=1,
+		startTime=0,
+		type=[[player]],
+	},
+	[2]={
+		cmdList={
+			[1]={
+				args={[1]={[1]=1,[2]=[[神父]],},[2]={[1]=4.2,[2]=19.6,},},
+				cmdType=[[player]],
+				func=[[PlayerRunto]],
+				name=[[人物移动]],
+			},
+			[2]={
+				args={
+					[1]={[1]=1,[2]=[[神父]],},
+					[2]={[1]=[[上次坏掉的手表应该修好了吧？]],},
+				},
+				cmdType=[[player]],
+				func=[[PlayerSay]],
+				name=[[剧场冒泡说话]],
+			},
+		},
+		delay=5,
+		idx=2,
+		startTime=5,
+		type=[[player]],
+	},
+	[3]={
+		cmdList={
+			[1]={
+				args={[1]={[1]=1,[2]=[[神父]],},[2]={[1]=0,},},
+				cmdType=[[player]],
+				func=[[SetPlayerActive]],
+				name=[[设置人物是否可见]],
+			},
+		},
+		delay=1,
+		idx=3,
+		startTime=10,
+		type=[[player]],
+	},
+}
+
+CONFIG={
+	isLoop=1,
+	isStroy=0,
+	isTrigger=1,
+	loopTime=60,
+	mapInfo=[[]],
+	minTriggerLevel=8,
+	name=[[剧场动画名_10101]],
+}

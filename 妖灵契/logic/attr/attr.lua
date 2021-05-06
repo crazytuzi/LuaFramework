@@ -1,0 +1,17 @@
+CAttrMainView = require "logic.attr.CAttrMainView"
+CAttrChangeNameView = require "logic.attr.CAttrChangeNameView"
+CAttrChangeTitleView = require "logic.attr.CAttrChangeTitleView"
+CAttrMainPage = require "logic.attr.CAttrMainPage"
+CAttrPointPage = require "logic.attr.CAttrPointPage"
+CAttrCtrl = require "logic.attr.CAttrCtrl"
+CAttrPlanItemBox = require "logic.attr.CAttrPlanItemBox"
+CAttrSliderBox = require "logic.attr.CAttrSliderBox"
+CAttrCardLinkView = require "logic.attr.CAttrCardLinkView"
+CAttrEquipItemBox = require "logic.attr.CAttrEquipItemBox"
+CAttrRoleSkinView = require "logic.attr.CAttrRoleSkinView"
+
+CAttrLinkView = require "logic.attr.CAttrLinkView"
+CAttrLinkPage = require "logic.attr.CAttrLinkPage"
+
+CTitleCtrl = require "logic.attr.CTitleCtrl"
+CServerLvHelpView = require "logic.attr.CServerLvHelpView"

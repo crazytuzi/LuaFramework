@@ -1,0 +1,7 @@
+CScheduleCtrl = require "logic.schedule.CScheduleCtrl"
+CScheduleMainView = require "logic.schedule.CScheduleMainView"
+CSchedule = require "logic.schedule.CSchedule"
+CScheduleBox = require "logic.schedule.CScheduleBox"
+CScheduleWeekView = require "logic.schedule.CScheduleWeekView"
+CScheduleTipsView = require "logic.schedule.CScheduleTipsView"
+CSchedulePopupView = require "logic.schedule.CSchedulePopupView"

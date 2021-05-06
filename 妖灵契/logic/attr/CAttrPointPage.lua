@@ -1,0 +1,515 @@
+-- local CAttrPointPage = class("CAttrPointPage", CPageBase)
+-- CAttrPointPage.g_PlanInfolist = nil
+-- CAttrPointPage.g_SelectedPlan = nil
+
+-- function CAttrPointPage.ctor(self, obj)
+-- 	CPageBase.ctor(self, obj)
+-- end
+
+-- function CAttrPointPage.OnInitPage(self)
+-- 	self.m_AddPointTitleLabel = self:NewUI(1, CLabel)
+-- 	self.m_OtherPlanObj = self:NewUI(2, CObject)
+-- 	self.m_PlanGrid = self:NewUI(3, CGrid)
+-- 	self.m_UsePlanBtn = self:NewUI(4, CButton)
+-- 	self.m_PotentialLabel = self:NewUI(5, CLabel)
+-- 	self.m_ItemNumLabel = self:NewUI(6, CLabel)
+-- 	self.m_SliderGrid = self:NewUI(7, CGrid)
+-- 	self.m_EnterAddBtn = self:NewUI(8, CButton)
+-- 	self.m_WashAllBtn = self:NewUI(9, CButton, true, false)
+-- 	self.m_TipsLabel = self:NewUI(10, CLabel)
+-- 	self.m_MorePlanBtn = self:NewUI(11, CButton)
+-- 	self.m_MorePlan = self:NewUI(12, CObject)
+-- 	self.m_PlanBtnGrid = self:NewUI(13, CGrid)
+-- 	self.m_UseLabel = self:NewUI(14, CLabel)
+-- 	self.m_ItemIconSprite = self:NewUI(15, CSprite)
+-- 	self.m_AllPointGrep = self:NewUI(16, CSprite)
+
+-- 	if not CAttrPointPage.g_PlanInfolist then
+-- 		g_NotifyCtrl:FloatMsg("=====没有初始化数据,无法打开界面=====")
+-- 		self:SetViewBaseData()
+-- 		return
+-- 	end
+
+-- 	g_AttrCtrl:AddCtrlEvent(self:GetInstanceID(), callback(self, "OnCtrlEvent"))
+	-- g_ItemCtrl:AddCtrlEvent(self:GetInstanceID(), callback(self, "OnItemCtrlEvent"))	
+-- 	self.m_MorePlanBtn:AddUIEvent("click", callback(self, "OpenMorePlan"))
+-- 	self.m_UsePlanBtn:AddUIEvent("click", callback(self, "UsePlanCallBack"))
+-- 	self.m_EnterAddBtn:AddUIEvent("click", callback(self, "EnterAddPoint"))
+-- 	self.m_WashAllBtn:AddUIEvent("click", callback(self, "WashAllPointCallBack"))
+	
+-- 	self.m_CData = {}
+-- 	self.m_ItemNum = 0
+-- 	self:InitData()	
+
+-- 	self:UpdateData(CAttrPointPage.g_PlanInfolist, CAttrPointPage.g_SelectedPlan)
+-- 	self:CalculateBaseData(CAttrPointPage.g_PlanInfolist[CAttrPointPage.g_SelectedPlan])
+
+-- 	self:SetView()
+-- 	--默认选中方案1
+--  	self:ChangePlan(CAttrPointPage.g_SelectedPlan, false)
+--  	self:RefreshSliderInfo("All", self.m_AddPointPlanList[CAttrPointPage.g_SelectedPlan])	
+--  	self:RefreshMainPage()
+--  	self:RefreshWashAllBtn()
+-- end
+
+-- -------------------------------------------------------
+-- --没数据时特殊处理
+-- function CAttrPointPage.SetViewBaseData(self)
+-- 	self.m_SliderList = {g_AttrCtrl.physique, g_AttrCtrl.magic, g_AttrCtrl.strength, g_AttrCtrl.endurance, g_AttrCtrl.agility,}
+-- 	self:SetView()
+-- 	self:RefreshSliderInfo("Point")
+-- 	self:SetBaseInfo()
+-- end
+
+-- function CAttrPointPage.SetBaseInfo(self)
+-- 	local tDataList = {g_AttrCtrl.hp or 0, g_AttrCtrl.mp or 0, g_AttrCtrl.phy_attack or 0, g_AttrCtrl.mag_attack or 0, 
+-- 	g_AttrCtrl.pyh_defense or 0, g_AttrCtrl.msg_defense or 0, g_AttrCtrl.speed or 0}
+-- 	local oItem = nil
+-- 	local tChildList = self.m_PlanGrid:GetChildList()
+-- 	for i = 1,7 do
+-- 		oItem = tChildList[i]
+-- 		oItem:SetInfo({i, tDataList[i]})
+-- 	end
+-- end
+-- --------------------------------------------------------
+-- function CAttrPointPage.InitData(self)
+-- 	--加点界面属性
+-- 	self.m_PlanBaseDataList = {}		--玩家属性基础值
+-- 	self.m_SliderList = {}				--加点后的一级属性
+-- 	self.m_BaseSliderList = {}			--加点前的一级属性
+-- 	self.m_AddPointPlanList = {}		--可选方案
+-- 	self.m_RemainPoint = 0				--潜力点
+-- 	self.m_RealRemainPoint = 0			--用于显示界面上点数的刷新
+-- 	self.m_SelectPlan = CAttrPointPage.g_SelectedPlan				--当前选择方案
+-- 	self.m_WashAllPoint = {}			--可洗点之和
+-- 	self.m_UsePlanId = 0
+-- 	self.m_KeyList = {"physique", "magic", "strength", "endurance", "agility"}
+-- 	self.m_AddPointNum = {	
+-- 		["physique"] = 0,
+-- 		["magic"] = 0,
+-- 		["strength"] = 0,
+-- 		["endurance"] = 0,
+-- 		["agility"] = 0,
+-- 		["plan_id"] = 0,
+-- 	}
+
+-- 	self.m_PlanAddPoint = {
+-- 		[1] = {
+-- 			hp = 0,
+-- 			mp = 0,
+-- 			phy_attack = 0,
+-- 			mag_attack = 0,
+-- 			phy_defense = 0,
+-- 			mag_defense = 0,
+-- 			speed = 0,
+-- 		},
+-- 		[2] = {
+-- 			hp = 0,
+-- 			mp = 0,
+-- 			phy_attack = 0,
+-- 			mag_attack = 0,
+-- 			phy_defense = 0,
+-- 			mag_defense = 0,
+-- 			speed = 0,
+-- 		},
+-- 		[3] = {
+-- 			hp = 0,
+-- 			mp = 0,
+-- 			phy_attack = 0,
+-- 			mag_attack = 0,
+-- 			phy_defense = 0,
+-- 			mag_defense = 0,
+-- 			speed = 0,
+-- 		},
+-- 	}
+
+-- 	self.m_AttrNameList = {hp = 1, mp = 2, phy_attack = 3, mag_attack = 4, phy_defense = 5, mag_defense = 6, speed = 7}
+
+-- 	self.m_CAttrPointConfig = data.rolepointdata.ROLEPOINT
+-- 	self.m_LevelConfig = data.rolepointdata.LEVEL
+-- 	self.m_EquipItems = {}
+-- 	self.m_EquipData = self:GetEquipedData()
+-- end
+
+-- function CAttrPointPage.UpdateData(self, infolist, planid)
+-- 	self.m_SliderList = {g_AttrCtrl.physique, g_AttrCtrl.magic, g_AttrCtrl.strength, g_AttrCtrl.endurance, g_AttrCtrl.agility,}
+-- 	self.m_AddPointPlanList = table.copy(infolist)
+-- 	self.m_SelectPlan = planid
+-- 	self.m_RemainPoint = infolist[planid].remain_point
+-- 	self:CalculateSliderBaseData(self.m_AddPointPlanList[planid])
+-- 	for i=1,#infolist do
+-- 		self:CalculateAllWashPoint(infolist[i], i)
+-- 	end
+-- end
+
+-- --清空加点方案的缓存
+-- function CAttrPointPage.ResetPlanAddPoint(self, idx)
+-- 	for k,v in pairs(self.m_PlanAddPoint[idx]) do		
+-- 		self.m_PlanAddPoint[idx][k] = 0
+-- 	end
+-- end
+
+-- --计算各个方案可洗点之和
+-- function CAttrPointPage.CalculateAllWashPoint(self, infolist, planid)
+-- 	local iAllWashPoint = 0
+-- 	for k,v in pairs(infolist) do
+-- 		if k ~="plan_id" and k ~= "remain_point" then
+-- 			iAllWashPoint = iAllWashPoint + v
+-- 		end
+-- 	end
+-- 	self.m_WashAllPoint[planid] = iAllWashPoint
+-- end
+
+-- function CAttrPointPage.CalculateSliderBaseData(self, infolist)
+-- 	self.m_BaseSliderList = {
+-- 		g_AttrCtrl.physique - (infolist.physique or 0),
+-- 		g_AttrCtrl.magic - (infolist.magic or 0),
+-- 		g_AttrCtrl.strength - (infolist.strength or 0),
+-- 		g_AttrCtrl.endurance - (infolist.endurance or 0),
+-- 		g_AttrCtrl.agility - (infolist.agility or 0),
+-- 	}
+-- end
+
+-- function CAttrPointPage.CalculateBaseData(self, infolist)
+-- 	self.m_PlanBaseDataList = {hp = 0, mp = 0, phy_attack = 0, mag_attack = 0, phy_defense = 0, mag_defense = 0, speed = 0,}
+-- 	local tDataList = {}
+-- 	for _i, keyname in pairs(self.m_KeyList) do
+-- 		tDataList = self:GetDataConfig(keyname)
+-- 		for k, v in pairs(tDataList) do
+-- 			if v ~= 0 then
+-- 				self.m_PlanBaseDataList[k] = self.m_PlanBaseDataList[k] + ((g_AttrCtrl[keyname] or 0) - (infolist[keyname] or 0)) * v
+-- 			end			
+-- 		end
+-- 	end
+-- end
+
+-- function CAttrPointPage.SetAddPointNum(self, type, num)
+-- 	for k,v in pairs(self.m_AddPointNum) do
+-- 		if type == "nil" then
+-- 			self.m_AddPointNum[k] = 0
+-- 		elseif k == type then
+-- 			self.m_AddPointNum[k] = self:MathRound(num)
+-- 		end
+-- 	end
+-- 	self.m_AddPointNum["plan_id"] = self.m_SelectPlan
+-- end
+
+-- function CAttrPointPage.RefreshAttrPoint(self, data)
+-- 	self.m_SelectPlan = data.plan_id
+-- 	self.m_RemainPoint = data.remain_point
+-- 	self.m_AddPointPlanList[self.m_SelectPlan] = data
+-- 	self:RefreshSliderInfo("All", data)
+-- 	self:RefreshPlanAddPoint(self.m_SelectPlan)
+-- 	self:ChangePlan(self.m_SelectPlan)
+-- end
+
+-- function CAttrPointPage.RefreshWashPoint(self, data)
+-- 	local sName = data[2].prop_name
+-- 	self.m_RemainPoint = data[2].remain_point
+-- 	self.m_RealRemainPoint = data[2].remain_point
+-- 	self.m_AddPointPlanList[self.m_SelectPlan].remain_point = data[2].remain_point
+-- 	-- printc("=====洗点回调潜力点=====",self.m_RemainPoint)
+-- 	if self.m_AddPointPlanList[self.m_SelectPlan][sName] == 1 then
+-- 		self.m_AddPointPlanList[self.m_SelectPlan][sName] = self.m_AddPointPlanList[self.m_SelectPlan][sName] - 1
+-- 	else
+-- 		self.m_AddPointPlanList[self.m_SelectPlan][sName] = self.m_AddPointPlanList[self.m_SelectPlan][sName] - 2
+-- 	end
+-- 	-- self:CalculateAllWashPoint(self.m_AddPointPlanList)
+-- 	for i=1,#self.m_AddPointPlanList do
+-- 		self:CalculateAllWashPoint(self.m_AddPointPlanList[i], i)
+-- 	end
+
+-- 	self:RefreshSliderInfo("All", self.m_AddPointPlanList[self.m_SelectPlan])
+-- 	self:SetPlanBaseInfo(self.m_SelectPlan)
+-- 	self:RefreshMainPage(self.m_RemainPoint)
+-- end
+
+-- --一级属性转化二级属性
+-- function CAttrPointPage.Conversion(self, type, num, planid)
+-- 	for k,v in pairs(self.m_PlanAddPoint[planid]) do
+-- 		self.m_PlanAddPoint[planid][k] = self.m_PlanAddPoint[planid][k] + num * self:GetDataConfig(type, tostring(k))
+-- 	end
+-- end
+
+-- --获取导表公式
+-- function CAttrPointPage.GetDataConfig(self, maintype, subtype)
+-- 	if not maintype then
+-- 		return 0
+-- 	end
+-- 	if subtype then
+-- 		return self.m_CAttrPointConfig[maintype][subtype] or 0
+-- 	else
+-- 		return self.m_CAttrPointConfig[maintype] or 0
+-- 	end
+-- end
+
+-- --计算各个方案的属性值
+-- function CAttrPointPage.CalculatePlanInfo(self, planid)
+-- 	local tInfoList = {hp = 0, mp = 0, phy_attack = 0, mag_attack = 0, phy_defense = 0, mag_defense = 0, speed = 0}
+-- 	local tDataList = self.m_AddPointPlanList[planid]
+-- 	for k, v in pairs(tInfoList) do
+-- 		for _, maintype in pairs(self.m_KeyList) do
+-- 			tInfoList[k] = tInfoList[k] + (tDataList[maintype] or 0) * self:GetDataConfig(maintype, k)
+-- 		end
+-- 	end
+-- 	return tInfoList
+-- end
+
+-- --设置方案各个属性值
+-- function CAttrPointPage.SetPlanBaseInfo(self, planid)
+-- 	local oItem = nil
+-- 	local tData = self.m_PlanBaseDataList
+-- 	local tAddData = self:CalculatePlanInfo(planid)
+-- 	local tChildList = self.m_PlanGrid:GetChildList()
+-- 	-- printc("========SetPlanBaseInfo========")
+-- 	-- table.print(tData)
+-- 	-- table.print(tAddData)
+-- 	for k,v in pairs(tAddData) do
+-- 		oItem = tChildList[self.m_AttrNameList[k]]
+-- 		oItem:DelateData()
+-- 		oItem:SetInfo({k, tData[k] + tonumber(v) + (self.m_EquipData[k] or 0)})
+-- 	end
+-- end
+
+-- function CAttrPointPage.OnCtrlEvent(self, oCtrl)	
+-- 	local sType = ""
+-- 	if oCtrl.m_EventID == define.Attr.Event.AddPoint then
+-- 		if oCtrl.m_EventData[1] == nil then
+-- 			return
+-- 		end
+-- 		sType = oCtrl.m_EventData[1]
+-- 		if sType == "All" then
+-- 			self:UpdateData(oCtrl.m_EventData[2], oCtrl.m_EventData[3])
+-- 		elseif sType == "OnePlan" then
+-- 			self:ResetPlanAddPoint(self.m_SelectPlan)	
+-- 			self:CalculateAllWashPoint(oCtrl.m_EventData[2], oCtrl.m_EventData[2].plan_id)
+-- 			self:RefreshAttrPoint(oCtrl.m_EventData[2])		
+-- 			self:RefreshWashAllBtn()
+-- 		elseif sType == "WashPoint" then
+-- 			self:ResetPlanAddPoint(self.m_SelectPlan)
+-- 			self:RefreshWashPoint(oCtrl.m_EventData)
+-- 			self:RefreshWashAllBtn()
+-- 		end
+-- 	elseif oCtrl.m_EventID == define.Attr.Event.Change then
+-- 		self.m_SliderList = {g_AttrCtrl.physique, g_AttrCtrl.magic, g_AttrCtrl.strength, g_AttrCtrl.endurance, g_AttrCtrl.agility}
+-- 		self:RefreshSliderInfo("Point")
+-- 	end
+-- 	CAttrPointPage.g_PlanInfolist = self.m_AddPointPlanList
+-- 	CAttrPointPage.g_SelectedPlan = self.m_SelectPlan
+-- end
+
+-- function CAttrPointPage.SetView(self)
+-- 	local function InitSlider(obj, idx)
+-- 		local oSliderItem = CAttrSliderBox.New(obj, function(data)
+-- 			self:SliderCallBack(data)
+-- 		end)
+-- 		return oSliderItem
+-- 	end
+-- 	self.m_SliderGrid:InitChild(InitSlider)
+-- 	local function InitItem(obj, idx)
+-- 		local oItem = CAttrPlanItemBox.New(obj)
+-- 		return oItem
+-- 	end
+-- 	self.m_PlanGrid:InitChild(InitItem)
+-- 	local function InitPlanBtn(obj, idx)
+-- 		local oPlanBtn = CButton.New(obj)	
+-- 		if g_AttrCtrl.grade < self.m_LevelConfig[idx].unlock_lev then
+-- 			oPlanBtn:SetSpriteName("anniu3")
+-- 		else
+-- 			oPlanBtn:SetSpriteName("btn_white")
+-- 		end
+-- 		oPlanBtn:AddUIEvent("click", callback(self, "ChangePlan", idx, true))
+-- 		return oPlanBtn
+-- 	end
+-- 	self.m_PlanBtnGrid:InitChild(InitPlanBtn)
+
+-- 	self.m_CData = DataTools.GetItemData(10004)
+-- 	self.m_ItemIconSprite:SpriteItemShape(self.m_CData.icon)
+-- end
+
+-- --刷新方案加点属性
+-- function CAttrPointPage.RefreshPlanAddPoint(self, planid)
+-- 	local oItem = nil
+-- 	local tData = self.m_PlanAddPoint[planid]
+-- 	local tChildList = self.m_PlanGrid:GetChildList()	
+-- 	local iAddPoint = 0
+-- 	for k,v in pairs(tData) do
+-- 		iAddPoint = v
+-- 		oItem = tChildList[self.m_AttrNameList[k]]
+-- 		oItem:RefreshAddLabel(iAddPoint)
+-- 	end
+-- end
+
+-- function CAttrPointPage.RefreshSliderInfo(self, stype, data)
+-- 	if data == nil and stype == "All" then 
+-- 		return 
+-- 	end
+-- 	local oSliderItem = nil
+-- 	for i = 1, 5 do
+-- 		oSliderItem = self.m_SliderGrid:GetChild(i)
+-- 		if stype == "All" then	--刷新整个slider
+-- 			oSliderItem:DelateData()
+-- 			oSliderItem:SetInfo({i, data[self.m_KeyList[i]], data.remain_point, self.m_BaseSliderList[i],
+-- 				self.m_WashAllPoint[self.m_UsePlanId], self.m_UsePlanId})
+-- 		elseif stype == "Point" then 	--刷新point
+-- 			oSliderItem:RefreshPoint(self.m_SliderList[i])
+-- 		end
+-- 	end
+-- end
+
+-- function CAttrPointPage.SliderCallBack(self, datalist)
+-- 	-- printc("++++slider回调+++++",datalist.changepoint,"===剩余潜力点===",self.m_RemainPoint)
+-- 	self:RefreshRemainPoint(datalist.changepoint)
+-- 	self:Conversion(datalist.key, datalist.changepoint, self.m_SelectPlan)
+-- 	self:RefreshPlanAddPoint(self.m_SelectPlan)
+-- 	self.m_RemainPoint = self.m_RemainPoint - datalist.changepoint
+-- 	-- printc("===剩余潜力点===",self.m_RemainPoint,"==改变量==",datalist.changepoint)
+-- 	self:RefreshSliderRound(datalist.idx)
+-- 	self:SetAddPointNum(datalist.key, datalist.addpoint)	
+-- end
+
+-- function CAttrPointPage.RefreshRemainPoint(self, ichange)
+-- 	self.m_RealRemainPoint = self.m_RealRemainPoint - (ichange or 0)
+-- 	self:RefreshMainPage(self.m_RealRemainPoint)
+-- end
+
+-- function CAttrPointPage.RefreshMainPage(self, point)		
+-- 	self.m_ItemNumLabel:SetText(tostring(g_ItemCtrl:GetBagItemAmountBySid(10004)))
+-- 	if point then
+-- 		self.m_PotentialLabel:SetText(string.format("%d", point))
+-- 	else
+-- 		self.m_PotentialLabel:SetText(string.format("%d", self.m_AddPointPlanList[self.m_UsePlanId].remain_point or 0))
+-- 	end
+-- end
+
+-- --根据剩余潜力点,即时刷新滑动条取值区间
+-- function CAttrPointPage.RefreshSliderRound(self, idx)
+-- 	local oSliderItem = nil
+-- 	for i = 1, 5 do
+-- 		if i ~= idx then
+-- 			oSliderItem = self.m_SliderGrid:GetChild(i)
+-- 			oSliderItem:RefreshSliderRound(self.m_RemainPoint)
+-- 		end
+-- 	end
+-- end
+
+-- function CAttrPointPage.ChangePlan(self, index, bool)
+-- 	-- printb("===index===",index,"====selectplan===",self.m_SelectPlan)
+-- 	-- table.print(self.m_AddPointPlanList)
+-- 	if g_AttrCtrl.grade < self.m_LevelConfig[index].unlock_lev then
+-- 		g_NotifyCtrl:FloatMsg(string.format("%d级解锁第%d套加点方案",self.m_LevelConfig[index].unlock_lev, index))
+-- 		return
+-- 	end
+-- 	self.m_UsePlanId = index
+-- 	if self.m_SelectPlan == index then
+-- 		self.m_UseLabel:SetText("[1d8e00]方案已启用[-]")
+-- 		self.m_UsePlanBtn:SetActive(false)
+-- 		self.m_TipsLabel:SetActive(false)
+-- 		self.m_EnterAddBtn:SetActive(true)
+-- 		self.m_WashAllBtn:SetActive(true)
+-- 		self:ResetPlanAddPoint(index)
+-- 	else
+-- 		self.m_UseLabel:SetText("[C76758]未启用[-]")
+-- 		self.m_UsePlanBtn:SetActive(true)
+-- 		self.m_TipsLabel:SetActive(true)
+-- 		self.m_EnterAddBtn:SetActive(false)
+-- 		self.m_WashAllBtn:SetActive(false)		
+-- 	end
+-- 	-- self.m_SelectPlan = index
+-- 	self.m_AddPointTitleLabel:SetText("加点方案"..index)	
+-- 	self.m_MorePlan:SetActive(false)
+-- 	self:SetPlanBaseInfo(index)
+-- 	self:SetAddPointNum("nil")
+-- 	self:RefreshSliderInfo("All", self.m_AddPointPlanList[index])
+-- 	self:RefreshMainPage()
+-- 	self.m_RemainPoint = self.m_AddPointPlanList[index].remain_point or 0
+-- 	self.m_RealRemainPoint = self.m_AddPointPlanList[index].remain_point or 0
+-- 	self.m_MorePlanBtn:SetSpriteName("appellation-button")
+-- end
+
+-- function CAttrPointPage.GetEquipedData(self)
+-- 	for k,v in pairs(define.Equip.Pos) do
+-- 		table.insert(self.m_EquipItems, g_ItemCtrl:GetEquipedByPos(v))
+-- 	end
+
+-- 	local tInfoList = {hp = 0, mp = 0, phy_attack = 0, mag_attack = 0, phy_defense = 0, mag_defense = 0, speed = 0}
+-- 	local skey = ""
+-- 	for k,v in pairs(self.m_EquipItems) do
+-- 		for i,data in ipairs(v.m_SData.apply_info) do
+-- 			skey = data.key
+-- 			if tInfoList[skey] then
+-- 				tInfoList[skey] = tInfoList[skey] + data.value
+-- 			end
+-- 		end			
+-- 	end
+-- 	return tInfoList
+-- end
+
+-- function CAttrPointPage.OpenMorePlan(self)
+-- 	local sSpriteName = ""
+-- 	if self.m_MorePlan:GetActive() == true then
+-- 		self.m_MorePlan:SetActive(false)
+-- 		sSpriteName = "appellation-button"
+-- 	else
+-- 		self.m_MorePlan:SetActive(true)
+-- 		sSpriteName = "arrow_down_btn"
+-- 	end
+-- 	self.m_MorePlanBtn:SetSpriteName(sSpriteName)
+-- end
+
+-- function CAttrPointPage.GetAllWashPoint(self)
+-- 	return self.m_WashAllPoint[self.m_SelectPlan]
+-- end
+
+-- function CAttrPointPage.RefreshWashAllBtn(self)
+-- 	if self:GetAllWashPoint() == 0 then
+-- 		self.m_AllPointGrep:SetActive(true)
+-- 		-- self.m_WashAllBtn:SetGrey(true)
+-- 	else
+-- 		self.m_AllPointGrep:SetActive(false)
+-- 	end
+-- end
+
+-- --数字四舍五入
+-- function CAttrPointPage.MathRound(self, data)	
+-- 	local num = data * 100
+-- 	num = (num % 1 >= 0.5 and math.ceil(num/100)) or math.floor(num/100)
+-- 	-- num = math.floor(num / 100)
+-- 	return num 
+-- end
+
+-- ------------------网络交互----------------------------------------------------------
+-- function CAttrPointPage.UsePlanCallBack(self)	
+-- 	netplayer.C2GSSelectPointPlan(self.m_UsePlanId)
+-- end
+
+-- function CAttrPointPage.EnterAddPoint(self)
+-- 	for k,v in pairs(self.m_AddPointNum) do
+-- 		if k ~= "plan_id" and v ~= 0 then
+-- 			netplayer.C2GSAddPoint(self.m_AddPointNum)
+-- 			return
+-- 		end
+-- 	end
+	
+-- end
+
+-- function CAttrPointPage.WashAllPointCallBack(self)
+-- 	if self:GetAllWashPoint() == 0 then
+-- 		g_NotifyCtrl:FloatMsg("=====没有可洗点=====")
+-- 		return
+-- 	end
+-- 	local data = {
+-- 	sid 		= 10005,
+-- 	title 		= "全部洗点",
+-- 	btnname		= "确定洗点",
+-- 	callback 	= function ()
+-- 		netplayer.C2GSWashAllPoint()
+-- 	end,
+-- 	}
+
+-- 	CWindowUsePropView:ShowView(function(oView)
+-- 		oView:SetWinInfo(data)
+-- 	end)
+-- end
+
+-- return CAttrPointPage

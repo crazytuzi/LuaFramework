@@ -1,0 +1,100 @@
+module(...)
+--auto generate data
+HELP={
+	[1]=[[自动寻路过程中，点击地图即可停下来]],
+	[2]=[[点击主界面右上角的场景图标可查看地图]],
+	[3]=[[请不要把游戏账号信息透露给别人，否则会降低账号的安全性，甚至造成损失]],
+	[4]=[[组队人数上限只有4人哦，请合理分配]],
+	[5]=[[主角65级开放第二流派，可切换流派使用新技能]],
+	[6]=[[可在右上角的{link23,1,成长手册}查看战力提升及伙伴搭配等攻略信息]],
+}
+
+CHATCONFIG={
+	[1]={
+		energy_cost=[[50]],
+		grade_limit=[[10]],
+		name=[[世界]],
+		sort=1,
+		talk_gap=[[10]],
+		talkable=1,
+		voiceable=1,
+	},
+	[2]={
+		energy_cost=[[0]],
+		grade_limit=[[0]],
+		name=[[队伍]],
+		sort=2,
+		talk_gap=[[1]],
+		talkable=1,
+		voiceable=1,
+	},
+	[3]={
+		energy_cost=[[0]],
+		grade_limit=[[0]],
+		name=[[帮派]],
+		sort=3,
+		talk_gap=[[1]],
+		talkable=1,
+		voiceable=1,
+	},
+	[4]={
+		energy_cost=[[0]],
+		grade_limit=[[0]],
+		name=[[当前]],
+		sort=4,
+		talk_gap=[[1]],
+		talkable=1,
+		voiceable=1,
+	},
+	[5]={
+		energy_cost=[[0]],
+		grade_limit=[[0]],
+		name=[[系统]],
+		sort=5,
+		talk_gap=[[1]],
+		talkable=0,
+		voiceable=1,
+	},
+	[6]={
+		energy_cost=[[0]],
+		grade_limit=[[0]],
+		name=[[消息]],
+		sort=6,
+		talk_gap=[[0]],
+		talkable=0,
+		voiceable=0,
+	},
+}
+
+HORSESPEED={[1]={id=1,speed=150,},}
+
+NormalMsg={
+	[1]={content=[[先清小怪，再集火boss]],id=1,},
+	[2]={
+		content=[[公会招人啦，大佬带队，我们一起来愉快的玩耍吧。]],
+		id=2,
+	},
+	[3]={
+		content=[[寻找相约满级的同伴，有的加好友]],
+		id=3,
+	},
+	[4]={content=[[我的心里只有公主]],id=4,},
+}
+
+ADWords={
+	[1]={id=1,word=[[群]],},
+	[2]={id=2,word=[[裙]],},
+	[3]={id=3,word=[[qq]],},
+	[4]={id=4,word=[[扣扣]],},
+	[5]={id=5,word=[[企鹅]],},
+	[6]={id=6,word=[[微信]],},
+	[7]={id=7,word=[[送首充]],},
+	[8]={id=8,word=[[送礼包]],},
+	[9]={id=9,word=[[淘宝]],},
+	[10]={id=10,word=[[掏宝]],},
+	[11]={id=11,word=[[送首冲]],},
+	[12]={id=12,word=[[薇信]],},
+	[13]={id=13,word=[[公众号]],},
+	[14]={id=14,word=[[小树林掌游]],},
+	[15]={id=15,word=[[小.树.林.掌.游]],},
+}

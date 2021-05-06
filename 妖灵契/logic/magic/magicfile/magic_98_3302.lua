@@ -1,0 +1,43 @@
+module(...)
+--magic editor build
+DATA={
+	atk_stophit=true,
+	cmds={
+		[1]={
+			args={action_name=[[attack2]],excutor=[[atkobj]],},
+			func_name=[[PlayAction]],
+			start_time=0,
+		},
+		[2]={
+			args={
+				alive_time=1,
+				effect={
+					is_cached=true,
+					magic_layer=[[center]],
+					path=[[Effect/Magic/magic_eff_3302/Prefabs/magic_eff_3302_att.prefab]],
+					preload=true,
+				},
+				effect_dir_type=[[relative]],
+				effect_pos={base_pos=[[atk]],depth=0,relative_angle=0,relative_dis=0,},
+				excutor=[[vicobj]],
+				relative_dir={base_pos=[[atk]],depth=0,relative_angle=0,relative_dis=1,},
+			},
+			func_name=[[StandEffect]],
+			start_time=0,
+		},
+		[3]={args={time=0.75,},func_name=[[HideUI]],start_time=0,},
+		[4]={args={player_swipe=false,},func_name=[[CameraLock]],start_time=0,},
+		[5]={
+			args={sound_path=[[Magic/sound_magic_3302_1.wav]],sound_rate=1,},
+			func_name=[[PlaySound]],
+			start_time=0.02,
+		},
+		[6]={args={player_swipe=true,},func_name=[[CameraLock]],start_time=0.75,},
+		[7]={args={},func_name=[[End]],start_time=0.75,},
+	},
+	group_cmds={},
+	pre_load_res={[1]=[[Effect/Magic/magic_eff_3302/Prefabs/magic_eff_3302_att.prefab]],},
+	run_env=[[createrole]],
+	type=1,
+	wait_goback=false,
+}

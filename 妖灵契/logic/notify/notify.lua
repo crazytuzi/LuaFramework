@@ -1,0 +1,16 @@
+CNotifyView = require "logic.notify.CNotifyView"
+CFloatBox = require "logic.notify.CFloatBox"
+CHintBox = require "logic.notify.CHintBox"
+CProgressBox = require "logic.notify.CProgressBox"
+CRumorBox = require "logic.notify.CRumorBox"
+
+CNotifyCtrl = require "logic.notify.CNotifyCtrl"
+CWindowTipCtrl = require "logic.notify.CWindowTipCtrl"
+CWindowUsePropView = require "logic.notify.CWindowUsePropView"
+
+CWindowItemTipView = require "logic.notify.CWindowItemTipView"
+CWindowEquipEffectTipView = require "logic.notify.CWindowEquipEffectTipView"
+CWindowInstructionView = require "logic.notify.CWindowInstructionView"
+COrgHintBox = require "logic.notify.COrgHintBox"
+CAniSwitchBox = require "logic.notify.CAniSwitchBox"
+CPowerChangeBox = require "logic.notify.CPowerChangeBox"

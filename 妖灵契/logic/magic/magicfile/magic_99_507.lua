@@ -1,0 +1,54 @@
+module(...)
+--magic editor build
+DATA={
+	atk_stophit=true,
+	cmds={
+		[1]={
+			args={
+				begin_type=[[current]],
+				calc_face=true,
+				ease_type=[[OutSine]],
+				end_relative={base_pos=[[atk_lineup]],depth=0,relative_angle=0,relative_dis=0,},
+				end_type=[[end_relative]],
+				excutor=[[atkobj]],
+				look_at_pos=true,
+				move_time=0.64,
+				move_type=[[line]],
+			},
+			func_name=[[Move]],
+			start_time=0,
+		},
+		[2]={
+			args={action_name=[[run]],action_time=0.3,excutor=[[atkobj]],},
+			func_name=[[PlayAction]],
+			start_time=0,
+		},
+		[3]={
+			args={
+				action_name=[[attack1]],
+				action_time=0.47,
+				end_frame=53,
+				excutor=[[atkobj]],
+				start_frame=24,
+			},
+			func_name=[[PlayAction]],
+			start_time=0.45,
+		},
+		[4]={
+			args={action_name=[[idleWar]],excutor=[[atkobj]],},
+			func_name=[[PlayAction]],
+			start_time=0.95,
+		},
+		[5]={
+			args={excutor=[[atkobj]],face_to=[[default]],time=0,},
+			func_name=[[FaceTo]],
+			start_time=0.95,
+		},
+		[6]={args={},func_name=[[End]],start_time=1,},
+	},
+	group_cmds={},
+	pre_load_res={},
+	run_env=[[war]],
+	type=1,
+	wait_goback=true,
+}

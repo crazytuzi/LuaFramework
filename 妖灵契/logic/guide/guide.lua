@@ -1,0 +1,7 @@
+GuideTools =require "logic.guide.GuideTools"
+CGuideCtrl = require "logic.guide.CGuideCtrl"
+CGuideFocusBox = require "logic.guide.CGuideFocusBox"
+CGuideView = require "logic.guide.CGuideView"
+CGuideMaskView = require "logic.guide.CGuideMaskView"
+CGuideTextureBox = require "logic.guide.CGuideTextureBox"
+CGuideOpenBox = require "logic.guide.CGuideOpenBox"

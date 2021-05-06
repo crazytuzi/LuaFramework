@@ -1,0 +1,5 @@
+CTreasureCtrl = require "logic.treasure.CTreasureCtrl"
+CTreasureDescView = require "logic.treasure.CTreasureDescView"
+CTreasureNormalView = require "logic.treasure.CTreasureNormalView"
+CTreasureCaiQuanView = require "logic.treasure.CTreasureCaiQuanView"
+CTreasurePlayBoyView = require "logic.treasure.CTreasurePlayBoyView"

@@ -1,0 +1,47 @@
+module(...)
+--magic editor build
+DATA={
+	atk_stophit=true,
+	cmds={
+		[1]={
+			args={
+				alive_time=1.71,
+				effect={
+					is_cached=true,
+					magic_layer=[[center]],
+					path=[[Effect/Magic/magic_eff_3101/Prefabs/magic_eff_3101_att.prefab]],
+					preload=true,
+				},
+				effect_dir_type=[[backward]],
+				effect_pos={base_pos=[[atk]],depth=0,relative_angle=0,relative_dis=1.5,},
+				excutor=[[atkobj]],
+			},
+			func_name=[[StandEffect]],
+			start_time=0,
+		},
+		[2]={args={time=2,},func_name=[[HideUI]],start_time=0,},
+		[3]={args={player_swipe=false,},func_name=[[CameraLock]],start_time=0,},
+		[4]={
+			args={action_name=[[attack1]],action_time=0.8,excutor=[[atkobj]],},
+			func_name=[[PlayAction]],
+			start_time=0.25,
+		},
+		[5]={
+			args={shake_dis=0.05,shake_rate=8,shake_time=0.2,},
+			func_name=[[ShakeScreen]],
+			start_time=0.8,
+		},
+		[6]={
+			args={shake_dis=0.05,shake_rate=8,shake_time=0.2,},
+			func_name=[[ShakeScreen]],
+			start_time=1.65,
+		},
+		[7]={args={player_swipe=true,},func_name=[[CameraLock]],start_time=2,},
+		[8]={args={},func_name=[[End]],start_time=2,},
+	},
+	group_cmds={},
+	pre_load_res={[1]=[[Effect/Magic/magic_eff_3101/Prefabs/magic_eff_3101_att.prefab]],},
+	run_env=[[createrole]],
+	type=1,
+	wait_goback=false,
+}

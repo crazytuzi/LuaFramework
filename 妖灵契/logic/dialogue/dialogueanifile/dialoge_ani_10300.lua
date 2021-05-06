@@ -1,0 +1,43 @@
+module(...)
+--dialogueani editor build
+DATA={
+	[1]={
+		cmdList={
+			[1]={
+				args={
+					[1]={[1]=2,},
+					[2]={[1]=[[不要在我的书店门口吵闹！]],},
+					[3]={[1]=50,},
+					[4]={[1]=[[你找我什么事，买书还是借书？]],},
+					[5]={[1]=40,},
+					[6]={[1]=[[空]],},
+					[7]={[1]=0,},
+					[8]={[1]=[[空]],},
+					[9]={[1]=0,},
+					[10]={[1]=1,},
+					[11]={[1]=[[attack1]],},
+					[12]={[1]=[[none]],},
+					[13]={[1]=[[none]],},
+					[14]={[1]=[[none]],},
+				},
+				cmdType=[[globalnpcani]],
+				func=[[GNpcSay]],
+				name=[[冒泡说话]],
+			},
+		},
+		delay=2,
+		idx=1,
+		startTime=0,
+		type=[[player]],
+	},
+}
+
+CONFIG={
+	isLoop=1,
+	isStroy=2,
+	isTrigger=0,
+	loopTime=60,
+	mapInfo=[[]],
+	minTriggerLevel=1,
+	name=[[甘冒泡]],
+}

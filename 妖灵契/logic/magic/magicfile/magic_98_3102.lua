@@ -1,0 +1,26 @@
+module(...)
+--magic editor build
+DATA={
+	atk_stophit=true,
+	cmds={
+		[1]={args={time=2,},func_name=[[HideUI]],start_time=0,},
+		[2]={args={player_swipe=false,},func_name=[[CameraLock]],start_time=0,},
+		[3]={
+			args={action_name=[[attack2]],excutor=[[atkobj]],},
+			func_name=[[PlayAction]],
+			start_time=0.25,
+		},
+		[4]={
+			args={shake_dis=0.1,shake_rate=8,shake_time=0.3,},
+			func_name=[[ShakeScreen]],
+			start_time=1.1,
+		},
+		[5]={args={player_swipe=true,},func_name=[[CameraLock]],start_time=2,},
+		[6]={args={},func_name=[[End]],start_time=2,},
+	},
+	group_cmds={},
+	pre_load_res={},
+	run_env=[[createrole]],
+	type=1,
+	wait_goback=false,
+}

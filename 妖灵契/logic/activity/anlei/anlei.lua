@@ -1,0 +1,5 @@
+CAnLeiCtrl = require "logic.activity.anlei.CAnLeiCtrl"
+CAnLeiMainView = require "logic.activity.anlei.CAnLeiMainView"
+CAnLeiAddTipsView = require "logic.activity.anlei.CAnLeiAddTipsView"
+CAnLeiRewardListView = require "logic.activity.anlei.CAnLeiRewardListView"
+CAnLeiOffLineRewardView = require "logic.activity.anlei.CAnLeiOffLineRewardView"

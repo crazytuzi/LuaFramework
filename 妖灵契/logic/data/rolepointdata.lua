@@ -1,0 +1,82 @@
+module(...)
+--auto generate data
+ROLEPOINT={
+	agility={
+		mag_attack=0.0,
+		mag_defense=0.0,
+		mp=0,
+		phy_attack=0.0,
+		phy_defense=0.0,
+		speed=0.7,
+	},
+	endurance={
+		mag_attack=0.0,
+		mag_defense=0.1,
+		mp=0,
+		phy_attack=0.0,
+		phy_defense=1.5,
+		speed=0.1,
+	},
+	magic={
+		mag_attack=0.7,
+		mag_defense=0.7,
+		mp=0,
+		phy_attack=0.0,
+		phy_defense=0.0,
+		speed=0.0,
+	},
+	physique={
+		mag_attack=0.0,
+		mag_defense=0.1,
+		mp=0,
+		phy_attack=0.0,
+		phy_defense=0.0,
+		speed=0.1,
+	},
+	strength={
+		mag_attack=0.0,
+		mag_defense=0.4,
+		mp=0,
+		phy_attack=0.7,
+		phy_defense=0.0,
+		speed=0.1,
+	},
+}
+
+LEVEL={
+	[1]={id=1,name=[[方案一]],unlock_lev=50,},
+	[2]={id=2,name=[[方案二]],unlock_lev=70,},
+	[3]={id=3,name=[[方案三]],unlock_lev=90,},
+}
+
+INIT={
+	[1]={
+		agility=10,
+		critical_multiple=2,
+		cure_power=0,
+		endurance=10,
+		energy=0,
+		exp=0,
+		grade=0,
+		hit_ratio=100,
+		hit_res_ratio=5,
+		mag_attack=0,
+		mag_critical_ratio=0,
+		mag_defense=0,
+		magic=10,
+		max_hp=200,
+		max_mp=0,
+		phy_attack=40,
+		phy_critical_ratio=5,
+		phy_defense=0,
+		physique=10,
+		point=0,
+		res_mag_critical_ratio=0,
+		res_phy_critical_ratio=0,
+		res_seal_ratio=0,
+		seal_ratio=0,
+		sp=0,
+		speed=0,
+		strength=10,
+	},
+}

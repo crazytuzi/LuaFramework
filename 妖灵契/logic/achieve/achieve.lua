@@ -1,0 +1,6 @@
+CAchieveCtrl = require "logic.achieve.CAchieveCtrl"
+CAchieveMainView = require "logic.achieve.CAchieveMainView"
+CAchieveRewardView = require "logic.achieve.CAchieveRewardView" 
+CAchieveFinishTipsView = require "logic.achieve.CAchieveFinishTipsView" 
+CAchieveDirectionBox = require "logic.achieve.CAchieveDirectionBox"
+CAchieveInfoBox = require "logic.achieve.CAchieveInfoBox" 
