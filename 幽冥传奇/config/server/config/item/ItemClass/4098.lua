@@ -1,0 +1,38 @@
+return {
+{
+	id = 4098,
+	name = Lang.Item.n4098,
+	desc = Lang.Item.i4098,
+	type = 102,
+	icon = 4098,
+	shape = 1,
+	color = 0xff0000,
+	bgquality = 4,
+	dura = 0,
+	useDurDrop = 0,
+	dup = 9999,
+	weight = 1,
+	dealType = 0,
+	dealPrice = 1,
+	time = 0,
+	suitId = 0,
+	colGroup = 0,
+	cdTime = 0,
+	dropBroadcast = -1,
+	openUi = {"Fashion", 3},
+	skillID = 0,
+	sellBuyType = 0,
+	staitcAttrs = {
+	},
+	flags = {
+		recordLog = true,
+		trackDrop = true,
+		denyGuildDepot = true,
+		denyTipsAutoLine = true,
+		showLootTips = true,
+	},
+	conds = {
+		{ cond = 1, value = 1, },
+	},
+},
+}

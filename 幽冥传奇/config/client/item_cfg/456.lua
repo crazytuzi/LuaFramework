@@ -1,0 +1,37 @@
+return {
+	id=456,
+	name=Lang.Item.n456,
+	desc=Lang.Item.i456,
+	--赎罪药水
+	--一种神奇的药水,可平心静气\n{color;FF00c0ff;可打开使用后瞬间清除}{color;FF00ff00; 100点 }{color;FF00c0ff;PK值}\n{color;FF00c0ff;【商城】}
+	color=0xde00ff,
+	type=102,
+	icon=588,
+	shape=0,
+	dura=0,
+	useDurDrop=0,
+	dup=999,
+	dealType=0,
+	dealPrice=10,
+	time=0,
+	suitId=0,
+	colGroup=0,
+	cdTime=0,
+	dropBroadcast=0,
+	sellBuyType=5,
+	contri=0,
+	showQuality=3,
+	showQualityBg=3,
+	staitcAttrs={
+	},
+	seal={},
+	conds={
+		{cond=1,value=1},
+	},
+	flags={
+		recordLog=true,
+		showLootTips=true,
+		canMoveAttr=true,
+		denyReclaim=true,
+	},
+}

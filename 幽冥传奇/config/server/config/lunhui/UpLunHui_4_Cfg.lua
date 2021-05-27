@@ -1,0 +1,162 @@
+return {
+{
+	[0]=
+	{
+		name="轮回护膝(激活)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=1,
+		lunhuiLevel=0,
+		award = {type=0, id=599, count=1,bind=1},
+		consume = {{type = 0, id = 0, count = 0},{type = 0, id = 1672, count = 20},},
+		attr =
+		{
+		},
+	},
+	[1]=
+	{
+		name="轮回护膝(王)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=2,
+		lunhuiLevel=0,
+		award = {type=0, id=604, count=1,bind=1},
+		consume ={{type = 0, id = 599, count = 1},{type = 0, id = 1672, count = 40},},
+		attr =
+		{
+			{type=9,value=159,},
+			{type=11,value=317,},
+			{type=13,value=159,},
+			{type=15,value=317,},
+			{type=17,value=159,},
+			{type=19,value=317,},
+			{type=21,value=111,},
+			{type=23,value=222,},
+			{type=25,value=111,},
+			{type=27,value=222,},
+		},
+	},
+	[2]=
+	{
+		name="轮回护膝(君)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=3,
+		lunhuiLevel=0,
+		award = {type=0, id=609, count=1,bind=1},
+		consume ={{type = 0, id = 604, count = 1},{type = 0, id = 1672, count = 80},},
+		attr =
+		{
+			{type=9,value=269,},
+			{type=11,value=538,},
+			{type=13,value=269,},
+			{type=15,value=538,},
+			{type=17,value=269,},
+			{type=19,value=538,},
+			{type=21,value=189,},
+			{type=23,value=377,},
+			{type=25,value=189,},
+			{type=27,value=377,},
+		},
+	},
+	[3]=
+	{
+		name="轮回护膝(圣)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=4,
+		lunhuiLevel=0,
+		award = {type=0, id=614, count=1,bind=1},
+		consume ={{type = 0, id = 609, count = 1},{type = 0, id = 1672, count = 160},},
+		attr =
+		{
+			{type=9,value=458,},
+			{type=11,value=915,},
+			{type=13,value=458,},
+			{type=15,value=915,},
+			{type=17,value=458,},
+			{type=19,value=915,},
+			{type=21,value=321,},
+			{type=23,value=641,},
+			{type=25,value=321,},
+			{type=27,value=641,},
+		},
+	},
+	[4]=
+	{
+		name="轮回护膝(皇)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=5,
+		lunhuiLevel=0,
+		award = {type=0, id=619, count=1,bind=1},
+		consume ={{type = 0, id = 614, count = 1},{type = 0, id = 1672, count = 320},},
+		attr =
+		{
+			{type=9,value=778,},
+			{type=11,value=1555,},
+			{type=13,value=778,},
+			{type=15,value=1555,},
+			{type=17,value=778,},
+			{type=19,value=1555,},
+			{type=21,value=545,},
+			{type=23,value=1089,},
+			{type=25,value=545,},
+			{type=27,value=1089,},
+		},
+	},
+	[5]=
+	{
+		name="轮回护膝(尊)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=6,
+		lunhuiLevel=0,
+		award = {type=0, id=624, count=1,bind=1},
+		consume ={{type = 0, id = 619, count = 1},{type = 0, id = 1672, count = 640},},
+		attr =
+		{
+			{type=9,value=1322,},
+			{type=11,value=2643,},
+			{type=13,value=1322,},
+			{type=15,value=2643,},
+			{type=17,value=1322,},
+			{type=19,value=2643,},
+			{type=21,value=925,},
+			{type=23,value=1850,},
+			{type=25,value=925,},
+			{type=27,value=1850,},
+		},
+	},
+	[6]=
+	{
+		name="轮回护膝(主宰)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=7,
+		lunhuiLevel=0,
+		award = {type=0, id=0, count=0,bind=1},
+		consume ={{type = 0, id = 0, count = 0},{type = 0, id = 0, count = 0},},
+		attr =
+		{
+			{type=9,value=2247,},
+			{type=11,value=4493,},
+			{type=13,value=2247,},
+			{type=15,value=4493,},
+			{type=17,value=2247,},
+			{type=19,value=4493,},
+			{type=21,value=1573,},
+			{type=23,value=3145,},
+			{type=25,value=1573,},
+			{type=27,value=3145,},
+		},
+	},
+},
+}

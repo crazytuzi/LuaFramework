@@ -1,0 +1,162 @@
+return {
+{
+	[0]=
+	{
+		name="轮回护心(激活)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=1,
+		lunhuiLevel=0,
+		award = {type=0, id=600, count=1,bind=1},
+		consume = {{type = 0, id = 0, count = 0},{type = 0, id = 1673, count = 20},},
+		attr =
+		{
+		},
+	},
+	[1]=
+	{
+		name="轮回护心(王)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=2,
+		lunhuiLevel=0,
+		award = {type=0, id=605, count=1,bind=1},
+		consume ={{type = 0, id = 600, count = 1},{type = 0, id = 1673, count = 40},},
+		attr =
+		{
+			{type=9,value=222,},
+			{type=11,value=443,},
+			{type=13,value=222,},
+			{type=15,value=443,},
+			{type=17,value=222,},
+			{type=19,value=443,},
+			{type=21,value=89,},
+			{type=23,value=177,},
+			{type=25,value=89,},
+			{type=27,value=177,},
+		},
+	},
+	[2]=
+	{
+		name="轮回护心(君)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=3,
+		lunhuiLevel=0,
+		award = {type=0, id=610, count=1,bind=1},
+		consume ={{type = 0, id = 605, count = 1},{type = 0, id = 1673, count = 80},},
+		attr =
+		{
+			{type=9,value=377,},
+			{type=11,value=753,},
+			{type=13,value=377,},
+			{type=15,value=753,},
+			{type=17,value=377,},
+			{type=19,value=753,},
+			{type=21,value=151,},
+			{type=23,value=301,},
+			{type=25,value=151,},
+			{type=27,value=301,},
+		},
+	},
+	[3]=
+	{
+		name="轮回护心(圣)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=4,
+		lunhuiLevel=0,
+		award = {type=0, id=615, count=1,bind=1},
+		consume ={{type = 0, id = 610, count = 1},{type = 0, id = 1673, count = 160},},
+		attr =
+		{
+			{type=9,value=640,},
+			{type=11,value=1280,},
+			{type=13,value=640,},
+			{type=15,value=1280,},
+			{type=17,value=640,},
+			{type=19,value=1280,},
+			{type=21,value=256,},
+			{type=23,value=512,},
+			{type=25,value=256,},
+			{type=27,value=512,},
+		},
+	},
+	[4]=
+	{
+		name="轮回护心(皇)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=5,
+		lunhuiLevel=0,
+		award = {type=0, id=620, count=1,bind=1},
+		consume ={{type = 0, id = 615, count = 1},{type = 0, id = 1673, count = 320},},
+		attr =
+		{
+			{type=9,value=1088,},
+			{type=11,value=2176,},
+			{type=13,value=1088,},
+			{type=15,value=2176,},
+			{type=17,value=1088,},
+			{type=19,value=2176,},
+			{type=21,value=435,},
+			{type=23,value=870,},
+			{type=25,value=435,},
+			{type=27,value=870,},
+		},
+	},
+	[5]=
+	{
+		name="轮回护心(尊)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=6,
+		lunhuiLevel=0,
+		award = {type=0, id=625, count=1,bind=1},
+		consume ={{type = 0, id = 620, count = 1},{type = 0, id = 1673, count = 640},},
+		attr =
+		{
+			{type=9,value=1850,},
+			{type=11,value=3700,},
+			{type=13,value=1850,},
+			{type=15,value=3700,},
+			{type=17,value=1850,},
+			{type=19,value=3700,},
+			{type=21,value=740,},
+			{type=23,value=1480,},
+			{type=25,value=740,},
+			{type=27,value=1480,},
+		},
+	},
+	[6]=
+	{
+		name="轮回护心(主宰)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=7,
+		lunhuiLevel=0,
+		award = {type=0, id=0, count=0,bind=1},
+		consume ={{type = 0, id = 0, count = 0},{type = 0, id = 0, count = 0},},
+		attr =
+		{
+			{type=9,value=3145,},
+			{type=11,value=6290,},
+			{type=13,value=3145,},
+			{type=15,value=6290,},
+			{type=17,value=3145,},
+			{type=19,value=6290,},
+			{type=21,value=1258,},
+			{type=23,value=2516,},
+			{type=25,value=1258,},
+			{type=27,value=2516,},
+		},
+	},
+},
+}

@@ -1,0 +1,46 @@
+return {
+{
+	actions=
+	{
+		{act=0,effect=20010,sound=56,delay=200,},
+	},
+	desc=Lang.Skill.s42L1Desc,
+	iconID=7,
+	actRange=
+	{
+		{
+		xStart=0,
+		xEnd=0,
+		yStart=0,
+		yEnd=0,
+		rangeType=0,
+		rangeCenter=1,
+		acts=
+			{
+				{
+					conds=
+					{
+					},
+					results=
+					{
+						{type=34,value=1},
+						{mj=0,timeParam=1,type=4,delay=200,rate=10000,value=0},
+					},
+					specialEffects=
+					{
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	},
+	spellConds=
+	{
+		{cond=13,value=2,consume=true},
+	},
+	singTime=0,
+	cooldownTime=0,
+},
+}

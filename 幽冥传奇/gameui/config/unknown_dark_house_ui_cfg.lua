@@ -1,0 +1,32 @@
+return {
+	-- index:1
+	{t="layout",n="layout_unknown_dark_house",x=0,y=0,w=513,h=700.85,
+		{t="img",n="",x=274,y=339.6,w=513,h=659,p="res/xui/painting/unknown_dark_house_bg.jpg",sx=1,sy=1,},
+		{t="btn",n="btn_challenge",x=278.35,y=90.5,w=130,h=55,pn="res/xui/common/btn_103.png",txt="挑战",r=252,g=234,b=189,tfs=22,},
+		{t="text",n="lbl_consume",x=203,y=54.2,w=153,h=25.05,tfs=19,ta=1,r=252,g=234,b=189,txt="消耗：500绑元",},
+		{t="img",n="",x=274,y=695.95,w=108,h=30,p="res/xui/daily_tasks/unknown_dark_house_1.png",sx=1,sy=1,},
+	},
+	-- index:2
+	{t="layout",n="layout_bonfire_benefit",x=3,y=0,w=545,h=130,
+		{t="img",n="",x=272.5,y=65,w=545,h=130,p="res/xui/painting/scene_tip_bg.png",sx=1,sy=0.89,},
+		{t="text",n="",x=193,y=78.1,w=107,h=26.15,tfs=20,ta=0,r=255,g=200,b=0,txt="有效时间：",},
+		{t="text",n="lbl_benefits",x=239.8,y=35.4,w=289.2,h=26,tfs=22,ta=0,r=244,g=255,b=0,txt="10000/秒(双倍)",},
+		{t="text",n="",x=210,y=117.75,w=111,h=31.7,tfs=25,ta=1,r=255,g=200,b=0,txt="篝火效益",},
+		{t="img",n="",x=192.3,y=24.65,w=83,h=32,p="res/xui/mainui/fuben_text_1.png",sx=1,sy=1,},
+		{t="text",n="lbl_time",x=289,y=78.1,w=103,h=26.15,tfs=20,ta=0,r=0,g=255,b=0,txt="36秒",},
+		{t="rich",n="rich_ppl_qty",x=325,y=112.05,w=164.95,h=20,tfs=16,ta=0,r=248,g=194,b=47,txt="(泡点人数 9/10)",},
+	},
+	-- index:3
+	{t="layout",n="layout_double_bonfire",x=71.3,y=7.45,w=403.5,h=117,
+		{t="layout",n="layout_double_lef_time",x=199,y=39.5,w=398,h=79,
+			{t="img",n="",x=0,y=0,w=398,h=79,p="res/xui/daily_tasks/unknown_dark_house_3.png",sx=1,sy=0.68,},
+			{t="img",n="",x=4,y=-5.5,w=270,h=42,p="res/xui/daily_tasks/unknown_dark_house_2.png",sx=1,sy=1,},
+			{t="text",n="lbl_left_time",x=-133,y=8,w=277,h=25.9,tfs=19,ta=1,r=255,g=255,b=255,txt="双倍篝火剩于时间:9分13秒",},
+		},
+		{t="layout",n="layout_buy_double",x=204.5,y=58.5,w=398,h=117,
+			{t="img",n="",x=0,y=0,w=398,h=117,p="res/xui/daily_tasks/unknown_dark_house_3.png",sx=1,sy=1,},
+			{t="btn",n="btn_buy_double_2",x=0.65,y=-25.95,w=276,h=42,pn="res/xui/daily_tasks/unknown_dark_house_2.png",txt="购买双倍篝火30分钟(688元宝)",r=255,g=255,b=255,tfs=19,},
+			{t="btn",n="btn_buy_double_1",x=1.15,y=23,w=277,h=42,pn="res/xui/daily_tasks/unknown_dark_house_2.png",txt="购买双倍篝火10分钟(288元宝)",r=255,g=255,b=255,tfs=19,},
+		},
+	},
+}

@@ -1,0 +1,27 @@
+
+NpcShopItemCount = 6
+RandNpcShopItem = {
+	{id = 280, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 5},
+	{id = 281, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 10},
+	{id = 282, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 20},
+	{id = 283, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 99},
+	{id = 955, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 1},
+	{id = 391, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 1},
+	{id = 276, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 5},
+	{id = 278, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 5},
+	{id = 279, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 5},
+	{id = 559, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 5},
+	{id = 560, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 99},
+	{id = 394, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 1},
+	{id = 330, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 5},
+	{id = 626, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 10},
+	{id = 682, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 10},
+	{id = 628, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 20},
+	{id = 815, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 1},
+	{id = 959, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 20},
+	{id = 545, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 1},
+	{id = 364, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 20},
+	{id = 365, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 20},
+	{id = 703, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 5},
+	{id = 704, count = 1, quality = 0, strong = 0, bind = 0, moneyType = 3, moneyVal = 10},
+}

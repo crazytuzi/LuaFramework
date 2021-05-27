@@ -1,0 +1,221 @@
+return {
+{
+	actions=
+	{
+		{act=0,effect=0,sound=0,delay=0},
+	},
+	desc=Lang.Skill.s1L1Desc,
+	iconID=1,
+	actRange=
+	{
+		{
+			xStart=-2,
+			xEnd=-2,
+			yStart=3,
+			yEnd=3,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+				    targetType = 1,
+					conds=
+					{},
+					results=
+					{},
+					specialEffects=
+					{
+					{ type = 0, mj = 0, id = 17, keepTime = 700, delay = 0, always = true },
+					},
+				},
+			},
+		},
+		{
+			xStart=-1,
+			xEnd=-1,
+			yStart=2,
+			yEnd=2,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+				    targetType = 1,
+					conds=
+					{},
+					results=
+					{},
+					specialEffects=
+					{
+					{ type = 0, mj = 0, id = 17, keepTime = 700, delay = 0, always = true },
+					},
+				},
+			},
+		},
+		{
+			xStart=-1,
+			xEnd=-1,
+			yStart=-2,
+			yEnd=-2,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+				    targetType = 1,
+					conds=
+					{},
+					results=
+					{},
+					specialEffects=
+					{
+					{ type = 0, mj = 0, id = 17, keepTime = 700, delay = 0, always = true },
+					},
+				},
+			},
+		},
+		{
+			xStart=-2,
+			xEnd=-2,
+			yStart=-3,
+			yEnd=-3,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+				    targetType = 1,
+					conds=
+					{},
+					results=
+					{},
+					specialEffects=
+					{
+					{ type = 0, mj = 0, id = 17, keepTime = 700, delay = 0, always = true },
+					},
+				},
+			},
+		},
+		{
+			xStart=1,
+			xEnd=1,
+			yStart=-2,
+			yEnd=-2,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+				    targetType = 1,
+					conds=
+					{},
+					results=
+					{},
+					specialEffects=
+					{
+					{ type = 0, mj = 0, id = 17, keepTime = 700, delay = 0, always = true },
+					},
+				},
+			},
+		},
+				{
+			xStart=2,
+			xEnd=2,
+			yStart=-3,
+			yEnd=-3,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+				    targetType = 1,
+					conds=
+					{},
+					results=
+					{},
+					specialEffects=
+					{
+					{ type = 0, mj = 0, id = 17, keepTime = 700, delay = 0, always = true },
+					},
+				},
+			},
+		},
+		{
+			xStart=1,
+			xEnd=1,
+			yStart=2,
+			yEnd=2,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+				    targetType = 1,
+					conds=
+					{},
+					results=
+					{},
+					specialEffects=
+					{
+					{ type = 0, mj = 0, id = 17, keepTime = 700, delay = 0, always = true },
+					},
+				},
+			},
+		},
+		{
+			xStart=2,
+			xEnd=2,
+			yStart=3,
+			yEnd=3,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+				    targetType = 1,
+					conds=
+					{},
+					results=
+					{},
+					specialEffects=
+					{
+					{ type = 0, mj = 0, id = 17, keepTime = 700, delay = 0, always = true },
+					},
+				},
+			},
+		},
+		{
+			xStart=-3,
+			xEnd=3,
+			yStart=-3,
+			yEnd=3,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+					conds=
+					{
+					{ cond = 13, value = 1, },
+					},
+					results=
+					{
+					{ mj = 0, timeParam = 1, type = 4, delay = 0, rate = 8000, value = 0 },
+					},
+					specialEffects=
+					{},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	},
+	spellConds=
+	{
+		{cond=13,value=4,consume=false},
+	},
+	singTime=0,
+	cooldownTime=500,
+},
+}

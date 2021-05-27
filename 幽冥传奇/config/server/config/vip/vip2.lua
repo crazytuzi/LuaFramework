@@ -1,0 +1,22 @@
+return {
+{
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000383},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000419},
+	{ tp=13	, param1=-1, desc=Lang.Misc.m000384},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000393},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000400},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000418},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000392},
+	{ tp=2	, param1=64, param2=90, param3=0.2, param4=-1, param5=60, param6=Lang.Misc.m000415, desc=Lang.Misc.m000387},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000396},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000398},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000390},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000414},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000420},
+	{ tp=5	, param1= 3, desc=Lang.Misc.m000401},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000404},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000407},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000410},
+	{ tp=0	, param1=-1, desc=Lang.Misc.m000413},
+},
+}

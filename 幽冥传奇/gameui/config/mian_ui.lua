@@ -1,0 +1,36 @@
+-- created by uiedit 
+
+ return {
+-- index 1
+	{t="layout",n="show_window",x=0,y=1392,w=1670,h=768,
+		{t="layout",n="layout_role_head",x=-1,y=657,w=376,h=118,
+			{t="img",n="autoname_41",x=188,y=48,w=376,h=97,p="res/xui/mainui/mainrole_head_bg.png",sx=1.0,sy=1.0,},
+			{t="btn",n="btn_state",x=197,y=35,w=77,h=31,pn="res/xui/mainui/btn_11.png",},
+			{t="img",n="img_role_head",x=69,y=63,w=133,h=109,p="res/xui/mainui/role_head_0.png",sx=1.0,sy=1.0,},
+			{t="img",n="autoname_6334",x=139,y=34,w=58,h=29,p="res/xui/mainui/level_bg.png",sx=1.0,sy=1.0,},
+			{t="text",n="role_level",x=122,y=45,w=60,h=24,txt="2000",tfs=20,r=241,g=241,b=241,ta=0,},
+			{t="img",n="img_cap",x=204,y=75,w=58,h=34,p="res/xui/mainui/word_zhanli.png",sx=1.0,sy=1.0,},
+			{t="text",n="lbl_state",x=175,y=44,w=60,h=21,txt="和平",tfs=18,r=217,g=193,b=111,ta=1,},
+			{t="btn",n="btn_buff",x=279,y=35,w=76,h=31,pn="res/xui/mainui/btn_10.png",},
+			{t="text",n="lbl_buff",x=245,y=44,w=60,h=21,txt="BUFF",tfs=18,r=217,g=193,b=111,ta=1,},},
+		{t="layout",n="layout_bottom",x=252,y=-3,w=769,h=277,
+			{t="ph",n="ph_tip_view",x=449,y=161,w=475,h=49,},
+			{t="img9",n="autoname_491",x=446,y=70,w=470,h=103,p="res/xui/mainui/img9_chat.png",cx=4,cy=5,cw=3,ch=3,},
+			{t="img",n="autoname_23281",x=223,y=75,w=93,h=93,p="res/xui/mainui/role_hp_bar.png",sx=1.0,sy=1.0,},
+			{t="img",n="autoname_5705",x=384,y=138,w=769,h=277,p="res/xui/painting/mianui_b_bg.png",sx=1.0,sy=1.0,},
+			{t="img",n="autoname_9961",x=670,y=83,w=87,h=84,p="res/xui/mainui/role_head_vip.png",sx=1.0,sy=1.0,},
+			{t="ph",n="ph_chat_view",x=452,y=72,w=325,h=89,},
+			{t="layout",n="layout_mike",x=54,y=25,w=52,h=84,
+				{t="img",n="autoname_5436",x=25,y=71,w=31,h=25,p="res/xui/mainui/arrow.png",sx=1.0,sy=1.0,},
+				{t="img",n="autoname_153",x=26,y=26,w=52,h=52,p="res/xui/mainui/img_circular.png",sx=1.0,sy=1.0,},
+				{t="img",n="autoname_32391",x=26,y=26,w=24,h=37,p="res/xui/mainui/icon_mike.png",sx=1.0,sy=1.0,},
+				{t="img",n="autoname_14604",x=40,y=45,w=23,h=22,p="res/xui/mainui/img_mike_bg.png",sx=1.0,sy=1.0,},
+				{t="img",n="autoname_3902",x=41,y=45,w=21,h=21,p="res/xui/mainui/img_world.png",sx=1.0,sy=1.0,},},},
+		{t="layout",n="layout_task",x=7,y=336,w=262,h=219,
+			{t="img9",n="autoname_491",x=158,y=110,w=218,h=220,p="res/xui/mainui/img9_chat.png",cx=4,cy=5,cw=3,ch=3,},
+			{t="img",n="autoname_18467",x=29,y=109,w=58,h=58,p="res/xui/mainui/arrow_bg.png",sx=1.0,sy=1.0,},
+			{t="img",n="autoname_6334",x=26,y=108,w=28,h=38,p="res/xui/mainui/arrow_2.png",sx=1.0,sy=1.0,},
+			{t="img",n="autoname_26500",x=28,y=173,w=41,h=91,p="res/xui/mainui/btn_task_select.png",sx=1.0,sy=1.0,},
+			{t="img",n="autoname_19169",x=28,y=45,w=42,h=90,p="res/xui/mainui/btn_task_unselect.png",sx=1.0,sy=1.0,},
+			{t="ph",n="ph_task_view",x=157,y=111,w=209,h=212,},},}
+}

@@ -1,0 +1,26 @@
+return {
+{
+itemId = 3107 , attrs = {{{ type = 9,job=1, value = 302  },{ type = 11, job=1, value = 755  },{ type = 13, job=2, value = 280  },{ type = 15, job=2, value = 699  },{ type = 17, job=3, value = 280  },{ type = 19, job=3, value = 699  }, },
+{{ type = 9,job=1, value = 604  },{ type = 11, job=1, value = 1510  },{ type = 13, job=2, value = 559  },{ type = 15, job=2, value = 1398  },{ type = 17, job=3, value = 559  },{ type = 19, job=3, value = 1398  }, },
+{{ type = 9,job=1, value = 906  },{ type = 11, job=1, value = 2265  },{ type = 13, job=2, value = 839  },{ type = 15, job=2, value = 2097  },{ type = 17, job=3, value = 839  },{ type = 19, job=3, value = 2097  }, },
+{{ type = 9,job=1, value = 1208  },{ type = 11, job=1, value = 3020  },{ type = 13, job=2, value = 1118  },{ type = 15, job=2, value = 2796  },{ type = 17, job=3, value = 1118  },{ type = 19, job=3, value = 2796  }, },
+{{ type = 9,job=1, value = 1510  },{ type = 11, job=1, value = 3775  },{ type = 13, job=2, value = 1398  },{ type = 15, job=2, value = 3495  },{ type = 17, job=3, value = 1398  },{ type = 19, job=3, value = 3495  }, },
+{{ type = 9,job=1, value = 1812  },{ type = 11, job=1, value = 4530  },{ type = 13, job=2, value = 1678  },{ type = 15, job=2, value = 4194  },{ type = 17, job=3, value = 1678  },{ type = 19, job=3, value = 4194  }, },
+{{ type = 9,job=1, value = 2114  },{ type = 11, job=1, value = 5285  },{ type = 13, job=2, value = 1958  },{ type = 15, job=2, value = 4894  },{ type = 17, job=3, value = 1958  },{ type = 19, job=3, value = 4894  }, },
+{{ type = 9,job=1, value = 2416  },{ type = 11, job=1, value = 6040  },{ type = 13, job=2, value = 2237  },{ type = 15, job=2, value = 5593  },{ type = 17, job=3, value = 2237  },{ type = 19, job=3, value = 5593  }, },
+{{ type = 9,job=1, value = 2718  },{ type = 11, job=1, value = 6795  },{ type = 13, job=2, value = 2517  },{ type = 15, job=2, value = 6292  },{ type = 17, job=3, value = 2517  },{ type = 19, job=3, value = 6292  }, },
+{{ type = 9,job=1, value = 3020  },{ type = 11, job=1, value = 7550  },{ type = 13, job=2, value = 2796  },{ type = 15, job=2, value = 6991  },{ type = 17, job=3, value = 2796  },{ type = 19, job=3, value = 6991  }, },
+{{ type = 9,job=1, value = 3322  },{ type = 11, job=1, value = 8305  },{ type = 13, job=2, value = 3076  },{ type = 15, job=2, value = 7690  },{ type = 17, job=3, value = 3076  },{ type = 19, job=3, value = 7690  }, },
+{{ type = 9,job=1, value = 3624  },{ type = 11, job=1, value = 9060  },{ type = 13, job=2, value = 3356  },{ type = 15, job=2, value = 8389  },{ type = 17, job=3, value = 3356  },{ type = 19, job=3, value = 8389  }, },
+{{ type = 9,job=1, value = 3926  },{ type = 11, job=1, value = 9815  },{ type = 13, job=2, value = 3635  },{ type = 15, job=2, value = 9088  },{ type = 17, job=3, value = 3635  },{ type = 19, job=3, value = 9088  }, },
+{{ type = 9,job=1, value = 4228  },{ type = 11, job=1, value = 10570  },{ type = 13, job=2, value = 3915  },{ type = 15, job=2, value = 9787  },{ type = 17, job=3, value = 3915  },{ type = 19, job=3, value = 9787  }, },
+{{ type = 9,job=1, value = 4530  },{ type = 11, job=1, value = 11325  },{ type = 13, job=2, value = 4194  },{ type = 15, job=2, value = 10486  },{ type = 17, job=3, value = 4194  },{ type = 19, job=3, value = 10486  }, },
+{{ type = 9,job=1, value = 4832  },{ type = 11, job=1, value = 12080  },{ type = 13, job=2, value = 4474  },{ type = 15, job=2, value = 11185  },{ type = 17, job=3, value = 4474  },{ type = 19, job=3, value = 11185  }, },
+{{ type = 9,job=1, value = 5134  },{ type = 11, job=1, value = 12835  },{ type = 13, job=2, value = 4754  },{ type = 15, job=2, value = 11884  },{ type = 17, job=3, value = 4754  },{ type = 19, job=3, value = 11884  }, },
+{{ type = 9,job=1, value = 5436  },{ type = 11, job=1, value = 13590  },{ type = 13, job=2, value = 5033  },{ type = 15, job=2, value = 12583  },{ type = 17, job=3, value = 5033  },{ type = 19, job=3, value = 12583  }, },
+{{ type = 9,job=1, value = 5738  },{ type = 11, job=1, value = 14345  },{ type = 13, job=2, value = 5313  },{ type = 15, job=2, value = 13282  },{ type = 17, job=3, value = 5313  },{ type = 19, job=3, value = 13282  }, },
+{{ type = 9,job=1, value = 6040  },{ type = 11, job=1, value = 15100  },{ type = 13, job=2, value = 5592  },{ type = 15, job=2, value = 13981  },{ type = 17, job=3, value = 5592  },{ type = 19, job=3, value = 13981  }, },
+{{ type = 9,job=1, value = 6342  },{ type = 11, job=1, value = 15855  },{ type = 13, job=2, value = 5872  },{ type = 15, job=2, value = 14681  },{ type = 17, job=3, value = 5872  },{ type = 19, job=3, value = 14681  }, },
+}
+},
+}

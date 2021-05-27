@@ -1,0 +1,38 @@
+return {
+{
+	id = 4618,
+	name = Lang.Item.n4618,
+	desc = Lang.Item.i4618,
+	type = 102,
+	icon = 4618,
+	shape = 1,
+	color = 0xff0000,
+	bgquality = 4,
+	dura = 0,
+	useDurDrop = 0,
+	dup = 200,
+	weight = 1,
+	dealType = 0,
+	dealPrice = 1,
+	time = 0,
+	suitId = 0,
+	colGroup = 0,
+	cdTime = 0,
+	dropBroadcast = 0,
+	openUi = {"Chat"},
+	skillID = 0,
+	sellBuyType = 0,
+	staitcAttrs = {
+	},
+	flags = {
+		recordLog = true,
+		hideDura = true,
+		denyGuildDepot = true,
+		denyDestroy = true,
+		denyTipsAutoLine = true,
+	},
+	conds = {
+		{ cond = 1, value = 1, },
+	},
+},
+}

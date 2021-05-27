@@ -1,0 +1,165 @@
+return {
+{
+	name = Lang.Store.c00014,
+	labelId =0,
+	totalBuyLimit =0,
+	dynamicAdd =false,
+	hasShowWind = false,
+items = {
+{
+	id = 15001,
+	item = 354,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 80, oldPrice = 80,
+		},
+	},
+},
+{
+	id = 15002,
+	item = 1512,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 1800, oldPrice = 1800,
+		},
+	},
+},
+{
+	id = 15003,
+	item = 1408,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 2000, oldPrice = 2000,
+		},
+	},
+},
+{
+	id = 15004,
+	item = 628,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 1600, oldPrice = 1600,
+		},
+	},
+},
+{
+	id = 15005,
+	item = 749,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 9000, oldPrice = 9000,
+		},
+	},
+},
+{
+	id = 15006,
+	item = 759,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 9000, oldPrice = 9000,
+		},
+	},
+},
+{
+	id = 15007,
+	item = 769,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 9000, oldPrice = 9000,
+		},
+	},
+},
+{
+	id = 15008,
+	item = 1745,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 30000, oldPrice = 30000,
+		},
+	},
+},
+{
+	id = 15009,
+	item = 1748,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 30000, oldPrice = 30000,
+		},
+	},
+},
+{
+	id = 15010,
+	item = 1751,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 30000, oldPrice = 30000,
+		},
+	},
+},
+{
+	id = 15011,
+	item = 747,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 1000, oldPrice = 1000,
+		},
+	},
+},
+{
+	id = 15012,
+	item = 757,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 1000, oldPrice = 1000,
+		},
+	},
+},
+{
+	id = 15013,
+	item = 767,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 1000, oldPrice = 1000,
+		},
+	},
+},
+{
+	id = 15014,
+	item = 704,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = true, type = 6, price = 200, oldPrice = 200,
+		},
+	},
+},
+},
+},
+}

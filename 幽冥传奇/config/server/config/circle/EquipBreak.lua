@@ -1,0 +1,5 @@
+
+EquipBreak =
+{
+	reqLevel = 60,
+}

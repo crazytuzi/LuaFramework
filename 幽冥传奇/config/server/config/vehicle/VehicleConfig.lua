@@ -1,0 +1,112 @@
+
+--#include "..\..\language\LangCode.txt" once
+VehicleConfig=
+{
+	vehicle={
+		{
+			model=1,
+			speed=-100,
+		},
+		{
+			model=2,
+			speed=-100,
+		},
+		{
+			model=3,
+			speed=-100,
+		},
+		{
+			model=4,
+			speed=-100,
+		},
+		{
+			model=5,
+			speed=-100,
+		},
+		{
+			model=6,
+			speed=-100,
+		},
+		{
+			model=7,
+			speed=-100,
+		},
+		{
+			model=8,
+			speed=-100,
+		},
+		{
+			model=9,
+			speed=-100,
+		},
+		{
+			model=10,
+			speed=-100,
+		},
+		{
+			model=11,
+			speed=-100,
+		},
+		{
+			model=12,
+			speed=-100,
+		},
+		{
+			model=13,
+			speed=-100,
+		},
+		{
+			model=14,
+			speed=-100,
+		},
+		{
+			model=15,
+			speed=-100,
+		},
+		{
+			model=16,
+			speed=-100,
+		},
+		{
+			model=17,
+			speed=-100,
+		},
+		{
+			model=18,
+			speed=100,
+		},
+		{
+			model=19,
+			speed=-100,
+		},
+		{
+			model=20,
+			speed=-100,
+		},
+		{
+			model=21,
+			speed=-100,
+		},
+		{
+			model=33,
+			speed=100,
+		},
+		{
+			model=34,
+			speed=100,
+		},
+	},
+	path={
+	    {134,404,140,394,148,384,154,372,158,360,162,346,158,330,156,316},
+		  {177,190,187,194,197,188,201,176,193,166,187,160,179,152,175,140,173,126},
+      {159,32,153,40,147,44,143,48,135,54,127,58,119,64,115,72},
+      {36,116,44,117,52,122,62,118,66,106,71,100},
+	},
+	fee = {
+		{vehicleIdx = 1, type = 6, id = 1 , count= 0 },
+		{vehicleIdx = 2, type = 6, id = 1 , count= 0 },
+		{vehicleIdx = 3, type = 6, id = 1 , count= 0 },
+		{vehicleIdx = 4, type = 6, id = 1 , count= 0 },
+		{vehicleIdx = 5, type = 6, id = 1 , count= 0 },
+	},
+}

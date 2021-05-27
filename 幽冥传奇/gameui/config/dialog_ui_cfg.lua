@@ -1,0 +1,86 @@
+-- created by uiedit 
+
+ return {
+-- index 1
+	{t="layout",n="layout_dialog_big",x=0,y=0,w=546,h=319,
+		{t="img",n="",x=219,y=173,w=438,h=292,p="res/xui/painting/dialog_bg.png",sx=0.99000000953674316,sy=1.1000000238418579,},
+		{t="rich",n="rich_dialog",x=2,y=289,w=488,h=67,txt="是否花费￥100充值1000元宝吗？首次充值超值返还2000绑定元宝",tfs=24,r=156,g=139,b=111,ta=1,},
+		{t="btn",n="btn_OK",x=110,y=52,w=130,h=51,pn="res/xui/common/btn_103.png",txt="确定",tfs=24,r=220,g=215,b=196,},
+		{t="btn",n="btn_cancel",x=360,y=52,w=130,h=51,pn="res/xui/common/btn_103.png",txt="取消",tfs=24,r=220,g=215,b=196,},
+		{t="img",n="img_autoname_1",x=197,y=107,w=385,h=1,p="res/xui/common/line_100.png",sx=1.0,sy=1.0,},
+		{t="btn",n="btn_close_window",x=522,y=294,w=48,h=48,pn="res/xui/common/btn_100.png",},
+		{t="rich",n="rich_dialog2",x=2,y=172,w=488,h=29,txt="",tfs=24,r=156,g=139,b=111,ta=1,},
+		{t="rich",n="rich_double",x=0,y=203,w=497,h=29,txt="",tfs=24,r=156,g=139,b=111,ta=1,},},
+
+-- index 2
+	{t="layout",n="layout_confirm_dialog",x=0,y=-1,w=426,h=298,
+		{t="img9",n="",x=213,y=149,w=426,h=298,p="res/xui/painting/dialog_bg_2.png",cx=177,cy=88,cw=57,ch=44,},
+		{t="rich",n="rich_dialog",x=20,y=250,w=384,h=146,txt="确定离开游戏吗？确定离开游戏吗？确定离开游戏吗？确定离开游戏吗？确定离开游戏吗？",tfs=20,r=156,g=139,b=111,ta=1,},
+		{t="btn",n="btn_OK",x=101,y=42,w=100,h=48,pn="res/xui/common/btn_152.png",txt="确定",tfs=22,r=220,g=215,b=196,},
+		{t="btn",n="btn_cancel",x=320,y=42,w=100,h=48,pn="res/xui/common/btn_152.png",txt="取消",tfs=22,r=220,g=215,b=196,},
+		{t="layout",n="layout_nolonger_tips",x=116,y=58,w=270,h=60,
+			{t="btn",n="btn_nohint_checkbox",x=24,y=27,w=28,h=28,pn="res/xui/common/part_104.png",},
+			{t="img",n="img_nohint_hook",x=30,y=30,w=60,h=60,p="res/xui/common/bg_checkbox_hook.png",sx=1.0,sy=1.0,},
+			{t="text",n="label_no_longer",x=60,y=38,w=210,h=27,txt="不再提示",tfs=22,r=156,g=139,b=111,ta=0,},},
+		{t="rich",n="rich_dialog2",x=13,y=98,w=399,h=27,txt="剩余次数3",tfs=22,r=156,g=139,b=111,ta=2,},
+		{t="text",n="lbl_title",x=138,y=288,w=150,h=29,txt="温馨提示",tfs=24,r=156,g=139,b=111,ta=1,},
+		{t="rich",n="rich_dialog3",x=26,y=96,w=150,h=27,txt="",tfs=22,r=156,g=139,b=111,ta=1,},
+		{t="rich",n="rich_dialog6",x=216,y=99,w=200,h=27,txt="text",tfs=22,r=156,g=139,b=111,ta=2,},
+		{t="layout",n="layout_rich",x=9,y=144,w=406,h=55,
+			{t="rich",n="rich_text1",x=0,y=55,w=406,h=27,txt="text",tfs=22,r=156,g=139,b=111,ta=1,},
+			{t="rich",n="rich_text2",x=0,y=27,w=406,h=27,txt="text",tfs=22,r=156,g=139,b=111,ta=1,},},},
+
+-- index 3
+	{t="layout",n="layout_dialog_button",x=0,y=0,w=599,h=350,
+		{t="img",n="",x=241,y=189,w=482,h=321,p="res/xui/painting/dialog_bg.png",sx=1.0900000333786011,sy=1.2100000381469727,},
+		{t="rich",n="rich_dialog",x=30,y=313,w=487,h=184,txt="是否花费￥100充值1000元宝吗？首次充值超值返还2000绑定元宝",tfs=24,r=156,g=139,b=111,ta=1,},
+		{t="img",n="img_autoname_1",x=219,y=112,w=438,h=1,p="res/xui/common/line_100.png",sx=1.1399999856948853,sy=1.0,},
+		{t="btn",n="btn_1",x=94,y=63,w=130,h=51,pn="res/xui/common/btn_103.png",txt="普通扫荡",tfs=24,r=220,g=215,b=196,},
+		{t="btn",n="btn_2",x=264,y=63,w=130,h=51,pn="res/xui/common/btn_103.png",txt="普通扫荡",tfs=24,r=220,g=215,b=196,},
+		{t="btn",n="btn_3",x=434,y=63,w=130,h=51,pn="res/xui/common/btn_103.png",txt="普通扫荡",tfs=24,r=220,g=215,b=196,},
+		{t="btn",n="btn_close_window",x=572,y=326,w=48,h=48,pn="res/xui/common/btn_100.png",},},
+
+-- index 4
+	{t="layout",n="layout_confirm_dialog2",x=0,y=-1,w=426,h=298,
+		{t="img9",n="",x=213,y=149,w=426,h=298,p="res/xui/painting/dialog_bg_2.png",cx=177,cy=88,cw=57,ch=44,},
+		{t="btn",n="btn_OK",x=101,y=42,w=100,h=48,pn="res/xui/common/btn_152.png",txt="确定",tfs=22,r=220,g=215,b=196,},
+		{t="btn",n="btn_cancel",x=320,y=42,w=100,h=48,pn="res/xui/common/btn_152.png",txt="取消",tfs=22,r=220,g=215,b=196,},
+		{t="text",n="",x=138,y=288,w=150,h=29,txt="温馨提示",tfs=24,r=156,g=139,b=111,ta=1,},
+		{t="ph",n="ph_item_cell",x=32,y=148,w=77,h=78,sx=1.0,sy=1.0,},
+		{t="text",n="text_equip_name",x=115,y=217,w=150,h=24,txt="",tfs=20,r=156,g=139,b=111,ta=0,},
+		{t="img",n="img_pt",x=128,y=165,w=28,h=23,p="res/xui/common/gold.png",sx=1.0,sy=1.0,},
+		{t="text",n="text_num",x=149,y=174,w=100,h=24,txt="",tfs=20,r=156,g=139,b=111,ta=0,},
+		{t="text",n="autoname_292",x=35,y=134,w=360,h=24,txt="消耗一个洗点神水可以重置属性点",tfs=20,r=156,g=139,b=111,ta=1,},
+		{t="rich",n="text_had",x=100,y=96,w=220,h=24,txt="",tfs=20,r=156,g=139,b=111,ta=1,},
+		{t="btn",n="btn_Buy",x=329,y=188,w=100,h=48,pn="res/xui/common/btn_152.png",txt="购买",tfs=22,r=220,g=215,b=196,},},
+
+-- index 5
+	{t="layout",n="layout_title_tip_wear",x=0,y=-3,w=426,h=298,
+		{t="img9",n="",x=213,y=149,w=426,h=298,p="res/xui/painting/dialog_bg_2.png",cx=177,cy=88,cw=57,ch=44,},
+		{t="btn",n="btn_go",x=99,y=42,w=133,h=48,pn="res/xui/common/btn_192.png",txt="前往佩戴",tfs=22,r=220,g=215,b=196,},
+		{t="btn",n="btn_cancel",x=318,y=42,w=133,h=48,pn="res/xui/common/btn_192.png",txt="取消",tfs=22,r=220,g=215,b=196,},
+		{t="text",n="",x=138,y=288,w=150,h=29,txt="温馨提示",tfs=24,r=156,g=139,b=111,ta=1,},
+		{t="rich",n="text_had",x=100,y=96,w=220,h=24,txt="",tfs=20,r=156,g=139,b=111,ta=1,},
+		{t="ph",n="ph_title",x=130,y=138,w=147,h=5,},
+		{t="text",n="autoname_16827",x=12,y=222,w=408,h=24,txt="恭喜您，获得新称号，是否前往佩戴？",tfs=20,r=255,g=255,b=255,ta=1,},},
+
+-- index 6
+	{t="layout",n="layout_consume_confirm_dialog",x=3,y=0,w=426,h=298,
+		{t="img9",n="",x=213,y=149,w=426,h=298,p="res/xui/painting/dialog_bg_2.png",cx=177,cy=88,cw=57,ch=44,},
+		{t="rich",n="rich_dialog",x=20,y=250,w=384,h=146,txt="确定离开游戏吗？确定离开游戏吗？确定离开游戏吗？确定离开游戏吗？确定离开游戏吗？",tfs=20,r=156,g=139,b=111,ta=1,},
+		{t="btn",n="btn_OK",x=101,y=62,w=100,h=48,pn="res/xui/common/btn_152.png",txt="确定",tfs=22,r=220,g=215,b=196,},
+		{t="btn",n="btn_cancel",x=320,y=63,w=100,h=48,pn="res/xui/common/btn_152.png",txt="取消",tfs=22,r=220,g=215,b=196,},
+		{t="layout",n="layout_nolonger_tips",x=116,y=77,w=270,h=60,
+			{t="btn",n="btn_nohint_checkbox",x=24,y=27,w=28,h=28,pn="res/xui/common/part_104.png",},
+			{t="img",n="img_nohint_hook",x=30,y=30,w=60,h=60,p="res/xui/common/bg_checkbox_hook.png",sx=1.0,sy=1.0,},
+			{t="text",n="label_no_longer",x=60,y=38,w=210,h=27,txt="不再提示",tfs=22,r=156,g=139,b=111,ta=0,},},
+		{t="rich",n="rich_dialog2",x=13,y=118,w=399,h=27,txt="剩余次数3",tfs=22,r=156,g=139,b=111,ta=2,},
+		{t="text",n="lbl_title",x=138,y=288,w=150,h=29,txt="温馨提示",tfs=24,r=156,g=139,b=111,ta=1,},
+		{t="rich",n="rich_dialog3",x=26,y=116,w=150,h=27,txt="",tfs=22,r=156,g=139,b=111,ta=1,},
+		{t="rich",n="rich_dialog6",x=216,y=119,w=200,h=27,txt="text",tfs=22,r=156,g=139,b=111,ta=2,},
+		{t="layout",n="layout_rich",x=9,y=144,w=406,h=55,
+			{t="rich",n="rich_text1",x=0,y=55,w=406,h=27,txt="text",tfs=22,r=156,g=139,b=111,ta=1,},
+			{t="rich",n="rich_text2",x=0,y=27,w=406,h=27,txt="text",tfs=22,r=156,g=139,b=111,ta=1,},},
+		{t="img",n="img_icon",x=298,y=23,w=25,h=33,p="res/xui/common/award_4.png",sx=1.0,sy=1.0,},
+		{t="text",n="lbl_consume",x=316,y=36,w=91,h=27,txt="0/1",tfs=22,r=85,g=255,b=0,ta=0,},}
+}

@@ -1,0 +1,44 @@
+return {
+{
+	actions=
+	{
+	},
+	desc=“”,
+	iconID=6,
+	actRange=
+	{
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=-0,
+			yEnd=0,
+		rangeType=0,
+		rangeCenter=0,
+		acts=
+			{
+				{
+					conds=
+					{
+						{cond = 1,value =1},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=3,delay=0, rate=10000,value=0},
+					},
+					specialEffects=
+					{
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	},
+	spellConds=
+	{
+	},
+	singTime=0,
+	cooldownTime=0,
+},
+}

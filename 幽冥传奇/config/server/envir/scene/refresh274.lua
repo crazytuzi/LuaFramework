@@ -1,0 +1,26 @@
+return {
+{
+		count=1,
+		time=1800,
+		firstTime=5,
+		mapx1=16,
+		mapy1=63,
+		width=1,
+		height=1,
+		entityid=325,
+		entityLevel=5,
+		progress=0,
+},
+{
+		count=1,
+		time=1800,
+		firstTime=5,
+		mapx1=70,
+		mapy1=66,
+		width=1,
+		height=1,
+		entityid=325,
+		entityLevel=5,
+		progress=0,
+},
+}

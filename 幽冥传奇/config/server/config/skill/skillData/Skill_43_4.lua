@@ -1,0 +1,46 @@
+return {
+{
+	actions=
+	{
+		{act=0,effect=10060,sound=12,delay=0,},
+	},
+	desc=Lang.Skill.s36L1Desc,
+	iconID=7,
+	actRange=
+	{
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=0,
+			yEnd=0,
+			rangeType=0,
+			rangeCenter=0,
+			acts=
+			{
+				{
+					conds=
+					{
+						{cond = 13,value =1},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=4,delay=300,rate=10000,value=0},
+					},
+					specialEffects=
+					{
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	},
+	spellConds=
+	{
+		{cond=13,value=1,consume=true},
+	},
+	singTime=0,
+	cooldownTime=0,
+},
+}

@@ -1,0 +1,51 @@
+return {
+	{
+		level = {1,99},
+		circle = {0,99},
+		item = 	{4273,4001,4081},
+		level_hero = {1,99},
+		circle_hero = {0,99},
+		item_hero = {4456,4457,4458,4459,4460},
+	},
+	{
+		level = {100,199},
+		circle = {0,99},
+		item = 	{4001,4002,4081},
+		level_hero = {100,199},
+		circle_hero = {0,99},
+		item_hero = {4456,4457,4458,4459,4460},
+	},
+	{
+		level = {200,299},
+		circle = {0,99},
+		item = 	{4002,4003,4081},
+		level_hero = {200,299},
+		circle_hero = {0,99},
+		item_hero = {4457,4458,4459,4460},
+	},
+	{
+		level = {300,499},
+		circle = {0,99},
+		item = 	{4003,4004,4081},
+		level_hero = {300,499},
+		circle_hero = {0,99},
+		item_hero = {4458,4459,4460},
+	},
+	{
+		level = {500,699},
+		circle = {0,99},
+		item = 	{4004,4005,4081},
+		level_hero = {500,699},
+		circle_hero = {0,99},
+		item_hero = {4459,4460},
+	},
+	{
+		level = {700,999},
+		circle = {0,99},
+		item = 	{4005,4081},
+		level_hero = {700,999},
+		circle_hero = {0,99},
+		item_hero = {4460},
+	},
+	
+}

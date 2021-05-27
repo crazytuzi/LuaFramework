@@ -1,0 +1,63 @@
+
+TreasureMap =
+{
+	buyLimit = 10,
+	buyLevel = 70,
+	{
+		item_id = 4292,
+		surprise =
+		{
+            {type = 1, pro = {1, 400}, award = {type = 0, id = 4018, count = 1},},
+            {type = 1, pro = {401, 500}, award = {type = 0, id = 4271, count = 1},},
+            {type = 1, pro = {501, 1300}, award = {type = 0, id = 4092, count = 2},},
+            {type = 1, pro = {1301, 2800}, award = {type = 0, id = 4263, count = 2},},
+            {type = 1, pro = {2801, 4300}, award = {type = 0, id = 4013, count = 3},},
+            {type = 3, pro = {4301, 5300}, award = {mid = 344, live = 600,},},
+            {type = 1, pro = {5301, 6800}, award = {type = 0, id = 4017, count = 1},},
+            {type = 1, pro = {6801, 7800}, award = {type = 0, id = 4092, count = 1},},
+            {type = 1, pro = {7801, 8300}, award = {type = 0, id = 4014, count = 1},},
+            {type = 1, pro = {8301, 8400}, award = {type = 0, id = 4271, count = 1},},
+            {type = 1, pro = {8401, 8800}, award = {type = 0, id = 4092, count = 3},},
+            {type = 1, pro = {8801, 9000}, award = {type = 0, id = 4647, count = 1},},
+            {type = 1, pro = {9001, 9001}, award = {type = 0, id = 4648, count = 1},},
+            {type = 1, pro = {9002, 9151}, award = {type = 0, id = 4096, count = 1},},
+            {type = 1, pro = {9152, 9301}, award = {type = 0, id = 4097, count = 1},},
+            {type = 1, pro = {9302, 9451}, award = {type = 0, id = 4098, count = 1},},
+            {type = 1, pro = {9452, 9601}, award = {type = 0, id = 4099, count = 1},},
+            {type = 1, pro = {9602, 9751}, award = {type = 0, id = 4100, count = 1},},
+            {type = 1, pro = {9752, 10000}, award = {type = 0, id = 4272, count = 1},},
+		},
+		consume = {type = 3, id = 0, count = 1000000},
+	}
+}
+TreasureMapInfo =
+{
+	{sceneId = 3, x = 25, y = 81},
+	{sceneId = 3, x = 22, y = 45},
+	{sceneId = 3, x = 36, y = 21},
+	{sceneId = 3, x = 56, y = 48},
+	{sceneId = 3, x = 65, y = 75},
+	{sceneId = 4, x = 39, y = 96},
+	{sceneId = 4, x = 19, y = 76},
+	{sceneId = 4, x = 10, y = 63},
+	{sceneId = 4, x = 36, y = 33},
+	{sceneId = 4, x = 33, y = 32},
+	{sceneId = 4, x = 41, y = 28},
+	{sceneId = 4, x = 62, y = 36},
+	{sceneId = 4, x = 70, y = 110},
+	{sceneId = 13, x = 61, y = 32},
+	{sceneId = 13, x = 67, y = 122},
+	{sceneId = 13, x = 41, y = 118},
+	{sceneId = 13, x = 9, y = 76},
+	{sceneId = 13, x = 46, y = 79},
+	{sceneId = 26, x = 19, y = 169},
+	{sceneId = 26, x = 18, y = 122},
+	{sceneId = 26, x = 22, y = 76},
+	{sceneId = 26, x = 55, y = 16},
+	{sceneId = 26, x = 59, y = 152},
+	{sceneId = 20, x = 40, y = 32},
+	{sceneId = 20, x = 16, y = 34},
+	{sceneId = 20, x = 35, y = 59},
+	{sceneId = 20, x = 26, y = 39},
+	{sceneId = 20, x = 33, y = 25},
+}

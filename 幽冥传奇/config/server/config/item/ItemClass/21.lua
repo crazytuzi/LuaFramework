@@ -1,0 +1,42 @@
+return {
+{
+	id = 21,
+	name = Lang.Item.n21,
+	desc = Lang.Item.i21,
+	type = 1,
+	icon = 21,
+	shape = 80,
+	color = 0x00ff00,
+	bgquality = 1,
+	dura = 50000,
+	useDurDrop = 0,
+	dup = 0,
+	weight = 1,
+	dealType = 0,
+	dealPrice = 1,
+	time = 0,
+	suitId = 0,
+	colGroup = 0,
+	cdTime = 0,
+	dropBroadcast = 0,
+	skillID = 0,
+	sellBuyType = 0,
+	staitcAttrs = {
+{ type = 9, value = 113, },
+{ type = 11, value = 141, },
+	},
+	initSmithAttrs = {
+	},
+	flags = {
+		hideDura = true,
+		denyDropDua = true,
+		denyGuildDepot = true,
+		denyTipsAutoLine = true,
+		bagSell = true,
+	},
+	conds = {
+		{ cond = 1, value = 3, },
+		{ cond = 3, value = 1, },
+	},
+},
+}

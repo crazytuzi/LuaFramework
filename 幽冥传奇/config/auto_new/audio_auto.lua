@@ -1,0 +1,410 @@
+return {
+    scene={
+        [1]={
+            scene_id=1,
+            audio_id=1000
+        },
+        [2]={
+            scene_id=2,
+            audio_id=1001
+        },
+        [3]={
+            scene_id=3,
+            audio_id=1001
+        },
+        [4]={
+            scene_id=4,
+            audio_id=1001
+        },
+
+        --[6]={
+        --    scene_id=6,
+        --    audio_id=1005
+        --},
+        --[7]={
+        --    scene_id=7,
+        --    audio_id=1004
+        --},
+        --[8]={
+        --    scene_id=8,
+        --    audio_id=1004
+        --},
+        --[9]={
+        --    scene_id=9,
+        --    audio_id=1004
+        --},
+        --[10]={
+        --    scene_id=10,
+        --    audio_id=1004
+        --},
+        --[11]={
+        --    scene_id=11,
+        --    audio_id=1004
+        --},
+        --[12]={
+        --    scene_id=12,
+        --    audio_id=1004
+        --},
+        --[13]={
+        --    scene_id=13,
+        --    audio_id=1004
+        --},
+        --[14]={
+        --    scene_id=14,
+        --    audio_id=1004
+        --},
+        --[15]={
+        --    scene_id=15,
+        --    audio_id=1004
+        --},
+        --[16]={
+        --    scene_id=16,
+        --    audio_id=1004
+        --},
+        --[17]={
+        --    scene_id=17,
+        --    audio_id=1004
+        --},
+        --[18]={
+        --    scene_id=18,
+        --    audio_id=1004
+        --},
+        --[19]={
+        --    scene_id=19,
+        --    audio_id=1004
+        --},
+        --[20]={
+        --    scene_id=20,
+        --    audio_id=1004
+        --},
+        --[21]={
+        --    scene_id=21,
+        --    audio_id=1004
+        --},
+        --[22]={
+        --    scene_id=22,
+        --    audio_id=1004
+        --},
+        --[23]={
+        --    scene_id=23,
+        --    audio_id=1004
+        --},
+        --[24]={
+        --    scene_id=24,
+        --    audio_id=1004
+        --},
+        --[25]={
+        --    scene_id=25,
+        --    audio_id=1004
+        --},
+        --[26]={
+        --    scene_id=26,
+        --    audio_id=1004
+        --},
+        --[27]={
+        --    scene_id=27,
+        --    audio_id=1004
+        --},
+        --[28]={
+        --    scene_id=28,
+        --    audio_id=1004
+        --},
+        --[31]={
+        --    scene_id=31,
+        --    audio_id=1004
+        --},
+        --[32]={
+        --    scene_id=32,
+        --    audio_id=1004
+        --},
+        --[33]={
+        --    scene_id=33,
+        --    audio_id=1004
+        --},
+        --[34]={
+        --    scene_id=34,
+        --    audio_id=1004
+        --},
+        --[35]={
+        --    scene_id=35,
+        --    audio_id=1004
+        --},
+        --[36]={
+        --    scene_id=36,
+        --    audio_id=1004
+        --},
+        --[37]={
+        --    scene_id=37,
+        --    audio_id=1004
+        --},
+        --[38]={
+        --    scene_id=38,
+        --    audio_id=1004
+        --},
+        --[41]={
+        --    scene_id=41,
+        --    audio_id=1004
+        --},
+        --[42]={
+        --    scene_id=42,
+        --    audio_id=1004
+        --},
+        --[43]={
+        --    scene_id=43,
+        --    audio_id=1004
+        --},
+        --[44]={
+        --    scene_id=44,
+        --    audio_id=1004
+        --},
+        --[45]={
+        --    scene_id=45,
+        --    audio_id=1004
+        --},
+        --[46]={
+        --    scene_id=46,
+        --    audio_id=1004
+        --},
+        --[47]={
+        --    scene_id=47,
+        --    audio_id=1004
+        --},
+        --[50]={
+        --    scene_id=50,
+        --    audio_id=1006
+        --},
+        --[51]={
+        --    scene_id=51,
+        --    audio_id=1006
+        --},
+        --[52]={
+        --    scene_id=52,
+        --    audio_id=1006
+        --},
+        --[53]={
+        --    scene_id=53,
+        --    audio_id=1006
+        --},
+        --[56]={
+        --    scene_id=56,
+        --    audio_id=1004
+        --},
+        --[57]={
+        --    scene_id=57,
+        --    audio_id=1004
+        --},
+        --[58]={
+        --    scene_id=58,
+        --    audio_id=1004
+        --},
+        --[64]={
+        --    scene_id=64,
+        --    audio_id=1005
+        --},
+        --[65]={
+        --    scene_id=65,
+        --    audio_id=1005
+        --},
+        --[68]={
+        --    scene_id=68,
+        --    audio_id=1005
+        --},
+        --[69]={
+        --    scene_id=69,
+        --    audio_id=1005
+        --},
+        --[70]={
+        --    scene_id=70,
+        --    audio_id=1000
+        --},
+        --[71]={
+        --    scene_id=71,
+        --    audio_id=1000
+        --},
+        --[72]={
+        --    scene_id=72,
+        --    audio_id=1000
+        --},
+        --[73]={
+        --    scene_id=73,
+        --    audio_id=1000
+        --},
+        --[74]={
+        --    scene_id=74,
+        --    audio_id=1000
+        --},
+        --[75]={
+        --    scene_id=75,
+        --    audio_id=1000
+        --},
+        --[76]={
+        --    scene_id=76,
+        --    audio_id=1000
+        --},
+        --[77]={
+        --    scene_id=77,
+        --    audio_id=1000
+        --},
+        --[78]={
+        --    scene_id=78,
+        --    audio_id=1000
+        --},
+        --[82]={
+        --    scene_id=82,
+        --    audio_id=1005
+        --},
+        --[83]={
+        --    scene_id=83,
+        --    audio_id=1005
+        --},
+        --[84]={
+        --    scene_id=84,
+        --    audio_id=1005
+        --},
+        --[85]={
+        --    scene_id=85,
+        --    audio_id=1005
+        --},
+        --[86]={
+        --    scene_id=86,
+        --    audio_id=1005
+        --},
+        --[90]={
+        --    scene_id=90,
+        --    audio_id=1005
+        --},
+        --[91]={
+        --    scene_id=91,
+        --    audio_id=1005
+        --},
+        --[92]={
+        --    scene_id=92,
+        --    audio_id=1005
+        --},
+        --[93]={
+        --    scene_id=93,
+        --    audio_id=1005
+        --},
+        --[94]={
+        --    scene_id=94,
+        --    audio_id=1005
+        --},
+        --[95]={
+        --    scene_id=95,
+        --    audio_id=1005
+        --},
+        --[100]={
+        --    scene_id=100,
+        --    audio_id=1004
+        --},
+        --[101]={
+        --    scene_id=101,
+        --    audio_id=1004
+        --},
+        --[102]={
+        --    scene_id=102,
+        --    audio_id=1004
+        --},
+        --[103]={
+        --    scene_id=103,
+        --    audio_id=1004
+        --},
+        --[104]={
+        --    scene_id=104,
+        --    audio_id=1004
+        --},
+        --[113]={
+        --    scene_id=113,
+        --    audio_id=1006
+        --},
+        --[114]={
+        --    scene_id=114,
+        --    audio_id=1006
+        --},
+        --[115]={
+        --    scene_id=115,
+        --    audio_id=1006
+        --},
+        --[116]={
+        --    scene_id=116,
+        --    audio_id=1006
+        --},
+        --[117]={
+        --    scene_id=117,
+        --    audio_id=1006
+        --},
+        --[118]={
+        --    scene_id=118,
+        --    audio_id=1006
+        --},
+        --[119]={
+        --    scene_id=119,
+        --    audio_id=1006
+        --},
+        --[120]={
+        --    scene_id=120,
+        --    audio_id=1006
+        --},
+        --[121]={
+        --    scene_id=121,
+        --    audio_id=1006
+        --},
+        --[122]={
+        --    scene_id=122,
+        --    audio_id=1005
+        --},
+        --[123]={
+        --    scene_id=123,
+        --    audio_id=1006
+        --},
+        --[124]={
+        --    scene_id=124,
+        --    audio_id=1006
+        --},
+        --[125]={
+        --    scene_id=125,
+        --    audio_id=1006
+        --},
+        --[126]={
+        --    scene_id=126,
+        --    audio_id=1006
+        --},
+        --[127]={
+        --    scene_id=127,
+        --    audio_id=1006
+        --},
+        --[128]={
+        --    scene_id=128,
+        --    audio_id=1006
+        --},
+        --[129]={
+        --    scene_id=129,
+        --    audio_id=1006
+        --},
+        --[130]={
+        --    scene_id=130,
+        --    audio_id=1006
+        --},
+        --[131]={
+        --    scene_id=131,
+        --    audio_id=1006
+        --}
+    },
+    other={
+        {
+            Register="register",
+            ChooseRole="choose_role",
+            OpenCloseUi="open_close_ui",
+            OpenShop="open_shop",
+            CloseShop="close_shop",
+            AcceptTask="accept_task",
+            CompleteTask="complete_task",
+            MountUp="mount_up",
+            MateDead="mate_dead",
+            FemaleDead="female_dead",
+            MateHit="mate_hit",
+            FemaleHit="female_hit",
+            Gathering="juqing_fly"
+        }
+    }
+}

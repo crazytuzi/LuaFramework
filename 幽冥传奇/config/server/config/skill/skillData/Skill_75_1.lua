@@ -1,0 +1,46 @@
+return {
+{
+	actions=
+	{
+		{act=1,effect=33,sound=45,delay=0,},
+		{act=1,effect=0,sound=46,delay=0,},
+	},
+	desc=Lang.Skill.s75L1Desc,
+	iconID=19,
+	actRange=
+	{
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=0,
+			yEnd=0,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+					conds=
+					{
+						{cond = 3,value =1},
+					},
+					results=
+					{
+						{timeParam=1,type=1,buffType=56,id=109,delay=300,rate=0,value=1,interval=5,intervalAddType=2,},
+					},
+					specialEffects=
+					{
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	},
+	spellConds=
+	{
+	},
+	singTime=0,
+	cooldownTime=4000,
+},
+}

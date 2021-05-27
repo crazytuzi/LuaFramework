@@ -1,0 +1,46 @@
+
+ActFireConfig = {
+	FireSceneId = 8,
+	RadioVal = 1,
+	GetExpInterval = 6,
+	FireExpRate = 10,
+	VipAddRate = 5000,
+	TableIndex = 3,
+	ViewNpcRadio = 8,
+	BurnModelId = 4,
+	UnBurnModelId = 5,
+    LandscapeModelid=2,
+	durTime =30*60*1000,
+	points=
+	{
+		{-2,-2},
+		{0,-2},
+		{2,-2},
+		{-2,0},
+		{2,0},
+		{-2,2},
+		{0,2},
+		{2,2},
+	},
+	fiveRateExp = 3,
+	MinLevel = 40,
+	WoodShop = {
+		{id=2001,count = 1, cointype=1, coinval = 1000, value = 10},
+		{id=2002,count = 1, cointype=1, coinval = 5000, value = 11},
+		{id=2003,count = 1, cointype=1, coinval = 20000, value = 12},
+		{id=2004,count = 1, cointype=1, coinval = 100000, value = 13},
+		{id=2005,count = 1, cointype=3, coinval = 10, value = 14},
+	},
+	WaterShop = {
+		{id=2006,count = 1, cointype=1, coinval = 180000, value = -10},
+		{id=2007,count = 1, cointype=1, coinval = 360000, value = -11},
+		{id=2008,count = 1, cointype=1, coinval = 600000, value = -12},
+	},
+	WineShop = {
+		{id=2013, count = 1, cointype=3, coinval = 3, value = 0},
+	},
+	BaseRate = 1.5,
+	MinFireVal = 50,
+	MaxFireVal = 200,
+	BuffId = 55,
+}

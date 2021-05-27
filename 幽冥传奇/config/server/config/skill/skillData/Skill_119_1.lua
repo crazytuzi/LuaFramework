@@ -1,0 +1,97 @@
+return {
+{
+	actions=
+	{
+		{act=0,effect=10020,sound=18,delay=100,},
+	},
+	desc=Lang.Skill.s119L1Desc,
+	iconID=4,
+	actRange=
+	{
+		{
+		xStart=1,
+		xEnd=1,
+		yStart=1,
+		yEnd=1,
+		rangeType=2,
+		rangeCenter=1,
+		acts=
+			{
+				{
+					conds=
+					{
+						{cond = 1,value =1},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=3,delay=300, rate=10000,value=0},
+					},
+					specialEffects=
+					{
+					},
+				},
+			},
+		},
+		{
+		xStart=-1,
+		xEnd=-1,
+		yStart=1,
+		yEnd=1,
+		rangeType=2,
+		rangeCenter=1,
+		acts=
+			{
+				{
+					conds=
+					{
+						{cond = 1,value =1},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=3,delay=300, rate=8500,value=0},
+					},
+					specialEffects=
+					{
+					},
+				},
+			},
+		},
+		{
+		xStart=0,
+		xEnd=1,
+		yStart=0,
+		yEnd=1,
+		rangeType=2,
+		rangeCenter=1,
+		acts=
+			{
+				{
+					conds=
+					{
+						{cond = 1,value =1},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=3,delay=300, rate=8500,value=0},
+					},
+					specialEffects=
+					{
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	    {cond=1,value=1,consume=false},
+		{cond=3,value= 313, count = 1,consume=true},
+		{cond=44,value=1,consume=false},
+	},
+	spellConds=
+	{
+		{cond=13,value=1,consume=true},
+	},
+	singTime=0,
+	cooldownTime=300,
+},
+}

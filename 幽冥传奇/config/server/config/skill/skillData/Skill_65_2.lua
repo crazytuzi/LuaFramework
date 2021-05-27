@@ -1,0 +1,75 @@
+return {
+{
+	actions=
+	{
+		{act=1,effect=13,sound=45,delay=0,},
+		{act=1,effect=0,sound=46,delay=0,},
+	},
+	desc=Lang.Skill.s65L2Desc,
+	iconID=19,
+	actRange=
+	{
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=0,
+			yEnd=0,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+					targetType=1,
+					conds=
+					{
+					},
+					results=
+					{
+					},
+					specialEffects=
+					{
+						{type=4,mj=0,id=15,keepTime=400,delay=0,always=true},
+					},
+				},
+			},
+		},
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=0,
+			yEnd=0,
+			rangeType=3,
+			rangeCenter=2,
+			acts=
+			{
+				{
+					targetType=0,
+					conds=
+					{
+						{cond = 13,value =1},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=1,id=72, rate=-300, rateType=2, delay=400},
+						{mj=0,timeParam=1,type=1,id=73, rate=-300, rateType=2, delay=400},
+						{mj=0,timeParam=60,type=1,id=71, rate=-300, rateType=2, delay=400},
+					},
+					specialEffects=
+					{
+						{type=4,mj=0,id=16,keepTime=200,delay=400,always=false},
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	},
+	spellConds=
+	{
+		{cond=13,value=13,consume=true},
+	},
+	singTime=0,
+	cooldownTime=100000,
+},
+}

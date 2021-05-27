@@ -1,0 +1,25 @@
+return {
+{
+	titleid = 0,
+	titleName = Lang.Title.name0000,
+	titleDesc = Lang.Title.desc0000,
+	titleType = 0,
+	isVisible = 0,
+	effectId = 301,
+	broadcast = false,
+	width = 180,
+	height = 73,
+	offsetY = 30,
+	titleTime = 0,
+	timeType = 0,
+	overlayCount = 0,
+	staitcAttrs = {
+{ type = 9, value = 1 },
+{ type = 11, value = 1 },
+{ type = 13, value = 1 },
+{ type = 15, value = 1 },
+{ type = 17, value = 1 },
+{ type = 19, value = 1 },
+},
+},
+}

@@ -1,0 +1,79 @@
+EquipEnchantColorCfg =
+{
+	[128] = "f0f000",--光
+	[6] = "f0f000",--光
+	[8] = "f0f000",--光
+	[80] = "C0C0C0",--暗
+	[12] = "C0C0C0",--暗
+	[16] = "C0C0C0",--暗
+	[20] = "C0C0C0",--暗
+	[120] = "ff0000",--火
+	[27] = "ff0000",--火
+	[121] = "ff0000",--火
+	[11] = "ff0000",--火
+	[122] = "6a9f9f",--风
+	[25] = "6a9f9f",--风
+	[123] = "6a9f9f",--风
+	[19] = "6a9f9f",--风
+	[118] = "00aaff",--水
+	[23] = "00aaff",--水
+	[119] = "00aaff",--水
+	[15] = "00aaff",--水
+	[124] = "b87b00",--土
+	[21] = "b87b00",--土
+	[125] = "b87b00",--土
+	[63] = "b87b00",--土
+}
+
+EquipEnchantPropetyDesc = {
+	[128] = "{wordcolor;C0C0C0;【暗】}",
+	[6] = "{wordcolor;C0C0C0;【暗】}",
+	[8] = "{wordcolor;C0C0C0;【暗】}",
+	[80] = "{wordcolor;f0f000;【光】}",
+	[12] = "{wordcolor;f0f000;【光】}",
+	[16] = "{wordcolor;f0f000;【光】}",
+	[20] = "{wordcolor;f0f000;【光】}",
+	[120] = "{wordcolor;f0f000;【光】}或{wordcolor;6a9f9f;【风】}",
+	[27] = "{wordcolor;f0f000;【光】}或{wordcolor;6a9f9f;【风】}",
+	[121] = "{wordcolor;f0f000;【光】}或{wordcolor;6a9f9f;【风】}",
+	[11] = "{wordcolor;f0f000;【光】}或{wordcolor;6a9f9f;【风】}",
+	[122] = "{wordcolor;C0C0C0;【暗】}或{wordcolor;b87b00;【土】}",
+	[25] = "{wordcolor;C0C0C0;【暗】}或{wordcolor;b87b00;【土】}",
+	[123] = "{wordcolor;C0C0C0;【暗】}或{wordcolor;b87b00;【土】}",
+	[19] = "{wordcolor;C0C0C0;【暗】}或{wordcolor;b87b00;【土】}",
+	[118] = "{wordcolor;f0f000;【光】}或{wordcolor;00aaff;【水】}",
+	[23] = "{wordcolor;f0f000;【光】}或{wordcolor;00aaff;【水】}",
+	[119] = "{wordcolor;f0f000;【光】}或{wordcolor;00aaff;【水】}",
+	[15] = "{wordcolor;f0f000;【光】}或{wordcolor;00aaff;【水】}",
+	[124] = "{wordcolor;C0C0C0;【暗】}或{wordcolor;ff0000;【火】}",
+	[21] = "{wordcolor;C0C0C0;【暗】}或{wordcolor;ff0000;【火】}",
+	[125] = "{wordcolor;C0C0C0;【暗】}或{wordcolor;ff0000;【火】}",
+	[63] = "{wordcolor;C0C0C0;【暗】}或{wordcolor;ff0000;【火】}",
+}
+
+--属性对应底框图片
+EquipEnchantPathByType = {
+	[128] = 1,--光
+	[6] = 1,--光
+	[8] = 1,--光
+	[80] = 2,--暗
+	[12] = 2,--暗
+	[16] = 2,--暗
+	[20] = 2,--暗
+	[120] = 3,--火
+	[27] = 3,--火
+	[121] = 3,--火
+	[11] = 3,--火
+	[122] = 4,--风
+	[25] = 4,--风
+	[123] = 4,--风
+	[19] = 4,--风
+	[118] = 5,--水
+	[23] = 5,--水
+	[119] = 5,--水
+	[15] = 5,--水
+	[124] = 6,--土
+	[21] = 6,--土
+	[125] = 6,--土
+	[63] = 6,--土
+}

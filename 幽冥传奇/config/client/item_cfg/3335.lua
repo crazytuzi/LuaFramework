@@ -1,0 +1,37 @@
+return {
+	id=3335,
+	name=Lang.Item.n3335,
+	desc=Lang.Item.i3335,
+	--跨服魔装宝箱
+	--使用后随机获得一种：\n{color;FF00ff00; 碎涅虚空·魔刃碎片x1}\n{color;FF00ff00; 碎涅虚空·魔甲碎片x1}\n{color;FF00ff00; 碎涅虚空·魔盔碎片x1}\n{color;FF00ff00; 碎涅虚空·魔链碎片x1}\n{color;FF00ff00; 碎涅虚空·魔镯碎片x1}\n{color;FF00ff00; 碎涅虚空·魔戒碎片x1}\n{color;FF00ff00; 碎涅虚空·魔带碎片x1}\n{color;FF00ff00; 碎涅虚空·魔鞋碎片x1}\n{color;FF00c0ff;【跨服远征-兑换-竞技商城】}
+	color=0x00ff00,
+	type=102,
+	icon=0,
+	shape=0,
+	dura=0,
+	useDurDrop=0,
+	dup=199,
+	dealType=0,
+	dealPrice=10,
+	time=0,
+	suitId=0,
+	colGroup=0,
+	cdTime=0,
+	dropBroadcast=0,
+	sellBuyType=5,
+	contri=0,
+	showQuality=1,
+	showQualityBg=1,
+	staitcAttrs={
+	},
+	seal={},
+	conds={
+		{cond=13,value=7},
+	},
+	flags={
+		recordLog=true,
+		showLootTips=true,
+		canMoveAttr=true,
+		isCanOnekeyUse=true,
+	},
+}

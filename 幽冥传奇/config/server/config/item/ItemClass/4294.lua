@@ -1,0 +1,38 @@
+return {
+{
+	id = 4294,
+	name = Lang.Item.n4294,
+	desc = Lang.Item.i4294,
+	type = 102,
+	icon = 4294,
+	shape = 1,
+	color = 0xff0000,
+	bgquality = 4,
+	dura = 0,
+	useDurDrop = 0,
+	dup = 100,
+	weight = 1,
+	dealType = 0,
+	dealPrice = 1,
+	time = 0,
+	suitId = 0,
+	colGroup = 0,
+	cdTime = 0,
+	dropBroadcast = 0,
+	openUi = {"ItemUesSpecialView",262},
+	skillID = 0,
+	sellBuyType = 0,
+	staitcAttrs = {
+	},
+	flags = {
+		hideDura = true,
+		denyDropDua = true,
+		denyGuildDepot = true,
+		denyTipsAutoLine = true,
+		bagSell = true,
+	},
+	conds = {
+		{ cond = 1, value = 1, },
+	},
+},
+}

@@ -1,0 +1,38 @@
+return {
+{
+	id = 4277,
+	name = Lang.Item.n4277,
+	desc = Lang.Item.i4277,
+	type = 102,
+	icon = 4277,
+	shape = 1,
+	color = 0x00ff00,
+	bgquality = 1,
+	dura = 0,
+	useDurDrop = 0,
+	dup = 200,
+	weight = 1,
+	dealType = 0,
+	dealPrice = 1,
+	time = 0,
+	suitId = 0,
+	colGroup = 7,
+	cdTime = 600000,
+	dropBroadcast = 0,
+	skillID = 0,
+	sellBuyType = 0,
+	staitcAttrs = {
+	},
+	flags = {
+		recordLog = true,
+		hideDura = true,
+		denyDropDua = true,
+		denyGuildDepot = true,
+		denyTipsAutoLine = true,
+	},
+	conds = {
+		{ cond = 1, value = 1, },
+		{ cond = 13, value = 2, },
+	},
+},
+}

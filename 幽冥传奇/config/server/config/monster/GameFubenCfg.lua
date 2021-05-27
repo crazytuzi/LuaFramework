@@ -1,0 +1,215 @@
+--#include "..\..\language\LangCode.txt" once
+GameFubenCfg =
+{
+	needBag = 20,
+	fubenList =
+	{
+		-- 	fubenName = "金身尸王",
+[50] ={index = 1,fubenId = 50,bossId = 483,bosslv = 700,fubenName = "贵族·黄泉教主",needLevel = 300,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 300, circle = 0,viplv = 0, zslv = 0, cardlv = 1, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 21, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1098, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1113, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 444, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 42, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 77, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 175, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 176, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 1,sweepAwards =
+{
+},},},
+[51] ={index = 2,fubenId = 51,bossId = 484,bosslv = 1300,fubenName = "王者·铁血魔王",needLevel = 300,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 300, circle = 0,viplv = 0, zslv = 0, cardlv = 2, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 21, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1101, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1116, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 444, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 46, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 85, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 199, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 200, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 2,sweepAwards =
+{
+},},},
+[52] ={index = 3,fubenId = 52,bossId = 485,bosslv = 2100,fubenName = "至尊·秦始圣皇",needLevel = 300,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 300, circle = 0,viplv = 0, zslv = 0, cardlv = 3, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 21, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1103, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1118, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 444, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 547, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 565, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 603, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 604, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 3,sweepAwards =
+{
+},},},
+[13] ={index = 4,fubenId = 13,bossId = 1572,bosslv = 500,fubenName = "专属·牛魔王",needLevel = 200,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 300, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,drops ={{ type = 0, id = 1068, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1143, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 40, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 73, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 163, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 164, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 165, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 168, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[14] ={index = 5,fubenId = 14,bossId = 1573,bosslv = 600,fubenName = "专属·黄泉教主",needLevel = 250,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 300, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,drops ={{ type = 0, id = 1069, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1144, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 41, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 75, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 169, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 170, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 171, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 174, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[15] ={index = 6,fubenId = 15,bossId = 1574,bosslv = 700,fubenName = "专属·赤月恶魔",needLevel = 275,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 300, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,drops ={{ type = 0, id = 1070, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1145, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 42, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 77, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 175, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 176, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 177, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 180, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[1] ={index = 7,fubenId = 1,bossId = 852,bosslv = 300,fubenName = "【VIP1】地狱魔龙",needLevel = 180,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 180, circle = 0,viplv = 1, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1066, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 1141, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 37, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 67, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 145, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 146, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 147, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 150, count = 1, strong = 0,quality = 0,bind = 0,},
+},
+privateBoss =
+{
+tmsCd = 7200,
+cardlv = 0,
+sweepAwards = {},
+},
+},
+[2] ={index = 8,fubenId = 2,bossId = 853,bosslv = 400,fubenName = "【VIP2】祖玛教主",needLevel = 350,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 350, circle = 0,viplv = 2, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1067, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1142, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 38, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 69, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 151, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 152, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 153, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 156, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[3] ={index = 9,fubenId = 3,bossId = 854,bosslv = 500,fubenName = "【VIP3】牛魔王",needLevel = 400,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 400, circle = 0,viplv = 3, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1068, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1143, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 40, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 73, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 163, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 164, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 165, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 168, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[4] ={index = 10,fubenId = 4,bossId = 855,bosslv = 600,fubenName = "【VIP4】黄泉教主",needLevel = 450,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 450, circle = 0,viplv = 4, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1069, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1144, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 41, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 75, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 169, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 170, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 171, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 174, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[5] ={index = 11,fubenId = 5,bossId = 856,bosslv = 700,fubenName = "【VIP5】赤月恶魔",needLevel = 500,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 500, circle = 0,viplv = 5, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1070, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1145, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 42, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 77, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 175, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 176, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 177, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 180, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[6] ={index = 12,fubenId = 6,bossId = 857,bosslv = 900,fubenName = "【VIP6】魔龙教主",needLevel = 550,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 550, circle = 0,viplv = 6, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1071, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1146, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 44, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 81, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 187, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 188, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 189, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 192, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[7] ={index = 13,fubenId = 7,bossId = 858,bosslv = 1100,fubenName = "【VIP7】雪域魔王",needLevel = 600,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 600, circle = 0,viplv = 7, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1072, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1147, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 45, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 83, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 193, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 194, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 195, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 198, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[8] ={index = 14,fubenId = 8,bossId = 859,bosslv = 1300,fubenName = "【VIP8】雷炎蜘蛛",needLevel = 650,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 650, circle = 0,viplv = 8, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1073, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1148, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 46, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 85, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 199, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 200, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 201, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 204, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[9] ={index = 15,fubenId = 9,bossId = 860,bosslv = 1500,fubenName = "【VIP9】千年魅狐王",needLevel = 700,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 700, circle = 0,viplv = 9, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1074, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1149, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 47, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 87, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 205, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 206, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 207, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 210, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[10] ={index = 16,fubenId = 10,bossId = 861,bosslv = 1700,fubenName = "【VIP10】铁血蛮王",needLevel = 750,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 750, circle = 0,viplv = 10, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1075, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1150, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 48, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 89, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 211, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 212, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 213, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 216, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[11] ={index = 17,fubenId = 11,bossId = 862,bosslv = 1900,fubenName = "【VIP11】玄水魔蛟皇",needLevel = 800,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 699, count = 2},level = 800, circle = 0,viplv = 11, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={{ type = 0, id = 1076, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 1151, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 546, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 563, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 597, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 598, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 599, count = 1, strong = 0,quality = 0,bind = 0,},{ type = 0, id = 602, count = 1, strong = 0,quality = 0,bind = 0,},},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[12] ={
+index = 18,fubenId = 12,bossId = 863,bosslv = 2100,fubenName = "【VIP12】秦始圣皇",needLevel = 850,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 2},level = 850, circle = 0,viplv = 12, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1078, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 1153, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 547, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 565, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 603, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 604, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 605, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 608, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[16] ={
+index = 19,fubenId = 16,bossId = 1930,bosslv = 2100,fubenName = "【VIP13】妖狼王",needLevel = 900,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 3},level = 900, circle = 0,viplv = 13, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 2952, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 3012, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 548, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 567, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 609, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 610, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 611, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 614, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[17] ={
+index = 20,fubenId = 17,bossId = 1931,bosslv = 2100,fubenName = "【VIP14】蚩尤魔王",needLevel = 950,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 3},level = 950, circle = 0,viplv = 14, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 2953, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 3013, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 549, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 569, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 615, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 616, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 617, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 618, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[18] ={
+index = 21,fubenId = 18,bossId = 1932,bosslv = 2100,fubenName = "【VIP15】地藏金身",needLevel = 1000,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 3},level = 1000, circle = 0,viplv = 15, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 2954, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 3014, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 550, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 571, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 621, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 622, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 623, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 626, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[19] ={
+index = 22,fubenId = 19,bossId = 1933,bosslv = 2100,fubenName = "【VIP16】魔血圣王",needLevel = 1050,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 4},level = 1050, circle = 0,viplv = 16, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 2955, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 3015, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 551, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 573, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 627, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 628, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 629, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 630, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[20] ={
+index = 23,fubenId = 20,bossId = 1934,bosslv = 2100,fubenName = "【VIP17】冰霜龙皇",needLevel = 1100,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 4},level = 1100, circle = 0,viplv = 17, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 3236, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 3281, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 552, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 575, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 633, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 634, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 635, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 638, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[21] ={
+index = 24,fubenId = 21,bossId = 1935,bosslv = 2100,fubenName = "【VIP18】千眼修罗王",needLevel = 1150,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 4},level = 1150, circle = 0,viplv = 18, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 3237, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 3282, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 553, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 577, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 639, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 640, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 641, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 642, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[22] ={
+index = 25,fubenId = 22,bossId = 1936,bosslv = 2100,fubenName = "【VIP19】冰龙圣皇",needLevel = 1200,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 5},level = 1200, circle = 0,viplv = 19, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 3238, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 3283, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 554, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 579, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 645, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 646, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 647, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 650, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[23] ={
+index = 26,fubenId = 23,bossId = 1937,bosslv = 2100,fubenName = "【VIP120】卧龙教主",needLevel = 1250,Number = 1,fubenBg = 3,fubenType = 0,
+needItem = {id = 699, count = 5},level = 1250, circle = 0,viplv = 20, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 3239, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 3284, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 555, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 581, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 651, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 652, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 653, count = 1, strong = 0,quality = 0,bind = 0,},
+{ type = 0, id = 654, count = 1, strong = 0,quality = 0,bind = 0,},
+},privateBoss = {tmsCd = 7200,cardlv = 0,sweepAwards = {},},},
+[105] ={fubenId = 105,bossId = 515,fubenName = "尸王殿（主线）",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+[106] ={fubenId = 106,bossId = 516,fubenName = "沃玛寺庙（主线）",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+[107] ={fubenId = 107,bossId = 517,fubenName = "险恶之地（主线）",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+[108] ={fubenId = 108,bossId = 518,fubenName = "石墓阵（主线）",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+[109] ={fubenId = 109,bossId = 487,fubenName = "沙城幻境（主线）",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+[110] ={fubenId = 110,bossId = 490,fubenName = "皇宫（主线）",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+[111] ={fubenId = 111,bossId = 490,fubenName = "皇宫（主线）",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+[112] ={fubenId = 112,bossId = 9,fubenName = "比奇城外（主线）",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+[114] ={fubenId = 114,bossId = 486,fubenName = "沃玛神殿(主线)",needLevel = 50,Number = 1,fubenBg = 3,fubenType = 0,needItem = {id = 0, count = 0},level = 1, circle = 0,viplv = 0, zslv = 0, cardlv = 0, lhGrade=0,desc = Lang.ScriptTips.fb00006,
+drops ={
+{ type = 0, id = 1, count = 1, strong = 0,quality = 0, job=1,bind = 0},
+},},
+	},
+}

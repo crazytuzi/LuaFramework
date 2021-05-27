@@ -1,0 +1,126 @@
+return {
+{
+	actions=
+	{
+		{act=1,effect=0,sound=30,delay=0,},
+	},
+	desc=Lang.Skill.s20L2Desc,
+	iconID=20,
+	actRange=
+	{
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=0,
+			yEnd=0,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+					conds=
+					{
+					},
+					results=
+					{
+					},
+					specialEffects=
+					{
+					},
+				},
+			},
+		},
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=0,
+			yEnd=0,
+			rangeType=0,
+			rangeCenter=2,
+			acts=
+			{
+				{
+					conds=
+					{
+						{cond = 1,value =1},
+						{cond = 22,value =56},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=33,delay=200, rate=10500,value=30},
+						{mj=0,timeParam=30,type=20,delay=0,vt=1, id=20,value=1},
+					},
+					specialEffects=
+					{
+						{type=3,mj=0,id=17,keepTime=100,delay=10,always=false},
+						{type=4,mj=0,id=19,keepTime=450,delay=150,always=false, checkDistance = 2},
+					},
+				},
+			},
+		},
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=-13,
+			yEnd=-13,
+			rangeType=4,
+			rangeCenter=1,
+			acts=
+			{
+				{
+					targetType=1,
+					conds=
+					{
+						{cond = 22,value =20},
+					},
+					results=
+					{
+					},
+					specialEffects=
+					{
+						{type=1,mj=0,id=17,keepTime=450,delay=10,always=false, checkDistance = 1},
+					},
+				},
+			},
+		},
+		{
+			xStart=0,
+			xEnd=0,
+			yStart=0,
+			yEnd=0,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+					targetType=0,
+					conds=
+					{
+						{cond = 3,value =1},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=21,delay=0,id=20,vt=1},
+					},
+					specialEffects=
+					{
+						{type=5,mj=0,id=18,keepTime=400,delay=30,always=false, checkDistance = 1},
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+		{cond=1,value=25,consume=false},
+		{cond=21,value=500,consume=false},
+	},
+	spellConds=
+	{
+		{cond=8,value=65,consume=true},
+		{cond=13,value=12,consume=true},
+	},
+	singTime=0,
+	cooldownTime=100,
+},
+}

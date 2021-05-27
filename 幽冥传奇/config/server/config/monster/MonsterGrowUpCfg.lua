@@ -1,0 +1,4 @@
+
+MonsterGrowUpCfg =
+{
+}

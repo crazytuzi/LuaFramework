@@ -1,0 +1,38 @@
+return {
+{
+	id = 4021,
+	name = Lang.Item.n4021,
+	desc = Lang.Item.i4021,
+	type = 102,
+	icon = 4021,
+	shape = 1,
+	color = 0xffffff,
+	bgquality = 0,
+	dura = 0,
+	useDurDrop = 0,
+	dup = 200,
+	weight = 1,
+	dealType = 0,
+	dealPrice = 1,
+	time = 0,
+	suitId = 0,
+	colGroup = 0,
+	cdTime = 0,
+	dropBroadcast = 0,
+	batchType = 23,
+	batchValue = 1,
+	skillID = 0,
+	sellBuyType = 2,
+	staitcAttrs = {
+	},
+	flags = {
+		recordLog = true,
+		denyGuildDepot = true,
+		denyTipsAutoLine = true,
+		showLootTips = true,
+	},
+	conds = {
+		{ cond = 1, value = 42, },
+	},
+},
+}

@@ -1,0 +1,14 @@
+return {
+{
+{consumes = {{type = 0, id = 2921, count = 10,},},attrs = {{type=9,value=248,},{type=11,value=620,},{type=21,value=165,},{type=23,value=413,},{type=145,value=1600,},{type=151,value=413,},{type=147,value=720,},},},
+{consumes = {{type = 0, id = 2913, count = 10,},{type = 0, id = 2921, count = 20,},},attrs = {{type=9,value=542,},{type=11,value=1355,},{type=21,value=361,},{type=23,value=903,},{type=145,value=3800,},{type=151,value=903,},{type=147,value=1710,},},},
+{consumes = {{type = 0, id = 2259, count = 50,},{type = 0, id = 2913, count = 20,},{type = 0, id = 2921, count = 50,},},attrs = {{type=9,value=939,},{type=11,value=2347,},{type=21,value=626,},{type=23,value=1565,},{type=145,value=6770,},{type=151,value=1565,},{type=147,value=3047,},},},
+{consumes = {{type = 0, id = 2259, count = 100,},{type = 0, id = 2913, count = 50,},{type = 0, id = 2921, count = 100,},},attrs = {{type=9,value=1474,},{type=11,value=3686,},{type=21,value=983,},{type=23,value=2457,},{type=145,value=10780,},{type=151,value=2457,},{type=147,value=4851,},},},
+{consumes = {{type = 0, id = 2259, count = 150,},{type = 0, id = 2913, count = 100,},{type = 0, id = 2921, count = 200,},},attrs = {{type=9,value=2198,},{type=11,value=5494,},{type=21,value=1465,},{type=23,value=3663,},{type=145,value=16194,},{type=151,value=3663,},{type=147,value=7287,},},},
+{consumes = {{type = 0, id = 2259, count = 200,},{type = 0, id = 2913, count = 200,},{type = 0, id = 2921, count = 300,},},attrs = {{type=9,value=3174,},{type=11,value=7935,},{type=21,value=2116,},{type=23,value=5290,},{type=145,value=23503,},{type=151,value=5290,},{type=147,value=10576,},},},
+{consumes = {{type = 0, id = 2259, count = 300,},{type = 0, id = 2913, count = 300,},{type = 0, id = 2921, count = 400,},},attrs = {{type=9,value=4492,},{type=11,value=11230,},{type=21,value=2995,},{type=23,value=7487,},{type=145,value=33370,},{type=151,value=7487,},{type=147,value=15017,},},},
+{consumes = {{type = 0, id = 2259, count = 400,},{type = 0, id = 2913, count = 400,},{type = 0, id = 2921, count = 600,},},attrs = {{type=9,value=6271,},{type=11,value=15678,},{type=21,value=4181,},{type=23,value=10452,},{type=145,value=46690,},{type=151,value=10452,},{type=147,value=21011,},},},
+{consumes = {{type = 0, id = 2259, count = 500,},{type = 0, id = 2913, count = 600,},{type = 0, id = 2921, count = 800,},},attrs = {{type=9,value=8673,},{type=11,value=21683,},{type=21,value=5782,},{type=23,value=14455,},{type=145,value=64672,},{type=151,value=14455,},{type=147,value=29102,},},},
+{consumes = {{type = 0, id = 2259, count = 600,},{type = 0, id = 2913, count = 800,},{type = 0, id = 2921, count = 1000,},},attrs = {{type=9,value=11916,},{type=11,value=29790,},{type=21,value=7944,},{type=23,value=19860,},{type=145,value=88948,},{type=151,value=19860,},{type=147,value=40027,},},},
+},
+}

@@ -1,0 +1,26 @@
+return {
+	-- index:1
+	{t="layout",n="layout_recharge_bg",x=0,y=0,w=971,h=677,
+		{t="img",n="",x=485.5,y=338.5,w=971,h=677,p="res/xui/painting/chongzhi_bg.png",sx=1,sy=1,},
+		{t="btn",n="btn_close_window",x=899.45,y=598,w=82,h=82,pn="res/xui/common/btn_100.png",},
+	},
+	-- index:2
+	{t="layout",n="layout_widgets_panel",x=69.4,y=35.3,w=842.2,h=546.3,
+		{t="img9",n="",x=241.25,y=522.9,w=161,h=39,p="res/xui/recharge/img9_recharge.png",sx=6.71,sy=1.63,cx=6,cy=6,cw=12,ch=12,},
+		{t="ph",n="ph_items_list",x=415,y=245,w=830,h=490,},
+		{t="ph",n="ph_item_info_panel",x=4,y=241.55,w=202,h=245,
+			{t="img",n="img_bg",x=101,y=122.5,w=202,h=245,p="res/xui/recharge/recharge_1.png",sx=1,sy=1,},
+			{t="img",n="item_cell",x=97,y=138,w=77,h=78,p="res/xui/common/cell_111.png",sx=1,sy=1,},
+			{t="img",n="chongzhi_gold",x=52.65,y=211.6,w=50,h=50,p="res/xui/common/gold.png",sx=1,sy=1,},
+			{t="layout",n="layout_buy",x=12.25,y=21.2,w=177,h=48,
+				{t="img",n="",x=88.5,y=24,w=177,h=48,p="res/xui/common/btn_149_2.png",sx=1,sy=1,},
+				{t="text",n="lbl_item_cost",x=2.95,y=40.5,w=166.55,h=32,tfs=28,ta=1,r=255,g=255,b=255,txt="￥6",},
+			},
+			{t="img",n="chongzhi_gold2",x=97,y=138,w=66,h=66,p="res/xui/recharge/chongzhi_gold2.png",sx=1,sy=1,},
+			{t="text",n="lbl_gold_num",x=72.45,y=226.15,w=119.55,h=29.2,tfs=25,ta=0,r=255,g=255,b=0,txt="",},
+			{t="text",n="lbl_double_times",x=10.8,y=95.45,w=177.4,h=22,tfs=18,ta=1,r=0,g=255,b=102,txt="",},
+		},
+		{t="img",n="",x=140.75,y=521.3,w=50,h=50,p="res/xui/common/gold.png",sx=1,sy=1,},
+		{t="text",n="lbl_yuanbao_num",x=166.25,y=536.6,w=149.4,h=29.2,tfs=25,ta=1,r=255,g=255,b=0,txt="",},
+	},
+}

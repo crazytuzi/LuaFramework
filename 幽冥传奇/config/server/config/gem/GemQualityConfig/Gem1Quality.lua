@@ -1,0 +1,26 @@
+return {
+{
+	name=Lang.Misc.m000350,
+	consumeItemCount=4,
+	reqMoneyType=0,
+	reqMoneyCount=1000,
+	propAdd=10,
+	baseSuccRate=60,
+},
+{
+	name=Lang.Misc.m000351,
+	consumeItemCount=4,
+	reqMoneyType=0,
+	reqMoneyCount=1000,
+	propAdd=20,
+	baseSuccRate=60,
+},
+{
+	name=Lang.Misc.m000352,
+	consumeItemCount=4,
+	reqMoneyType=0,
+	reqMoneyCount=1000,
+	propAdd=30,
+	baseSuccRate=60,
+},
+}

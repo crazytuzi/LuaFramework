@@ -1,0 +1,38 @@
+-- created by uiedit 
+
+ return {
+-- index 1
+	{t="layout",n="layout_hero_wing",x=61,y=29,w=1074,h=620,
+		{t="img",n="autoname_18467",x=529,y=306,w=1047,h=597,p="res/xui/painting/hero_wing.jpg",sx=1.0,sy=1.0,},
+		{t="img9",n="autoname_41",x=529,y=308,w=1059,h=616,p="res/xui/common/img9_149.png",cx=20,cy=19,cw=21,ch=17,},
+		{t="ph",n="ph_hero_wing_show_list",x=210,y=309,w=395,h=609,},
+		{t="ph",n="ph_show_hero_wing_item",x=10,y=500,w=379,h=120,
+			{t="img",n="img_bg_1",x=140,y=60,w=252,h=92,p="res/xui/god_arm/god_arm_img_1.png",sx=1.0,sy=1.0,},
+			{t="img",n="img_name",x=184,y=58,w=126,h=36,p="res/xui/wing/hero_wing_act_1.png",sx=1.0,sy=1.0,},
+			{t="text",n="txt_desc",x=100,y=110,w=279,h=21,txt="登录3天或VIP2可激活",tfs=18,r=0,g=255,b=0,ta=0,},
+			{t="img",n="img_stamp",x=257,y=73,w=55,h=34,p="res/xui/wing/hero_wing_stamp.png",sx=1.0,sy=1.0,},
+			{t="ph",n="ph_img_icon",x=59,y=52,w=71,h=71,},
+			{t="ph",n="ph_selec_effec",x=133,y=60,w=266,h=120,sx=1.0,sy=1.0,},
+			{t="img",n="img_active",x=257,y=73,w=55,h=34,p="res/xui/wing/hero_wing_active.png",sx=1.0,sy=1.0,},},
+		{t="ph",n="ph_hero_wing_show_eff",x=527,y=330,w=20,h=20,},
+		{t="layout",n="btn_light_pic",x=456,y=48,w=144,h=67,
+			{t="img",n="btn_light_pic_bg",x=72,y=33,w=144,h=67,p="res/xui/common/btn_124.png",sx=1.0,sy=1.0,},
+			{t="img",n="btn_light_pic_word",x=71,y=33,w=106,h=31,p="res/xui/wing/btn_stamp_2.png",sx=1.0,sy=1.0,},},
+		{t="ph",n="ph_hero_attr_list",x=911,y=340,w=267,h=141,},
+		{t="ph",n="ph_hero_attr_item",x=794,y=385,w=252,h=24,
+			{t="text",n="txt_hero_attr_name",x=0,y=22,w=140,h=24,txt="text",tfs=20,r=255,g=255,b=255,ta=1,},
+			{t="text",n="txt_hero_attr_val",x=126,y=22,w=126,h=24,txt="text",tfs=20,r=0,g=255,b=0,ta=1,},},
+		{t="img",n="customImage",x=912,y=440,w=323,h=58,p="res/xui/common/bg_130.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=912,y=212,w=323,h=58,p="res/xui/common/bg_130.png",sx=1.0,sy=1.0,},
+		{t="text",n="autoname_13290",x=837,y=452,w=150,h=27,txt="英雄属性",tfs=22,r=255,g=197,b=49,ta=1,},
+		{t="text",n="autoname_13290",x=832,y=222,w=162,h=27,txt="提升主角属性",tfs=22,r=255,g=197,b=49,ta=1,},
+		{t="ph",n="ph_role_attr_list",x=912,y=124,w=268,h=129,},
+		{t="ph",n="ph_role_attr_item",x=791,y=156,w=255,h=24,
+			{t="text",n="txt_hero_attr_name",x=0,y=22,w=140,h=24,txt="text",tfs=20,r=255,g=255,b=255,ta=1,},
+			{t="text",n="txt_hero_attr_val",x=126,y=22,w=129,h=24,txt="text",tfs=20,r=0,g=255,b=0,ta=1,},},
+		{t="rich",n="rich_hero_desc",x=786,y=590,w=255,h=27,txt="text",tfs=22,r=255,g=197,b=49,ta=0,},
+		{t="layout",n="layout_desc",x=71,y=95,w=290,h=41,
+			{t="img9",n="autoname_41",x=145,y=25,w=290,h=31,p="res/xui/common/chat_bubble.png",cx=8,cy=10,cw=4,ch=3,},
+			{t="img",n="customImage",x=12,y=7,w=16,h=14,p="res/xui/common/chat_bubble_desc.png",sx=1.0,sy=1.0,},
+			{t="rich",n="txt_desc_5",x=9,y=34,w=277,h=27,txt="text",tfs=22,r=0,g=255,b=255,ta=1,},},}
+}

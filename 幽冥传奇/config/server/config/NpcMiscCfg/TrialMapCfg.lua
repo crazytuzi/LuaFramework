@@ -1,0 +1,28 @@
+TrialMapConfig = {
+	minLevel = 70,
+	nMaxFloor = 1000,
+	nMaxBless = 20,
+	nJourneyMult = 10,
+	nMaxJourney = 100,
+	nGujiMinLevel = 70,
+	nGujiMinFoolr = 1,
+	nAddBless = 1,
+	nAddYuanBaoWheel = 5,
+	nNeedBag = 20,
+	tabSceneId = {
+		{nMinCricle = 0 , nMaxCricle = 0, nSceneId = 180,nX = 34,nY = 29,},
+		{nMinCricle = 1 , nMaxCricle = 2, nSceneId = 181,nX = 34,nY = 29,},
+		{nMinCricle = 3 , nMaxCricle = 4, nSceneId = 182,nX = 31,nY = 32,},
+		{nMinCricle = 5 , nMaxCricle = 6, nSceneId = 183,nX = 31,nY = 32,},
+		{nMinCricle = 7 , nMaxCricle = 8, nSceneId = 184,nX = 39,nY = 38,},
+		{nMinCricle = 9 , nMaxCricle = 10, nSceneId = 185,nX = 39,nY = 38,},
+		{nMinCricle = 11 , nMaxCricle = 12, nSceneId = 186,nX = 39,nY = 38,},
+	},
+	showItems = {
+        {type=0, id=3767},
+        {type=0, id=3622},
+        {type=0, id=3582},
+		{type=0, id=3494},
+		{type=0, id=3585},
+	},
+}

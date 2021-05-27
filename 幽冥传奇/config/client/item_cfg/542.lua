@@ -1,0 +1,37 @@
+return {
+	id=542,
+	name=Lang.Item.n542,
+	desc=Lang.Item.i542,
+	--贵族特权(称号)
+	--{color;FF00c0ff;战士战力增加：}{color;FF00ff00;584}\n{color;FF00c0ff;可在} {color;FF00ff00;角色-装扮} {color;FF00c0ff;面板进行} {color;FF00ff00;至尊特权} \n{color;FF00c0ff;【特殊活动】}
+	color=0xde00ff,
+	type=102,
+	icon=611,
+	shape=0,
+	dura=0,
+	useDurDrop=0,
+	dup=1,
+	dealType=0,
+	dealPrice=10,
+	time=0,
+	suitId=0,
+	colGroup=0,
+	cdTime=0,
+	dropBroadcast=0,
+	sellBuyType=0,
+	contri=0,
+	showQuality=3,
+	showQualityBg=3,
+	staitcAttrs={
+	},
+	seal={},
+	conds={
+		{cond=1,value=1},
+	},
+	flags={
+		recordLog=true,
+		showLootTips=true,
+		canMoveAttr=true,
+		denyReclaim=true,
+	},
+}

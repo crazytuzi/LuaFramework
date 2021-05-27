@@ -1,0 +1,162 @@
+return {
+{
+	[0]=
+	{
+		name="轮回面甲(激活)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=1,
+		lunhuiLevel=0,
+		award = {type=0, id=598, count=1,bind=1},
+		consume = {{type = 0, id = 0, count = 0},{type = 0, id = 1669, count = 20},},
+		attr =
+		{
+		},
+	},
+	[1]=
+	{
+		name="轮回面甲(王)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=2,
+		lunhuiLevel=0,
+		award = {type=0, id=603, count=1,bind=1},
+		consume ={{type = 0, id = 598, count = 1},{type = 0, id = 1669, count = 40},},
+		attr =
+		{
+			{type=9,value=127,},
+			{type=11,value=253,},
+			{type=13,value=127,},
+			{type=15,value=253,},
+			{type=17,value=127,},
+			{type=19,value=253,},
+			{type=21,value=139,},
+			{type=23,value=278,},
+			{type=25,value=139,},
+			{type=27,value=278,},
+		},
+	},
+	[2]=
+	{
+		name="轮回面甲(君)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=3,
+		lunhuiLevel=0,
+		award = {type=0, id=608, count=1,bind=1},
+		consume ={{type = 0, id = 603, count = 1},{type = 0, id = 1669, count = 80},},
+		attr =
+		{
+			{type=9,value=215,},
+			{type=11,value=430,},
+			{type=13,value=215,},
+			{type=15,value=430,},
+			{type=17,value=215,},
+			{type=19,value=430,},
+			{type=21,value=237,},
+			{type=23,value=473,},
+			{type=25,value=237,},
+			{type=27,value=473,},
+		},
+	},
+	[3]=
+	{
+		name="轮回面甲(圣)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=4,
+		lunhuiLevel=0,
+		award = {type=0, id=613, count=1,bind=1},
+		consume ={{type = 0, id = 608, count = 1},{type = 0, id = 1669, count = 160},},
+		attr =
+		{
+			{type=9,value=366,},
+			{type=11,value=732,},
+			{type=13,value=366,},
+			{type=15,value=732,},
+			{type=17,value=366,},
+			{type=19,value=732,},
+			{type=21,value=403,},
+			{type=23,value=805,},
+			{type=25,value=403,},
+			{type=27,value=805,},
+		},
+	},
+	[4]=
+	{
+		name="轮回面甲(皇)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=5,
+		lunhuiLevel=0,
+		award = {type=0, id=618, count=1,bind=1},
+		consume ={{type = 0, id = 613, count = 1},{type = 0, id = 1669, count = 320},},
+		attr =
+		{
+			{type=9,value=622,},
+			{type=11,value=1244,},
+			{type=13,value=622,},
+			{type=15,value=1244,},
+			{type=17,value=622,},
+			{type=19,value=1244,},
+			{type=21,value=684,},
+			{type=23,value=1368,},
+			{type=25,value=684,},
+			{type=27,value=1368,},
+		},
+	},
+	[5]=
+	{
+		name="轮回面甲(尊)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=6,
+		lunhuiLevel=0,
+		award = {type=0, id=623, count=1,bind=1},
+		consume ={{type = 0, id = 618, count = 0},{type = 0, id = 1669, count = 640},},
+		attr =
+		{
+			{type=9,value=1057,},
+			{type=11,value=2114,},
+			{type=13,value=1057,},
+			{type=15,value=2114,},
+			{type=17,value=1057,},
+			{type=19,value=2114,},
+			{type=21,value=1163,},
+			{type=23,value=2325,},
+			{type=25,value=1163,},
+			{type=27,value=2325,},
+		},
+	},
+	[6]=
+	{
+		name="轮回面甲(主宰)",
+		item_eff = 50,
+		level = 90,
+		circle = 0,
+		lunhuiStage=7,
+		lunhuiLevel=0,
+		award = {type=0, id=0, count=0,bind=1},
+		consume ={{type = 0, id = 0, count = 0},{type = 0, id = 0, count = 0},},
+		attr =
+		{
+			{type=9,value=1797,},
+			{type=11,value=3594,},
+			{type=13,value=1797,},
+			{type=15,value=3594,},
+			{type=17,value=1797,},
+			{type=19,value=3594,},
+			{type=21,value=1977,},
+			{type=23,value=3953,},
+			{type=25,value=1977,},
+			{type=27,value=3953,},
+		},
+	},
+},
+}

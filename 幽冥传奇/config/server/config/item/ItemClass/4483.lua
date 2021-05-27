@@ -1,0 +1,38 @@
+return {
+{
+	id = 4483,
+	name = Lang.Item.n4483,
+	desc = Lang.Item.i4483,
+	type = 102,
+	icon = 4483,
+	shape = 1,
+	color = 0xcc00ff,
+	bgquality = 3,
+	dura = 0,
+	useDurDrop = 0,
+	dup = 200,
+	weight = 1,
+	dealType = 0,
+	dealPrice = 1,
+	time = 0,
+	suitId = 0,
+	colGroup = 0,
+	cdTime = 0,
+	dropBroadcast = 0,
+	batchType = 37,
+	batchValue = 5000,
+	skillID = 0,
+	sellBuyType = 2,
+	staitcAttrs = {
+	},
+	flags = {
+		recordLog = true,
+		denyGuildDepot = true,
+		denyTipsAutoLine = true,
+		showLootTips = true,
+	},
+	conds = {
+		{ cond = 1, value = 80, },
+	},
+},
+}

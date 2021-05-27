@@ -1,0 +1,205 @@
+return {
+{
+	name = Lang.Store.c00008,
+items = {
+{
+	id = 80001,
+	item = 907,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 180, oldPrice = 180,
+		},
+	},
+},
+{
+	id = 80002,
+	item = 1043,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 990, oldPrice = 990,
+		},
+	},
+},
+{
+	id = 80003,
+	item = 906,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 242, oldPrice = 242,
+		},
+	},
+},
+{
+	id = 80004,
+	item = 908,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 880, oldPrice = 880,
+		},
+	},
+},
+{
+	id = 80005,
+	item = 399,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 50, oldPrice = 50,
+		},
+	},
+},
+{
+	id = 80006,
+	item = 400,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 100, oldPrice = 100,
+		},
+	},
+},
+{
+	id = 80007,
+	item = 359,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 50, oldPrice = 50,
+		},
+	},
+},
+{
+	id = 80008,
+	item = 1175,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 8888, oldPrice = 8888,
+		},
+	},
+},
+{
+	id = 80009,
+	item = 401,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80010,
+	item = 402,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80011,
+	item = 403,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80012,
+	item = 405,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80013,
+	item = 404,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80014,
+	item = 409,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80015,
+	item = 408,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80016,
+	item = 406,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80017,
+	item = 407,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+{
+	id = 80018,
+	item = 410,
+	quality = 0,
+	strong = 0,
+	singleBuyLimit = 0,
+	price = {
+ 		{ spid = "*", bind = false, type = 4, price = 30, oldPrice = 30,
+		},
+	},
+},
+	},
+},
+}

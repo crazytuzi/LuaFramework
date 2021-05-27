@@ -1,0 +1,46 @@
+-- created by uiedit 
+
+ return {
+-- index 1
+	{t="layout",n="layout_boss_temple",x=74,y=20,w=843,h=518,
+		{t="img9",n="autoname_41",x=419,y=235,w=795,h=428,p="res/xui/common/img9_141.png",cx=20,cy=19,cw=21,ch=17,},
+		{t="img9",n="customImage",x=419,y=235,w=808,h=443,p="res/xui/common/img9_149.png",cx=18,cy=23,cw=20,ch=12,},
+		{t="img",n="customImage",x=8,y=235,w=16,h=435,p="res/xui/common/bg_162.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=628,y=485,w=419,h=66,p="res/xui/common/bg_160.png",sx=-1.0,sy=1.0,},
+		{t="img",n="customImage",x=829,y=234,w=16,h=435,p="res/xui/common/bg_162.png",sx=-1.0,sy=1.0,},
+		{t="img",n="customImage",x=210,y=485,w=419,h=66,p="res/xui/common/bg_160.png",sx=1.0,sy=1.0,},
+		{t="btn",n="btn_close_window",x=807,y=475,w=72,h=85,pn="res/xui/common/btn_100.png",},
+		{t="img",n="customImage",x=210,y=9,w=419,h=18,p="res/xui/common/bg_161.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=628,y=9,w=419,h=18,p="res/xui/common/bg_161.png",sx=-1.0,sy=1.0,},
+		{t="img",n="customImage",x=419,y=236,w=774,h=408,p="res/xui/painting/boss_bg_4.jpg",sx=1.0,sy=1.0,},
+		{t="layout",n="layout_list_item",x=36,y=31,w=230,h=402,
+			{t="img9",n="customImage",x=115,y=201,w=230,h=402,p="res/xui/common/img9_149.png",cx=18,cy=23,cw=20,ch=12,},
+			{t="ph",n="ph_list",x=10,y=21,w=207,h=370,},
+			{t="ph",n="ph_list_item",x=12,y=319,w=204,h=69,
+				{t="img9",n="autoname_41",x=102,y=34,w=204,h=69,p="res/xui/common/img9_147.png",cx=20,cy=19,cw=21,ch=17,},
+				{t="img9",n="img_bg",x=103,y=35,w=190,h=54,p="res/xui/painting/maya_bg_1.jpg",cx=37,cy=19,cw=73,ch=22,},
+				{t="img",n="bg_name",x=104,y=35,w=102,h=30,p="res/xui/boss/scene_name_1.png",sx=1.0,sy=1.0,},},},
+		{t="img",n="customImage",x=380,y=486,w=144,h=37,p="res/xui/boss/title_boss_maya.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=689,y=413,w=158,h=26,p="res/xui/common/bg_155.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=396,y=413,w=158,h=26,p="res/xui/common/bg_155.png",sx=-1.0,sy=1.0,},
+		{t="text",n="autoname_24464",x=476,y=427,w=130,h=33,txt="极品掉落",tfs=26,r=175,g=175,b=175,ta=1,},
+		{t="ph",n="ph_cell",x=287,y=303,w=80,h=80,sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=689,y=254,w=158,h=26,p="res/xui/common/bg_155.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=396,y=254,w=158,h=26,p="res/xui/common/bg_155.png",sx=-1.0,sy=1.0,},
+		{t="text",n="autoname_24464",x=476,y=268,w=130,h=33,txt="副本消息",tfs=26,r=175,g=175,b=175,ta=1,},
+		{t="text",n="autoname_16827",x=278,y=216,w=145,h=27,txt="进入等级：",tfs=22,r=230,g=153,b=0,ta=1,},
+		{t="text",n="autoname_16827",x=277,y=155,w=145,h=27,txt="进入消耗：",tfs=22,r=230,g=153,b=0,ta=1,},
+		{t="text",n="txt_consume_level",x=412,y=216,w=120,h=27,txt="text",tfs=22,r=255,g=255,b=255,ta=0,},
+		{t="rich",n="txt_consume",x=411,y=157,w=240,h=27,txt="text",tfs=22,r=255,g=255,b=255,ta=0,},
+		{t="text",n="autoname_16827",x=534,y=216,w=145,h=27,txt="刷新时间：",tfs=22,r=230,g=153,b=0,ta=1,},
+		{t="text",n="txt_time",x=664,y=216,w=150,h=27,txt="text",tfs=22,r=255,g=255,b=255,ta=0,},
+		{t="btn",n="btn_enter_carbon",x=493,y=74,w=122,h=51,pn="res/xui/common/btn_103.png",txt="进入副本",tfs=20,r=255,g=255,b=255,},},
+
+-- index 2
+	{t="layout",n="layout_leitai_boss",x=5,y=29,w=175,h=418,
+		{t="img9",n="autoname_41",x=87,y=209,w=175,h=418,p="res/xui/common/img9_200.png",cx=17,cy=22,cw=10,ch=8,},
+		{t="ph",n="ph_boss_item",x=87,y=211,w=164,h=406,},
+		{t="ph",n="ph_item_boss",x=10,y=356,w=154,h=51,
+			{t="text",n="txt_name",x=6,y=37,w=139,h=27,txt="",tfs=22,r=255,g=255,b=0,ta=1,},
+			{t="btn",n="img_btn",x=77,y=25,w=154,h=51,pn="res/xui/common/btn_134.png",txt="text",tfs=20,r=255,g=255,b=0,},},}
+}

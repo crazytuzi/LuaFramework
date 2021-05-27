@@ -1,0 +1,75 @@
+return {
+{
+	actions=
+	{
+		{act=1,effect=0,sound=0,delay=100,},
+	},
+	desc=Lang.Skill.s39L1Desc,
+	iconID=9,
+	actRange=
+	{
+		{
+			xStart=-9,
+			xEnd=9,
+			yStart=-9,
+			yEnd=9,
+			rangeType=3,
+			rangeCenter=1,
+			acts=
+			{
+				{
+					conds=
+					{
+						{cond=13,value=1},
+					},
+					results=
+					{
+						{ mj = 0, timeParam = 500, type = 20, delay = 0, id = 76, value = 1, vt = 1 },
+						{mj=0,timeParam=1,type=4,delay=300,rate=9000,id=1},
+					},
+					specialEffects=
+					{
+						{ type = 1, mj = 0, id = 16, keepTime = 500, delay = 200, always = false },
+					},
+				},
+			},
+		},
+	    {
+			xStart=0,
+			xEnd=0,
+			yStart=-0,
+			yEnd=0,
+			rangeType=0,
+			rangeCenter=0,
+			acts=
+			{
+				{
+					conds=
+					{
+						{cond=13,value=1},
+						{cond=22,value=76},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=21,delay=0,id=76, vt =1,value = 1,},
+						{mj=0,timeParam=1,type=4,delay=400,rate=10000,value=0},
+					},
+					specialEffects=
+					{
+						{type=4,mj=0,id=18,keepTime=400,delay=100,always=false},
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	},
+	spellConds=
+	{
+		{cond=13,value=6,consume=true},
+	},
+	singTime=0,
+	cooldownTime=10000,
+},
+}

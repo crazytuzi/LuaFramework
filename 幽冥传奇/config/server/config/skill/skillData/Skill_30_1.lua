@@ -1,0 +1,47 @@
+return {
+{
+	actions=
+	{
+		{act=0,effect=0,delay=0,},
+	},
+	desc=Lang.Skill.s6L1Desc,
+	iconID=6,
+	actRange=
+	{
+		{
+			xStart=-100,
+			xEnd=100,
+			yStart=-100,
+			yEnd=100,
+		rangeType=0,
+		rangeCenter=0,
+		acts=
+			{
+				{
+					conds=
+					{
+						{cond = 13,value =1},
+					},
+					results=
+					{
+						{mj=0,timeParam=1,type=3,delay=300, rate=10000,value=0},
+					},
+					specialEffects=
+					{
+						{type=3,mj=0,id=46,keepTime=500,delay=300,always=false},
+					},
+				},
+			},
+		},
+	},
+	trainConds=
+	{
+	},
+	spellConds=
+	{
+		{cond=13,value=6,consume=false},
+	},
+	singTime=0,
+	cooldownTime=500,
+},
+}

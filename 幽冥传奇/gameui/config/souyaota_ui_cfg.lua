@@ -1,0 +1,38 @@
+-- created by uiedit 
+
+ return {
+-- index 1
+	{t="layout",n="layout_souyaota",x=105,y=35,w=842,h=518,
+		{t="img9",n="autoname_41",x=418,y=235,w=795,h=428,p="res/xui/common/img9_141.png",cx=20,cy=19,cw=21,ch=17,},
+		{t="img9",n="customImage",x=418,y=235,w=808,h=443,p="res/xui/common/img9_149.png",cx=18,cy=23,cw=20,ch=12,},
+		{t="img",n="customImage",x=7,y=235,w=16,h=435,p="res/xui/common/bg_162.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=627,y=485,w=419,h=66,p="res/xui/common/bg_160.png",sx=-1.0,sy=1.0,},
+		{t="img",n="customImage",x=828,y=234,w=16,h=435,p="res/xui/common/bg_162.png",sx=-1.0,sy=1.0,},
+		{t="img",n="customImage",x=209,y=485,w=419,h=66,p="res/xui/common/bg_160.png",sx=1.0,sy=1.0,},
+		{t="btn",n="btn_close_window",x=806,y=475,w=72,h=85,pn="res/xui/common/btn_100.png",},
+		{t="img",n="customImage",x=209,y=9,w=419,h=18,p="res/xui/common/bg_161.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=627,y=9,w=419,h=18,p="res/xui/common/bg_161.png",sx=-1.0,sy=1.0,},
+		{t="img",n="customImage",x=418,y=236,w=774,h=408,p="res/xui/painting/boss_bg_4.jpg",sx=1.0,sy=1.0,},
+		{t="layout",n="layout_list_item",x=38,y=39,w=227,h=392,
+			{t="img",n="customImage",x=113,y=174,w=207,h=337,p="res/xui/painting/boss_bg_5.jpg",sx=1.0,sy=1.0,},
+			{t="img",n="img_bg",x=113,y=220,w=164,h=154,p="res/xui/boss/bg_1.png",sx=1.0,sy=1.0,},
+			{t="img9",n="customImage",x=114,y=359,w=216,h=43,p="res/xui/limit_activity/bg_2.png",cx=103,cy=14,cw=19,ch=11,},
+			{t="img9",n="customImage",x=113,y=196,w=227,h=392,p="res/xui/common/img9_149.png",cx=18,cy=23,cw=20,ch=12,},
+			{t="text",n="txt_layer_name",x=42,y=374,w=150,h=27,txt="",tfs=22,r=255,g=255,b=0,ta=1,},},
+		{t="img",n="customImage",x=418,y=486,w=100,h=36,p="res/xui/common/fuben_txt_5.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=688,y=413,w=158,h=26,p="res/xui/common/bg_155.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=395,y=413,w=158,h=26,p="res/xui/common/bg_155.png",sx=-1.0,sy=1.0,},
+		{t="text",n="autoname_24464",x=475,y=427,w=130,h=33,txt="极品掉落",tfs=26,r=175,g=175,b=175,ta=1,},
+		{t="ph",n="ph_cell",x=286,y=303,w=80,h=80,sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=688,y=254,w=158,h=26,p="res/xui/common/bg_155.png",sx=1.0,sy=1.0,},
+		{t="img",n="customImage",x=395,y=254,w=158,h=26,p="res/xui/common/bg_155.png",sx=-1.0,sy=1.0,},
+		{t="text",n="autoname_24464",x=475,y=268,w=130,h=33,txt="副本消息",tfs=26,r=175,g=175,b=175,ta=1,},
+		{t="text",n="autoname_16827",x=277,y=216,w=145,h=27,txt="进入等级：",tfs=22,r=230,g=153,b=0,ta=1,},
+		{t="text",n="autoname_16827",x=276,y=155,w=145,h=27,txt="进入消耗：",tfs=22,r=230,g=153,b=0,ta=1,},
+		{t="text",n="txt_consume_level",x=411,y=216,w=120,h=27,txt="text",tfs=22,r=255,g=255,b=255,ta=0,},
+		{t="rich",n="txt_consume",x=410,y=157,w=200,h=27,txt="text",tfs=22,r=255,g=255,b=255,ta=0,},
+		{t="text",n="autoname_16827",x=533,y=216,w=145,h=27,txt="刷新时间：",tfs=22,r=230,g=153,b=0,ta=1,},
+		{t="text",n="txt_time",x=663,y=216,w=150,h=27,txt="text",tfs=22,r=255,g=255,b=255,ta=0,},
+		{t="btn",n="btn_enter_carbon",x=492,y=74,w=122,h=51,pn="res/xui/common/btn_103.png",txt="进入副本",tfs=20,r=255,g=255,b=255,},
+		{t="btn",n="btn_tip",x=782,y=58,w=60,h=60,pn="res/xui/common/btn_ques.png",},}
+}

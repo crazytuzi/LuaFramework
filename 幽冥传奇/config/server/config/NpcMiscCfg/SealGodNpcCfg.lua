@@ -1,0 +1,102 @@
+
+SealGodNpcCfg =
+{
+	conditionDesc = "进入条件: {color;ff00ff00;封神达到%d级以上}\n进入消耗: {color;ffff0000;无}",
+	Desc = "{flag;0}地图层数: {color;ff00ff00;13层}\n{flag;0}BOSS数量: {color;ff00ff00;一层4只、二层5只、三层7只}\n{flag;0}刷新时间: {color;ff00ff00;15-270分钟}\n{flag;0}怪物掉落: {color;ffff0000;转生装备、各种材料}",
+	okBtn = "{btn;0;进入地图;%s;}",
+	nextBtn = "{btn;0;进入下一层;%s;}",
+	layer =
+	{
+		{
+		 npcId = 206,
+		 needLv = 1,
+		 sceneId = 224,
+		 enter_X = 137,
+		 enter_Y = 42,
+		},
+		{
+		 npcId = 207,
+		 needLv = 2,
+		 sceneId = 225,
+		 enter_X = 119,
+		 enter_Y = 26,
+		},
+		{
+		 npcId = 208,
+		 needLv = 3,
+		 sceneId = 226,
+		 enter_X = 24,
+		 enter_Y = 25,
+		},
+		{
+		 npcId = 209,
+		 needLv = 4,
+		 sceneId = 227,
+		 enter_X = 10,
+		 enter_Y = 61,
+		},
+		{
+		 npcId = 210,
+		 needLv = 5,
+		 sceneId = 228,
+		 enter_X = 137,
+		 enter_Y = 42,
+		},
+		{
+		 npcId = 211,
+		 needLv = 6,
+		 sceneId = 229,
+		 enter_X = 119,
+		 enter_Y = 26,
+		},
+		{
+		 npcId = 212,
+		 needLv = 7,
+		 sceneId = 230,
+		 enter_X = 24,
+		 enter_Y = 25,
+		},
+		{
+		 npcId = 213,
+		 needLv = 8,
+		 sceneId = 231,
+		 enter_X = 10,
+		 enter_Y = 61,
+		},
+		{
+		 npcId = 214,
+		 needLv = 9,
+		 sceneId = 232,
+		 enter_X = 137,
+		 enter_Y = 42,
+		},
+		{
+		 npcId = 215,
+		 needLv = 10,
+		 sceneId = 233,
+		 enter_X = 119,
+		 enter_Y = 26,
+		},
+		{
+		 npcId = 216,
+		 needLv = 11,
+		 sceneId = 234,
+		 enter_X = 24,
+		 enter_Y = 25,
+		},
+		{
+		 npcId = 217,
+		 needLv = 12,
+		 sceneId = 235,
+		 enter_X = 10,
+		 enter_Y = 61,
+		},
+		{
+		 npcId = 218,
+		 needLv = 12,
+		 sceneId = 236,
+		 enter_X = 61,
+		 enter_Y = 19,
+		},
+	},
+}

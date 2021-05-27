@@ -1,0 +1,37 @@
+return {
+	id=498,
+	name=Lang.Item.n498,
+	desc=Lang.Item.i498,
+	--经验丹
+	--{color;FF00c0ff;使用后人物获得}{color;FF00ff00; 10,000,000 }{color;FF00c0ff;经验}\n{color;FF00c0ff;可用于提升人物等级}\n{color;FF00c0ff;可通过等级兑换转生、轮回修为}\n{color;FF00c0ff;【活动奖励】}\n
+	color=0x00ff00,
+	type=102,
+	icon=606,
+	shape=0,
+	dura=0,
+	useDurDrop=0,
+	dup=50000,
+	dealType=0,
+	dealPrice=10,
+	time=0,
+	suitId=0,
+	colGroup=0,
+	cdTime=0,
+	dropBroadcast=0,
+	sellBuyType=5,
+	contri=0,
+	showQuality=1,
+	showQualityBg=1,
+	staitcAttrs={
+	},
+	seal={},
+	conds={
+		{cond=1,value=1},
+	},
+	flags={
+		recordLog=true,
+		showLootTips=true,
+		canMoveAttr=true,
+		denyReclaim=true,
+	},
+}

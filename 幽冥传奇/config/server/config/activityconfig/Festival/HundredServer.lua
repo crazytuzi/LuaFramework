@@ -1,0 +1,4 @@
+
+HundredServer = {
+	BigGiftBagMinLv = 40,
+}

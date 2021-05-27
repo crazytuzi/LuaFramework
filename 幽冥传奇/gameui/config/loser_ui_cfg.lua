@@ -1,0 +1,25 @@
+return {
+	-- index:1
+	{t="layout",n="layout_bg_2",x=-1,y=-0.1,w=1286,h=552,
+		{t="img",n="",x=630,y=291,w=1286,h=552,p="res/xui/painting/loser_bg.png",sx=1,sy=1,},
+		{t="btn",n="btn_close_window",x=930,y=512.6,w=78,h=68,pn="res/xui/common/btn_close.png",},
+	},
+	-- index:2
+	{t="layout",n="layout_zhanli_list",x=200.5,y=64.85,w=665,h=391.05,
+		{t="ph",n="ph_zhanli_view_list",x=333.3,y=195,w=665,h=391.05,},
+		{t="ph",n="ph_zhanli_list",x=1.45,y=255.95,w=661.4,h=131,
+			{t="img9",n="",x=331.4,y=64.65,w=661.4,h=131,p="res/xui/painting/redenvelopes_render_bg.png",sx=1.05,sy=1.02,cx=158,cy=32.01,cw=316,ch=64,},
+			{t="btn",n="btn_zhanli_lingqu",x=580.25,y=50.45,w=149,h=58,pn="res/xui/common/btn_103.png",txt="领 取",r=255,g=255,b=255,tfs=23,},
+			{t="img",n="img_zhanli_reward_state",x=580.25,y=50.45,w=78,h=64,p="res/xui/common/stamp_1.png",sx=1,sy=1,},
+			{t="ph",n="ph_zhanli_award_1",x=58.3,y=52.65,w=80,h=80,},
+			{t="ph",n="ph_zhanli_award_2",x=140.3,y=52.65,w=80,h=80,},
+			{t="ph",n="ph_zhanli_award_3",x=222.3,y=52.65,w=80,h=80,},
+			{t="ph",n="ph_zhanli_award_4",x=303.3,y=52.65,w=80,h=80,},
+			{t="ph",n="ph_zhanli_award_5",x=384.3,y=52.65,w=80,h=80,},
+			{t="img",n="",x=154.35,y=107.65,w=247,h=34,p="res/xui/loser/loser_word.png",sx=1,sy=1,},
+			{t="ph",n="ph_zhanli_num",x=130.35,y=95.65,w=62.7,h=28,},
+			{t="ph",n="ph_zhanli_award_6",x=465.3,y=52.65,w=80,h=80,},
+			{t="rich",n="rich_zhanli_2",x=441,y=117.65,w=208.95,h=30.85,tfs=24,ta=1,r=255,g=0,b=0,txt="1000",},
+		},
+	},
+}

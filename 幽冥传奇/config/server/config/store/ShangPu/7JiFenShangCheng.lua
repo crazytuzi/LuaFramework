@@ -1,0 +1,25 @@
+return {
+{
+	name=Lang.Store.c00007,
+	goodsKind = 7,
+items={
+{id=70001,item=1633,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 1, singleBuyLimit=0,dayLimit=3,price={{spid='*',bind=true,type=9,price=10000,oldPrice=10000,},},},
+{id=70002,item=1635,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 1, singleBuyLimit=0,dayLimit=1,price={{spid='*',bind=true,type=9,price=60000,oldPrice=60000,},},},
+{id=70003,item=1667,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 1, singleBuyLimit=0,dayLimit=5,price={{spid='*',bind=true,type=9,price=10000,oldPrice=10000,},},},
+{id=70004,item=444,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 5, singleBuyLimit=0,dayLimit=50,price={{spid='*',bind=true,type=9,price=2500,oldPrice=2500,},},},
+{id=70005,item=1661,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 1, singleBuyLimit=0,dayLimit=10,price={{spid='*',bind=true,type=9,price=10000,oldPrice=10000,},},},
+{id=70006,item=1479,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 2, singleBuyLimit=0,dayLimit=50,price={{spid='*',bind=true,type=9,price=20000,oldPrice=20000,},},},
+{id=70007,item=699,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 2, singleBuyLimit=0,dayLimit=5,price={{spid='*',bind=true,type=9,price=20000,oldPrice=20000,},},},
+{id=70008,item=700,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 5, singleBuyLimit=0,dayLimit=10,price={{spid='*',bind=true,type=9,price=10000,oldPrice=10000,},},},
+{id=70009,item=1481,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 10, singleBuyLimit=0,dayLimit=10,price={{spid='*',bind=true,type=9,price=25000,oldPrice=25000,},},},
+{id=70010,item=1482,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 10, singleBuyLimit=0,dayLimit=10,price={{spid='*',bind=true,type=9,price=50000,oldPrice=50000,},},},
+{id=70011,item=2262,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 5, singleBuyLimit=0,dayLimit=50,price={{spid='*',bind=true,type=9,price=12500,oldPrice=12500,},},},
+{id=70012,item=2264,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 1, singleBuyLimit=0,dayLimit=10,price={{spid='*',bind=true,type=9,price=625000,oldPrice=625000,},},},
+{id=70013,item=2844,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 5, singleBuyLimit=0,dayLimit=50,price={{spid='*',bind=true,type=9,price=50000,oldPrice=50000,},},},
+{id=70014,item=2846,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 1, singleBuyLimit=0,dayLimit=10,price={{spid='*',bind=true,type=9,price=1888888,oldPrice=1888888,},},},
+{id=70015,item=22,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 20, singleBuyLimit=0,dayLimit=10,price={{spid='*',bind=true,type=9,price=30000,oldPrice=30000,},},},
+{id=70016,item=1483,quality=0,opensvrday = 0,strong=0, canBuyInCross = 0, buyOnceCount = 50, singleBuyLimit=0,dayLimit=3,price={{spid='*',bind=true,type=9,price=988888,oldPrice=988888,},},},
+{id=70017,item=2923,quality=0,opensvrday = 9,strong=0, canBuyInCross = 0, buyOnceCount = 1, singleBuyLimit=0,dayLimit=10,price={{spid='*',bind=true,type=9,price=500000,oldPrice=500000,},},},
+},
+},
+}
