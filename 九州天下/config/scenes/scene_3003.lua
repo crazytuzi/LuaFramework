@@ -1,0 +1,30 @@
+return {
+	id = 3003,
+	name = "矿洞",
+	scene_type = 58,
+	bundle_name = "scenes/map/gz_kd01",
+	asset_name = "GZ_Kd01",
+	width = 610,
+	height = 181,
+	origin_x = 50.5,
+	origin_y = 201.5,
+	levellimit = 0,
+    is_forbid_pk = "1",
+    scenex = 282,
+    sceney = 83,
+	npcs = {
+	},
+	monsters = {
+	},
+	doors = {
+	},
+    gathers = {
+	},
+    jumppoints = {
+    },
+    fences = {
+	},
+    effects = {
+	},
+    mask = "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",
+}

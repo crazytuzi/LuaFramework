@@ -1,0 +1,22 @@
+return {
+    weapon={
+        {
+            item_id=12501,
+            skill_id=164,
+            attack=1000,
+            fangyu=1000,
+            hp=1000,
+            mingzhong=1000,
+            shanbi=1000
+        },
+        {
+            item_id=12502,
+            skill_id=165,
+            attack=1000,
+            fangyu=1000,
+            hp=1000,
+            mingzhong=1000,
+            shanbi=1000
+        }
+    }
+}

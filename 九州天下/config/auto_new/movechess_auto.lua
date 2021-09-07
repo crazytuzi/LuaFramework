@@ -1,0 +1,25 @@
+return {
+	["other"]={
+		{consume_gold_count=30,free_times_per_day=1,reset_time_per_day=2,reset_consume_gold=30,item2={item_id=26140,num=4,is_bind=1,},item5={item_id=26140,num=2,is_bind=1,},item4={item_id=26140,num=2,is_bind=1,},item3={item_id=26140,num=4,is_bind=1,},item1={item_id=26957,num=2,is_bind=1,},},},
+	["special_reward_grid_default_table"]={special_reward_grid=8,},
+	["shake_rate"]={
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},},
+	["reward_default_table"]={
+		reward_item={item_id=26100,num=1,is_bind=1,},},
+	["special_reward_grid"]={
+		{special_reward_grid=4,},
+		{},
+		{special_reward_grid=12,},
+		{special_reward_grid=18,},},
+	["shake_rate_default_table"]={},
+	["reward"]={
+		{},
+		{reward_item={item_id=28501,num=1,is_bind=1,},},
+		{reward_item={item_id=26957,num=2,is_bind=1,},},
+		{reward_item={item_id=26140,num=2,is_bind=1,},},},
+}

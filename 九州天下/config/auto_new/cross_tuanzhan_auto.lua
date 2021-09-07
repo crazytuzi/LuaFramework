@@ -1,0 +1,21 @@
+return {
+	["other"]={
+		{scene_id=613,is_open=1,},},
+	["activity_open_time"]={
+		{},},
+	["pilla_info"]={
+		{x_pos=47,pilla_id=30900,y_pos=164,},
+		{x_pos=55,pilla_id=30901,y_pos=82,},
+		{x_pos=118,pilla_id=30902,y_pos=47,},
+		{x_pos=185,pilla_id=30903,},
+		{pilla_id=30904,y_pos=167,},
+		{x_pos=112,y_pos=107,},},
+	["create_pos"]={
+		{},
+		{},
+		{},
+		{},
+		{},},
+	["pilla_info_default_table"]={x_pos=179,pilla_id=30905,y_pos=85,},
+	["create_pos_default_table"]={},
+}
