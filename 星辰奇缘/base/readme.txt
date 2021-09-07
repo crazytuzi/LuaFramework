@@ -1,0 +1,2 @@
+此目录只能读SetupFiles.lua文件，其它文件不扫描
+SetupFiles.lua是保证导入文件的顺序,只包括base目录中的文件

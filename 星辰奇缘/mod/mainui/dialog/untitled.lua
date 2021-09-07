@@ -1,0 +1,17 @@
+            -- local myStatus = TeacherManager.Instance.model.myTeacherInfo.status
+            -- if myStatus == TeacherEnum.Type.None then
+            --     -- x闲人一个
+            --     local extra = {}
+            --     extra.base = BaseUtils.copytab(DataUnit.data_unit[self.currentNpcData.baseid])
+            --     local btn = {button_id = 999, button_args = {}, button_desc = "返回", button_show = ""}
+            --     extra.base.buttons = {btn}
+            --     extra.base.plot_talk = string.format(TI18N("您尚未加入师门，请先拜师或者收徒"))
+            --     self:Open(self.currentNpcData, extra, true)
+            --     return
+            -- else
+            --     local memberCount = TeamManager.Instance:MemberCount()
+            --     local shipCount = TeamManager.Instance:TeacherShipCount()
+            --     if myStatus == TeacherEnum.Type.Teacher then
+            --     elseif myStatus == TeacherEnum.Type.Student then
+            --     end
+            -- end

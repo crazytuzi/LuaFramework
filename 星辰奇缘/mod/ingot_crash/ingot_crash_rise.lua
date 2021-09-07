@@ -1,0 +1,2 @@
+IngotCrashRise = IngotCrashRise or BaseClass()
+
