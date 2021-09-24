@@ -1,0 +1,10 @@
+_G.Cfg.active = { [1001] = { active_id=1001,gongneng=31310,active_name=[[兕大王]],date={},week={},time={{11,25,00,3,5},{11,29,00,3,1},{11,30,00,1,0},{12,00,00,0,0}},role_lv=30,in_host=3001},
+[1002] = { active_id=1002,gongneng=31320,active_name=[[熊猫大王]],date={},week={},time={{20,55,00,3,5},{20,59,00,3,1},{21,00,00,1,0},{23,59,59,0,0}},role_lv=45,in_host=3004},
+[2001] = { active_id=2001,gongneng=30130,active_name=[[保卫圣兽堂]],date={},week={1},time={{19,55,0,2,5},{20,00,0,1,0},{20,30,0,0,0}},role_lv=20,in_host=1},
+[2002] = { active_id=2002,gongneng=30140,active_name=[[洞府大战]],date={},week={4},time={{19,55,0,2,5},{20,00,0,1,0},{20,45,0,0,0}},role_lv=20,in_host=3009},
+[2003] = { active_id=2003,gongneng=30150,active_name=[[占山为王]],date={},week={},time={{10,00,00,1,0},{22,00,00,0,0}},role_lv=20,in_host=3009},
+[4003] = { active_id=4003,gongneng=30830,active_name=[[独尊三界-初赛]],date={},week={6},time={{19,50,00,2,1},{20,00,00,1,0},{20,30,00,0,0}},role_lv=54,in_host=3009},
+[4004] = { active_id=4004,gongneng=30830,active_name=[[独尊三界-决赛]],date={},week={7},time={{19,50,00,2,1},{20,00,00,1,0},{20,30,00,0,0}},role_lv=54,in_host=6002},
+[5001] = { active_id=5001,gongneng=40500,active_name=[[限时抢购]],date={},week={},time={{18,00,00,1,0},{20,00,00,0,0}},role_lv=30,in_host=5001},
+[5002] = { active_id=5002,gongneng=40600,active_name=[[拍卖活动]],date={},week={},time={{18,30,00,1,0},{20,00,00,0,0}},role_lv=30,in_host=5001},
+[5003] = { active_id=5003,gongneng=41100,active_name=[[御前科举]],date={},week={7},time={{00,00,01,1,0},{22,30,00,0,0}},role_lv=30,in_host=6002}}

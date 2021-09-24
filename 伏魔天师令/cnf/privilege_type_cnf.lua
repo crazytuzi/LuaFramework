@@ -1,0 +1,12 @@
+_G.Cfg.privilege_type = { [2] = { type=2,
+	day=15,
+	b_rmb=388,
+	g_gold=5833320,
+	g_rmb=1020,
+	name=[[平民基本]]},
+[3] = { type=3,
+	day=15,
+	b_rmb=8888,
+	g_gold=13333320,
+	g_rmb=13320,
+	name=[[土豪基金]]}}
