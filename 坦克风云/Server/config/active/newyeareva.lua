@@ -1,0 +1,184 @@
+local newyeareva ={ -- 2017.2.1 今年除夕
+    multiSelectType=true,
+    [1]={
+        type=1,
+        sortId=317,
+        version=1,
+        paotou={1,3,2,4,6,5},--炮头死亡的顺序
+        revivetime=43200,--boss复活时间(s)
+        level=1,--初始化boss等级
+        ac=2,--每次攻击的免费次数
+        accost={28,38,48,58,68},--购买攻击的金币花费
+        cost={38,342,88},--普通鞭炮 十连鞭炮 特殊鞭炮
+        cost3vipLimit={2,3,4,5,6,7,8,9,10,11,12},--特殊鞭炮次数
+        rank=20,--上榜的人数
+        rankReward1 ={ --单次排行榜
+            {range={1,1},reward={p={{p19=50,index=1},{p818=10,index=2},{p448=5,index=3},{p601=50,index=4}}},serverReward={props_p19=50,props_p818=10,props_p448=5,props_p601=50}},
+            {range={2,2},reward={p={{p19=35,index=1},{p818=8,index=2},{p448=4,index=3},{p601=40,index=4}}},serverReward={props_p19=35,props_p818=8,props_p448=4,props_p601=40}},
+            {range={3,3},reward={p={{p19=30,index=1},{p818=6,index=2},{p448=3,index=3},{p601=30,index=4}}},serverReward={props_p19=30,props_p818=6,props_p448=3,props_p601=30}},
+            {range={4,5},reward={p={{p19=20,index=1},{p818=5,index=2},{p448=2,index=3},{p601=20,index=4}}},serverReward={props_p19=20,props_p818=5,props_p448=2,props_p601=20}},
+            {range={6,10},reward={p={{p19=10,index=1},{p818=4,index=2},{p448=1,index=3},{p601=10,index=4}}},serverReward={props_p19=10,props_p818=4,props_p448=1,props_p601=10}},
+            {range={11,20},reward={p={{p19=5,index=1},{p818=3,index=2},{p448=1,index=3},{p601=5,index=4}}},serverReward={props_p19=5,props_p818=3,props_p448=1,props_p601=5}},
+        },
+        rankReward2 ={ --总量排行榜
+            {range={1,1},reward={o={{a10074=100,index=3}},p={{p230=2,index=1},{p4=4,index=2},{p448=12,index=4}}},serverReward={props_p230=2,props_p4=4,troops_a10074=100,props_p448=12}},
+            {range={2,2},reward={o={{a10074=80,index=4}},p={{p588=1,index=1},{p587=1,index=2},{p4=3,index=3},{p448=10,index=5}}},serverReward={props_p588=1,props_p587=1,props_p4=3,troops_a10074=80,props_p448=10}},
+            {range={3,3},reward={o={{a10074=50,index=4}},p={{p587=1,index=1},{p586=1,index=2},{p4=3,index=3},{p448=8,index=5}}},serverReward={props_p587=1,props_p586=1,props_p4=3,troops_a10074=50,props_p448=8}},
+            {range={4,5},reward={o={{a10074=40,index=3}},p={{p586=1,index=1},{p4=2,index=2},{p448=5,index=4}}},serverReward={props_p586=1,props_p4=2,troops_a10074=40,props_p448=5}},
+            {range={6,10},reward={o={{a10074=20,index=3}},p={{p585=1,index=1},{p4=1,index=2},{p448=3,index=4}}},serverReward={props_p585=1,props_p4=1,troops_a10074=20,props_p448=3}},
+            {range={11,20},reward={o={{a10074=20,index=3}},p={{p584=1,index=1},{p4=1,index=2},{p448=2,index=4}}},serverReward={props_p584=1,props_p4=1,troops_a10074=20,props_p448=2}},
+        },
+        attackHpreward={
+            --炮头击毁奖励
+            {sr={props_p813=1,props_p447=1,accessory_p1=2,accessory_p2=5,accessory_p3=10,props_p819=5},r={e={{p1=2,index=3},{p2=5,index=4},{p3=10,index=5}},p={{p813=1,index=1},{p447=1,index=2},{p819=5,index=6}}}},
+            --boss击毁奖励
+            {sr={props_p813=1,props_p447=3,accessory_p1=5,accessory_p2=5,accessory_p3=15,props_p818=5},r={e={{p1=5,index=3},{p2=5,index=4},{p3=15,index=5}},p={{p813=1,index=1},{p447=3,index=2},{p818=5,index=6}}}},
+        },
+        killreward={
+            --全服击毁奖励(限30级)
+            p={{p447=5,index=1},{p3=2,index=2}},r={{r2=500,index=3},{r6=20,index=4}}
+        },
+        allReward={
+            pool1={
+                {o={{a10073=1,index=1},{a10093=1,index=2},{a10123=1,index=3}},p={{p3=1,index=4},{p446=2,index=5}},r={{r4=1,index=6},{r5=1,index=7},{r6=1,index=8},{r2=10,index=9}}},
+            },
+            pool2={
+                {o={{a10073=1,index=1},{a10093=1,index=2},{a10123=1,index=3}},p={{p3=1,index=4},{p446=2,index=5}},r={{r4=1,index=6},{r5=1,index=7},{r6=1,index=8},{r2=10,index=9}}},
+            },
+            pool3={
+                {e={{p1=1,index=2},{p2=1,index=3},{p3=1,index=4}},p={{p586=1,index=1}}},
+            },
+        },
+        serverreward={
+            pool1={
+                {100},
+                {3,3,3,8,15,21,16,7,21},
+                {{"troops_a10073",1},{"troops_a10093",1},{"troops_a10123",1},{"props_p3",1},{"props_p446",2},{"alien_r4",1},{"alien_r5",1},{"alien_r6",1},{"alien_r2",10}},
+            },
+            pool2={
+                {100},
+                {3,3,3,8,15,21,16,7,21},
+                {{"troops_a10073",1},{"troops_a10093",1},{"troops_a10123",1},{"props_p3",1},{"props_p446",2},{"alien_r4",1},{"alien_r5",1},{"alien_r6",1},{"alien_r2",10}},
+            },
+            pool3={
+                {100},
+                {1,19,40,120},
+                {{"props_p586",1},{"accessory_p1",1},{"accessory_p2",1},{"accessory_p3",1}},
+            },
+            costvalue={
+                {1.2,1},
+                {12,10},
+                {3,2.5},
+            },
+            costfix={
+                {4,0.5},
+                {4,5},
+                {5,1},
+            },
+            mailreward={
+                --全服击毁奖励(限30级)
+                h={props_p447=5,props_p3=2,alien_r2=500,alien_r6=20},
+                q={p={{p447=5,index=1},{p3=2,index=2}},r={{r2=500,index=3},{r6=20,index=4}}},
+            },
+        },
+    },
+	[2]={
+        type=1,
+        sortId=317,
+        version=2,
+        paotou={1,3,2,4,6,5},--炮头死亡的顺序
+        revivetime=43200,--boss复活时间(s)
+        level=1,--初始化boss等级
+        ac=2,--每次攻击的免费次数
+        accost={28,38,48,58,68},--购买攻击的金币花费
+        cost={38,342,88},--普通鞭炮 十连鞭炮 特殊鞭炮
+        cost3vipLimit={2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,},--特殊鞭炮次数
+        rank=20,--上榜的人数
+        rankReward1 ={ --单次排行榜
+            {range={1,1},reward={p={{p19=50,index=1},{p818=10,index=2},{p448=5,index=3},{p601=50,index=4}}},serverReward={props_p19=50,props_p818=10,props_p448=5,props_p601=50}},
+            {range={2,2},reward={p={{p19=35,index=1},{p818=8,index=2},{p448=4,index=3},{p601=40,index=4}}},serverReward={props_p19=35,props_p818=8,props_p448=4,props_p601=40}},
+            {range={3,3},reward={p={{p19=30,index=1},{p818=6,index=2},{p448=3,index=3},{p601=30,index=4}}},serverReward={props_p19=30,props_p818=6,props_p448=3,props_p601=30}},
+            {range={4,5},reward={p={{p19=20,index=1},{p818=5,index=2},{p448=2,index=3},{p601=20,index=4}}},serverReward={props_p19=20,props_p818=5,props_p448=2,props_p601=20}},
+            {range={6,10},reward={p={{p19=10,index=1},{p818=4,index=2},{p448=1,index=3},{p601=10,index=4}}},serverReward={props_p19=10,props_p818=4,props_p448=1,props_p601=10}},
+            {range={11,20},reward={p={{p19=5,index=1},{p818=3,index=2},{p448=1,index=3},{p601=5,index=4}}},serverReward={props_p19=5,props_p818=3,props_p448=1,props_p601=5}},
+        },
+        rankReward2 ={ --总量排行榜
+            {range={1,1},reward={o={{a10074=100,index=3}},p={{p230=2,index=1},{p4=4,index=2},{p448=12,index=4}}},serverReward={props_p230=2,props_p4=4,troops_a10074=100,props_p448=12}},
+            {range={2,2},reward={o={{a10074=80,index=4}},p={{p588=1,index=1},{p587=1,index=2},{p4=3,index=3},{p448=10,index=5}}},serverReward={props_p588=1,props_p587=1,props_p4=3,troops_a10074=80,props_p448=10}},
+            {range={3,3},reward={o={{a10074=50,index=4}},p={{p587=1,index=1},{p586=1,index=2},{p4=3,index=3},{p448=8,index=5}}},serverReward={props_p587=1,props_p586=1,props_p4=3,troops_a10074=50,props_p448=8}},
+            {range={4,5},reward={o={{a10074=40,index=3}},p={{p586=1,index=1},{p4=2,index=2},{p448=5,index=4}}},serverReward={props_p586=1,props_p4=2,troops_a10074=40,props_p448=5}},
+            {range={6,10},reward={o={{a10074=20,index=3}},p={{p585=1,index=1},{p4=1,index=2},{p448=3,index=4}}},serverReward={props_p585=1,props_p4=1,troops_a10074=20,props_p448=3}},
+            {range={11,20},reward={o={{a10074=20,index=3}},p={{p584=1,index=1},{p4=1,index=2},{p448=2,index=4}}},serverReward={props_p584=1,props_p4=1,troops_a10074=20,props_p448=2}},
+        },
+        attackHpreward={
+            --炮头击毁奖励
+            {sr={props_p813=1,props_p447=1,accessory_p1=2,accessory_p2=5,accessory_p3=10,props_p819=5},r={e={{p1=2,index=3},{p2=5,index=4},{p3=10,index=5}},p={{p813=1,index=1},{p447=1,index=2},{p819=5,index=6}}}},
+            --boss击毁奖励
+            {sr={props_p813=1,props_p447=3,accessory_p1=5,accessory_p2=5,accessory_p3=15,props_p818=5},r={e={{p1=5,index=3},{p2=5,index=4},{p3=15,index=5}},p={{p813=1,index=1},{p447=3,index=2},{p818=5,index=6}}}},
+        },
+        killreward={
+            --全服击毁奖励(限30级)
+            p={{p447=5,index=1},{p3=2,index=2}},r={{r2=500,index=3},{r6=20,index=4}}
+        },
+        allReward={
+            pool1={
+                {o={{a10073=1,index=1},{a10093=1,index=2},{a10123=1,index=3}},p={{p3=1,index=4},{p446=2,index=5}},r={{r4=1,index=6},{r5=1,index=7},{r6=1,index=8},{r2=10,index=9}}},
+            },
+            pool2={
+                {o={{a10073=1,index=1},{a10093=1,index=2},{a10123=1,index=3}},p={{p3=1,index=4},{p446=2,index=5}},r={{r4=1,index=6},{r5=1,index=7},{r6=1,index=8},{r2=10,index=9}}},
+            },
+            pool3={
+                {e={{p1=1,index=2},{p2=1,index=3},{p3=1,index=4}},p={{p586=1,index=1}}},
+            },
+        },
+        serverreward={
+            pool1={
+                {100},
+                {3,3,3,8,15,21,16,7,21},
+                {{"troops_a10073",1},{"troops_a10093",1},{"troops_a10123",1},{"props_p3",1},{"props_p446",2},{"alien_r4",1},{"alien_r5",1},{"alien_r6",1},{"alien_r2",10}},
+            },
+            pool2={
+                {100},
+                {3,3,3,8,15,21,16,7,21},
+                {{"troops_a10073",1},{"troops_a10093",1},{"troops_a10123",1},{"props_p3",1},{"props_p446",2},{"alien_r4",1},{"alien_r5",1},{"alien_r6",1},{"alien_r2",10}},
+            },
+            pool3={
+                {100},
+                {1,19,40,120},
+                {{"props_p586",1},{"accessory_p1",1},{"accessory_p2",1},{"accessory_p3",1}},
+            },
+            costvalue={
+                {1.2,1},
+                {12,10},
+                {3,2.5},
+            },
+            costfix={
+                {4,0.5},
+                {4,5},
+                {5,1},
+            },
+            mailreward={
+                --全服击毁奖励(限30级)
+                h={props_p447=5,props_p3=2,alien_r2=500,alien_r6=20},
+                q={p={{p447=5,index=1},{p3=2,index=2}},r={{r2=500,index=3},{r6=20,index=4}}},
+            },
+        },
+    },	
+}
+--生命
+function newyeareva.getEvaHp(level)
+    return math.floor(70000000000*4^(level-1)*6)
+end
+--装甲
+function newyeareva.getEvaArmor(level)
+    return 1
+end
+--闪避
+function newyeareva.getEvaDodge(level)
+    return 0
+end
+--防护
+function newyeareva.getEvaDefence(level)
+    return 500
+end
+return newyeareva 

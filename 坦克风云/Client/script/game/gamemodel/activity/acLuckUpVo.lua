@@ -1,0 +1,2 @@
+acLuckUpVo=activityVo:new()
+

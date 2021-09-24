@@ -1,0 +1,303 @@
+ --超级武器的武器配置
+superWeaponCfg=
+{
+weaponCfg=
+{
+ --[[
+id:武器ID
+att:武器提供属性加成的初始值
+lvGrow:阶位等级提供的属性成长值
+upgradeGrow:强化每点提供的属性加成
+limitGrou:强化属性上限的成长值
+quality:品质(蓝紫橙)
+useprop:强化消耗道具种类
+slot:插槽
+fragment:进阶需要哪几个碎片
+skillID:技能ID
+sid:排序，影响开启
+]]
+w1={id="w1",icon="superWeaponIcon1.png",bigIcon="w1_big.png",name="superWeapon_name_w1",desc="superWeapon_desc_w1",quality=1,att={100,108,102,103,104,},default={0.04,0.04,0.01,0.01,0.01,},lvGrow={[100]=0.04,[108]=0.04,[102]=0.01,[103]=0.01,[104]=0.01,},limitGrow={[100]=10,[108]=10,[102]=10,[103]=10,[104]=10,},upgradeGrow={[100]=0.01,[108]=0.01,[102]=0.002,[103]=0.002,[104]=0.002,},slot={1,2,3},fragment={"f1","f2","f3","f4","f5",},skillID="t",useprop={"p1"},sid=1},
+w2={id="w2",icon="superWeaponIcon2.png",bigIcon="w2_big.png",name="superWeapon_name_w2",desc="superWeapon_desc_w2",quality=1,att={100,108,102,103,105,},default={0.04,0.04,0.01,0.01,0.01,},lvGrow={[100]=0.04,[108]=0.04,[102]=0.01,[103]=0.01,[105]=0.01,},limitGrow={[100]=10,[108]=10,[102]=10,[103]=10,[105]=10,},upgradeGrow={[100]=0.01,[108]=0.01,[102]=0.002,[103]=0.002,[105]=0.002,},slot={1,3,2},fragment={"f6","f7","f8","f9","f10",},skillID="w",useprop={"p1"},sid=2},
+w3={id="w3",icon="superWeaponIcon3.png",bigIcon="w3_big.png",name="superWeapon_name_w3",desc="superWeapon_desc_w3",quality=1,att={100,108,102,103,110,},default={0.04,0.04,0.01,0.01,0.03,},lvGrow={[100]=0.04,[108]=0.04,[102]=0.01,[103]=0.01,[110]=0.03,},limitGrow={[100]=10,[108]=10,[102]=10,[103]=10,[110]=10,},upgradeGrow={[100]=0.01,[108]=0.01,[102]=0.002,[103]=0.002,[110]=0.006,},slot={2,1,3},fragment={"f11","f12","f13","f14","f15",},skillID="z",useprop={"p1"},sid=3},
+w4={id="w4",icon="superWeaponIcon4.png",bigIcon="w4_big.png",name="superWeapon_name_w4",desc="superWeapon_desc_w4",quality=1,att={100,108,102,103,111,},default={0.04,0.04,0.01,0.01,0.03,},lvGrow={[100]=0.04,[108]=0.04,[102]=0.01,[103]=0.01,[111]=0.03,},limitGrow={[100]=10,[108]=10,[102]=10,[103]=10,[111]=10,},upgradeGrow={[100]=0.01,[108]=0.01,[102]=0.002,[103]=0.002,[111]=0.006,},slot={3,2,1},fragment={"f16","f17","f18","f19","f20",},skillID="v",useprop={"p1"},sid=4},
+w5={id="w5",icon="superWeaponIcon5.png",bigIcon="w5_big.png",name="superWeapon_name_w5",desc="superWeapon_desc_w5",quality=2,att={100,108,102,103,110,111,},default={0.06,0.06,0.01,0.01,0.03,0.03,},lvGrow={[100]=0.06,[108]=0.06,[102]=0.01,[103]=0.01,[110]=0.03,[111]=0.03,},limitGrow={[100]=12,[108]=12,[102]=12,[103]=12,[110]=12,[111]=12,},upgradeGrow={[100]=0.01,[108]=0.01,[102]=0.002,[103]=0.002,[110]=0.006,[111]=0.006,},slot={1,2,3},fragment={"f21","f22","f23","f24","f25","f26",},skillID="s",useprop={"p1"},sid=5},
+w6={id="w6",icon="superWeaponIcon6.png",bigIcon="w6_big.png",name="superWeapon_name_w6",desc="superWeapon_desc_w6",quality=2,att={100,108,102,103,105,111,},default={0.06,0.06,0.01,0.01,0.01,0.03,},lvGrow={[100]=0.06,[108]=0.06,[102]=0.01,[103]=0.01,[105]=0.01,[111]=0.03,},limitGrow={[100]=12,[108]=12,[102]=12,[103]=12,[105]=12,[111]=12,},upgradeGrow={[100]=0.01,[108]=0.01,[102]=0.002,[103]=0.002,[105]=0.002,[111]=0.006,},slot={2,3,1},fragment={"f27","f28","f29","f30","f31","f32",},skillID="x",useprop={"p1"},sid=6},
+w7={id="w7",icon="superWeaponIcon7.png",bigIcon="w7_big.png",name="superWeapon_name_w7",desc="superWeapon_desc_w7",quality=2,att={100,108,102,103,104,110,},default={0.06,0.06,0.01,0.01,0.01,0.03,},lvGrow={[100]=0.06,[108]=0.06,[102]=0.01,[103]=0.01,[104]=0.01,[110]=0.03,},limitGrow={[100]=12,[108]=12,[102]=12,[103]=12,[104]=12,[110]=12,},upgradeGrow={[100]=0.01,[108]=0.01,[102]=0.002,[103]=0.002,[104]=0.002,[110]=0.006,},slot={3,1,2},fragment={"f33","f34","f35","f36","f37","f38",},skillID="u",useprop={"p1"},sid=7},
+w8={id="w8",icon="superWeaponIcon8.png",bigIcon="w8_big.png",name="superWeapon_name_w8",desc="superWeapon_desc_w8",quality=2,att={100,108,102,103,104,105,},default={0.06,0.06,0.01,0.01,0.01,0.01,},lvGrow={[100]=0.06,[108]=0.06,[102]=0.01,[103]=0.01,[104]=0.01,[105]=0.01,},limitGrow={[100]=12,[108]=12,[102]=12,[103]=12,[104]=12,[105]=12,},upgradeGrow={[100]=0.01,[108]=0.01,[102]=0.002,[103]=0.002,[104]=0.002,[105]=0.002,},slot={1,3,2},fragment={"f39","f40","f41","f42","f43","f44",},skillID="y",useprop={"p1"},sid=8},
+},
+ --[[
+id:碎片ID
+output:对应哪个武器
+pos：第几个位置
+]]
+fragmentCfg=
+{
+f1={id="f1",pos=1,output="w1",icon="Composition1.png"},
+f2={id="f2",pos=2,output="w1",icon="Composition2.png"},
+f3={id="f3",pos=3,output="w1",icon="Composition3.png"},
+f4={id="f4",pos=4,output="w1",icon="Composition4.png"},
+f5={id="f5",pos=5,output="w1",icon="Composition5.png"},
+f6={id="f6",pos=1,output="w2",icon="Composition1.png"},
+f7={id="f7",pos=2,output="w2",icon="Composition2.png"},
+f8={id="f8",pos=3,output="w2",icon="Composition3.png"},
+f9={id="f9",pos=4,output="w2",icon="Composition4.png"},
+f10={id="f10",pos=5,output="w2",icon="Composition5.png"},
+f11={id="f11",pos=1,output="w3",icon="Composition1.png"},
+f12={id="f12",pos=2,output="w3",icon="Composition2.png"},
+f13={id="f13",pos=3,output="w3",icon="Composition3.png"},
+f14={id="f14",pos=4,output="w3",icon="Composition4.png"},
+f15={id="f15",pos=5,output="w3",icon="Composition5.png"},
+f16={id="f16",pos=1,output="w4",icon="Composition1.png"},
+f17={id="f17",pos=2,output="w4",icon="Composition2.png"},
+f18={id="f18",pos=3,output="w4",icon="Composition3.png"},
+f19={id="f19",pos=4,output="w4",icon="Composition4.png"},
+f20={id="f20",pos=5,output="w4",icon="Composition5.png"},
+f21={id="f21",pos=1,output="w5",icon="Composition1.png"},
+f22={id="f22",pos=2,output="w5",icon="Composition2.png"},
+f23={id="f23",pos=3,output="w5",icon="Composition3.png"},
+f24={id="f24",pos=4,output="w5",icon="Composition4.png"},
+f25={id="f25",pos=5,output="w5",icon="Composition5.png"},
+f26={id="f26",pos=6,output="w5",icon="Composition6.png"},
+f27={id="f27",pos=1,output="w6",icon="Composition1.png"},
+f28={id="f28",pos=2,output="w6",icon="Composition2.png"},
+f29={id="f29",pos=3,output="w6",icon="Composition3.png"},
+f30={id="f30",pos=4,output="w6",icon="Composition4.png"},
+f31={id="f31",pos=5,output="w6",icon="Composition5.png"},
+f32={id="f32",pos=6,output="w6",icon="Composition6.png"},
+f33={id="f33",pos=1,output="w7",icon="Composition1.png"},
+f34={id="f34",pos=2,output="w7",icon="Composition2.png"},
+f35={id="f35",pos=3,output="w7",icon="Composition3.png"},
+f36={id="f36",pos=4,output="w7",icon="Composition4.png"},
+f37={id="f37",pos=5,output="w7",icon="Composition5.png"},
+f38={id="f38",pos=6,output="w7",icon="Composition6.png"},
+f39={id="f39",pos=1,output="w8",icon="Composition1.png"},
+f40={id="f40",pos=2,output="w8",icon="Composition2.png"},
+f41={id="f41",pos=3,output="w8",icon="Composition3.png"},
+f42={id="f42",pos=4,output="w8",icon="Composition4.png"},
+f43={id="f43",pos=5,output="w8",icon="Composition5.png"},
+f44={id="f44",pos=6,output="w8",icon="Composition6.png"},
+},
+
+ --阶位对应实际总完成度
+expCfg={100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900},
+ --最大阶位
+maxLv=20,
+ --每次进阶获得的完成度
+composeExp={100,50,34,25,20,15,13,12,10,9,8,7,6,5,4,4,4,3,2},
+ --每一阶位每次进阶需要碎片数
+composeNum={1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+ --武器升阶后转换超微原件基数
+rawNum=100,
+ --强化消耗元件数量
+growCost={10,20,30,40,50,60,70,80,90,100,120,140,160,180,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4150,4300,4450,4600,4750,4900,5050,5200,5350,5500,5650,5800,5950,6100,6250,6400,6550,6700,6850,7000,7200,7400,7600,7800,8000,8200,8400,8600,8800,9000,9200,9400,9600,9800,10000,10200,10400,10600,10800,11000,11200,11400,11600,11800,12000,12200,12400,12600,12800,13000,13200,13400,13600,13800,14000,14200,14400,14600,14800,15000,15200,15400,15600,15800,16000,16200,16400,16600,16800,17000,17200,17400,17600,17800,18000,18200,18400,18600,18800,19000,19200,19400,19600,19800,20000,20200,20400,20600,20800,21000,21200,21400,21600,21800,22000,22200,22400,22600,22800,23000,23200,23400,23600,23800,24000,24200,24400,24600,24800,25000,25200,25400,25600,25800,26000,26200,26400,26600,26800,27000,27200,27400,27600,27800,28000,28200,28400,28600,28800,29000,29200,29400,29600,29800,30000,30200,30400,30600,30800,31000,31200,31400,31600,31800,32000,32200,32400,32600,32800,33000,33200,33400,33600,33800,34000,34200,34400,34600,34800,35000,35200,35400,35600,35800,36000,36200,36400,36600,36800,37000,37200,37400,37600,37800,38000,38200,38400,38600,38800,39000,39200,39400,39600,39800,},
+
+ --1强化大师 2暴击大师
+master={{[10]=88,[100]=800},{[10]=88,[100]=800}},
+ --强化大师减消耗比例，暴击大师暴击倍率
+masterRand={0.25,3},
+ --基础暴击概率
+critRand=0.12,
+ --基础暴击倍率
+critRate=2,
+ --阶位对应技能等级
+skillLvl={1,1,1,2,2,2,3,3,3,4,4,4,5,5,6,6,6,6,6,7},
+
+ --晶体基础价值（更改）
+crystalRate={10,20,40,85,200,550,1800,8000,45000,350000,2790000,22300000},
+
+ --能量结晶套装效果
+crystalSuitRate={
+[3]={[108]=0.2,[100]=0.2},
+[5]={[108]=0.2,[100]=0.2,[1]=1},
+[7]={[108]=0.2,[100]=0.2,[1]=1,[102]=0.1,[103]=0.1},
+[9]={[108]=0.2,[100]=0.2,[1]=1,[102]=0.1,[103]=0.1,[110]=0.2,[111]=0.2},
+[12]={[108]=0.2,[100]=0.2,[1]=1,[102]=0.1,[103]=0.1,[110]=0.2,[111]=0.2,first=50,antifirst=80},
+},
+ --结晶套装前台
+crystalSuitRateClient={
+[3]={[108]=0.2,[100]=0.2},
+[5]={[1]=1},
+[7]={[102]=0.1,[103]=0.1},
+[9]={[110]=0.2,[111]=0.2},
+[12]={first=50,antifirst=80},
+},
+ --槽位解锁要求通过层数
+unlockCrystal={20,30,40,},
+
+
+crystalCfg={
+c1={id="c1",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=1,att={[100]=0.05,}},
+c2={id="c2",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=2,att={[100]=0.15,}},
+c3={id="c3",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=3,att={[100]=0.25,}},
+c4={id="c4",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=4,att={[100]=0.35,}},
+c5={id="c5",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=5,att={[100]=0.5,}},
+c6={id="c6",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=6,att={[100]=0.7,}},
+c7={id="c7",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=7,att={[100]=0.9,}},
+c8={id="c8",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=8,att={[100]=1.2,}},
+c9={id="c9",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=9,att={[100]=1.5,}},
+c10={id="c10",icon="crystal_1_1.png",name="crystal_name_1",form=1,type=1,lvl=10,att={[100]=1.8,}},
+c11={id="c11",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=1,att={[202]=3,}},
+c12={id="c12",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=2,att={[202]=6,}},
+c13={id="c13",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=3,att={[202]=10,}},
+c14={id="c14",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=4,att={[202]=15,}},
+c15={id="c15",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=5,att={[202]=20,}},
+c16={id="c16",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=6,att={[202]=25,}},
+c17={id="c17",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=7,att={[202]=30,}},
+c18={id="c18",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=8,att={[202]=40,}},
+c19={id="c19",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=9,att={[202]=50,}},
+c20={id="c20",icon="crystal_2_1.png",name="crystal_name_2",form=2,type=1,lvl=10,att={[202]=60,}},
+c21={id="c21",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=1,att={[110]=0.05,}},
+c22={id="c22",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=2,att={[110]=0.1,}},
+c23={id="c23",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=3,att={[110]=0.15,}},
+c24={id="c24",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=4,att={[110]=0.2,}},
+c25={id="c25",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=5,att={[110]=0.25,}},
+c26={id="c26",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=6,att={[110]=0.3,}},
+c27={id="c27",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=7,att={[110]=0.4,}},
+c28={id="c28",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=8,att={[110]=0.5,}},
+c29={id="c29",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=9,att={[110]=0.6,}},
+c30={id="c30",icon="crystal_3_1.png",name="crystal_name_3",form=3,type=1,lvl=10,att={[110]=0.8,}},
+c31={id="c31",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=1,att={[108]=0.05,}},
+c32={id="c32",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=2,att={[108]=0.15,}},
+c33={id="c33",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=3,att={[108]=0.25,}},
+c34={id="c34",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=4,att={[108]=0.35,}},
+c35={id="c35",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=5,att={[108]=0.5,}},
+c36={id="c36",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=6,att={[108]=0.7,}},
+c37={id="c37",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=7,att={[108]=0.9,}},
+c38={id="c38",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=8,att={[108]=1.2,}},
+c39={id="c39",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=9,att={[108]=1.5,}},
+c40={id="c40",icon="crystal_4_3.png",name="crystal_name_4",form=4,type=3,lvl=10,att={[108]=1.8,}},
+c41={id="c41",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=1,att={[201]=3,}},
+c42={id="c42",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=2,att={[201]=6,}},
+c43={id="c43",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=3,att={[201]=10,}},
+c44={id="c44",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=4,att={[201]=15,}},
+c45={id="c45",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=5,att={[201]=20,}},
+c46={id="c46",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=6,att={[201]=25,}},
+c47={id="c47",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=7,att={[201]=30,}},
+c48={id="c48",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=8,att={[201]=40,}},
+c49={id="c49",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=9,att={[201]=50,}},
+c50={id="c50",icon="crystal_5_3.png",name="crystal_name_5",form=5,type=3,lvl=10,att={[201]=60,}},
+c51={id="c51",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=1,att={[111]=0.05,}},
+c52={id="c52",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=2,att={[111]=0.1,}},
+c53={id="c53",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=3,att={[111]=0.15,}},
+c54={id="c54",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=4,att={[111]=0.2,}},
+c55={id="c55",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=5,att={[111]=0.25,}},
+c56={id="c56",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=6,att={[111]=0.3,}},
+c57={id="c57",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=7,att={[111]=0.4,}},
+c58={id="c58",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=8,att={[111]=0.5,}},
+c59={id="c59",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=9,att={[111]=0.6,}},
+c60={id="c60",icon="crystal_6_3.png",name="crystal_name_6",form=6,type=3,lvl=10,att={[111]=0.8,}},
+c61={id="c61",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=1,att={[102]=0.02,}},
+c62={id="c62",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=2,att={[102]=0.04,}},
+c63={id="c63",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=3,att={[102]=0.06,}},
+c64={id="c64",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=4,att={[102]=0.09,}},
+c65={id="c65",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=5,att={[102]=0.12,}},
+c66={id="c66",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=6,att={[102]=0.16,}},
+c67={id="c67",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=7,att={[102]=0.2,}},
+c68={id="c68",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=8,att={[102]=0.25,}},
+c69={id="c69",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=9,att={[102]=0.3,}},
+c70={id="c70",icon="crystal_7_2.png",name="crystal_name_7",form=7,type=2,lvl=10,att={[102]=0.35,}},
+c71={id="c71",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=1,att={[103]=0.02,}},
+c72={id="c72",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=2,att={[103]=0.04,}},
+c73={id="c73",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=3,att={[103]=0.06,}},
+c74={id="c74",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=4,att={[103]=0.09,}},
+c75={id="c75",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=5,att={[103]=0.12,}},
+c76={id="c76",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=6,att={[103]=0.16,}},
+c77={id="c77",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=7,att={[103]=0.2,}},
+c78={id="c78",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=8,att={[103]=0.25,}},
+c79={id="c79",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=9,att={[103]=0.3,}},
+c80={id="c80",icon="crystal_8_2.png",name="crystal_name_8",form=8,type=2,lvl=10,att={[103]=0.35,}},
+c81={id="c81",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=1,att={[104]=0.02,}},
+c82={id="c82",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=2,att={[104]=0.04,}},
+c83={id="c83",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=3,att={[104]=0.06,}},
+c84={id="c84",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=4,att={[104]=0.09,}},
+c85={id="c85",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=5,att={[104]=0.12,}},
+c86={id="c86",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=6,att={[104]=0.16,}},
+c87={id="c87",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=7,att={[104]=0.2,}},
+c88={id="c88",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=8,att={[104]=0.25,}},
+c89={id="c89",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=9,att={[104]=0.3,}},
+c90={id="c90",icon="crystal_9_2.png",name="crystal_name_9",form=9,type=2,lvl=10,att={[104]=0.35,}},
+c91={id="c91",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=1,att={[105]=0.02,}},
+c92={id="c92",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=2,att={[105]=0.04,}},
+c93={id="c93",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=3,att={[105]=0.06,}},
+c94={id="c94",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=4,att={[105]=0.09,}},
+c95={id="c95",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=5,att={[105]=0.12,}},
+c96={id="c96",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=6,att={[105]=0.16,}},
+c97={id="c97",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=7,att={[105]=0.2,}},
+c98={id="c98",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=8,att={[105]=0.25,}},
+c99={id="c99",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=9,att={[105]=0.3,}},
+c100={id="c100",icon="crystal_10_2.png",name="crystal_name_10",form=10,type=2,lvl=10,att={[105]=0.35,}},
+c1001={id="c1001",icon="crystal_1_11.png",name="crystal_name_1",form=1,type=1,lvl=11,att={[100]=2.1,}},
+c1002={id="c1002",icon="crystal_1_12.png",name="crystal_name_1",form=1,type=1,lvl=12,att={[100]=2.4,}},
+c2001={id="c2001",icon="crystal_2_11.png",name="crystal_name_2",form=2,type=1,lvl=11,att={[202]=70,}},
+c2002={id="c2002",icon="crystal_2_12.png",name="crystal_name_2",form=2,type=1,lvl=12,att={[202]=80,}},
+c3001={id="c3001",icon="crystal_3_11.png",name="crystal_name_3",form=3,type=1,lvl=11,att={[110]=1,}},
+c3002={id="c3002",icon="crystal_3_12.png",name="crystal_name_3",form=3,type=1,lvl=12,att={[110]=1.2,}},
+c4001={id="c4001",icon="crystal_4_11.png",name="crystal_name_4",form=4,type=3,lvl=11,att={[108]=2.1,}},
+c4002={id="c4002",icon="crystal_4_12.png",name="crystal_name_4",form=4,type=3,lvl=12,att={[108]=2.4,}},
+c5001={id="c5001",icon="crystal_5_11.png",name="crystal_name_5",form=5,type=3,lvl=11,att={[201]=70,}},
+c5002={id="c5002",icon="crystal_5_12.png",name="crystal_name_5",form=5,type=3,lvl=12,att={[201]=80,}},
+c6001={id="c6001",icon="crystal_6_11.png",name="crystal_name_6",form=6,type=3,lvl=11,att={[111]=1,}},
+c6002={id="c6002",icon="crystal_6_12.png",name="crystal_name_6",form=6,type=3,lvl=12,att={[111]=1.2,}},
+c7001={id="c7001",icon="crystal_7_11.png",name="crystal_name_7",form=7,type=2,lvl=11,att={[102]=0.4,}},
+c7002={id="c7002",icon="crystal_7_12.png",name="crystal_name_7",form=7,type=2,lvl=12,att={[102]=0.45,}},
+c8001={id="c8001",icon="crystal_8_11.png",name="crystal_name_8",form=8,type=2,lvl=11,att={[103]=0.4,}},
+c8002={id="c8002",icon="crystal_8_12.png",name="crystal_name_8",form=8,type=2,lvl=12,att={[103]=0.45,}},
+c9001={id="c9001",icon="crystal_9_11.png",name="crystal_name_9",form=9,type=2,lvl=11,att={[104]=0.4,}},
+c9002={id="c9002",icon="crystal_9_12.png",name="crystal_name_9",form=9,type=2,lvl=12,att={[104]=0.45,}},
+c10001={id="c10001",icon="crystal_10_11.png",name="crystal_name_10",form=10,type=2,lvl=11,att={[105]=0.4,}},
+c10002={id="c10002",icon="crystal_10_12.png",name="crystal_name_10",form=10,type=2,lvl=12,att={[105]=0.45,}},
+},
+
+--新增的成功率宝石，这些字段都和上面列表相同，要合在一起，需要更改att这个字段
+--form：类型
+--type：所属分类 
+--att加成属性  att=0.05  每个宝石能使合成成功率加成5%
+addcrystalRate={c200={id="c200",icon="crystal_11.png",name="crystal_name_11",form=11,type=4,att=0.02,desc="crystal_desc_11"}},
+stillLevel={c201={id="c201",icon="holdlevel.png",name="crystal_name_12",desc="crystal_desc_12"}},
+
+--每级使用成功率宝石的限制数量
+--总共字段里有10个数，对应【合成】1--10级宝石,以合成多少级宝石为准，和放多少级的宝石无关
+--例：合成1级宝石，可使用0个，合成2级宝石，可使用1个，以此类推，合成10级宝石时，可使用9个
+numLimit={0,0,5,7,10,12,15,18,20,20},
+
+
+ --晶体背包上限
+Capacity=100,
+ --晶体最大的等级
+maxCLv=12,
+ --原料
+propCfg={
+p1={name="weapon_smelt_p1",desc="weapon_smelt_desc_p1",icon="superWeaponP1.png",source={1}},
+},
+ --每个属性的极限配置,用于前端展示
+attLimitCfg={[100]=2.4,[108]=2.4,[201]=100,[202]=100,[102]=0.48,[103]=0.48,[104]=0.48,[105]=0.48,[110]=1.44,[111]=1.44,},
+
+ --每次挑战次数
+challengeNum=2,
+ --挑战次数用尽时，根据vip等级，可额外购买的次数
+challengeBuyNum={1,2,3,4,5,6,7,8,9,10,11,12,13,14,},
+--挑战次数用尽时，根据购买的次数，花费的金币
+challengeNumGems={10,20,30,40,50,60,70,80,90,100,110,120,130,140,},
+ --不同vip对应最大重置次数
+ resetNum={1,2,2,2,3,3,3,4,4,4,5,5,5,6,},
+ --重置消耗金币数
+ resetGems={100,200,400,600,800,1000,1200,},
+ --扫荡一关的时间
+raidTime=15,
+ --扫荡加速消耗修正值，计算加速消耗金币需要，一分钟消耗金币
+raidSpeed=5,
+--每日可以免费重置一次
+freeResetNum=1,
+    --进阶可选道具抵扣
+    costProp={
+        w1={prop={p={p4919=1}},serverProp={p4919=1}},
+        w2={prop={p={p4920=1}},serverProp={p4920=1}},
+        w3={prop={p={p4921=1}},serverProp={p4921=1}},
+        w4={prop={p={p4922=1}},serverProp={p4922=1}},
+        w5={prop={p={p4923=1}},serverProp={p4923=1}},
+        w6={prop={p={p4924=1}},serverProp={p4924=1}},
+        w7={prop={p={p4925=1}},serverProp={p4925=1}},
+        w8={prop={p={p4926=1}},serverProp={p4926=1}},
+    },
+
+}

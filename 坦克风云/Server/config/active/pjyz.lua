@@ -1,0 +1,155 @@
+local pjyz ={
+    multiSelectType = true,
+    [1]={
+        sortid=223,
+        type=1,
+        --上升价格
+        cost1=28,
+        --下降价格
+        cost2=28,
+        --全激活价格
+        cost3=485,
+        --总范围
+        totalRange={1,100},
+        --标志存在范围
+        signRange={40,60},
+        --移动步数范围
+        needTimes=20,
+        --总需要激活灯数
+        lampNum=5,
+        --激活容错范围
+        faultRange=5,
+        --初始点位区间
+        initateRange={{20,30},{70,80}},
+        --倍率
+        times=1,
+        serverreward={
+            --上升/下降奖池
+            pool1={
+                {100},
+                {13,12,15,15,15,12,6,10,1,1},
+                {{"props_p277",10},{"props_p20",1},{"props_p19",2},{"accessory_p4",500},{"props_p277",5},{"props_p276",2},{"props_p275",2},{"props_p279",3},{"props_p278",1},{"accessory_p4",2000}},
+            },
+            
+            --激活灯奖池
+            pool2={
+                {100},
+                {12,10,16,14,16,14,12,10,12,12,10,10,16,16,14,14,16,16,14,14,12,12,10,10},
+                {{"props_p533",1},{"props_p537",1},{"props_p541",1},{"props_p545",1},{"props_p549",1},{"props_p553",1},{"props_p557",1},{"props_p561",1},{"props_p182",1},{"props_p185",1},{"props_p188",1},{"props_p191",1},{"props_p194",1},{"props_p197",1},{"props_p200",1},{"props_p203",1},{"props_p206",1},{"props_p209",1},{"props_p212",1},{"props_p215",1},{"props_p218",1},{"props_p221",1},{"props_p224",1},{"props_p227",1}},
+            },
+            
+            --大奖池
+            pool3={
+                {100},
+                {18,16,20,18,20,18,18,16,12,10,14,12,14,12,12,10},
+                {{"props_p353",1},{"props_p357",1},{"props_p361",1},{"props_p365",1},{"props_p369",1},{"props_p373",1},{"props_p377",1},{"props_p381",1},{"props_p534",1},{"props_p538",1},{"props_p542",1},{"props_p546",1},{"props_p550",1},{"props_p554",1},{"props_p558",1},{"props_p562",1}},
+            },
+            
+            --任务（标识，参数，奖励）
+            taskList={
+                --共点亮N盏灯
+                {type="yz1",num=5,index=1,serverreward={{"props_p279",20},{"props_p281",5}}},
+                --全部点亮N次
+                {type="yz2",num=10,index=2,serverreward={{"props_p275",10},{"props_p276",20}}},
+                --使用上调N次
+                {type="yz3",num=100,index=3,serverreward={{"userinfo_gold",30000000}}},
+                --使用下降N次
+                {type="yz4",num=100,index=4,serverreward={{"props_p277",50},{"props_p283",1},{"props_p278",10}}},
+                --使用全面激活N次
+                {type="yz5",num=25,index=5,serverreward={{"props_p275",15},{"props_p276",30}}},
+                --消耗钻石N
+                {type="yz6",num=18888,index=6,serverreward={{"props_p230",1}}},
+            },
+        },
+        --前端展示
+        showList={p={{p538=1,index=1},{p546=1,index=2},{p554=1,index=3},{p562=1,index=4},{p534=1,index=5},{p542=1,index=6},{p550=1,index=7},{p558=1,index=8},{p353=1,index=9},{p357=1,index=10},{p361=1,index=11},{p365=1,index=12},{p369=1,index=13},{p373=1,index=14},{p377=1,index=15},{p381=1,index=16}}},
+        flash={2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0},    --闪光（1-橙，2-紫，3-蓝）
+        
+        --任务（标识，参数，奖励）
+        taskList={
+            {type="yz1",num=5,index=1,reward={p={{p279=20,index=1},{p281=5,index=2}}}},
+            {type="yz2",num=10,index=2,reward={p={{p275=10,index=1},{p276=20,index=2}}}},
+            {type="yz3",num=100,index=3,reward={u={{gold=30000000,index=1}}}},
+            {type="yz4",num=100,index=4,reward={p={{p277=50,index=1},{p283=1,index=2},{p278=10,index=3}}}},
+            {type="yz5",num=25,index=5,reward={p={{p275=15,index=1},{p276=30,index=2}}}},
+            {type="yz6",num=18888,index=6,reward={p={{p230=1,index=1}}}},
+        },
+    },
+    [2]={
+        sortid=223,
+        type=1,
+        --上升价格
+        cost1=28,
+        --下降价格
+        cost2=28,
+        --全激活价格
+        cost3=485,
+        --总范围
+        totalRange={1,100},
+        --标志存在范围
+        signRange={40,60},
+        --移动步数范围
+        needTimes=20,
+        --总需要激活灯数
+        lampNum=5,
+        --激活容错范围
+        faultRange=5,
+        --初始点位区间
+        initateRange={{20,30},{70,80}},
+        --倍率
+        times=2,
+        serverreward={
+            --上升/下降奖池
+            pool1={
+                {100},
+                {13,12,15,15,15,12,6,10,1,1},
+                {{"props_p277",10},{"props_p20",1},{"props_p19",2},{"accessory_p4",500},{"props_p277",5},{"props_p276",2},{"props_p275",2},{"props_p279",3},{"props_p278",1},{"accessory_p4",2000}},
+            },
+            
+            --激活灯奖池
+            pool2={
+                {100},
+                {12,10,16,14,16,14,12,10,12,12,10,10,16,16,14,14,16,16,14,14,12,12,10,10},
+                {{"props_p533",1},{"props_p537",1},{"props_p541",1},{"props_p545",1},{"props_p549",1},{"props_p553",1},{"props_p557",1},{"props_p561",1},{"props_p182",1},{"props_p185",1},{"props_p188",1},{"props_p191",1},{"props_p194",1},{"props_p197",1},{"props_p200",1},{"props_p203",1},{"props_p206",1},{"props_p209",1},{"props_p212",1},{"props_p215",1},{"props_p218",1},{"props_p221",1},{"props_p224",1},{"props_p227",1}},
+            },
+            
+            --大奖池
+            pool3={
+                {100},
+                {18,16,20,18,20,18,18,16,12,10,14,12,14,12,12,10},
+                {{"props_p353",1},{"props_p357",1},{"props_p361",1},{"props_p365",1},{"props_p369",1},{"props_p373",1},{"props_p377",1},{"props_p381",1},{"props_p534",1},{"props_p538",1},{"props_p542",1},{"props_p546",1},{"props_p550",1},{"props_p554",1},{"props_p558",1},{"props_p562",1}},
+            },
+            
+            --任务（标识，参数，奖励）
+            taskList={
+                --共点亮N盏灯
+                {type="yz1",num=5,index=1,serverreward={{"props_p279",20},{"props_p281",5}}},
+                --全部点亮N次
+                {type="yz2",num=10,index=2,serverreward={{"props_p275",10},{"props_p276",20}}},
+                --使用上调N次
+                {type="yz3",num=100,index=3,serverreward={{"userinfo_gold",30000000}}},
+                --使用下降N次
+                {type="yz4",num=100,index=4,serverreward={{"props_p277",50},{"props_p283",1},{"props_p278",10}}},
+                --使用全面激活N次
+                {type="yz5",num=25,index=5,serverreward={{"props_p275",15},{"props_p276",30}}},
+                --消耗钻石N
+                {type="yz6",num=18888,index=6,serverreward={{"props_p230",1}}},
+            },
+        },
+        --前端展示
+        showList={p={{p538=1,index=1},{p546=1,index=2},{p554=1,index=3},{p562=1,index=4},{p534=1,index=5},{p542=1,index=6},{p550=1,index=7},{p558=1,index=8},{p353=1,index=9},{p357=1,index=10},{p361=1,index=11},{p365=1,index=12},{p369=1,index=13},{p373=1,index=14},{p377=1,index=15},{p381=1,index=16}}},
+        flash={2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0},    --闪光（1-橙，2-紫，3-蓝）
+        
+        --任务（标识，参数，奖励）
+        taskList={
+            {type="yz1",num=5,index=1,reward={p={{p279=20,index=1},{p281=5,index=2}}}},
+            {type="yz2",num=10,index=2,reward={p={{p275=10,index=1},{p276=20,index=2}}}},
+            {type="yz3",num=100,index=3,reward={u={{gold=30000000,index=1}}}},
+            {type="yz4",num=100,index=4,reward={p={{p277=50,index=1},{p283=1,index=2},{p278=10,index=3}}}},
+            {type="yz5",num=25,index=5,reward={p={{p275=15,index=1},{p276=30,index=2}}}},
+            {type="yz6",num=18888,index=6,reward={p={{p230=1,index=1}}}},
+        },
+    },
+}
+
+return pjyz 

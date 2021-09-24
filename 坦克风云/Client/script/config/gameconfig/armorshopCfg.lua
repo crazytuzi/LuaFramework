@@ -1,0 +1,20 @@
+armorshopCfg={
+
+    preshoplist={
+        i1={limittimes=1,price=50,needNum=6,needquality=4,reward={am={{exp=50000,index=1}}},serverreward={armor_exp=50000}},
+        i2={limittimes=1,price=100,needNum=12,needquality=4,reward={am={{exp=80000,index=1}}},serverreward={armor_exp=80000}},
+        i3={limittimes=1,price=150,needNum=18,needquality=4,reward={am={{exp=100000,index=1}}},serverreward={armor_exp=100000}},
+        i4={limittimes=1,price=500,needNum=24,needquality=4,reward={am={{exp=300000,index=1}}},serverreward={armor_exp=300000},flicker="y"},
+    },
+    shoplist={
+        i1={limittimes=10,aExpcost=1200,reward={p={p447=1}},serverreward={props_p447=1}},
+        i2={limittimes=10,aExpcost=400,reward={p={p19=1}},serverreward={props_p19=1}},
+        i3={limittimes=4,aExpcost=1400,reward={p={p20=1}},serverreward={props_p20=1}},
+        i4={limittimes=1,aExpcost=1900,reward={p={p11=1}},serverreward={props_p11=1}},
+        i5={limittimes=1,aExpcost=1900,reward={p={p12=1}},serverreward={props_p12=1}},
+        i6={limittimes=1,aExpcost=900,reward={p={p13=1}},serverreward={props_p13=1}},
+        i7={limittimes=1,aExpcost=7040,reward={p={p42=1}},serverreward={props_p42=1}},
+        i8={limittimes=1,aExpcost=7040,reward={p={p43=1}},serverreward={props_p43=1}},
+        i9={limittimes=1,aExpcost=7040,reward={p={p44=1}},serverreward={props_p44=1}},
+    },
+}

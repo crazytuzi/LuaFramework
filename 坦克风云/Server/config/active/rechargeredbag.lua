@@ -1,0 +1,79 @@
+local  rechargeredbag={
+--持续时间
+multiSelectType=true,
+[1]={
+type=1,
+sortId = 70,
+version=1,
+reward={
+reward={
+{p={{p3311=1,index=1},}},
+{p={{p3311=2,index=1},}},
+{p={{p3309=1,index=1},{p3311=1,index=2},}},
+{p={{p3306=1,index=1},{p3309=2,index=2},{p3311=2,index=3},}},
+{p={{p3306=4,index=1},{p3309=3,index=2},{p3311=2,index=3},}},
+},
+cost={500,1000,2000,5000,10000},
+serverreward={
+r={
+{props_p3311=1,},
+{props_p3311=2,},
+{props_p3311=1,props_p3309=1,},
+{props_p3306=1,props_p3309=2,props_p3311=2,},
+{props_p3306=4,props_p3309=3,props_p3311=2,},
+ },
+ },
+flick={
+{p={},},
+{p={},},
+{p={{p3309=3,},}},
+{p={{p3306=2,p3309=3,},}},
+{p={{p3306=2,p3309=3,},}},
+},
+},
+},
+[2]={
+type=1,
+sortId = 70,
+version=2,
+reward={
+reward={
+{p={{p3311=1,index=1},}},
+{p={{p3311=2,index=1},}},
+{p={{p3309=1,index=1},{p3311=1,index=2},}},
+{p={{p3306=1,index=1},{p3309=2,index=2},{p3311=2,index=3},}},
+{p={{p3306=4,index=1},{p3309=3,index=2},{p3311=2,index=3},}},
+{p={{p3306=5,index=1},{p3309=3,index=2},{p3311=2,index=3},}},
+{p={{p3306=8,index=1},{p3309=3,index=2},{p3311=2,index=3},}},
+{p={{p3306=9,index=1},{p3309=3,index=2},{p3311=2,index=3},}},
+{p={{p3306=12,index=1},{p3309=3,index=2},{p3311=2,index=3},}},
+},
+cost={500,1000,2000,5000,10000,17000,27000,38000,50000},
+serverreward={
+r={
+{props_p3311=1,},
+{props_p3311=2,},
+{props_p3309=1,props_p3311=1,},
+{props_p3306=1,props_p3309=2,props_p3311=2,},
+{props_p3306=4,props_p3309=3,props_p3311=2,},
+{props_p3306=5,props_p3309=3,props_p3311=2,},
+{props_p3306=8,props_p3309=3,props_p3311=2,},
+{props_p3306=9,props_p3309=3,props_p3311=2,},
+{props_p3306=12,props_p3309=3,props_p3311=2,},
+ },
+ },
+flick={
+{p={},},
+{p={},},
+{p={p3309=3,},},
+{p={p3306=2,p3309=3,},},
+{p={p3306=2,p3309=3,},},
+{p={p3306=2,p3309=3,},},
+{p={p3306=2,p3309=3,},},
+{p={p3306=2,p3309=3,},},
+{p={p3306=2,p3309=3,},},
+ },
+ },
+},
+}
+return rechargeredbag

@@ -1,0 +1,548 @@
+流水号 用户id 用户名 金额 金币数 额外赠送 是否首充 说明  修改时间 
+id uid nickname cost num extra_num firstcharge comment updated_at
+
+params 参数说明：
+upNum 升级类的统计，表示当前升了多少级（统率，有可能升1，有可能升0，0表示升级失败）
+troopsLevel 当前统率等级
+slotsNum 当前拥有的建筑位
+energyNum 当前拥有的能量
+buyNum 购买的数量
+propNum 拥有道具数量
+buildingLevel 建筑等级
+islandType 野岛类型
+islandOid 野岛拥有者
+mapId 地图id
+oldMapId 老地图id
+cronId 攻击野岛的战斗id
+produceNum 生产数量
+troopsNum 部队数量
+techLevel 科技等级
+troopsInfo 作战部队信息table（返回的时候剩多少，出战的时候带了多少）
+currTroops 现在的部队信息（剩余在家的部队数）
+honorsNum 拥有的声望数量
+getNum 获得的数量（例如重置技能时，会获得技能相对应的荣誉勋章）
+donateCount 捐献次数
+userRaising 用户捐献度
+allianceId 军团aid
+allianceRaising 军团捐献度
+reward 抽到的奖励
+resource 获得到资源
+useNum 使用数量
+resetNum 重置次数
+oldGems 原有金币
+oldRes 原有资源
+newRes 现有资源
+buyTime 购买的时间（加速类）
+
+regActionLogs\(.*,1,\{action=
+
+消费金币																		
+1升级统率	12每日授勋	13重置技能	3购买能量	14普通抽奖	15高级抽奖	16补签	17刷新日常任务	18立即完成日常任务	19重置日常任务	
+20军团捐献	2购买建造位	4购买商店物品	22修复部队	21迁移基地	6加速行军	9加速生产	8加速科研	5加速建造
+-- 1 -----------------------------  消费
+1 用户使用金币升级统率 regActionLogs(uid,1,{action=1,item='',value=consumeN,gems=mUserinfo.gems,params={upNum=1,troopsLevel=mUserinfo.troops}})
+2 用户购买建筑位 regActionLogs(uid,1,{action=2,item='',value=price,gems=mUserinfo.gems,params={slotsNum=mUserinfo.buildingslots}})
+3 用户购买能量 3	regActionLogs(uid,1,{action=3,item='',value=iGems,gems=mUserinfo.gems,params={energyNum=mUserinfo.energy,buyNum=3}})
+4 用户购买道具 4	regActionLogs(uid,1,{action=4,item=pid,value=iGemCost,gems=mUserinfo.gems,params={buyNum=1,propNum=mBag.getPropNums(pid)}})
+5 建筑升级加速 5	regActionLogs(uid,1,{action=5,item=bid,value=iGems,gems=mUserinfo.gems,params={(buildingLevel=mBuildings[bid][2] or 0),buyTime=10}})
+6 舰队出航加速 6	regActionLogs(attacker,1,{action=6,item=mapId,value=iGems,gems=mUserinfo.gems,params={islandType=targetType,islandOid=oid,cronId=cronId,troopsInfo={}}) 
+7 坦克生产加速 7	regActionLogs(uid,1,{action=7,item=aid,value=iGems,gems=mUserinfo.gems,params={produceNum=10,troopsNum=mTroops.aid}})
+8 科技升级加速 8	regActionLogs(uid,1,{action=8,item=tid,value=iGems,params={techLevel=mTechs[tid]}})
+9 生产道具加速 9	regActionLogs(uid,1,{action=9,item=pid,value=iGems,params={produceNum=nums,propNum=mBag.getPropNums(pid)}})
+10 改装坦克加速 10	 regActionLogs(uid,1,{action=10,item=aid,value=iGems,params={produceNum=mTroop.queue[qName][iSlotKey].nums,troopsNum=mTroops.aid}})
+11 舰队返航加速(如果老资源与新资源没有变化，表示仓库已经满了) 11	 regActionLogs(uid,1,{action=11,item=mapId,value=iGems,params={islandType=mTroop.attack[cid].type,troopsInfo=mTroop.attack[cid].troops,resource=mTroop.attack[cid].res,cronId=cid}})
+12 金币每日声望 12 regActionLogs(uid,1,{action=12,item='',value=consume[request.params.type],params={honorsNum=mUserinfo.honors}})
+13 重置技能	    13 regActionLogs(uid,1,{action=13,item='',value=28,params={propNum=mBag.getPropNums('p19'),getNum=returnNum}})
+
+-- 14 普通抽奖	    14 regActionLogs(uid,1,{action=14,item="p47",value=iGems,params={buyNum=buyPropNums}})
+-- 15 高级抽奖       15	 regActionLogs(uid,1,{action=15,item="p47",value=iGems,params={buyNum=buyPropNums}})
+
+16 补签 regActionLogs(uid,1,{action=16,item="",value=consumeGems,params={buyNum=addSignDays}})
+17 刷新日常任务 17 regActionLogs(uid,1,{action=17,item="",value=cost,params={}})
+18 立即完成日常任务 18 regActionLogs(uid,1,{action=18,item=tid,value=cost,params={}}) >> item 改为任务id
+19 重置日常任务 19 regActionLogs(uid,1,{action=19,item="",value=cost,params={}})
+20 军团捐献 regActionLogs(uid,1,{action=20,item=tid,value=cfg.allianceDonateGold[count],params={donateCount=1,userRaising=1,allianceId=101,allianceRaising=10}}) >> item 改为捐献的科技
+21 迁移基地 regActionLogs(uid,1,{action=21,item="",value=gemCost,params={oldMapId=1,mapId=100}})
+22 修复部队 regActionLogs(uid,1,{action=22,item="",value=totalCostNum,params={troopsInfo=repairAll}})
+23 使用金币抽装备 regActionLogs(uid,1,{action=23,item="",value=totalCostNum,params={reward=reward}})
+
+24 活动莫斯科赌局抽坦克	regActionLogs(uid,1,{action=24,item="",value=gemCost,params={buyNum=num,reward=reward}})
+25 使用金币创建军团	regActionLogs(uid,1,{action=25,item="",value=cfg[2],params={allianceId=mUserinfo.alliance}})
+26 使用金币重置精英关卡	regActionLogs(uid,1,{action=26,item="",value=resetGems,params={resetNum=mChallenge.resetnum}})
+27 直接使用金币代替物品使用	regActionLogs(uid,1,{action=27,item=v[1],value=cost,params={useNum=buyNum}})
+28 巨兽再现坦克	regActionLogs(uid,1,{action=28,item="",value=gemCost,params={buyNum=num,reward=reward}})
+
+29 军团战购买buff	regActionLogs(uid,1,{action=29,item=buff,value=gemCost,params={old=upLevel-1,new=mUserAllianceWar[buff]}})
+30 购买cd时间	regActionLogs(uid,1,{action=30,item="",value=gemCost,params={buyNum=num,reward=reward}})
+31 轮盘之约抽奖 regActionLogs(uid,1,{action=31,item="",value=gemCost,params={buyNum=num,reward=reward}})
+32 购买军事演习的攻击次数  regActionLogs(uid,1,{action=32,item="",value=gemCost,params={buyNum=1}})
+35 飓风来袭抽坦克 regActionLogs(uid,1,{action=35,item="",value=gemCost,params={buyNum=num,reward=reward,totalNum=mUseractive.info[aname].d.n,}})
+33 花钱购买飓风来袭碎片regActionLogs(uid,1,{action=33,item="",value=gemCost,params={buyNum=activeCfg.reward.buyPartNum,hasNum=mUseractive.info[aname].t[part],}})
+34 花钱 坦克拉霸  regActionLogs(uid,1,{action=34,item="",value=gemCost,params={buyNum=num,hasNum=totalReward.client})
+36消费日志购买 红包 regActionLogs(uid,1,{action=36,item="",value=needgems,params={reward=reward}})
+37 花钱购买军事演习的时间  regActionLogs(uid,1,{action=37,item="",value=gemCost,params={buyNum=times}})
+38 连续充值，花钱请黑客修改记录 regActionLogs(uid,1,{action=38,item="",value=costGem,params={num=blackGems,type=day}})
+39 改造计划活动用户花费金币抽奖 regActionLogs(uid,1,{action=39,item="",value=costGem,params={buyNum=num,hasNum=clientAward}})
+40 共和国光辉活动用户花费金币 regActionLogs(uid,1,{action=40,item="",value=costGem,params={prop=propReward,tmpRes=tmpReward}})
+41 刷新门后有鬼消耗的金币 regActionLogs(uid,1,{action=41,item="",value=gemCost,params={buyNum=refcount}})
+42 跨服战押注消耗金币  regActionLogs(uid,1,{action=42,item="",value=gemCost,params={did=detailId}})
+43 英雄抽奖  regActionLogs(uid,1,{action=43,item="",value=gemCost,params={did=detailId}})
+44 360币购买记录 regActionLogs(uid,1,{action=44,item="",value=gold_num,params={pid,num,point}})
+45 光棍节活动log regActionLogs(uid,1,{action=45,item="",value=costGem,params={buyNum=num,reward=reward,mmItem=mmItem}})
+46 鸡“动部队活动消耗金币 regActionLogs(uid,1,{action=46,item="",value=costGem,params={buyNum=num,reward=reward,mmItem=mmItem}})    
+47 废墟探索 regActionLogs(uid,1,{action=47,item="",value=costGems,params={buyNum=nums,hasNum=clientReward}})
+48 狂怒之师消耗金币 regActionLogs(uid,1,{action=48,item="",value=costGems,params={buyNum=nums,hasNum=clientAllReward}})
+49 跨服军团战携带资金 regActionLogs(uid,1,{action=49,item="",value=usegems,params={}})
+50 跨服军团战金币捐献 regActionLogs(uid,1,{action=50,item="",value=usegems,params={}})
+51 圣诞宝藏活动金币消耗 regActionLogs(uid,1,{action=51,item="",value=gemCost,params={reward=response.data[aname].clientReward,pos=response.data[aname].pos}})
+52 军团跨服战押注金币消耗 regActionLogs(uid,1,{action=52,im="",value=gemCost,params={did=detailId}})
+53 元旦献礼活动金币消耗 regActionLogs(uid,1,{action=53,item="",value=gemCost,params={buyNum=num,reward=cReward}})
+54 元旦献礼活动补签消耗金币 regActionLogs(uid,1,{action=54,item="",value=gemCost,params={buyNum=num}})
+55 坦克嘉年华活动消耗金币 regActionLogs(uid,1,{action=55,item="",value=gemCost,params={buyNum=num,reward=clientreward}})
+56 许愿炉活动金币消耗  regActionLogs(uid,1,{action=56,item="",value=gemCost,params={buyNum=gemCost}})
+57 配件商店购买道具  regActionLogs(uid,1,{action=57,item=pid,value=uesGems,params={pid=1}})
+58 新春红包消耗金币 regActionLogs(uid,1,{action=58,item="",value=gemCost,params={buyNum=mtype}})
+59 火线名将抽英雄  regActionLogs(uid,1,{action=59,item="",value=gemCost,params={buyNum=mtype}})
+60 军资派送抽奖消耗金币 regActionLogs(uid,1,{action=60,item="",value=gemCost,params={buyNum=dtype,reward=clientreward}})
+61 世界boss购买buff regActionLogs(uid,1,{action=61,item="",value=gemCost,params={buyNum=dtype,reward=clientreward}})
+62 世界boss复活自己 regActionLogs(uid,1,{action=62,item="",value=gemCost,params={buyNum=dtype,reward=clientreward}})
+63 异星升级科技 regActionLogs(uid,1,{action=63,item="",value=gemCost,params={level=level,reward=resource}}) reward消耗所有物品
+64 异星购买装配科技位置 regActionLogs(uid,1,{action=64,item="",value=gemCost,params={level=level,reward=resource}}) reward消耗所有物品
+65 连续充值送将领补签消耗金币 regActionLogs(uid,1,{action=65,item="",value=gemCost,params={buyNum=num}})
+66 火线名将改抽奖消耗金币 regActionLogs(uid,1,{action=66,item="",value=gems,params={buyNum=num}})
+67 配件洗练  regActionLogs(uid,1,{action=67,item="",value=gemCost,params={reward=reward}})
+68 vip礼包购买记录  regActionLogs(uid,1,{action=68,item="",value=gemCost,params={reward=reward}})
+69 世界大战押注  regActionLogs(uid,1,{action=69,item="",value=gemCost,params={reward=reward}})
+70 幸运转盘  regActionLogs(uid,1,{action=70,item="",value=gemCost,params={reward=reward}})
+71 回炉再造  regActionLogs(uid,1,{action=71,item="",value=costGems,params={buyNum=nums,hasNum=clientReward}})
+72 将领领悟  regActionLogs(uid,1,{action=72,item="",value=costGems,params={buyNum=nums,hasNum=clientReward}})
+73 红场阅兵抽奖  regActionLogs(uid,1,{action=73,item="",value=costGems,params={buyNum=nums,hasNum=clientReward}})
+74 红场阅兵购买碎片  regActionLogs(uid,1,{action=74,item="",value=costGems,params={buyNum=nums,hasNum=clientReward}})
+75 陨星降临抽奖  regActionLogs(uid,1,{action=75,item="",value=costGems,params={buyNum=nums,hasNum=clientReward}})
+76 班长试炼刷新  regActionLogs(uid,1,{action=76,item="",value=costGems,params={buyNum=nums,hasNum=clientReward}})
+77 天降雄狮  regActionLogs(uid,1,{action=77,item="",value=costGems,params={buyNum=nums,hasNum=clientReward}})
+78 全民坦克  regActionLogs(uid,1,{action=78,item="",value=gems,params={method=method,tank=mUseractive.info[aname].tank,index=index}})
+79 回炉再造兑换坦克  regActionLogs(uid,1,{action=79,item="",value=gems,params={method=method,tank=mUseractive.info[aname].tank,index=index}})
+80 金币购买头像  regActionLogs(uid,1,{action=80,item="",value=gems,params={hid=hid}})
+81 电磁风暴抽奖  regActionLogs(uid,1,{action=81,item="",value=costGems,params={tid=tid,mul=mul,free=free,n=mUseractive.info[aname].n,rewardIndex=rewardIndex}})
+82 两将抽奖  regActionLogs(uid,1,{action=82,item="",value=costGems,params={tid=tid,mul=mul,free=free,n=mUseractive.info[aname].n,rewardIndex=rewardIndex}})
+83 好事成双  regActionLogs(uid,1,{action=83,item="",value=totalCost,params={}})
+84 超级武器购买大师  regActionLogs(uid,1,{action=84,item="",value=costGems,params={tid=tid,mul=mul,free=free,n=mUseractive.info[aname].n,rewardIndex=rewardIndex}})
+85 用户购买繁荣度  regActionLogs(uid,1,{action=85,item="boom",value=needGems,params={oldBoom=oldBoom, newBoom=mBoom.boom}}) 
+86 使用金币购买剧情战役	regActionLogs(uid,1,{action=85,item="",value=resetGems,params={resetNum=mChallenge.resetnum}})
+97 将领装备抽奖
+regActionLogs(uid,1,{action=97,item="",value=gemCost,params={}})
+
+100 万圣节活动加速
+regActionLogs(uid,1,{action=100,item="",value=gemCost,params={buyNum=ptype}})
+101 双11抢购
+regActionLogs(uid,1,{action=101,item="",value=gemCost,params={buy={shop,sid}}})
+102 双11普通购买
+regActionLogs(uid,1,{action=102,item="",value=gemCost,params={alog}})
+103 万圣节大作战 regActionLogs(uid,1,{action=103,item="",value=gemCost,params={bossKill=bossKill,hitNum=hitNum}})
+104 区域站加速休整 regActionLogs(uid,1,{action=104,item="",value=gemCost,params={bossKill=bossKill,hitNum=hitNum}})
+109 圣诞大作战抽奖
+regActionLogs(uid,1,{action=109,item="",value=gemsCost,params={heros=heros,reward=reward}})
+110 圣诞前夕送礼
+regActionLogs(uid,1,{action=110,item="",value=gemCost,params={gift=sid,method=method}})
+117 新年除夕钻石购买普通攻击boss 
+regActionLogs(uid,1,{action=117,item="",value=gemCost,params={count=ac-activeCfg.ac+1}})
+118 新年除夕钻石购买爆竹攻击boss
+regActionLogs(uid,1,{action=118,item="",value=gemCost,params={pz=method}})
+119 春节攀升 购买礼包
+regActionLogs(uid,1,{action=119,item="",value=buyBoxCost,params={action=action,day=day,tid=tid}})
+126 名将养成计划 regActionLogs(
+uid,1,{action=126,item="",value=cost,params={action=action}})
+127 无限火力
+regActionLogs(uid,1,{action=127,item="",value=gems,params={buyNum=num}})  
+128 配件嘉年华 regActionLogs(
+uid,1,{action=128,item="",value=gems,params={action=action,num=num}})
+132 叛军购买能量 regActionLogs(
+uid,1,{action=132,item="",value=gems,params={}})
+133 奥运五环  regActionLogs(
+uid,1,{action=133,item="",value=gems,params={buyNum=num}})
+134 异星商店购买刷新 regActionLogs(
+uid,1,{action=134,item="",value=useGems,params={}})
+135 异星商店购买道具 regActionLogs(
+uid,1,{action=135,item="",value=useGems,params={reward=reward}})
+136 中秋活动 刷新任务
+regActionLogs(uid,1,{action=136,item="",value=gems,params={}})
+137 中秋活动 购买礼包
+regActionLogs(uid,1,{action=137,item="",value=gems,params={}})
+138 中秋活动 抽奖
+regActionLogs(uid,1,{action=138,item="",value=gems,params=tmp})
+139 国庆活动刷新转盘
+regActionLogs(uid,1,{action=134,item="",value=gems,params={num=num}})
+140 国庆活动转盘抽奖  num->抽取次数
+regActionLogs(uid,1,{action=135,item="",value=gems,params={num=num}})
+141 限时装备活动抽奖  num->抽取次数
+regActionLogs(uid,1,{action=141 ,item="" ,value=costGem ,params={num=num}})
+142 将领试炼刷新,购买
+regActionLogs(uid,1,{action=142,item=nType,value=useGems,params={reward=reward}})
+143 陨石冶炼 抽异星资源
+regActionLogs(uid,1,{action=143,item=nType,value=useGems,params={reward=reward}})
+144 史诗将领活动 抽将领
+regActionLogs(uid,1,{action=144 ,item="" ,value=costGem ,params={num=num}})
+145 群蜂来袭活动 抽舰船
+regActionLogs(uid,1,{action=145 ,item="" ,value=costGem ,params={num=num}})
+152 全面突袭活动
+regActionLogs(uid,1,{action=152,item="",value=gemCost,params={num=num,reward=reward}})
+156 装甲矩阵
+regActionLogs(uid,1,{action=156,item="",value=gemCost,params={type=method,num=num,reward=reward}})
+
+159 无独有偶活动 抽奖
+regActionLogs(uid,1,{action=159,item="",value=gemCost,params={num=num,reward=reward,point=point}})
+160 异星武器
+regActionLogs(uid,1,{action=160,item=nType,value=useGems,params={reward=reward}})
+161 矩阵限购
+regActionLogs(uid,1,{action=161,item=nType,value=useGems,params={reward=reward}})
+162 热点将领
+regActionLogs(uid,1,{action=162,item="",value=useGems,params={num=num}})
+-- 163 更改军团旗帜
+regActionLogs(uid,1,{action=163,item="",value=changeCost+cost,params={logo=logo}})
+164 猎杀潜航
+regActionLogs(uid,1,{action=164,item="",value=useGems,params={reward=reward}})
+165 超武计划
+regActionLogs(uid,1,{action=165,item="",value=useGems,params={num=num}})
+166 击杀赛匹配镜像
+regActionLogs(uid,1,{action=166,item="",value=gemCost,params={matchNum=mKillrace.dayReMatchNum+1}})
+167 灭鼠行动
+regActionLogs(uid,1,{action=167,item="",value=gems,params={num=num}})
+168 点亮铁塔
+regActionLogs(uid,1,{action=168,item="",value=useGems,params={num=num}})
+169 采集物资
+regActionLogs(uid,1,{action=169,item="",value=gems,params={num=num}})
+170 配件研制
+regActionLogs(uid,1,{action=170,item="",value=useGems,params={num=num}})
+171 将领大选
+regActionLogs(uid,1,{action=171,item="",value=gems,params={num=num}})
+172 红包金币
+regActionLogs(uid,1,{action=172,item="",value=useGems,params={num=num}})
+173 异星营地-掠夺
+regActionLogs(uid,1,{action=173,item="",value=useGems,params={num=num}})
+174 船坞监工抽奖
+regActionLogs(uid, 1, {action = 174, item = "", value = gems, params = {num = num}})
+175 船坞监工碎片购买
+regActionLogs(uid, 1, {action = 175, item = "", value = gems, params = {num = num}})
+177 狂欢日
+regActionLogs(uid, 1, {action = 177, item = "", value = gems, params = {num = num}})
+178 国庆礼花
+regActionLogs(uid, 1, {action = 178, item = "", value = gems, params = {num = num}})
+179 武器研发
+regActionLogs(uid, 1, {action = 179, item = "", value = gems, params = {num = num}})
+180 狙击海盗
+regActionLogs(uid, 1, {action = 180, item = "", value = gems, params = {num = num}})
+181 橙配馈赠
+regActionLogs(uid, 1, {action = 181, item = "", value = gems, params = {num = num}})
+182 公海领地破译密码
+regActionLogs(uid, 1, {action = 182, item = "", value = gems, params = {}})
+183 公海领地刷新矿品质
+regActionLogs(uid, 1, {action = 183, item = "", value = gems, params = {}})
+184 公海领地刷新军团任务
+regActionLogs(uid, 1, {action = 184, item = "", value = gems, params = {}})
+185 公海领地恢复
+regActionLogs(uid, 1, {action = 185, item = "", value = gems, params = {}})
+186 击破壁垒
+regActionLogs(uid, 1, {action = 186, item = "", value = gems, params = {num = num}})
+187 万圣节狂欢
+regActionLogs(uid, 1, {action = 187, item = "", value = gems, params = {num = num}})
+188 战舰梦工厂
+regActionLogs(uid, 1, {action = 188, item = "", value = gems, params = {num = num}})
+189 闪购商店抢购
+regActionLogs(uid,1,{action=189,item="",value=gemCost,params={buy={shop,sid}}})
+190 闪购商店普通购买
+regActionLogs(uid,1,{action=190,item="",value=gemCost,params={alog}})
+191 排雷大作战
+regActionLogs(uid,1,{action=191,item="",value=gemCost,params={alog}})
+192 鬼牌决胜
+regActionLogs(uid,1,{action=192,item="",value=gemCost,params={alog}})
+193 圣诞雪人
+regActionLogs(uid,1,{action=193,item="",value=gemCost,params={alog}})
+194 宝石商店
+regActionLogs(uid,1,{action=194,item="",value=gemCost,params={reward=reward,num=num}})
+
+195 合成宝石消耗钻石
+regActionLogs(uid, 1, {action = 195, item = "", value = gems, params = {}})
+196 矩阵商店
+regActionLogs(uid, 1, {action = 196 item = "", value = gems, params = {}})
+197 连续消费
+regActionLogs(uid, 1, {action = 197 item = "", value = gems, params = {}})
+199 合服大战
+regActionLogs(uid, 1, {action = 199, item = "", value = costGem, params = {num = }})
+203 指挥官技能  兑换荣誉勋章
+regActionLogs(uid,1,{action=197,item="",value=v,params={buy=pid}})
+198 欢天转转乐
+regActionLogs(uid, 1, {action = 198 item = "", value = gems, params = {}})
+200 将心补心
+regActionLogs(uid, 1, {action = 200 item = "", value = gems, params = {}})
+201 海底勘探
+regActionLogs(uid, 1, {action = 201 item = "", value = gems, params = {}})
+202 领海战侦察
+regActionLogs(uid,1,{action=192,item="",value=gemCost,params={aid,bid}})
+204 勋章兑换
+regActionLogs(uid, 1, {action = 204 item = "", value = gems, params = {}})
+205 表彰大会
+regActionLogs(uid, 1, {action = 205 item = "", value = gems, params = {}})
+206 集中训练
+regActionLogs(uid,1,{action=206,item="",value=gems,params={num=num}})
+207 怒海争锋携带钻石
+regActionLogs(uid,1,{action=207,item="",value=usegems,params={}})
+208 宝石加工厂
+regActionLogs(uid,1,{action=208,item="",value=usegems,params={}})
+209 圣帕特里克
+regActionLogs(uid,1,{action=209,item="",value=usegems,params={}})
+210 射击表演赛
+regActionLogs(uid,1,{action=210,item="",value=usegems,params={}})
+212 金币抽取飞机技能
+regActionLogs(uid, 1, { action = 212, item = mostgemscnt, value = gemCost, params = reward })
+-- 愚人节(2018)大作战-刷新个人任务
+regActionLogs(uid, 1, {action=211, item="", value=gemCost, params={rn=activeInfo.rn}})
+-- 愚人节大作战买礼包
+regActionLogs(uid,1,{action=215,item="",value=activeCfg.cost,params={}})
+213 飞机技能升級
+regActionLogs(uid,1,{action=213,item=new_eid,value=gemCost,params=itemlog})
+214 飞机技能融合
+regActionLogs(uid,1,{action=214,item="",value=gemCost,params=itemlog })
+216 钻石轮盘
+regActionLogs(uid,1,{action=216,item="",value=gemCost,params=itemlog })
+219 平稳降落
+regActionLogs(uid,1,{action=219,item="",value=usegems,params={}})
+222 累计充值2018
+regActionLogs(uid,1,{action=222,item="",value=gemCost,params=itemlog })
+221 物资加工
+regActionLogs(uid,1,{action=221,item="",value=gemCost,params=itemlog })
+224 全民劳动商店
+regActionLogs(uid,1,{action=224,item="",value=usegems,params={}})
+223 芯片装配
+regActionLogs(uid,1,{action=223,item="",value=usegems,params={}})
+226 异星卡片
+regActionLogs(uid,1,{action=226,item="",value=usegems,params={}})
+233 改名卡
+regActionLogs(uid,1,{action=233,item="",value=usegems,params={}})
+225 超装组件
+-- 补给舰-任务购买
+regActionLogs(uid,1,{action=227,item="",value=gemsCost,params={newTaskInfo[1]}})
+-- 228 补给舰-任务刷新
+regActionLogs(uid,1,{action=228,item="",value=gemsCost,params={taskInfo[1],newTaskInfo[1]}})
+-- 补给舰-补给品生产加速
+regActionLogs(uid,1,{action=230,item="",value=gemsCost,params={diffTime=diffTime}})
+-- 232 补给舰-领取双倍任务经验
+regActionLogs(uid,1,{action=232,item="",value=gemsCost,params={exp=expGet}})
+-- 229 补给舰-任务一键执行
+regActionLogs(uid,1,{action=229,item="",value=gemsCost,params={itemlack=itemlack}})
+regActionLogs(uid,1,{action=225,item="",value=usegems,params={}})
+217 超级装备大师商店
+regActionLogs(uid,1,{action=217,item="",value=gemCost,params={} })
+218 超级装备/大师还原
+regActionLogs(uid,1,{action = 218, item = "", value = costgem, params = {}})
+220 超级装备大师洗练
+regActionLogs(uid,1,{action = 220, item = "", value = v, params = {}})
+234 王牌飞行技能
+regActionLogs(uid,1,{action=234,item="",value=gems,params={num=num}})
+
+231 重金打造
+regActionLogs(uid,1,{action=231,item="",value=usegems,params={}})
+
+235 累计天数充值(世界杯)
+regActionLogs(uid,1,{action=235,item="",value=usegems,params={}})
+236 累计充值(世界杯)
+regActionLogs(uid,1,{action=236,item="",value=usegems,params={}})
+237 端午节2018
+regActionLogs(uid,1,{action=237,item="",value=usegems,params={}})
+238 团结之力
+regActionLogs(uid,1,{action = 238, item = "", value = costGems, params = {}})
+239 德国召回 商店
+regActionLogs(uid,1,{action = 239, item = "", value = gems, params = {}})
+240 按部就班
+regActionLogs(uid,1,{action = 240, item = "", value = gems, params = {num = num}})
+241 宝石魔方
+regActionLogs(uid,1,{action = 241, item = "", value = gems, params = {num = num}})
+242 配件大回馈
+regActionLogs(uid,1,{action = 242, item = "", value = gems, params = {num = 1}})
+245 擦拭铜像 抽奖
+regActionLogs(uid,1,{action = 245, item = "", value = gems, params = {num = 1}})
+246 擦拭铜像 兑换
+regActionLogs(uid,1,{action=246,item="",value=gems,params={num=num}})
+
+243 球赛竞猜
+regActionLogs(uid,1,{action = 243, item = "", value = costgem, params = {}})
+244 新橙配馈赠
+regActionLogs(uid,1,{action = 244, item = "", value = gems, params = {}})
+247 飞机技能捕获计划
+regActionLogs(uid,1,{action=247,item="",value=gems,params={num=num}})
+248 残骸打捞-抽奖
+regActionLogs(uid,1,{action=248,item="",value=gems,params={num=num}})
+249 残骸打捞-兑换
+regActionLogs(uid,1,{action=249,item="",value=gems,params={num=num}})
+253 军火限购--商店
+regActionLogs(uid,1,{action=253,item="",value=gems,params={num=1}})
+254 军火限购--商店钻石刷新
+regActionLogs(uid,1,{action=254,item="",value=gems,params={num=1}})
+256 番茄大作战--强力一击
+regActionLogs(uid,1,{action = 256, item = "", value = gems, params = {num = costfq}})
+257 果实工程
+regActionLogs(uid,1,{action=257,item="",value=gems,params={num=1}})
+260 矩阵商店兑换装甲
+regActionLogs(uid,1,{action=260,item="",value=gemCost,params={item=item}})
+261 通用充值商店
+regActionLogs(uid,1,{action = 261, item = "", value = gems, params = {i=item}})
+262 金秋祈福
+regActionLogs(uid,1,{action = 262, item = "", value = gems, params = {num = num}})
+258 三周年-无畏远方
+regActionLogs(uid,1,{action = 258, item = "", value = gems, params = {i = item}})
+259 三周年-炮弹搜索
+regActionLogs(uid,1,{action = 259, item = "", value = gems, params = {}})
+265 异星超乐透
+regActionLogs(uid,1,{action=265,item="",value=gems,params={num=num}})
+264 群蜂来袭
+regActionLogs(uid,1,{action=264 ,item="" ,value=costGem ,params={num=num}})
+267 国庆七天乐-购买任务礼包
+regActionLogs(uid,1,{action = 267, item = "", value = gems, params = {day=day}})
+266 无限火力
+regActionLogs(uid,1,{action=266,item="",value=gems,params={buyNum=num}}) 
+272 欢乐积分
+regActionLogs(uid,1,{action=272,item="",value=gems,params={num=num}})  
+270 拼多多直接买
+regActionLogs(uid,1,{action = 270, item = "", value = gems, params = {num=bn}})
+274 拼多多发起
+regActionLogs(uid,1,{action = 274, item = "", value = gems, params = {num=bn}})
+275 拼多多参与
+regActionLogs(uid,1,{action = 275, item = "", value = gems, params = {num=num}})
+276 拼多多购买拼单
+regActionLogs(uid,1,{action = 276, item = "", value = gems, params = {num=num}})
+271 战机补给点合成令牌
+regActionLogs(uid,1,{action = 271, item = "", value = gems, params = {num = num}})
+269 购买指挥官徽章副本挑战次数
+regActionLogs(uid,1,{action = 269, item = "", value = gems, params = {vip=vip,cur=cur,num=num}})
+278 军团折扣商店
+regActionLogs(uid,1,{action=278,item="",value=gems,params={}})
+279 马力全开
+regActionLogs(uid,1,{action = 279, item = "", value = gems, params = {num=num}})
+273 伟大航线-购买行动点数
+regActionLogs(uid,1,{action=273,item="",value=gemCost,params={}})
+280 伟大航线-购买三倍攻击
+regActionLogs(uid,1,{action=280,item="",value=gemCost,params={fortId=fortId}})
+281 vip狂欢
+regActionLogs(uid,1,{action = 281, item = "", value = gems, params = {num=num,sid=sid,id=id}})
+
+
+-- 4 ----------------------------- 消耗
+
+--使用道具升级统率 1	regActionLogs(uid,4,{action=1,item='p20',value=consumeN,params={s=response.data.status,c=mUserinfo.troops}})
+--使用幸运币抽奖	2 regActionLogs(uid,4,{action=2,item=lotteryType,value=iGems,params={n=usePropNums}}e
+使用能量 3		regActionLogs(self.uid,4,{action=3,item='energy',value=num,params={c=self.energy}})
+--使用道具进行生产 4 regActionLogs(uid,4,{action=4,item=propConsume[1],value=propConsumeNums,params={pid=pid,n=nums}})
+使用道具 5 regActionLogs(self.uid,4,{action=5,item=pid,value=nums,params={c=n}})
+
+
+-- 2 ----------------------------- 战斗
+用户攻击玩家 1 regActionLogs(attacker,2,{action=1,item=oid,value=isWin,params={islandType=targetType,cronId=cronId}})
+用户抢矿(有玩家驻守) 2 regActionLogs(attacker,2,{action=2,item=oid,value=isWin,params={islandType=targetType,cronId=cronId}})
+用户攻击野岛(无玩家驻守) 3	regActionLogs(attacker,2,{action=3,item=oid,value=isWin,params={islandType=targetType,cronId=cronId}})
+用户打关卡 4	regActionLogs(attackerId,2,{action=4,item=defenderId,value=star,params={c=challenge.star}})
+
+用户舰队出发 5 regActionLogs(uid,2,{action=5,item='',value=timeConsume,params={troopsInfo=fightFleet,cronId=cronId}})
+用户主动出击，全军覆没 6 regActionLogs(uid,2,{action=6,item='',value='',params=acLogParams})
+用户的岛被抢了,全军覆没 7 regActionLogs(uid,2,{action=7,item='',value='',params=acLogParams})
+用户的岛被抢了,全军覆没 8 regActionLogs(uid,2,{action=7,item='',value='',params=acLogParams})
+用户打精英关卡 9	regActionLogs(attackerId,2,{action=8,item=defenderId,value=star,params={c=challenge.star}})
+
+玩家主基地被攻击
+regActionLogs(oid,2,{action=10,item=attacker,value=isWin,params={islandType=targetType,cronId=cronId}})
+玩家驻守的矿被攻击
+regActionLogs(oid,2,{action=11,item=attacker,value=isWin,params={islandType=targetType,cronId=cronId}})
+玩家协防的部队被攻击
+regActionLogs(hDefense.uid,2,{action=12,item=attacker,value=isWin,params={islandType=targetType,cronId=cronId}})
+
+攻打装备探索关卡
+用户打关卡 13	regActionLogs(attackerId,2,{action=13,item=defenderId,value=star,params={c=challenge.star}})
+
+-- 3 奖励-------
+战斗获取奖励 1 regActionLogs(self.attacker,3,{action=1,item=pname,value=1,params={islandType=self.islandType}})
+
+-- 5 生产-------
+制造道具 1 regActionLogs(uid,vip,level,5,{action=1,item=pid,value=nums,params={n=propConsumeNums,pid=propConsume[1]}})
+
+-- 6 增加金币 ----
+601 充值（计入vip）regActionLogs(uid,6,{action=601,item="",value=gemCost,params={buyNum=num,reward=reward}})
+602 非充值（不计入vip）regActionLogs(uid,6,{action=602,item="",value=num,params={oldGems=oldGems,gems=self.gems}})
+
+-- 7 登陆事件
+regActionLogs(uid,6,{action=701,item="",value=gemCost,params={buyNum=num,reward=reward}})
+
+-- 8 配件类
+params  下  1 是使用前数量  2 使用后数量 
+item是id value 是数量
+  params  具体配件信息
+分解配件和突破消耗的配件
+regActionLogs(self.uid,8,{action=801,item=eid,value=1,params={iCurrCount,iCurrCount-1}})
+添加配件
+regActionLogs(self.uid,8,{action=802,item=accessory[1],value=1,params={iCurrCount,iAllCount}})
+使用配件
+regActionLogs(self.uid,8,{action=803,item=self.info[eid][1],value=1,params={iCurrCount,iCurrCount-1}})
+ --添加配件碎片
+ regActionLogs(self.uid,8,{action=804,item=fid,value=nums,params={iCurrCount,iAllCount}})  
+--使用配件碎片
+regActionLogs(self.uid,8,{action=805,item=fid,value=nums,params={iCurrCount,n}})
+
+--   9 英雄类
+英雄突破
+regActionLogs(uid,9,{action=901,item=hid,value=userheroThrouh+1,params={props=props,soul=soul}}) 
+合成
+regActionLogs(uid,9,{action=902,item=hid,value=p,params=fusion})  
+升级英雄等级
+regActionLogs(uid,9,{action=903,item=hid,value=mHero.hero[hid][1],params={[pid]=count}}) 
+升级英雄技能等级
+regActionLogs(uid,9,{action=904,item="",value=12,params={iCurrCount,n}})  
+
+-- 10 超级装备
+1001 抽超级装备 regActionLogs(
+uid,10,{action=1001,item="",value=gemCost,params=reward})
+1002 升级超级装备 regActionLogs(
+uid,10,{action=1002,item="",value=gemCost,params=reward})
+1003 进阶超级装备 regActionLogs(
+uid,10,{action=1003,item="",value=gemCost,params=reward})
+
+管理系统增加金币 1
+管理系统增加道具 2
+用户获取活动奖励 3
+
+建造坦克 14 
+完成建造坦克 15
+损失坦克  16
+奖励
+水晶消耗
+使用道具
+建筑升级
+
+把vip等级，与用户等级顺带记下
+可以直接再入口做
+
+ts          时间戳
+zid         分区id
+uid         用户id
+type        事件类型  1是消费  2是战斗 3是奖励 4是消耗 5 生产
+action      行为名称
+item        操作对象
+value       数值
+params      参数
+*/
+
+//ts action_group action_type user act
+
+时间,事件,参数 
+你想想这个事
+
+主要是想想在哪埋点
+我正想给你准备个actionlog的服务哪
+
+action_log
+id eid uid nickname num consume comment updated_at
+
+http://192.168.8.205:8888/tank.z1?json={"ts":1392973828,"zid":1,"uid":100001,"type":1,"action":"upgrade","item":10,"value":10,"params":""}
+
+
+使用道具A需要消耗其它道具,而其它道具不足的时候（例如钥匙）
+使用幸运币抽奖的时候
+使用搬家道具的时候
+使用统率书升级统率

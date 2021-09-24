@@ -1,0 +1,61 @@
+ --英雄装备关卡配置
+hChallengeCfg=
+{
+ --每天免费攻击次数
+challengeNum=3,
+ --攻击一次消耗体力数
+useEnergy=2,
+ --扫荡消耗攻击次数
+sweepNum=3,
+ --扫荡关卡需要的星级
+sweepStar=3,
+ --每章节内包含多少关
+chapterNum=5,
+ --每个章节需要的用户等级
+chapterUnlock={
+30,35,40,45,50,
+},
+ --不同vip对应最大重置次数
+resetNum={1,2,2,2,3,3,3,4,4,4,5,5,5,6,},
+ --重置消耗金币数
+resetGems={20,50,50,100,100,100,},
+
+list={
+[1]={level=30,icon="t3_1.png",clientReward={base={f={e1=150}},rand={p={p446=1,p451=1,p469=1,}}},reward={base={equip_e1=150},rand={{100},{37,13,50,},{{"props_p446",1},{"props_p451",1},{"props_p469",1},}}},tank={{"a10003",200},{"a10003",200},{"a10003",200},{"a10033",200},{"a10023",200},{"a10013",200},},skill={s101=30,s102=30,s103=30,s104=30,},attributeUp={attack=1,life=1,accurate=0.8,avoid=0.8,critical=0.8,decritical=0.8,}},
+[2]={level=32,icon="t8_1.png",clientReward={base={f={e1=150}},rand={p={p446=1,p451=1,p470=1,}}},reward={base={equip_e1=150},rand={{100},{37,13,50,},{{"props_p446",1},{"props_p451",1},{"props_p470",1},}}},tank={{"a10003",210},{"a10003",210},{"a10003",210},{"a10033",210},{"a10023",210},{"a10013",210},},skill={s101=32,s102=32,s103=32,s104=32,},attributeUp={attack=2.3,life=2.9,accurate=0.85,avoid=0.85,critical=0.85,decritical=0.85,}},
+[3]={level=34,icon="t13_1.png",clientReward={base={f={e1=150}},rand={p={p446=1,p451=1,p471=1,}}},reward={base={equip_e1=150},rand={{100},{37,13,50,},{{"props_p446",1},{"props_p451",1},{"props_p471",1},}}},tank={{"a10003",220},{"a10003",220},{"a10003",220},{"a10033",220},{"a10023",220},{"a10013",220},},skill={s101=34,s102=34,s103=34,s104=34,},attributeUp={attack=3.8,life=5.2,accurate=0.9,avoid=0.9,critical=0.9,decritical=0.9,}},
+[4]={level=36,icon="t18_1.png",clientReward={base={f={e1=150}},rand={p={p446=1,p451=1,p469=1,}}},reward={base={equip_e1=150},rand={{100},{37,13,50,},{{"props_p446",1},{"props_p451",1},{"props_p469",1},}}},tank={{"a10003",230},{"a10003",230},{"a10003",230},{"a10033",230},{"a10023",230},{"a10013",230},},skill={s101=36,s102=36,s103=36,s104=36,},attributeUp={attack=5.3,life=8,accurate=0.95,avoid=0.95,critical=0.95,decritical=0.95,}},
+[5]={level=38,icon="hero_icon_40.png",clientReward={base={f={e1=150}},rand={p={p819=1,p452=1,p470=1,}}},reward={base={equip_e1=150},rand={{100},{37,13,50,},{{"props_p819",1},{"props_p452",1},{"props_p470",1},}}},tank={{"a10004",280},{"a10004",280},{"a10004",280},{"a10034",280},{"a10024",280},{"a10014",280},},skill={s101=38,s102=38,s103=38,s104=38,},attributeUp={attack=6.9,life=11.2,accurate=1,avoid=1,critical=1,decritical=1,}},
+[6]={level=40,icon="t4_1.png",clientReward={base={f={e1=200}},rand={p={p446=1,p452=1,p471=1,}}},reward={base={equip_e1=200},rand={{100},{37,13,50,},{{"props_p446",1},{"props_p452",1},{"props_p471",1},}}},tank={{"a10004",300},{"a10004",300},{"a10004",300},{"a10034",300},{"a10024",300},{"a10014",300},},skill={s101=40,s102=40,s103=40,s104=40,},attributeUp={attack=8.6,life=14.7,accurate=1.05,avoid=1.05,critical=1.05,decritical=1.05,}},
+[7]={level=42,icon="t9_1.png",clientReward={base={f={e1=200}},rand={p={p446=1,p452=1,p469=1,}}},reward={base={equip_e1=200},rand={{100},{37,13,50,},{{"props_p446",1},{"props_p452",1},{"props_p469",1},}}},tank={{"a10004",320},{"a10004",320},{"a10004",320},{"a10034",320},{"a10024",320},{"a10014",320},},skill={s101=42,s102=42,s103=42,s104=42,},attributeUp={attack=10.4,life=18.6,accurate=1.1,avoid=1.1,critical=1.1,decritical=1.1,}},
+[8]={level=44,icon="t14_1.png",clientReward={base={f={e1=200}},rand={p={p446=1,p452=1,p470=1,}}},reward={base={equip_e1=200},rand={{100},{37,13,50,},{{"props_p446",1},{"props_p452",1},{"props_p470",1},}}},tank={{"a10004",340},{"a10004",340},{"a10004",340},{"a10034",340},{"a10024",340},{"a10014",340},},skill={s101=44,s102=44,s103=44,s104=44,},attributeUp={attack=12.2,life=22.7,accurate=1.15,avoid=1.15,critical=1.15,decritical=1.15,}},
+[9]={level=46,icon="t19_1.png",clientReward={base={f={e1=200}},rand={p={p446=1,p453=1,p471=1,}}},reward={base={equip_e1=200},rand={{100},{37,13,50,},{{"props_p446",1},{"props_p453",1},{"props_p471",1},}}},tank={{"a10004",360},{"a10004",360},{"a10004",360},{"a10034",360},{"a10024",360},{"a10014",360},},skill={s101=46,s102=46,s103=46,s104=46,},attributeUp={attack=14,life=27,accurate=1.2,avoid=1.2,critical=1.2,decritical=1.2,}},
+[10]={level=48,icon="hero_icon_23.png",clientReward={base={f={e1=200}},rand={p={p819=1,p453=1,p472=1,}}},reward={base={equip_e1=200},rand={{100},{37,13,50,},{{"props_p819",1},{"props_p453",1},{"props_p472",1},}}},tank={{"a10005",420},{"a10005",420},{"a10005",420},{"a10035",420},{"a10025",420},{"a10015",420},},skill={s101=48,s102=48,s103=48,s104=48,},attributeUp={attack=15.9,life=31.7,accurate=1.25,avoid=1.25,critical=1.25,decritical=1.25,}},
+[11]={level=50,icon="t5_1.png",clientReward={base={f={e1=250}},rand={p={p447=1,p453=1,p473=1,}}},reward={base={equip_e1=250},rand={{100},{37,13,50,},{{"props_p447",1},{"props_p453",1},{"props_p473",1},}}},tank={{"a10005",440},{"a10005",440},{"a10005",440},{"a10035",440},{"a10025",440},{"a10015",440},},skill={s101=50,s102=50,s103=50,s104=50,},attributeUp={attack=17.8,life=36.5,accurate=1.3,avoid=1.3,critical=1.3,decritical=1.3,}},
+[12]={level=52,icon="t10_1.png",clientReward={base={f={e1=250}},rand={p={p447=1,p454=1,p474=1,}}},reward={base={equip_e1=250},rand={{100},{37,13,50,},{{"props_p447",1},{"props_p454",1},{"props_p474",1},}}},tank={{"a10005",460},{"a10005",460},{"a10005",460},{"a10035",460},{"a10025",460},{"a10015",460},},skill={s101=52,s102=52,s103=52,s104=52,},attributeUp={attack=19.8,life=41.6,accurate=1.35,avoid=1.35,critical=1.35,decritical=1.35,}},
+[13]={level=54,icon="t15_1.png",clientReward={base={f={e1=250}},rand={p={p447=1,p454=1,p472=1,}}},reward={base={equip_e1=250},rand={{100},{37,13,50,},{{"props_p447",1},{"props_p454",1},{"props_p472",1},}}},tank={{"a10005",480},{"a10005",480},{"a10005",480},{"a10035",480},{"a10025",480},{"a10015",480},},skill={s101=54,s102=54,s103=54,s104=54,},attributeUp={attack=21.8,life=46.9,accurate=1.4,avoid=1.4,critical=1.4,decritical=1.4,}},
+[14]={level=56,icon="t20_1.png",clientReward={base={f={e1=250}},rand={p={p447=1,p454=1,p473=1,}}},reward={base={equip_e1=250},rand={{100},{37,13,50,},{{"props_p447",1},{"props_p454",1},{"props_p473",1},}}},tank={{"a10005",500},{"a10005",500},{"a10005",500},{"a10035",500},{"a10025",500},{"a10015",500},},skill={s101=56,s102=56,s103=56,s104=56,},attributeUp={attack=23.8,life=52.4,accurate=1.45,avoid=1.45,critical=1.45,decritical=1.45,}},
+[15]={level=58,icon="hero_icon_11.png",clientReward={base={f={e1=250}},rand={p={p819=1,p455=1,p474=1,}}},reward={base={equip_e1=250},rand={{100},{37,13,50,},{{"props_p819",1},{"props_p455",1},{"props_p474",1},}}},tank={{"a10006",520},{"a10006",520},{"a10006",520},{"a10036",520},{"a10026",520},{"a10016",520},},skill={s101=58,s102=58,s103=58,s104=58,},attributeUp={attack=25.8,life=58.1,accurate=1.5,avoid=1.5,critical=1.5,decritical=1.5,}},
+[16]={level=60,icon="t10006_1.png",clientReward={base={f={e1=300}},rand={p={p447=1,p455=1,p472=1,}}},reward={base={equip_e1=300},rand={{100},{37,13,50,},{{"props_p447",1},{"props_p455",1},{"props_p472",1},}}},tank={{"a10006",540},{"a10006",540},{"a10006",540},{"a10036",540},{"a10026",540},{"a10016",540},},skill={s101=60,s102=60,s103=60,s104=60,},attributeUp={attack=27.9,life=64,accurate=1.55,avoid=1.55,critical=1.55,decritical=1.55,}},
+[17]={level=62,icon="t10016_1.png",clientReward={base={f={e1=300}},rand={p={p447=1,p455=1,p473=1,}}},reward={base={equip_e1=300},rand={{100},{37,13,50,},{{"props_p447",1},{"props_p455",1},{"props_p473",1},}}},tank={{"a10006",560},{"a10006",560},{"a10006",560},{"a10036",560},{"a10026",560},{"a10016",560},},skill={s101=62,s102=62,s103=62,s104=62,},attributeUp={attack=30,life=70.1,accurate=1.6,avoid=1.6,critical=1.6,decritical=1.6,}},
+[18]={level=64,icon="t10026_1.png",clientReward={base={f={e1=300}},rand={p={p448=1,p456=1,p474=1,}}},reward={base={equip_e1=300},rand={{100},{37,13,50,},{{"props_p448",1},{"props_p456",1},{"props_p474",1},}}},tank={{"a10006",580},{"a10006",580},{"a10006",580},{"a10036",580},{"a10026",580},{"a10016",580},},skill={s101=64,s102=64,s103=64,s104=64,},attributeUp={attack=32.1,life=76.4,accurate=1.65,avoid=1.65,critical=1.65,decritical=1.65,}},
+[19]={level=66,icon="t10036_1.png",clientReward={base={f={e1=300}},rand={p={p448=1,p456=1,p475=1,}}},reward={base={equip_e1=300},rand={{100},{37,13,50,},{{"props_p448",1},{"props_p456",1},{"props_p475",1},}}},tank={{"a10006",600},{"a10006",600},{"a10006",600},{"a10036",600},{"a10026",600},{"a10016",600},},skill={s101=66,s102=66,s103=66,s104=66,},attributeUp={attack=34.3,life=82.9,accurate=1.7,avoid=1.7,critical=1.7,decritical=1.7,}},
+[20]={level=68,icon="hero_icon_27.png",clientReward={base={f={e1=300}},rand={p={p819=1,p456=1,p476=1,}}},reward={base={equip_e1=300},rand={{100},{37,13,50,},{{"props_p819",1},{"props_p456",1},{"props_p476",1},}}},tank={{"a10007",680},{"a10007",680},{"a10007",680},{"a10037",680},{"a10027",680},{"a10017",680},},skill={s101=68,s102=68,s103=68,s104=68,},attributeUp={attack=36.5,life=89.5,accurate=1.75,avoid=1.75,critical=1.75,decritical=1.75,}},
+[21]={level=70,icon="t10007_1.png",clientReward={base={f={e1=350}},rand={p={p448=1,p457=1,p477=1,}}},reward={base={equip_e1=350},rand={{100},{37,13,50,},{{"props_p448",1},{"props_p457",1},{"props_p477",1},}}},tank={{"a10007",740},{"a10007",740},{"a10007",740},{"a10037",740},{"a10027",740},{"a10017",740},},skill={s101=70,s102=70,s103=70,s104=70,},attributeUp={attack=38.7,life=96.3,accurate=1.8,avoid=1.8,critical=1.8,decritical=1.8,}},
+[22]={level=72,icon="t10017_1.png",clientReward={base={f={e1=350}},rand={p={p448=1,p457=1,p475=1,}}},reward={base={equip_e1=350},rand={{100},{37,13,50,},{{"props_p448",1},{"props_p457",1},{"props_p475",1},}}},tank={{"a10007",800},{"a10007",800},{"a10007",800},{"a10037",800},{"a10027",800},{"a10017",800},},skill={s101=72,s102=72,s103=72,s104=72,},attributeUp={attack=40.9,life=103.2,accurate=1.85,avoid=1.85,critical=1.85,decritical=1.85,}},
+[23]={level=74,icon="t10027_1.png",clientReward={base={f={e1=350}},rand={p={p457=1,p476=1,}}},reward={base={equip_e1=350},rand={{100},{37,13,50,},{{"props_p448",1},{"props_p457",1},{"props_p476",1},}}},tank={{"a10007",860},{"a10007",860},{"a10007",860},{"a10037",860},{"a10027",860},{"a10017",860},},skill={s101=74,s102=74,s103=74,s104=74,},attributeUp={attack=43.1,life=110.4,accurate=1.9,avoid=1.9,critical=1.9,decritical=1.9,}},
+[24]={level=76,icon="t10037_1.png",clientReward={base={f={e1=350}},rand={p={p448=1,p458=1,p477=1,}}},reward={base={equip_e1=350},rand={{100},{37,13,50,},{{"props_p448",1},{"props_p458",1},{"props_p477",1},}}},tank={{"a10007",920},{"a10007",920},{"a10007",920},{"a10037",920},{"a10027",920},{"a10017",920},},skill={s101=76,s102=76,s103=76,s104=76,},attributeUp={attack=45.4,life=117.6,accurate=1.95,avoid=1.95,critical=1.95,decritical=1.95,}},
+[25]={level=78,icon="hero_icon_4.png",clientReward={base={f={e1=350}},rand={p={p818=1,p458=1,p475=1,}}},reward={base={equip_e1=350},rand={{100},{37,13,50,},{{"props_p818",1},{"props_p458",1},{"props_p475",1},}}},tank={{"a10007",1000},{"a10007",1000},{"a10007",1000},{"a10037",1000},{"a10027",1000},{"a10017",1000},},skill={s101=78,s102=78,s103=78,s104=78,},attributeUp={attack=47.6,life=125,accurate=2,avoid=2,critical=2,decritical=2,}},
+},
+
+ --章节奖励
+chapterReward={
+{sid="1",content={star=15,reward={u={gems=20},f={e1=2000},p={p451=2},},serverreward={userinfo_gems=20,equip_e1=2000,props_p451=2,}}},
+{sid="2",content={star=15,reward={u={gems=40},f={e1=4000},p={p453=2},},serverreward={userinfo_gems=40,equip_e1=4000,props_p453=2,}}},
+{sid="3",content={star=15,reward={u={gems=60},f={e1=6000},p={p455=2},},serverreward={userinfo_gems=60,equip_e1=6000,props_p455=2,}}},
+{sid="4",content={star=15,reward={u={gems=80},f={e1=8000},p={p457=2},},serverreward={userinfo_gems=80,equip_e1=8000,props_p457=2,}}},
+{sid="5",content={star=15,reward={u={gems=100},f={e1=10000},p={p458=5},},serverreward={userinfo_gems=100,equip_e1=10000,props_p458=5,}}},
+},
+
+
+}

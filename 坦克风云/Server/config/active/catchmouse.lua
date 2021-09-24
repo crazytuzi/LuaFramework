@@ -1,0 +1,117 @@
+local catchmouse ={
+    multiSelectType = true,
+    [1]={
+        sortid=223,
+        type=1,
+        --单攻价格
+        cost1=38,
+        --群攻价格
+        cost2=145,
+        --每次数量
+        miceNum=10,
+        --激活第N个塔花费
+        towerCost={0,10,60,120,240},
+        --路线总长度
+        pathLength=120,
+        --老鼠间隔
+        miceSpace=2,
+        --暴击概率
+        criticalRate=0.02,
+        --首球固定
+        firstMouse=1,
+        --首塔固定
+        firstTower=1,
+        --伤害，暴击伤害
+        attack={5,10},
+        serverreward ={
+            --线路点位
+            roadpool={
+                {100},
+                {25,25,50},
+                {1,2,3},
+            },
+            --塔相关属性（路线1区间，路线2区间，路线3区间,攻击力，暴击伤害）
+            towers={
+                {{80,85},{80,85},{80,85}},
+                {{39,47},{39,43},{}},
+                {{63,67},{59,67},{}},
+                {{},{},{30,37}},
+                {{},{},{70,76}},
+            },
+            --老鼠相关(出现概率，血量）
+            balls={
+                {100},
+                {43,35,15,3,4},
+                {25,30,65,75,100},
+            },
+            --白球奖池
+            pool1={
+                {100},
+                {12,15,15,15,15,12,6,10},
+                {{"props_p36",1},{"props_p601",1},{"props_p19",1},{"props_p281",1},{"props_p277",2},{"props_p276",1},{"props_p275",1},{"props_p279",1}},
+            },
+            
+            --绿球奖池
+            pool2={
+                {100},
+                {5,5,5,5,5,5,5,5,25,25,10},
+                {{"props_p611",1},{"props_p612",1},{"props_p613",1},{"props_p614",1},{"props_p615",1},{"props_p616",1},{"props_p617",1},{"props_p618",1},{"props_p447",1},{"props_p958",1},{"props_p959",1}},
+            },
+            
+            --蓝球奖池
+            pool3={
+                {100},
+                {16,18,15,10,5,8,15,8,5},
+                {{"troops_a10043",2},{"troops_a10053",2},{"troops_a10063",2},{"troops_a10073",2},{"troops_a10082",2},{"troops_a10093",2},{"troops_a10113",2},{"troops_a10123",2},{"troops_a20153",2}},
+            },
+            
+            --紫球奖池
+            pool4={
+                {100},
+                {16,18,15,10,5,8,15,8,5},
+                {{"troops_a10044",7},{"troops_a10054",7},{"troops_a10064",7},{"troops_a10074",7},{"troops_a10083",7},{"troops_a10094",7},{"troops_a10114",7},{"troops_a10124",7},{"troops_a20154",7}},
+            },
+            
+            --橙球奖池
+            pool5={
+                {100},
+                {30,4,20,3,40,3},
+                {{"props_p283",1},{"props_p4708",1},{"props_p284",1},{"props_p815",1},{"props_p278",1},{"props_p813",1}},
+            },
+            --限制抽取次数，下列道具单次活动只能被抽取N次，超过后将不再抽到该道具。
+            limit={{"props_p4708",1},{"props_p815",3},{"props_p813",2}},
+            
+            --完成任务链额外赠送
+            taskExtra={{"props_p4708",1}},
+            --任务（标识，参数，奖励）
+            taskList={
+                --击杀蓝{1}，紫{1}，橙{1}品质机器人
+                m1={
+                    {1,index=1,next=2,serverreward={{"hero_s107",10}}},
+                    {3,index=2,next=3,serverreward={{"props_p279",20}}},
+                    {6,index=3,next=nil,serverreward={{"props_p275",15},{"props_p276",30}}},
+                },
+                --击杀{1}色机器人25个
+                m2={
+                    {2,index=4,next=2,serverreward={{"props_p601",30},{"props_p448",2}}},
+                    {3,index=5,next=3,serverreward={{"props_p279",20},{"props_p278",1}}},
+                    {4,index=6,next=nil,serverreward={{"troops_a10044",20},{"troops_a10074",20},{"troops_a10083",20}}},
+                },
+                --全部激活所有炮塔进行游戏{1}轮
+                m6={
+                    {1,index=10,next=2,serverreward={{"props_p19",30}}},
+                    {10,index=11,next=3,serverreward={{"props_p283",1},{"props_p279",10},{"props_p278",1}}},
+                    {40,index=12,next=nil,serverreward={{"props_p275",15},{"props_p276",30}}},
+                },
+                --累计击杀机器人{1}个
+                m7={
+                    {100,index=13,next=2,serverreward={{"userinfo_gold",20000000}}},
+                    {300,index=14,next=3,serverreward={{"props_p275",5},{"props_p276",10},{"props_p278",1}}},
+                    {600,index=15,next=nil,serverreward={{"props_p3332",1}}},
+                },
+            },
+        },
+    },
+}
+
+return catchmouse 

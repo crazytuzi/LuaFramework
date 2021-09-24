@@ -1,0 +1,44 @@
+exteriorCfg={
+    ----功能开启所需角色等级
+    openlv=30,
+    ----升级消耗道具Id
+    upgradeCostItem="p4945",
+    ----开启功能默认拥有的皮肤id
+    baseExteriorId="b1",
+    ----拥有皮肤转化升级道具个数
+    exchangeItemNum={props_p4945=50},
+    ----拥有永久皮肤体验卡转换升级道具数量
+    changeExpItemNum={props_p4945=1},
+    ----兑换装扮需要道具id
+    changeItemNum="p4987",
+    ------外观表配置；id表示外观id，extrName外观名称；extrIcon外观图标；timeLimit:皮肤使用期限（0表示永久）；attType外观属性类型；lv等级；value等级对应的属性值；upgradeCost升级所消耗的道具数量;skip:跳转到的活动或者相关页面
+    -----attType:1.行军速度；2：采集速度3.带兵量 4.减少修复坦克消耗水晶;5.增加建筑和研发免费时间（分钟）；6.增加关卡经验;7每日采金矿上限；8军功加成百分比（公式=基础军功*（1+其他加成+该加成）；9被戏谑会死兵;10先手值；11=减对方先手值；13=AI生产时间减少比例；14=闪避；15=精准；16=暴击；17=装甲；18=击破；19=防护
+    exteriorLit={
+        b1={id="b1",extrName="decorateCityNameb1",decorateSp="map_base_building_1.png",timeLimit=0,attType={1,2},lv={1,2,3,4,5},lvMax=5,value={{0.05,0.1,0.18,0.3,0.5},{0.01,0.03,0.07,0.13,0.2}},upgradeCost={15,35,80,150},},
+        b2={id="b2",extrName="decorateCityNameb2",decorateSp="map_base_building_8.png",timeLimit=0,attType={3,4},lv={1,2,3,4,5},lvMax=5,value={{2,5,9,13,20},{0.02,0.06,0.1,0.18,0.3}},upgradeCost={15,35,80,150},skip="wxgx",ver={1},},
+        b3={id="b3",extrName="decorateCityNameb3",decorateSp="map_base_building_9.png",timeLimit=0,attType={3,5},lv={1,2,3,4,5},lvMax=5,value={{2,5,9,13,20},{300,600,900,1200,1800}},upgradeCost={15,35,80,150},skip="tqbj",ver={1},},
+        b4={id="b4",extrName="decorateCityNameb4",decorateSp="map_base_building_10.png",timeLimit=0,attType={3,6},lv={1,2,3,4,5},lvMax=5,value={{2,5,9,13,20},{0.05,0.1,0.2,0.3,0.5}},upgradeCost={15,35,80,150},skip="znkh2018",},
+        b5={id="b5",extrName="decorateCityNameb5",decorateSp="map_base_building_11.png",timeLimit=0,attType={3,7},lv={1,2,3,4,5},lvMax=5,value={{2,5,9,13,20},{10,20,30,40,50}},upgradeCost={15,35,80,150},skip="wxgx",ver={2},},
+        b6={id="b6",extrName="decorateCityNameb6",decorateSp="map_base_building_12.png",timeLimit=604800,attType={8,9},lv={1,2,3,4,5},lvMax=5,value={{0.02,0.05,0.08,0.12,0.2},{0,0,0,0,0}},upgradeCost={15,35,80,150},skip="kfcz",ver={1},},
+        b7={id="b7",extrName="decorateCityNameb7",decorateSp="map_base_building_13.png",timeLimit=0,attType={3,10},lv={1,2,3,4,5},lvMax=5,value={{2,5,9,13,20},{5,10,15,30,50}},upgradeCost={15,35,80,150},skip="wxgx",ver={3},},
+        b8={id="b8",extrName="decorateCityNameb8",decorateSp="wlzc_basef1.png",timeLimit=0,attType={3,11},lv={1,2,3,4,5},lvMax=5,value={{4,8,12,18,25},{10,20,35,55,80}},upgradeCost={15,35,80,150},skip="wxgx",ver={4},},
+        b10={id="b10",extrName="decorateCityNameb10",decorateSp="exerwar_basePic.png",timeLimit=604800,attType={3,13},lv={1},lvMax=1,value={{50},{0.5}},},
+        b11={id="b11",extrName="decorateCityNameb11",decorateSp="hryx_base_building_1.png",timeLimit=0,attType={14,18},lv={1,2,3,4,5},lvMax=5,value={{0.02,0.05,0.09,0.13,0.2},{2,5,9,13,20}},upgradeCost={15,35,80,150},skip="hryx",ver={1},},
+        b12={id="b12",extrName="decorateCityNameb12",decorateSp="hryx_base_building_2.png",timeLimit=0,attType={15,17},lv={1,2,3,4,5},lvMax=5,value={{0.01,0.02,0.03,0.05,0.1},{0.01,0.02,0.03,0.05,0.1}},upgradeCost={15,35,80,150},skip="hryx",ver={1},},
+        b13={id="b13",extrName="decorateCityNameb13",decorateSp="map_base_building_14.png",timeLimit=0,attType={16,17},lv={1,2,3,4,5},lvMax=5,value={{0.01,0.02,0.03,0.05,0.1},{0.01,0.02,0.03,0.05,0.1}},upgradeCost={15,35,80,150},skip="wxgx",ver={5},},
+
+
+    },
+    changeList={
+        ---兑换商店的装扮兑换：{price=兑换需要花费的道具内容，order=排序，reward=兑换物品内容（前端）}
+        i1={order=1,price=50,reward={p={p4945=1}},},
+        i2={order=2,price=900,reward={b={b6=1}},},
+        i3={order=3,price=1200,reward={b={b2=1}},},
+        i4={order=7,price=60,reward={p={p4992=1}},},
+        i5={order=4,price=200,reward={p={p4993=1}},},
+        i6={order=8,price=60,reward={p={p4994=1}},},
+        i7={order=5,price=200,reward={p={p4995=1}},},
+        i8={order=9,price=60,reward={p={p4996=1}},},
+        i9={order=6,price=200,reward={p={p4997=1}},},
+    },
+}

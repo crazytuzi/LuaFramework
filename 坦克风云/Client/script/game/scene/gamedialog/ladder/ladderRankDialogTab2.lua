@@ -1,0 +1,1 @@
+ladderRankDialogTab2=ladderRankDialogTab1:new(2)

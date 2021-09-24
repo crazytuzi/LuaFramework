@@ -1,0 +1,249 @@
+local dresshat ={
+    multiSelectType = true,
+    [1]={
+        sortid=231,
+        type=1,
+        --外观展现（1-爱尔兰节日版，2-国内清明节版）
+        appear=1,
+        --开启等级限制
+        levelLimit=20,
+        --积分需求
+        supportNeed={3750,7500,11250,15000},
+        --三种道具积分提供
+        getScore={1,2,3},
+        --充值额度
+        rechargeNum=500,
+        --三种积分需求
+        singleNeed={5000,5000,5000},
+        serverreward={
+            --积分对应道具
+            scoreItem={"dresshat_a4",1},
+            --三种道具获得概率（100为底）
+            candyGet={
+                {{"dresshat_a1",1},{"dresshat_a2",1},{"dresshat_a3",1}},
+                --攻击基地获得概率
+                {0,13,4},
+                --攻击矿点获得概率
+                {0,12,4},
+                --攻打关卡
+                {25,0,4},
+                --攻打剧情关卡
+                {50,0,8},
+                --攻打装备探索关卡
+                {50,0,8},
+                --攻打海盗
+                {0,30,5},
+            },
+            --积分奖励1
+            gift1={props_p19=30,props_p20=20,props_p3=1},
+            --积分奖励2
+            gift2={props_p4852=5,equip_e1=2000,equip_e3=2000,equip_e2=2000},
+            --积分奖励3
+            gift3={props_p275=10,props_p276=20,props_p277=100,props_p283=2,props_p279=5},
+            --积分奖励4
+            gift4={troops_a20154=30,troops_a10124=30},
+            --奖励奖池1
+            pool1={
+                {100},
+                {1,2,10,20,20,20,10},
+                {{"props_p4820",1},{"props_p278",1},{"props_p275",1},{"props_p276",1},{"props_p277",5},{"props_p279",1},{"props_p282",1}},
+            },
+            
+            --奖励奖池2
+            pool2={
+                {100},
+                {8,8,8,10,10,10,5},
+                {{"equip_e1",1000},{"equip_e2",1000},{"equip_e3",1000},{"props_p956",1},{"props_p601",3},{"props_p447",1},{"props_p818",1}},
+            },
+            
+            --奖励奖池3
+            pool3={
+                {100},
+                {50,60,70,80,20,30,40,50},
+                {{"troops_a20154",1},{"troops_a10124",1},{"troops_a10044",1},{"troops_a10114",1},{"troops_a10037",1},{"troops_a10007",1},{"troops_a10027",1},{"troops_a10017",1}},
+            },
+            
+            --累计充值达到X钻时奖励（循环）
+            recharge={troops_a20154=1,troops_a10124=1,dresshat_a1=1,dresshat_a2=1,dresshat_a3=1},
+            --fb分享奖励
+            fbreward={props_p4852=2,dresshat_a1=1,dresshat_a2=1,dresshat_a3=1},
+            --商店
+            shopList={
+                [1]={serverreward={"troops_a20154",1},price=20,limit=10},
+                [2]={serverreward={"troops_a10124",1},price=15,limit=10},
+                [3]={serverreward={"props_p818",1},price=10,limit=10},
+                [4]={serverreward={"props_p959",3},price=10,limit=10},
+                [5]={serverreward={"props_p277",2},price=1,limit=100},
+                [6]={serverreward={"props_p281",1},price=1,limit=100},
+            },
+        },
+        rewardTb={
+            --积分对应道具
+            scoreItem={dresshat={dresshat_a4=1}},
+            --三种道具获得概率（100为底）
+            candyGet={dresshat={{dresshat_a1=1},{dresshat_a2=1},{dresshat_a3=1}}},
+            gift={
+                --积分奖励1
+                {supportNeed=3750,gift={p={{p19=30,index=1},{p20=20,index=2},{p3=1,index=3}}}},
+                
+                --积分奖励2
+                {supportNeed=7500,gift={f={{e1=2000,index=2},{e3=2000,index=2},{e2=2000,index=3}},p={{p4852=5,index=1}}}},
+                
+                --积分奖励3
+                {supportNeed=11250,gift={p={{p275=10,index=1},{p276=20,index=2},{p277=100,index=3},{p283=2,index=4},{p279=5,index=5}}}},
+                
+                --积分奖励4
+                {supportNeed=15000,gift={o={{a20154=30,index=1},{a10124=30,index=2}}}},
+                
+            },
+            pool={
+                --奖励奖池1
+                {p={{p4820=1,index=1},{p278=1,index=2},{p275=1,index=3},{p276=1,index=4},{p277=5,index=5},{p279=1,index=6},{p282=1,index=7}}},
+                
+                --奖励奖池2
+                {f={{e1=1000,index=1},{e2=1000,index=2},{e3=1000,index=3}},p={{p956=1,index=4},{p601=3,index=5},{p447=1,index=6},{p818=1,index=7}}},
+                
+                --奖励奖池3
+                {o={{a20154=1,index=1},{a10124=1,index=2},{a10044=1,index=3},{a10114=1,index=4},{a10037=1,index=5},{a10007=1,index=6},{a10027=1,index=7},{a10017=1,index=8}}},
+                
+            },
+            --累计充值达到X钻时奖励（循环）
+            recharge={o={{a20154=1,index=1},{a10124=1,index=2}},dresshat={{dresshat_a1=1,index=3},{dresshat_a2=1,index=4},{dresshat_a3=1,index=5}}},
+            --fb分享奖励
+            fbreward={p={{p4852=2,index=1}},dresshat={{dresshat_a1=1,index=2},{dresshat_a2=1,index=3},{dresshat_a3=1,index=4}}},
+            --商店
+            shopList={
+                {reward={o={a20154=1}},index=1,price=20,limit=10},
+                {reward={o={a10124=1}},index=2,price=15,limit=10},
+                {reward={p={p818=1}},index=3,price=10,limit=10},
+                {reward={p={p959=3}},index=4,price=10,limit=10},
+                {reward={p={p277=2}},index=5,price=1,limit=100},
+                {reward={p={p281=1}},index=6,price=1,limit=100},
+            },
+        },
+    },
+    [2]={
+        sortid=231,
+        type=1,
+        --外观展现（1-爱尔兰节日版，2-国内清明节版）
+        appear=2,
+        --开启等级限制
+        levelLimit=20,
+        --积分需求
+        supportNeed={2250,4500,6750,9000},
+        --三种道具积分提供
+        getScore={1,2,3},
+        --充值额度
+        rechargeNum=500,
+        --三种积分需求
+        singleNeed={3000,3000,3000},
+        serverreward={
+            --积分对应道具
+            scoreItem={"dresshat_a4",1},
+            --三种道具获得概率（100为底）
+            candyGet={
+                {{"dresshat_a1",1},{"dresshat_a2",1},{"dresshat_a3",1}},
+                --攻击基地获得概率
+                {0,13,4},
+                --攻击矿点获得概率
+                {0,12,4},
+                --攻打关卡
+                {30,0,4},
+                --攻打剧情关卡
+                {60,0,8},
+                --攻打装备探索关卡
+                {60,0,8},
+                --攻打海盗
+                {0,30,5},
+            },
+            --积分奖励1
+            gift1={props_p19=30,props_p20=20,props_p4=1},
+            --积分奖励2
+            gift2={props_p933=20,equip_e1=2000,equip_e3=2000,equip_e2=2000},
+            --积分奖励3
+            gift3={props_p275=10,props_p276=20,props_p277=100,props_p283=2,props_p279=5},
+            --积分奖励4
+            gift4={troops_a20154=30,troops_a10124=30},
+            --奖励奖池1
+            pool1={
+                {100},
+                {2,10,20,20,20,10},
+                {{"props_p278",1},{"props_p275",1},{"props_p276",1},{"props_p277",5},{"props_p279",1},{"props_p282",1}},
+            },
+            
+            --奖励奖池2
+            pool2={
+                {100},
+                {8,8,8,10,10,10,5},
+                {{"equip_e1",1000},{"equip_e2",1000},{"equip_e3",1000},{"props_p956",1},{"props_p601",3},{"props_p447",1},{"props_p818",1}},
+            },
+            
+            --奖励奖池3
+            pool3={
+                {100},
+                {50,60,70,80,20,30,40,50},
+                {{"troops_a20154",1},{"troops_a10124",1},{"troops_a10044",1},{"troops_a10114",1},{"troops_a10037",1},{"troops_a10007",1},{"troops_a10027",1},{"troops_a10017",1}},
+            },
+            
+            --累计充值达到X钻时奖励（循环）
+            recharge={troops_a20154=5,dresshat_a1=1,dresshat_a2=1,dresshat_a3=1},
+            --fb分享奖励
+            fbreward={troops_a20154=2,dresshat_a1=1,dresshat_a2=1,dresshat_a3=1},
+            --商店
+            shopList={
+                [1]={serverreward={"troops_a20154",1},price=20,limit=10},
+                [2]={serverreward={"troops_a10124",1},price=15,limit=10},
+                [3]={serverreward={"props_p818",1},price=10,limit=10},
+                [4]={serverreward={"props_p960",1},price=10,limit=10},
+                [5]={serverreward={"props_p277",2},price=1,limit=200},
+                [6]={serverreward={"props_p281",1},price=1,limit=200},
+            },
+        },
+        rewardTb={
+            --积分对应道具
+            scoreItem={dresshat={dresshat_a4=1}},
+            --三种道具获得概率（100为底）
+            candyGet={dresshat={{dresshat_a1=1},{dresshat_a2=1},{dresshat_a3=1}}},
+            gift={
+                --积分奖励1
+                {supportNeed=2250,gift={p={{p19=30,index=1},{p20=20,index=2},{p4=1,index=3}}}},
+                
+                --积分奖励2
+                {supportNeed=4500,gift={f={{e1=2000,index=2},{e3=2000,index=2},{e2=2000,index=3}},p={{p933=20,index=1}}}},
+                
+                --积分奖励3
+                {supportNeed=6750,gift={p={{p275=10,index=1},{p276=20,index=2},{p277=100,index=3},{p283=2,index=4},{p279=5,index=5}}}},
+                
+                --积分奖励4
+                {supportNeed=9000,gift={o={{a20154=30,index=1},{a10124=30,index=2}}}},
+                
+            },
+            pool={
+                --奖励奖池1
+                {p={{p278=1,index=1},{p275=1,index=2},{p276=1,index=3},{p277=5,index=4},{p279=1,index=5},{p282=1,index=6}}},
+                
+                --奖励奖池2
+                {f={{e1=1000,index=1},{e2=1000,index=2},{e3=1000,index=3}},p={{p956=1,index=4},{p601=3,index=5},{p447=1,index=6},{p818=1,index=7}}},
+                
+                --奖励奖池3
+                {o={{a20154=1,index=1},{a10124=1,index=2},{a10044=1,index=3},{a10114=1,index=4},{a10037=1,index=5},{a10007=1,index=6},{a10027=1,index=7},{a10017=1,index=8}}},
+                
+            },
+            --累计充值达到X钻时奖励（循环）
+            recharge={o={{a20154=5,index=1}},dresshat={{dresshat_a1=1,index=3},{dresshat_a2=1,index=4},{dresshat_a3=1,index=5}}},
+            --fb分享奖励
+            fbreward={o={{a20154=2,index=1}},dresshat={{dresshat_a1=1,index=2},{dresshat_a2=1,index=3},{dresshat_a3=1,index=4}}},
+            --商店
+            shopList={
+                {reward={o={a20154=1}},index=1,price=20,limit=10},
+                {reward={o={a10124=1}},index=2,price=15,limit=10},
+                {reward={p={p818=1}},index=3,price=10,limit=10},
+                {reward={p={p960=1}},index=4,price=10,limit=10},
+                {reward={p={p277=2}},index=5,price=1,limit=200},
+                {reward={p={p281=1}},index=6,price=1,limit=200},
+            },
+        },
+    },
+}
+
+return dresshat 
