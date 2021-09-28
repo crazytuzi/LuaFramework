@@ -1,0 +1,4 @@
+FightAlertNotes = {}
+
+FightAlertNotes.OPEN_FIGHTALERT="OPEN_FIGHTALERT";
+FightAlertNotes.CLOSE_FIGHTALERT="CLOSE_FIGHTALERT";

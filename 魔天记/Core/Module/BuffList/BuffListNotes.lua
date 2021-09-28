@@ -1,0 +1,3 @@
+BuffListNotes = {}
+BuffListNotes.OPEN_BUFFLIST="OPEN_BUFFLIST";
+BuffListNotes.CLOSE_BUFFLIST="CLOSE_BUFFLIST";

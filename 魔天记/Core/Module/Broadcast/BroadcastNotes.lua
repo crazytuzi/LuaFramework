@@ -1,0 +1,11 @@
+BroadcastNotes = {}
+
+BroadcastNotes.OPEN_BROADCASTPANEL="OPEN_BROADCASTPANEL";
+BroadcastNotes.CLOSE_BROADCASTPANEL="CLOSE_BROADCASTPANEL";
+
+
+BroadcastNotes.MSG_TYPE_SAMPLE="MSG_TYPE_SAMPLE";
+BroadcastNotes.MSG_TYPE_ERROR="MSG_TYPE_ERROR";
+
+BroadcastNotes.ACTTYPE_RIGHT_TO_LEFT="right_to_left";
+BroadcastNotes.ACTTYPE_UP_FROM_CENTER="up_from_center";

@@ -1,0 +1,36 @@
+local product_tips={
+[1]={1,'穿戴','fun_equip_chuandai','装备在角色背包时，显示穿戴',-1},
+[2]={2,'卸下','fun_equip_xiexia','装备在角色身上时，显示卸下',-1},
+[3]={3,'镶嵌','fun_jewel_xiangqian','打开宝石镶嵌界面',0},
+[4]={4,'合成','fun_jewel_hecheng','打开宝石合成界面',0},
+[5]={5,'附灵','fun_equip_qianghua','打开装备附灵界面',0},
+[6]={6,'精炼','fun_equip_jinglian','打开装备精炼界面',0},
+[7]={7,'合成','fun_equip_hecheng','打开合成界面精炼材料标签页(不满足后面等级时，不显示合成按钮)',5},
+[8]={8,'使用','fun_equip_shengxing','打开神器界面',0},
+[9]={9,'使用','fun_trump_lianzhi','打开法宝炼制界面',0},
+[10]={10,'合成','fun_trump_hecheng','打开合成界面紫阳石标签页(不满足后面等级时，不显示合成按钮)',5},
+[11]={11,'使用','fun_wing_peiyang','打开翅膀培养界面',0},
+[12]={12,'使用','fun_panacea_hecheng','打开灵药合成界面',0},
+[13]={13,'合成','fun_materials_hecheng','打开合成界面丹药材料标签页(不满足后面等级时，不显示合成按钮)',5},
+[14]={14,'使用','fun_drug_shiyong','药品使用1次使用1个，有cd判断',0},
+[15]={15,'使用','fun_product_shiyong','直接使用',0},
+[16]={16,'使用','fun_exp_shiyong','打开伙伴信息界面、伙伴经验药水使用界面（点击+号弹出的选择界面）',0},
+[17]={17,'使用','fun_aptitude_shiyong','打开伙伴信息界面、资质洗练界面',0},
+[18]={18,'使用','fun_advanced_shiyong','打开伙伴进阶界面',23},
+[19]={19,'寄售','fun_product_jishou','打开寄售系统的上架界面(不满足后面等级时，不显示寄售按钮;所有绑定的物品不显示寄售按钮)',90},
+[20]={20,'出售','fun_product_chushou','',-1},
+[21]={21,'使用','fun_realm_ninglian','打开境界凝练界面',0},
+[22]={22,'使用','fun_ride_jihuo','打开坐骑界面',0},
+[23]={23,'使用','fun_pay_box','打开仙玉礼包二次确认界面，消耗的仙玉数量读取道具表fun_para的第一个参数',0},
+[24]={24,'使用','fun_ride_jihuo_tiaozhuan','（使用道具）激活坐骑成功后跳转到坐骑界面',0},
+[25]={25,'鉴定','fun_fairy_identify','鉴定仙器（未鉴定状态下才有此TIP）',0},
+[26]={26,'附魔','fun_fairy_enchant','将背包仙器的属性附魔到已穿戴仙器上',180},
+[27]={27,'称号','fun_chenghao','打开称号界面',0},
+[28]={28,'使用','fun_vipshiyong','打开VIP试用界面',0},
+[29]={29,'使用','fun_graphic_exp','打开相应的阵图阵位界面',0},
+[30]={30,'使用','fun_partner_active','打开伙伴-幻化界面',50},
+[31]={31,'装配','fun_set_hang','打开挂机设置界面',0}
+}
+local ks={id=1,button_label=2,interface=3,des=4,lev_req=5}
+local base={__index=function(t,k)if k=='cks' then return ks end local ind=ks[k] return ind and t[ind] or nil end}for k,v in pairs(product_tips)do setmetatable(v,base)end base.__metatable=false
+return product_tips
