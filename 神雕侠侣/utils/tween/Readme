@@ -1,0 +1,58 @@
+1.创建一个渐变缓动
+方法主要是：
+local tw = TweenNano.to(target, duration, {ease={type=Linear.type, fun=Linear.easeIn}, 
+												onUpdate=onUpdateFunction, 
+												onComplete= onCompleteFunction,
+												callbackTarget = self})
+												
+1) target 是一个TweenTarget： 创建方法是local window_target = TweenTarget:new(wnd, TweenTarget.Window)
+或者local uisprite_target =  TweenTarget:new(sprite, TweenTarget.Sprite)
+
+2)duration 缓动持续时间 以秒为单位
+3)ease 主要定义缓动的类型(type)和缓动函数(fun)
+	a. 当前缓动类型和缓动函数
+	  inQuad    = inQuad,    outQuad    = outQuad,    inOutQuad    = inOutQuad,    outInQuad    = outInQuad,
+	  inCubic   = inCubic,   outCubic   = outCubic,   inOutCubic   = inOutCubic,   outInCubic   = outInCubic,
+	  inQuart   = inQuart,   outQuart   = outQuart,   inOutQuart   = inOutQuart,   outInQuart   = outInQuart,
+	  inQuint   = inQuint,   outQuint   = outQuint,   inOutQuint   = inOutQuint,   outInQuint   = outInQuint,
+	  inSine    = inSine,    outSine    = outSine,    inOutSine    = inOutSine,    outInSine    = outInSine,
+	  inExpo    = inExpo,    outExpo    = outExpo,    inOutExpo    = inOutExpo,    outInExpo    = outInExpo,
+	  inCirc    = inCirc,    outCirc    = outCirc,    inOutCirc    = inOutCirc,    outInCirc    = outInCirc,
+	  inElastic = inElastic, outElastic = outElastic, inOutElastic = inOutElastic, outInElastic = outInElastic,
+	  inBack    = inBack,    outBack    = outBack,    inOutBack    = inOutBack,    outInBack    = outInBack,
+	  inBounce  = inBounce,  outBounce  = outBounce,  inOutBounce  = inOutBounce,  outInBounce  = outInBounce,
+	b. 每个缓动类型都有四个缓动函数in, out , inout, outin
+	c. 每个缓动具体效果可以参照tweenlite www.tweenlite.com
+4)onUpdate 参数时每个变化帧时回调
+5)onComplete 缓动结束时回调
+6)callbackTarget 函调目标
+7)delay 延迟执行缓动（unit in seconds）
+
+2.创建贝塞尔曲线缓动
+TweenNano.to(TweenTarget:new(self.m_pDownView, TweenTarget.Window),
+										1.5, {ease = {type=TweenCirc.type, fun = TweenBack.easeInOut},
+									 	plugin = BezierThroughPlugin.type, value={{x=-800, y=-80}, {x=-900, y=-680}, {x=-1000, y=-80}}})
+1) 添加了两个参数plugin和value
+	plugin 定义类型
+	value 路径描点
+2) 当前支持的主要有BezierPlugin和BezierThroughPlugin
+
+3. 移除一个tween
+
+1) tween:delete()
+2) TweenNano:removeTween(tween)
+3) TweenNano.killTweenOfTarget(target)
+
+4. TICKER 
+TweenNano 提供了两个函数addRender(target) 和 removeRender(target) 主要负责在每一帧
+调用一次target:run(delta)，target需要实现run(delta)
+这样做的主要目的时，不需要再去维护MainTicker.lua 这个文件
+
+5.添加Physics2dPlugin
+local tw = TweenNano.to(TweenTarget:new(self.m_pDownView, TweenTarget.Window),
+										1.5, {ease = {type=Linear.type}
+									 	plugin = Physics2dPlugin.type, value={velocity=600, angle=260, gravity=400, friction=0}})
+1）本缓动中的ease参数在缓动中不起到任何作用但是需要添加
+2）缓动时间尽量要大，然后尽量自己手动去判断什么时候移除本缓动(tw)
+--------------------------------------------------------------------------------
+本文档随时会更新
