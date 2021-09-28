@@ -1,0 +1,162 @@
+GddhShopModel = {
+    desc = {
+        ID = "#序号ID",
+        typeID = "商品资源类型",
+        modelID = "商品模型ID",
+        num = "商品数量",
+        needGDDHCoin = "售卖价格",
+        perMaxNum = "每日限购",
+        seasonMaxNum = "每赛季限购",
+        totalMaxNum = "总限购",
+        needLV = "需要等级",
+        needRank = "需要排名"
+    },
+    key = {"ID"},
+    items_count = 12,
+    items = {
+        [1] = {
+            ID = 1,
+            typeID = 1111,
+            modelID = 0,
+            num = 300,
+            needGDDHCoin = 100,
+            perMaxNum = 0,
+            seasonMaxNum = 0,
+            totalMaxNum = 1,
+            needLV = 1,
+            needRank = 200
+        },
+        [2] = {
+            ID = 2,
+            typeID = 1606,
+            modelID = 16060353,
+            num = 20,
+            needGDDHCoin = 400,
+            perMaxNum = 0,
+            seasonMaxNum = 0,
+            totalMaxNum = 1,
+            needLV = 1,
+            needRank = 100
+        },
+        [3] = {
+            ID = 3,
+            typeID = 1111,
+            modelID = 0,
+            num = 500,
+            needGDDHCoin = 100,
+            perMaxNum = 0,
+            seasonMaxNum = 0,
+            totalMaxNum = 1,
+            needLV = 1,
+            needRank = 50
+        },
+        [4] = {
+            ID = 4,
+            typeID = 1606,
+            modelID = 16060353,
+            num = 50,
+            needGDDHCoin = 1000,
+            perMaxNum = 0,
+            seasonMaxNum = 0,
+            totalMaxNum = 1,
+            needLV = 1,
+            needRank = 30
+        },
+        [5] = {
+            ID = 5,
+            typeID = 1111,
+            modelID = 0,
+            num = 800,
+            needGDDHCoin = 100,
+            perMaxNum = 0,
+            seasonMaxNum = 0,
+            totalMaxNum = 1,
+            needLV = 1,
+            needRank = 10
+        },
+        [6] = {
+            ID = 6,
+            typeID = 1606,
+            modelID = 16060353,
+            num = 80,
+            needGDDHCoin = 1600,
+            perMaxNum = 0,
+            seasonMaxNum = 0,
+            totalMaxNum = 1,
+            needLV = 1,
+            needRank = 1
+        },
+        [7] = {
+            ID = 7,
+            typeID = 1501,
+            modelID = 15011303,
+            num = 1,
+            needGDDHCoin = 40,
+            perMaxNum = 30,
+            seasonMaxNum = 0,
+            totalMaxNum = 0,
+            needLV = 1,
+            needRank = 0
+        },
+        [8] = {
+            ID = 8,
+            typeID = 1501,
+            modelID = 15012303,
+            num = 1,
+            needGDDHCoin = 40,
+            perMaxNum = 30,
+            seasonMaxNum = 0,
+            totalMaxNum = 0,
+            needLV = 1,
+            needRank = 0
+        },
+        [9] = {
+            ID = 9,
+            typeID = 1501,
+            modelID = 15013303,
+            num = 1,
+            needGDDHCoin = 40,
+            perMaxNum = 30,
+            seasonMaxNum = 0,
+            totalMaxNum = 0,
+            needLV = 1,
+            needRank = 0
+        },
+        [10] = {
+            ID = 10,
+            typeID = 1501,
+            modelID = 15011401,
+            num = 1,
+            needGDDHCoin = 10,
+            perMaxNum = 30,
+            seasonMaxNum = 0,
+            totalMaxNum = 0,
+            needLV = 1,
+            needRank = 0
+        },
+        [11] = {
+            ID = 11,
+            typeID = 1501,
+            modelID = 15012401,
+            num = 1,
+            needGDDHCoin = 10,
+            perMaxNum = 30,
+            seasonMaxNum = 0,
+            totalMaxNum = 0,
+            needLV = 1,
+            needRank = 0
+        },
+        [12] = {
+            ID = 12,
+            typeID = 1501,
+            modelID = 15013401,
+            num = 1,
+            needGDDHCoin = 10,
+            perMaxNum = 30,
+            seasonMaxNum = 0,
+            totalMaxNum = 0,
+            needLV = 1,
+            needRank = 0
+        }
+    }
+}

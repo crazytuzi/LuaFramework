@@ -1,0 +1,50 @@
+GuildConfig = {
+    desc = {
+        reJoinGuildCD = "重新加入社团冷却时间(秒)",
+        applyNumMax = "同时申请加入社团最大个数",
+        createGuildUseResource = "创建社团消耗",
+        dismissGuildLVMax = "允许社团解散的社团最大等级",
+        impeachOfflineTimeMin = "社长可被弹劾的最小离线时间(小时)",
+        impeachUseDiamond = "弹劾消耗钻石",
+        perMercenaryBeUseReward = "佣兵每次被使用可得奖励",
+        shareNeedLV = "佣兵共用需要等级",
+        guildWarsNeedLv = "宗门战需要等级",
+        buildNeedGuildLv = "建设开放需工会等级",
+        needGuildLv = "BOSS开启所需帮派等级",
+        bossBattleNum = "每日挑战BOSS次数",
+        buffUseDimonds = "提升攻击花费钻石",
+        addAttack = "提升攻击%",
+        seconds = "持续时间",
+        bossStartTime = "每日挑战BOSS开始时间",
+        bossEndTime = "每日挑战BOSS结束时间",
+        maxExpansionNum = "最大扩充次数",
+        guildLvLimit = "扩充帮派等级限制",
+        price = "扩充价格"
+    },
+    key = nil,
+    items_count = 1,
+    items = {
+        {
+            reJoinGuildCD = 0,
+            applyNumMax = 3,
+            createGuildUseResource = "1111,0,100||1112,0,500000",
+            dismissGuildLVMax = 5,
+            impeachOfflineTimeMin = 168,
+            impeachUseDiamond = 100,
+            perMercenaryBeUseReward = "1103,0,1",
+            shareNeedLV = 23,
+            guildWarsNeedLv = 4,
+            buildNeedGuildLv = 1,
+            needGuildLv = 1,
+            bossBattleNum = 3,
+            buffUseDimonds = 200,
+            addAttack = 2000,
+            seconds = 1800,
+            bossStartTime = "0:00:00",
+            bossEndTime = "23:30:00",
+            maxExpansionNum = 5,
+            guildLvLimit = 15,
+            price = "1111,0,2000"
+        }
+    }
+}
