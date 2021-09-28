@@ -1,0 +1,5 @@
+local Items = {
+	{skillID = 3011,name = '幽冥火咒',jnwb1 = 2,q_jieduan = 1,skillspecialtype = 1,skillHurtType = 0,useType = 1,jnfenlie = 1,learnLv = 50,learnBook = 6200022,canUpgrade = 0,bookDesc = 6200022,job = 3,needStartHand = 1,useDistance = 7,tarType = 4,effectRangeType = 1,effectCenterPos = 2,limitTarCount = 1,canRegister = 20,coolTimeShare = 1050,shareGroup = 1,hate = 100,delayTime = 700,flySpeed = 1000,ico = 3011,sound = 3011,jnxg = 2,maxlv = 6,Is_Lx = 1,isRebound = 1,arenaSkillID = 3040,q_order = 11,},
+    {skillID = 3011,name = '幽冥火咒',jnwb1 = 2,q_jieduan = 1,skillspecialtype = 1,skillHurtType = 0,useType = 1,jnfenlie = 1,learnLv = 50,learnBook = 6200022,canUpgrade = 0,bookDesc = 6200022,job = 3,needStartHand = 1,useDistance = 7,tarType = 4,effectRangeType = 1,effectCenterPos = 2,limitTarCount = 1,canRegister = 20,coolTimeShare = 1050,shareGroup = 1,hate = 100,delayTime = 700,flySpeed = 1000,ico = 3011,sound = 3011,jnxg = 2,maxlv = 6,Is_Lx = 1,isRebound = 1,arenaSkillID = 3040,q_order = 11,},
+};
+return Items

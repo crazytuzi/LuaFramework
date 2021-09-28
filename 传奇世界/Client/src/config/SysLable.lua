@@ -1,0 +1,20 @@
+local Items = {
+	{id = 'WorldBoss',F2 = '世界boss',produce_text = '装备/技能书',},
+	{id = 'Envoy',F2 = '勇闯炼狱',produce_text = '经验/装备',high_flg = 1,},
+	{id = 'Luoxia',F2 = '落霞夺宝',produce_text = '极品技能书',high_flg = 1,},
+	{id = 'Bodyguard',F2 = '护送镖车',produce_text = '经验',high_flg = 1,},
+	{id = 'XZKP',F2 = '怪物攻城',produce_text = '绑定元宝',},
+	{id = 'YHTM',F2 = '焰火屠魔',produce_text = '装备/技能书',high_flg = 1,},
+	{id = 'XWZJ',F2 = '仙翁醉酒',produce_text = '经验',},
+	{id = 'MXWK',F2 = '冒险挖矿',produce_text = '铁矿/黑铁矿石',high_flg = 1,},
+	{id = 'teamTreasure',F2 = '远古宝藏',produce_text = '羽毛/装备碎片',high_flg = 1,},
+	{id = 'TLCS',F2 = '屠龙传说',produce_text = '经验/藏宝图',},
+	{id = 'TTT',F2 = '通天塔',produce_text = '矿石/洗炼符',high_flg = 1,},
+	{id = 'SHGZ',F2 = '恶魔城',},
+	{id = 'DRFB',F2 = '多人守卫',produce_text = '声望',high_flg = 1,},
+	{id = 'jjc',F2 = '竞技场',produce_text = '金币',},
+	{id = 'LDZD',F2 = '领地战',produce_text = '洗炼符',},
+	{id = 'ZZZB',F2 = '中州战',produce_text = '行会贡献/声望',high_flg = 1,},
+	{id = 'SCZB',F2 = '沙城战',produce_text = '行会贡献/声望',high_flg = 1,},
+};
+return Items

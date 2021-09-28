@@ -1,0 +1,21 @@
+local Items = {
+	{q_id = 101,q_max_hp = 0,q_attack_min = 0,q_attack_max = 0,q_magic_attack_min = 0,q_magic_attack_max = 0,q_sc_attack_min = 0,q_sc_attack_max = 0,q_defence_min = 0,q_defence_max = 0,q_magic_defence_min = 0,q_magic_defence_max = 0,},
+	{q_id = 201,q_max_hp = 0,q_attack_min = 0,q_attack_max = 0,q_magic_attack_min = 0,q_magic_attack_max = 0,q_sc_attack_min = 0,q_sc_attack_max = 0,q_defence_min = 0,q_defence_max = 0,q_magic_defence_min = 0,q_magic_defence_max = 0,},
+	{q_id = 301,q_max_hp = 0,q_attack_min = 0,q_attack_max = 0,q_magic_attack_min = 0,q_magic_attack_max = 0,q_sc_attack_min = 0,q_sc_attack_max = 0,q_defence_min = 0,q_defence_max = 0,q_magic_defence_min = 0,q_magic_defence_max = 0,},
+	{q_id = 102,q_max_hp = 0,q_attack_min = 0,q_attack_max = 0,q_magic_attack_min = 0,q_magic_attack_max = 0,q_sc_attack_min = 0,q_sc_attack_max = 0,q_defence_min = 0,q_defence_max = 0,q_magic_defence_min = 0,q_magic_defence_max = 0,},
+	{q_id = 202,q_max_hp = 0,q_attack_min = 0,q_attack_max = 0,q_magic_attack_min = 0,q_magic_attack_max = 0,q_sc_attack_min = 0,q_sc_attack_max = 0,q_defence_min = 0,q_defence_max = 0,q_magic_defence_min = 0,q_magic_defence_max = 0,},
+	{q_id = 302,q_max_hp = 0,q_attack_min = 0,q_attack_max = 0,q_magic_attack_min = 0,q_magic_attack_max = 0,q_sc_attack_min = 0,q_sc_attack_max = 0,q_defence_min = 0,q_defence_max = 0,q_magic_defence_min = 0,q_magic_defence_max = 0,},
+	{q_id = 103,q_max_hp = 120,q_attack_min = 10,q_attack_max = 20,q_defence_min = 1,q_defence_max = 2,q_magic_defence_min = 1,q_magic_defence_max = 2,},
+	{q_id = 203,q_max_hp = 120,q_magic_attack_min = 10,q_magic_attack_max = 20,q_defence_min = 1,q_defence_max = 2,q_magic_defence_min = 1,q_magic_defence_max = 2,},
+	{q_id = 303,q_max_hp = 120,q_sc_attack_min = 10,q_sc_attack_max = 20,q_defence_min = 1,q_defence_max = 2,q_magic_defence_min = 1,q_magic_defence_max = 2,},
+	{q_id = 104,q_max_hp = 140,q_attack_min = 15,q_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+	{q_id = 204,q_max_hp = 140,q_magic_attack_min = 15,q_magic_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+	{q_id = 304,q_max_hp = 140,q_sc_attack_min = 15,q_sc_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+	{q_id = 105,q_max_hp = 140,q_attack_min = 15,q_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+	{q_id = 205,q_max_hp = 140,q_magic_attack_min = 15,q_magic_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+	{q_id = 305,q_max_hp = 140,q_sc_attack_min = 15,q_sc_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+	{q_id = 106,q_max_hp = 140,q_attack_min = 15,q_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+	{q_id = 206,q_max_hp = 140,q_magic_attack_min = 15,q_magic_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+	{q_id = 306,q_max_hp = 140,q_sc_attack_min = 15,q_sc_attack_max = 30,q_defence_min = 2,q_defence_max = 4,q_magic_defence_min = 2,q_magic_defence_max = 4,},
+};
+return Items

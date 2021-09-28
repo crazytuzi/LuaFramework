@@ -1,0 +1,20 @@
+local Items = {
+	{luck = -9,downRate = 5,},
+	{luck = -8,downRate = 5,},
+	{luck = -7,downRate = 5,},
+	{luck = -6,downRate = 5,},
+	{luck = -5,downRate = 5,},
+	{luck = -4,downRate = 5,},
+	{luck = -3,downRate = 5,},
+	{luck = -2,downRate = 5,},
+	{luck = -1,downRate = 5,},
+	{luck = 0,downRate = 5,},
+	{luck = 1,downRate = 5,},
+	{luck = 2,downRate = 5,},
+	{luck = 3,downRate = 5,},
+	{luck = 4,downRate = 5,},
+	{luck = 5,downRate = 5,},
+	{luck = 6,downRate = 5,},
+	{luck = 7,downRate = 5,},
+};
+return Items

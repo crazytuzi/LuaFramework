@@ -1,0 +1,22 @@
+local Items = {
+	{q_sourceid = 1216,q_needCnt = 10,q_produceid = '6009,6009,6009,6009,6009,6009',q_produceCnt = 1,q_needmoney = 500000,q_sourcename = '金刚护体碎片',F7 = 6009,F8 = 6009,F9 = 0,F13 = '6009,6009,6009,6009,6009,6009,1,500000,金刚护体碎片,6009,6009',sffj = 0,},
+	{q_sourceid = 1217,q_needCnt = 10,q_produceid = '6008,6008,6008,6008,6008,6008',q_produceCnt = 1,q_needmoney = 500000,q_sourcename = '斗转星移碎片',F7 = 6008,F8 = 6008,F9 = 0,F13 = '6008,6008,6008,6008,6008,6008,1,500000,斗转星移碎片,6008,6008',sffj = 0,},
+	{q_sourceid = 1218,q_needCnt = 10,q_produceid = '6007,6007,6007,6007,6007,6007',q_produceCnt = 1,q_needmoney = 500000,q_sourcename = '风影盾碎片',F7 = 6007,F8 = 6007,F9 = 0,F13 = '6007,6007,6007,6007,6007,6007,1,500000,风影盾碎片,6007,6007',sffj = 0,},
+	{q_sourceid = 6200001,q_needCnt = 10,q_produceid = '1199,1199,1199,1199,1199,1199',q_produceCnt = 1,q_needmoney = 100000,q_sourcename = '血煞宝盒碎片',},
+	{q_sourceid = 6200002,q_needCnt = 10,q_produceid = '1198,1198,1198,1198,1198,1198',q_produceCnt = 1,q_needmoney = 100000,q_sourcename = '神武宝盒碎片',},
+	{q_sourceid = 6200003,q_needCnt = 10,q_produceid = '1197,1197,1197,1197,1197,1197',q_produceCnt = 1,q_needmoney = 100000,q_sourcename = '战神宝盒碎片',},
+	{q_sourceid = 1301,q_needCnt = 2,q_produceid = '1302,1302,1302,1302,1302,1302',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1302,q_needCnt = 2,q_produceid = '1303,1303,1303,1303,1303,1303',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1303,q_needCnt = 2,q_produceid = '1304,1304,1304,1304,1304,1304',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1304,q_needCnt = 2,q_produceid = '1305,1305,1305,1305,1305,1305',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1305,q_needCnt = 2,q_produceid = '1306,1306,1306,1306,1306,1306',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1306,q_needCnt = 2,q_produceid = '1307,1307,1307,1307,1307,1307',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1307,q_needCnt = 2,q_produceid = '1308,1308,1308,1308,1308,1308',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1308,q_needCnt = 2,q_produceid = '1309,1309,1309,1309,1309,1309',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1309,q_needCnt = 2,q_produceid = '1310,1310,1310,1310,1310,1310',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1310,q_needCnt = 2,q_produceid = '1311,1311,1311,1311,1311,1311',q_produceCnt = 1,q_sourcename = '铁矿',},
+	{q_sourceid = 1403,q_needCnt = 2,q_produceid = '1404,1404,1404,1404,1404,1404',q_produceCnt = 1,q_sourcename = '黑铁矿石',},
+	{q_sourceid = 1404,q_needCnt = 2,q_produceid = '1405,1405,1405,1405,1405,1405',q_produceCnt = 1,q_sourcename = '黑铁矿石',},
+	{q_sourceid = 1405,q_needCnt = 2,q_produceid = '1406,1406,1406,1406,1406,1406',q_produceCnt = 1,q_sourcename = '黑铁矿石',},
+};
+return Items

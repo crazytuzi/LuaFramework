@@ -1,0 +1,21 @@
+local Items = {
+	{mountId = 101,q_max_hp = 420,q_attack_min = 10,q_attack_max = 20,},
+	{mountId = 201,q_max_hp = 420,q_magic_attack_min = 10,q_magic_attack_max = 20,},
+	{mountId = 301,q_max_hp = 420,q_sc_attack_min = 10,q_sc_attack_max = 20,},
+	{mountId = 102,q_max_hp = 420,q_propper = 500,},
+	{mountId = 202,q_max_hp = 420,q_propper = 500,},
+	{mountId = 302,q_max_hp = 420,q_propper = 500,},
+	{mountId = 103,q_max_hp = 420,q_attack_min = 15,q_attack_max = 30,q_defence_min = 5,q_defence_max = 10,q_magic_defence_min = 5,q_magic_defence_max = 10,},
+	{mountId = 203,q_max_hp = 420,q_magic_attack_min = 15,q_magic_attack_max = 30,q_defence_min = 5,q_defence_max = 10,q_magic_defence_min = 5,q_magic_defence_max = 10,},
+	{mountId = 303,q_max_hp = 420,q_sc_attack_min = 15,q_sc_attack_max = 30,q_defence_min = 5,q_defence_max = 10,q_magic_defence_min = 5,q_magic_defence_max = 10,},
+	{mountId = 104,q_max_hp = 420,q_attack_min = 20,q_attack_max = 40,q_defence_min = 10,q_defence_max = 20,q_magic_defence_min = 10,q_magic_defence_max = 20,},
+	{mountId = 204,q_max_hp = 420,q_magic_attack_min = 20,q_magic_attack_max = 40,q_defence_min = 10,q_defence_max = 20,q_magic_defence_min = 10,q_magic_defence_max = 20,},
+	{mountId = 304,q_max_hp = 420,q_sc_attack_min = 20,q_sc_attack_max = 40,q_defence_min = 10,q_defence_max = 20,q_magic_defence_min = 10,q_magic_defence_max = 20,},
+	{mountId = 105,q_max_hp = 420,q_propper = 800,},
+	{mountId = 205,q_max_hp = 420,q_propper = 800,},
+	{mountId = 305,q_max_hp = 420,q_propper = 800,},
+	{mountId = 106,q_max_hp = 420,q_attack_min = 25,q_attack_max = 50,q_defence_min = 15,q_defence_max = 30,q_magic_defence_min = 15,q_magic_defence_max = 30,},
+	{mountId = 206,q_max_hp = 420,q_magic_attack_min = 25,q_magic_attack_max = 50,q_defence_min = 15,q_defence_max = 30,q_magic_defence_min = 15,q_magic_defence_max = 30,},
+	{mountId = 306,q_max_hp = 420,q_sc_attack_min = 25,q_sc_attack_max = 50,q_defence_min = 15,q_defence_max = 30,q_magic_defence_min = 15,q_magic_defence_max = 30,},
+};
+return Items

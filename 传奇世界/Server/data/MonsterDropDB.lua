@@ -1,0 +1,14 @@
+local Items=
+{
+  {q_monsterid=1001.0,q_name='鸡',F3='小怪',F4=2.0,q_goods3='1/1 ~copper*1700',q_goods4='1/1 ~copper*1700',q_goods5='1/1 ~copper*1700',q_goods6='1/1 ~copper*1700',q_goods7='1/1 ~copper*1700',q_goods8='1/1 ~copper*1700',q_goods9='1/1 ~copper*1700',q_goods10='1/1 ~copper*1700',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+  {q_monsterid=1002.0,q_name='猪',F3='小怪',F4=3.0,q_goods3='1/1 ~copper*1800',q_goods4='1/1 ~copper*1800',q_goods5='1/1 ~copper*1800',q_goods6='1/1 ~copper*1800',q_goods7='1/1 ~copper*1800',q_goods8='1/1 ~copper*1800',q_goods9='1/1 ~copper*1800',q_goods10='1/1 ~copper*1800',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+  {q_monsterid=1003.0,q_name='鹿',F3='小怪',F4=6.0,q_goods3='1/1 ~copper*1900',q_goods4='1/1 ~copper*1900',q_goods5='1/1 ~copper*1900',q_goods6='1/1 ~copper*1900',q_goods7='1/1 ~copper*1900',q_goods8='1/1 ~copper*1900',q_goods9='1/1 ~copper*1900',q_goods10='1/1 ~copper*1900',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+  {q_monsterid=1004.0,q_name='稻草人',F3='小怪',F4=7.0,q_goods3='1/1 ~copper*2000',q_goods4='1/1 ~copper*2000',q_goods5='1/1 ~copper*2000',q_goods6='1/1 ~copper*2000',q_goods7='1/1 ~copper*2000',q_goods8='1/1 ~copper*2000',q_goods9='1/1 ~copper*2000',q_goods10='1/1 ~copper*2000',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+  {q_monsterid=1005.0,q_name='钩爪猫',F3='小怪',F4=8.0,q_goods3='1/1 ~copper*2100',q_goods4='1/1 ~copper*2100',q_goods5='1/1 ~copper*2100',q_goods6='1/1 ~copper*2100',q_goods7='1/1 ~copper*2100',q_goods8='1/1 ~copper*2100',q_goods9='1/1 ~copper*2100',q_goods10='1/1 ~copper*2100',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+  {q_monsterid=1006.0,q_name='泥耙猫',F3='小怪',F4=8.0,q_goods3='1/1 ~copper*2200',q_goods4='1/1 ~copper*2200',q_goods5='1/1 ~copper*2200',q_goods6='1/1 ~copper*2200',q_goods7='1/1 ~copper*2200',q_goods8='1/1 ~copper*2200',q_goods9='1/1 ~copper*2200',q_goods10='1/1 ~copper*2200',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+  {q_monsterid=1007.0,q_name='蛮兽人',F3='小怪',F4=10.0,q_goods3='1/1 ~copper*2300',q_goods4='1/1 ~copper*2300',q_goods5='1/1 ~copper*2300',q_goods6='1/1 ~copper*2300',q_goods7='1/1 ~copper*2300',q_goods8='1/1 ~copper*2300',q_goods9='1/1 ~copper*2300',q_goods10='1/1 ~copper*2300',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+  {q_monsterid=1008.0,q_name='暗狱龙主',F3='boss',F4=99.0,q_goods3='1/1 ~copper*5000',q_goods4='1/1 ~copper*5000',q_goods5='1/1 ~copper*5000',q_goods6='1/1 ~copper*5000',q_goods7='1/1 ~copper*5000',q_goods8='1/1 ~copper*5000',q_goods9='1/1 ~copper*5000',q_goods10='1/1 ~copper*5000',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+  {q_monsterid=1009.0,q_name='血魔双煞',F3='精英',F4=50.0,q_goods3='1/1 ~copper*3000',q_goods4='1/1 ~copper*3000',q_goods5='1/1 ~copper*3000',q_goods6='1/1 ~copper*3000',q_goods7='1/1 ~copper*3000',q_goods8='1/1 ~copper*3000',q_goods9='1/1 ~copper*3000',q_goods10='1/1 ~copper*3000',q_goods11='1/2 ~柳木剑',q_goods12='1/2 ~特级气血石',},
+}
+
+return Items

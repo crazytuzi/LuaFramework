@@ -1,0 +1,9 @@
+﻿_G_NO_DEBUG = true  --log开关
+G_TUTO_ON = true   --新手引导开关
+G_STORY_ON = true   --新手剧情开关
+G_OLD_CREATE_ROLE = true;  -- 是否使用旧的选人
+G_NEW_WORLD_BOSS = true;    -- 是否使用新的世界BOSS
+G_NO_OPEN_PAY = false;  -- 是否关闭充值
+G_NO_OPEN_INHERIT = true;  -- 是否隐藏传承
+G_NO_OPEN_HIGHTRIDE = false;  -- 是否开启灵兽
+G_NO_OPEN_SKILLPREVIEW = true; --  是否屏蔽技能预览

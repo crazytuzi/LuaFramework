@@ -1,0 +1,11 @@
+local Items=
+{
+  {F1='屠门遗旧隐',q_mainID=2000.0,q_id=2000.0,q_monster='[1,1721,3,24,26],[2,1741,5,24,26],[3,1701,1,24,26]',q_maxCircle=3.0,q_zone_time=160.0,q_enter_xy='27,24',q_limit_level=18.0,qmri=2.0,q_map_id=5101.0,aping=135.0,bping=145.0,cping=155.0,q_reward=29.0,chouID=434.0,tjiang=62.0,fblei=1.0,song=1.0,q_relive_=1.0,fuhwei='20,20',fujie=' 屠门有龙，嗜血好腥杀，群战300斯巴达，归隐',drjcjl=434.0,drjcts='444444',},
+  {F1='龙潭碧血印',q_mainID=2001.0,q_id=2001.0,q_monster='[1,1722,3,24,26],[2,1742,5,24,26],[3,1702,1,24,26]',q_maxCircle=3.0,q_zone_time=160.0,q_enter_xy='27,24',q_limit_level=30.0,qmri=2.0,q_map_id=5101.0,aping=135.0,bping=145.0,cping=155.0,q_reward=30.0,chouID=435.0,tjiang=63.0,fblei=1.0,song=1.0,q_relive_=1.0,fuhwei='20,20',fujie='龙血染深潭，潭边本朽草为茔，逐渐枯木逢春',drjcjl=435.0,drjcts='444444',},
+  {F1='在荒犹遮月',q_mainID=2002.0,q_id=2002.0,q_monster='[1,1723,3,24,26],[2,1743,5,24,26],[3,1703,1,24,26]',q_maxCircle=3.0,q_zone_time=160.0,q_enter_xy='27,24',q_limit_level=40.0,qmri=2.0,q_map_id=5101.0,aping=135.0,bping=145.0,cping=155.0,q_reward=31.0,chouID=436.0,tjiang=64.0,fblei=1.0,song=1.0,fuhwei='20,20',fujie='赤月有赤松，木比金坚，神光笼罩，如月皎洁',drjcjl=436.0,drjcts='444444',},
+  {F1='手执倚天行',q_mainID=2003.0,q_id=2003.0,q_monster='[1,1724,3,24,26],[2,1744,5,24,26],[3,1704,1,24,26]',q_maxCircle=3.0,q_zone_time=160.0,q_enter_xy='27,24',q_limit_level=50.0,qmri=2.0,q_map_id=5101.0,aping=135.0,bping=145.0,cping=155.0,q_reward=32.0,chouID=437.0,tjiang=65.0,fblei=1.0,song=1.0,q_relive_=1.0,fuhwei='20,20',fujie='世人好奇劈开树干，得神兵倚天，得颛顼之手',drjcjl=437.0,drjcts='444444',},
+  {F1='天水对孤城',q_mainID=2004.0,q_id=2004.0,q_monster='[1,1725,3,24,26],[2,1745,5,24,26],[3,1705,1,24,26]',q_maxCircle=3.0,q_zone_time=160.0,q_enter_xy='27,24',q_limit_level=60.0,qmri=2.0,q_map_id=5101.0,aping=135.0,bping=145.0,cping=155.0,q_reward=33.0,chouID=438.0,tjiang=66.0,fblei=1.0,song=1.0,q_relive_=1.0,fuhwei='20,20',fujie='倚天现世，大雨三天，万物生浊气尽，四处欣然',drjcjl=438.0,drjcts='444444',},
+  {F1='下视浩瀚吟',q_mainID=2005.0,q_id=2005.0,q_monster='[1,1726,3,24,26],[2,1746,5,24,26],[3,1706,1,24,26]',q_maxCircle=3.0,q_zone_time=160.0,q_enter_xy='20,20',q_limit_level=70.0,qmri=2.0,q_map_id=5101.0,aping=135.0,bping=145.0,cping=155.0,q_reward=34.0,chouID=439.0,tjiang=67.0,fblei=1.0,song=1.0,q_relive_=1.0,fuhwei='20,20',fujie='得倚天之力，颛顼凭虚御风，下视苍生仍不太平',drjcjl=439.0,drjcts='444444',},
+}
+
+return Items

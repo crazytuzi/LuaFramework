@@ -1,0 +1,23 @@
+local Items = {
+	{q_level = 1,exp = 5,},
+	{q_level = 2,exp = 10,},
+	{q_level = 3,exp = 20,},
+	{q_level = 4,exp = 50,},
+	{q_level = 5,exp = 100,},
+	{q_level = 6,exp = 200,},
+	{q_level = 7,exp = 500,},
+	{q_level = 8,exp = 1000,},
+	{q_level = 9,exp = 1000,},
+	{q_level = 10,exp = 1000,},
+	{q_level = 11,exp = 1000,},
+	{q_level = 12,exp = 1000,},
+	{q_level = 13,exp = 1000,},
+	{q_level = 14,exp = 1000,},
+	{q_level = 15,exp = 1000,},
+	{q_level = 16,exp = 1000,},
+	{q_level = 17,exp = 1000,},
+	{q_level = 18,exp = 1000,},
+	{q_level = 19,exp = 1000,},
+	{q_level = 20,exp = 1000,},
+};
+return Items

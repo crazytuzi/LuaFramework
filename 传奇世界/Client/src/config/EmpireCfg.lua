@@ -1,0 +1,7 @@
+local Items=
+{
+  {manorID=1.0,bannerPos='68,66',name='比奇王城',mapID=2100.0,level=30.0,salary='{20000,30002,6},{15000,30002,5},{1400,30002,4}',relivePosA='63,71',relivePosB='25,99',winDrop='{600,2000000}',loseDrop='{100,1000000}',bannerMoney=200.0,winPeriod=1200.0,leaderWeapon=0.0,commonExpA=100.0,commonExpB=50.0,expPlus=20.0,minePlus=20.0,relivePeriodA=30.0,relivePeriodB=10.0,singleServer=0.0,centerPos='50,50',standardRange=20.0,nearRange=5.0,openTime='*,*,*,4,16:00:05-16:30:05,6',forceOpen=6.0,openNotice1='*,*,*,4,15:30:05-15:30:05,6',openNotice2='*,*,*,4,15:50:05-15:50:05,6',cxsj=7200.0,chattitle=1.0,},
+  {manorID=2.0,bannerPos='63,65',name='蛇谷一层',mapID=2120.0,level=30.0,salary='{20000,30002,6},{15000,30002,5},{1400,30002,4}',relivePosA='93,94',relivePosB='25,22',winDrop='{600,2000000}',loseDrop='{100,1000000}',bannerMoney=200.0,winPeriod=1200.0,leaderWeapon=0.0,commonExpA=100.0,commonExpB=50.0,expPlus=20.0,minePlus=20.0,relivePeriodA=30.0,relivePeriodB=10.0,singleServer=0.0,centerPos='64,66',standardRange=20.0,nearRange=5.0,openTime='*,*,*,4,16:00:05-16:30:05,6',forceOpen=6.0,openNotice1='*,*,*,4,15:30:05-15:30:05,6',openNotice2='*,*,*,4,15:50:05-15:50:05,6',cxsj=7200.0,chattitle=1.0,},
+}
+
+return Items

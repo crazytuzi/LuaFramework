@@ -1,0 +1,10 @@
+local Items = {
+	{q_id = 1,q_lv = 18,q_title = '将军坟',q_copy = 6000,q_plot = 1,q_startid = 1001,q_endid = 1006,q_ask = '深入将军坟',q_info = '^c(gold)屠龙传说：^^c(lable_yellow)中州大陆，勇士的成长需要经历磨砺，最终成为新一代的中州英雄。^',q_desc = '^c(lable_yellow)     东方的一代帝王战败后，他的亲信部下将国库宝藏和自己一同作为陪葬埋入陵墓，于是这个陵墓成了所有盗墓者最向往的圣地——但是随着前往的盗墓者一个一个有去无回，这个陵墓的所在也渐渐成了一个谜团。^',q_dropId = 29,},
+	{q_id = 2,q_lv = 30,q_title = '机关洞',q_copy = 6001,q_plot = 2,q_startid = 2001,q_endid = 2006,q_ask = '击杀机关巨兽',q_info = '^c(gold)屠龙传说：^^c(lable_yellow)中州大陆，勇士的成长需要经历磨砺，最终成为新一代的中州英雄。^',q_desc = '^c(lable_yellow)     古老的神工族神匠元钺和他的门徒无论如何也想不到自己耗费二十年制造的机关巨兽却成了导致整个族人被灭绝的祸根，失去控制的各种机关无序的在这里游荡。^',q_dropId = 30,},
+	{q_id = 3,q_lv = 40,q_title = '五蛇殿',q_copy = 6002,q_plot = 3,q_startid = 3001,q_endid = 3006,q_ask = '扫荡蛇魔谷，消灭蛇妖王',q_info = '^c(gold)屠龙传说：^^c(lable_yellow)中州大陆，勇士的成长需要经历磨砺，最终成为新一代的中州英雄。^',q_desc = '^c(lable_yellow)     在平息了三头蛇王引发的暴乱之后，并没有让这里真正得到安宁。一个更加强大的蛇妖王出现了，你必须阻止新的蛇妖王带来的混乱！^',q_dropId = 31,},
+	{q_id = 4,q_lv = 50,q_title = '逆魔古刹',q_copy = 6003,q_plot = 4,q_startid = 4001,q_endid = 4006,q_ask = '击杀逆魔，获得逆魔雕像',q_info = '^c(gold)屠龙传说：^^c(lable_yellow)中州大陆，勇士的成长需要经历磨砺，最终成为新一代的中州英雄。^',q_desc = '^c(lable_yellow)     跃马平原西侧的密林里，静静耸立着一座诡异的巨型建筑。这是一个入口，地下就是恐怖的逆魔古刹。这里是世界上最危险的地方，但也可能获得世界上最珍贵的宝物。^',q_dropId = 32,},
+	{q_id = 5,q_lv = 60,q_title = '铁血魔城',q_copy = 6004,q_plot = 5,q_startid = 5001,q_endid = 5006,q_ask = '勇闯魔城',q_info = '^c(gold)屠龙传说：^^c(lable_yellow)中州大陆，勇士的成长需要经历磨砺，最终成为新一代的中州英雄。^',q_desc = '^c(lable_yellow)     铁血魔城一直位于地下魔域的深处，驻扎了强大的怪物军团。然而因为修罗战争后盟约的束缚，魔族一直无法进入中州大陆。然而，最近却发现有人正在谋划破坏这个天誓盟约。^',q_dropId = 33,},
+	{q_id = 6,q_lv = 65,q_title = '通天塔',q_copy = 6005,q_plot = 6,q_startid = 6001,q_endid = 6006,q_ask = '通天塔之变',q_info = '^c(gold)屠龙传说：^^c(lable_yellow)中州大陆，勇士的成长需要经历磨砺，最终成为新一代的中州英雄。^',q_desc = '^c(lable_yellow)     通天教主的前身是楼兰国度的王子楼炎，由于嫉妒和暴虐所引发的浩劫，他被永远禁锢在通天塔内。然而最近的异变导致禁锢的封印出现了松动。^',q_dropId = 34,},
+	{q_id = 7,q_lv = 70,q_title = '修罗神殿',q_copy = 6006,q_plot = 7,q_startid = 7001,q_endid = 7006,q_ask = '决战修罗天',q_info = '^c(gold)屠龙传说：^^c(lable_yellow)中州大陆，勇士的成长需要经历磨砺，最终成为新一代的中州英雄。^',q_desc = '^c(lable_yellow)     修罗一族蠢蠢欲动，前一阵子中州的异变就是它们入侵的预演，第四次修罗战争的序幕即将拉开!^',q_dropId = 28,},
+};
+return Items

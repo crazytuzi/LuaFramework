@@ -1,0 +1,33 @@
+local Items=
+{
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=59.0,q_centery=83.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=61.0,q_centery=82.0,q_sxjl=0.6,q_zbjl=0.6,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=44.0,q_centery=104.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=22.0,q_centery=103.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=17.0,q_centery=81.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=15.0,q_centery=77.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=10.0,q_centery=57.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=6.0,q_centery=49.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=11.0,q_centery=46.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=15.0,q_centery=40.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=23.0,q_centery=40.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=28.0,q_centery=37.0,q_sxjl=0.6,q_zbjl=0.6,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=32.0,q_centery=23.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=59.0,q_centery=56.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=25.0,q_centery=23.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=80.0,q_centery=17.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=82.0,q_centery=18.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=97.0,q_centery=32.0,q_sxjl=0.6,q_zbjl=0.6,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=105.0,q_centery=28.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=109.0,q_centery=32.0,q_sxjl=0.6,q_zbjl=0.6,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=113.0,q_centery=50.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=115.0,q_centery=57.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=114.0,q_centery=63.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=117.0,q_centery=88.0,q_sxjl=0.6,q_zbjl=0.6,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=116.0,q_centery=97.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=92.0,q_centery=104.0,q_sxjl=0.3,q_zbjl=0.3,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=116.0,q_centery=101.0,q_sxjl=0.8,q_zbjl=0.8,q_lx=2.0,},
+  {q_mapid=2100.0,q_mc='战神之城',q_centerx=67.0,q_centery=68.0,q_sxjl=1.0,q_zbjl=1.0,q_lx=1.0,},
+}
+
+return Items
