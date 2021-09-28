@@ -1,0 +1,16 @@
+return {
+["_key_"] = {"RecordType","RecordMsg",},
+[1] = {1,"[{RecordTime}] {Role1}拜访了我的果园，为我的{item}浇了水。",},
+[2] = {2,"[{RecordTime}] {Role1}拜访了我的果园，为我的{item}除了虫。",},
+[3] = {3,"[{RecordTime}] {Role1}拜访了我的果园，为我的{item}除了草。",},
+[4] = {4,"[{RecordTime}] {Role1}拜访了我的果园，从我的果园中偷取了{result}个{item}",},
+[5] = {5,"[{RecordTime}] 我种下了{item}。",},
+[6] = {6,"[{RecordTime}] 我为{item}浇了水。",},
+[7] = {7,"[{RecordTime}] 我为{item}除了虫。",},
+[8] = {8,"[{RecordTime}] 我为{item}除了草。",},
+[9] = {9,"[{RecordTime}] 我为{item}浇了水，效果显著，预期产量增加5%。",},
+[10] = {10,"[{RecordTime}] 我没有及时为{item}浇水，导致{item}缺水严重，生长缓慢，预期产量降低5%。。",},
+[11] = {11,"[{RecordTime}] 我没有及时为{item}除虫，导致{item}虫害严重，生长缓慢，预期产量降低5%。。",},
+[12] = {12,"[{RecordTime}] 我没有及时为{item}除草，导致{item}杂草严重，生长缓慢，预期产量降低5%。。",},
+[13] = {13,"[{RecordTime}] 我丛果园中收获了{result}个{item}",},
+}

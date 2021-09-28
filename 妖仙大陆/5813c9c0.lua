@@ -1,0 +1,188 @@
+
+local protobuf = require "protobuf"
+local common_pb = require("common_pb")
+module('upLevelHandler_pb')
+
+
+UPDATA = protobuf.Descriptor();
+local UPDATA_LEVEL_FIELD = protobuf.FieldDescriptor();
+local UPDATA_UPLEVEL_FIELD = protobuf.FieldDescriptor();
+local UPDATA_REQLEVEL_FIELD = protobuf.FieldDescriptor();
+local UPDATA_DOWNLEVEL_FIELD = protobuf.FieldDescriptor();
+local UPDATA_ATTRS_FIELD = protobuf.FieldDescriptor();
+UPINFOREQUEST = protobuf.Descriptor();
+UPINFORESPONSE = protobuf.Descriptor();
+local UPINFORESPONSE_S2C_CODE_FIELD = protobuf.FieldDescriptor();
+local UPINFORESPONSE_S2C_MSG_FIELD = protobuf.FieldDescriptor();
+local UPINFORESPONSE_S2C_UPDATA_FIELD = protobuf.FieldDescriptor();
+UPLEVELREQUEST = protobuf.Descriptor();
+UPLEVELRESPONSE = protobuf.Descriptor();
+local UPLEVELRESPONSE_S2C_CODE_FIELD = protobuf.FieldDescriptor();
+local UPLEVELRESPONSE_S2C_MSG_FIELD = protobuf.FieldDescriptor();
+local UPLEVELRESPONSE_S2C_HASNEXT_FIELD = protobuf.FieldDescriptor();
+local UPLEVELRESPONSE_S2C_UPDATA_FIELD = protobuf.FieldDescriptor();
+
+UPDATA_LEVEL_FIELD.name = "level"
+UPDATA_LEVEL_FIELD.full_name = ".pomelo.area.UpData.level"
+UPDATA_LEVEL_FIELD.number = 1
+UPDATA_LEVEL_FIELD.index = 0
+UPDATA_LEVEL_FIELD.label = 2
+UPDATA_LEVEL_FIELD.has_default_value = false
+UPDATA_LEVEL_FIELD.default_value = 0
+UPDATA_LEVEL_FIELD.type = 5
+UPDATA_LEVEL_FIELD.cpp_type = 1
+
+UPDATA_UPLEVEL_FIELD.name = "upLevel"
+UPDATA_UPLEVEL_FIELD.full_name = ".pomelo.area.UpData.upLevel"
+UPDATA_UPLEVEL_FIELD.number = 2
+UPDATA_UPLEVEL_FIELD.index = 1
+UPDATA_UPLEVEL_FIELD.label = 2
+UPDATA_UPLEVEL_FIELD.has_default_value = false
+UPDATA_UPLEVEL_FIELD.default_value = 0
+UPDATA_UPLEVEL_FIELD.type = 5
+UPDATA_UPLEVEL_FIELD.cpp_type = 1
+
+UPDATA_REQLEVEL_FIELD.name = "reqLevel"
+UPDATA_REQLEVEL_FIELD.full_name = ".pomelo.area.UpData.reqLevel"
+UPDATA_REQLEVEL_FIELD.number = 3
+UPDATA_REQLEVEL_FIELD.index = 2
+UPDATA_REQLEVEL_FIELD.label = 2
+UPDATA_REQLEVEL_FIELD.has_default_value = false
+UPDATA_REQLEVEL_FIELD.default_value = 0
+UPDATA_REQLEVEL_FIELD.type = 5
+UPDATA_REQLEVEL_FIELD.cpp_type = 1
+
+UPDATA_DOWNLEVEL_FIELD.name = "downLevel"
+UPDATA_DOWNLEVEL_FIELD.full_name = ".pomelo.area.UpData.downLevel"
+UPDATA_DOWNLEVEL_FIELD.number = 4
+UPDATA_DOWNLEVEL_FIELD.index = 3
+UPDATA_DOWNLEVEL_FIELD.label = 2
+UPDATA_DOWNLEVEL_FIELD.has_default_value = false
+UPDATA_DOWNLEVEL_FIELD.default_value = 0
+UPDATA_DOWNLEVEL_FIELD.type = 5
+UPDATA_DOWNLEVEL_FIELD.cpp_type = 1
+
+UPDATA_ATTRS_FIELD.name = "attrs"
+UPDATA_ATTRS_FIELD.full_name = ".pomelo.area.UpData.attrs"
+UPDATA_ATTRS_FIELD.number = 5
+UPDATA_ATTRS_FIELD.index = 4
+UPDATA_ATTRS_FIELD.label = 3
+UPDATA_ATTRS_FIELD.has_default_value = false
+UPDATA_ATTRS_FIELD.default_value = {}
+UPDATA_ATTRS_FIELD.message_type = common_pb.ATTRIBUTEBASE
+UPDATA_ATTRS_FIELD.type = 11
+UPDATA_ATTRS_FIELD.cpp_type = 10
+
+UPDATA.name = "UpData"
+UPDATA.full_name = ".pomelo.area.UpData"
+UPDATA.nested_types = {}
+UPDATA.enum_types = {}
+UPDATA.fields = {UPDATA_LEVEL_FIELD, UPDATA_UPLEVEL_FIELD, UPDATA_REQLEVEL_FIELD, UPDATA_DOWNLEVEL_FIELD, UPDATA_ATTRS_FIELD}
+UPDATA.is_extendable = false
+UPDATA.extensions = {}
+UPINFOREQUEST.name = "UpInfoRequest"
+UPINFOREQUEST.full_name = ".pomelo.area.UpInfoRequest"
+UPINFOREQUEST.nested_types = {}
+UPINFOREQUEST.enum_types = {}
+UPINFOREQUEST.fields = {}
+UPINFOREQUEST.is_extendable = false
+UPINFOREQUEST.extensions = {}
+UPINFORESPONSE_S2C_CODE_FIELD.name = "s2c_code"
+UPINFORESPONSE_S2C_CODE_FIELD.full_name = ".pomelo.area.UpInfoResponse.s2c_code"
+UPINFORESPONSE_S2C_CODE_FIELD.number = 1
+UPINFORESPONSE_S2C_CODE_FIELD.index = 0
+UPINFORESPONSE_S2C_CODE_FIELD.label = 2
+UPINFORESPONSE_S2C_CODE_FIELD.has_default_value = false
+UPINFORESPONSE_S2C_CODE_FIELD.default_value = 0
+UPINFORESPONSE_S2C_CODE_FIELD.type = 5
+UPINFORESPONSE_S2C_CODE_FIELD.cpp_type = 1
+
+UPINFORESPONSE_S2C_MSG_FIELD.name = "s2c_msg"
+UPINFORESPONSE_S2C_MSG_FIELD.full_name = ".pomelo.area.UpInfoResponse.s2c_msg"
+UPINFORESPONSE_S2C_MSG_FIELD.number = 2
+UPINFORESPONSE_S2C_MSG_FIELD.index = 1
+UPINFORESPONSE_S2C_MSG_FIELD.label = 1
+UPINFORESPONSE_S2C_MSG_FIELD.has_default_value = false
+UPINFORESPONSE_S2C_MSG_FIELD.default_value = ""
+UPINFORESPONSE_S2C_MSG_FIELD.type = 9
+UPINFORESPONSE_S2C_MSG_FIELD.cpp_type = 9
+
+UPINFORESPONSE_S2C_UPDATA_FIELD.name = "s2c_upData"
+UPINFORESPONSE_S2C_UPDATA_FIELD.full_name = ".pomelo.area.UpInfoResponse.s2c_upData"
+UPINFORESPONSE_S2C_UPDATA_FIELD.number = 3
+UPINFORESPONSE_S2C_UPDATA_FIELD.index = 2
+UPINFORESPONSE_S2C_UPDATA_FIELD.label = 1
+UPINFORESPONSE_S2C_UPDATA_FIELD.has_default_value = false
+UPINFORESPONSE_S2C_UPDATA_FIELD.default_value = nil
+UPINFORESPONSE_S2C_UPDATA_FIELD.message_type = UPDATA
+UPINFORESPONSE_S2C_UPDATA_FIELD.type = 11
+UPINFORESPONSE_S2C_UPDATA_FIELD.cpp_type = 10
+
+UPINFORESPONSE.name = "UpInfoResponse"
+UPINFORESPONSE.full_name = ".pomelo.area.UpInfoResponse"
+UPINFORESPONSE.nested_types = {}
+UPINFORESPONSE.enum_types = {}
+UPINFORESPONSE.fields = {UPINFORESPONSE_S2C_CODE_FIELD, UPINFORESPONSE_S2C_MSG_FIELD, UPINFORESPONSE_S2C_UPDATA_FIELD}
+UPINFORESPONSE.is_extendable = false
+UPINFORESPONSE.extensions = {}
+UPLEVELREQUEST.name = "UpLevelRequest"
+UPLEVELREQUEST.full_name = ".pomelo.area.UpLevelRequest"
+UPLEVELREQUEST.nested_types = {}
+UPLEVELREQUEST.enum_types = {}
+UPLEVELREQUEST.fields = {}
+UPLEVELREQUEST.is_extendable = false
+UPLEVELREQUEST.extensions = {}
+UPLEVELRESPONSE_S2C_CODE_FIELD.name = "s2c_code"
+UPLEVELRESPONSE_S2C_CODE_FIELD.full_name = ".pomelo.area.UpLevelResponse.s2c_code"
+UPLEVELRESPONSE_S2C_CODE_FIELD.number = 1
+UPLEVELRESPONSE_S2C_CODE_FIELD.index = 0
+UPLEVELRESPONSE_S2C_CODE_FIELD.label = 2
+UPLEVELRESPONSE_S2C_CODE_FIELD.has_default_value = false
+UPLEVELRESPONSE_S2C_CODE_FIELD.default_value = 0
+UPLEVELRESPONSE_S2C_CODE_FIELD.type = 5
+UPLEVELRESPONSE_S2C_CODE_FIELD.cpp_type = 1
+
+UPLEVELRESPONSE_S2C_MSG_FIELD.name = "s2c_msg"
+UPLEVELRESPONSE_S2C_MSG_FIELD.full_name = ".pomelo.area.UpLevelResponse.s2c_msg"
+UPLEVELRESPONSE_S2C_MSG_FIELD.number = 2
+UPLEVELRESPONSE_S2C_MSG_FIELD.index = 1
+UPLEVELRESPONSE_S2C_MSG_FIELD.label = 1
+UPLEVELRESPONSE_S2C_MSG_FIELD.has_default_value = false
+UPLEVELRESPONSE_S2C_MSG_FIELD.default_value = ""
+UPLEVELRESPONSE_S2C_MSG_FIELD.type = 9
+UPLEVELRESPONSE_S2C_MSG_FIELD.cpp_type = 9
+
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.name = "s2c_hasNext"
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.full_name = ".pomelo.area.UpLevelResponse.s2c_hasNext"
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.number = 3
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.index = 2
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.label = 1
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.has_default_value = false
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.default_value = 0
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.type = 5
+UPLEVELRESPONSE_S2C_HASNEXT_FIELD.cpp_type = 1
+
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.name = "s2c_upData"
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.full_name = ".pomelo.area.UpLevelResponse.s2c_upData"
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.number = 4
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.index = 3
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.label = 1
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.has_default_value = false
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.default_value = nil
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.message_type = UPDATA
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.type = 11
+UPLEVELRESPONSE_S2C_UPDATA_FIELD.cpp_type = 10
+
+UPLEVELRESPONSE.name = "UpLevelResponse"
+UPLEVELRESPONSE.full_name = ".pomelo.area.UpLevelResponse"
+UPLEVELRESPONSE.nested_types = {}
+UPLEVELRESPONSE.enum_types = {}
+UPLEVELRESPONSE.fields = {UPLEVELRESPONSE_S2C_CODE_FIELD, UPLEVELRESPONSE_S2C_MSG_FIELD, UPLEVELRESPONSE_S2C_HASNEXT_FIELD, UPLEVELRESPONSE_S2C_UPDATA_FIELD}
+UPLEVELRESPONSE.is_extendable = false
+UPLEVELRESPONSE.extensions = {}
+
+UpData = protobuf.Message(UPDATA)
+UpInfoRequest = protobuf.Message(UPINFOREQUEST)
+UpInfoResponse = protobuf.Message(UPINFORESPONSE)
+UpLevelRequest = protobuf.Message(UPLEVELREQUEST)
+UpLevelResponse = protobuf.Message(UPLEVELRESPONSE)

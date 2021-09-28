@@ -1,0 +1,12 @@
+function start(api,...)							
+	api.Camera.SetDramaCamera(true)				
+	api.Camera.SetTelescope(true)				
+	api.Camera.SetPosition(55,190)				
+	api.Camera.MoveTo(55,204,10) 				
+	api.Wait()									
+	api.Sleep(3)								
+	local h = api.Camera.GetHeight() 			
+	api.Camera.MoveToHeight(h+5,10) 			
+	api.Sleep(2)								
+	api.Camera.SetTelescope(false)				
+end												

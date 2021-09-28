@@ -1,0 +1,17 @@
+return {
+["_key_"] = {"ID","NewsType","NewsPar","NewsContent",},
+[1] = {1,1,5,"{playerName}获得了5连胜，真是可喜可贺。",},
+[2] = {2,1,10,"{playerName}获得了10连胜，地球人已经无法阻挡Ta了。",},
+[3] = {3,1,15,"{playerName}获得了15连胜，神也无法阻挡Ta了。",},
+[4] = {4,1,20,"{playerName}获得了20连胜，全世界屏幕都被Ta刷爆了。",},
+[5] = {5,1,25,"{playerName}获得了25连胜，已经成为一代传奇。",},
+[6] = {6,2,5,"{vsPlayerName}终结了{playerName}的{straightwinNum}连胜。",},
+[7] = {7,2,15,"很遗憾，{playerName}遇到劲敌{vsPlayerName}，{straightwinNum}连胜终于被终结了。",},
+[8] = {8,3,1,"恭喜{playerName}晋级到了{RankName}段位！",},
+[9] = {9,3,6,"{playerName}经过千辛万苦，已经晋级到了{RankName}段位！",},
+[10] = {10,3,9,"{playerName}过关斩将，到了{RankName}的段位，成为问道大师指日可待！",},
+[11] = {11,3,10,"{playerName}击败对手无数，成为了{RankName}！",},
+[12] = {12,4,3,"{playerName}领取了{giftType}，获得了{item}！",},
+[13] = {13,4,3,"{playerName}手滑了一下，不小心打开了{giftType}，得到了{item}！",},
+[14] = {14,4,3,"{playerName}打开了{giftType}，领取了{item}！",},
+}

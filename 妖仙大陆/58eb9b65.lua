@@ -1,0 +1,16 @@
+return {
+["_key_"] = {"ID","ScenesID","Type","Parm","ResourcePath","Note",},
+[1] = {1,51001,1,"0:100","#dynamic_n/npclogo/npclogo.xml|npclogo|7","仙界脆皮",},
+[2] = {2,51001,1,"101:200","#dynamic_n/npclogo/npclogo.xml|npclogo|10","仙盟小强",},
+[3] = {3,51001,1,"201:250","#dynamic_n/npclogo/npclogo.xml|npclogo|6","中流砥柱",},
+[4] = {4,51001,1,"251:300","#dynamic_n/npclogo/npclogo.xml|npclogo|8","坚持到底",},
+[5] = {5,51002,2,"0","#dynamic_n/npclogo/npclogo.xml|npclogo|9","再接再厉",},
+[6] = {6,51002,2,"1","#dynamic_n/npclogo/npclogo.xml|npclogo|9","再接再厉",},
+[7] = {7,51002,2,"2","#dynamic_n/npclogo/npclogo.xml|npclogo|9","再接再厉",},
+[8] = {8,51002,2,"3","#dynamic_n/npclogo/npclogo.xml|npclogo|9","再接再厉",},
+[9] = {9,51002,2,"4","#dynamic_n/npclogo/npclogo.xml|npclogo|5","神龙护卫",},
+[10] = {10,51002,2,"5","#dynamic_n/npclogo/npclogo.xml|npclogo|5","神龙护卫",},
+[11] = {11,51002,2,"6","#dynamic_n/npclogo/npclogo.xml|npclogo|11","龙骑士",},
+[12] = {12,51002,2,"7","#dynamic_n/npclogo/npclogo.xml|npclogo|11","龙骑士",},
+[13] = {13,51002,2,"8","#dynamic_n/npclogo/npclogo.xml|npclogo|4","龙之守护者",},
+}

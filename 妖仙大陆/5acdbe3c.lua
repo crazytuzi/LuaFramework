@@ -1,0 +1,18 @@
+return {
+{"ID","GuideName","OpenLv","CloseLv","ShowIcon","ShowTips","Reward","Banner",},
+{1,"技能养成",1,6,"dynamic_n/activity/tongguanfuben.png","威力强大的战技仙法","cash1:5","dynamic_n/opfc_banner/2.png",},
+{2,"坐骑养成",6,8,"dynamic_n/activity/zuoqipeiyang.png","强大的坐骑，提升无穷战力","cash1:10","dynamic_n/opfc_banner/3.png",},
+{3,"好友",8,9,"dynamic_n/activity/haoyouhenduo.png","结交朋友一起闯荡江湖","cash1:10","dynamic_n/opfc_banner/1.png",},
+{4,"排行榜",9,10,"dynamic_n/activity/jingjietupo.png","膜拜大神，勇夺排名","cash1:10","dynamic_n/opfc_banner/5.png",},
+{5,"寄卖行",10,11,"dynamic_n/activity/jimaihang.png","买进卖出，商人的日常生活","cash1:20","dynamic_n/opfc_banner/9.png",},
+{6,"仙盟",11,14,"dynamic_n/activity/xianmengtubiao.png","问道结伴而行，仙盟技能带你飞","cash1:20","dynamic_n/opfc_banner/3.png",},
+{7,"师门任务",14,15,"dynamic_n/activity/shimenrenwu.png","每天师门任务，海量经验奖励","cash1:20","dynamic_n/opfc_banner/1.png",},
+{8,"问道大会",15,18,"dynamic_n/activity/wendaodahui.png","天下问道，谁与争锋","cash1:20","dynamic_n/opfc_banner/8.png",},
+{9,"五岳一战",18,20,"dynamic_n/activity/wuyueyizhan.png","超级大乱斗，疯狂的竞技模式","cash1:30","dynamic_n/opfc_banner/4.png",},
+{10,"镇妖塔",23,23,"dynamic_n/activity/zhenyaota.png","爬塔除妖夺宝不亦乐乎","cash1:30","dynamic_n/opfc_banner/7.png",},
+{11,"皓月镜",23,25,"dynamic_n/activity/haoyuejing.png","组队刷怪，快乐相伴","cash1:30","dynamic_n/opfc_banner/9.png",},
+{12,"试练大赛",25,30,"dynamic_n/activity/5V5.png","5V5打起来真的停不下来","cash1:40","dynamic_n/opfc_banner/10.png",},
+{13,"道友",30,35,"dynamic_n/activity/jingjietisheng.png","和好友组成道友，消费可返利","cash1:40","dynamic_n/opfc_banner/3.png",},
+{14,"幻境",35,36,"dynamic_n/activity/huanjing.png","挂机刷BOSS，升级、装备两不误","cash1:50","dynamic_n/opfc_banner/11.png",},
+{15,"境界突破",36,39,"dynamic_n/activity/jingjietupo.png","突破境界，冲破等级上限枷锁","cash1:50","dynamic_n/opfc_banner/7.png",},
+}

@@ -1,0 +1,90 @@
+
+local protobuf = require "protobuf"
+module('resourceHandler_pb')
+
+
+NPC = protobuf.Descriptor();
+local NPC_TEMPLATEID_FIELD = protobuf.FieldDescriptor();
+local NPC_ID_FIELD = protobuf.FieldDescriptor();
+QUERYAREADATAREQUEST = protobuf.Descriptor();
+QUERYAREADATARESPONSE = protobuf.Descriptor();
+local QUERYAREADATARESPONSE_S2C_CODE_FIELD = protobuf.FieldDescriptor();
+local QUERYAREADATARESPONSE_S2C_MSG_FIELD = protobuf.FieldDescriptor();
+local QUERYAREADATARESPONSE_S2C_NPCS_FIELD = protobuf.FieldDescriptor();
+
+NPC_TEMPLATEID_FIELD.name = "templateId"
+NPC_TEMPLATEID_FIELD.full_name = ".pomelo.area.Npc.templateId"
+NPC_TEMPLATEID_FIELD.number = 1
+NPC_TEMPLATEID_FIELD.index = 0
+NPC_TEMPLATEID_FIELD.label = 2
+NPC_TEMPLATEID_FIELD.has_default_value = false
+NPC_TEMPLATEID_FIELD.default_value = 0
+NPC_TEMPLATEID_FIELD.type = 5
+NPC_TEMPLATEID_FIELD.cpp_type = 1
+
+NPC_ID_FIELD.name = "id"
+NPC_ID_FIELD.full_name = ".pomelo.area.Npc.id"
+NPC_ID_FIELD.number = 2
+NPC_ID_FIELD.index = 1
+NPC_ID_FIELD.label = 2
+NPC_ID_FIELD.has_default_value = false
+NPC_ID_FIELD.default_value = 0
+NPC_ID_FIELD.type = 13
+NPC_ID_FIELD.cpp_type = 3
+
+NPC.name = "Npc"
+NPC.full_name = ".pomelo.area.Npc"
+NPC.nested_types = {}
+NPC.enum_types = {}
+NPC.fields = {NPC_TEMPLATEID_FIELD, NPC_ID_FIELD}
+NPC.is_extendable = false
+NPC.extensions = {}
+QUERYAREADATAREQUEST.name = "QueryAreaDataRequest"
+QUERYAREADATAREQUEST.full_name = ".pomelo.area.QueryAreaDataRequest"
+QUERYAREADATAREQUEST.nested_types = {}
+QUERYAREADATAREQUEST.enum_types = {}
+QUERYAREADATAREQUEST.fields = {}
+QUERYAREADATAREQUEST.is_extendable = false
+QUERYAREADATAREQUEST.extensions = {}
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.name = "s2c_code"
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.full_name = ".pomelo.area.QueryAreaDataResponse.s2c_code"
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.number = 1
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.index = 0
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.label = 2
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.has_default_value = false
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.default_value = 0
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.type = 5
+QUERYAREADATARESPONSE_S2C_CODE_FIELD.cpp_type = 1
+
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.name = "s2c_msg"
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.full_name = ".pomelo.area.QueryAreaDataResponse.s2c_msg"
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.number = 2
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.index = 1
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.label = 1
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.has_default_value = false
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.default_value = ""
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.type = 9
+QUERYAREADATARESPONSE_S2C_MSG_FIELD.cpp_type = 9
+
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.name = "s2c_npcs"
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.full_name = ".pomelo.area.QueryAreaDataResponse.s2c_npcs"
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.number = 3
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.index = 2
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.label = 3
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.has_default_value = false
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.default_value = {}
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.message_type = NPC
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.type = 11
+QUERYAREADATARESPONSE_S2C_NPCS_FIELD.cpp_type = 10
+
+QUERYAREADATARESPONSE.name = "QueryAreaDataResponse"
+QUERYAREADATARESPONSE.full_name = ".pomelo.area.QueryAreaDataResponse"
+QUERYAREADATARESPONSE.nested_types = {}
+QUERYAREADATARESPONSE.enum_types = {}
+QUERYAREADATARESPONSE.fields = {QUERYAREADATARESPONSE_S2C_CODE_FIELD, QUERYAREADATARESPONSE_S2C_MSG_FIELD, QUERYAREADATARESPONSE_S2C_NPCS_FIELD}
+QUERYAREADATARESPONSE.is_extendable = false
+QUERYAREADATARESPONSE.extensions = {}
+
+Npc = protobuf.Message(NPC)
+QueryAreaDataRequest = protobuf.Message(QUERYAREADATAREQUEST)
+QueryAreaDataResponse = protobuf.Message(QUERYAREADATARESPONSE)

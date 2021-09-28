@@ -1,0 +1,15 @@
+return {
+{"Series","SmallIcon",},
+{-2,"#dynamic_n/mall/mall.xml|mall|59",},
+{-1,"#dynamic_n/mall/mall.xml|mall|59",},
+{1,"#dynamic_n/mall/mall.xml|mall|54",},
+{2,"#dynamic_n/mall/mall.xml|mall|52",},
+{3,"#dynamic_n/mall/mall.xml|mall|56",},
+{4,"#dynamic_n/mall/mall.xml|mall|50",},
+{5,"#dynamic_n/mall/mall.xml|mall|48",},
+{6,"#dynamic_n/mall/mall.xml|mall|49",},
+{7,"#dynamic_n/mall/mall.xml|mall|57",},
+{8,"#dynamic_n/mall/mall.xml|mall|53",},
+{9,"#dynamic_n/mall/mall.xml|mall|51",},
+{10,"#dynamic_n/mall/mall.xml|mall|55",},
+}
