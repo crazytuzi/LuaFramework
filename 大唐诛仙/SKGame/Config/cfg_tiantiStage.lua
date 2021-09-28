@@ -1,0 +1,69 @@
+--[[
+	stage:int#段位
+	stageName:string#段位名称
+	maxStar:int#最大星级
+	maxSore:int#升星积分
+	reward:int[][]#段位奖励
+{类型，物品编号，数量，是否绑定}
+装备和物品外的奖励不需填“物品编号”
+类型：
+1=装备
+2=物品
+3=金币
+4=钻石
+5=代金卷
+6=贡献值
+7=荣誉值
+8=经验
+9=宝玉
+]]
+
+local cfg={
+	[1]={
+		stage=1,
+		stageName="青铜",
+		maxStar=3,
+		maxSore=80,
+		reward={}
+	},
+	[2]={
+		stage=2,
+		stageName="白银",
+		maxStar=3,
+		maxSore=80,
+		reward={{3,0,26200,1},{2,35009,3,0}}
+	},
+	[3]={
+		stage=3,
+		stageName="黄金",
+		maxStar=4,
+		maxSore=100,
+		reward={{3,0,26200,1},{2,35009,3,0}}
+	},
+	[4]={
+		stage=4,
+		stageName="铂金",
+		maxStar=5,
+		maxSore=110,
+		reward={{3,0,26200,1},{2,35009,3,0}}
+	},
+	[5]={
+		stage=5,
+		stageName="钻石",
+		maxStar=5,
+		maxSore=110,
+		reward={{3,0,26200,1},{2,35009,3,0}}
+	},
+	[6]={
+		stage=6,
+		stageName="天人阶",
+		maxStar=999,
+		maxSore=110,
+		reward={{3,0,26200,1},{2,35009,3,0}}
+	},
+}
+
+function cfg:Get( key )
+	return cfg[key]
+end
+return cfg

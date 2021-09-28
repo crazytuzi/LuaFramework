@@ -1,0 +1,80 @@
+--[[
+	fashionId:int#时装编号51101-51399=衣服
+第一位:时装类型
+第二位：职业类型
+3-5位：编号
+	name:string#时装名称
+	des:string#描述
+	career:int#使用职业
+穿戴该装备需要的职业类型
+1=龙战
+2=冰剑
+3=巫师
+	quality:int#品质
+	icon:int#图标id
+	dressStyle:int#模型id
+	baseProperty:int[][]#基础属性{属性类型，数值}
+	buffId:int[]#buff
+	marketId:int#商城编号
+	fashionEffectId:int#时装id，要跟CellNewSkillCfg.xlsx中的“fashionEffect”字段对应
+]]
+
+local cfg={
+	[51011]={
+		fashionId=51011,
+		name="赤狮之殇",
+		des="以赤狮皮革所制成。蚩尤部向来以狩猎到赤狮象征勇武。",
+		career=1,
+		quality=5,
+		icon=51011,
+		dressStyle=1011,
+		baseProperty={{1,600},{9,80},{11,80}},
+		buffId={51011},
+		marketId=4101,
+		fashionEffectId=1,
+	},
+	[51014]={
+		fashionId=51014,
+		name="国士无双",
+		des="轩辕帝御史所着服饰，御史皆为人中龙凤，这衣物是身份和能力的象征。",
+		career=1,
+		quality=5,
+		icon=51014,
+		dressStyle=1014,
+		baseProperty={{1,900},{9,120},{11,120}},
+		buffId={51012},
+		marketId=4102,
+		fashionEffectId=0,
+	},
+	[51012]={
+		fashionId=51012,
+		name="云影哑衣",
+		des="下摆的云图沾血便会发出暗淡光芒，用于告诫影武者以隐匿为使命。",
+		career=2,
+		quality=5,
+		icon=51012,
+		dressStyle=1012,
+		baseProperty={{1,600},{9,80},{11,80}},
+		buffId={51021},
+		marketId=4103,
+		fashionEffectId=1,
+	},
+	[51033]={
+		fashionId=51033,
+		name="绯红花雨",
+		des="飘落的花瓣转眼即逝，舞姬的辉煌亦是如此。",
+		career=3,
+		quality=5,
+		icon=51033,
+		dressStyle=1033,
+		baseProperty={{1,900},{9,120},{11,120}},
+		buffId={51032},
+		marketId=4105,
+		fashionEffectId=1,
+	}
+}
+
+function cfg:Get( key )
+	return cfg[key]
+end
+return cfg

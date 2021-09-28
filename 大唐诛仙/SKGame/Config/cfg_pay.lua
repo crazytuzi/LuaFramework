@@ -1,0 +1,80 @@
+--[[
+	id:int#编号ID
+	price:int#充值金额（元）
+	gold:int#获得元宝
+	premium:int#首充赠送
+	type:int#充值类型
+	lefttag:int#左侧标签
+	righttag:int#右侧标签
+]]
+
+local cfg={
+	[1001]={
+		id=1001,
+		price=25,
+		gold=200,
+		premium=200,
+		type=1,
+		lefttag=1002,
+		righttag=2001
+	},
+	[1002]={
+		id=1002,
+		price=328,
+		gold=3280,
+		premium=3280,
+		type=0,
+		lefttag=1002,
+		righttag=2003
+	},
+	[1003]={
+		id=1003,
+		price=648,
+		gold=6480,
+		premium=6480,
+		type=0,
+		lefttag=1002,
+		righttag=2003
+	},
+	[1004]={
+		id=1004,
+		price=6,
+		gold=60,
+		premium=60,
+		type=0,
+		lefttag=1002,
+		righttag=0
+	},
+	[1005]={
+		id=1005,
+		price=30,
+		gold=300,
+		premium=300,
+		type=0,
+		lefttag=1002,
+		righttag=2001
+	},
+	[1006]={
+		id=1006,
+		price=98,
+		gold=980,
+		premium=980,
+		type=0,
+		lefttag=1002,
+		righttag=0
+	},
+	[1007]={
+		id=1007,
+		price=168,
+		gold=1680,
+		premium=1680,
+		type=0,
+		lefttag=1002,
+		righttag=0
+	}
+}
+
+function cfg:Get( key )
+	return cfg[key]
+end
+return cfg

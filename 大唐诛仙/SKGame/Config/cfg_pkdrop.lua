@@ -1,0 +1,76 @@
+--[[
+	posId:int#装备栏编号
+	des:int#描述
+1=头盔(head)
+2=铠甲(upbody)
+3=裤子(downbody)
+4=项链(neck)
+5=护腕(hand)
+6=戒指(finger)
+7=主武器(weapon01)
+8=副武器(weapon02)
+	dropRate:int#掉落概率万分比
+	redDropRate:int#红名掉落概率万分比
+]]
+
+local cfg={
+	[0]={
+		posId=0,
+		des=背包栏的概率,
+		dropRate=700,
+		redDropRate=1000
+	},
+	[1]={
+		posId=1,
+		des=头盔栏概率,
+		dropRate=500,
+		redDropRate=1000
+	},
+	[2]={
+		posId=2,
+		des=铠甲栏概率,
+		dropRate=500,
+		redDropRate=1000
+	},
+	[3]={
+		posId=3,
+		des=裤子栏概率,
+		dropRate=500,
+		redDropRate=1000
+	},
+	[4]={
+		posId=4,
+		des=项链栏概率,
+		dropRate=500,
+		redDropRate=1000
+	},
+	[5]={
+		posId=5,
+		des=护腕栏概率,
+		dropRate=500,
+		redDropRate=1000
+	},
+	[6]={
+		posId=6,
+		des=戒指栏概率,
+		dropRate=500,
+		redDropRate=1000
+	},
+	[7]={
+		posId=7,
+		des=主武器栏概率,
+		dropRate=300,
+		redDropRate=600
+	},
+	[8]={
+		posId=8,
+		des=法宝栏概率,
+		dropRate=500,
+		redDropRate=1000
+	}
+}
+
+function cfg:Get( key )
+	return cfg[key]
+end
+return cfg

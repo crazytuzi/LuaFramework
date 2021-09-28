@@ -1,0 +1,163 @@
+--[[
+	signDay:int#签到天数
+	reward:int[][]#签到奖励
+{类型，物品编号，数量，是否绑定}
+装备和物品外的奖励不需填“物品编号”
+类型：1=装备
+2=物品
+3=金币
+4=钻石
+5=代金卷
+6=贡献值
+7=荣誉值
+8=经验
+	doubleReward:int#VIP双倍
+]]
+
+local cfg={
+	[1]={
+		signDay=1,
+		reward={{3,0,10000,1}},
+		doubleReward=0
+	},
+	[2]={
+		signDay=2,
+		reward={{2,37102,2,1}},
+		doubleReward=0
+	},
+	[3]={
+		signDay=3,
+		reward={{2,35009,2,0}},
+		doubleReward=0
+	},
+	[4]={
+		signDay=4,
+		reward={{2,20031,1,0}},
+		doubleReward=1
+	},
+	[5]={
+		signDay=5,
+		reward={{2,35013,2,0}},
+		doubleReward=0
+	},
+	[6]={
+		signDay=6,
+		reward={{2,33001,2,0}},
+		doubleReward=0
+	},
+	[7]={
+		signDay=7,
+		reward={{2,25001,2,1}},
+		doubleReward=0
+	},
+	[8]={
+		signDay=8,
+		reward={{3,0,20000,1}},
+		doubleReward=0
+	},
+	[9]={
+		signDay=9,
+		reward={{2,37102,5,1}},
+		doubleReward=0
+	},
+	[10]={
+		signDay=10,
+		reward={{2,35009,5,0}},
+		doubleReward=0
+	},
+	[11]={
+		signDay=11,
+		reward={{2,20031,2,0}},
+		doubleReward=1
+	},
+	[12]={
+		signDay=12,
+		reward={{2,35013,5,0}},
+		doubleReward=0
+	},
+	[13]={
+		signDay=13,
+		reward={{2,33001,5,0}},
+		doubleReward=0
+	},
+	[14]={
+		signDay=14,
+		reward={{2,36100,2,1}},
+		doubleReward=0
+	},
+	[15]={
+		signDay=15,
+		reward={{3,0,50000,1}},
+		doubleReward=0
+	},
+	[16]={
+		signDay=16,
+		reward={{2,37102,20,1}},
+		doubleReward=0
+	},
+	[17]={
+		signDay=17,
+		reward={{2,35009,10,0}},
+		doubleReward=0
+	},
+	[18]={
+		signDay=18,
+		reward={{2,20031,5,0}},
+		doubleReward=1
+	},
+	[19]={
+		signDay=19,
+		reward={{2,35013,10,0}},
+		doubleReward=0
+	},
+	[20]={
+		signDay=20,
+		reward={{2,33001,10,0}},
+		doubleReward=0
+	},
+	[21]={
+		signDay=21,
+		reward={{2,33011,5,1}},
+		doubleReward=0
+	},
+	[22]={
+		signDay=22,
+		reward={{3,0,100000,1}},
+		doubleReward=0
+	},
+	[23]={
+		signDay=23,
+		reward={{2,37102,30,1}},
+		doubleReward=0
+	},
+	[24]={
+		signDay=24,
+		reward={{2,35009,20,0}},
+		doubleReward=0
+	},
+	[25]={
+		signDay=25,
+		reward={{2,20031,10,0}},
+		doubleReward=1
+	},
+	[26]={
+		signDay=26,
+		reward={{2,35013,20,0}},
+		doubleReward=0
+	},
+	[27]={
+		signDay=27,
+		reward={{2,33001,20,0}},
+		doubleReward=0
+	},
+	[28]={
+		signDay=28,
+		reward={{2,61303,1,1}},
+		doubleReward=0
+	}
+}
+
+function cfg:Get( key )
+	return cfg[key]
+end
+return cfg
