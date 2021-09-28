@@ -1,0 +1,4 @@
+i3k_db_pets =
+{
+	[1] = { id = 1, name = '残影', desc = '残影', iconID = 28, modelID = 27, hpOrg = 5.0, hpInc1 = 0.0, hpInc2 = 0.0, atkNOrg = 25.0, atkNInc1 = 0.0, atkNInc2 = 2.0, defNOrg = 10000000.0, defNInc1 = 0.0, defNInc2 = 0.0, atrOrg = 90.0, atrInc1 = 0.0, atrInc2 = 0.0, ctrOrg = 0.0, ctrInc1 = 0.0, ctrInc2 = 0.0, acrNOrg = 12.0, acrNInc1 = 0.0, acrNInc2 = 1.0, touOrg = 1.5, touInc1 = 0.0, touInc2 = 1.5, atkAOrg = 15000.0, atkAInc1 = 0.0, atkAInc2 = 0.0, atkCOrg = 0.0, atkCInc1 = 0.0, atkCInc2 = 0.0, defCOrg = 0.0, defCInc1 = 0.0, defCInc2 = 0.0, atkWOrg = 0.0, atkWInc1 = 0.0, atkWInc2 = 0.0, defWOrg = 0.0, defWInc1 = 0.0, defWInc2 = 0.0, attacks = { 880011, 880012 }, skills = { 880013, 880014, 880015, -1 }, ultraSkill = -1, attkLst = { 0,0,1,0,2,0,3, }, speed = 650, radius = 75, checkRange = 1200, duration = 5000000, aiNode = { 1, } },
+};

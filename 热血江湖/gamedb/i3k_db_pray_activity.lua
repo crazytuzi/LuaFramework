@@ -1,0 +1,9 @@
+i3k_db_pray_activity =
+{
+	[1] = {  ID = 1, desc = '多學多動，日行一善，才能成爲像我一樣的大俠。不多說，選一樣吧!', bgImage = 3614, limitLvl = 35, limitTimes = 3, needItems = {{65647,2}, {65729,2}, {2,100000}, }, startTime = '2018/04/28 10:00:00', endTime = '2018/05/03 23:00:00', prayDropIDs = {1,2,3,4,},  textColor = 'ffffffff', titleText = '五一祈福送大禮', isShowTime = 0, },
+	[2] = {  ID = 2, desc = '慈母手中線，遊子身上衣。臨行密密縫，意恐遲遲歸。誰言寸草心，報得三春晖。', bgImage = 3614, limitLvl = 35, limitTimes = 3, needItems = {{65647,2}, {65729,2}, {2,100000}, }, startTime = '2017/05/13 10:00:00', endTime = '2017/05/15 23:00:00', prayDropIDs = {5,6,7,8,},  textColor = 'ffffffff', titleText = '母親節祈福送禮', isShowTime = 0, },
+	[3] = {  ID = 3, desc = '曾記否，大哥哥，我們一起去捉泥鳅。', bgImage = 3614, limitLvl = 35, limitTimes = 3, needItems = {{65647,2}, {65729,2}, {2,100000}, }, startTime = '2017/05/31 10:00:00', endTime = '2017/06/02 23:00:00', prayDropIDs = {9,10,11,12,},  textColor = 'ffffffff', titleText = '兒童節祈福送禮', isShowTime = 0, },
+	[4] = {  ID = 4, desc = '您的言行，是對我們最好的激勵。', bgImage = 3614, limitLvl = 35, limitTimes = 2, needItems = {{65647,2}, {65729,2}, {2,100000}, }, startTime = '2017/9/9 10:00:00', endTime = '2017/9/11 23:00:00', prayDropIDs = {13,14,15,16,},  textColor = 'ffffffff', titleText = '教師節祈福送禮', isShowTime = 0, },
+	[5] = {  ID = 5, desc = '甜美的月餅，可愛的玉兔，這是一個團圓的節日。', bgImage = 3614, limitLvl = 35, limitTimes = 3, needItems = {{65647,2}, {65729,2}, {2,100000}, }, startTime = '2017/9/30  10:00:00', endTime = '2017/10/5  23:00:0', prayDropIDs = {17,18,19,20,},  textColor = 'ffffffff', titleText = '中秋節祈福送禮', isShowTime = 0, },
+	[6] = {  ID = 6, desc = '曾經我送了別人一把金斧子，現在我每天被斧子砸破頭。年輕人，這是妳的金斧頭嗎？', bgImage = 7397, limitLvl = 35, limitTimes = 3, needItems = {{67361,1}, }, startTime = '2018/08/08 10:00:00', endTime = '2020/08/23 23:00:00', prayDropIDs = {21,22,23,24,},  textColor = 'ff1c357e', titleText = '這是你的斧頭嗎？', isShowTime = 0, },
+};

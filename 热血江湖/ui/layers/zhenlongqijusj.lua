@@ -1,0 +1,386 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.5,
+				posY = 0.4791665,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.7929688,
+				sizeY = 0.8055556,
+				scale9 = true,
+				scale9Left = 0.45,
+				scale9Right = 0.45,
+				scale9Top = 0.45,
+				scale9Bottom = 0.45,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "kk2",
+					posX = 0.4596706,
+					posY = 0.5051629,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.9793103,
+					sizeY = 1.006896,
+					image = "zlqjbj1#zlqjbj1",
+					scale9 = true,
+					scale9Left = 0.45,
+					scale9Right = 0.45,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "top",
+						varName = "title",
+						posX = 0.5401779,
+						posY = 0.8846327,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.5593562,
+						sizeY = 0.2226029,
+						image = "zlqj#ys",
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "gb",
+					varName = "close",
+					posX = 0.8804755,
+					posY = 0.8357103,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.0729064,
+					sizeY = 0.1258621,
+					image = "zlqj#gb",
+					imageNormal = "zlqj#gb",
+					soundEffectClick = "audio/rxjh/UI/ui_guanbi.ogg",
+				},
+			},
+			{
+				prop = {
+					etype = "Grid",
+					name = "jd",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "ts1",
+						posX = 0.5122947,
+						posY = 0.08810517,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.575411,
+						sizeY = 0.1147078,
+						text = "把上述错乱的诗句按照正确的顺序排列出来",
+						color = "FFF4D376",
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "jdtd",
+						posX = 0.4911482,
+						posY = -0.05336131,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						visible = false,
+						sizeX = 0.4187192,
+						sizeY = 0.05517241,
+						image = "chu1#jdd",
+						scale9 = true,
+						scale9Left = 0.45,
+						scale9Right = 0.45,
+					},
+					children = {
+					{
+						prop = {
+							etype = "LoadingBar",
+							name = "jdt",
+							varName = "expbar",
+							posX = 0.5,
+							posY = 0.5,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.9681942,
+							sizeY = 0.6250001,
+							image = "tong#jdt",
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "Scroll",
+						name = "lb",
+						varName = "scroll",
+						posX = 0.5339335,
+						posY = 0.4768046,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.5124582,
+						sizeY = 0.5456566,
+						horizontal = true,
+						showScrollBar = false,
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "smd",
+						posX = 0.2422364,
+						posY = 0.5547215,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.05615763,
+						sizeY = 0.4137931,
+						image = "zlqj#smd",
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "shim",
+							varName = "verseTitle",
+							posX = 0.4999995,
+							posY = 0.4406078,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.5789474,
+							sizeY = 0.8442863,
+							text = "静夜思",
+							color = "FF293776",
+							fontSize = 24,
+							hTextAlign = 1,
+						},
+					},
+					{
+						prop = {
+							etype = "Image",
+							name = "zzd",
+							posX = 0.5,
+							posY = -0.1155527,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.7368422,
+							sizeY = 0.4,
+							image = "zlqj#zzm",
+						},
+					},
+					{
+						prop = {
+							etype = "Label",
+							name = "shim2",
+							varName = "verseAuthor",
+							posX = 0.5,
+							posY = -0.3737516,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.7248075,
+							sizeY = 0.7796727,
+							text = "李白",
+							color = "FF293776",
+							fontSize = 22,
+							hTextAlign = 1,
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "jyz",
+						varName = "leftTime",
+						posX = 0.5450684,
+						posY = 0.08810517,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.4560455,
+						sizeY = 0.22447,
+						text = "剩余30秒",
+						color = "FFF4D376",
+						fontOutlineColor = "FF567D23",
+						fontOutlineSize = 2,
+						hTextAlign = 2,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Grid",
+				name = "sj1",
+				varName = "moveRoot",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.05078125,
+				sizeY = 0.4395567,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "dw",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+					image = "zlqj#cw",
+					alpha = 0.5,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "xz",
+					varName = "trueIcon",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+					image = "zlqj#zq",
+					scale9Top = 0.4,
+					scale9Bottom = 0.4,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "djan",
+					varName = "btn",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "RichText",
+					name = "sj",
+					varName = "text",
+					posX = 0.5303223,
+					posY = 0.4567869,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.84526,
+					sizeY = 0.8782201,
+					text = "床前明月光",
+					color = "FF7F540F",
+					fontSize = 24,
+					hTextAlign = 1,
+					verticalMode = true,
+					lineSpace = 6,
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+	dk = {
+		ysjm = {
+			scale = {{0, {0.3, 0.3, 1}}, {150, {1.05, 1.05, 1}}, {200, {1,1,1}}, },
+		},
+	},
+	c_dakai = {
+		{0,"dk", 1, 0},
+	},
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

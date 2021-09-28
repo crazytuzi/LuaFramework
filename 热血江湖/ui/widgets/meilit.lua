@@ -1,0 +1,281 @@
+--version = 1
+local l_fileType = "node"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Grid",
+			name = "zmcyt",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 0.665625,
+			sizeY = 0.1527778,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "cyd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 0.9655175,
+				image = "b#lbt",
+				scale9 = true,
+				scale9Left = 0.2,
+				scale9Right = 0.7,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "txk",
+				varName = "headBg",
+				posX = 0.07261427,
+				posY = 0.4224423,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				lockHV = true,
+				sizeX = 0.1389055,
+				sizeY = 0.8636362,
+				image = "zdtx#txd",
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "tx",
+					varName = "head_icon",
+					posX = 0.5054789,
+					posY = 0.6925332,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.7210885,
+					sizeY = 1.110169,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "djd",
+					posX = 0.8479171,
+					posY = 0.2300532,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2957393,
+					sizeY = 0.368421,
+					image = "zdte#djd2",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "dj",
+						varName = "level_label",
+						posX = 0.5,
+						posY = 0.5,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 1.5,
+						sizeY = 1.5,
+						text = "99",
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF27221D",
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Label",
+				name = "jsm",
+				varName = "name_label",
+				posX = 0.266082,
+				posY = 0.5546719,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.2593903,
+				sizeY = 0.438916,
+				text = "棒槌一共八汉字",
+				color = "FF966856",
+				fontSize = 22,
+				fontOutlineColor = "FF27221D",
+				vTextAlign = 1,
+			},
+		},
+		{
+			prop = {
+				etype = "Label",
+				name = "jsm2",
+				posX = 0.7072236,
+				posY = 0.4999999,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.1109033,
+				sizeY = 0.438916,
+				text = "贡献：",
+				color = "FF966856",
+				fontSize = 22,
+				fontOutlineColor = "FF27221D",
+				hTextAlign = 2,
+				vTextAlign = 1,
+			},
+		},
+		{
+			prop = {
+				etype = "Label",
+				name = "jsm3",
+				varName = "contribution",
+				posX = 0.851341,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.1578557,
+				sizeY = 0.438916,
+				text = "1234567",
+				color = "FF966856",
+				fontSize = 22,
+				fontOutlineColor = "FF27221D",
+				vTextAlign = 1,
+			},
+		},
+		{
+			prop = {
+				etype = "Label",
+				name = "dj2",
+				varName = "vip_level",
+				posX = 0.207434,
+				posY = 0.2095367,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.1209232,
+				sizeY = 0.438916,
+				text = "VIP 11",
+				color = "FFC93034",
+				fontSize = 22,
+				fontOutlineColor = "FF27221D",
+				vTextAlign = 1,
+				colorTL = "FFFFFCC5",
+				colorTR = "FFFFFCC5",
+				colorBR = "FFFAB114",
+				colorBL = "FFFAB114",
+				useQuadColor = true,
+			},
+		},
+		{
+			prop = {
+				etype = "Label",
+				name = "jsm4",
+				varName = "charm_lvl",
+				posX = 0.3248574,
+				posY = 0.2097781,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.1209233,
+				sizeY = 0.438916,
+				text = "Lv.77",
+				color = "FF966856",
+				fontSize = 22,
+				fontOutlineColor = "FF27221D",
+				vTextAlign = 1,
+				colorTL = "FFFFB2F0",
+				colorTR = "FFFFB2F0",
+				colorBR = "FFDB50EB",
+				colorBL = "FFDB50EB",
+			},
+		},
+		{
+			prop = {
+				etype = "Button",
+				name = "an",
+				posX = 0.9049029,
+				posY = 0.4863809,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.1740861,
+				sizeY = 0.7351551,
+				propagateToChildren = true,
+				soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+			},
+			children = {
+			{
+				prop = {
+					etype = "Button",
+					name = "t",
+					varName = "check_btn",
+					posX = 0.7200578,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.3101374,
+					sizeY = 0.5688347,
+					image = "mei#ts",
+					imageNormal = "mei#ts",
+					disableClick = true,
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "chdw",
+				varName = "titleBg",
+				posX = 0.5214379,
+				posY = 0.4999999,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.600939,
+				sizeY = 1.163636,
+				image = "chdw2",
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "chtp",
+				varName = "charm_name",
+				posX = 0.5214379,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.1502347,
+				sizeY = 0.581818,
+				image = "weizhenbafang",
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

@@ -1,0 +1,335 @@
+--version = 1
+local l_fileType = "node"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Grid",
+			name = "k1",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 0.7101563,
+			sizeY = 0.6378398,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "cjsl",
+				varName = "CjSl",
+				posX = 0.5000001,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.9988998,
+				sizeY = 0.8625783,
+				scale9 = true,
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+				alpha = 0.7,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "hdd",
+					varName = "ActivitiesBanner",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.9999999,
+					sizeY = 1.342978,
+					image = "czfybbanner#czfybbanner",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "smd",
+						posX = 0.3570582,
+						posY = 0.6565802,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.6183231,
+						sizeY = 0.137225,
+						alpha = 0.5,
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "wb1",
+							varName = "timeLabel",
+							posX = 0.5,
+							posY = 0.5,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							visible = false,
+							sizeX = 0.4314433,
+							sizeY = 0.394437,
+							text = "活动期限：",
+							color = "FF5E006F",
+							fontSize = 22,
+							fontOutlineEnable = true,
+							fontOutlineColor = "FFFDE2FF",
+							fontOutlineSize = 2,
+							vTextAlign = 1,
+						},
+					},
+					{
+						prop = {
+							etype = "Label",
+							name = "wb2",
+							varName = "ActivitiesTime",
+							posX = 0.5,
+							posY = 0.5,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 1.065261,
+							sizeY = 0.9716015,
+							text = "不限时",
+							color = "FF76D646",
+							fontSize = 22,
+							fontOutlineColor = "FFFDE2FF",
+							fontOutlineSize = 2,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "lbk",
+					posX = 0.4999731,
+					posY = 0.3172808,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1.010666,
+					sizeY = 0.5216948,
+					scale9 = true,
+					scale9Left = 0.45,
+					scale9Right = 0.45,
+					scale9Top = 0.45,
+					scale9Bottom = 0.45,
+				},
+				children = {
+				{
+					prop = {
+						etype = "RichText",
+						name = "gz",
+						varName = "des",
+						posX = 0.5000002,
+						posY = 0.5368085,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.9348768,
+						sizeY = 0.9106867,
+						text = "规则写这里可变色",
+						color = "FFD65F25",
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Grid",
+					name = "jd",
+					varName = "payRoot",
+					posX = 0.5409509,
+					posY = -0.02898778,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					visible = false,
+					sizeX = 1.012458,
+					sizeY = 0.1815965,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Button",
+						name = "czan",
+						varName = "buyBtn",
+						posX = 0.8071242,
+						posY = 0.4271179,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.189272,
+						sizeY = 0.9174742,
+						image = "chu1#an1",
+						imageNormal = "chu1#an1",
+						disablePressScale = true,
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "czanz",
+							posX = 0.5,
+							posY = 0.53125,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.8818638,
+							sizeY = 0.9049659,
+							text = "充 值",
+							fontSize = 24,
+							fontOutlineEnable = true,
+							fontOutlineColor = "FFB35F1D",
+							fontOutlineSize = 2,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "RichText",
+						name = "gz2",
+						varName = "des2",
+						posX = 0.4730237,
+						posY = 0.4999824,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.933222,
+						sizeY = 0.6023465,
+						text = "当前已充值0元",
+						color = "FFDE2917",
+						fontSize = 22,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Grid",
+					name = "jd2",
+					varName = "rewardRoot",
+					posX = 0.5099424,
+					posY = -0.03638701,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1.012458,
+					sizeY = 0.1815965,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Button",
+						name = "czan2",
+						varName = "buyBtn2",
+						posX = 0.8377511,
+						posY = 0.4678632,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.189272,
+						sizeY = 0.9174742,
+						image = "chu1#an1",
+						imageNormal = "chu1#an1",
+						disablePressScale = true,
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "czanz2",
+							varName = "rewardLabel",
+							posX = 0.5,
+							posY = 0.53125,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.8818638,
+							sizeY = 0.9049659,
+							text = "领 取",
+							fontSize = 24,
+							fontOutlineEnable = true,
+							fontOutlineColor = "FFB35F1D",
+							fontOutlineSize = 2,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "RichText",
+						name = "gz3",
+						varName = "des3",
+						posX = 0.5069316,
+						posY = 0.4803001,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.933222,
+						sizeY = 0.6023465,
+						text = "还能再领取xxxx绑元",
+						color = "FFDE2917",
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Scroll",
+						name = "lb",
+						varName = "scroll",
+						posX = 0.5082021,
+						posY = 0.4388971,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.4386088,
+						sizeY = 1.009778,
+						horizontal = true,
+						showScrollBar = false,
+					},
+				},
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Sprite3D",
+				name = "mx",
+				posX = 0.9282557,
+				posY = 0.4560997,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.2052114,
+				sizeY = 0.9445144,
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

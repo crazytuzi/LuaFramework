@@ -1,0 +1,25 @@
+i3k_db_fight_npc_fb =
+{
+	[7000] = {  maxTime = 300 },
+	[7001] = {  maxTime = 300 },
+	[7002] = {  maxTime = 300 },
+	[7003] = {  maxTime = 300 },
+	[7004] = {  maxTime = 300 },
+	[7005] = {  maxTime = 300 },
+	[7006] = {  maxTime = 300 },
+	[7007] = {  maxTime = 300 },
+	[7008] = {  maxTime = 300 },
+	[7009] = {  maxTime = 300 },
+	[7010] = {  maxTime = 300 },
+	[7011] = {  maxTime = 300 },
+	[7012] = {  maxTime = 300 },
+	[7013] = {  maxTime = 300 },
+	[7014] = {  maxTime = 300 },
+	[7015] = {  maxTime = 300 },
+	[7016] = {  maxTime = 300 },
+	[7017] = {  maxTime = 300 },
+	[7018] = {  maxTime = 300 },
+	[7019] = {  maxTime = 300 },
+	[7020] = {  maxTime = 300 },
+};
+

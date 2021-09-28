@@ -1,0 +1,108 @@
+----------------- auto generate db file ------------------------
+module(..., package.seeall)
+
+local require = require
+
+local level = 
+{
+	[1030321] = {
+		[1] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.4955, arg2 = 969.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '349.55', spArgs2 = '969', },
+		[2] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.6128, arg2 = 1170.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '361.28', spArgs2 = '1170', },
+		[3] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.7301, arg2 = 1385.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '373.01', spArgs2 = '1385', },
+		[4] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.8474, arg2 = 1613.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '384.74', spArgs2 = '1613', },
+		[5] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.9647, arg2 = 1853.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '396.47', spArgs2 = '1853', },
+		[6] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.082, arg2 = 2107.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '408.2', spArgs2 = '2107', },
+		[7] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.1993, arg2 = 2373.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '419.93', spArgs2 = '2373', },
+		[8] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.3166, arg2 = 2653.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '431.66', spArgs2 = '2653', },
+		[9] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.4339, arg2 = 2946.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '443.39', spArgs2 = '2946', },
+		[10] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.5512, arg2 = 3251.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '455.12', spArgs2 = '3251', },
+	},
+	[1030322] = {
+		[1] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9534, arg2 = 541.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9534, arg2 = 541.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '390.68', spArgs2 = '1082', },
+		[2] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0189, arg2 = 654.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0189, arg2 = 654.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '403.78', spArgs2 = '1308', },
+		[3] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0845, arg2 = 774.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0845, arg2 = 774.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '416.9', spArgs2 = '1548', },
+		[4] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.15, arg2 = 901.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.15, arg2 = 901.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '430', spArgs2 = '1802', },
+		[5] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2156, arg2 = 1036.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2156, arg2 = 1036.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '443.12', spArgs2 = '2072', },
+		[6] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2811, arg2 = 1177.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2811, arg2 = 1177.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '456.22', spArgs2 = '2354', },
+		[7] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.3467, arg2 = 1326.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.3467, arg2 = 1326.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '469.34', spArgs2 = '2652', },
+		[8] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.4122, arg2 = 1483.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.4122, arg2 = 1483.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '482.44', spArgs2 = '2966', },
+		[9] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.4778, arg2 = 1646.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.4778, arg2 = 1646.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '495.56', spArgs2 = '3292', },
+		[10] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.5433, arg2 = 1817.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.5433, arg2 = 1817.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '508.66', spArgs2 = '3634', },
+	},
+	[1030323] = {
+		[1] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1574, }, }, }, },spArgs1 = '5', },
+		[2] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1575, }, }, }, },spArgs1 = '5.5', },
+		[3] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1576, }, }, }, },spArgs1 = '6', },
+		[4] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1577, }, }, }, },spArgs1 = '6.5', },
+		[5] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1578, }, }, }, },spArgs1 = '7', },
+		[6] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1579, }, }, }, },spArgs1 = '7.5', },
+		[7] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1580, }, }, }, },spArgs1 = '8', },
+		[8] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1581, }, }, }, },spArgs1 = '8.5', },
+		[9] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1582, }, }, }, },spArgs1 = '9', },
+		[10] = {events = {{triTime = 800, hitSoundID = 10, status = {{odds = 10000, buffID = 1583, }, }, }, },spArgs1 = '10', },
+	},
+	[1030324] = {
+		[1] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 1.6421, arg2 = 455.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '472.92', spArgs2 = '1308', },
+		[2] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 1.6972, arg2 = 550.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '488.82', spArgs2 = '1584', },
+		[3] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 1.7523, arg2 = 651.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '504.66', spArgs2 = '1872', },
+		[4] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 1.8074, arg2 = 758.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '520.56', spArgs2 = '2184', },
+		[5] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 1.8625, arg2 = 871.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '536.4', spArgs2 = '2508', },
+		[6] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9176, arg2 = 990.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '552.3', spArgs2 = '2850', },
+		[7] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9727, arg2 = 1115.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '568.14', spArgs2 = '3210', },
+		[8] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0278, arg2 = 1246.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '584.04', spArgs2 = '3588', },
+		[9] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0829, arg2 = 1384.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '599.88', spArgs2 = '3984', },
+		[10] = {events = {{hitSoundID = 10, damage = {odds = 10000, arg1 = 2.138, arg2 = 1527.0, }, status = {{odds = 10000, buffID = 1584, }, }, }, },spArgs1 = '615.78', spArgs2 = '4398', },
+	},
+	[1030331] = {
+		[1] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.0781, arg2 = 1130.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '407.81', spArgs2 = '1130', },
+		[2] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.215, arg2 = 1366.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '421.5', spArgs2 = '1366', },
+		[3] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.3518, arg2 = 1616.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '435.18', spArgs2 = '1616', },
+		[4] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.4887, arg2 = 1881.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '448.87', spArgs2 = '1881', },
+		[5] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.6255, arg2 = 2162.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '462.55', spArgs2 = '2162', },
+		[6] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.7624, arg2 = 2458.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '476.24', spArgs2 = '2458', },
+		[7] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.8992, arg2 = 2769.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '489.92', spArgs2 = '2769', },
+		[8] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.0361, arg2 = 3095.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '503.61', spArgs2 = '3095', },
+		[9] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.1729, arg2 = 3437.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '517.29', spArgs2 = '3437', },
+		[10] = {events = {{triTime = 650, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.3098, arg2 = 3793.0, }, status = {{odds = 10000, buffID = 89, }, }, }, },spArgs1 = '530.98', spArgs2 = '3793', },
+	},
+	[1030332] = {
+		[1] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.5579, arg2 = 1263.0, }, }, },spArgs1 = '455.79', spArgs2 = '1263', },
+		[2] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.7109, arg2 = 1526.0, }, }, },spArgs1 = '471.09', spArgs2 = '1526', },
+		[3] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 4.8638, arg2 = 1806.0, }, }, },spArgs1 = '486.38', spArgs2 = '1806', },
+		[4] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.0168, arg2 = 2103.0, }, }, },spArgs1 = '501.68', spArgs2 = '2103', },
+		[5] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.1697, arg2 = 2416.0, }, }, },spArgs1 = '516.97', spArgs2 = '2416', },
+		[6] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.3227, arg2 = 2747.0, }, }, },spArgs1 = '532.27', spArgs2 = '2747', },
+		[7] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.4756, arg2 = 3095.0, }, }, },spArgs1 = '547.56', spArgs2 = '3095', },
+		[8] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.6286, arg2 = 3459.0, }, }, },spArgs1 = '562.86', spArgs2 = '3459', },
+		[9] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.7815, arg2 = 3841.0, }, }, },spArgs1 = '578.15', spArgs2 = '3841', },
+		[10] = {events = {{triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 5.9345, arg2 = 4239.0, }, }, },spArgs1 = '593.45', spArgs2 = '4239', },
+	},
+	[1030333] = {
+		[1] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.5188, arg2 = 698.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.5188, arg2 = 698.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '503.76', spArgs2 = '1396', },
+		[2] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.6034, arg2 = 843.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.6034, arg2 = 843.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '520.68', spArgs2 = '1686', },
+		[3] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.6879, arg2 = 998.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.6879, arg2 = 998.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '537.58', spArgs2 = '1996', },
+		[4] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.7724, arg2 = 1162.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.7724, arg2 = 1162.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '554.48', spArgs2 = '2324', },
+		[5] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.8569, arg2 = 1335.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.8569, arg2 = 1335.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '571.38', spArgs2 = '2670', },
+		[6] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.9415, arg2 = 1518.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.9415, arg2 = 1518.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '588.3', spArgs2 = '3036', },
+		[7] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.026, arg2 = 1710.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.026, arg2 = 1710.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '605.2', spArgs2 = '3420', },
+		[8] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.1105, arg2 = 1912.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.1105, arg2 = 1912.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '622.1', spArgs2 = '3824', },
+		[9] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.195, arg2 = 2123.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.195, arg2 = 2123.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '639', spArgs2 = '4246', },
+		[10] = {events = {{triTime = 300, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.2796, arg2 = 2343.0, }, status = {{odds = 10000, buffID = 91, }, }, }, {triTime = 1000, hitSoundID = 10, damage = {odds = 10000, arg1 = 3.2796, arg2 = 2343.0, }, status = {{odds = 10000, buffID = 91, }, }, }, },spArgs1 = '655.92', spArgs2 = '4686', },
+	},
+	[1030334] = {
+		[1] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.8392, arg2 = 510.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.8392, arg2 = 510.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.8392, arg2 = 510.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '551.76', spArgs2 = '1530', },
+		[2] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9009, arg2 = 616.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9009, arg2 = 616.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9009, arg2 = 616.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '570.27', spArgs2 = '1848', },
+		[3] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9626, arg2 = 729.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9626, arg2 = 729.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 1.9626, arg2 = 729.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '588.78', spArgs2 = '2187', },
+		[4] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0243, arg2 = 848.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0243, arg2 = 848.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.0243, arg2 = 848.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '607.29', spArgs2 = '2544', },
+		[5] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.086, arg2 = 975.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.086, arg2 = 975.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.086, arg2 = 975.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '625.8', spArgs2 = '2925', },
+		[6] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.1477, arg2 = 1108.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.1477, arg2 = 1108.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.1477, arg2 = 1108.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '644.31', spArgs2 = '3324', },
+		[7] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2095, arg2 = 1249.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2095, arg2 = 1249.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2095, arg2 = 1249.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '662.85', spArgs2 = '3747', },
+		[8] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2712, arg2 = 1396.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2712, arg2 = 1396.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.2712, arg2 = 1396.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '681.36', spArgs2 = '4188', },
+		[9] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.3329, arg2 = 1550.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.3329, arg2 = 1550.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.3329, arg2 = 1550.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '699.87', spArgs2 = '4650', },
+		[10] = {events = {{triTime = 800, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.3946, arg2 = 1711.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1125, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.3946, arg2 = 1711.0, }, status = {{odds = 10000, buffID = 22, }, }, }, {triTime = 1625, hitSoundID = 10, damage = {odds = 10000, arg1 = 2.3946, arg2 = 1711.0, }, status = {{odds = 10000, buffID = 22, }, }, }, },spArgs1 = '718.38', spArgs2 = '5133', },
+	},
+
+};
+function get_db_table()
+	return level;
+end

@@ -1,0 +1,393 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.5,
+				posY = 0.4791665,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.7929688,
+				sizeY = 0.8055556,
+				scale9 = true,
+				scale9Left = 0.3,
+				scale9Right = 0.3,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "kk2",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+					image = "b#db1",
+					scale9 = true,
+					scale9Left = 0.45,
+					scale9Right = 0.45,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "zs1",
+						posX = 0.02057244,
+						posY = 0.1628659,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.05421687,
+						sizeY = 0.3755943,
+						image = "zhu#zs1",
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "zs2",
+						posX = 0.9442027,
+						posY = 0.1851488,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.1592083,
+						sizeY = 0.4057052,
+						image = "zhu#zs2",
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "db2",
+						posX = 0.5,
+						posY = 0.4921793,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.9363168,
+						sizeY = 0.959002,
+						image = "b#db3",
+						scale9 = true,
+						scale9Left = 0.47,
+						scale9Right = 0.47,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Grid",
+					name = "jd1",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "db1",
+						posX = 0.5,
+						posY = 0.434633,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.9013033,
+						sizeY = 0.7642605,
+						image = "b#d2",
+						scale9 = true,
+						scale9Left = 0.45,
+						scale9Right = 0.45,
+						scale9Top = 0.45,
+						scale9Bottom = 0.45,
+					},
+					children = {
+					{
+						prop = {
+							etype = "Scroll",
+							name = "lb",
+							varName = "scroll",
+							posX = 0.5,
+							posY = 0.502527,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.9887726,
+							sizeY = 0.9717763,
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "wb",
+						posX = 0.2255737,
+						posY = 0.878433,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2577048,
+						sizeY = 0.1403776,
+						text = "本周会武综合排名：",
+						color = "FF966856",
+						fontSize = 24,
+						fontOutlineColor = "FF102E21",
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Button",
+						name = "ck",
+						varName = "checkBtn",
+						posX = 0.7370485,
+						posY = 0.878433,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.1714286,
+						sizeY = 0.1137931,
+						image = "chu1#an2",
+						imageNormal = "chu1#an2",
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "ccz",
+							posX = 0.5,
+							posY = 0.5454545,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 1.028724,
+							sizeY = 0.8896415,
+							text = "查 看",
+							fontSize = 24,
+							fontOutlineEnable = true,
+							fontOutlineColor = "FF2A6953",
+							fontOutlineSize = 2,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "Grid",
+						name = "jdtk",
+						varName = "activeRoot",
+						posX = 0.4577042,
+						posY = 0.8827588,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.3029506,
+						sizeY = 0.1420992,
+					},
+					children = {
+					{
+						prop = {
+							etype = "Image",
+							name = "sz1",
+							varName = "imgB",
+							posX = 0.07530707,
+							posY = 0.4444553,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.1430918,
+							sizeY = 0.7280004,
+							image = "jjc#9",
+						},
+					},
+					{
+						prop = {
+							etype = "Image",
+							name = "sz2",
+							varName = "imgS",
+							posX = 0.1854916,
+							posY = 0.4444553,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.1430918,
+							sizeY = 0.7280004,
+							image = "jjc#9",
+						},
+					},
+					{
+						prop = {
+							etype = "Image",
+							name = "sz3",
+							varName = "imgG",
+							posX = 0.2956761,
+							posY = 0.4444553,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.1430918,
+							sizeY = 0.7280004,
+							image = "jjc#9",
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "wpm",
+						varName = "noActive",
+						posX = 0.3875524,
+						posY = 0.8585835,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.1403023,
+						sizeY = 0.09719209,
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "wsb",
+							posX = 0.4317438,
+							posY = 0.7042313,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.8841279,
+							sizeY = 1.120888,
+							text = "未上榜",
+							color = "FF966856",
+							fontSize = 26,
+							fontOutlineColor = "FF102E21",
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "gb",
+					varName = "closeBtn",
+					posX = 0.9660702,
+					posY = 0.9338006,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.06600985,
+					sizeY = 0.1310345,
+					image = "chu1#gb",
+					imageNormal = "chu1#gb",
+					soundEffectClick = "audio/rxjh/UI/ui_guanbi.ogg",
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "top",
+				posX = 0.5,
+				posY = 0.8779602,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.20625,
+				sizeY = 0.07222223,
+				image = "chu1#top",
+				scale9Left = 0.45,
+				scale9Right = 0.45,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "td2",
+					posX = 0.4988506,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.3143939,
+					sizeY = 0.4807692,
+					image = "biaoti#zj",
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

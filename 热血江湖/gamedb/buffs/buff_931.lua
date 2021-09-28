@@ -1,0 +1,23 @@
+----------------- auto generate db file ------------------------
+module(..., package.seeall)
+
+local require = require
+
+local buff = 
+{
+	[93100] = {	id = 93100, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -438.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93101] = {	id = 93101, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -440.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93102] = {	id = 93102, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -442.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93103] = {	id = 93103, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -444.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93104] = {	id = 93104, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -447.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93105] = {	id = 93105, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -449.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93106] = {	id = 93106, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -451.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93107] = {	id = 93107, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -453.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93108] = {	id = 93108, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -455.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93109] = {	id = 93109, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -458.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+	[93110] = {	id = 93110, iconID = 349, effectID = 0, note = '命中降低', owner = 0, loopTime = 5000, overlays = 3, overlayType = 1, affectType = 1, affectID = 1004, valueType = 1, affectValue = -460.0, realmAddon = 0.0, affectTick = -1, vfxIds = { }, childs = { }, removeOnZero = 0, trigger = { }, type = 2, resID = 1033, fightspadd = 0, buffMasterID = 1078, prolongCount = 3, buffDrugIcon = 0, specialIcon = 0},
+
+};
+function get_db_table()
+	return buff;
+end

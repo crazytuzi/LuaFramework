@@ -1,0 +1,33 @@
+----------------- auto generate db file ------------------------
+module(..., package.seeall)
+
+local require = require
+
+local spawn_point = 
+{
+	[620401] = {	id = 620401, pos = { x = 39.01813, y = 6.965291, z = -18.88673 }, randomPos = 0, randomRadius = 0, monsters = { 91001,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620402] = {	id = 620402, pos = { x = 38.75919, y = 6.965291, z = -23.76166 }, randomPos = 0, randomRadius = 0, monsters = { 91001,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620403] = {	id = 620403, pos = { x = 39.48814, y = 6.965291, z = -14.40274 }, randomPos = 0, randomRadius = 0, monsters = { 91001,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620404] = {	id = 620404, pos = { x = 42.22069, y = 6.965291, z = -18.30943 }, randomPos = 0, randomRadius = 0, monsters = { 91001,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620405] = {	id = 620405, pos = { x = 40.15168, y = 6.965291, z = -21.92913 }, randomPos = 0, randomRadius = 0, monsters = { 91003,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620406] = {	id = 620406, pos = { x = 37.15839, y = 6.965291, z = -14.83965 }, randomPos = 0, randomRadius = 0, monsters = { 91003,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620407] = {	id = 620407, pos = { x = 41.46283, y = 6.965291, z = -15.91026 }, randomPos = 0, randomRadius = 0, monsters = { 91003,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620408] = {	id = 620408, pos = { x = 41.73735, y = 6.965291, z = -20.19678 }, randomPos = 0, randomRadius = 0, monsters = { 91003,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620501] = {	id = 620501, pos = { x = 5.944767, y = 8.271901, z = 29.78361 }, randomPos = 0, randomRadius = 0, monsters = { 91004,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620502] = {	id = 620502, pos = { x = 8.232038, y = 8.303863, z = 29.89878 }, randomPos = 0, randomRadius = 0, monsters = { 91004,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620503] = {	id = 620503, pos = { x = 11.39324, y = 8.295888, z = 29.68688 }, randomPos = 0, randomRadius = 0, monsters = { 91004,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620504] = {	id = 620504, pos = { x = 14.45059, y = 8.273353, z = 28.76624 }, randomPos = 0, randomRadius = 0, monsters = { 91004,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620505] = {	id = 620505, pos = { x = 5.922005, y = 8.165291, z = 33.44577 }, randomPos = 0, randomRadius = 0, monsters = { 91005,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620506] = {	id = 620506, pos = { x = 8.034296, y = 8.165291, z = 34.05411 }, randomPos = 0, randomRadius = 0, monsters = { 91005,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620507] = {	id = 620507, pos = { x = 10.39691, y = 8.165291, z = 32.62711 }, randomPos = 0, randomRadius = 0, monsters = { 91005,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620508] = {	id = 620508, pos = { x = 12.19598, y = 8.165291, z = 32.94409 }, randomPos = 0, randomRadius = 0, monsters = { 91005,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620509] = {	id = 620509, pos = { x = 13.31718, y = 8.165291, z = 32.05737 }, randomPos = 0, randomRadius = 0, monsters = { 91006,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620510] = {	id = 620510, pos = { x = -5.603724, y = 6.965301, z = -40.25624 }, randomPos = 0, randomRadius = 0, monsters = { 91007,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620511] = {	id = 620511, pos = { x = -8.0838, y = 6.965301, z = -7.949288 }, randomPos = 0, randomRadius = 0, monsters = { 91008,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620512] = {	id = 620512, pos = { x = 28.45714, y = 7.072501, z = -40.79475 }, randomPos = 0, randomRadius = 0, monsters = { 91009,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+	[620513] = {	id = 620513, pos = { x = 40.66114, y = 6.965301, z = -20.25162 }, randomPos = 0, randomRadius = 0, monsters = { 91010,  }, spawnType = 1, spawnDTime = 15000, spawnTimes = 1, spawnNum = { { 1, }, { }, { }, { }, { }, { }, { }, { }, { }, }, faceType = 0, faceDir = { x = 0.0, y = 0.0, z = 0.0 } },
+
+};
+function get_db_table()
+	return spawn_point;
+end

@@ -1,0 +1,20 @@
+i3k_db_npc_transfer =
+{
+	[1] = {id = 1, npcId = 10070, needItemID = 0, needItemCount = 0, conditions = {  { conditonType = 2, conditionValue = 40 },} , btnTxt = '淩霄閣傳送'},
+	[2] = {id = 2, npcId = 60012, needItemID = 0, needItemCount = 0, conditions = {  { conditonType = 2, conditionValue = 30 },} , btnTxt = '溫泉洗浴傳送'},
+	[3] = {id = 3, npcId = 60011, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '花月境傳送'},
+	[4] = {id = 4, npcId = 60030, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '二層'},
+	[5] = {id = 5, npcId = 60031, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '一層'},
+	[6] = {id = 6, npcId = 60031, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '三層'},
+	[7] = {id = 7, npcId = 60032, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '二層'},
+	[8] = {id = 8, npcId = 60032, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '四層'},
+	[9] = {id = 9, npcId = 60033, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '三層'},
+	[10] = {id = 10, npcId = 60033, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '五層'},
+	[11] = {id = 11, npcId = 60034, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '四層'},
+	[12] = {id = 12, npcId = 60034, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '六層'},
+	[13] = {id = 13, npcId = 60035, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '五層'},
+	[14] = {id = 14, npcId = 60035, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '七層'},
+	[15] = {id = 15, npcId = 60036, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '六層'},
+	[16] = {id = 16, npcId = 60037, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '進入龍穴'},
+	[17] = {id = 17, npcId = 60030, needItemID = 0, needItemCount = 0, conditions = { } , btnTxt = '松月關'},
+};

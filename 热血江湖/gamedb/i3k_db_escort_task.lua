@@ -1,0 +1,23 @@
+i3k_db_escort_task =
+{
+	[1] = {  id = 1, name = '護送秋糧', icon_id = 2485, car_quality = 1, weight = 500, exp = 10000, coin = 18000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[2] = {  id = 2, name = '保護珠玉', icon_id = 2486, car_quality = 1, weight = 600, exp = 10000, coin = 17500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[3] = {  id = 3, name = '保衛親眷', icon_id = 2487, car_quality = 1, weight = 600, exp = 10500, coin = 17000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[4] = {  id = 4, name = '祝壽珊瑚', icon_id = 2488, car_quality = 1, weight = 600, exp = 10500, coin = 16500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[5] = {  id = 5, name = '易碎品', icon_id = 2489, car_quality = 1, weight = 600, exp = 10500, coin = 16000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[6] = {  id = 6, name = '護送良駒', icon_id = 2490, car_quality = 1, weight = 600, exp = 11000, coin = 15500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[7] = {  id = 7, name = '重要情報', icon_id = 2491, car_quality = 1, weight = 600, exp = 11000, coin = 15000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[8] = {  id = 8, name = '神秘包裹', icon_id = 2492, car_quality = 1, weight = 600, exp = 11000, coin = 14500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[9] = {  id = 9, name = '珍獸運送', icon_id = 2493, car_quality = 1, weight = 600, exp = 11500, coin = 14000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[10] = {  id = 10, name = '啄米圖', icon_id = 2494, car_quality = 1, weight = 600, exp = 11500, coin = 13500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[11] = {  id = 11, name = '鍛造材料', icon_id = 2495, car_quality = 1, weight = 600, exp = 11500, coin = 13000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[12] = {  id = 12, name = '珍稀藥草', icon_id = 2496, car_quality = 1, weight = 600, exp = 12000, coin = 12500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[13] = {  id = 13, name = '龍虎石刻', icon_id = 2497, car_quality = 1, weight = 600, exp = 12000, coin = 12000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[14] = {  id = 14, name = '金飛燕', icon_id = 2498, car_quality = 1, weight = 600, exp = 12000, coin = 11500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[15] = {  id = 15, name = '神兵殘片', icon_id = 2499, car_quality = 2, weight = 400, exp = 13500, coin = 21000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[16] = {  id = 16, name = '花石綱', icon_id = 2500, car_quality = 2, weight = 400, exp = 13500, coin = 20500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[17] = {  id = 17, name = '青花瓷', icon_id = 2501, car_quality = 2, weight = 400, exp = 14000, coin = 20000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[18] = {  id = 18, name = '舍利子', icon_id = 2502, car_quality = 2, weight = 400, exp = 14000, coin = 19500, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[19] = {  id = 19, name = '辟邪劍譜', icon_id = 2503, car_quality = 3, weight = 50, exp = 18500, coin = 24000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+	[20] = {  id = 20, name = '和氏璧', icon_id = 2504, car_quality = 3, weight = 50, exp = 18000, coin = 25000, item_id = -1, frist_rob = 8000, second_rob = 6000, third_rob = 4000 },
+};

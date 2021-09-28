@@ -1,0 +1,56 @@
+i3k_db_spring =
+{
+common ={openday = {1,2,3,4,5,6,0,}, levelLimit = 30, expPerSecond = 30, expParam = 10000, allBuff = {1000,1500,2000,2500,3000,}, factionBuff = {1000,1500,2000,2500,3000,}, allBuffCost = {100,200,300,400,500,}, factionBuffCost = {50,50,100,100,200,}, tiaoxiNum = 12, feizaoNum = 10, cuozaoNum = 8, tiaoxiExp = 4000, feizaoExp = 5000, cuozaoExp = 6000, detiaoxiExp = 2000, defeizaoExp = 2500, decuozaoExp = 3000, singleLimit = 60, waterCarExp = 4000, umbrellaExp = 3000, expLimit = 30000, costItem = 66542, itemTime = 600, mapId = 4001, fationExp = 1000, fationId = 80, exFationId = {37,38,74,75,76,77,78,79,143,177,178,}, waterCarModelId = 2001, umbrellaModelId = 2002, addExpTime = 40, speed = 500, singleCd = 1, doubleCd = 10, cuozaoAct1 = 'wenquan_poshui_water', cuozaoAct2 = 'wenquan_poshui_land', feizaoAct1 = 'wenquan_rengfeizao_water', feizaoAct2 = 'wenquan_rengfeizao_land', tiaoxiAct1 = 'sj_shiai', tiaoxiAct2 = 'sj_shiai', waterWalk = 'wenquan_run_water', landWalk = 'wenquan_run_land', waterIdle = 'wenquan_stand_water', landIdle = 'wenquan_stand_land', yazi = 'HS_zuoqi;HS_zuoqi01', riguang = 'HS_zuoqi;HS_zuoqi01', tiaoxiLength = 5, feizaoLength = 12, cuozaoLength = 5, doubleLength = 5, inviteTime = 20, weeklyEnter = 2},
+openTime ={
+	[1] = {startTime = '10:00:00', durTime = 46800},
+},
+waterArea =
+{
+	{pos = '1.247575;3.12532;21.71015', radius = 8 },
+	{pos = '8.65727;3.02560258;11.542305', radius = 8 },
+	{pos = '-4.47232;2.925321;28.30455', radius = 2 },
+	{pos = '-5.594592;2.925321;26.87074', radius = 1 },
+	{pos = '16.29051;2.925321;29.14187', radius = 1 },
+	{pos = '12.26652;2.994216;24.65269', radius = 5 },
+	{pos = '11.3529606;3.11354065;18.62076', radius = 5 },
+	{pos = '15.4295282;3.12532043;21.4049454', radius = 1 },
+	{pos = '15.4937057;3.1315136;15.2865934', radius = 1 },
+	{pos = '-0.0039342;3.25562572;10.3614721', radius = 2 },
+	{pos = '0.5311947;3.11138368;13.2300777', radius = 2 },
+	{pos = '1.21577358;3.00196719;8.142245', radius = 1 },
+	{pos = '11.4940691;3.02979016;7.076971', radius = 5 },
+	{pos = '14.2889776;3.10169768;3.80470872', radius = 2 },
+	{pos = '-19.6577568;2.92532063;-10.71789', radius = 5 },
+	{pos = '-17.5183086;2.93731046;-2.243841', radius = 8 },
+	{pos = '-18.06033;3.052575;5.09561729', radius = 8 },
+	{pos = '-17.1992188;3.1595304;12.439208', radius = 5 },
+	{pos = '-24.9085167;3.09682274;6.14114', radius = 2 },
+	{pos = '-9.917809;3.03426838;0.5422179', radius = 5 },
+	{pos = '-5.28578663;2.92532063;-2.22784567', radius = 2 },
+	{pos = '-2.743516;2.92532063;-0.59554694', radius = 2 },
+	{pos = '-3.35812569;2.92532063;-3.28829', radius = 2 },
+	{pos = '-4.48485565;2.92532063;0.5030388', radius = 2 },
+	{pos = '5.10283;3.03387172;-7.68914652', radius = 5 },
+	{pos = '9.573404;3.06716919;-10.9752083', radius = 5 },
+	{pos = '15.2271662;2.92532063;-6.062768', radius = 2 },
+	{pos = '10.4390068;2.92764187;-5.856377', radius = 2 },
+	{pos = '15.242668;2.248199;-5.557318', radius = 3 },
+};
+landArea =
+{
+	{pos = '27.9559879;4.633072;-18.1229572', radius = 8 },
+	{pos = '27.98513;4.67915;-2.82287945', radius = 8 },
+	{pos = '28.0436344;4.704895;12.5725679', radius = 8 },
+	{pos = '27.6462784;4.649146;26.2179661', radius = 8 },
+	{pos = '34.2028656;4.53655243;-11.0063324', radius = 5 },
+	{pos = '34.28025;4.57827425;4.48189545', radius = 5 },
+	{pos = '-14.8151855;4.725321;25.7942982', radius = 8 },
+	{pos = '-14.7400961;4.79073668;36.72748', radius = 8 },
+	{pos = '-21.3595448;4.768669;32.50202', radius = 8 },
+	{pos = '-28.01527;4.80556726;23.8504658', radius = 8 },
+	{pos = '-17.1945019;4.727035;44.168354', radius = 5 },
+	{pos = '-29.6378555;4.725321;11.1807175', radius = 2 },
+	{pos = '-21.1836872;4.725321;19.7669239', radius = 2 },
+	{pos = '-8.86348152;4.725321;19.4772758', radius = 2 },
+};
+};

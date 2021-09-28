@@ -1,0 +1,302 @@
+--version = 1
+local l_fileType = "node"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Grid",
+			name = "jd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 0.1195313,
+			sizeY = 0.2611111,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "rw1",
+				varName = "playerRoot",
+				posX = 0.5,
+				posY = 0.4840426,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.9738558,
+				sizeY = 0.9840425,
+				scale9Left = 0.3,
+				scale9Right = 0.3,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "rw2",
+					varName = "playerBgIcon",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+					image = "wdh#dwd",
+					scale9Left = 0.3,
+					scale9Right = 0.3,
+					scale9Top = 0.3,
+					scale9Bottom = 0.3,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "dj1",
+					varName = "playerBtn",
+					posX = 0.4910978,
+					posY = 0.5029466,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.9510792,
+					sizeY = 0.954426,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "ddt1",
+					posX = 0.5,
+					posY = 0.1836759,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.9597315,
+					sizeY = 0.005405406,
+					image = "wdh#huangxian",
+					scale9 = true,
+					scale9Left = 0.4,
+					scale9Right = 0.4,
+					alpha = 0.3,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "txk",
+					varName = "iconType",
+					posX = 0.5,
+					posY = 0.5685394,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.8360823,
+					sizeY = 0.5405405,
+					image = "zdtx#txd",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "tx",
+						varName = "icon",
+						posX = 0.5054789,
+						posY = 0.6925332,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						lockHV = true,
+						sizeX = 0.7210885,
+						sizeY = 1.110169,
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "zyb",
+						varName = "typeImg",
+						posX = 0.9189461,
+						posY = 1.081193,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						lockHV = true,
+						sizeX = 0.3210885,
+						sizeY = 0.4,
+						image = "zy#daoke",
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "djd",
+						posX = 0.8037993,
+						posY = 0.2559153,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						lockHV = true,
+						sizeX = 0.235216,
+						sizeY = 0.3,
+						image = "zdte#djd2",
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "dj",
+							varName = "lvlTxt",
+							posX = 0.5,
+							posY = 0.5,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 1.007689,
+							sizeY = 1.368822,
+							text = "30",
+							fontSize = 18,
+							fontOutlineEnable = true,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "dzb",
+					varName = "leaderIcon",
+					posX = 0.141521,
+					posY = 0.879673,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.1879195,
+					sizeY = 0.2486486,
+					image = "wdh#dz",
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "mz1",
+					varName = "playerName",
+					posX = 0.5,
+					posY = 0.2553394,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1.006999,
+					sizeY = 0.1614683,
+					text = "我是一个大大棒槌",
+					color = "FF350909",
+					fontSize = 18,
+					hTextAlign = 1,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "zl1",
+					posX = 0.2256062,
+					posY = 0.1070361,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.3273922,
+					sizeY = 0.1624278,
+					text = "战力:",
+					color = "FFF3E113",
+					fontSize = 18,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "zlz1",
+					varName = "playerPower",
+					posX = 0.7091287,
+					posY = 0.1070361,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.6297794,
+					sizeY = 0.1624278,
+					text = "12134569",
+					color = "FFF3E113",
+					fontSize = 18,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "gb",
+					varName = "kickBtn",
+					posX = 0.1086792,
+					posY = 0.9072973,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2550336,
+					sizeY = 0.2054054,
+					image = "wdh#gb",
+					imageNormal = "wdh#gb",
+					disablePressScale = true,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "qd",
+					varName = "isSign",
+					posX = 0.5,
+					posY = 0.893398,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.3892617,
+					sizeY = 0.1297297,
+					image = "wdh#zb",
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "dw2",
+				varName = "addRoot",
+				posX = 0.5,
+				posY = 0.4840426,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				visible = false,
+				sizeX = 0.9738558,
+				sizeY = 0.9840425,
+				image = "wdh#jia",
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

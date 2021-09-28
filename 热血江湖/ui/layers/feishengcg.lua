@@ -1,0 +1,358 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.5,
+				posY = 0.5111112,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.7929688,
+				sizeY = 0.8055556,
+				scale9 = true,
+				scale9Left = 0.45,
+				scale9Right = 0.45,
+				scale9Top = 0.45,
+				scale9Bottom = 0.45,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "kk2",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.9438423,
+					sizeY = 1.068966,
+					image = "fscgbj#fscgbj",
+					scale9 = true,
+					scale9Left = 0.45,
+					scale9Right = 0.45,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "cg",
+						posX = 0.5,
+						posY = 0.8252715,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2515658,
+						sizeY = 0.1274193,
+						image = "feisheng#feishengchenggong",
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Grid",
+					name = "jd",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Button",
+						name = "an1",
+						varName = "goBtn",
+						posX = 0.5,
+						posY = 0.04213184,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						lockHV = true,
+						sizeX = 0.1558442,
+						sizeY = 0.1034483,
+						image = "chu1#an2",
+						imageNormal = "chu1#an2",
+						soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "j1",
+							varName = "getWord",
+							posX = 0.5,
+							posY = 0.5,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.9322476,
+							sizeY = 1.09296,
+							text = "前往查看",
+							fontOutlineEnable = true,
+							fontOutlineColor = "FF347468",
+							fontOutlineSize = 2,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "cgz2",
+						posX = 0.5,
+						posY = -0.06145049,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.4239332,
+						sizeY = 0.164542,
+						text = "前往背包或角色介面查看",
+						color = "FF8BF360",
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Sprite3D",
+						name = "mx1",
+						varName = "hero_module",
+						posX = 0.2359026,
+						posY = 0.2260029,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2822954,
+						sizeY = 0.4399579,
+					},
+				},
+				{
+					prop = {
+						etype = "Sprite3D",
+						name = "mx2",
+						varName = "weapon_module",
+						posX = 0.7628659,
+						posY = 0.32,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2837662,
+						sizeY = 0.4399579,
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "biaoti1",
+						posX = 0.2364116,
+						posY = 0.6924407,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2596712,
+						sizeY = 0.1267441,
+						text = "脚印特效",
+						color = "FF7A5232",
+						fontSize = 22,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "biaoti2",
+						posX = 0.5,
+						posY = 0.697613,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2596712,
+						sizeY = 0.1267441,
+						text = "永久附加属性",
+						color = "FFFFFE9E",
+						fontSize = 22,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "biaoti3",
+						posX = 0.764,
+						posY = 0.6924407,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2596712,
+						sizeY = 0.1267441,
+						text = "飞升武器",
+						color = "FF7A5232",
+						fontSize = 22,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "biaoti4",
+						posX = 0.2364116,
+						posY = 0.1880978,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2596712,
+						sizeY = 0.1267441,
+						text = "解锁功能：脚印特效",
+						color = "FF7A5232",
+						fontSize = 22,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "biaoti5",
+						posX = 0.2364116,
+						posY = 0.139823,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2596712,
+						sizeY = 0.1267441,
+						text = "并自动获得飞升脚印特效",
+						color = "FF7A5232",
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "biaoti6",
+						posX = 0.7640001,
+						posY = 0.1880978,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2596712,
+						sizeY = 0.1267441,
+						text = "解锁功能：飞升武器",
+						color = "FF7A5232",
+						fontSize = 22,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Label",
+						name = "biaoti7",
+						posX = 0.7640001,
+						posY = 0.139823,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2596712,
+						sizeY = 0.1267441,
+						text = "并自动装备本职业飞升武器",
+						color = "FF7A5232",
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "Scroll",
+						name = "lb",
+						varName = "scroll",
+						posX = 0.4990159,
+						posY = 0.3846486,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.2340982,
+						sizeY = 0.5404916,
+					},
+				},
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+	dk = {
+		ysjm = {
+			scale = {{0, {0.3, 0.3, 1}}, {150, {1.05, 1.05, 1}}, {200, {1,1,1}}, },
+		},
+	},
+	c_dakai = {
+		{0,"dk", 1, 0},
+	},
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

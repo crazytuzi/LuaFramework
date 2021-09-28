@@ -1,0 +1,340 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.4992188,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.6094162,
+				sizeY = 0.8055556,
+				scale9 = true,
+				scale9Left = 0.3,
+				scale9Right = 0.3,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "das",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.8084454,
+					sizeY = 0.6470982,
+					image = "jh5#db",
+					scale9 = true,
+					scale9Top = 0.45,
+					scale9Bottom = 0.45,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "gb",
+					varName = "close",
+					posX = 0.9161327,
+					posY = 0.7357249,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.08845556,
+					sizeY = 0.1396552,
+					image = "jh1#gb",
+					imageNormal = "jh1#gb",
+					soundEffectClick = "audio/rxjh/UI/ui_guanbi.ogg",
+				},
+			},
+			{
+				prop = {
+					etype = "Grid",
+					name = "k1",
+					varName = "baseSetPanel",
+					posX = 0.5,
+					posY = 0.5448267,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "d9",
+						posX = 0.5,
+						posY = 0.5059801,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.7877758,
+						sizeY = 0.4148917,
+						image = "d#bt",
+						scale9 = true,
+						scale9Top = 0.45,
+						scale9Bottom = 0.45,
+						alpha = 0.7,
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "smwz",
+							varName = "textLabel",
+							posX = 0.5,
+							posY = 0.5164204,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.9112772,
+							sizeY = 0.79098,
+							text = "百年修得同船渡，千年修得共枕眠！\n爱一个人，需要用一辈子去呵护\n你准备好了么？",
+							color = "FF911D02",
+							fontSize = 24,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "smda2",
+					posX = 0.6534429,
+					posY = 0.06719593,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.5193428,
+					sizeY = 0.1015577,
+					alpha = 0.5,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Button",
+						name = "zx2",
+						varName = "gotoMarryBtn",
+						posX = 0.5408055,
+						posY = 2.605146,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.3628602,
+						sizeY = 1.018616,
+						image = "jh1#an",
+						imageNormal = "jh1#an",
+						disablePressScale = true,
+						soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "h2",
+							posX = 0.5,
+							posY = 0.5,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.9086144,
+							sizeY = 1.137135,
+							text = "我要求婚",
+							fontSize = 24,
+							fontOutlineEnable = true,
+							fontOutlineColor = "FFB35F1D",
+							fontOutlineSize = 2,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "Button",
+						name = "zx4",
+						varName = "selectSizeBtn",
+						posX = -0.1468005,
+						posY = 2.605146,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.3628602,
+						sizeY = 1.018616,
+						image = "jh1#an",
+						imageNormal = "jh1#an",
+						disablePressScale = true,
+						soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "h4",
+							posX = 0.5,
+							posY = 0.5,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.9086144,
+							sizeY = 1.137135,
+							text = "婚礼规模",
+							fontSize = 24,
+							fontOutlineEnable = true,
+							fontOutlineColor = "FFB35F1D",
+							fontOutlineSize = 2,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				{
+					prop = {
+						etype = "Button",
+						name = "zx3",
+						varName = "goBackBtn",
+						posX = 0.5408055,
+						posY = 2.605146,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						visible = false,
+						sizeX = 0.3628602,
+						sizeY = 1.018616,
+						image = "jh1#an",
+						imageNormal = "jh1#an",
+						disablePressScale = true,
+						soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+					},
+					children = {
+					{
+						prop = {
+							etype = "Label",
+							name = "h3",
+							posX = 0.5,
+							posY = 0.5,
+							anchorX = 0.5,
+							anchorY = 0.5,
+							sizeX = 0.9086144,
+							sizeY = 1.137135,
+							text = "返回上层",
+							fontSize = 24,
+							fontOutlineEnable = true,
+							fontOutlineColor = "FFB35F1D",
+							fontOutlineSize = 2,
+							hTextAlign = 1,
+							vTextAlign = 1,
+						},
+					},
+					},
+				},
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "top",
+				posX = 0.5,
+				posY = 0.7376813,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.1703125,
+				sizeY = 0.07361111,
+				image = "jh5#top",
+				scale9Left = 0.45,
+				scale9Right = 0.45,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "td2",
+					posX = 0.5,
+					posY = 0.5377358,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.3669725,
+					sizeY = 0.490566,
+					image = "jh5#qiuhun",
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

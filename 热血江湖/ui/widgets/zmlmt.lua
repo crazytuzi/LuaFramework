@@ -1,0 +1,275 @@
+--version = 1
+local l_fileType = "node"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Grid",
+			name = "zmlmt",
+			varName = "rootLayer",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 0.2921875,
+			sizeY = 0.8,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "tdt",
+				posX = 0.5026675,
+				posY = 0.6280125,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.8969219,
+				sizeY = 0.4882816,
+				image = "g#g_lv.png",
+				scale9 = true,
+				scale9Left = 0.3,
+				scale9Right = 0.3,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "tdt2",
+				varName = "type_icon",
+				posX = 0.5024942,
+				posY = 0.6187277,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				lockHV = true,
+				sizeX = 0.6684492,
+				sizeY = 0.4340278,
+				image = "zmt2#bushi",
+				scale9 = true,
+				scale9Left = 0.3,
+				scale9Right = 0.3,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "tdt3",
+				posX = 0.4951847,
+				posY = 0.6210808,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				lockHV = true,
+				sizeX = 0.9279087,
+				sizeY = 0.5473526,
+				image = "ka#ka_jsd.png",
+				scale9 = true,
+				scale9Left = 0.3,
+				scale9Right = 0.3,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "tdt4",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 0.9344735,
+				image = "ka#ka_js.png",
+				scale9Left = 0.3,
+				scale9Right = 0.3,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "top",
+					varName = "title_icon",
+					posX = 0.5,
+					posY = 0.9433009,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.272274,
+					sizeY = 0.05769406,
+					image = "zm#dwt",
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Grid",
+				name = "xh",
+				varName = "itemRoot",
+				posX = 0.5000001,
+				posY = 0.1841621,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.6,
+				sizeY = 0.07590418,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "tb",
+					varName = "item_icon",
+					posX = 0.3596663,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.2228164,
+					sizeY = 1.14362,
+					image = "tb#tb_tl.png",
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "xhs",
+					varName = "item_count",
+					posX = 0.5803567,
+					posY = 0.4999999,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.4384741,
+					sizeY = 0.6706975,
+					text = "20",
+					color = "FF70C8B7",
+					fontOutlineEnable = true,
+					hTextAlign = 1,
+					vTextAlign = 1,
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Grid",
+				name = "xsh",
+				varName = "timeRoot",
+				posX = 0.5,
+				posY = 0.1841621,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.9057408,
+				sizeY = 0.07090852,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Label",
+					name = "sj",
+					varName = "time_label",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.8563969,
+					sizeY = 1,
+					text = "剩余时间：8小时30分钟",
+					color = "FF70C8B7",
+					fontOutlineEnable = true,
+					hTextAlign = 1,
+					vTextAlign = 1,
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Button",
+				name = "a1",
+				varName = "btn",
+				posX = 0.5,
+				posY = 0.08589491,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.5080214,
+				sizeY = 0.1336806,
+				image = "zm#zm_an.png",
+				imageNormal = "zm#zm_an.png",
+				disablePressScale = true,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Label",
+					name = "az1",
+					varName = "btn_label",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.5999998,
+					sizeY = 0.7456301,
+					text = "收 徒",
+					color = "FFF1FFB0",
+					fontSize = 26,
+					fontOutlineEnable = true,
+					fontOutlineColor = "FF69360B",
+					fontOutlineSize = 2,
+					hTextAlign = 1,
+					vTextAlign = 1,
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Label",
+				name = "jsz1",
+				varName = "desc",
+				posX = 0.5,
+				posY = 0.2725287,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.7583081,
+				sizeY = 0.1353305,
+				text = "山门可招收普通弟子山门可招收普通弟子",
+				color = "FF8ADC7F",
+				fontSize = 22,
+				fontOutlineEnable = true,
+				hTextAlign = 1,
+				vTextAlign = 1,
+				lineSpaceAdd = -5,
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

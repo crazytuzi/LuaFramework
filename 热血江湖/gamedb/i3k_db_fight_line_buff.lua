@@ -1,0 +1,8 @@
+i3k_db_fight_line_buff = {
+	[100001] = { id = 100001, name = '時間限制經驗加成', desc = 'buff藥-時間限制-經驗加成-1小時', validIcon = 4596, invalidIcon = 0, note = '經驗增加', affectType = 1, loopTime = 7200, buffSlot = 1001, buffSlotLvl = 1, monsterCount= 0, affectValue= 6000},
+	[100002] = { id = 100002, name = '時間限制經驗加成', desc = 'buff藥-時間限制-經驗加成-1小時', validIcon = 4596, invalidIcon = 0, note = '經驗增加', affectType = 1, loopTime = 7200, buffSlot = 1002, buffSlotLvl = 1, monsterCount= 0, affectValue= 6000},
+	[100003] = { id = 100003, name = '時間限制經驗加成', desc = 'buff藥-時間限制-經驗加成-1小時', validIcon = 4596, invalidIcon = 0, note = '經驗增加', affectType = 1, loopTime = 7200, buffSlot = 1003, buffSlotLvl = 1, monsterCount= 0, affectValue= 7000},
+	[100004] = { id = 100004, name = '次數限制經驗加成', desc = 'buff藥-次數限制-經驗加成-1000只', validIcon = 4596, invalidIcon = 0, note = '經驗增加', affectType = 2, loopTime = 0, buffSlot = 1004, buffSlotLvl = 1, monsterCount= 9999, affectValue= 6000},
+	[100005] = { id = 100005, name = '次數限制經驗加成', desc = 'buff藥-次數限制-經驗加成-1000只', validIcon = 4596, invalidIcon = 0, note = '經驗增加', affectType = 2, loopTime = 0, buffSlot = 1005, buffSlotLvl = 1, monsterCount= 9999, affectValue= 6000},
+	[100006] = { id = 100006, name = '次數限制經驗加成', desc = 'buff藥-次數限制-經驗加成-1000只', validIcon = 4596, invalidIcon = 0, note = '經驗增加', affectType = 2, loopTime = 0, buffSlot = 1006, buffSlotLvl = 1, monsterCount= 9999, affectValue= 7000},
+}

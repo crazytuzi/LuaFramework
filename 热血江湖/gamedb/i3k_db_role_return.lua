@@ -1,0 +1,36 @@
+i3k_db_role_return = 
+{
+common = {limit_lvl = 55, offline_time = 1209600, remove_binding = 1209600, max_binding = 4, pay_rate = 1000, point_evelvl = 50, disLevel = 3, maxTime = 604800,},
+reward = {
+[1] = { id = 65558, count = 30,},
+[2] = { id = 65561, count = 2,},
+[3] = { id = 65579, count = 25,},
+[4] = { id = 65555, count = 15,},
+},
+login_reward = {
+[1] = { items = {[1] = { id = 1, count = 388},[2] = { id = 2, count = 100000},[3] = { id = 65602, count = 10},},},
+[2] = { items = {[1] = { id = 1, count = 488},[2] = { id = 2, count = 150000},[3] = { id = 65579, count = 10},},},
+[3] = { items = {[1] = { id = 1, count = 588},[2] = { id = 2, count = 200000},[3] = { id = 65588, count = 15},},},
+[4] = { items = {[1] = { id = 1, count = 588},[2] = { id = 2, count = 250000},[3] = { id = 65602, count = 20},},},
+[5] = { items = {[1] = { id = 1, count = 688},[2] = { id = 2, count = 300000},[3] = { id = 65737, count = 20},},},
+[6] = { items = {[1] = { id = 1, count = 888},[2] = { id = 2, count = 500000},[3] = { id = 65602, count = 25},},},
+[7] = { items = {[1] = { id = 1, count = 888},[2] = { id = 2, count = 990000},[3] = { id = 65737, count = 25},},},
+},
+consume = {
+[1] = {need_diamond = 300, consume_item = {[1] = { id = 150204, count = 1},[2] = { id = 65555, count = 10},[3] = { id = 65602, count = 10},},},
+[2] = {need_diamond = 600, consume_item = {[1] = { id = 66198, count = 4},[2] = { id = 65741, count = 10},[3] = { id = 65726, count = 3},},},
+[3] = {need_diamond = 980, consume_item = {[1] = { id = 65579, count = 30},[2] = { id = 65587, count = 60},[3] = { id = 66120, count = 25},},},
+[6] = {need_diamond = 1980, consume_item = {[1] = { id = 66161, count = 30},[2] = { id = 66014, count = 60},[3] = { id = 65657, count = 50},},},
+},
+gift = {[1] = { giftName = '回归礼包I', iconId = 4201, giftPoint = 60, items = {[1] = { id = 1, count = 100},[2] = { id = 65957, count = 5},[3] = { id = 65818, count = 10},[4] = { id = 66161, count = 10},},},
+[2] = { giftName = '回归礼包II', iconId = 4201, giftPoint = 200, items = {[1] = { id = 1, count = 200},[2] = { id = 65957, count = 10},[3] = { id = 65818, count = 10},[4] = { id = 66161, count = 15},},},
+[3] = { giftName = '回归礼包III', iconId = 4201, giftPoint = 500, items = {[1] = { id = 1, count = 300},[2] = { id = 65957, count = 10},[3] = { id = 65818, count = 15},[4] = { id = 66161, count = 15},},},
+[4] = { giftName = '回归礼包IV', iconId = 4202, giftPoint = 800, items = {[1] = { id = 1, count = 400},[2] = { id = 65957, count = 15},[3] = { id = 65818, count = 15},[4] = { id = 66161, count = 20},},},
+[5] = { giftName = '回归礼包V', iconId = 4202, giftPoint = 1200, items = {[1] = { id = 1, count = 500},[2] = { id = 65957, count = 15},[3] = { id = 65818, count = 20},[4] = { id = 66161, count = 20},},},
+[6] = { giftName = '回归礼包VI', iconId = 4202, giftPoint = 1600, items = {[1] = { id = 1, count = 600},[2] = { id = 65957, count = 20},[3] = { id = 65818, count = 20},[4] = { id = 66161, count = 25},},},
+[7] = { giftName = '回归礼包VII', iconId = 4202, giftPoint = 2000, items = {[1] = { id = 1, count = 700},[2] = { id = 65957, count = 20},[3] = { id = 65818, count = 25},[4] = { id = 66161, count = 25},},},
+[8] = { giftName = '回归礼包VIII', iconId = 4203, giftPoint = 2500, items = {[1] = { id = 1, count = 800},[2] = { id = 65957, count = 25},[3] = { id = 65818, count = 25},[4] = { id = 66161, count = 30},},},
+[9] = { giftName = '回归礼包IX', iconId = 4203, giftPoint = 5000, items = {[1] = { id = 1, count = 1200},[2] = { id = 65957, count = 25},[3] = { id = 65818, count = 30},[4] = { id = 66161, count = 40},},},
+[10] = { giftName = '回归礼包X', iconId = 4203, giftPoint = 9999, items = {[1] = { id = 1, count = 1500},[2] = { id = 65957, count = 30},[3] = { id = 65818, count = 50},[4] = { id = 66161, count = 60},},},
+},
+};

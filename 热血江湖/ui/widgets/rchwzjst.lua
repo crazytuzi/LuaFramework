@@ -1,0 +1,103 @@
+--version = 1
+local l_fileType = "node"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Grid",
+			name = "jd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 0.1012511,
+			sizeY = 0.1577156,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "djt",
+				varName = "icon_bg",
+				posX = 0.5,
+				posY = 0.5792567,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				lockHV = true,
+				sizeX = 0.671289,
+				sizeY = 0.766147,
+				image = "djk#ktong",
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "djk",
+					varName = "item_icon",
+					posX = 0.5026884,
+					posY = 0.5212724,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.8402775,
+					sizeY = 0.8416974,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "btns",
+					varName = "bt",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "slz",
+					varName = "item_count",
+					posX = 0.5000007,
+					posY = -0.1126765,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 2.14402,
+					sizeY = 0.8651927,
+					text = "55555",
+					color = "FF966856",
+					hTextAlign = 1,
+					vTextAlign = 1,
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

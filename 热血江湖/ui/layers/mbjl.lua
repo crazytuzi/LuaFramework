@@ -1,0 +1,341 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 0.6,
+			sizeY = 0.6,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.4970857,
+				posY = 0.4699568,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.6869993,
+				sizeY = 0.790368,
+				scale9 = true,
+				scale9Left = 0.41,
+				scale9Right = 0.37,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "wk",
+					posX = 0.5,
+					posY = 0.5033069,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1.02,
+					sizeY = 1.02,
+					image = "b#cs",
+					scale9 = true,
+					scale9Left = 0.45,
+					scale9Right = 0.45,
+					scale9Top = 0.2,
+					scale9Bottom = 0.7,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "hua1",
+						posX = 0.6131585,
+						posY = 0.4168705,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.925362,
+						sizeY = 0.795365,
+						image = "hua1#hua1",
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "z2",
+					varName = "item_count",
+					posX = 0.3808752,
+					posY = 0.4334146,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.5758587,
+					sizeY = 0.1447914,
+					text = "今日剩余被膜拜次数：",
+					color = "FF966856",
+					fontSize = 22,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "a1",
+					varName = "get_award",
+					posX = 0.5,
+					posY = 0.1197333,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.3297856,
+					sizeY = 0.1932995,
+					image = "chu1#an2",
+					imageNormal = "chu1#an2",
+					soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "wz1",
+						varName = "cancel_word",
+						posX = 0.5,
+						posY = 0.5454545,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.8313715,
+						sizeY = 0.9701025,
+						text = "领取奖励",
+						fontSize = 24,
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF2A6953",
+						fontOutlineSize = 2,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "top",
+					posX = 0.5,
+					posY = 1.014267,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.5003644,
+					sizeY = 0.1522966,
+					image = "chu1#top",
+					scale9 = true,
+					scale9Left = 0.4,
+					scale9Right = 0.4,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "tt",
+						posX = 0.5,
+						posY = 0.5,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						lockHV = true,
+						sizeX = 0.5113636,
+						sizeY = 0.4807692,
+						image = "biaoti#mbds",
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "z3",
+					posX = 0.5247127,
+					posY = 0.2955948,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.8635336,
+					sizeY = 0.1447914,
+					text = "您累积可以获取奖励：",
+					color = "FF966856",
+					fontSize = 22,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "d9",
+					posX = 0.5037851,
+					posY = 0.6815773,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.8589402,
+					sizeY = 0.3923968,
+					image = "b#d2",
+					scale9 = true,
+					scale9Left = 0.45,
+					scale9Right = 0.45,
+					scale9Top = 0.45,
+					scale9Bottom = 0.45,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "wb1",
+						posX = 0.5,
+						posY = 0.475953,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.9472706,
+						sizeY = 0.8613108,
+						text = "只能膜拜等级比自己高的帮派成员。每次成功膜拜，都可以获得一定数量的经验奖励。被膜拜的玩家会等到帮贡奖励。",
+						color = "FF966856",
+						fontSize = 22,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "z5",
+					varName = "value",
+					posX = 0.7681551,
+					posY = 0.2955948,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.3387055,
+					sizeY = 0.1447914,
+					text = "1000",
+					color = "FF65944D",
+					fontSize = 22,
+					fontOutlineColor = "FF00152E",
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "bg",
+					posX = 0.5453634,
+					posY = 0.286535,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.08339407,
+					sizeY = 0.1288663,
+					image = "tb#tb_banggong.png",
+				},
+			},
+			{
+				prop = {
+					etype = "RichText",
+					name = "sz",
+					varName = "count",
+					posX = 0.6596987,
+					posY = 0.4334146,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2919745,
+					sizeY = 0.1447914,
+					text = "1/3",
+					color = "FF65944D",
+					fontSize = 22,
+					vTextAlign = 1,
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Button",
+				name = "gb",
+				varName = "close_btn",
+				posX = 0.8254417,
+				posY = 0.8025543,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				lockHV = true,
+				sizeX = 0.08723959,
+				sizeY = 0.1759259,
+				image = "chu1#gb",
+				imageNormal = "chu1#gb",
+				soundEffectClick = "audio/rxjh/UI/ui_guanbi.ogg",
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+	tc = {
+		ysjm = {
+			scale = {{0, {0, 0, 1}}, {150, {1.05, 1.05, 1}}, {200, {1,1,1}}, },
+		},
+	},
+	c_dakai = {
+		{0,"tc", 1, 0},
+	},
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

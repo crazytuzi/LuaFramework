@@ -1,0 +1,401 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.5,
+				posY = 0.4791665,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.7929688,
+				sizeY = 0.8055556,
+				scale9 = true,
+				scale9Left = 0.45,
+				scale9Right = 0.45,
+				scale9Top = 0.45,
+				scale9Bottom = 0.45,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "kk2",
+					posX = 0.5,
+					posY = 0.5,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1,
+					sizeY = 1,
+					image = "b#db1",
+					scale9 = true,
+					scale9Left = 0.45,
+					scale9Right = 0.45,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "zs1",
+						posX = 0.02057244,
+						posY = 0.1628659,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.05421687,
+						sizeY = 0.3755943,
+						image = "zhu#zs1",
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "zs2",
+						posX = 0.9442027,
+						posY = 0.1851488,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.1592083,
+						sizeY = 0.4057052,
+						image = "zhu#zs2",
+					},
+				},
+				{
+					prop = {
+						etype = "Image",
+						name = "db2",
+						posX = 0.4832516,
+						posY = 0.4921793,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.9363168,
+						sizeY = 0.959002,
+						image = "b#db3",
+						scale9 = true,
+						scale9Left = 0.47,
+						scale9Right = 0.47,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Grid",
+					name = "kk1",
+					varName = "email_info",
+					posX = 0.4825907,
+					posY = 0.5012509,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 1.261084,
+					sizeY = 1.241379,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "gb",
+					varName = "close",
+					posX = 0.9650654,
+					posY = 0.9355491,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.06600985,
+					sizeY = 0.1310345,
+					image = "chu1#gb",
+					imageNormal = "chu1#gb",
+					soundEffectClick = "audio/rxjh/UI/ui_guanbi.ogg",
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "bz",
+					varName = "helpBtn",
+					posX = 0.9740873,
+					posY = 0.1488524,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.06009852,
+					sizeY = 0.1137931,
+					image = "tong#bz",
+					imageNormal = "tong#bz",
+					disablePressScale = true,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "bt",
+					posX = 0.4358526,
+					posY = 0.1183274,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.6841141,
+					sizeY = 0.1454608,
+					image = "b#xhd",
+					scale9 = true,
+					scale9Left = 0.4,
+					scale9Right = 0.4,
+				},
+			},
+			{
+				prop = {
+					etype = "Scroll",
+					name = "lb",
+					varName = "costScroll",
+					posX = 0.4358526,
+					posY = 0.1148792,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.7072356,
+					sizeY = 0.1335653,
+					horizontal = true,
+					showScrollBar = false,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "yjzb",
+					varName = "guide_btn",
+					posX = 0.8339964,
+					posY = 0.1683762,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.1103448,
+					sizeY = 0.2293103,
+					image = "xinghun#yin1",
+					imageNormal = "xinghun#yin1",
+					soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "yjzb2",
+					varName = "changeBtn",
+					posX = 0.9018364,
+					posY = 0.3921477,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.06637282,
+					sizeY = 0.137931,
+					image = "xinghun#shilian",
+					imageNormal = "xinghun#shilian",
+					disablePressScale = true,
+					soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "yjzb3",
+					varName = "upStageBtn",
+					posX = 0.8664362,
+					posY = 0.7295444,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.09852216,
+					sizeY = 0.1551724,
+					image = "xinghun#sj",
+					imageNormal = "xinghun#sj",
+					soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "xhd",
+						varName = "upStageRedPoint",
+						posX = 0.8669781,
+						posY = 0.839467,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						visible = false,
+						sizeX = 0.27,
+						sizeY = 0.3111112,
+						image = "zdte#hd",
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "xhd2",
+					varName = "star1",
+					posX = 0.7766877,
+					posY = 0.1922486,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					visible = false,
+					sizeX = 0.04137931,
+					sizeY = 0.07586207,
+					image = "xinghun#xx",
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "xhd3",
+					varName = "star2",
+					posX = 0.8081474,
+					posY = 0.2705963,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					visible = false,
+					sizeX = 0.04137931,
+					sizeY = 0.07586207,
+					image = "xinghun#xx",
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "xhd4",
+					varName = "star3",
+					posX = 0.859311,
+					posY = 0.3144621,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					visible = false,
+					sizeX = 0.04137931,
+					sizeY = 0.07586207,
+					image = "xinghun#xx",
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "top",
+				posX = 0.5,
+				posY = 0.8751824,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.20625,
+				sizeY = 0.07222223,
+				image = "chu1#top",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "topz",
+					posX = 0.5,
+					posY = 0.4996001,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.5113636,
+					sizeY = 0.4807692,
+					image = "biaoti#sqxh",
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+	qie = {
+		yjzb = {
+			moveP = {{0, {0.8339964,0.1683762,0}}, {100, {0.9018363,0.3921477,0}}, },
+			scale = {{0, {1,1,1}}, {100, {0.6, 0.6, 1}}, },
+		},
+		yjzb2 = {
+			moveP = {{0, {0.9018364,0.3921477,0}}, {100, {0.8339964,0.1683762,0}}, },
+			scale = {{0, {1,1,1}}, {100, {1.666667, 1.666667, 1}}, },
+		},
+	},
+	qie2 = {
+		yjzb2 = {
+			moveP = {{0, {0.8339964,0.1683762,0}}, {100, {0.9018363,0.3921477,0}}, },
+			scale = {{0, {1,1,1}}, {100, {0.6, 0.6, 1}}, },
+		},
+		yjzb = {
+			moveP = {{0, {0.9018364,0.3921477,0}}, {100, {0.8339964,0.1683762,0}}, },
+			scale = {{0, {1,1,1}}, {100, {1.666667, 1.666667, 1}}, },
+		},
+	},
+	c_qie1 = {
+		{0,"qie", 1, 0},
+	},
+	c_qie2 = {
+		{0,"qie2", 1, 0},
+	},
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

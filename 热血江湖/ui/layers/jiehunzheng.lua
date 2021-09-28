@@ -1,0 +1,312 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.9,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "db",
+				posX = 0.6107551,
+				posY = 0.5526904,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3242188,
+				sizeY = 0.4472222,
+				image = "jhz#tx",
+			},
+			children = {
+			{
+				prop = {
+					etype = "Sprite3D",
+					name = "mx1",
+					varName = "bridegroomSpr",
+					posX = 0.330755,
+					posY = 0.09897812,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.4202839,
+					sizeY = 0.810207,
+				},
+			},
+			{
+				prop = {
+					etype = "Sprite3D",
+					name = "mx2",
+					varName = "bridegSpr",
+					posX = 0.6819855,
+					posY = 0.09897808,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.4202839,
+					sizeY = 0.810207,
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "bj",
+				varName = "bg",
+				posX = 0.4992198,
+				posY = 0.592902,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1.194444,
+				image = "jhz3#jhz3",
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "ch",
+					varName = "titleImg",
+					posX = 0.6107553,
+					posY = 0.3165801,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.4,
+					sizeY = 0.1488373,
+					image = "ch/tianzuozhihe",
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wb1",
+					varName = "bridegroomTxt",
+					posX = 0.4342353,
+					posY = 0.511995,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2142028,
+					sizeY = 0.07740384,
+					text = "帅呆的新郎",
+					color = "FFFFE859",
+					fontSize = 22,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wb2",
+					varName = "brideTxt",
+					posX = 0.4342353,
+					posY = 0.4189713,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2142028,
+					sizeY = 0.07740384,
+					text = "美美的新娘",
+					color = "FFFFE859",
+					fontSize = 22,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wb3",
+					varName = "lvlTxt",
+					posX = 0.3710569,
+					posY = 0.3018973,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2142028,
+					sizeY = 0.07740384,
+					text = "姻缘等级：6666",
+					color = "FFBE2527",
+					fontSize = 22,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wb4",
+					varName = "timeTxt",
+					posX = 0.4006968,
+					posY = 0.2687575,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2734826,
+					sizeY = 0.07740384,
+					text = "姻缘等级：6666",
+					color = "FFBE2527",
+					fontSize = 22,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wb5",
+					varName = "titletxt",
+					posX = 0.4178559,
+					posY = 0.2356177,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.3078008,
+					sizeY = 0.07740384,
+					text = "姻缘等级：6666",
+					color = "FFBE2527",
+					fontSize = 22,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wb6",
+					varName = "blessingNum",
+					posX = 0.6333728,
+					posY = 0.2473406,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.07799485,
+					sizeY = 0.07740384,
+					text = "6666",
+					color = "FFBE2527",
+					fontSize = 22,
+					hTextAlign = 2,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "dz",
+					varName = "blessingBtn",
+					posX = 0.5785305,
+					posY = 0.2496416,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.08316902,
+					sizeY = 0.06115087,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "fx",
+					varName = "shareBtn",
+					posX = 0.7238494,
+					posY = 0.2480728,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.0609375,
+					sizeY = 0.0918605,
+					image = "jhz#fx",
+					imageNormal = "jhz#fx",
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "gb",
+					varName = "closeBtn",
+					posX = 0.7714304,
+					posY = 0.6532201,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.04140625,
+					sizeY = 0.05465119,
+					image = "jhz#gb",
+					imageNormal = "jhz#gb",
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wu",
+					varName = "noTitle",
+					posX = 0.6140167,
+					posY = 0.3198768,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					visible = false,
+					sizeX = 0.2259029,
+					sizeY = 0.08320809,
+					text = "暂无称号",
+					color = "FFC93034",
+					fontSize = 22,
+					hTextAlign = 1,
+					vTextAlign = 1,
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

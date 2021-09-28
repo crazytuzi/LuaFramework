@@ -1,0 +1,8 @@
+i3k_db_new_player_guide_lead =
+{
+	[1] = { progress = 1, showNormalAttack = 0, showSkills = 0, showDogySkill = 0, spawnPos = { x = 10.2843, y = 0.2747407, z = -93.90604 }, guideType = 1, componet ='XXXX', anis ='ansxxx', guideStr = '拖动摇杆开始移动', guideStr2 ='', centerPos = {  }, trigerLength =0, forceFaceTo = {x = 0.0, y = 1.1358, z = 0.0 }, pauseTime = 0.0, bossPos = {  } },
+	[2] = { progress = 2, showNormalAttack = 1, showSkills = 0, showDogySkill = 0, spawnPos = { x = 10.2843, y = 0.2747407, z = -93.90604 }, guideType = 1, componet ='XXXX', anis ='0.0', guideStr = '点击这里施放普通攻击', guideStr2 ='', centerPos = {  }, trigerLength =0, forceFaceTo = { }, pauseTime = 0.0, bossPos = {  } },
+	[3] = { progress = 3, showNormalAttack = 1, showSkills = 1, showDogySkill = 0, spawnPos = { x = -14.9186354, y = 1.67474067, z = -92.12321 }, guideType = 1, componet ='XXXX', anis ='0.0', guideStr = '点击这里施放技能', guideStr2 ='', centerPos = {  }, trigerLength =0, forceFaceTo = { }, pauseTime = 0.0, bossPos = {  } },
+	[4] = { progress = 4, showNormalAttack = 1, showSkills = 1, showDogySkill = 1, spawnPos = { x = -14.9186354, y = 1.67474067, z = -92.12321 }, guideType = 1, componet ='XXXX', anis ='0.0', guideStr = '点击施放轻功躲避怪物技能', guideStr2 ='', centerPos = {  }, trigerLength =0, forceFaceTo = {x = 0.0, y = 5.7073, z = 0.0 }, pauseTime = 0.0, bossPos = {  } },
+	[5] = { progress = 5, showNormalAttack = 1, showSkills = 1, showDogySkill = 1, spawnPos = { x = 0.0, y = 0.0, z = 0.0 }, guideType = 2, componet ='XXXX', anis ='0.0', guideStr = '点击施放轻功', guideStr2 ='再次点击释放二段跳', centerPos = { x = -7.952564, y = 4.48274, z = -48.444511 }, trigerLength =700, forceFaceTo = {x = 0.0, y = 4.5693, z = 0.0 }, pauseTime = 0.8, bossPos = { x = -3.93177128, y = 8.074741, z = -11.456625 } },
+};

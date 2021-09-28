@@ -1,0 +1,332 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				varName = "imgBK",
+				posX = 0.5015603,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 0.88,
+			sizeY = 0.98,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "zzan",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.4360732,
+				sizeY = 0.3990035,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.5008878,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.5149148,
+				sizeY = 0.4903628,
+				image = "jybj2#jybj2",
+				scale9Left = 0.45,
+				scale9Right = 0.45,
+				scale9Top = 0.25,
+				scale9Bottom = 0.7,
+			},
+			children = {
+			{
+				prop = {
+					etype = "RichText",
+					name = "z1",
+					varName = "name",
+					posX = 0.7224198,
+					posY = 0.6707799,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.513483,
+					sizeY = 0.3738635,
+					text = "苹果--幼苗期",
+					color = "FFFF511B",
+					fontSize = 22,
+					fontOutlineColor = "FF27221D",
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "a2",
+					varName = "btn1",
+					posX = 0.2113947,
+					posY = 0.163975,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.2120689,
+					sizeY = 0.1676301,
+					image = "chu1#an3",
+					imageNormal = "chu1#an3",
+					soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "f2",
+						varName = "btnName1",
+						posX = 0.5,
+						posY = 0.5123922,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.8313926,
+						sizeY = 0.9422306,
+						text = "浇水",
+						fontSize = 22,
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF2A6953",
+						fontOutlineSize = 2,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "RichText",
+						name = "bzz3",
+						varName = "btnValue1",
+						posX = 0.4999999,
+						posY = 1.3,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 1.626017,
+						sizeY = 1.281645,
+						text = "产量",
+						color = "FF89E24D",
+						fontSize = 18,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "RichText",
+					name = "bzz2",
+					varName = "time",
+					posX = 0.7224198,
+					posY = 0.552211,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.513483,
+					sizeY = 0.2904257,
+					text = "成熟时间：",
+					color = "FF218464",
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "a3",
+					varName = "btn2",
+					posX = 0.4988603,
+					posY = 0.163975,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.2120689,
+					sizeY = 0.1676301,
+					image = "chu1#an3",
+					imageNormal = "chu1#an3",
+					soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "f3",
+						varName = "btnName2",
+						posX = 0.5,
+						posY = 0.5123922,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.8313926,
+						sizeY = 0.9422306,
+						text = "护理",
+						fontSize = 22,
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF2A6953",
+						fontOutlineSize = 2,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				{
+					prop = {
+						etype = "RichText",
+						name = "bzz4",
+						varName = "btnValue2",
+						posX = 0.5,
+						posY = 1.3,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 1.626017,
+						sizeY = 1.281645,
+						text = "产量",
+						color = "FF89E24D",
+						fontSize = 18,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "a4",
+					varName = "btn3",
+					posX = 0.7863258,
+					posY = 0.163975,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.2120689,
+					sizeY = 0.1676301,
+					image = "chu1#an3",
+					imageNormal = "chu1#an3",
+					soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "f4",
+						varName = "btnName3",
+						posX = 0.5,
+						posY = 0.5123922,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.8313926,
+						sizeY = 0.9422306,
+						text = "铲除",
+						fontSize = 22,
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF2A6953",
+						fontOutlineSize = 2,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "djk",
+					varName = "itemBg",
+					posX = 0.3590211,
+					posY = 0.6125385,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.1620689,
+					sizeY = 0.2716763,
+					image = "djk#ktong",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Image",
+						name = "djt",
+						varName = "itemIcon",
+						posX = 0.4986776,
+						posY = 0.5146936,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.8310126,
+						sizeY = 0.8366219,
+					},
+				},
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+	dk = {
+		ysjm = {
+			scale = {{0, {0.3, 0.3, 1}}, {150, {1.1, 1.1, 1}}, {200, {1,1,1}}, },
+		},
+	},
+	c_dakai = {
+		{0,"dk", 1, 0},
+	},
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

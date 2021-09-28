@@ -1,0 +1,227 @@
+--version = 1
+local l_fileType = "node"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Grid",
+			name = "k",
+			varName = "rootGird",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			lockHV = true,
+			sizeX = 0.1078125,
+			sizeY = 0.1916667,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "db",
+				varName = "bg",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1.15,
+				sizeY = 1.133333,
+				image = "xingpan#xwk1",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+				alpha = 0.5,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao",
+				varName = "x1",
+				posX = 0.1600762,
+				posY = 0.8449207,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				lockHV = true,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao2",
+				varName = "x2",
+				posX = 0.498349,
+				posY = 0.8449208,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao3",
+				varName = "x3",
+				posX = 0.8366218,
+				posY = 0.8449208,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao4",
+				varName = "x4",
+				posX = 0.1600763,
+				posY = 0.4890975,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao5",
+				varName = "x5",
+				posX = 0.4983491,
+				posY = 0.4890975,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao6",
+				varName = "x6",
+				posX = 0.8366216,
+				posY = 0.4890974,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao7",
+				varName = "x7",
+				posX = 0.160076,
+				posY = 0.1332742,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao8",
+				varName = "x8",
+				posX = 0.4983488,
+				posY = 0.1332743,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "xingyao9",
+				varName = "x9",
+				posX = 0.8366216,
+				posY = 0.1332743,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3405797,
+				sizeY = 0.3623188,
+				image = "xingpan#huix",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.4,
+				scale9Bottom = 0.4,
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

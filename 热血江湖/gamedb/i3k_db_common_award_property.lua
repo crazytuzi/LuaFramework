@@ -1,0 +1,21 @@
+i3k_db_common_award_property =
+{
+	[1] = {  id = 1, desc = '全身升级 15', type = 1, args = 15, pro1ID = 1001, pro1Value = 500, pro2ID = 1012, pro2Value = 25, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[2] = {  id = 2, desc = '全身升级 20', type = 1, args = 20, pro1ID = 1001, pro1Value = 750, pro2ID = 1012, pro2Value = 38, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[3] = {  id = 3, desc = '全身升级 30', type = 1, args = 30, pro1ID = 1001, pro1Value = 1000, pro2ID = 1012, pro2Value = 52, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[4] = {  id = 4, desc = '全身升级 40', type = 1, args = 40, pro1ID = 1001, pro1Value = 1250, pro2ID = 1012, pro2Value = 70, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[5] = {  id = 5, desc = '全身升级 50', type = 1, args = 50, pro1ID = 1001, pro1Value = 1500, pro2ID = 1012, pro2Value = 85, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[6] = {  id = 6, desc = '全身升级 60', type = 1, args = 60, pro1ID = 1001, pro1Value = 1750, pro2ID = 1012, pro2Value = 105, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[7] = {  id = 7, desc = '全身升级 70', type = 1, args = 70, pro1ID = 1001, pro1Value = 2000, pro2ID = 1012, pro2Value = 126, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[8] = {  id = 8, desc = '全身强化+3', type = 2, args = 3, pro1ID = 1001, pro1Value = 800, pro2ID = 1003, pro2Value = 45, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[9] = {  id = 9, desc = '全身强化+7', type = 2, args = 7, pro1ID = 1001, pro1Value = 1250, pro2ID = 1003, pro2Value = 68, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[10] = {  id = 10, desc = '全身强化+11', type = 2, args = 11, pro1ID = 1001, pro1Value = 2500, pro2ID = 1003, pro2Value = 85, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[11] = {  id = 11, desc = '全身强化+14', type = 2, args = 14, pro1ID = 1001, pro1Value = 4000, pro2ID = 1003, pro2Value = 102, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[12] = {  id = 12, desc = '全身宝石3级', type = 3, args = 3, pro1ID = 1001, pro1Value = 1500, pro2ID = 1007, pro2Value = 41, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[13] = {  id = 13, desc = '全身宝石4级', type = 3, args = 4, pro1ID = 1001, pro1Value = 2500, pro2ID = 1007, pro2Value = 52, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[14] = {  id = 14, desc = '全身宝石5级', type = 3, args = 5, pro1ID = 1001, pro1Value = 4000, pro2ID = 1007, pro2Value = 104, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[15] = {  id = 15, desc = '全身宝石6级', type = 3, args = 6, pro1ID = 1001, pro1Value = 5250, pro2ID = 1007, pro2Value = 176, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[16] = {  id = 16, desc = '全身宝石7级', type = 3, args = 7, pro1ID = 1001, pro1Value = 7200, pro2ID = 1007, pro2Value = 308, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[17] = {  id = 17, desc = '全身宝石8级', type = 3, args = 8, pro1ID = 1001, pro1Value = 9750, pro2ID = 1007, pro2Value = 735, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+	[18] = {  id = 18, desc = '全身宝石9级', type = 3, args = 9, pro1ID = 1001, pro1Value = 16950, pro2ID = 1007, pro2Value = 850, pro3ID = 0, pro3Value = 0, pro4ID = 0, pro4Value = 0 },
+};

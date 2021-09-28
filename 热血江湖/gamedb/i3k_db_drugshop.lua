@@ -1,0 +1,68 @@
+i3k_db_drugshop = {
+	[1] =
+	{
+			{ id = 1, gid = 1, linkitemid = 65560, itemcount = 1, buytype = 1, itemprice = 30, filterorder = 1, issell = 1 },
+			{ id = 2, gid = 1, linkitemid = 65756, itemcount = 25, buytype = 1, itemprice = 40, filterorder = 2, issell = 1 },
+			{ id = 3, gid = 1, linkitemid = 65633, itemcount = 50, buytype = -2, itemprice = 1120, filterorder = 4, issell = 1 },
+			{ id = 4, gid = 1, linkitemid = 65634, itemcount = 50, buytype = -2, itemprice = 3780, filterorder = 5, issell = 1 },
+			{ id = 5, gid = 1, linkitemid = 65635, itemcount = 50, buytype = -2, itemprice = 6300, filterorder = 6, issell = 1 },
+			{ id = 6, gid = 1, linkitemid = 65600, itemcount = 50, buytype = -2, itemprice = 8380, filterorder = 7, issell = 1 },
+			{ id = 7, gid = 1, linkitemid = 65682, itemcount = 1, buytype = -2, itemprice = 4800, filterorder = 10, issell = 1 },
+			{ id = 8, gid = 1, linkitemid = 66536, itemcount = 50, buytype = -2, itemprice = 12570, filterorder = 8, issell = 1 },
+			{ id = 9, gid = 1, linkitemid = 65683, itemcount = 1, buytype = -2, itemprice = 7200, filterorder = 11, issell = 1 },
+			{ id = 10, gid = 1, linkitemid = 65684, itemcount = 1, buytype = -2, itemprice = 9600, filterorder = 12, issell = 1 },
+			{ id = 11, gid = 1, linkitemid = 66279, itemcount = 10, buytype = -2, itemprice = 10500, filterorder = 13, issell = 1 },
+			{ id = 19, gid = 1, linkitemid = 66810, itemcount = 50, buytype = -2, itemprice = 18500, filterorder = 8, issell = 1 },
+			{ id = 51, gid = 1, linkitemid = 67695, itemcount = 1, buytype = 1, itemprice = 50, filterorder = 3, issell = 1 },
+	},
+	[2] =
+	{
+			{ id = 12, gid = 2, linkitemid = 65560, itemcount = 1, buytype = 1, itemprice = 30, filterorder = 1, issell = 1 },
+			{ id = 13, gid = 2, linkitemid = 65635, itemcount = 50, buytype = -2, itemprice = 6300, filterorder = 2, issell = 1 },
+			{ id = 14, gid = 2, linkitemid = 65600, itemcount = 50, buytype = -2, itemprice = 8380, filterorder = 3, issell = 1 },
+			{ id = 15, gid = 2, linkitemid = 66536, itemcount = 50, buytype = -2, itemprice = 12570, filterorder = 4, issell = 1 },
+			{ id = 20, gid = 2, linkitemid = 66810, itemcount = 50, buytype = -2, itemprice = 18500, filterorder = 5, issell = 1 },
+	},
+	[3] =
+	{
+			{ id = 16, gid = 3, linkitemid = 66431, itemcount = 1, buytype = 2, itemprice = 9999, filterorder = 1, issell = 1 },
+			{ id = 17, gid = 3, linkitemid = 66445, itemcount = 1, buytype = 2, itemprice = 12000, filterorder = 1, issell = 1 },
+	},
+	[4] =
+	{
+			{ id = 18, gid = 4, linkitemid = 66542, itemcount = 1, buytype = -1, itemprice = 50, filterorder = 1, issell = 1 },
+	},
+	[5] =
+	{
+			{ id = 21, gid = 5, linkitemid = 67246, itemcount = 1, buytype = 1, itemprice = 10, filterorder = 1, issell = 1 },
+			{ id = 22, gid = 5, linkitemid = 67248, itemcount = 1, buytype = 1, itemprice = 10, filterorder = 2, issell = 1 },
+			{ id = 23, gid = 5, linkitemid = 67247, itemcount = 1, buytype = -2, itemprice = 20000, filterorder = 3, issell = 1 },
+			{ id = 24, gid = 5, linkitemid = 67269, itemcount = 1, buytype = -2, itemprice = 2000, filterorder = 4, issell = 1 },
+			{ id = 25, gid = 5, linkitemid = 67293, itemcount = 1, buytype = -2, itemprice = 4000, filterorder = 5, issell = 1 },
+			{ id = 26, gid = 5, linkitemid = 67268, itemcount = 1, buytype = -2, itemprice = 6000, filterorder = 6, issell = 1 },
+			{ id = 27, gid = 5, linkitemid = 67292, itemcount = 1, buytype = -2, itemprice = 10000, filterorder = 7, issell = 1 },
+			{ id = 28, gid = 5, linkitemid = 67270, itemcount = 1, buytype = -2, itemprice = 16000, filterorder = 8, issell = 1 },
+			{ id = 29, gid = 5, linkitemid = 67294, itemcount = 1, buytype = -2, itemprice = 20000, filterorder = 9, issell = 1 },
+			{ id = 30, gid = 5, linkitemid = 67295, itemcount = 1, buytype = -2, itemprice = 40000, filterorder = 10, issell = 1 },
+			{ id = 31, gid = 5, linkitemid = 67296, itemcount = 1, buytype = -2, itemprice = 60000, filterorder = 11, issell = 1 },
+			{ id = 32, gid = 5, linkitemid = 67297, itemcount = 1, buytype = -2, itemprice = 80000, filterorder = 12, issell = 1 },
+			{ id = 33, gid = 5, linkitemid = 67298, itemcount = 1, buytype = -2, itemprice = 100000, filterorder = 13, issell = 1 },
+			{ id = 34, gid = 5, linkitemid = 67299, itemcount = 1, buytype = -2, itemprice = 120000, filterorder = 14, issell = 1 },
+			{ id = 35, gid = 5, linkitemid = 67300, itemcount = 1, buytype = -2, itemprice = 140000, filterorder = 15, issell = 1 },
+			{ id = 36, gid = 5, linkitemid = 67301, itemcount = 1, buytype = -2, itemprice = 160000, filterorder = 16, issell = 1 },
+			{ id = 37, gid = 5, linkitemid = 67302, itemcount = 1, buytype = -2, itemprice = 200000, filterorder = 17, issell = 1 },
+			{ id = 38, gid = 5, linkitemid = 67372, itemcount = 1, buytype = -2, itemprice = 3000, filterorder = 18, issell = 1 },
+			{ id = 39, gid = 5, linkitemid = 67304, itemcount = 1, buytype = -2, itemprice = 5000, filterorder = 19, issell = 1 },
+			{ id = 40, gid = 5, linkitemid = 67373, itemcount = 1, buytype = -2, itemprice = 7000, filterorder = 20, issell = 1 },
+			{ id = 41, gid = 5, linkitemid = 67374, itemcount = 1, buytype = -2, itemprice = 12000, filterorder = 21, issell = 1 },
+			{ id = 42, gid = 5, linkitemid = 67303, itemcount = 1, buytype = -2, itemprice = 24000, filterorder = 22, issell = 1 },
+			{ id = 43, gid = 5, linkitemid = 67380, itemcount = 10, buytype = -2, itemprice = 100000, filterorder = 23, issell = 1 },
+			{ id = 44, gid = 5, linkitemid = 67381, itemcount = 10, buytype = -2, itemprice = 100000, filterorder = 24, issell = 1 },
+			{ id = 45, gid = 5, linkitemid = 67460, itemcount = 1, buytype = -2, itemprice = 12000, filterorder = 25, issell = 1 },
+			{ id = 46, gid = 5, linkitemid = 67461, itemcount = 1, buytype = -2, itemprice = 24000, filterorder = 26, issell = 1 },
+			{ id = 47, gid = 5, linkitemid = 67462, itemcount = 1, buytype = -2, itemprice = 48000, filterorder = 27, issell = 1 },
+			{ id = 48, gid = 5, linkitemid = 67289, itemcount = 1, buytype = 1, itemprice = 30, filterorder = 1, issell = 1 },
+			{ id = 49, gid = 5, linkitemid = 67514, itemcount = 1, buytype = -2, itemprice = 60000, filterorder = 3, issell = 1 },
+			{ id = 50, gid = 5, linkitemid = 67290, itemcount = 1, buytype = 1, itemprice = 30, filterorder = 2, issell = 1 },
+	},
+};

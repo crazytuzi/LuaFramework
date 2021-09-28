@@ -1,0 +1,327 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.7929688,
+				sizeY = 0.8055556,
+				image = "g#dt2.png",
+				scale9 = true,
+				scale9Left = 0.3,
+				scale9Right = 0.3,
+				scale9Top = 0.3,
+				scale9Bottom = 0.3,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "hb1",
+					posX = 0.3200115,
+					posY = 0.6979553,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.3599968,
+					sizeY = 0.5732948,
+					image = "w#w_hua.png",
+					alpha = 0.3,
+					flippedX = true,
+					flippedY = true,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "hb2",
+					posX = 0.6799963,
+					posY = 0.6979553,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.3599968,
+					sizeY = 0.5732948,
+					image = "w#w_hua.png",
+					alpha = 0.3,
+					flippedY = true,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "pg",
+					posX = 0.5,
+					posY = 0.9561764,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.9033602,
+					sizeY = 0.065235,
+					image = "w#cdd",
+					flippedY = true,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "db1",
+					posX = 0.5,
+					posY = 0.4460556,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.9458128,
+					sizeY = 0.81385,
+					image = "g#g_d9.png",
+					scale9 = true,
+					scale9Left = 0.3,
+					scale9Right = 0.3,
+					scale9Top = 0.3,
+					scale9Bottom = 0.3,
+					alpha = 0.9,
+				},
+				children = {
+				{
+					prop = {
+						etype = "Scroll",
+						name = "lb",
+						varName = "msg_scroll",
+						posX = 0.5,
+						posY = 0.5,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.9856524,
+						sizeY = 0.9721964,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "ha1",
+					varName = "attack_report",
+					posX = 0.1331722,
+					posY = 0.8921379,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2019704,
+					sizeY = 0.1344828,
+					image = "w#w_aa4.png",
+					imageNormal = "w#w_aa4.png",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "z1",
+						posX = 0.5,
+						posY = 0.5,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.7630698,
+						sizeY = 0.5408184,
+						text = "攻击战报",
+						color = "FFFBFFCC",
+						fontSize = 26,
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF51361C",
+						fontOutlineSize = 2,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "y1",
+					posX = 0.03167748,
+					posY = 0.961136,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.1339901,
+					sizeY = 0.1706897,
+					image = "w#w_yun.png",
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "y2",
+					posX = 0.9692256,
+					posY = 0.02142051,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.1339901,
+					sizeY = 0.1706897,
+					image = "w#w_yun.png",
+					flippedX = true,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "ha2",
+					varName = "defend_report",
+					posX = 0.324301,
+					posY = 0.8921378,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.2019704,
+					sizeY = 0.1344828,
+					image = "w#w_aa4.png",
+					imageNormal = "w#w_aa4.png",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "z2",
+						posX = 0.5,
+						posY = 0.5,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.7630698,
+						sizeY = 0.5408184,
+						text = "防守战报",
+						color = "FFFBFFCC",
+						fontSize = 26,
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF51361C",
+						fontOutlineSize = 2,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "gb",
+					varName = "close_btn",
+					posX = 0.9817872,
+					posY = 0.9699091,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.07684729,
+					sizeY = 0.1362069,
+					image = "chu1#gb",
+					imageNormal = "chu1#gb",
+				},
+			},
+			},
+		},
+		{
+			prop = {
+				etype = "Image",
+				name = "top",
+				posX = 0.5,
+				posY = 0.9001826,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.3796875,
+				sizeY = 0.08472222,
+				image = "e#top2",
+				scale9Left = 0.4,
+				scale9Right = 0.4,
+				scale9Top = 0.2,
+				scale9Bottom = 0.2,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "td2",
+					posX = 0.5009738,
+					posY = 0.5163934,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.1625514,
+					sizeY = 0.4754098,
+					image = "jjc#jjc_zb.png",
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create

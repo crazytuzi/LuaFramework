@@ -1,0 +1,151 @@
+i3k_db_auction_select_xinfa = {
+
+	[18] = {
+
+		[1] = {
+		{name = '《護體》', rank = 1, id = 196620, quality = 4 },
+		{name = '《嗜血》', rank = 1, id = 196621, quality = 4 },
+		{name = '《穩如泰山》', rank = 1, id = 196622, quality = 4 },
+		{name = '《攝魂一擊》', rank = 1, id = 196623, quality = 4 },
+		{name = '《毒蛇出洞》', rank = 1, id = 196624, quality = 4 },
+		{name = '《遁出逆境》', rank = 1, id = 196625, quality = 4 },
+		{name = '《真武絕擊》', rank = 1, id = 196626, quality = 4 },
+		{name = '《力劈華山》', rank = 1, id = 196627, quality = 4 },
+		{name = '《霸氣戰甲》', rank = 1, id = 196628, quality = 4 },
+		{name = '《梵音破鏡》', rank = 1, id = 196629, quality = 4 },
+		{name = '《滿月狂風》', rank = 1, id = 196630, quality = 4 },
+		{name = '《窮途末路》', rank = 1, id = 196631, quality = 5 },
+		{name = '《暴怒回擊》', rank = 1, id = 196702, quality = 5 },
+		{name = '《堅盾壁壘》', rank = 1, id = 196703, quality = 5 },
+	},
+
+
+		[2] = {
+		{name = '《護體》', rank = 1, id = 196620, quality = 4 },
+		{name = '《嗜血》', rank = 1, id = 196621, quality = 4 },
+		{name = '《回柳身法》', rank = 1, id = 196635, quality = 4 },
+		{name = '《乘勝追擊》', rank = 1, id = 196636, quality = 4 },
+		{name = '《移花接木》', rank = 1, id = 196637, quality = 4 },
+		{name = '《護身罡氣》', rank = 1, id = 196638, quality = 5 },
+		{name = '《百變神行》', rank = 1, id = 196639, quality = 4 },
+		{name = '《破天一劍》', rank = 1, id = 196640, quality = 4 },
+		{name = '《長虹貫日》', rank = 1, id = 196641, quality = 4 },
+		{name = '《怒海狂瀾》', rank = 1, id = 196642, quality = 4 },
+		{name = '《衝冠一怒》', rank = 1, id = 196643, quality = 4 },
+		{name = '《天地同壽》', rank = 1, id = 196644, quality = 4 },
+		{name = '《火鳳臨朝》', rank = 1, id = 196645, quality = 4 },
+		{name = '《劍迷心竅》', rank = 1, id = 196704, quality = 5 },
+		{name = '《天女遊雲》', rank = 1, id = 196705, quality = 5 },
+	},
+
+
+		[3] = {
+		{name = '《護體》', rank = 1, id = 196620, quality = 4 },
+		{name = '《嗜血》', rank = 1, id = 196621, quality = 4 },
+		{name = '《破甲刺魂》', rank = 1, id = 196646, quality = 4 },
+		{name = '《怒意之吼》', rank = 1, id = 196647, quality = 4 },
+		{name = '《靈甲護身》', rank = 1, id = 196648, quality = 4 },
+		{name = '《乾坤挪移》', rank = 1, id = 196649, quality = 5 },
+		{name = '《以退為進》', rank = 1, id = 196650, quality = 4 },
+		{name = '《橫練太保》', rank = 1, id = 196651, quality = 4 },
+		{name = '《連環飛舞》', rank = 1, id = 196652, quality = 4 },
+		{name = '《怒意之火》', rank = 1, id = 196653, quality = 4 },
+		{name = '《轉守為攻》', rank = 1, id = 196654, quality = 4 },
+		{name = '《末日狂舞》', rank = 1, id = 196657, quality = 4 },
+		{name = '《引魂槍》', rank = 1, id = 196706, quality = 5 },
+		{name = '《血契槍》', rank = 1, id = 196707, quality = 5 },
+	},
+
+
+		[4] = {
+		{name = '《護體》', rank = 1, id = 196620, quality = 4 },
+		{name = '《嗜血》', rank = 1, id = 196621, quality = 4 },
+		{name = '《獵影之眼》', rank = 1, id = 196658, quality = 4 },
+		{name = '《正本培源》', rank = 1, id = 196659, quality = 4 },
+		{name = '《百步穿楊》', rank = 1, id = 196660, quality = 5 },
+		{name = '《心神凝聚》', rank = 1, id = 196662, quality = 4 },
+		{name = '《銳利之箭》', rank = 1, id = 196663, quality = 4 },
+		{name = '《凝神聚氣》', rank = 1, id = 196664, quality = 4 },
+		{name = '《無明暗矢》', rank = 1, id = 196665, quality = 4 },
+		{name = '《千鈞壓駝》', rank = 1, id = 196666, quality = 4 },
+		{name = '《天外三矢》', rank = 1, id = 196667, quality = 4 },
+		{name = '《烈日炎炎》', rank = 1, id = 196668, quality = 4 },
+		{name = '《致命絕殺》', rank = 1, id = 196669, quality = 4 },
+		{name = '《絕影射魂》', rank = 1, id = 196670, quality = 4 },
+		{name = '《驚弓之影》', rank = 1, id = 196708, quality = 5 },
+		{name = '《幽影魔變》', rank = 1, id = 196709, quality = 5 },
+	},
+
+
+		[5] = {
+		{name = '《護體》', rank = 1, id = 196620, quality = 4 },
+		{name = '《嗜血》', rank = 1, id = 196621, quality = 4 },
+		{name = '《洗髓易筋》', rank = 1, id = 196671, quality = 4 },
+		{name = '《乘風而行》', rank = 1, id = 196672, quality = 4 },
+		{name = '《望梅添花》', rank = 1, id = 196673, quality = 5 },
+		{name = '《奇門遁甲》', rank = 1, id = 196674, quality = 4 },
+		{name = '《運氣行心》', rank = 1, id = 196675, quality = 4 },
+		{name = '《太極心法》', rank = 1, id = 196676, quality = 4 },
+		{name = '《醫者仁心》', rank = 1, id = 196677, quality = 4 },
+		{name = '《無中生有》', rank = 1, id = 196679, quality = 4 },
+		{name = '《吸星大法》', rank = 1, id = 196680, quality = 4 },
+		{name = '《明鏡止水》', rank = 1, id = 196681, quality = 4 },
+		{name = '《回天有術》', rank = 1, id = 196710, quality = 5 },
+		{name = '《仁者無敵》', rank = 1, id = 196711, quality = 5 },
+	},
+
+
+		[6] = {
+		{name = '《護體》', rank = 1, id = 196620, quality = 4 },
+		{name = '《嗜血》', rank = 1, id = 196621, quality = 4 },
+		{name = '《先發制人》', rank = 1, id = 196682, quality = 4 },
+		{name = '《無情打擊》', rank = 1, id = 196683, quality = 4 },
+		{name = '《三花聚頂》', rank = 1, id = 196684, quality = 4 },
+		{name = '《刃舞霓虹》', rank = 1, id = 196685, quality = 4 },
+		{name = '《臥龍在淵》', rank = 1, id = 196686, quality = 4 },
+		{name = '《致手絕命》', rank = 1, id = 196687, quality = 4 },
+		{name = '《夜魔纏身》', rank = 1, id = 196688, quality = 5 },
+		{name = '《血月悲風》', rank = 1, id = 196689, quality = 4 },
+		{name = '《一招殘殺》', rank = 1, id = 196690, quality = 4 },
+		{name = '《順水推舟》', rank = 1, id = 196691, quality = 4 },
+		{name = '《暗影如風》', rank = 1, id = 196712, quality = 5 },
+		{name = '《暗夜魔蹤》', rank = 1, id = 196713, quality = 5 },
+	},
+
+
+		[7] = {
+		{name = '《護體》', rank = 1, id = 196620, quality = 4 },
+		{name = '《嗜血》', rank = 1, id = 196621, quality = 4 },
+		{name = '《消弭無跡》', rank = 1, id = 196692, quality = 4 },
+		{name = '《氣震山河》', rank = 1, id = 196693, quality = 4 },
+		{name = '《分傷靈速》', rank = 1, id = 196694, quality = 5 },
+		{name = '《符劍無雙》', rank = 1, id = 196695, quality = 4 },
+		{name = '《耀符八面》', rank = 1, id = 196696, quality = 4 },
+		{name = '《靈符速現》', rank = 1, id = 196697, quality = 4 },
+		{name = '《強符·速》', rank = 1, id = 196698, quality = 4 },
+		{name = '《強符·力》', rank = 1, id = 196699, quality = 4 },
+		{name = '《寒靈凍骨》', rank = 1, id = 196700, quality = 4 },
+		{name = '《蝕骨侵神》', rank = 1, id = 196701, quality = 4 },
+		{name = '《天符·裂》', rank = 1, id = 196714, quality = 5 },
+		{name = '《天符·斬》', rank = 1, id = 196715, quality = 5 },
+	},
+
+
+		[8] = {
+		{name = '《護體》', rank = 1, id = 196620, quality = 4 },
+		{name = '《嗜血》', rank = 1, id = 196621, quality = 4 },
+		{name = '《不動如山》', rank = 1, id = 196716, quality = 5 },
+		{name = '《半步乾坤》', rank = 1, id = 196717, quality = 4 },
+		{name = '《邪魔退散》', rank = 1, id = 196718, quality = 4 },
+		{name = '《玄罡拳勁》', rank = 1, id = 196719, quality = 4 },
+		{name = '《意運周身》', rank = 1, id = 196720, quality = 4 },
+		{name = '《氣貫四經》', rank = 1, id = 196721, quality = 4 },
+		{name = '《逆境求生》', rank = 1, id = 196722, quality = 4 },
+		{name = '《四象拳意》', rank = 1, id = 196723, quality = 4 },
+		{name = '《八步沖拳》', rank = 1, id = 196724, quality = 4 },
+		{name = '《抱元養氣》', rank = 1, id = 196725, quality = 5 },
+	},
+
+	},
+
+}

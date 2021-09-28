@@ -1,0 +1,313 @@
+--version = 1
+local l_fileType = "layer"
+
+local UIUtil = require "ui/common/UIUtil"
+
+--EDITOR elements start tag
+local eleRoot = 
+{
+	prop = {
+		etype = "Layer",
+		name = "root",
+		posX = 0,
+		posY = 0,
+		anchorX = 0,
+		anchorY = 0,
+	},
+	children = {
+	{
+		prop = {
+			etype = "Image",
+			name = "ddd",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+			image = "b#dd",
+			scale9 = true,
+			scale9Left = 0.2,
+			scale9Right = 0.2,
+			scale9Top = 0.2,
+			scale9Bottom = 0.2,
+			alpha = 0.7,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Button",
+				name = "dd",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 1,
+				sizeY = 1,
+			},
+		},
+		},
+	},
+	{
+		prop = {
+			etype = "Grid",
+			name = "ysjm",
+			posX = 0.5,
+			posY = 0.5,
+			anchorX = 0.5,
+			anchorY = 0.5,
+			sizeX = 1,
+			sizeY = 1,
+		},
+		children = {
+		{
+			prop = {
+				etype = "Image",
+				name = "dt",
+				posX = 0.5,
+				posY = 0.5,
+				anchorX = 0.5,
+				anchorY = 0.5,
+				sizeX = 0.4270999,
+				sizeY = 0.4281165,
+				image = "b#cs",
+				scale9 = true,
+				scale9Left = 0.45,
+				scale9Right = 0.45,
+				scale9Top = 0.25,
+				scale9Bottom = 0.7,
+			},
+			children = {
+			{
+				prop = {
+					etype = "Image",
+					name = "kk",
+					posX = 0.5,
+					posY = 0.5947478,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.8902509,
+					sizeY = 0.6237558,
+					image = "b#d2",
+					scale9 = true,
+					scale9Left = 0.45,
+					scale9Right = 0.45,
+					scale9Top = 0.45,
+					scale9Bottom = 0.45,
+				},
+			},
+			{
+				prop = {
+					etype = "Image",
+					name = "hua",
+					posX = 0.5901959,
+					posY = 0.4648472,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.9109403,
+					sizeY = 0.8986391,
+					image = "hua1#hua1",
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "a1",
+					varName = "sure_btn",
+					posX = 0.74,
+					posY = 0.1406373,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.2797008,
+					sizeY = 0.1881627,
+					image = "chu1#an2",
+					imageNormal = "chu1#an2",
+					soundEffectClick = "audio/rxjh/UI/ui_guanbi.ogg",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "f1",
+						varName = "no_name",
+						posX = 0.5,
+						posY = 0.4827586,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 0.8313926,
+						sizeY = 0.9422305,
+						text = "确 定",
+						fontSize = 22,
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF2A6953",
+						fontOutlineSize = 2,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "a2",
+					varName = "close_btn",
+					posX = 0.9459671,
+					posY = 0.9065931,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.1188978,
+					sizeY = 0.2043836,
+					image = "baishi#x",
+					imageNormal = "baishi#x",
+					disablePressScale = true,
+					soundEffectClick = "audio/rxjh/UI/anniu.ogg",
+				},
+			},
+			{
+				prop = {
+					etype = "RichText",
+					name = "srz3",
+					varName = "des1",
+					posX = 0.5,
+					posY = 0.7179593,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.8274589,
+					sizeY = 0.3257996,
+					text = "在伙伴系统中，填写伙伴码，或者成功邀请其他人填写自己的伙伴码，均可以在适当等级进入<枫林晚>经验副本。",
+					color = "FF966856",
+					fontSize = 22,
+					hTextAlign = 1,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wz1",
+					posX = 0.3099782,
+					posY = 0.4681179,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.3800402,
+					sizeY = 0.2032653,
+					text = "等级需求：",
+					color = "FFC93034",
+					hTextAlign = 2,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wz2",
+					posX = 0.3099782,
+					posY = 0.3610593,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.3800402,
+					sizeY = 0.2032653,
+					text = "每日次数：",
+					color = "FFC93034",
+					hTextAlign = 2,
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wz3",
+					varName = "lvlLimit",
+					posX = 0.7124023,
+					posY = 0.4681179,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.3800402,
+					sizeY = 0.2032653,
+					text = "30~50",
+					color = "FFC93034",
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Label",
+					name = "wz4",
+					varName = "enterTimes",
+					posX = 0.7124023,
+					posY = 0.3610593,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					sizeX = 0.3800402,
+					sizeY = 0.2032653,
+					text = "10",
+					color = "FFC93034",
+					vTextAlign = 1,
+				},
+			},
+			{
+				prop = {
+					etype = "Button",
+					name = "a3",
+					varName = "open_code_btn",
+					posX = 0.26,
+					posY = 0.1406373,
+					anchorX = 0.5,
+					anchorY = 0.5,
+					lockHV = true,
+					sizeX = 0.2797008,
+					sizeY = 0.1881627,
+					image = "chu1#an2",
+					imageNormal = "chu1#an2",
+					soundEffectClick = "audio/rxjh/UI/ui_guanbi.ogg",
+				},
+				children = {
+				{
+					prop = {
+						etype = "Label",
+						name = "f2",
+						varName = "no_name2",
+						posX = 0.5,
+						posY = 0.4827586,
+						anchorX = 0.5,
+						anchorY = 0.5,
+						sizeX = 1.149695,
+						sizeY = 0.9422305,
+						text = "伙伴码入口",
+						fontSize = 22,
+						fontOutlineEnable = true,
+						fontOutlineColor = "FF2A6953",
+						fontOutlineSize = 2,
+						hTextAlign = 1,
+						vTextAlign = 1,
+					},
+				},
+				},
+			},
+			},
+		},
+		},
+	},
+	},
+}
+--EDITOR elements end tag
+--EDITOR animations start tag
+local l_animations =
+{
+	dk = {
+		ysjm = {
+			scale = {{0, {0.3, 0.3, 1}}, {150, {1.1, 1.1, 1}}, {200, {1,1,1}}, },
+		},
+	},
+	c_dakai = {
+		{0,"dk", 1, 0},
+	},
+}
+--EDITOR animations end tag
+local function create()
+return UIUtil.createNode(l_fileType, eleRoot, l_animations)
+end
+return create
