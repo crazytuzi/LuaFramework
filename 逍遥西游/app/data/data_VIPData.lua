@@ -1,0 +1,233 @@
+data_VIPData = {
+  [1] = {
+    VIPLV = 0,
+    NeedGoldNum = 0,
+    BuyTiliNum = 0,
+    BuyBWCNum = 0,
+    UseSBDNum = 3,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "无"
+  },
+  [2] = {
+    VIPLV = 1,
+    NeedGoldNum = 10,
+    BuyTiliNum = 0,
+    BuyBWCNum = 0,
+    UseSBDNum = 4,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值10元宝即可享受特权。\n每日可使用双倍丹次数增加至4次。\n第1天签到可获得双倍奖励。"
+  },
+  [3] = {
+    VIPLV = 2,
+    NeedGoldNum = 100,
+    BuyTiliNum = 0,
+    BuyBWCNum = 1,
+    UseSBDNum = 5,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值100元宝即可享受特权。\n每天可购买比武场次数增加至1次。\n每日可使用双倍丹次数增加至5次。\n第3天签到可获得双倍奖励。"
+  },
+  [4] = {
+    VIPLV = 3,
+    NeedGoldNum = 300,
+    BuyTiliNum = 0,
+    BuyBWCNum = 2,
+    UseSBDNum = 6,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值300元宝即可享受特权。\n每天可购买比武场次数增加至2次。\n每日可使用双倍丹次数增加至6次。\n第5天签到可获得双倍奖励。"
+  },
+  [5] = {
+    VIPLV = 4,
+    NeedGoldNum = 600,
+    BuyTiliNum = 0,
+    BuyBWCNum = 3,
+    UseSBDNum = 7,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值600元宝即可享受特权。\n每天可购买比武场次数增加至3次。\n每日可使用双倍丹次数增加至7次。\n第6天签到可获得双倍奖励。"
+  },
+  [6] = {
+    VIPLV = 5,
+    NeedGoldNum = 3000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 4,
+    UseSBDNum = 8,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值3000元宝即可享受特权。\n每天可购买比武场次数增加至4次。\n每日可使用双倍丹次数增加至8次。\n第8天签到可获得双倍奖励。"
+  },
+  [7] = {
+    VIPLV = 6,
+    NeedGoldNum = 6800,
+    BuyTiliNum = 0,
+    BuyBWCNum = 5,
+    UseSBDNum = 9,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值6800元宝即可享受特权。\n每天可购买比武场次数增加至5次。\n每日可使用双倍丹次数增加至9次。\n第10天签到可获得双倍奖励。"
+  },
+  [8] = {
+    VIPLV = 7,
+    NeedGoldNum = 9800,
+    BuyTiliNum = 0,
+    BuyBWCNum = 6,
+    UseSBDNum = 10,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值9800元宝即可享受特权。\n每天可购买比武场次数增加至6次。\n每日可使用双倍丹次数增加至10次。\n第11天签到可获得双倍奖励。"
+  },
+  [9] = {
+    VIPLV = 8,
+    NeedGoldNum = 12800,
+    BuyTiliNum = 0,
+    BuyBWCNum = 7,
+    UseSBDNum = 11,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值12800元宝即可享受特权。\n每天可购买比武场次数增加至7次。\n每日可使用双倍丹次数增加至11次。\n第13天签到可获得双倍奖励。"
+  },
+  [10] = {
+    VIPLV = 9,
+    NeedGoldNum = 19800,
+    BuyTiliNum = 0,
+    BuyBWCNum = 8,
+    UseSBDNum = 12,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值19800元宝即可享受特权。\n每天可购买比武场次数增加至8次。\n每日可使用双倍丹次数增加至12次。\n第15天签到可获得双倍奖励。"
+  },
+  [11] = {
+    VIPLV = 10,
+    NeedGoldNum = 32800,
+    BuyTiliNum = 0,
+    BuyBWCNum = 9,
+    UseSBDNum = 13,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值32800元宝即可享受特权。\n每天可购买比武场次数增加至9次。\n每日可使用双倍丹次数增加至13次。\n第16天签到可获得双倍奖励。"
+  },
+  [12] = {
+    VIPLV = 11,
+    NeedGoldNum = 64000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 10,
+    UseSBDNum = 14,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值64000元宝即可享受特权。\n每天可购买比武场次数增加至10次。\n每日可使用双倍丹次数增加至14次。\n第18天签到可获得双倍奖励。"
+  },
+  [13] = {
+    VIPLV = 12,
+    NeedGoldNum = 100000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 11,
+    UseSBDNum = 15,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值10万元宝即可享受特权。\n每天可购买比武场次数增加至11次。\n每日可使用双倍丹次数增加至15次。\n第20天签到可获得双倍奖励。"
+  },
+  [14] = {
+    VIPLV = 13,
+    NeedGoldNum = 200000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 12,
+    UseSBDNum = 16,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值20万元宝即可享受特权。\n每天可购买比武场次数增加至12次。\n每日可使用双倍丹次数增加至16次。\n第21天签到可获得双倍奖励。"
+  },
+  [15] = {
+    VIPLV = 14,
+    NeedGoldNum = 300000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 13,
+    UseSBDNum = 17,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值30万元宝即可享受特权。\n每天可购买比武场次数增加至13次。\n每日可使用双倍丹次数增加至17次。\n第23天签到可获得双倍奖励。"
+  },
+  [16] = {
+    VIPLV = 15,
+    NeedGoldNum = 500000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 14,
+    UseSBDNum = 18,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值50万元宝即可享受特权。\n每天可购买比武场次数增加至14次。\n每日可使用双倍丹次数增加至18次。\n第25、26、28、30、31天签到可获得双倍奖励。"
+  },
+  [17] = {
+    VIPLV = 16,
+    NeedGoldNum = 1000000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 15,
+    UseSBDNum = 19,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值100万元宝即可享受特权。\n每天可购买比武场次数增加至15次。\n每日可使用双倍丹次数增加至19次。\n第25、26、28、30、31天签到可获得双倍奖励。"
+  },
+  [18] = {
+    VIPLV = 17,
+    NeedGoldNum = 2000000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 16,
+    UseSBDNum = 20,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值200万元宝即可享受特权。\n每天可购买比武场次数增加至16次。\n每日可使用双倍丹次数增加至20次。\n第25、26、28、30、31天签到可获得双倍奖励。"
+  },
+  [19] = {
+    VIPLV = 18,
+    NeedGoldNum = 5000000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 17,
+    UseSBDNum = 21,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值500万元宝即可享受特权。\n每天可购买比武场次数增加至17次。\n每日可使用双倍丹次数增加至21次。\n第25、26、28、30、31天签到可获得双倍奖励。"
+  },
+  [20] = {
+    VIPLV = 19,
+    NeedGoldNum = 10000000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 18,
+    UseSBDNum = 22,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值1000万元宝即可享受特权。\n每天可购买比武场次数增加至18次。\n每日可使用双倍丹次数增加至22次。\n第25、26、28、30、31天签到可获得双倍奖励。"
+  },
+  [21] = {
+    VIPLV = 20,
+    NeedGoldNum = 20000000,
+    BuyTiliNum = 0,
+    BuyBWCNum = 19,
+    UseSBDNum = 23,
+    CanSaoDang = 0,
+    CanSDMore = 0,
+    CanResetCatch = 0,
+    Des = "累计充值2000万元宝即可享受特权。\n每天可购买比武场次数增加至19次。\n每日可使用双倍丹次数增加至23次。\n第25、26、28、30、31天签到可获得双倍奖励。"
+  }
+}

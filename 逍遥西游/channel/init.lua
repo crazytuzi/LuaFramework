@@ -1,0 +1,7 @@
+ChannelClassBase = import(".Interface.ChannelClassBase")
+import(".ChnConst")
+import(".ChannelData")
+import(".channel")
+import(".ChannelMgr")
+import(".HeadImgRequest")
+import(".Interface.MoMoDataCenterExtend")

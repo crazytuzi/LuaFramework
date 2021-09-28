@@ -1,0 +1,3 @@
+PixelFormat_MapBg = kCCTexture2DPixelFormat_RGB565
+PixelFormat_FbBg = kCCTexture2DPixelFormat_RGB565
+PixelFormat_WarBg = kCCTexture2DPixelFormat_RGB565

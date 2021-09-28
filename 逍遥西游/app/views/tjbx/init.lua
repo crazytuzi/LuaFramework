@@ -1,0 +1,2 @@
+import(".goldboxView")
+import(".jiangjuanView")

@@ -1,0 +1,7 @@
+import(".id_creator")
+import(".effect_receiver")
+import(".role_ai")
+import(".pet_ai")
+import(".hero_ai")
+import(".monster_ai")
+import(".war_ai")
