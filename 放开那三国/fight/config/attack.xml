@@ -1,0 +1,10 @@
+
+<behavior name = "attack">
+	<action name = "" type = "xml" />
+	<action name = "" type = "act" >
+		<move pos = "${1}" duration = "0.5"/>
+		<scale x = "1.2" y = "1.2" duration = "0.5"/>
+	</action>
+	<action name = "" type = "act" />
+	<action name = "" type = "act" />
+</behavior>
