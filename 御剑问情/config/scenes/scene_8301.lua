@@ -1,0 +1,52 @@
+return {
+	id = 8301,
+	name = "神武BOSS",
+	scene_type = 68,
+	bundle_name = "scenes/map/w2_yw_05_yunzhidian",
+	asset_name = "W2_YW_05_YunZhiDian",
+	width = 590,
+	height = 525,
+	origin_x = 18.5,
+	origin_y = -1.5,
+	levellimit = 395,
+    is_forbid_pk = 0,
+    skip_loading = 0,
+    show_weather = 0,
+    scenex = 210,
+    sceney = 59,
+	npcs = {
+	},
+	monsters = {
+		{id=4808, x=494, y=252},
+		{id=4807, x=211, y=355},
+		{id=4805, x=32, y=128},
+		{id=4804, x=396, y=212},
+		{id=4803, x=142, y=177},
+		{id=4802, x=394, y=294},
+		{id=4801, x=32, y=208},
+		{id=4806, x=272, y=178},
+	},
+	doors = {
+	},
+    gathers = {
+	},
+    jumppoints = {
+		{id=2, target_id=5, range=8, x=325, y=262, jump_type=0, air_craft_id=0, is_show=1, jump_speed=2, jump_act=0,jump_tong_bu=0,jump_time=1,camera_fov=0,camera_rotation=0,offset={0,0,0},play_cg=0,cgs={}},
+		{id=1, target_id=8, range=8, x=281, y=262, jump_type=0, air_craft_id=0, is_show=1, jump_speed=2, jump_act=0,jump_tong_bu=0,jump_time=1,camera_fov=0,camera_rotation=0,offset={0,0,0},play_cg=0,cgs={}},
+		{id=4, target_id=-1, range=5, x=265, y=263, jump_type=0, air_craft_id=0, is_show=0, jump_speed=2, jump_act=0,jump_tong_bu=0,jump_time=1,camera_fov=0,camera_rotation=0,offset={0,0,0},play_cg=0,cgs={}},
+		{id=3, target_id=-1, range=5, x=345, y=262, jump_type=0, air_craft_id=0, is_show=0, jump_speed=2, jump_act=0,jump_tong_bu=0,jump_time=1,camera_fov=0,camera_rotation=0,offset={0,0,0},play_cg=0,cgs={}},
+		{id=5, target_id=6, range=5, x=334, y=291, jump_type=0, air_craft_id=0, is_show=0, jump_speed=2, jump_act=0,jump_tong_bu=0,jump_time=1,camera_fov=0,camera_rotation=0,offset={0,0,0},play_cg=0,cgs={}},
+		{id=6, target_id=4, range=5, x=305, y=271, jump_type=0, air_craft_id=0, is_show=0, jump_speed=2, jump_act=0,jump_tong_bu=0,jump_time=1,camera_fov=0,camera_rotation=0,offset={0,0,0},play_cg=0,cgs={}},
+		{id=7, target_id=3, range=5, x=337, y=294, jump_type=0, air_craft_id=0, is_show=0, jump_speed=2, jump_act=0,jump_tong_bu=0,jump_time=1,camera_fov=0,camera_rotation=0,offset={0,0,0},play_cg=0,cgs={}},
+		{id=8, target_id=7, range=5, x=305, y=271, jump_type=0, air_craft_id=0, is_show=0, jump_speed=2, jump_act=0,jump_tong_bu=0,jump_time=1,camera_fov=0,camera_rotation=0,offset={0,0,0},play_cg=0,cgs={}},
+    },
+    fences = {
+	},
+    effects = {
+		{bundle="effects2/prefab/misc/anquanqu_prefab", asset="anquanqu.prefab", offset={0, 0, 0}, rotation={0, 0, 0}, x=203, y=66, scale={1, 1, 1}},
+		{bundle="effects2/prefab/misc/anquanqu_prefab", asset="anquanqu.prefab", offset={0, 0, 0}, rotation={0, 0, 0}, x=216, y=66, scale={1, 1, 1}},
+		{bundle="effects2/prefab/misc/anquanqu_prefab", asset="anquanqu.prefab", offset={0, 0, 0}, rotation={0, 0, 0}, x=203, y=52, scale={1, 1, 1}},
+		{bundle="effects2/prefab/misc/anquanqu_prefab", asset="anquanqu.prefab", offset={0, 0, 0}, rotation={0, 0, 0}, x=216, y=52, scale={1, 1, 1}},
+	},
+    mask = "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",
+}

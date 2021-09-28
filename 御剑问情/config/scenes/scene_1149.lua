@@ -1,0 +1,45 @@
+return {
+	id = 1149,
+	name = "70级副本",
+	scene_type = 47,
+	bundle_name = "scenes/map/xscxg01",
+	asset_name = "Xscxg01",
+	width = 174,
+	height = 270,
+	origin_x = -53.5,
+	origin_y = -66.5,
+	levellimit = 70,
+    is_forbid_pk = 0,
+	npcs = {
+	},
+	monsters = {
+		{id=30000, x=90, y=104},
+		{id=30001, x=88, y=151},
+		{id=30002, x=92, y=235},
+	},
+	doors = {
+	},
+    gathers = {
+	},
+    jumppoints = {
+		{id=1, target_id=2, range=5, x=55, y=111, jump_type=0, air_craft_id=0, is_show=1,},
+		{id=2, target_id=3, range=18, x=48, y=120, jump_type=0, air_craft_id=0, is_show=1,},
+		{id=3, target_id=4, range=15, x=33, y=129, jump_type=0, air_craft_id=0, is_show=1,},
+		{id=4, target_id=0, range=1, x=38, y=154, jump_type=0, air_craft_id=0, is_show=0,},
+		{id=5, target_id=6, range=5, x=35, y=145, jump_type=0, air_craft_id=0, is_show=1,},
+		{id=6, target_id=7, range=18, x=33, y=129, jump_type=0, air_craft_id=0, is_show=0,},
+		{id=7, target_id=8, range=18, x=48, y=120, jump_type=0, air_craft_id=0, is_show=0,},
+		{id=8, target_id=0, range=1, x=64, y=110, jump_type=0, air_craft_id=0, is_show=0,},
+		{id=9, target_id=10, range=5, x=89, y=181, jump_type=0, air_craft_id=0, is_show=1,},
+		{id=10, target_id=11, range=8, x=83, y=193, jump_type=0, air_craft_id=0, is_show=1,},
+		{id=11, target_id=12, range=8, x=99, y=202, jump_type=0, air_craft_id=0, is_show=1,},
+		{id=12, target_id=0, range=1, x=91, y=222, jump_type=0, air_craft_id=0, is_show=0,},
+		{id=13, target_id=14, range=5, x=91, y=217, jump_type=0, air_craft_id=0, is_show=1,},
+		{id=14, target_id=15, range=8, x=99, y=202, jump_type=0, air_craft_id=0, is_show=0,},
+		{id=15, target_id=16, range=8, x=83, y=193, jump_type=0, air_craft_id=0, is_show=0,},
+		{id=16, target_id=0, range=1, x=89, y=176, jump_type=0, air_craft_id=0, is_show=0,},
+    },
+    fences = {
+	},
+    mask = "XQAAQAAAAG/9//+jt/9HPkgVcjlhUbiSKOajhgfyjTAReK4XX9ZQS0S+JdKK+YilJKJHbd4O6mnYWOoqeC9da1WKWStj+0y8GOjLwu9BYqjwuP0o5LhuCceb8ZshOj7Oo/nL2YBRV3oe39zAFwMLie6Fp3YVcVQK0MHP9LSoNPfEU63y5Bqog+PgeSWJa7lo3QhAI+EvMTbhE9kxIttt1XwNd2a4MA3R8fFdjorBZeqn6L0eNcmchXxWS9YujeVK7U0hW5EEMM24UKyLFsFqiQu1hiG93A5QrZfHyndIfVW73NmZZoaTgKXREjSGGVsslFAHybl/hd+OCa92+zEV1ZIFrz6XRZJim+SFyeM2xZjL2Ozd1zU4V1SGm69B9y5wNahATzomuxi4c018HH2hh6oAObGdt/zCjbYp4SSC7kaplIKn6DQdP9N8jH7ydjPzuB6GmShlPPlSDQ6N8WTHHDpe/HQraFWt48EkMNfmGgr36WM9Fivwg4zSkVcrV4+MugJ2Wwa648b0IzKuohxhRbSbyNN3UI563pTkYRiBpEtCYMpg77fi+byDucYrmLDhwFAnNtLX3OcAL+yVn8Yohm2IPtKiXOsjIKcHvQkYd3Chx5a8S2duFYPfoirxMeGf0Pcgse4MpRlXROyV4bV3RJjl2sbD0l4X7iN7WZDPiUbWcOjtzI9FK5VKwiIc77l031jyh4zNmYpbwnnXm+uu8bVv75XqrSEevzwsGbiLbW/Le/bZTXQznD4Oxd/VE+tKukywuI5YnHBFRyoG/HqihOPBCH//hym0LA==",
+}

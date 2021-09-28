@@ -1,0 +1,27 @@
+﻿return {
+{},
+{seq=2,},
+{seq=3,},
+{seq=4,},
+{seq=5,},
+{seq=6,},
+{seq=7,weight=300,},
+{seq=8,},
+{seq=9,},
+{seq=10,},
+{seq=11,},
+{seq=12,},
+{seq=13,},
+{seq=14,},
+{seq=15,weight=300,can_add_lot=1,},
+{seq=16,weight=200,can_add_lot=1,},
+{seq=17,can_add_lot=1,},
+{seq=18,weight=200,can_add_lot=1,},
+{seq=19,weight=100,can_add_lot=1,},
+{seq=20,weight=100,can_add_lot=1,},
+{seq=21,weight=10,},
+{seq=22,weight=8,},
+{seq=23,weight=1,},
+{seq=24,weight=1,}
+}
+

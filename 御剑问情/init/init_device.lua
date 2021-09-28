@@ -1,0 +1,10 @@
+LOW_QUALITY_DEVICE =
+{
+
+}
+
+LOW_QUALITY_GRAPHICS =
+{
+
+
+}

@@ -1,0 +1,27 @@
+return {
+{},
+{index=1,choujiang_times=50,reward_item={item_id=22107,num=1,is_bind=1},},
+{index=2,choujiang_times=100,reward_item={item_id=26330,num=1,is_bind=1},},
+{index=3,choujiang_times=300,reward_item={item_id=26150,num=1,is_bind=1},},
+{index=4,choujiang_times=600,reward_item={item_id=26206,num=1,is_bind=1},},
+{index=5,choujiang_times=1200,reward_item={item_id=27820,num=1,is_bind=1},},
+{opengame_day=14,},
+{opengame_day=14,index=1,choujiang_times=50,reward_item={item_id=22107,num=1,is_bind=1},},
+{opengame_day=14,index=2,choujiang_times=100,reward_item={item_id=26330,num=1,is_bind=1},},
+{opengame_day=14,index=3,choujiang_times=300,reward_item={item_id=26150,num=1,is_bind=1},},
+{opengame_day=14,index=4,choujiang_times=600,reward_item={item_id=26206,num=1,is_bind=1},},
+{opengame_day=14,index=5,choujiang_times=1200,reward_item={item_id=27820,num=1,is_bind=1},},
+{opengame_day=21,},
+{opengame_day=21,index=1,choujiang_times=50,reward_item={item_id=22107,num=1,is_bind=1},},
+{opengame_day=21,index=2,choujiang_times=100,reward_item={item_id=26330,num=1,is_bind=1},},
+{opengame_day=21,index=3,choujiang_times=300,reward_item={item_id=26150,num=1,is_bind=1},},
+{opengame_day=21,index=4,choujiang_times=600,reward_item={item_id=26206,num=1,is_bind=1},},
+{opengame_day=21,index=5,choujiang_times=1200,reward_item={item_id=27820,num=1,is_bind=1},},
+{opengame_day=999999,},
+{opengame_day=999999,index=1,choujiang_times=50,reward_item={item_id=22107,num=1,is_bind=1},},
+{opengame_day=999999,index=2,choujiang_times=100,reward_item={item_id=26330,num=1,is_bind=1},},
+{opengame_day=999999,index=3,choujiang_times=300,reward_item={item_id=26150,num=1,is_bind=1},},
+{opengame_day=999999,index=4,choujiang_times=600,reward_item={item_id=26206,num=1,is_bind=1},},
+{opengame_day=999999,index=5,choujiang_times=1200,reward_item={item_id=27820,num=1,is_bind=1},}
+}
+

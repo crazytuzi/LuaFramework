@@ -1,0 +1,32 @@
+return {
+	id = 169,
+	name = "月牙涧",
+	scene_type = 54,
+	bundle_name = "scenes/map/w2_yw_02_yueyajian",
+	asset_name = "W2_YW_02_YueYaJian",
+	width = 365,
+	height = 403,
+	origin_x = -12.5,
+	origin_y = -10,
+	levellimit = 40,
+    is_forbid_pk = 0,
+    skip_loading = 1,
+    show_weather = 0,
+    scenex = 204,
+    sceney = 251,
+	npcs = {
+	},
+	monsters = {
+	},
+	doors = {
+	},
+    gathers = {
+	},
+    jumppoints = {
+    },
+    fences = {
+	},
+    effects = {
+	},
+    mask = "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",
+}

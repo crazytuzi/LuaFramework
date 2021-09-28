@@ -1,0 +1,73 @@
+-------------------------------------------------
+--tips相关宏定义
+-------------------------------------------------
+TipsFormDef = {}
+
+TipsFormDef.FROM_NORMAL = 0						--无
+TipsFormDef.FROM_BAG = 1 						--在背包界面中（没有打开仓库和出售）
+TipsFormDef.FROM_BAG_ON_BAG_STORGE = 2			--打开仓库界面时，来自背包
+TipsFormDef.FROM_STORGE_ON_BAG_STORGE = 3		--打开仓库界面时，来自仓库
+TipsFormDef.FROM_BAG_ON_BAG_SALE = 4			--打开售卖界面时，来自背包
+TipsFormDef.FROM_BAG_EQUIP = 5					--在装备界面时，来自装备
+TipsFormDef.FROM_BAOXIANG = 6 					--打开宝箱界面时，来自宝箱
+TipsFormDef.FROM_MARKET_JISHOU = 7				--打开市场界面时，来自寄售
+TipsFormDef.FROME_MARKET_GOUMAI = 8				--打开市场界面时，来自购买
+TipsFormDef.FROME_BROWSE_ROLE = 9				--查看角色界面时，来自查看
+TipsFormDef.FROM_SJ_JC_ON = 10					--来自装备升级继承放入
+TipsFormDef.FROM_EQUIPMENT = 11 				--来自装备打造
+TipsFormDef.FROM_SJ_JC_OFF = 12 				--来自装备升级继承卸下
+TipsFormDef.FROM_BAG_ON_BAG_SALE_JL = 13 		--精灵售卖界面时，来自背包
+TipsFormDef.FROM_CARD_UP = 14 					--卡牌升级
+TipsFormDef.FROM_BAG_ON_GUILD_STORGE = 15		--打开仙盟仓库界面时，来自背包
+TipsFormDef.FROM_STORGE_ON_GUILD_STORGE = 16	--打开仙盟仓库界面时，来自仓库
+TipsFormDef.FROM_CAMP_EQUIP = 17				--打开阵营装备界面时，来自阵营装备
+TipsFormDef.FROM_SHENZHOU_EQUIP = 18			--来自神州六器
+TipsFormDef.FROM_MAGICCARD_JIHUO = 19			--来自魔卡
+TipsFormDef.FROM_XUNBAO_QUCHU = 20    			--打开仓库界面时，来自寻宝
+TipsFormDef.FROM_SPIRIT_BAG = 21	  			--打开装备界面时，来自精灵
+TipsFormDef.FROM_STORGE_ON_SPRITRT_STORGE = 22	--打开仓库界面，在精灵仓库
+TipsFormDef.FROM_ZHUANSHENG_VIEW = 23			--来自转生界面
+TipsFormDef.FROM_QUICK_USE = 24					--来自快速使用
+TipsFormDef.FROM_QINGYUAN_BAG = 25				--来自情缘背包
+TipsFormDef.FROM_SHENGXIAO_BAG = 26				--来自生肖背包
+TipsFormDef.FROM_SHENQI_BAG = 30				--神器背包
+TipsFormDef.FROM_CARD = 27						--来自卡牌界面
+TipsFormDef.FROM_TALENT_EQUIP = 29				--来自天赋-装备
+TipsFormDef.FROM_LITTLEPET_HOME = 31			--来自小宠物家园
+TipsFormDef.FROM_LITTLEPET_WAREHOUSE = 32		--来自小宠物仓库
+TipsFormDef.FROM_NOTHING = 33					--来自不显示按钮的界面
+
+TipsHandleDef = {}
+
+TipsHandleDef.HANDLE_EQUIP= 1					--装备
+TipsHandleDef.HANDLE_USE= 2						--使用
+TipsHandleDef.HANDLE_COMPOSE = 3				--合成
+TipsHandleDef.HANDLE_STORGE = 4					--存放
+TipsHandleDef.HANDLE_SALE = 5					--售卖
+TipsHandleDef.HANDLE_BACK_BAG = 6				--取出 从仓库取回到背包
+TipsHandleDef.HANDLE_TAKEOFF = 7 				--取下 装备
+TipsHandleDef.BAOXIANG_QUCHU = 8				--从宝箱中取出物品放进背包
+TipsHandleDef.SHICHANG_CHEHUI = 9 				--撤回寄售的物品
+TipsHandleDef.SHICHANG_GOUMAI = 10 				--从市场中购买
+TipsHandleDef.RONGHE = 11 						--融合
+TipsHandleDef.HANDLE_EXCHANGE = 12				--兑换
+TipsHandleDef.HANDLE_FORGE = 13					--锻造
+TipsHandleDef.HANDLE_RECOVER = 14				--回收/丢弃
+TipsHandleDef.HANDLE_TAKEON = 15				--放入
+TipsHandleDef.HANDLE_QINGYUSN = 16				--情缘
+TipsHandleDef.HANDLE_SHENZHOU_JIANDING = 17		--鉴定(神州六器)
+TipsHandleDef.HANDLE_SHENZHOU_QUCHU = 18		--取出(神州六器)
+TipsHandleDef.HANDLE_SHENZHOU_SHIYONG = 19		--使用(神州六器)
+TipsHandleDef.HANDLE_SHENZHOU_SMELT = 20		--熔炼(神州六器)
+TipsHandleDef.HANDLE_JIHUO = 21					--魔卡激活
+TipsHandleDef.HANDLE_SHENGJI = 22				--坐骑装备升级
+TipsHandleDef.HANDLE_RECOVER_SPIRIT = 23		--回收
+TipsHandleDef.HANDLE_FREE_PET = 24				--放生(宠物)
+TipsHandleDef.HANDLE_UPLEVEL = 26				--升级
+TipsHandleDef.HANDLE_DECOMPOSE = 27				--分解(转生装备)
+TipsHandleDef.HANDLE_REPLACE = 28				--替换
+TipsHandleDef.HANDLE_FULING = 29				--附灵
+TipsHandleDef.HANDLE_JINGLING = 30				--出战
+TipsHandleDef.HANDLE_GUILD = 31				    --仙盟
+TipsHandleDef.HANDLE_TALENT_EQUIP = 32			--天赋(装备)
+TipsHandleDef.HANDLE_DEMOUNT = 33				--卸下

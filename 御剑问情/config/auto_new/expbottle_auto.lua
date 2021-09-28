@@ -1,0 +1,22 @@
+return {
+	["bottle_item_list_default_table"]={need_lv=106,cost_exp=130000,seq=1,bottle_itemid=22925,},
+	["bottle_lv_list"]={
+		{lv_idx=0,min_lv=30,transform_maxcount=5,max_lv=39,},
+		{use_maxcount=25,min_lv=40,max_lv=49,},
+		{lv_idx=2,use_maxcount=30,transform_maxcount=7,max_lv=59,},
+		{lv_idx=3,use_maxcount=32,min_lv=60,transform_maxcount=8,max_lv=69,},
+		{lv_idx=4,use_maxcount=34,min_lv=70,transform_maxcount=9,max_lv=79,},
+		{lv_idx=5,use_maxcount=36,min_lv=80,transform_maxcount=10,max_lv=89,},
+		{lv_idx=6,use_maxcount=38,min_lv=90,transform_maxcount=12,},
+		{lv_idx=7,use_maxcount=40,min_lv=100,transform_maxcount=15,max_lv=109,},},
+	["bottle_lv_list_default_table"]={lv_idx=1,use_maxcount=20,min_lv=50,transform_maxcount=6,max_lv=99,},
+	["bottle_item_list"]={
+		{need_lv=100,cost_exp=23000,bottle_itemid=22920,},
+		{need_lv=101,cost_exp=46000,seq=2,bottle_itemid=22921,},
+		{need_lv=102,cost_exp=70000,seq=3,bottle_itemid=22922,},
+		{need_lv=103,cost_exp=96000,seq=4,bottle_itemid=22923,},
+		{need_lv=104,seq=5,bottle_itemid=22924,},
+		{need_lv=105,cost_exp=160000,seq=6,},
+		{cost_exp=210000,seq=7,bottle_itemid=22926,},
+		{need_lv=107,cost_exp=290000,seq=8,bottle_itemid=22927,},},
+}

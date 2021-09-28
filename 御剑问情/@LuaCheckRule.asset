@@ -1,0 +1,3116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1408161172, guid: c2cbd19493e258a4db9154a49fe11bdb, type: 3}
+  m_Name: '@LuaCheckRule'
+  m_EditorClassIdentifier: 
+  includeRegexs: []
+  excludeRegexs: []
+  luaStd: 0
+  noGlobal: 1
+  globals: []
+  readGlobals: []
+  noUnused: 1
+  noRedefined: 0
+  noUnusedArgs: 0
+  noUnusedSecondaries: 0
+  noSelf: 0
+  maxCodeLineLength: -1
+  maxStringLineLength: -1
+  maxCommentLineLength: -1
+  ignores: []
+  reports:
+  - severity: 0
+    path: Assets/Game/Lua/agent/agent_adapter_base.lua
+    row: 108
+    column: 36
+    message: ' shadowing upvalue ''url'' on line 98'
+  - severity: 0
+    path: Assets/Game/Lua/agent/agent_adapter_base.lua
+    row: 108
+    column: 50
+    message: ' shadowing upvalue ''data'' on line 88'
+  - severity: 0
+    path: Assets/Game/Lua/config/config_manager.lua
+    row: 151
+    column: 8
+    message: ' variable ''cfg_info'' was previously defined on line 145'
+  - severity: 0
+    path: Assets/Game/Lua/core/draw_obj.lua
+    row: 361
+    column: 11
+    message: ' shadowing upvalue argument ''part'' on line 165'
+  - severity: 0
+    path: Assets/Game/Lua/core/draw_part.lua
+    row: 613
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/check_reference.lua
+    row: 13
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/quick_login.lua
+    row: 40
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/quick_login.lua
+    row: 48
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/quick_login.lua
+    row: 118
+    column: 35
+    message: ' shadowing upvalue ''url'' on line 110'
+  - severity: 0
+    path: Assets/Game/Lua/editor/quick_login.lua
+    row: 119
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/quick_login.lua
+    row: 296
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/quick_login.lua
+    row: 380
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 18
+    column: 28
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 20
+    column: 10
+    message: ' shadowing definition of variable ''key'' on line 5'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 38
+    column: 28
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 40
+    column: 10
+    message: ' shadowing definition of variable ''key'' on line 5'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 70
+    column: 61
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 77
+    column: 50
+    message: ' trailing whitespace in a comment'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 96
+    column: 7
+    message: ' shadowing definition of loop variable ''k'' on line 95'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 110
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 113
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 114
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 128
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 129
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 130
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 131
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 132
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 133
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 138
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 141
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 143
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 144
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/editor/rebuild_luacfg.lua
+    row: 163
+    column: 19
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/advance_fight_mount_view.lua
+    row: 407
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/advance_shengong_view.lua
+    row: 177
+    column: 8
+    message: ' variable ''shengong_info'' was previously defined on line 135'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/advance_shengong_view.lua
+    row: 583
+    column: 8
+    message: ' variable ''cur_select_grade'' was previously defined as an argument
+      on line 582'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/advance_shengong_view.lua
+    row: 729
+    column: 12
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/advance_shenyi_view.lua
+    row: 176
+    column: 8
+    message: ' variable ''shenyi_info'' was previously defined on line 132'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/advance_shenyi_view.lua
+    row: 446
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 445'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/advance_shenyi_view.lua
+    row: 704
+    column: 8
+    message: ' variable ''cur_select_grade'' was previously defined as an argument
+      on line 703'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/fightmount/fight_mount_data.lua
+    row: 129
+    column: 8
+    message: ' variable ''grade'' was previously defined as an argument on line 124'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/fightmount/fight_mount_data.lua
+    row: 242
+    column: 8
+    message: ' variable ''mount_info'' was previously defined as an argument on line
+      241'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/fightmount/fight_mount_data.lua
+    row: 334
+    column: 8
+    message: ' variable ''star_level'' was previously defined as an argument on line
+      333'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/halo/halo_data.lua
+    row: 138
+    column: 8
+    message: ' variable ''grade'' was previously defined as an argument on line 133'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/halo/halo_data.lua
+    row: 194
+    column: 8
+    message: ' variable ''halo_info'' was previously defined as an argument on line
+      189'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/halo/halo_data.lua
+    row: 195
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 189'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/halo/halo_data.lua
+    row: 406
+    column: 8
+    message: ' variable ''star_level'' was previously defined as an argument on line
+      405'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/mount/mount_data.lua
+    row: 161
+    column: 8
+    message: ' variable ''grade'' was previously defined as an argument on line 156'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/mount/mount_data.lua
+    row: 204
+    column: 8
+    message: ' variable ''mount_info'' was previously defined as an argument on line
+      203'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/mount/mount_data.lua
+    row: 205
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 203'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/mount/mount_data.lua
+    row: 422
+    column: 8
+    message: ' variable ''star_level'' was previously defined as an argument on line
+      421'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shengong/shengong_data.lua
+    row: 148
+    column: 8
+    message: ' variable ''grade'' was previously defined as an argument on line 143'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shengong/shengong_data.lua
+    row: 191
+    column: 8
+    message: ' variable ''shengong_info'' was previously defined as an argument on
+      line 190'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shengong/shengong_data.lua
+    row: 192
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 190'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shengong/shengong_data.lua
+    row: 544
+    column: 8
+    message: ' variable ''grade'' was previously defined as an argument on line 543'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shenyi/shenyi_data.lua
+    row: 148
+    column: 8
+    message: ' variable ''grade'' was previously defined as an argument on line 143'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shenyi/shenyi_data.lua
+    row: 191
+    column: 8
+    message: ' variable ''shenyi_info'' was previously defined as an argument on line
+      190'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shenyi/shenyi_data.lua
+    row: 192
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 190'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shenyi/shenyi_data.lua
+    row: 552
+    column: 8
+    message: ' variable ''grade'' was previously defined as an argument on line 551'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/shenyi/shenyihuanhua/shenyi_huan_hua_view.lua
+    row: 416
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 415'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/wing/wing_data.lua
+    row: 160
+    column: 8
+    message: ' variable ''grade'' was previously defined as an argument on line 156'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/wing/wing_data.lua
+    row: 202
+    column: 8
+    message: ' variable ''wing_info'' was previously defined as an argument on line
+      201'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/wing/wing_data.lua
+    row: 203
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 201'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/wing/wing_data.lua
+    row: 420
+    column: 8
+    message: ' variable ''star_level'' was previously defined as an argument on line
+      419'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/wing/wing_data.lua
+    row: 557
+    column: 8
+    message: ' variable ''sex'' was previously defined as an argument on line 555'
+  - severity: 0
+    path: Assets/Game/Lua/game/advance/wing/wing_data.lua
+    row: 558
+    column: 8
+    message: ' variable ''prof'' was previously defined as an argument on line 555'
+  - severity: 0
+    path: Assets/Game/Lua/game/autovoice/voice_view.lua
+    row: 48
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/achieve/achieve_overview.lua
+    row: 113
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/achieve/achieve_overview.lua
+    row: 370
+    column: 60
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/achieve/achieve_overview.lua
+    row: 373
+    column: 7
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/medal/medal_view.lua
+    row: 705
+    column: 8
+    message: ' variable ''cfg'' was previously defined on line 608'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/medal/medal_view.lua
+    row: 837
+    column: 15
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/zhibao/zhibao_activedegree.lua
+    row: 321
+    column: 8
+    message: ' variable ''is_show'' was previously defined as an argument on line
+      319'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/zhibao/zhibao_activedegree.lua
+    row: 366
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/zhibao/zhibao_activedegree.lua
+    row: 367
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/zhibao/zhibao_data.lua
+    row: 528
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/baoju/zhibao/zhibao_data.lua
+    row: 529
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 370
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 371
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 372
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 374
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 375
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 376
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 377
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 378
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 380
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 381
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 382
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 384
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 387
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 388
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 389
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 393
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 394
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 403
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_ctrl.lua
+    row: 404
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_data.lua
+    row: 673
+    column: 17
+    message: ' shadowing definition of loop variable ''k'' on line 670'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_data.lua
+    row: 673
+    column: 19
+    message: ' shadowing definition of loop variable ''v'' on line 670'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_data.lua
+    row: 699
+    column: 17
+    message: ' shadowing definition of loop variable ''k'' on line 696'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/boss_data.lua
+    row: 699
+    column: 19
+    message: ' shadowing definition of loop variable ''v'' on line 696'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/kf_boss_view.lua
+    row: 275
+    column: 8
+    message: ' variable ''boss_info'' was previously defined as an argument on line
+      274'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/world_boss_info_view.lua
+    row: 255
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/boss/world_boss_info_view.lua
+    row: 270
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/chat_ctrl.lua
+    row: 475
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/chat_private_view.lua
+    row: 259
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 29
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 35
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 42
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 43
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 45
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 49
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 50
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 52
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_data.lua
+    row: 80
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_view.lua
+    row: 377
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_view.lua
+    row: 381
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_view.lua
+    row: 382
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_view.lua
+    row: 383
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_view.lua
+    row: 384
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_view.lua
+    row: 385
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_view.lua
+    row: 386
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/guild_chat_view.lua
+    row: 387
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/chat/voice_setting_view.lua
+    row: 17
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/check/check_fight_mount_view.lua
+    row: 28
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/check/check_fight_mount_view.lua
+    row: 29
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/check/check_fight_mount_view.lua
+    row: 66
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/check/check_goddess_view.lua
+    row: 71
+    column: 8
+    message: ' variable ''goddess_data'' was previously defined on line 68'
+  - severity: 0
+    path: Assets/Game/Lua/game/check/check_goddess_view.lua
+    row: 132
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 131'
+  - severity: 0
+    path: Assets/Game/Lua/game/check/check_shenyi_view.lua
+    row: 175
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 174'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 62
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 68
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 74
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 80
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 87
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 93
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 99
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 105
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_combat_data.lua
+    row: 152
+    column: 39
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/city_combat/city_reward_view.lua
+    row: 26
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/common/ui_scene.lua
+    row: 247
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/common/ui_scene.lua
+    row: 276
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/common/ui_scene.lua
+    row: 299
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/common/ui_scene.lua
+    row: 645
+    column: 9
+    message: ' shadowing definition of variable ''name_info'' on line 635'
+  - severity: 0
+    path: Assets/Game/Lua/game/competition_activity/competition_activity_view.lua
+    row: 491
+    column: 10
+    message: ' shadowing definition of variable ''item_gift_list'' on line 448'
+  - severity: 0
+    path: Assets/Game/Lua/game/competition_activity/competition_activity_view.lua
+    row: 496
+    column: 11
+    message: ' shadowing definition of variable ''item_cfg'' on line 450'
+  - severity: 0
+    path: Assets/Game/Lua/game/competition_activity/competition_activity_view.lua
+    row: 811
+    column: 45
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/dafuhao/dafuhao_info_view.lua
+    row: 201
+    column: 74
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/daily_charge/daily_charge_data.lua
+    row: 294
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/daily_charge/daily_charge_data.lua
+    row: 348
+    column: 9
+    message: ' shadowing upvalue ''level'' on line 113'
+  - severity: 0
+    path: Assets/Game/Lua/game/discount/discount_ctrl.lua
+    row: 34
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/discount/discount_view.lua
+    row: 283
+    column: 9
+    message: ' shadowing definition of variable ''count'' on line 268'
+  - severity: 0
+    path: Assets/Game/Lua/game/element_battle/element_battle_data.lua
+    row: 184
+    column: 12
+    message: ' shadowing definition of argument ''flag'' on line 174'
+  - severity: 0
+    path: Assets/Game/Lua/game/exchange/exchange_tips_view.lua
+    row: 70
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/exchange/exchange_tips_view.lua
+    row: 76
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/fight/fight_ctrl.lua
+    row: 237
+    column: 2
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/fight/fight_ctrl.lua
+    row: 304
+    column: 31
+    message: ' shadowing upvalue ''obj'' on line 271'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_data.lua
+    row: 561
+    column: 4
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_data.lua
+    row: 1634
+    column: 8
+    message: ' variable ''total_level_name'' was previously defined as an argument
+      on line 1632'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_data.lua
+    row: 1636
+    column: 8
+    message: ' variable ''total_level'' was previously defined on line 1633'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_data.lua
+    row: 1637
+    column: 8
+    message: ' variable ''now_level'' was previously defined as an argument on line
+      1632'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_gem_view.lua
+    row: 596
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_gem_view.lua
+    row: 625
+    column: 18
+    message: ' shadowing definition of variable ''asset'' on line 614'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_strengthen_view.lua
+    row: 409
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_strengthen_view.lua
+    row: 437
+    column: 4
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_upstar_view.lua
+    row: 424
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_view.lua
+    row: 130
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_view.lua
+    row: 131
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_view.lua
+    row: 581
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/forge/forge_view.lua
+    row: 582
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_data.lua
+    row: 183
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 182'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_data.lua
+    row: 328
+    column: 8
+    message: ' variable ''wave'' was previously defined as an argument on line 327'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 255
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 660
+    column: 8
+    message: ' variable ''scene_id'' was previously defined on line 618'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 811
+    column: 8
+    message: ' variable ''index'' was previously defined as an argument on line 810'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 824
+    column: 8
+    message: ' variable ''index'' was previously defined as an argument on line 823'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 828
+    column: 9
+    message: ' shadowing definition of argument ''flush_text'' on line 823'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 844
+    column: 8
+    message: ' variable ''index'' was previously defined as an argument on line 843'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 852
+    column: 8
+    message: ' variable ''index'' was previously defined as an argument on line 851'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 859
+    column: 8
+    message: ' variable ''index'' was previously defined as an argument on line 858'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 866
+    column: 8
+    message: ' variable ''index'' was previously defined as an argument on line 865'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_icon_view.lua
+    row: 895
+    column: 8
+    message: ' variable ''index'' was previously defined as an argument on line 894'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_info_exp_view.lua
+    row: 140
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_info_tower_view.lua
+    row: 351
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_many_fb_view.lua
+    row: 167
+    column: 8
+    message: ' variable ''fb_scene_info'' was previously defined on line 161'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_many_view.lua
+    row: 452
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_new_exp_view.lua
+    row: 145
+    column: 34
+    message: ' shadowing upvalue ''item_num'' on line 144'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_new_exp_view.lua
+    row: 158
+    column: 34
+    message: ' shadowing upvalue ''item_num'' on line 157'
+  - severity: 0
+    path: Assets/Game/Lua/game/fuben/fu_ben_tower_view.lua
+    row: 361
+    column: 2
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/funfuben/eqxpresion_fu_ben_data.lua
+    row: 78
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/funfuben/fun_open_victory_view.lua
+    row: 31
+    column: 20
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/camp/goddess_camp_view.lua
+    row: 573
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 572'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_data.lua
+    row: 202
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 201'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_data.lua
+    row: 313
+    column: 8
+    message: ' variable ''xiannv_id'' was previously defined as an argument on line
+      312'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_data.lua
+    row: 315
+    column: 8
+    message: ' variable ''xn_item_list'' was previously defined as an argument on
+      line 312'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_data.lua
+    row: 764
+    column: 8
+    message: ' variable ''pos_list'' was previously defined as an argument on line
+      762'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_info_view.lua
+    row: 217
+    column: 8
+    message: ' variable ''turn_page'' was previously defined as an argument on line
+      216'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_info_view.lua
+    row: 225
+    column: 8
+    message: ' variable ''turn_page'' was previously defined as an argument on line
+      224'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_view.lua
+    row: 655
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 654'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_view.lua
+    row: 827
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_view.lua
+    row: 863
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_view.lua
+    row: 893
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/goddess_view.lua
+    row: 920
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/huanhua/goddess_huanhua_view.lua
+    row: 187
+    column: 25
+    message: ' shadowing upvalue ''item_id'' on line 181'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/huanhua/goddess_huanhua_view.lua
+    row: 206
+    column: 25
+    message: ' shadowing upvalue ''item_id'' on line 201'
+  - severity: 0
+    path: Assets/Game/Lua/game/goddess/huanhua/goddess_huanhua_view.lua
+    row: 288
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 287'
+  - severity: 0
+    path: Assets/Game/Lua/game/guaji/guaji_ctrl.lua
+    row: 627
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/guaji/guaji_ctrl.lua
+    row: 1079
+    column: 43
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/guajita/guajita_offline_info_view.lua
+    row: 132
+    column: 8
+    message: ' variable ''count'' was previously defined as an argument on line 131'
+  - severity: 0
+    path: Assets/Game/Lua/game/guajita/guajita_view.lua
+    row: 371
+    column: 8
+    message: ' variable ''count'' was previously defined as an argument on line 370'
+  - severity: 0
+    path: Assets/Game/Lua/game/guide/function_guide.lua
+    row: 352
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/guide/girl_guide_view.lua
+    row: 80
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guide/normal_guide_view.lua
+    row: 178
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_apply_view.lua
+    row: 119
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 281
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 282
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 283
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 284
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 285
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1026
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1027
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1028
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1029
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1030
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1031
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1032
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1035
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1036
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1037
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1038
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1039
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1040
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_ctrl.lua
+    row: 1041
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_data.lua
+    row: 712
+    column: 13
+    message: ' unreachable code'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_storge_view.lua
+    row: 508
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_storge_view.lua
+    row: 564
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_storge_view.lua
+    row: 698
+    column: 75
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_storge_view.lua
+    row: 699
+    column: 71
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_territory_info_view.lua
+    row: 59
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_territory_view.lua
+    row: 146
+    column: 19
+    message: ' shadowing definition of variable ''guild_id'' on line 91'
+  - severity: 0
+    path: Assets/Game/Lua/game/guild/guild_territory_view.lua
+    row: 146
+    column: 29
+    message: ' shadowing definition of variable ''has_territory'' on line 69'
+  - severity: 0
+    path: Assets/Game/Lua/game/horoscope/horoscope_data.lua
+    row: 399
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/hot_info_view.lua
+    row: 259
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/hot_info_view.lua
+    row: 261
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/hot_info_view.lua
+    row: 262
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/hot_info_view.lua
+    row: 263
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/hot_info_view.lua
+    row: 264
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/question_view.lua
+    row: 109
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/question_view.lua
+    row: 130
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/question_view.lua
+    row: 171
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/question_view.lua
+    row: 187
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hot_spring_chat/question_view.lua
+    row: 190
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hpbag/hp_bag_view.lua
+    row: 57
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/hpbag/hp_bag_view.lua
+    row: 64
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/jubaopen/ju_bao_pen_data.lua
+    row: 40
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/jubaopen/ju_bao_pen_data.lua
+    row: 41
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/jubaopen/ju_bao_pen_data.lua
+    row: 44
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/jubaopen/ju_bao_pen_data.lua
+    row: 106
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/jubaopen/ju_bao_pen_data.lua
+    row: 107
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_eight.lua
+    row: 177
+    column: 8
+    message: ' variable ''cur_index'' was previously defined as an argument on line
+      176'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_eight.lua
+    row: 225
+    column: 8
+    message: ' variable ''cur_index'' was previously defined as an argument on line
+      224'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_one.lua
+    row: 118
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_personal_buy.lua
+    row: 98
+    column: 8
+    message: ' variable ''buy_num'' was previously defined as an argument on line
+      96'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_personal_buy.lua
+    row: 111
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_seven.lua
+    row: 156
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_seven.lua
+    row: 202
+    column: 8
+    message: ' variable ''diff_time'' was previously defined as an argument on line
+      201'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_six.lua
+    row: 320
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_six.lua
+    row: 325
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_six.lua
+    row: 403
+    column: 45
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_ten.lua
+    row: 39
+    column: 8
+    message: ' variable ''flag'' was previously defined as an argument on line 38'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_panel_two.lua
+    row: 143
+    column: 10
+    message: ' shadowing definition of variable ''color'' on line 111'
+  - severity: 0
+    path: Assets/Game/Lua/game/kaifuactivity/kaifu_activity_view.lua
+    row: 365
+    column: 68
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_fight.lua
+    row: 102
+    column: 8
+    message: ' variable ''vo'' was previously defined on line 95'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_loser.lua
+    row: 87
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_loser.lua
+    row: 88
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_loser.lua
+    row: 89
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_loser.lua
+    row: 90
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_loser.lua
+    row: 91
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_rank.lua
+    row: 406
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_vector.lua
+    row: 84
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_vector.lua
+    row: 85
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_vector.lua
+    row: 86
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_vector.lua
+    row: 87
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/kuafu_1v1/kuafu1v1_view_vector.lua
+    row: 88
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/leiji_recharge/leiji_recharge_view.lua
+    row: 17
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/leiji_recharge/leiji_recharge_view.lua
+    row: 18
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/leiji_recharge/leiji_recharge_view.lua
+    row: 19
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/leiji_recharge/leiji_recharge_view.lua
+    row: 20
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/leiji_recharge/leiji_recharge_view.lua
+    row: 21
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/leiji_recharge/leiji_recharge_view.lua
+    row: 96
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/leiji_recharge/leiji_recharge_view.lua
+    row: 97
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/leiji_recharge/leiji_recharge_view.lua
+    row: 98
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/login/login_data.lua
+    row: 139
+    column: 62
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/login/login_data.lua
+    row: 142
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/login/login_data.lua
+    row: 147
+    column: 62
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/login/login_data.lua
+    row: 173
+    column: 37
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/login/login_data.lua
+    row: 235
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/login/login_view.lua
+    row: 749
+    column: 38
+    message: ' shadowing upvalue ''bundle'' on line 670'
+  - severity: 0
+    path: Assets/Game/Lua/game/login/login_view.lua
+    row: 749
+    column: 46
+    message: ' shadowing upvalue ''asset'' on line 670'
+  - severity: 0
+    path: Assets/Game/Lua/game/login/login_view.lua
+    row: 1147
+    column: 12
+    message: ' shadowing upvalue ''scene'' on line 1127'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 244
+    column: 9
+    message: ' shadowing definition of variable ''bundle'' on line 219'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 244
+    column: 17
+    message: ' shadowing definition of variable ''asset'' on line 220'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 248
+    column: 9
+    message: ' shadowing definition of variable ''gift_data'' on line 218'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 289
+    column: 8
+    message: ' variable ''bundle'' was previously defined on line 219'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 289
+    column: 16
+    message: ' variable ''asset'' was previously defined on line 220'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 292
+    column: 8
+    message: ' variable ''bundle'' was previously defined on line 289'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 292
+    column: 16
+    message: ' variable ''asset'' was previously defined on line 289'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 304
+    column: 9
+    message: ' shadowing definition of variable ''gift_data'' on line 218'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 305
+    column: 9
+    message: ' shadowing definition of variable ''bundle'' on line 292'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 306
+    column: 9
+    message: ' shadowing definition of variable ''asset'' on line 292'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 447
+    column: 8
+    message: ' variable ''bundle'' was previously defined on line 435'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 447
+    column: 16
+    message: ' variable ''asset'' was previously defined on line 436'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 450
+    column: 8
+    message: ' variable ''bundle'' was previously defined on line 447'
+  - severity: 0
+    path: Assets/Game/Lua/game/logingift7/login_gift7_view.lua
+    row: 450
+    column: 16
+    message: ' variable ''asset'' was previously defined on line 447'
+  - severity: 0
+    path: Assets/Game/Lua/game/magic_weapon/identify_content_view.lua
+    row: 168
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/magic_weapon/identify_content_view.lua
+    row: 169
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/magic_weapon/identify_content_view.lua
+    row: 170
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_line_view.lua
+    row: 71
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view.lua
+    row: 1670
+    column: 9
+    message: ' shadowing definition of argument ''is_show'' on line 1667'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view.lua
+    row: 1787
+    column: 30
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view.lua
+    row: 2754
+    column: 8
+    message: ' variable ''act_type'' was previously defined on line 2753'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view.lua
+    row: 2759
+    column: 8
+    message: ' variable ''flag'' was previously defined on line 2758'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_chat.lua
+    row: 705
+    column: 6
+    message: ' shadowing definition of variable ''i'' on line 681'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_skill.lua
+    row: 241
+    column: 25
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_target.lua
+    row: 85
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_target.lua
+    row: 86
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_task.lua
+    row: 832
+    column: 8
+    message: ' variable ''task_cfg'' was previously defined on line 796'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_task.lua
+    row: 875
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_task.lua
+    row: 876
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_task.lua
+    row: 877
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_task.lua
+    row: 1208
+    column: 9
+    message: ' shadowing definition of variable ''role_level'' on line 1147'
+  - severity: 0
+    path: Assets/Game/Lua/game/mainui/mainui_view_task.lua
+    row: 1239
+    column: 11
+    message: ' shadowing upvalue ''color'' on line 688'
+  - severity: 0
+    path: Assets/Game/Lua/game/map/map_local_view.lua
+    row: 559
+    column: 9
+    message: ' shadowing definition of variable ''monsters_info'' on line 544'
+  - severity: 0
+    path: Assets/Game/Lua/game/market/market_buy_view.lua
+    row: 144
+    column: 43
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/market/market_quick_sell_view.lua
+    row: 133
+    column: 42
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/market/market_sell_view.lua
+    row: 114
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/market/market_sell_view.lua
+    row: 284
+    column: 42
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/market/market_table_view.lua
+    row: 46
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/baobao/baobao_guard_view.lua
+    row: 53
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/baobao/baobao_guard_view.lua
+    row: 107
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/baobao/baobao_view.lua
+    row: 58
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/marriage_data.lua
+    row: 723
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/marriage_data.lua
+    row: 813
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/marriage_data.lua
+    row: 1000
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/marriage_equip_view.lua
+    row: 257
+    column: 30
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/marriage_equip_view.lua
+    row: 476
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/marriage_honeymoon_view.lua
+    row: 318
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/marriage_love_contract_view.lua
+    row: 195
+    column: 76
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/marriage_love_contract_view.lua
+    row: 214
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/wedding_invite_view.lua
+    row: 17
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/marriage/wedding_invite_view.lua
+    row: 31
+    column: 83
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong/sword_art_online_data.lua
+    row: 89
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 106
+    column: 9
+    message: ' shadowing definition of loop variable ''k'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 106
+    column: 12
+    message: ' shadowing definition of loop variable ''v'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 114
+    column: 9
+    message: ' shadowing definition of loop variable ''k'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 114
+    column: 12
+    message: ' shadowing definition of loop variable ''v'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 122
+    column: 9
+    message: ' shadowing definition of loop variable ''k'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 122
+    column: 12
+    message: ' shadowing definition of loop variable ''v'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 143
+    column: 10
+    message: ' shadowing definition of loop variable ''k'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 143
+    column: 13
+    message: ' shadowing definition of loop variable ''v'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 151
+    column: 9
+    message: ' shadowing definition of loop variable ''k'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 151
+    column: 12
+    message: ' shadowing definition of loop variable ''v'' on line 93'
+  - severity: 0
+    path: Assets/Game/Lua/game/molong_mibao/molong_mibao_chapter_view.lua
+    row: 200
+    column: 45
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/pet/pet_data.lua
+    row: 226
+    column: 2
+    message: ' loop is executed at most once'
+  - severity: 0
+    path: Assets/Game/Lua/game/pet/pet_park_view.lua
+    row: 324
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/check_equip_view.lua
+    row: 142
+    column: 8
+    message: ' shadowing definition of loop variable ''i'' on line 122'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/fashion/fashion_data.lua
+    row: 29
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/fashion/fashion_data.lua
+    row: 321
+    column: 8
+    message: ' variable ''part_type'' was previously defined as an argument on line
+      320'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/fashion/fashion_data.lua
+    row: 324
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 320'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/fashion/fashion_data.lua
+    row: 337
+    column: 8
+    message: ' variable ''part_type'' was previously defined as an argument on line
+      335'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/mojie/mojie_ctrl.lua
+    row: 26
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/mojie/mojie_reward_view.lua
+    row: 42
+    column: 25
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/package/equip_data.lua
+    row: 259
+    column: 8
+    message: ' variable ''vo'' was previously defined as an argument on line 246'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/package/package_data.lua
+    row: 300
+    column: 8
+    message: ' variable ''data_list'' was previously defined as an argument on line
+      298'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_ctrl.lua
+    row: 567
+    column: 72
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_equip_view.lua
+    row: 136
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_fashion_huanhua_view.lua
+    row: 157
+    column: 24
+    message: ' shadowing upvalue ''item_id'' on line 138'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_fashion_huanhua_view.lua
+    row: 188
+    column: 25
+    message: ' shadowing upvalue ''item_id'' on line 173'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_fashion_huanhua_view.lua
+    row: 243
+    column: 8
+    message: ' variable ''cfg'' was previously defined as an argument on line 241'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_package_view.lua
+    row: 369
+    column: 10
+    message: ' shadowing definition of loop variable ''k'' on line 332'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_package_view.lua
+    row: 369
+    column: 12
+    message: ' shadowing definition of loop variable ''v'' on line 332'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_shenbing_view.lua
+    row: 39
+    column: 8
+    message: ' shadowing upvalue loop variable ''i'' on line 33'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_title_huanhua_view.lua
+    row: 129
+    column: 24
+    message: ' shadowing upvalue ''item_id'' on line 110'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_title_huanhua_view.lua
+    row: 160
+    column: 25
+    message: ' shadowing upvalue ''item_id'' on line 145'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_title_huanhua_view.lua
+    row: 193
+    column: 8
+    message: ' variable ''cfg'' was previously defined as an argument on line 191'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_view.lua
+    row: 327
+    column: 8
+    message: ' variable ''index'' was previously defined as an argument on line 326'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_view.lua
+    row: 449
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_view.lua
+    row: 474
+    column: 14
+    message: ' shadowing definition of argument ''obj'' on line 457'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/player_view.lua
+    row: 972
+    column: 46
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/shen_bing/shenbing_data.lua
+    row: 36
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/shen_bing/shenbing_data.lua
+    row: 82
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 81'
+  - severity: 0
+    path: Assets/Game/Lua/game/player/shen_bing/shenbing_data.lua
+    row: 114
+    column: 10
+    message: ' shadowing definition of variable ''num'' on line 109'
+  - severity: 0
+    path: Assets/Game/Lua/game/rand_system/rand_system_ctrl.lua
+    row: 67
+    column: 9
+    message: ' shadowing upvalue ''last_show_index'' on line 54'
+  - severity: 0
+    path: Assets/Game/Lua/game/rank/rank_content_view.lua
+    row: 396
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 395'
+  - severity: 0
+    path: Assets/Game/Lua/game/rank/rank_mingren_view.lua
+    row: 69
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/revive/revive_view.lua
+    row: 354
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/revive/revive_view.lua
+    row: 355
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/revive/revive_view.lua
+    row: 357
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/revive/revive_view.lua
+    row: 358
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/revive/revive_view.lua
+    row: 359
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/rune/rune_bag_view.lua
+    row: 48
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/rune/rune_bag_view.lua
+    row: 108
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/rune/rune_compose_view.lua
+    row: 101
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/rune/rune_inlay_view.lua
+    row: 157
+    column: 9
+    message: ' shadowing definition of variable ''asset'' on line 145'
+  - severity: 0
+    path: Assets/Game/Lua/game/rune/rune_inlay_view.lua
+    row: 157
+    column: 16
+    message: ' shadowing definition of variable ''bundle'' on line 145'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/camera.lua
+    row: 37
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/loading/predownload.lua
+    row: 28
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/loading/predownload.lua
+    row: 87
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/loading/predownload.lua
+    row: 110
+    column: 39
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/loading/predownload.lua
+    row: 111
+    column: 52
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/loading/scene_preload.lua
+    row: 306
+    column: 12
+    message: ' shadowing definition of loop variable ''v'' on line 302'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene.lua
+    row: 706
+    column: 2
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene.lua
+    row: 1525
+    column: 8
+    message: ' variable ''high'' was previously defined as an argument on line 1519'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/base_guide_fb_logic.lua
+    row: 48
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/base_guide_fb_logic.lua
+    row: 93
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/guild_station_logic.lua
+    row: 119
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/guild_station_logic.lua
+    row: 120
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/guild_station_logic.lua
+    row: 121
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/kf_onevone_scene_logic.lua
+    row: 41
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/mount_story_fb_logic.lua
+    row: 8
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/rune_tower_fb_logic.lua
+    row: 124
+    column: 8
+    message: ' variable ''position'' was previously defined as an argument on line
+      122'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/scene_logic/wing_story_fb_logic.lua
+    row: 8
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/boat_obj.lua
+    row: 78
+    column: 10
+    message: ' shadowing definition of argument ''obj'' on line 68'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/boat_obj.lua
+    row: 90
+    column: 10
+    message: ' shadowing definition of argument ''obj'' on line 68'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 711
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 712
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 713
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 714
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 715
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 716
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 717
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 718
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 719
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 721
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 722
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 723
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 724
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/character.lua
+    row: 725
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/goddess_obj.lua
+    row: 55
+    column: 13
+    message: ' shadowing upvalue ''main_part'' on line 51'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/role.lua
+    row: 1175
+    column: 10
+    message: ' shadowing definition of variable ''bundle'' on line 1154'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/sceneobj/role.lua
+    row: 1175
+    column: 18
+    message: ' shadowing definition of variable ''asset'' on line 1154'
+  - severity: 0
+    path: Assets/Game/Lua/game/scene/widget/guide_arrow.lua
+    row: 36
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scoiety/apply_view.lua
+    row: 156
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scoiety/apply_view.lua
+    row: 213
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scoiety/friendrec_view.lua
+    row: 119
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scoiety/operate_list.lua
+    row: 393
+    column: 25
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/scoiety/operate_list.lua
+    row: 505
+    column: 40
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/scoiety/scoiety_enemy_view.lua
+    row: 74
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/scoiety/scoiety_enemy_view.lua
+    row: 133
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/serveractivity/activite_hongbao/activite_hongbao_data.lua
+    row: 15
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/serveractivity/collective_goals/collective_goals_data.lua
+    row: 127
+    column: 8
+    message: ' variable ''server_time'' was previously defined on line 124'
+  - severity: 0
+    path: Assets/Game/Lua/game/serveractivity/collective_goals/collective_goals_data.lua
+    row: 128
+    column: 8
+    message: ' variable ''activity_time'' was previously defined on line 125'
+  - severity: 0
+    path: Assets/Game/Lua/game/serveractivity/collective_goals/collective_goals_view.lua
+    row: 160
+    column: 8
+    message: ' variable ''bundle'' was previously defined on line 158'
+  - severity: 0
+    path: Assets/Game/Lua/game/serveractivity/collective_goals/collective_goals_view.lua
+    row: 160
+    column: 16
+    message: ' variable ''asset'' was previously defined on line 158'
+  - severity: 0
+    path: Assets/Game/Lua/game/serveractivity/collective_goals/collective_goals_view.lua
+    row: 162
+    column: 8
+    message: ' variable ''bundle'' was previously defined on line 160'
+  - severity: 0
+    path: Assets/Game/Lua/game/serveractivity/collective_goals/collective_goals_view.lua
+    row: 162
+    column: 16
+    message: ' variable ''asset'' was previously defined on line 160'
+  - severity: 0
+    path: Assets/Game/Lua/game/serveractivity/serveractivity_ctrl.lua
+    row: 14
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/setting/setting_data.lua
+    row: 630
+    column: 8
+    message: ' variable ''value'' was previously defined as an argument on line 604'
+  - severity: 0
+    path: Assets/Game/Lua/game/setting/setting_view.lua
+    row: 8
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/setting/setting_view.lua
+    row: 9
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/setting/setting_view.lua
+    row: 10
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/sharedata/user_vo.lua
+    row: 56
+    column: 8
+    message: ' variable ''role_info'' was previously defined as an argument on line
+      55'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/hun_qi/baozang_content_view.lua
+    row: 68
+    column: 53
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/hun_qi/hunqi_content_view.lua
+    row: 114
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/hun_qi/hunqi_content_view.lua
+    row: 283
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/hun_qi/hunqi_data.lua
+    row: 90
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/hun_qi/hunqi_data.lua
+    row: 131
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_compose_view.lua
+    row: 91
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 352
+    column: 10
+    message: ' shadowing definition of variable ''data'' on line 336'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 421
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 422
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 423
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 435
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 436
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 437
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 438
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 439
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 440
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 441
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 442
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 443
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_data.lua
+    row: 444
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_decompose_view.lua
+    row: 57
+    column: 29
+    message: ' shadowing upvalue argument ''index'' on line 56'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_group_view.lua
+    row: 51
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shen_ge_inlay_view.lua
+    row: 88
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shengxiao/shengxiao_equip_view.lua
+    row: 53
+    column: 8
+    message: ' variable ''list_delegate'' was previously defined on line 14'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shengxiao/shengxiao_miji_bag_view.lua
+    row: 39
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shengxiao/shengxiao_miji_bag_view.lua
+    row: 90
+    column: 49
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/shen_ge/shengxiao/shengxiao_miji_view.lua
+    row: 222
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/son_spirit_view.lua
+    row: 608
+    column: 3
+    message: ' loop is executed at most once'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_data.lua
+    row: 373
+    column: 8
+    message: ' variable ''level'' was previously defined as an argument on line 369'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_data.lua
+    row: 745
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_data.lua
+    row: 748
+    column: 21
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_data.lua
+    row: 749
+    column: 51
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_data.lua
+    row: 1200
+    column: 9
+    message: ' shadowing definition of variable ''data'' on line 1184'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_data.lua
+    row: 1240
+    column: 10
+    message: ' shadowing definition of variable ''attr_list'' on line 1233'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_data.lua
+    row: 1258
+    column: 10
+    message: ' shadowing definition of variable ''attr_list'' on line 1251'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_halo_huanhua_view.lua
+    row: 202
+    column: 3
+    message: ' loop is executed at most once'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_halo_view.lua
+    row: 283
+    column: 3
+    message: ' loop is executed at most once'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_halo_view.lua
+    row: 334
+    column: 10
+    message: ' shadowing definition of variable ''call_back'' on line 313'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_halo_view.lua
+    row: 372
+    column: 9
+    message: ' shadowing definition of variable ''next_grade_cfg'' on line 271'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_hunt_view.lua
+    row: 142
+    column: 8
+    message: ' shadowing definition of loop variable ''i'' on line 132'
+  - severity: 0
+    path: Assets/Game/Lua/game/spirit/spirit_soul_view.lua
+    row: 610
+    column: 4
+    message: ' loop is executed at most once'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/base_cg.lua
+    row: 123
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert.lua
+    row: 190
+    column: 48
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert.lua
+    row: 206
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert.lua
+    row: 294
+    column: 8
+    message: ' variable ''vo'' was previously defined on line 289'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_ai/active_attack_robert_ai.lua
+    row: 4
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_ai/active_attack_robert_ai.lua
+    row: 13
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_ai/base_robert_ai.lua
+    row: 51
+    column: 8
+    message: ' variable ''distance'' was previously defined as an argument on line
+      43'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_ai/base_robert_ai.lua
+    row: 56
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_manager.lua
+    row: 392
+    column: 40
+    message: ' shadowing upvalue argument ''skill_id'' on line 366'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_manager.lua
+    row: 392
+    column: 50
+    message: ' shadowing upvalue ''hit_count'' on line 379'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_manager.lua
+    row: 393
+    column: 25
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_manager.lua
+    row: 395
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_manager.lua
+    row: 396
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_manager.lua
+    row: 397
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_manager.lua
+    row: 405
+    column: 9
+    message: ' shadowing upvalue ''protocol'' on line 371'
+  - severity: 0
+    path: Assets/Game/Lua/game/story/robert_manager.lua
+    row: 442
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/task/task_data.lua
+    row: 718
+    column: 9
+    message: ' variable ''task_type'' was previously defined as an argument on line
+      717'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/ernie_view.lua
+    row: 94
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/ernie_view.lua
+    row: 95
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/ernie_view.lua
+    row: 273
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/ernie_view.lua
+    row: 276
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/fly_effect_view.lua
+    row: 31
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/fly_effect_view.lua
+    row: 147
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_chat_express_view.lua
+    row: 211
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_chat_express_view.lua
+    row: 241
+    column: 10
+    message: ' shadowing definition of argument ''obj'' on line 237'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_chat_express_view.lua
+    row: 252
+    column: 10
+    message: ' shadowing definition of argument ''obj'' on line 237'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_chat_express_view.lua
+    row: 365
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_common_func.lua
+    row: 680
+    column: 65
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_display_prop_modle_view.lua
+    row: 460
+    column: 45
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_display_prop_modle_view.lua
+    row: 589
+    column: 8
+    message: ' variable ''is_change_tab'' was previously defined as an argument on
+      line 588'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_equip_compare_view.lua
+    row: 346
+    column: 9
+    message: ' shadowing definition of variable ''bundle'' on line 266'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_equip_compare_view.lua
+    row: 543
+    column: 9
+    message: ' shadowing definition of variable ''bundle'' on line 484'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_lockvip_view.lua
+    row: 74
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_lockvip_view.lua
+    row: 75
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_lockvip_view.lua
+    row: 76
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_lockvip_view.lua
+    row: 77
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_lockvip_view.lua
+    row: 78
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_lockvip_view.lua
+    row: 79
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_lockvip_view.lua
+    row: 80
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_lockvip_view.lua
+    row: 81
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_open_fun_fly_view.lua
+    row: 96
+    column: 8
+    message: ' variable ''timer'' was previously defined as an argument on line 95'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_compare_view.lua
+    row: 246
+    column: 11
+    message: ' shadowing definition of variable ''bundle'' on line 170'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_compare_view.lua
+    row: 257
+    column: 13
+    message: ' shadowing definition of variable ''bundle'' on line 170'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_compare_view.lua
+    row: 268
+    column: 14
+    message: ' shadowing definition of variable ''bundle'' on line 170'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_compare_view.lua
+    row: 283
+    column: 13
+    message: ' shadowing definition of variable ''bundle'' on line 170'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_compare_view.lua
+    row: 314
+    column: 10
+    message: ' shadowing definition of loop variable ''k'' on line 241'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_compare_view.lua
+    row: 314
+    column: 12
+    message: ' shadowing definition of loop variable ''v'' on line 241'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_compare_view.lua
+    row: 324
+    column: 14
+    message: ' shadowing definition of variable ''bundle'' on line 170'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 178
+    column: 11
+    message: ' shadowing definition of variable ''bundle'' on line 102'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 189
+    column: 13
+    message: ' shadowing definition of variable ''bundle'' on line 102'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 200
+    column: 14
+    message: ' shadowing definition of variable ''bundle'' on line 102'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 215
+    column: 13
+    message: ' shadowing definition of variable ''bundle'' on line 102'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 222
+    column: 13
+    message: ' shadowing definition of variable ''bundle'' on line 102'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 247
+    column: 9
+    message: ' shadowing definition of loop variable ''k'' on line 173'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 247
+    column: 11
+    message: ' shadowing definition of loop variable ''v'' on line 173'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 257
+    column: 13
+    message: ' shadowing definition of variable ''bundle'' on line 102'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_equip_view.lua
+    row: 281
+    column: 8
+    message: ' variable ''vo'' was previously defined on line 122'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_other_role_equip_view.lua
+    row: 416
+    column: 9
+    message: ' shadowing definition of variable ''equip_index'' on line 337'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_pet_bag_view.lua
+    row: 156
+    column: 40
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_spirit_equip_view.lua
+    row: 190
+    column: 11
+    message: ' shadowing definition of variable ''bundle'' on line 145'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_spirit_equip_view.lua
+    row: 207
+    column: 14
+    message: ' shadowing definition of variable ''bundle'' on line 145'
+  - severity: 0
+    path: Assets/Game/Lua/game/tips/tips_total_attr_view.lua
+    row: 148
+    column: 8
+    message: ' variable ''total_level'' was previously defined on line 144'
+  - severity: 0
+    path: Assets/Game/Lua/game/vip/temp_vip_view.lua
+    row: 12
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/vip/vip_content_view.lua
+    row: 13
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/vip/vip_content_view.lua
+    row: 14
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/vip/vip_content_view.lua
+    row: 208
+    column: 8
+    message: ' variable ''reward_vip_id'' was previously defined on line 188'
+  - severity: 0
+    path: Assets/Game/Lua/game/vip/vip_ctrl.lua
+    row: 28
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/vip/vip_data.lua
+    row: 273
+    column: 8
+    message: ' variable ''vip_level'' was previously defined as an argument on line
+      270'
+  - severity: 0
+    path: Assets/Game/Lua/game/vip/vip_view.lua
+    row: 89
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/welfare/offline_exp_view.lua
+    row: 23
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/welfare/offline_exp_view.lua
+    row: 110
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/welfare/online_reward_view.lua
+    row: 114
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/welfare/welfare_exchange_view.lua
+    row: 44
+    column: 29
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/welfare/welfare_exchange_view.lua
+    row: 45
+    column: 12
+    message: ' shadowing upvalue ''url'' on line 25'
+  - severity: 0
+    path: Assets/Game/Lua/game/yunbiao/yunbiao_view.lua
+    row: 47
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/game/yunbiao/yunbiao_view_main.lua
+    row: 200
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/yunbiao/yunbiao_view_main.lua
+    row: 201
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/game/yunbiao/yunbiao_view_main.lua
+    row: 202
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/gameui/widgets/role_model.lua
+    row: 566
+    column: 10
+    message: ' shadowing definition of variable ''bundle'' on line 541'
+  - severity: 0
+    path: Assets/Game/Lua/gameui/widgets/role_model.lua
+    row: 566
+    column: 18
+    message: ' shadowing definition of variable ''asset'' on line 541'
+  - severity: 0
+    path: Assets/Game/Lua/init/init_ctrl.lua
+    row: 130
+    column: 35
+    message: ' shadowing upvalue ''url'' on line 122'
+  - severity: 0
+    path: Assets/Game/Lua/init/init_ctrl.lua
+    row: 293
+    column: 33
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/manager/report_manager.lua
+    row: 149
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/play.lua
+    row: 99
+    column: 27
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/play.lua
+    row: 100
+    column: 17
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/play.lua
+    row: 101
+    column: 30
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/play.lua
+    row: 109
+    column: 78
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/play.lua
+    row: 110
+    column: 21
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/play.lua
+    row: 111
+    column: 9
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/protocolcommon/userprotocol/protocol_024.lua
+    row: 154
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/protocolcommon/userprotocol/protocol_044.lua
+    row: 81
+    column: 31
+    message: ' trailing whitespace in a comment'
+  - severity: 0
+    path: Assets/Game/Lua/protocolcommon/userprotocol/protocol_060.lua
+    row: 74
+    column: 81
+    message: ' trailing whitespace in a comment'
+  - severity: 0
+    path: Assets/Game/Lua/protocolcommon/userprotocol/protocol_065.lua
+    row: 302
+    column: 7
+    message: ' variable ''KILLER_LIST_MAX_COUNT'' was previously defined on line 285'
+  - severity: 0
+    path: Assets/Game/Lua/protocolcommon/userprotocol/protocol_065.lua
+    row: 341
+    column: 7
+    message: ' variable ''MAX_BOSS_COUNT'' was previously defined on line 321'
+  - severity: 0
+    path: Assets/Game/Lua/protocolcommon/userprotocol/protocol_082.lua
+    row: 150
+    column: 9
+    message: ' variable ''vo'' was previously defined on line 140'
+  - severity: 0
+    path: Assets/Game/Lua/systool/bindtool.lua
+    row: 98
+    column: 1
+    message: ' line contains only whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/systool/gamemath.lua
+    row: 439
+    column: 8
+    message: ' variable ''big_num'' was previously defined on line 435'
+  - severity: 0
+    path: Assets/Game/Lua/systool/prefab_preload.lua
+    row: 107
+    column: 6
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/systool/prefab_preload.lua
+    row: 112
+    column: 5
+    message: ' line contains trailing whitespace'
+  - severity: 0
+    path: Assets/Game/Lua/systool/render_budget.lua
+    row: 52
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/systool/render_budget.lua
+    row: 69
+    column: 1
+    message: ' inconsistent indentation (SPACE followed by TAB)'
+  - severity: 0
+    path: Assets/Game/Lua/utils/richtext_util.lua
+    row: 1070
+    column: 8
+    message: ' variable ''act_name'' was previously defined on line 1069'
+  - severity: 0
+    path: Assets/Game/Lua/utils/richtext_util.lua
+    row: 1353
+    column: 10
+    message: ' shadowing definition of variable ''scene_type'' on line 1344'
+  - severity: 0
+    path: Assets/Game/Lua/utils/richtext_util.lua
+    row: 1403
+    column: 54
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/utils/richtext_util.lua
+    row: 1414
+    column: 55
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/utils/richtext_util.lua
+    row: 1416
+    column: 47
+    message: ' empty if branch'
+  - severity: 0
+    path: Assets/Game/Lua/utils/richtext_util.lua
+    row: 1421
+    column: 47
+    message: ' empty if branch'

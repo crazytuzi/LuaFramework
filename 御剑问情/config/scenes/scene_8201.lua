@@ -1,0 +1,50 @@
+return {
+	id = 8201,
+	name = "宝宝boss一层",
+	scene_type = 66,
+	bundle_name = "scenes/map/w2_hd_shuijinghuanjing",
+	asset_name = "W2_HD_ShuiJingHuanJing",
+	width = 302,
+	height = 308,
+	origin_x = -0.5,
+	origin_y = -2,
+	levellimit = 315,
+    is_forbid_pk = 0,
+    skip_loading = 0,
+    show_weather = 0,
+    scenex = 150,
+    sceney = 155,
+	npcs = {
+	},
+	monsters = {
+		{id=4601, x=151, y=261},
+		{id=4602, x=151, y=46},
+		{id=4603, x=259, y=153},
+		{id=4604, x=43, y=153},
+		{id=4651, x=86, y=226},
+		{id=4651, x=81, y=216},
+		{id=4651, x=90, y=215},
+		{id=4651, x=83, y=221},
+		{id=4651, x=213, y=94},
+		{id=4651, x=221, y=93},
+		{id=4651, x=225, y=88},
+		{id=4651, x=211, y=88},
+		{id=4651, x=218, y=86},
+		{id=4651, x=92, y=222},
+	},
+	doors = {
+	},
+    gathers = {
+	},
+    jumppoints = {
+    },
+    fences = {
+	},
+    effects = {
+		{bundle="effects2/prefab/misc/anquanqu_prefab", asset="anquanqu.prefab", offset={0, 0, 0}, rotation={0, 0, 0}, x=164, y=154, scale={1, 1, 1}},
+		{bundle="effects2/prefab/misc/anquanqu_prefab", asset="anquanqu.prefab", offset={0, 0, 0}, rotation={0, 0, 0}, x=150, y=140, scale={1, 1, 1}},
+		{bundle="effects2/prefab/misc/anquanqu_prefab", asset="anquanqu.prefab", offset={0, 0, 0}, rotation={0, 0, 0}, x=150, y=168, scale={1, 1, 1}},
+		{bundle="effects2/prefab/misc/anquanqu_prefab", asset="anquanqu.prefab", offset={0, 0, 0}, rotation={0, 0, 0}, x=137, y=154, scale={1, 1, 1}},
+	},
+    mask = "XQAAQAAAAIBBSAGMLrxQoTOHS9QCFLXxkeYia0jJVnawRltXgLve3h+TVQ+vA1or6296pBjX9AjCAvp7GIBFBbf+9JvKjr3IAZQNIiZOZZNiMl4LB6Po22Et/D9XfmNzP4STH40o/PEi2R25J7p3EwX3Qge0EU/UCX/sLYz7EYfiI2ICi2+8+sJM4xPkh2oed4ESnczFMhSIGpn236TAdN+yQprfZ4tJb4UQRgoizH/zfOvXjKyDqwkSGUVOfL2xNR8XbSfYxv3ciHdMSCBL0qKmD7jaPfP3LLH1Elfo+jVR2+oULaV461uzKqtqnzZwhXl5EcP9w6e3avk7o9ujRcJ+NQMUMo+hz6K6mUhqnJcZSFJByeM33MbnrupnhPwU3w8ZR4U513TwU9u6musmc16qgYH9z0tZDB0Rg5b4EG6gfBmFdUml1iXpY2wDrdXp9qwl9V+UlBgiu5lI5A1yLdhKIOhSiV9Pw+y4t65tG7siqBsJvTS6Bh9JaqTCqPe4q2RQaBxtSG4S6NpacICqlAvZCJGwUpysM9nVkW30Oo8pAJKNYCZCKYa+HuHNyS5rBjl7Ui2SyXFeNoKS3Jl+R/BzPfa/5/Wj18YKKJ+eGsKr1AK99gBKqWviPg5mgFl9HODgXkEWrxqV/zcKeg9gw/1sq9N+ZWto9fPWAjAl05rP5KwBNsNTnz7fx5wX8ca770Qk03HhWW5QWxvEtEddciG1pDUrj8BCvLmfvf2dW+8LIhq1DA+AbbBlmm1eAdPmc6ztOuk43doysOj98+bQ/IHVfUASHj0U4HMu4iA5fJBqmKyTLMGmpSisZ8JHPWb7p+7ge5Jg4j22GMDcl0TZoI5Iz3Nfc9zc+fW0wnKNpFYjL7mUkU7Zc+8wkszzBB86uXSGGK/JXpRId1r+zh2s6SYbyvOkPkNuWKs9yL5JOHPM1cRLTrOD5UA3KT8yL9G9B7b2FoBVYSiTOm/fcc/WK0kiXr3R5G929hOgpOUZmvSSu3JOL6RvzVNVqMoqhdR2XdSi+8Ha8ekUWzPSI+X3uC7dsdadIf4QYytQ8nS8MLqRVy3HUNucoIpPbqBw/b9onX5O+aXM5/p40mITp3c++MZDw1VSs1NPjoZK81CBoEmQPUlN8dRGopSlykLEhOL63uNBoD/FWoY172SyP0PTWQzJE9cydctI1eR8B/Ic8riWNhz+9ecoEkCEiPplvj2IqRV2mJsFPJWsxSZm9qJ8Wi+1UpHCXr0/b3s9D2LmCkVLhVdGZs6mXdMsl9gl6NRflk98S6nfqZ9HGcQg2TDxlVeVAYm/iZe1QLeiKyK294N4DxRC4mboRIwR7faUxy0rBo9E5JvdAduxmPc6PYzaT+m6kgUJFTkJZYX96JrTTNIxt5E+I4EzSP5Z9052mtzUpnDIcULZS5zkItHCJgpu2eB1z/uSwTD1GOh6nv/XRg8VBhw+WmKM7TvpeGJZiYhmJQ7gHrZBNGbVUrZkyveyjzfiMTDGOEEOWqMKfEThAaV+Ilr9AlDoQSbqIPGhahPLDreUHioOMmvOpv1lK6vPSWtalf9F/LYfqXyIbsRJAHMnRaV3HrakrpQ/rQgYyObzsJsAJeUmh+0qG5jsDU4gHXNgteM0CcFLYQkT6hFEDtkDwvEZg64WNGHmRkhScowHD1TBRQrsUMZi+0U1qYatCa2Q6uKEdVDh0SUJFYaSYjjv4+J42St+rN6P4tz6sTXQh0lWTM2vVNCFMpcX3gPxzZ+jI/QCc43d0LKARlupKOEi8U63MxqPc8j4IW17k8SiCYxM9HvVeLN80cnFpHvSC4wp55fTU3wjJKIJl1860UmTjhsWX4vWYsC31w1iCJ77qFhy8v+OmtQx+fbMmEDL0MYAXc7xTMuRTFV6+ie6rwD2Sx89/ok/rDy2LWfTqz0Iv6YEGn3sSUMbyoU/lpVZjNlV+H2fmCr2h64ax0KdY8CdRbRk34cjozhZ0hlGMg3ZuUSpYQUjhXN0c8bo+BE9MtksYrsEkiPLABtCTRAy5XbsX4ts8IrsLeGG21lJuAWvgYJu9vUVWmDLFDg2L3c73e9ltZqQTjqQ/P/3yc1aE5PsCuCReH8LHG7uE1vDluQdhPxDkdaQli+GPGNgWh1BEzeDDCwwiBiut5gWfRiJ+jldflxd1we7jSmagv5gm53Jp8fZn44OYGXLF8/TymXswpam54pmSPf//x5S4QA=",
+}
