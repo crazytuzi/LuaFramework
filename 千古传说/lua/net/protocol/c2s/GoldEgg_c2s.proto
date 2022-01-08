@@ -1,0 +1,32 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SGoldEggMsg";
+
+// code = 0x4701
+//请求砸蛋信息
+message GoldEggInfo
+{
+}
+
+// code = 0x4702
+//请求砸蛋
+message GoldEggResult
+{
+	required int32 type  = 1; 				//1金蛋2银蛋
+	required int32 count = 2; 				//砸蛋次数
+}
+
+// code = 0x4703
+//请求砸蛋信息
+message EggRecordList
+{
+	required int32 curCount  = 1; 			//当前数量
+	required int32 count = 2; 				//拉取数量
+	required int32 type = 3;				//1个人历史2玩家历史
+}
+
+//code = 0x4704
+//请求刷新排行
+message FreshEggRank
+{
+}

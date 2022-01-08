@@ -1,0 +1,31 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SChatMsg";
+//聊天
+// code = 0x1B01
+message ChatMsg             
+{
+	required int32 chatType = 1;	// 聊天类型；1、公共，2、帮派；3、GM；4、私聊
+	required string content = 2;	//消息;
+	optional string playerName = 3;	//私聊对象的name
+	optional int32 playerId=4;	//私聊玩家编号
+}
+
+//切换当前聊天玩家
+// code = 0x1b04
+message SwapCurrentChatPlayer
+{
+	required int32 playerId=1;//玩家编号
+}
+
+//获取私聊列表
+// code = 0x1b05
+message GainPrivateChatListRequster
+{
+
+}
+//获取聊天信息
+//code = 0x1b07
+message GainChatInfo{
+	required int32 type =1; //类型 1世界、2公会
+}

@@ -1,0 +1,64 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2COpenServiceActivityMsg";
+
+//code = 0x3300
+//运营活动状态
+message OpenServiceActivityStatus
+{
+	required int32 type = 1;			//类型：0表示全部
+	required int32 status = 2; 			//状态：1、未开始；2、进行中；3已结束
+	required string startTime = 3;      //开始时间：yyyy-MM-dd HH:mm:ss
+	required string endTime = 4;		//结束时间：yyyy-MM-dd HH:mm:ss
+}
+
+//code = 0x3301
+//运营活动状态列表，批量更新
+message OpenServiceActivityStatusList
+{
+	repeated OpenServiceActivityStatus statusList = 1; 		//活动状态列表
+}
+
+//code = 0x3302
+//活动领奖记录
+message OpenServiceActivityRewardRecord
+{
+	required int32 logonDayCount = 1; 					//登录天数
+	required int32 logonReward = 2; 					//登录奖励领取记录，位运算，低位到高位，每一位表示一个奖励是否领取，0为未领取，领取后为1
+	required int32 onlineRewardCount = 3; 				//当日在线奖励领取次数，取值0～n
+	required string onlineRewardLastGetTime = 4; 		//当日最后一次领取奖励的系统时间:yyyy-MM-dd HH:mm:ss
+	required int32 onlineRewardRemainingTimes = 5;		//在线奖励剩余等待时间，0表示可以领取
+	required int32 teamLevelReward = 6; 				//团队等级奖励领取记录，位运算，低位到高位，每一位表示一个奖励是否领取，0为未领取，领取后为1
+}
+
+//开服活动排行榜条目
+message ActivityRankItem
+{
+	required int32 playerId = 1;					//玩家ID
+	required int32 rankValue = 2;					//排行榜分数（数值）
+	required string name = 3;						//名称
+	required string otherDisplay = 4;				//其他显示信息表达式
+}
+
+//code = 0x3303
+//排行榜
+message ActivityRankList
+{
+	required int32 type = 1;						//排行榜类型
+	repeated ActivityRankItem rank = 2; 			//排行榜条目列表，循环，从高到低顺序
+}
+
+//code = 0x3304
+//所有排行榜
+message AllActivityRankList
+{
+	repeated ActivityRankList rankList = 1;			//排行榜列表
+}
+
+//code = 0x3305
+//领取活动奖励成功通知
+message GetActivityRewardSuccess
+{
+	required int32 type = 1;						//活动类型
+	required int32 rewardId = 2;					//奖励配置表的ID
+}

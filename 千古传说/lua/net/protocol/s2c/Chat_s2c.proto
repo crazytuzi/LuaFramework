@@ -1,0 +1,77 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CChatMsg";
+
+//聊天
+// code = 0x1B01
+message ChatMsgResult            
+{
+	optional int32 playerId = 1; //如果是私聊，返回我聊天的人的id
+}
+
+
+
+//聊天
+// code = 0x1B02
+message ChatReceive             
+{	
+	repeated ChatInfo chat = 1;
+}
+
+//聊天信息结构体
+message ChatInfo
+{
+	required int32 chatType = 1;		//聊天类型；1、公共，2、私聊；3、帮派；
+	required string content = 2;		//消息;
+	required int32 playerId = 3;		//说话人的id
+	required int32 roleId = 4;			//主角角色ID，卡牌ID
+	required int32 quality = 5;			//说话角色的主角品质
+	required string name = 6;			//说话人的名字
+	required int32 vipLevel =7;			//VIP等级
+	required int32 level = 8; 			//玩家等级
+	required int64 timestamp = 9;		//消息发送时间
+	optional int32 guildId = 10; 		//公会编号
+	optional string guildName = 11; 	//公会名称
+	optional int32 competence = 12;		//公会职位 1会长 2副会长 3成员
+	repeated int32 invitationGuilds = 13;//邀请过他的公会
+	optional int32 titleType = 14;		//称号类型
+	optional int32 guideType = 15;		//指导员类型
+	required int32 icon = 16;			//头像
+	required int32 headPicFrame = 17; 				 //头像边框
+	optional int32 serverId = 18;
+	optional string serverName = 19;
+}
+
+//敏感词汇
+// code = 0x1B03
+message SensitiveWords             
+{	
+	required string words = 1;		//敏感词汇
+}
+
+//切换当前聊天玩家
+// code = 0x1b04
+message SwapChatPlayer
+{
+	repeated ChatInfo chat = 1;
+}
+
+//获取私聊列表
+// code = 0x1b05
+message PrivateChatList
+{
+	repeated int32 playerId = 1; //玩家列表
+}
+
+//新私聊消息
+// code = 0x1b06
+message NewPrivateChatMessage
+{
+	optional int32 playerId = 1; //私聊的玩家
+}
+//获取聊天信息
+//code = 0x1b07
+message GainChatInfoResp{
+	repeated ChatInfo infos =1;
+}
+

@@ -1,0 +1,12 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ id = 1, delay = 180, reward_id = 1})
+mapArray:push({ id = 2, delay = 300, reward_id = 1})
+mapArray:push({ id = 3, delay = 600, reward_id = 1})
+mapArray:push({ id = 4, delay = 900, reward_id = 1})
+mapArray:push({ id = 5, delay = 1200, reward_id = 1})
+mapArray:push({ id = 6, delay = 1800, reward_id = 1})
+mapArray:push({ id = 7, delay = 1800, reward_id = 1})
+mapArray:push({ id = 8, delay = 1800, reward_id = 1})
+mapArray:push({ id = 9, delay = 1800, reward_id = 1})
+mapArray:push({ id = 10, delay = 1800, reward_id = 1})
+return mapArray

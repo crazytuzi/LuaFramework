@@ -1,0 +1,91 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "C2SBattleMsg";
+
+//code = 0x0F02
+message FightEndRequest
+{
+	required int32 fighttype = 1;			//战斗类型。1：推图；2：铜人阵；3：豪杰榜；4：天罡星;5:无量山；6：大宝藏；7：护驾
+	required bool  win = 2; 				//战斗是否在客户端判断为胜利
+	repeated FightAction actionlist = 3; 	//战斗action
+	repeated LiveRole livelist = 4; 		//战斗结束后剩余角色
+	required int32 angerSelf = 5;			//己方怒气
+	required int32 angerEnemy = 6;			//对方怒气
+	repeated RoleHurtCount hurtcountlist = 7; 		//伤害计算 
+}
+
+message LiveRole
+{
+	required int32 posindex = 1;			//位置
+	required int32 currhp = 2;  			//剩余血量
+}
+
+message RoleHurtCount
+{
+	required int32 posindex = 1;			//位置
+	required int32 hurt = 2;  				//伤害计算
+}
+
+
+
+message FightAction
+{
+	required bool  bManualAction = 1;		//是否主动技能
+	required int32 roundIndex = 2;  		//当前回合
+	required int32 attackerpos = 3;  		//攻击者位置
+	required int32 skillid = 4;				//技能id
+	required int32 skillLevel = 5;				//技能id
+	required bool  bBackAttack = 6;			//是否反击
+	repeated TargetInfo targetlist = 7;
+	repeated StateInfo stateList = 8;		//产生的状态
+	optional int32 triggerType = 9;	//触发技能类型87
+}
+
+message StateInfo
+{
+	required int32 frompos = 1;					//状态产生自谁行为发起者还是目标
+	required int32 targetpos = 2;				//获得状态的目标
+	required int32 stateId = 3;					//触发的状态ID，触发了哪个状态。始终是frompos对应角色身上的状态列表中的状态
+	required int32 skillId = 4; 				//状态时由哪个技能触发的。始终是frompos对应角色身上的技能
+	required int32 skillLevel = 5;				//技能id
+	required int32 bufferId = 6;				//targetpos的角色获得的状态ID
+	required int32 bufferLevel = 7;				//技能id
+}
+
+message TargetInfo                 
+{   
+	required int32 targetpos = 1;  			//受击者位置
+	required int32 effect = 2;				//受击效果
+	required int32 hurt = 3;				//受击伤害
+	required int32 triggerBufferID = 4;		//触发bufferID
+	required int32 triggerBufferLevel = 5;		//触发bufferID
+	required int32 passiveEffect = 6;		//被动效果类型
+	required int32 passiveEffectValue = 7;	//被动效果值
+	required int32 activeEffect = 8;		//主动效果类型
+	required int32 activeEffectValue = 9;	//主动效果值
+}
+
+//受击效果
+enum AttackedEffect
+{	
+	ATTACKED_EFFECT_NORMAL = 1; 	//普通受击
+	ATTACKED_EFFECT_VIOLENT = 2; 	//暴击
+	ATTACKED_EFFECT_AVOID = 3; 		//闪避
+	ATTACKED_EFFECT_ANGER = 4; 		//战场技 加减怒
+	ATTACKED_EFFECT_HP = 5; 		//战场技 加减血
+}
+
+message FightReplayRequest
+{
+	required int32 reportId = 1;			//战报ID
+}
+//观看服务器战斗录像
+//code = 0x0F23
+message WatchServerBattleReplay{
+	required int32 replayId =1;
+}
+//观看服务器战斗录像
+//code = 0x0F24
+message WatchCrossServerBattleReplay{
+	required int32 replayId =1;
+}

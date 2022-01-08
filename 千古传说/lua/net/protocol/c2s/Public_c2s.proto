@@ -1,0 +1,33 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SPublicMsg";
+
+//请求设置功能状态
+// code = 0x7f21
+message RequestSetFuncState
+{
+	repeated FunctionState stateList = 1;
+}
+
+//功能状态
+message FunctionState
+{
+	required int32 functionId = 1; 	//功能ID，客户端定义，服务器只做存储，无任何逻辑需求
+	required bool newMark = 2; 		//状态标记，true：新状态，false：无
+}
+
+//禁言玩家
+//code = 0x7f30
+message GagPlayerRequest
+{
+	required int32 targetId = 1;		//目标玩家ID
+	required int32 type = 2;			//操作类型
+}
+
+//举报玩家
+//code = 0x7f31
+message ReportPlayerRequest
+{
+	required int32 targetId = 1;		//目标玩家ID
+	required int32 type = 2;			//操作类型
+}

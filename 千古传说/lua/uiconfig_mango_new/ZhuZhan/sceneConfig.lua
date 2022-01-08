@@ -1,0 +1,43 @@
+local t = {
+		{
+			name="ZhuzhanMain",
+			ui ="ZhuzhanMain.lua",
+			x=0,
+			y=0,
+			speed=0,
+			layer="ZhuZhan",
+			canLoad=true,
+			logic="",
+		},
+		{
+			name="ZhuzhanCell1",
+			ui ="ZhuzhanCell1.lua",
+			x=0,
+			y=0,
+			speed=0,
+			layer="ZhuZhan",
+			canLoad=true,
+			logic="",
+		},
+		{
+			name="ZhuzhanCell2",
+			ui ="ZhuzhanCell2.lua",
+			x=0,
+			y=0,
+			speed=0,
+			layer="ZhuZhan",
+			canLoad=true,
+			logic="",
+		},
+		{
+			name="ZhuzhanRukou",
+			ui ="ZhuzhanRukou.lua",
+			x=0,
+			y=0,
+			speed=0,
+			layer="ZhuZhan",
+			canLoad=true,
+			logic="",
+		},
+}
+return t

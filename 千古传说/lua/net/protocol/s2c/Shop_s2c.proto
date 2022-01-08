@@ -1,0 +1,172 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CShopMsg";
+
+//code = 0x1900
+//固定商店购买成功通知
+message BuySuccessNotify
+{
+	required int32 commodityId = 1; 		//商品 id
+	required int32 num = 2; 				//商品个数
+} 
+
+//code = 0x1901
+//获取已购买的商品信息
+message GetHasPurchased
+{
+	repeated HasPurchasedCommodity commodity = 1;
+}
+
+//固定商店已经购买的商品信息
+message HasPurchasedCommodity
+{
+	required int32 commodityId = 1;		//购买商品的id
+	optional int32 num = 2;				//已购买数量
+}
+
+//随机商品，描述随机商店中的单个可购买的商品信息
+message RandomCommodity
+{
+	required int32 commodityId = 1;	//商品的id
+	required int32 num = 2;			//已购买数量
+	optional bool enabled = 3;      //此商品是否可以购买
+}
+
+//code = 0x1902
+//随机商店
+message RandomStore
+{
+	required int32 type = 1;					//随机商店类型
+	repeated RandomCommodity commodity = 2;		//随机商店商品列表
+	required int64 nextAutoRefreshTime = 3;		//距离下次刷新所剩余的时间，单位/毫秒
+	required int32 nextRefreshCost = 4;			//下次手动刷新花费元宝
+	required int32 manualRefreshCount = 5; 		//当日手动刷新次数，累计，到了某个特定时间点会重置
+	optional int64 opentime = 6;				//开启时间，单位/毫秒
+}
+
+//code = 0x1904
+//所有随机商店，在每日某个时间点会重置商店信息，主要是消耗和手动刷新次数，这个时候需要服务器推送消息到客户端
+message AllRandomStore
+{
+	repeated RandomStore store = 1;		//商店
+}
+
+//code = 0x1905
+//随机购买成功通知
+message RandomStoreBuySuccessNotify
+{
+	required int32 type = 1;				//随机商店类型
+	required int32 commodityId = 2; 		//商品id
+	required int32 num = 3; 				//商品个数
+}
+
+//code = 0x1906
+//群豪谱积分商店购买成功通知
+message HerotSoreBuySuccessNotify
+{
+	required int32 commodityId = 1; 		//购买商品的id
+	required int32 num = 2; 				//购买商品的个数
+}
+
+//code = 0x1907
+//群豪谱积分商店可兑换商品ID列表
+message HerotSoreExchangableIdList
+{
+	repeated int32 commodityId = 1;		//群豪谱积分商店可兑换商品ID
+}
+
+//code = 0x1908
+//随机商城开放
+message RandomMallOpen
+{
+	required int32 type = 1;					//随机商店类型
+	optional int64 opentime = 2;				//开启时间，单位/毫秒
+}
+
+//code = 0x1910
+//商城许愿
+message RandomMallWishResult
+{
+	required int32 commodityId = 1; 		//许愿商品的id
+}
+
+//code = 0x1912
+message MysteryShopBuyResult
+{
+	required int32 state = 1;				//结果(0:成功)
+}
+
+//code = 0x1920
+//购买铜币结果
+message BuyCoinResult
+{
+	required int32 consume = 1;				//消耗的元宝数量
+	required int32 coin=2;					//获得铜币数量
+	required int32 mutil=3;					//倍数
+}
+
+//code = 0x1921
+//已经使用的购买铜币次数
+message UsedBuyCoinCount
+{
+	required int32 count=1;					//已经购买铜币的次数
+}
+
+//code = 0x1930
+//多次购买
+message CountBuyCoinResult
+{
+	repeated BuyCoinResult result=1;					//多次购买的返回
+}
+
+//code = 0x1923
+//商城单个礼包信息
+message ShopGiftInfo
+{
+	required int32 id = 1;				//商店序号
+	required int32 type =2;				//礼包商城类型
+	required int32 resType=3;			//出售道具的资源类型
+	required int32 resId = 4;			//出售道具的ID
+	required int32 number =5;			//单次购买数量
+	required int32 consumeType=6;		//购买道具的资源类型
+	required int32 consumeId = 7;		//购买道具的ID
+	required int32 consumeNumber =8;	//花费值
+	required int32 isLimited = 9;		//是否有出售限制
+	required int32 consumeAdd=10;		//每次购买递增价格值
+	required int32 needVipLevel=11;		//购买所需的vip等级
+	required int64 beginTime =12;		//上架时间
+	required int64 endTime = 13;		//下架时间
+	required int32 maxType = 14;			//最大值类型
+	required int32 maxNum =15;			//出售上限值
+	required string vipMaxNumMap=16;	//各VIP等级下可购买数量
+	required int32 oldPrice = 17;		//原价
+	required int32 limitType =18;		//限制类型
+	required int32 isHot=19;			//是否热卖
+	required int32 timeType = 20;		//限时类型
+	required int32 orderNo=21;			//排序值
+}
+
+//code = 0x1924
+//礼包信息列表
+message ShopGiftInfoList
+{
+	repeated ShopGiftInfo giftList = 1;			//礼包信息列表
+	required int32 type=2;		//操作类型
+}
+
+message MysteryShopInfo{
+	required int32 id = 1;				//商品序号
+	required int32 resType = 2;			//道具资源类型
+	required int32 resId = 3;			//道具id
+	required int32 resNumber = 4;		//道具数量
+	required int32 consumeType = 5;		//消耗资源类型
+	required int32 consumeId = 6;		//消耗资源id
+	required int32 consumeNumber = 7;	//消耗资源数量
+}
+
+//code = 0x1925
+message MysteryShopList{
+	repeated MysteryShopInfo info = 1;	//商店道具信息
+	required int64 beginTime = 2;		//开始时间
+	required int64 endTime = 3;			//结束时间
+}

@@ -1,0 +1,50 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2STreasureMsg";
+
+//code = 0x2200
+//争夺宝藏挖掘点
+message ChallengeMiningPoint
+{
+	required int32 type = 1; 		//宝藏类型。1：连城宝藏；2：闯王宝藏；3：大清龙脉
+	required int32 index = 2; 		//宝藏挖掘点索引，第几个位置。1……n
+	optional int32 employType = 3;	//佣兵阵形类型，如果不是使用佣兵为0
+}
+
+//code = 0x2201
+//获取宝藏挖掘点列表信息，此消息在客户端移动屏幕时使用
+message GetMiningPointList
+{
+	required int32 type = 1; //宝藏类型。1：连城宝藏；2：闯王宝藏；3：大清龙脉
+	required int32 begin = 2; //起始索引，宝藏挖掘点索引，第几个位置。1……n
+	required int32 end = 3; //结束索引，宝藏挖掘点索引，第几个位置。1……n
+}
+
+//code = 0x2202
+//获取自己所占据的宝藏挖掘点位置，并且返回附近的挖掘点列表信息。此协议在首次进入宝藏时请求服务器
+message GetMiningPointListAroundMine
+{
+	required int32 type = 1; //宝藏类型。1：连城宝藏；2：闯王宝藏；3：大清龙脉
+	required int32 begin = 2; //起始索引，宝藏挖掘点索引，第几个位置。1……n
+	required int32 end = 3; //结束索引，宝藏挖掘点索引，第几个位置。1……n
+}
+
+//code = 0x2203
+//查询自己所获得的宝藏
+message QueryMyTreasureInfo
+{
+}
+
+//code = 0x2205
+//开启江湖宝藏宝箱
+message OpenTreasureBox
+{
+	required int32 index = 1; 	//开启的宝箱索引，1…………n
+}
+
+//code = 0x2206
+//选择额外带走附带的宝箱。根据上一次开启的宝箱信息额外赠予4个宝箱，并且自动由服务器开启
+message ChooseExtraAwayTreasureBox
+{
+
+}

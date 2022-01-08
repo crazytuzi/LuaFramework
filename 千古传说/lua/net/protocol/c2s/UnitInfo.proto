@@ -1,0 +1,77 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SUnitInfoMsg";
+
+//code = 0x0e70
+message GetPlayerBaseInfo
+{
+	required int32 playerId = 1; //玩家id
+}
+
+//code = 0x0e71
+message GetPlayerDetails
+{
+	required int32 playerId = 1; 	//玩家id
+	optional int32 type = 2;		//类型
+}
+
+//code = 0x0e73
+message GetOtherRoleDetails{
+	required int32 playerId = 1;	//玩家ID
+	required int64 instanceId = 2;	//角色实例ID
+}
+
+//code = 0x0e80
+//请求更新新手引导进度
+message UpdateBeginnersGuideSetpRequest
+{
+	required int32 beginnersGuide = 1;  //新手进度
+	required string openlist = 2; 		//已开放玩法列表
+}
+
+//code = 0x0e90
+//召唤侠魂，在侠魂足够的时候通过此协议请求服务器将特定侠魂合成侠士
+message SummonPaladin
+{
+	required int32 soulId = 1;		//侠魂ID
+}
+
+//code = 0x0e0c
+//主角角色选择技能
+message SelectSpellRequest
+{
+	required int32 spellId = 1;			//技能等级ID，选择的技能ID
+}
+
+//code = 0x0e11
+//玩家修改名称
+message UpdatePlayerName
+{
+	required string Name = 1;			//新的名称
+}
+
+//code = 0x0e91
+//请求更换头像
+message ChangeIconRequest
+{
+	required int32 iconId = 1;			//更换的头像ID
+}
+
+
+//获得角色简单信息
+// code = 0x0e98
+message GainSimpleInfo{
+	required int32 playerId = 1;
+}
+
+//获得跨服其他玩家信息
+//code = 0x0e99
+message GainCrossOtherInfo{
+	required int32 playerId = 1;
+	required int32 serverId = 2;
+}
+
+//code = 0x0e34
+//第一次上线红点提示
+message FirstOnlinePromptRequest {
+}

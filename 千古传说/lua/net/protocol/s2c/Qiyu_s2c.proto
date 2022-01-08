@@ -1,0 +1,34 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CQiyu";
+
+message DietInfo
+{
+	required int32 type = 1;		//类型：1:午餐；2:晚餐；3:夜宵
+	required int32 status = 2;		//状态：1:准备中；2:就绪；3:已经使用；4:超时
+}
+
+// code = 0x2501 获得用餐信息
+message GetDining
+{
+	required string lastTime = 1; 	//最后用膳时间，表达式：2015-09-05 12:08:23
+	repeated DietInfo info = 2;		//膳食信息
+}
+
+// code = 0x2502 用餐
+message Dining
+{
+	required int32 	power = 1; 			// 获得体力
+}
+
+//code = 0x2503
+//获得运营活动开关信息
+message FactionSwithList
+{
+	repeated FactionSwith swithList = 1;
+}
+message FactionSwith
+{
+	required int32 factionId = 1;			// 运营活动ID;1御膳房; 2邀请码;3龙门镖局 ;4护驾 ;5月卡;
+	required bool  isOpen = 2;		//是否开启
+}

@@ -1,0 +1,26 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SAssistant";
+
+//助战信息
+//code = 0x4601
+message GainAssistantInfo{
+}
+
+//开启助战格子
+//code = 0x4602
+message OpenAssistantGrid{
+	required int32 index = 1;//要开启的格子
+}
+
+//修改助战角色
+//code = 0x4603
+message UpdateAssistantRole{
+	required int32 type = 1;//类型
+	repeated int64 roles = 2;//阵容上的人
+}
+//修改助战角色
+//code = 0x4604
+message LevelUpAgree{
+	required int32 pos = 1;
+}

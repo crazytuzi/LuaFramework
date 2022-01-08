@@ -1,0 +1,23 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SQimen";
+
+//查询奇门信息
+// code = 0x5200
+message QueryQimenMsg
+{
+
+}
+//奇门注入
+//code = 0x5201
+message QimenInjectMsg
+{
+
+}
+//奇门突破
+//code = 0x5202
+message QimenBreachMsg
+{
+
+}
+

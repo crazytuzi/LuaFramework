@@ -1,0 +1,71 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SChampions";
+
+//获得挑战信息
+//code = 0x4501
+message GainChampions{
+
+}
+//匹配
+// code = 0x4502
+message Match{
+
+}
+//开始挑战赛挑战
+//code = 0x4503
+message ChallengeChampions{
+
+}
+//鼓舞
+//code = 0x4504
+message Encouraging{
+
+}
+//修改阵容
+//code = 0x4505
+message UpdateFormation{
+	required int32 type = 1;//类型 0进攻  1防守
+	repeated int64 formations = 2;//阵容
+}
+//打开宝箱
+//code = 0x4508
+message OpenBox{
+	required int32 type = 1;//类型
+}
+//获得排名信息
+//code = 0x4509
+message GainRankInfo{
+
+}
+//检查是否参加
+//code = 0x4510
+message CheckJoin{
+
+}
+
+//获取八强赛对战信息
+//code = 0x4511
+message GainChampionsWarInfo{
+
+}
+//押注
+//code = 0x4512
+message ChampionsBet{
+	required int32 roundId = 1;
+	required int32 index = 2;
+	required int32 coin = 3;
+	required int32 betPlayerId = 4;
+}
+
+//获得最后一次冠军阵容
+// code = 0x4513
+message GainLastChampion{
+
+}
+
+//修改托管
+// code = 0x4522
+message UpdateHosting{
+	required bool hosting = 1;
+}

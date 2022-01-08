@@ -1,0 +1,96 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SRoleTrain";
+
+//升级角色经脉（冲脉）
+//code = 0x1502
+message RequestAcupointLevelUp
+{	
+	required int64 instanceId = 1;
+	required int32 pos = 2;			//穴位位置
+}
+
+//角色传承
+//code = 0x1503
+message ExpTransferMsg
+{	
+	required int64 fromId = 1;			//被传承角色实例id
+	required int64 targetId = 2;		//传陈角色实例id
+	required int32 type = 3;			//1 初级传承 2 中级 3 高级
+}
+
+message RoleSoulInfo
+{
+	required int32 id = 1;   //角色的id
+	required int32 num = 2;   //角色魂魄的数量
+}
+
+//角色升星
+//code = 0x1504
+message RoleStarUp             
+{	
+	required int64 userid = 1;			//角色实例id
+	repeated int64 dogfoodlist = 2;		//消耗角色实例id
+	repeated RoleSoulInfo roleSoulList = 3;			//魂魄的列表
+}
+
+//角色突破
+//code = 0x1505
+message RoleBreakthrough             
+{	
+	required int64 userid = 1;		//角色实例id
+}
+
+//角色传功
+//code = 0x1508
+message RoleTransfer
+{	
+	required int64 userid = 1;				//角色实例id
+	repeated int64 dogfoodlist = 2;			//消耗角色实例id
+	repeated RoleSoulInfo roleSoulList = 3;	//魂魄的列表
+}
+
+//角色修炼（升星）
+//code = 0x1509
+message RolePractice
+{
+	required int64 userid = 1;				//所需要修炼的角色实例id
+}
+
+//code = 0x1520
+//升级技能
+message SpellLevelUpRequest
+{
+	required int64 userid = 1; 			//目标角色的实例ID
+	required int32 spellId = 2;			//技能ID，对应技能当前等级的唯一ID。为t_s_spell_level表格主键
+}
+
+
+//角色归隐
+//code = 0x1510
+message RoleHermit
+{
+	repeated int64 dogfoodlist = 1;			//消耗角色实例id
+	repeated RoleSoulInfo roleSoulList = 2;	//魂魄的列表
+	optional bool force = 3;				//是否强制归隐
+}
+
+//角色重生
+//code = 0x1511
+message RoleRebirth
+{
+	required int64 userid = 1;				//所需要重生的角色实例id
+}
+
+//经脉突破
+// code = 0x150A
+message RequestAcupointBreach{
+	required int64 instanceId = 1;
+	required int32 pos = 2;			//穴位位置
+}
+
+//额外购买经脉突破概率
+// code = 0x150B
+message RequestAcupointBreachRate{
+
+}

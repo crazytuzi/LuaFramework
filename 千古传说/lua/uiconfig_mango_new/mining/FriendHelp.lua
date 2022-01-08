@@ -1,0 +1,808 @@
+﻿local t = 
+{
+	version = 1,
+	components = 
+	{
+		
+		{
+			anchorPoint = "False",
+			anchorPointX = "0",
+			anchorPointY = "0",
+			backGroundScale9Enable = "False",
+			bgColorOpacity = "50",
+			bIsOpenClipping = "False",
+			classname = "MEPanel",
+			colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#FFFFFFFF;GraduallyChangingColorEnd:#FFFFFFFF;vectorX:0;vectorY:0",
+			DesignHeight = "640",
+			DesignType = "0",
+			DesignWidth = "960",
+			dstBlendFunc = "771",
+			height = "640",
+			ignoreSize = "False",
+			name = "Panel",
+			PanelRelativeSizeModel = 
+			{
+				PanelRelativeEnable = true,
+			},
+			sizepercentx = "0",
+			sizepercenty = "0",
+			sizeType = "0",
+			srcBlendFunc = "1",
+			touchAble = "False",
+			UILayoutViewModel = 
+			{
+				nType = 3,
+			},
+			uipanelviewmodel = 
+			{
+				Layout="Relative",
+				nType = "3"
+			},
+			width = "960",
+			ZOrder = "1",
+			components = 
+			{
+				
+				{
+					anchorPoint = "False",
+					anchorPointX = "0",
+					anchorPointY = "0",
+					backGroundScale9Enable = "False",
+					bgColorOpacity = "50",
+					bIsOpenClipping = "False",
+					classname = "MEPanel",
+					colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#FFFFFFFF;GraduallyChangingColorEnd:#FFFFFFFF;vectorX:0;vectorY:0",
+					DesignHeight = "640",
+					DesignType = "0",
+					DesignWidth = "960",
+					dstBlendFunc = "771",
+					height = "66",
+					ignoreSize = "False",
+					name = "panel_head",
+					sizepercentx = "100",
+					sizepercenty = "10",
+					sizeType = "1",
+					srcBlendFunc = "1",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionY = 639,
+						relativeToName = "Panel",
+						nType = 3,
+					},
+					uipanelviewmodel = 
+					{
+						Layout="Absolute",
+						nType = "0"
+					},
+					width = "960",
+					ZOrder = "1",
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0",
+					anchorPointY = "0",
+					backGroundScale9Enable = "False",
+					bgColorOpacity = "50",
+					bIsOpenClipping = "False",
+					classname = "MEPanel",
+					colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#FFFFFFFF;GraduallyChangingColorEnd:#FFFFFFFF;vectorX:0;vectorY:0",
+					DesignHeight = "640",
+					DesignType = "0",
+					DesignWidth = "960",
+					dstBlendFunc = "771",
+					height = "574",
+					ignoreSize = "False",
+					name = "panel_content",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 80,
+						PositionY = 70,
+						TopPosition = 66,
+						relativeToName = "Panel",
+						nType = 3,
+						nGravity = 6,
+						nAlign = 2
+					},
+					uipanelviewmodel = 
+					{
+						Layout="Absolute",
+						nType = "0"
+					},
+					width = "960",
+					ZOrder = "1",
+					components = 
+					{
+						
+						{
+							anchorPoint = "False",
+							anchorPointX = "0.5",
+							anchorPointY = "0.5",
+							backGroundScale9Enable = "True;capInsetsX:0;capInsetsY:0;capInsetsWidth:0;capInsetsHeight:0",
+							classname = "MEImage",
+							dstBlendFunc = "771",
+							height = "574",
+							ignoreSize = "False",
+							name = "bg",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							texturePath = "ui_new/common/bg_w_icon.png",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 550,
+								PositionY = 288,
+							},
+							width = "814",
+							ZOrder = "1",
+							components = 
+							{
+								
+								{
+									anchorPoint = "False",
+									anchorPointX = "0.5",
+									anchorPointY = "0.5",
+									backGroundScale9Enable = "True;capInsetsX:0;capInsetsY:0;capInsetsWidth:0;capInsetsHeight:0",
+									classname = "MEImage",
+									dstBlendFunc = "771",
+									height = "450",
+									ignoreSize = "False",
+									name = "bg_list",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									texturePath = "ui_new/common/bg_h2b.png",
+									touchAble = "False",
+									UILayoutViewModel = 
+									{
+										
+									},
+									width = "735",
+									ZOrder = "1",
+									components = 
+									{
+										
+										{
+											anchorPoint = "False",
+											anchorPointX = "0",
+											anchorPointY = "0",
+											backGroundScale9Enable = "False",
+											bgColorOpacity = "50",
+											bIsOpenClipping = "False",
+											classname = "MEPanel",
+											colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#FFFFFFFF;GraduallyChangingColorEnd:#FFFFFFFF;vectorX:0;vectorY:0",
+											DesignHeight = "640",
+											DesignType = "0",
+											DesignWidth = "960",
+											dstBlendFunc = "771",
+											height = "437",
+											ignoreSize = "False",
+											name = "Panel_List",
+											sizepercentx = "0",
+											sizepercenty = "0",
+											sizeType = "0",
+											srcBlendFunc = "1",
+											touchAble = "False",
+											UILayoutViewModel = 
+											{
+												PositionX = -364,
+												PositionY = -219,
+											},
+											uipanelviewmodel = 
+											{
+												Layout="Absolute",
+												nType = "0"
+											},
+											width = "731",
+											ZOrder = "1",
+										},
+									},
+								},
+							},
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0",
+							anchorPointY = "0",
+							backGroundScale9Enable = "False",
+							bgColorOpacity = "50",
+							bIsOpenClipping = "False",
+							classname = "MEPanel",
+							ColorMixing = "#00FFFFFF",
+							colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#00000000;GraduallyChangingColorEnd:#00000000;vectorX:0;vectorY:0",
+							DesignHeight = "640",
+							DesignType = "0",
+							DesignWidth = "960",
+							dstBlendFunc = "771",
+							height = "500",
+							ignoreSize = "False",
+							name = "panel_button_group",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 37,
+								PositionY = 38,
+								LeftPositon = 49,
+								TopPosition = 70,
+								relativeToName = "Panel",
+							},
+							uipanelviewmodel = 
+							{
+								Layout="Absolute",
+								nType = "0"
+							},
+							width = "70",
+							ZOrder = "3",
+							components = 
+							{
+								
+								{
+									anchorPoint = "False",
+									anchorPointX = "0.5",
+									anchorPointY = "0.5",
+									backGroundScale9Enable = "False",
+									classname = "MEButton",
+									ClickHighLightEnabled = "True",
+									dstBlendFunc = "771",
+									flipX = "False",
+									flipY = "False",
+									height = "95",
+									ignoreSize = "True",
+									name = "btn_add",
+									normal = "ui_new/faction/tab_bpcy2.png",
+									pressed = "ui_new/faction/tab_bpcy.png",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									touchAble = "True",
+									UILayoutViewModel = 
+									{
+										PositionX = 38,
+										PositionY = 378,
+									},
+									UItype = "Button",
+									width = "151",
+									ZOrder = "1",
+								},
+								{
+									anchorPoint = "False",
+									anchorPointX = "0.5",
+									anchorPointY = "0.5",
+									backGroundScale9Enable = "False",
+									classname = "MEButton",
+									ClickHighLightEnabled = "True",
+									dstBlendFunc = "771",
+									flipX = "False",
+									flipY = "False",
+									height = "95",
+									ignoreSize = "True",
+									name = "btn_friends",
+									normal = "ui_new/friend/tab1b.png",
+									pressed = "ui_new/friend/tab1.png",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									touchAble = "True",
+									UILayoutViewModel = 
+									{
+										PositionX = 38,
+										PositionY = 464,
+									},
+									UItype = "Button",
+									width = "151",
+									ZOrder = "1",
+								},
+							},
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0",
+							anchorPointY = "0",
+							classname = "MELabel",
+							compPath = "luacomponents.common.MEIconLabel",
+							dstBlendFunc = "771",
+							FontColor = "#FF3D3D3D",
+							fontName = "simhei",
+							fontShadow = 
+							{
+								IsShadow = false,
+								ShadowColor = "#FFFFFFFF",
+								ShadowAlpha = 255,
+								OffsetX = 0,
+								OffsetY = 0,
+							},
+							fontSize = "24",
+							fontStroke = 
+							{
+								IsStroke = false,
+								StrokeColor = "#FFE6E6E6",
+								StrokeSize = 1,
+							},
+							height = "24",
+							IconLayout = "1",
+							ignoreSize = "True",
+							name = "txt_hysl",
+							nGap = "0",
+							nIconAlign = "1",
+							nTextAlign = "1",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							text = "今日可选数量：",
+							touchAble = "False",
+							touchScaleEnable = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 190,
+								PositionY = 520,
+							},
+							width = "168",
+							ZOrder = "1",
+							components = 
+							{
+								
+								{
+									anchorPoint = "False",
+									anchorPointX = "0",
+									anchorPointY = "0",
+									classname = "MELabel",
+									compPath = "luacomponents.common.MEIconLabel",
+									dstBlendFunc = "771",
+									FontColor = "#FF3D3D3D",
+									fontName = "simhei",
+									fontShadow = 
+									{
+										IsShadow = false,
+										ShadowColor = "#FFFFFFFF",
+										ShadowAlpha = 255,
+										OffsetX = 0,
+										OffsetY = 0,
+									},
+									fontSize = "24",
+									fontStroke = 
+									{
+										IsStroke = false,
+										StrokeColor = "#FFE6E6E6",
+										StrokeSize = 1,
+									},
+									height = "24",
+									IconLayout = "1",
+									ignoreSize = "True",
+									name = "txt_sl",
+									nGap = "0",
+									nIconAlign = "1",
+									nTextAlign = "1",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									text = "20n20",
+									touchAble = "False",
+									touchScaleEnable = "False",
+									UILayoutViewModel = 
+									{
+										PositionX = 160,
+									},
+									width = "60",
+									ZOrder = "1",
+								},
+							},
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0",
+							anchorPointY = "0",
+							classname = "MELabel",
+							compPath = "luacomponents.common.MEIconLabel",
+							dstBlendFunc = "771",
+							FontColor = "#FF3D3D3D",
+							fontName = "simhei",
+							fontShadow = 
+							{
+								IsShadow = false,
+								ShadowColor = "#FFFFFFFF",
+								ShadowAlpha = 255,
+								OffsetX = 0,
+								OffsetY = 0,
+							},
+							fontSize = "20",
+							fontStroke = 
+							{
+								IsStroke = false,
+								StrokeColor = "#FFE6E6E6",
+								StrokeSize = 1,
+							},
+							height = "20",
+							IconLayout = "1",
+							ignoreSize = "True",
+							name = "txt_shangxian",
+							nGap = "0",
+							nIconAlign = "1",
+							nTextAlign = "1",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							text = "每周每个好友或帮派成员只能选择一次",
+							touchAble = "False",
+							touchScaleEnable = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 379,
+								PositionY = 31,
+							},
+							width = "340",
+							ZOrder = "1",
+						},
+					},
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0",
+					anchorPointY = "0",
+					backGroundScale9Enable = "False",
+					bgColorOpacity = "50",
+					bIsOpenClipping = "False",
+					classname = "MEPanel",
+					colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#FFFFFFFF;GraduallyChangingColorEnd:#FFFFFFFF;vectorX:0;vectorY:0",
+					DesignHeight = "640",
+					DesignType = "0",
+					DesignWidth = "960",
+					dstBlendFunc = "771",
+					height = "140",
+					ignoreSize = "False",
+					name = "Panel_FriendCell",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 274,
+						PositionY = 429,
+						LeftPositon = 274,
+						TopPosition = 140,
+						relativeToName = "Panel",
+						nType = 3,
+					},
+					uipanelviewmodel = 
+					{
+						Layout="Absolute",
+						nType = "0"
+					},
+					width = "720",
+					ZOrder = "1",
+					components = 
+					{
+						
+						{
+							anchorPoint = "False",
+							anchorPointX = "0.5",
+							anchorPointY = "0.5",
+							backGroundScale9Enable = "True;capInsetsX:0;capInsetsY:0;capInsetsWidth:0;capInsetsHeight:0",
+							classname = "MEImage",
+							dstBlendFunc = "771",
+							height = "137",
+							ignoreSize = "False",
+							name = "bg",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							texturePath = "ui_new/common/bg_liebiao.png",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 358,
+								PositionY = 70,
+								LeftPositon = 191,
+								TopPosition = 137,
+								relativeToName = "Panel",
+								nGravity = 1,
+							},
+							width = "718",
+							ZOrder = "1",
+							components = 
+							{
+								
+								{
+									anchorPoint = "False",
+									anchorPointX = "0.5",
+									anchorPointY = "0.5",
+									backGroundScale9Enable = "False",
+									classname = "MEImage",
+									dstBlendFunc = "771",
+									height = "120",
+									ignoreSize = "True",
+									name = "bg_head",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									texturePath = "ui_new/friend/bg_head.png",
+									touchAble = "True",
+									UILayoutViewModel = 
+									{
+										PositionX = -290,
+									},
+									width = "120",
+									ZOrder = "1",
+									components = 
+									{
+										
+										{
+											anchorPoint = "False",
+											anchorPointX = "0.5",
+											anchorPointY = "0.5",
+											backGroundScale9Enable = "False",
+											classname = "MEImage",
+											dstBlendFunc = "771",
+											height = "110",
+											ignoreSize = "True",
+											name = "Img_icon",
+											sizepercentx = "0",
+											sizepercenty = "0",
+											sizeType = "0",
+											srcBlendFunc = "1",
+											texturePath = "icon/roleicon/10004.png",
+											touchAble = "False",
+											UILayoutViewModel = 
+											{
+												
+											},
+											width = "110",
+											ZOrder = "1",
+										},
+										{
+											anchorPoint = "False",
+											anchorPointX = "0",
+											anchorPointY = "0.5",
+											classname = "MELabelBMFont",
+											dstBlendFunc = "771",
+											fileNameData = "font/num_208.fnt",
+											height = "27",
+											ignoreSize = "True",
+											name = "txt_level",
+											sizepercentx = "0",
+											sizepercenty = "0",
+											sizeType = "0",
+											srcBlendFunc = "1",
+											text = "388d",
+											touchAble = "False",
+											UILayoutViewModel = 
+											{
+												PositionX = -52,
+												PositionY = -47,
+											},
+											width = "55",
+											ZOrder = "1",
+										},
+									},
+								},
+								{
+									anchorPoint = "False",
+									anchorPointX = "0.5",
+									anchorPointY = "0.5",
+									backGroundScale9Enable = "False",
+									classname = "MEImage",
+									dstBlendFunc = "771",
+									height = "35",
+									ignoreSize = "True",
+									name = "bg_name",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									texturePath = "ui_new/friend/bg_name.png",
+									touchAble = "False",
+									UILayoutViewModel = 
+									{
+										PositionX = -50,
+										PositionY = 32,
+									},
+									width = "358",
+									ZOrder = "1",
+									components = 
+									{
+										
+										{
+											anchorPoint = "False",
+											anchorPointX = "0",
+											anchorPointY = "0.5",
+											classname = "MELabel",
+											compPath = "luacomponents.common.MEIconLabel",
+											dstBlendFunc = "771",
+											FontColor = "#FF3D3D3D",
+											fontName = "simhei",
+											fontShadow = 
+											{
+												IsShadow = false,
+												ShadowColor = "#FFFFFFFF",
+												ShadowAlpha = 255,
+												OffsetX = 0,
+												OffsetY = 0,
+											},
+											fontSize = "24",
+											fontStroke = 
+											{
+												IsStroke = false,
+												StrokeColor = "#FFE6E6E6",
+												StrokeSize = 1,
+											},
+											height = "24",
+											IconLayout = "1",
+											ignoreSize = "True",
+											name = "txt_name",
+											nGap = "0",
+											nIconAlign = "1",
+											nTextAlign = "1",
+											sizepercentx = "0",
+											sizepercenty = "0",
+											sizeType = "0",
+											srcBlendFunc = "1",
+											text = "玩家名字呀",
+											touchAble = "False",
+											touchScaleEnable = "False",
+											UILayoutViewModel = 
+											{
+												PositionX = -174,
+											},
+											width = "120",
+											ZOrder = "1",
+										},
+										{
+											anchorPoint = "False",
+											anchorPointX = "0",
+											anchorPointY = "0.5",
+											classname = "MELabelBMFont",
+											dstBlendFunc = "771",
+											fileNameData = "font/num_37.fnt",
+											height = "27",
+											ignoreSize = "True",
+											name = "txt_vip",
+											scaleX = "0.8",
+											scaleY = "0.8",
+											sizepercentx = "0",
+											sizepercenty = "0",
+											sizeType = "0",
+											srcBlendFunc = "1",
+											text = "o12",
+											touchAble = "False",
+											UILayoutViewModel = 
+											{
+												PositionX = -50,
+												PositionY = 2,
+											},
+											width = "115",
+											ZOrder = "1",
+										},
+									},
+								},
+								{
+									anchorPoint = "False",
+									anchorPointX = "0",
+									anchorPointY = "0",
+									classname = "MELabel",
+									compPath = "luacomponents.common.MEIconLabel",
+									dstBlendFunc = "771",
+									FontColor = "#FF913C29",
+									fontName = "simhei",
+									fontShadow = 
+									{
+										IsShadow = false,
+										ShadowColor = "#FFFFFFFF",
+										ShadowAlpha = 255,
+										OffsetX = 0,
+										OffsetY = 0,
+									},
+									fontSize = "22",
+									fontStroke = 
+									{
+										IsStroke = false,
+										StrokeColor = "#FFE6E6E6",
+										StrokeSize = 1,
+									},
+									height = "22",
+									IconLayout = "1",
+									ignoreSize = "True",
+									name = "txt_zdl",
+									nGap = "0",
+									nIconAlign = "1",
+									nTextAlign = "1",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									text = "战斗力：1000000",
+									touchAble = "False",
+									touchScaleEnable = "False",
+									UILayoutViewModel = 
+									{
+										PositionX = -220,
+										PositionY = -33,
+									},
+									width = "165",
+									ZOrder = "1",
+								},
+								{
+									anchorPoint = "False",
+									anchorPointX = "0.5",
+									anchorPointY = "0.5",
+									backGroundScale9Enable = "False",
+									classname = "MEButton",
+									ClickHighLightEnabled = "True",
+									dstBlendFunc = "771",
+									flipX = "False",
+									flipY = "False",
+									height = "70",
+									ignoreSize = "True",
+									name = "Btn_send",
+									normal = "ui_new/mining/btn_hukuang.png",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									touchAble = "True",
+									UILayoutViewModel = 
+									{
+										PositionX = 254,
+									},
+									UItype = "Button",
+									width = "127",
+									ZOrder = "1",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+	actions = 
+	{
+		
+	},
+	respaths = 
+	{
+		textures = 
+		{
+			"ui_new/common/bg_w_icon.png",
+			"ui_new/common/bg_h2b.png",
+			"ui_new/faction/tab_bpcy.png",
+			"ui_new/faction/tab_bpcy2.png",
+			"ui_new/friend/tab1.png",
+			"ui_new/friend/tab1b.png",
+			"ui_new/common/bg_liebiao.png",
+			"ui_new/friend/bg_head.png",
+			"icon/roleicon/10004.png",
+			"ui_new/friend/bg_name.png",
+			"ui_new/mining/btn_hukuang.png",
+		},
+		armatures = 
+		{
+			
+		},
+		movieclips = 
+		{
+			
+		},
+	},
+}
+return t
+

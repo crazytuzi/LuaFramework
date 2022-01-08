@@ -1,0 +1,10 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SExchangeMsg";
+
+//请求兑换礼包码
+//code = 0x3500
+message RequestExchangeGifts
+{
+	required string code = 1;				//礼包码
+}

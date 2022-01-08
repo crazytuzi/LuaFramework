@@ -1,0 +1,40 @@
+U命名规范：
+
+1、页面
+
+ * 普通界面：由具有具体意义的单词组成，每个单词首字母大写，以Layer结尾  如：LoginLayer
+ * 元件界面：如滚动列表中的Item项，尽量以Item结尾，如：PlayerItem
+
+
+2、页面元素
+
+名称全小写，基本格式为：
+
+	前缀_名称
+
+如：
+	
+	img_player
+
+名称可以是多个单词，做到意义明确，单词之间用 _ 做分隔符，如：
+	
+	img_player_header
+
+如果是有序的一些元素集合，命名规则如下：	
+	img_player_1 
+	img_player_2 
+	img_player_3
+
+
+前缀有以下几类：
+
+  * btn       按钮
+  * bg        背景，很大一张的那种
+  * bar       血条，经验条等可变长度 滑动条
+  * lab       标签图片，以文字为主
+  * lb        静态文本
+  * txt       动态文本
+  * list      滚动界面，包括scrollview、listview、tableview等
+  * tap       groupbutton等标签页       
+  * img       其他不属于上面的图片，统一用这个前缀
+

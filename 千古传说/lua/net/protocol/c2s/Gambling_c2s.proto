@@ -1,0 +1,38 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SGamblingMsg";
+
+//请求赌石
+// code = 0x5800
+message RequestBetByType
+{
+	required int32 type = 1;			//赌石类型，1、试刀；2、切割；4、打磨；8、精工；16、雕琢
+}
+
+// 一键赌石
+// code = 0x5801
+message RequestBatchBetAuto
+{
+	required int32 count = 1;			//自动赌石次数。0表示服务器控制
+}
+
+// 甄选
+// code = 0x5802
+message RequestPick
+{
+}
+
+// 拾取
+// code = 0x5803
+message RequestPickup
+{
+	required int32 index = 1;			//拾取的目标索引，0表示全部拾取
+}
+
+// 一键合成
+// code = 0x5804
+message RequestMergeAuto
+{
+}
+
+

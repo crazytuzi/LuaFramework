@@ -1,0 +1,133 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SLeagueMsg";
+
+//获取：排行靠前的帮派列表
+// code = 0x1800
+message GangGetRankList{
+}
+
+//获取我所在帮派的：静态数据（少数情况下才会刷新），当返回的gangId为-1时，表示尚未创建帮派， 其他数据都不需要提供
+// code = 0x1801
+message GangGetStaticInfo{
+}
+
+//获取我所在帮派的：动态数据（帮派玩法时需要经常刷新），当尚未创建帮派时， 此接口不需要回调
+// code = 0x1802
+message GangGetDynamicInfo{
+}
+
+//获取我所在帮派的：成员列表
+// code = 0x1803
+message GangGetMemberList{
+}
+
+//获取可邀请的加入：玩家列表
+// code = 0x1804
+message GangGetAddMemberList{
+}
+
+//邀请成员
+// code = 0x1805
+message GangInviteMember{
+   	required int32 playerId = 1;
+}
+
+//任命副帮主
+// code = 0x1806
+message GangAppointSecondMaster{
+   	required int32 playerId = 1;
+}
+
+//开除成员
+// code = 0x1807
+message GangExpelMember{
+   	required int32 playerId = 1;
+}
+
+//转让帮主给副帮主
+// code = 0x1808
+message GangTransferMaster{
+}
+
+//退出帮派
+// code = 0x1809
+message GangExit{
+}
+
+//解散帮派
+// code = 0x180A
+message GangDissolve{
+}
+
+//申请加入帮派
+// code = 0x180B
+message GangApplyAdd{
+    required int32 gangId = 1;
+}
+
+//创建帮派
+// code = 0x180C
+message GangCreate{
+    required string gangName = 1;
+}
+
+//取消申请加入帮派
+// code = 0x180D
+message GangCancelApplyAdd{
+    required int32 gangId = 1;
+}
+
+//取消任命副帮主
+// code = 0x180E
+message GangCancelAppointSecondMaster{
+    required int32 playerId = 1;
+}
+
+//发布公告
+// code = 0x1810
+message GangSendBulletin{
+    required string bulletin = 1;
+}
+
+//获取贡献建筑兑换列表
+// code = 0x1811
+message GangGetExchangeList{
+}
+
+//消耗元宝，刷新贡献建筑兑换列表（帮主、副帮主特权）
+// code = 0x1812
+message GangRefleshExchangeList{
+}
+
+//兑换道具
+// code = 0x1813
+message GangExchange{
+    required int32 index = 1;//索引
+}
+
+//升级帮贡建筑
+// code = 0x1814
+message GangUpLevelExchange{
+}
+
+//获取繁荣建筑BUFF信息
+// code = 0x1815
+message GangGetBuffInfo{
+}
+
+//消耗元宝，刷新繁荣建筑BUFF信息（帮主、副帮主特权）
+// code = 0x1816
+message GangRefleshBuffInfo{
+}
+
+
+//领取buff
+// code = 0x1817
+message GangGetBuff{
+}
+
+//升级繁荣
+// code = 0x1818
+message GangUpLevelBuff{
+}

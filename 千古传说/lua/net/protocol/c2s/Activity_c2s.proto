@@ -1,0 +1,44 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SActivityMsg";
+
+//请求更新单个活动信息
+//code = 0x2300
+message RequestActivityInfo
+{
+	required int32 id = 1;				//活动ID
+}
+
+//请求更新所有活动信息
+//code = 0x2301
+message RequestAllActivityInfo
+{
+}
+
+//请求更新活动进度
+//code = 0x2302
+message RequestActivityProgress
+{
+	required int32 id = 1;				//活动ID
+}
+
+//请求更新所有活动进度
+//code = 0x2303
+message RequestActivityProgressList
+{
+}
+
+//请求领取活动奖励
+//code = 0x2304
+message GotActivityReward
+{
+	required int32 id = 1;				//活动ID
+	required int32 index = 2;			//奖励索引，从1开始，第几个奖励
+}
+//购买通宝类型
+//code = 0x2305
+message RequestBuyMoneyShop
+{
+	required int32 type = 1;				//通宝类型
+	required int32 activityId =2;			//活动Id
+}

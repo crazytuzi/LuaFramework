@@ -1,0 +1,34 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CContract";
+
+//查询契约(合同)
+// code = 0x2800
+message ContractInfo
+{
+	repeated ContractMsg info = 1;//契约列表//契约列表
+}
+
+//购买契约(合同)结果
+// code = 0x2801
+message BuyContractResult
+{
+}
+
+//领取每日契约(合同)奖励
+// code = 0x2802
+message GetContractDailyRewardResult
+{
+	required int32 id = 1; //协约ID
+}
+
+//契约(合同)详情
+message ContractMsg{
+	required int32 id = 1;							//	契约ID
+	required int64 startTime = 2; 					//开始时间
+	required int64 endTime = 3;						// 结束时间
+	required int64 lastGotRewardTime = 4;	//上次领奖时间
+}
+
+
+

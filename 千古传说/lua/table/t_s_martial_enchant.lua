@@ -1,0 +1,13 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ level = 1, enchant_level = 1, exp = 30})
+mapArray:push({ level = 2, enchant_level = 1, exp = 30})
+mapArray:push({ level = 2, enchant_level = 2, exp = 60})
+mapArray:push({ level = 3, enchant_level = 1, exp = 60})
+mapArray:push({ level = 3, enchant_level = 2, exp = 80})
+mapArray:push({ level = 3, enchant_level = 3, exp = 120})
+mapArray:push({ level = 4, enchant_level = 1, exp = 60})
+mapArray:push({ level = 4, enchant_level = 2, exp = 80})
+mapArray:push({ level = 4, enchant_level = 3, exp = 120})
+mapArray:push({ level = 4, enchant_level = 4, exp = 300})
+mapArray:push({ level = 4, enchant_level = 5, exp = 600})
+return mapArray

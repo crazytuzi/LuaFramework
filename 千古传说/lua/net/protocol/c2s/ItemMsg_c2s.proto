@@ -1,0 +1,203 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SGoodsOperation";
+
+// code = 0x1011
+//装备
+message EquipRequest{
+	required int64 roleId = 1; //角色实例id
+	required int64 equipment = 2; //装备到身上的装备userid
+}
+
+// code = 0x1012
+//卸除装备
+message UnequipRequest{
+	required int64 roleId = 1; //角色实例id
+	required int64 equipment = 2; //装备到身上的装备userid
+}
+
+// code = 0x1013
+//打造装备
+message EquipmentBuild{
+	required int32 forgingId = 1; //图谱id
+}
+
+// code = 0x1014
+//强化装备
+message EquipmentIntensify{
+	required int64 equipment = 1; //装备userid
+}
+
+//code = 0x1015
+//装备出售
+message EquipmentSell{
+	repeated int64 equipment = 1; //装备userid
+}
+
+//code = 0x1016
+//装备分解
+message EquipmentExplode{
+	required int64 equipment = 1; //装备userid
+}
+
+//code = 0x1017
+//道具出售
+message ItemSell{
+	required int32 itemId = 1; //id
+	required int32 num    = 2; //num
+}
+
+
+//code = 0x1018
+//单个道具使用
+message ItemUsed{
+	required int32 itemId = 1; //id
+}
+//code = 0x1019
+//装备精炼
+message EquipmentRefining{
+	required int64 equipment = 1; //装备userid
+	repeated int32 lock_attr = 2; //锁定的属性行 
+}
+
+
+//code = 0x1020
+//装备升星
+message EquipmentStarUp{
+	required int64 equipment = 1; 		//装备userid
+	repeated int64 eat_equipment = 2;	//吞噬的装备userid
+	repeated StuffStruct stuff = 3;		//吞噬的材料列表
+}
+
+//材料信息
+message StuffStruct
+{
+	required int32 id = 1;				//物品ID
+	required int32 number = 2;			//数量
+}
+
+//code = 0x1021
+//装备升星失败补偿值
+message GetEquipmentStarUpFail{
+}
+
+// code = 0x1022
+//一键强化装备
+message EquipmentIntensifyToTop{
+	required int64 equipment = 1; //装备userid
+}
+
+//code = 0x1023
+//装备洗炼
+message EquipPractice{
+	required int64 equipment = 1; //装备userid
+	repeated int32 lock_attr = 2; //锁定的属性行 
+}
+
+
+//code = 0x101E
+//一键穿装
+message OneKeyEquip{
+	required int64 roleId = 1; 	//目标角色的实例ID。即对那个角色使用一键穿装
+}
+
+
+//code = 0x1050
+//宝石合成
+message GemBulid{
+	required int32 itemId = 1; //id
+	required bool  isTuhao = 2; //是否是土豪合成
+}
+
+//code = 0x1051
+//宝石镶嵌
+message GemMosaic{
+	required int64 equipment = 1; 	//镶嵌的装备id
+	required int32 itemId = 2; //宝石id
+	required int32  pos    = 3; //镶嵌的位置
+}
+
+//code = 0x1052
+//宝石拆卸
+message GemUnMosaic{
+	required int64 equipment = 1; 	//卸下的装备id
+	required int32  pos    = 2; //卸下的位置
+}
+
+//code = 0x1053
+//宝石孔花钱解锁
+message UnlockEquipmentHole{
+	required int64 equipment = 1; 	//解锁的装备id
+}
+
+
+//code = 0x1054
+//请求装备升级
+message EquipLevelUp{
+	required int64 userId = 1; //装备实例id
+	required int32 ratioItemId = 2; //概率加成工具(炼器宝典)
+}
+
+
+//code = 0x1060
+//合成装备
+message MergeEquipment
+{
+	required int32 fragmentId = 1;		//碎片ID
+}
+
+//code = 0x1061
+//道具道具批量使用
+message ItembatchUsed{
+	required int32 itemId = 1; //道具ID
+	required int32 num = 2; //道具数量
+}
+
+//code = 0x1080
+//装备精炼等级突破请求
+message RequestRefineBreach{
+	required int64 instanceId = 1;			//装备实例ID
+}
+
+//一键合成
+// code = 0x1065
+message OneKeyMergeGoodsMsg{
+	required int32 type = 1;				//物品类型，0、全部；1、秘籍、武学碎片；2、装备碎片
+}
+
+//code = 0x1030
+//多选宝箱使用
+message CheckBoxUsed{
+	required int32 itemId = 1; //id
+	repeated int32 indexId = 2; //选中道具位置id
+}
+
+
+//code = 0x1081
+//一键精炼，精炼十次
+message OneKeyEquipRefine{
+	required int64 instanceId = 1;			//装备实例ID
+	repeated int32 lock_attr = 2; 			//锁定的属性行
+}
+
+//code = 0x1082
+//装备重铸
+message EquipmentRecast{
+	required int64 equipmentId = 1;
+	required bool lock = 2;
+	required int64 recastEquipmentId = 3;
+	required int32 index = 4;
+}
+
+//code = 0x1090
+//装备传承
+message EquipmentTranslateRequest{
+	required int64 srcId = 1;				//源装备实例ID
+	required int64 targetId = 2;			//目标装备实例ID
+}
+
+//code = 0x1056
+//一键合成宝石
+message AutoMergeGemRequest{
+	required int32 maxLevel = 1;			//最高自动合成到什么等级
+}

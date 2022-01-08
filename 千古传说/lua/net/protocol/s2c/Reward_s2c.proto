@@ -1,0 +1,29 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CRewardMsg";
+
+//code = 0x7F00
+//请求获取奖励结果
+message GetRewardResult{
+	required int32 statusCode = 1; //0：正确，其他错误状态码
+	optional RewardInfo reward =2; //具体奖励。仅当正确时返回
+}
+
+//code = 0x7F01
+//请求查询奖励结果
+message QueryRewardResult{
+	required RewardInfo reward =1; //具体奖励。仅当正确时返回
+}
+
+//code = 0x7F02
+message RewardInfo{
+	required int32 type = 1; //0:未知或者普通情况下显示提示的类型；1、豪杰榜；2铜人阵；3、天罡星等…………
+	repeated RewardItem items =2; //具体奖励
+}
+
+message RewardItem
+{
+	required int32 type = 1; //资源类型：1、物品；2、卡牌；3、铜币;等…………
+	required int32 number =2 ; //数量
+	optional int32 itemId = 3; //资源id ，在非数值资源类型的情况下会发送，即有多种情况的时候会通过这个字段描述具体的id。当type为物品时表示物品id，为卡牌时表示卡牌id
+}

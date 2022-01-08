@@ -1,0 +1,43 @@
+local t = {
+		{
+			name="NotifyMessage",
+			ui ="NotifyMessage.lua",
+			x=0,
+			y=0,
+			speed=0,
+			layer="notify",
+			canLoad=true,
+			logic="",
+		},
+		{
+			name="NotifyLayer",
+			ui ="NotifyLayer.lua",
+			x=0,
+			y=0,
+			speed=0,
+			layer="notify",
+			canLoad=true,
+			logic="",
+		},
+		{
+			name="NoticeLayer",
+			ui ="NoticeLayer.lua",
+			x=0,
+			y=0,
+			speed=0,
+			layer="notify",
+			canLoad=true,
+			logic="",
+		},
+		{
+			name="MailDetailLayer",
+			ui ="MailDetailLayer.lua",
+			x=0,
+			y=0,
+			speed=0,
+			layer="notify",
+			canLoad=true,
+			logic="",
+		},
+}
+return t

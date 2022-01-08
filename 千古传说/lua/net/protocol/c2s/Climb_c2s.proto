@@ -1,0 +1,52 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SClimbMsg";
+
+//重置无量山挑战层数
+// code = 0x1700
+message ResetClimbState{
+}
+
+//挑战关卡
+// code = 0x1701
+message ClimbChallengeMountain{
+   	required int32 mountainId = 1;
+   	optional int32 employType = 2;	//佣兵阵形类型，如果不是使用佣兵为0
+}
+
+//获取欢迎界面信息
+// code = 0x1702
+message ClimbGetHomeInfo{
+}
+
+//获取万能副本界面信息
+// code = 0x1704
+message ClimbGetCarbonList{
+}
+
+//挑战无量山万能副本
+// code = 0x1705
+message ChallengeClimbWanneng{
+	required int32 id = 1; //副本索引
+	optional int32 employType = 2;	//佣兵阵形类型，如果不是使用佣兵为0
+}
+
+//无量山扫荡
+// code = 0x1710
+message ClimbSweepRequest{
+	required int32 id = 1; 		//层数
+	optional int32 times = 2;	//扫荡次数
+}
+
+//摩诃崖扫荡
+// code = 0x1720
+message MHYSweepRequest{
+	required int32 id = 1;			//目标关卡ID
+	required int32 count=2;			//扫荡次数
+}
+
+//获取摩诃崖通关信息
+// code = 0x1721
+message GetMHYPassInfoRequest{
+
+}

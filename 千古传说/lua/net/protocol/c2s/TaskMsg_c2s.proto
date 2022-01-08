@@ -1,0 +1,75 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SMission";
+//code = 0x2001
+message QueryTask
+{
+}
+
+//code = 0x2002
+message GetTaskReward
+{
+	required int32 taskid = 1;    //成就id 0代表领取全部奖励
+}
+
+//code = 0x2051
+message QuerySevenDaysGoalTask
+{
+}
+
+//code = 0x2052
+message GetSevenDaysGoalTaskReward
+{
+	required int32 taskid = 1;    //成就id 0代表领取全部奖励
+}
+
+// 查询折扣商品信息
+// code = 0x2060
+message QueryDiscountShopItem
+{
+
+}
+
+//code = 0x5300
+message QueryRecallTask
+{
+}
+
+//code = 0x5301
+message GetRecallTaskReward
+{
+	required int32 taskid = 1;    //成就id 0代表领取全部奖励
+}
+
+//code = 0x5320
+//发起召回玩家请求
+message RequestRecall
+{
+	required int32 playerId = 1;		//被召回的目标玩家ID
+}
+
+//code = 0x5321
+//查询被邀请列表，被邀请玩家回归后可以通过这个协议进行主动查询
+message QueryBeRecalledInviteList
+{
+
+}
+
+//code = 0x5322
+//查询邀请列表，玩家邀请其他玩家时会在列表中添加新的邀请条目，查询的是自己主动发起的邀请列表
+message QueryRecallInviteList
+{
+}
+
+//code = 0x5323
+//提交回归邀请码，玩家回归后，只有一次填写邀请码的机会，提交给服务器我使用了哪个玩家的邀请码
+message ApplyRecallInviteCode
+{
+	required string inviteCode = 1;				//邀请码
+}
+
+//code = 0x5324
+//领取礼包
+message ApplyReturnGift
+{
+}

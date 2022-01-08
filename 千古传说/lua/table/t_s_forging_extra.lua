@@ -1,0 +1,11 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ id = 1, quality = 1, number = 2, meridians = 5, breakthrough = 0, attribute = "0"})
+mapArray:push({ id = 2, quality = 2, number = 3, meridians = 0, breakthrough = 1, attribute = "0"})
+mapArray:push({ id = 3, quality = 3, number = 2, meridians = 0, breakthrough = 0, attribute = "18_300|19_300|20_300|21_300|22_300"})
+mapArray:push({ id = 4, quality = 3, number = 3, meridians = 10, breakthrough = 0, attribute = "0"})
+mapArray:push({ id = 5, quality = 4, number = 1, meridians = 0, breakthrough = 2, attribute = "0"})
+mapArray:push({ id = 6, quality = 4, number = 2, meridians = 0, breakthrough = 0, attribute = "18_500|19_500|20_500|21_500|22_500"})
+mapArray:push({ id = 7, quality = 4, number = 3, meridians = 20, breakthrough = 0, attribute = "0"})
+mapArray:push({ id = 8, quality = 4, number = 4, meridians = 0, breakthrough = 4, attribute = "0"})
+mapArray:push({ id = 9, quality = 4, number = 5, meridians = 0, breakthrough = 0, attribute = "18_1000|19_1000|20_1000|21_1000|22_1000"})
+return mapArray

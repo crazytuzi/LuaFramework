@@ -1,0 +1,18 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CEscortingMsg";
+
+//护驾信息，在每次护驾战斗结束的时候发送到客户端，在客户端上线时，也会发送到客户端
+// code = 0x2901
+message EscortingInfo{
+	required int32 type = 1; 			//护驾类型
+	required int32 days = 2;			//当前已经护驾的天数
+	required int32 times = 3;			//当天护驾次数
+	required int32 remainWaitTime = 4;	//剩余等待时间，0表示可护驾
+}
+
+//护驾结束,在护驾完成的时候发送到客户端，在客户端上线时，如果护驾已经完成也会发送到客户端
+// code = 0x2902
+message EscortingFinish{
+
+}

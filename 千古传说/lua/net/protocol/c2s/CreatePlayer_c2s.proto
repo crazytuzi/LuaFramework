@@ -1,0 +1,13 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+import "c2s/Enum.proto";
+
+option java_outer_classname="C2SRegistPlayer";
+
+// code = 0x0D01
+//注册玩家角色
+message RegistData{
+	required string name = 1;	//昵称
+	required Sex sex = 2; //性别
+	required int32 profession = 3;	//选中的卡牌类型(相当于职业)
+}

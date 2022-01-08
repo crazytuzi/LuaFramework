@@ -1,0 +1,15 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "C2SRewardMsg";
+
+//code = 0x7F00
+//通过指定类型获取个人奖励
+message GetRewardRequest{
+	required int32 type = 1; //0:未知或者普通情况下显示提示的类型；1、豪杰榜；2铜人阵；3、天罡星等…………
+}
+
+//code = 0x7F01
+//通过指定类型查询个人奖励
+message QueryRewardRequest{
+	required int32 type = 1; //0:未知或者普通情况下显示提示的类型；1、豪杰榜；2铜人阵；3、天罡星等…………
+}

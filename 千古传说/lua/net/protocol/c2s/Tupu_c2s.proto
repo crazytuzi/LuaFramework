@@ -1,0 +1,12 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2STupu";
+
+//查询图谱
+// code = 0x3100
+message QueryTupuList
+{
+
+}
+
+

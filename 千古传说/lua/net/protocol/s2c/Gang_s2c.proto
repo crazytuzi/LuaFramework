@@ -1,0 +1,241 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CLeagueMsg";
+
+import "s2c/Reward_s2c.proto";
+
+//排行靠前的帮派列表
+// code = 0x1800
+message GangRankListMsg{
+   repeated GangItem rankList = 1;	//玩家列表
+}
+message GangItem
+{
+	required int32 rank = 1;  	      		   //帮派排行
+	required int32 gangId = 2;                //帮派ID
+	required string gangName = 3;              //帮派名称
+    required int32 gangLevel = 4;  	           //帮派等级
+	required int32 memberNum = 5;    		   //成员数量
+
+	required int32 masterId = 6;  	           //帮主ID
+	required string masterName = 7;  	       //帮主名称
+	required int32 applyStatus = 8;  	       //申请状态  0：正常  1：申请中
+}
+
+//我所在帮派的：静态数据（少数情况下才会刷新），当返回的gangId为-1时，表示尚未创建帮派， 其他数据都不需要提供
+// code = 0x1801
+ message GangStaticInfoMsg {
+	required int32 gangId = 1;                //帮派ID
+	optional string gangName = 2;              //帮派名称
+	optional int32 memberNum = 3;    		   //成员数量
+    optional int32 masterId = 4;               //帮主ID
+    optional string masterName = 5;            //帮主名称
+    optional int32 myGangRole = 6;  	       //我的帮派职位 0：屌丝  1：副帮主 2:帮主
+    optional string bulletin = 7;              //公告内容
+
+    optional string buffStr = 8 ;              //buff加成属性， "1_125|2_125"
+
+ }
+
+//我所在帮派的：动态数据（帮派玩法时需要经常刷新），当尚未创建帮派时， 此接口不需要回调
+// code = 0x1802
+ message GangDynamicInfoMsg {
+
+    required int32 gangLevel = 1;  	           //帮派等级
+    required int32 gangExp = 2;  	           //帮派经验
+
+    required int32 myAllContribution = 3;  	       //我的总贡献值
+    required int32 myTodayContribution = 4;  	   //我的今日贡献值
+    required int32 gangMoney = 5;              //帮派资金
+ }
+
+//我所在帮派的：成员列表
+// code = 0x1803
+message GangMemberListMsg{
+   repeated MemberItem memberList = 1;	//成员列表
+}
+
+message MemberItem
+{
+	required int32 playerId = 1;              //玩家ID
+	required string playerName = 2;  	      //玩家昵称
+	required int32 playerLevel = 3;  	      //玩家等级
+	required int32 generalId = 4;    		  //显示头像（主角的ID）
+	required int32 fightPower = 5;    		  //战力
+
+    required int32 allContribution = 6;  	  //总贡献值
+    required int32 todayContribution = 7;  	  //今日贡献值
+
+    required int32 role = 8;  	      		  //职位 0：帮主  1：副帮主 2：屌丝
+
+     required bool isOnline = 9;  	      		  //是否在线
+}
+
+//可邀请的加入：玩家列表
+// code = 0x1804
+message GangAddMemberListMsg{
+   repeated GangPlayerItem playerList = 1;	//玩家列表
+}
+
+message GangPlayerItem
+{
+	required int32 playerId = 1;              //玩家ID
+	required string playerName = 2;  	      //玩家昵称
+	required int32 playerLevel = 3;  	      //玩家等级
+	required int32 generalId = 4;    		  //显示头像（主角的ID）
+	required int32 fightPower = 5;    		  //战力
+}
+
+//邀请成员_操作结果。
+//顺带回发：GangMemberListMsg（临时，后续会走邮件流程）
+//code = 0x1805
+message GangInviteMrmberResult
+{
+	required bool isSuccess = 1; //true or false
+}
+
+//任命副帮主_操作结果
+//顺带回发：GangMemberListMsg
+//code = 0x1806
+message GangAppointSecondMasterResult
+{
+	required bool isSuccess = 1; //true or false
+}
+
+//开除成员_操作结果
+//顺带回发：GangDynamicInfoMsg，GangMemberListMsg
+//code = 0x1807
+message GangExpelMemberResult
+{
+	required bool isSuccess = 1; //true or false
+}
+
+//转让帮主给副帮主_操作结果
+//顺带回发：GangDynamicInfoMsg，GangMemberListMsg
+//code = 0x1808
+message GangTransferMasterResult
+{
+	required bool isSuccess = 1; //true or false
+}
+
+//退出帮派_操作结果
+//code = 0x1809
+message GangExitResult
+{
+	required bool isSuccess = 1; //true or false
+}
+
+//解散帮派_操作结果
+//code = 0x180A
+message GangDissolveResult
+{
+	required bool isSuccess = 1; //true or false
+}
+
+//申请加入帮派_操作结果
+//顺带回发：GangRankListMsg
+// code = 0x180B
+message GangApplyAddResult{
+   	required bool isSuccess = 1; //true or false
+}
+
+//创建帮派_操作结果
+// code = 0x180C
+message GangCreateResult{
+    required bool isSuccess = 1; //true or false
+}
+
+//取消申请加入帮派_操作结果
+// code = 0x180D
+//顺带回发：GangRankListMsg
+message GangCancelApplyAddResult{
+    required bool isSuccess = 1; //true or false
+}
+
+//取消任命副帮主_操作结果
+//顺带回发：GangMemberListMsg
+// code = 0x180E
+message GangCancelAppointSecondMasterResult{
+    required bool isSuccess = 1; //true or false
+}
+
+//发布公告_操作结果
+//顺带回发：GangStaticInfoMsg
+// code = 0x1810
+message GangSendBulletinResult{
+    required bool isSuccess = 1; //true or false
+}
+
+//贡献建筑兑换列表
+// code = 0x1811
+message GangExchangeList{
+    required int32 buildLevel = 1;   //建筑等级
+    required int64 cdLeaveTime = 2;  //cd刷新剩余时间
+    required int32 leaveRefleshNum = 3;  //剩余刷新次数
+    required int32 dayRefleshNum = 4;    //每日刷新次数上限
+
+    repeated GangExchangeItem exchangeList = 5;	//兑换列表
+}
+
+message GangExchangeItem
+{
+	required int32 type = 1; //资源类型：1、物品；2、卡牌；3、铜币;等…………
+	required int32 number =2 ; //数量
+	optional int32 itemId = 3; //资源id ，在非数值资源类型的情况下会发送，即有多种情况的时候会通过这个字段描述具体的id。当type为物品时表示物品id，为卡牌时表示卡牌id
+
+	required int32 price =4 ; //兑换消耗
+	required int32 status = 5;  	       //兑换状态  0：今日已兑换  1：正常
+}
+
+//消耗元宝，刷新贡献建筑兑换列表（帮主、副帮主特权）_操作结果
+//顺带回发：GangDynamicInfoMsg、GangExchangeList
+// code = 0x1812
+message GangRefleshExchangeListResult{
+    required bool isSuccess = 1; //true or false
+}
+
+//兑换道具_操作结果
+// code = 0x1813
+//顺带回发：GangDynamicInfoMsg、道具添加通用协议
+message GangExchangeResult{
+    required bool isSuccess = 1; //true or false
+    optional RewardItem item =2; //具体兑换结果
+}
+
+//升级帮贡建筑_操作结果。
+//顺带回发：GangDynamicInfoMsg、GangExchangeList(待定，需策划确定是否立即刷新)
+// code = 0x1814
+message GangUpLevelExchangeResult{
+    required bool isSuccess = 1; //true or false
+}
+
+//繁荣建筑BUFF信息
+// code = 0x1815
+message GangBuffInfo{
+	required string buffStr =1 ; // "1_125|2_125"
+    required int64 cdLeaveTime = 2;  //cd刷新剩余时间
+    required int32 buildLevel = 3;  //建筑等级
+    required int32 status = 4;             //领取状态  0：今日已领取  1：正常
+}
+
+//消耗元宝，刷新繁荣建筑BUFF信息（帮主、副帮主特权）_操作结果
+// code = 0x1816
+//顺带回发：GangDynamicInfoMsg、GangBuffInfo
+message GangRefleshBuffInfoResult{
+    required bool isSuccess = 1; //true or false
+}
+
+//领取buff_操作结果
+//顺带回发：GangDynamicInfoMsg,GangBuffInfo
+// code = 0x1817
+message GangGetBuffResult{
+    required bool isSuccess = 1; //true or false
+    required string buffStr =2 ; // 领取buff结果，"1_125|2_125" 
+}
+
+//升级繁荣_操作结果。
+//顺带回发：GangDynamicInfoMsg、GangBuffInfo(待定，需策划确定是否立即刷新)
+// code = 0x1818
+message GangUpLevelBuffResult{
+    required bool isSuccess = 1; //true or false
+}

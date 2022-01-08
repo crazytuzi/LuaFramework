@@ -1,0 +1,69 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CBookMsg";
+
+//返回临时秘籍列表
+// code = 0x1601
+message VisitMasterResultMsg             
+{	
+	repeated int32 booklist = 1;		//获得的秘籍模板id列表
+	required int32 nextMaster = 2;		//下次拜访前辈 1-4
+	required int32 callMasterCount = 3;	//召唤次数
+}
+
+//返回拾取秘籍结果
+// code = 0x1602
+message GetBookResultMsg
+{	
+	required int32 bookpos = 1;			// pos为0拾取所有
+}
+
+//返回出售秘籍结果
+// code = 0x1603
+message SellBookResultMsg
+{	
+	required int32 bookpos = 1;	
+}
+
+//返回秘籍背包
+// code = 0x1604
+message BookBagMsg
+{	
+	repeated BookItem booklist = 1;	
+}
+
+message BookItem
+{
+	required int64 objID = 1;		//实例id
+	required int32 resID = 2;		//模板id
+	required int32 level = 3;		//等级
+	required int32 exp = 4;			//经验
+	required bool lock = 5;			//是否锁定
+	required int64 roleID = 6;		//角色id
+	required int64 position = 7;	//装配位置
+	required int64 attrAdd = 8;		//属性加成
+}
+
+//返回锁定结果
+// code = 0x1605
+message LockBookResultMsg             
+{	
+	required int64 objID = 1;		//实例id
+	required bool lock = 2;			//是否锁定
+}
+
+//合成秘籍结果
+// code = 0x1606
+message ComposeBookResultMsg             
+{	
+	repeated BookItem booklist = 1;
+}
+
+//装配秘籍结果
+// code = 0x1607
+message MountBookResultMsg             
+{	
+	required int64 bookObjID = 1;	//book实例id
+	required int64 roleID = 2;		//角色id
+	required int32 position = 3;	//位置
+}

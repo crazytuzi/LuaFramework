@@ -1,0 +1,13 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ id = 1, price = 6, sycee = 60, extra_sycee = 0, display_id = 1, title = "60元宝", is_show = 1})
+mapArray:push({ id = 2, price = 30, sycee = 300, extra_sycee = 15, display_id = 2, title = "600元宝", is_show = 1})
+mapArray:push({ id = 3, price = 98, sycee = 980, extra_sycee = 60, display_id = 3, title = "680元宝", is_show = 1})
+mapArray:push({ id = 4, price = 198, sycee = 1980, extra_sycee = 240, display_id = 4, title = "1980元宝", is_show = 1})
+mapArray:push({ id = 5, price = 328, sycee = 3280, extra_sycee = 600, display_id = 5, title = "3280元宝", is_show = 1})
+mapArray:push({ id = 6, price = 648, sycee = 6480, extra_sycee = 1600, display_id = 5, title = "6480元宝", is_show = 1})
+mapArray:push({ id = 7, price = 30, sycee = 300, extra_sycee = 0, display_id = 0, title = "小月卡", is_show = 0})
+mapArray:push({ id = 8, price = 1680, sycee = 16800, extra_sycee = 4000, display_id = 5, title = "16800元宝", is_show = 1})
+mapArray:push({ id = 9, price = 3280, sycee = 32800, extra_sycee = 10000, display_id = 5, title = "32800元宝", is_show = 1})
+mapArray:push({ id = 10, price = 5000, sycee = 50000, extra_sycee = 16666, display_id = 5, title = "50000元宝", is_show = 1})
+mapArray:push({ id = 11, price = 118, sycee = 1180, extra_sycee = 0, display_id = 0, title = "大月卡", is_show = 0})
+return mapArray

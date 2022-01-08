@@ -1,0 +1,15 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SSignMsg";
+
+//code = 0x2701
+//获得签到信息
+message GetSignRequest
+{
+}
+
+//code = 0x2702
+//签到
+message SignRequest
+{
+}

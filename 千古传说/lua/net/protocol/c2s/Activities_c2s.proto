@@ -1,0 +1,32 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SActivitiesMsg";
+
+//code = 0x3300
+//查询运营活动状态
+message QueryOpenServiceActivityStatus
+{
+	required int32 type = 1;			//类型。0：全部
+}
+
+//code = 0x3302
+//查询活动奖励记录
+message QueryOpenServiceActivityRewardRecord
+{
+
+}
+
+//code = 0x3303
+//查询排行榜
+message QueryActivityRankList
+{
+	required int32 type = 1;						//排行榜类型.0：全部
+}
+
+//code = 0x3305
+//领取活动奖励
+message GetActivityReward
+{
+	required int32 type = 1;						//活动类型
+	required int32 rewardId = 2;					//奖励配置表的ID
+}

@@ -1,0 +1,12 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ id = 1, target_type = 1, target_value = 30, target_desc = "三十级", reward_id = 201, reward_get_count = 50})
+mapArray:push({ id = 2, target_type = 1, target_value = 40, target_desc = "四十级", reward_id = 202, reward_get_count = 50})
+mapArray:push({ id = 3, target_type = 1, target_value = 50, target_desc = "五十级", reward_id = 203, reward_get_count = 50})
+mapArray:push({ id = 4, target_type = 1, target_value = 60, target_desc = "六十级", reward_id = 204, reward_get_count = 50})
+mapArray:push({ id = 5, target_type = 1, target_value = 70, target_desc = "七十级", reward_id = 207, reward_get_count = 50})
+mapArray:push({ id = 6, target_type = 2, target_value = 1, target_desc = "VIP1", reward_id = 211, reward_get_count = 50})
+mapArray:push({ id = 7, target_type = 2, target_value = 4, target_desc = "VIP4", reward_id = 212, reward_get_count = 50})
+mapArray:push({ id = 8, target_type = 2, target_value = 6, target_desc = "VIP6", reward_id = 213, reward_get_count = 50})
+mapArray:push({ id = 9, target_type = 2, target_value = 8, target_desc = "VIP8", reward_id = 214, reward_get_count = 50})
+mapArray:push({ id = 10, target_type = 2, target_value = 10, target_desc = "VIP10", reward_id = 215, reward_get_count = 50})
+return mapArray

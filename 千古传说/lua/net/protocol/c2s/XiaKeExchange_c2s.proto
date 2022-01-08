@@ -1,0 +1,19 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SXiaKeExchangeMsg";
+
+//侠客互换装备和天书
+//code = 0x6500
+message XieKeExchangeEquip
+{
+	required int64 roleId = 1; 					// 角色实例id
+	required int64 exchangeId = 2; 				// 互换的角色实例id
+}
+
+//侠客传承
+//code = 0x6501
+message XiaKeHereditary
+{
+	required int64 roleId = 1; 					// 角色实例id
+	required int64 hereditaryId = 2; 			// 接受传承的角色实例id
+}

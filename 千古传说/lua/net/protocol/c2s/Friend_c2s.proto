@@ -1,0 +1,93 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "C2SFriendMsg";
+//获取好友列表
+//code = 0x4300
+message GainFriendList{
+
+}
+//获取申请好友列表
+//code = 0x4301
+message GainFriendApplyList{
+
+}
+//获取推荐好友列表
+//code = 0x4302
+message GainRecommendFriend{
+
+}
+//申请好友
+//code = 0x4303
+message ApplyFriend{
+	repeated int32 playerIds = 1;
+}
+//处理好友申请
+//code = 0x4304
+message ExecApplyFriend{
+	required int32 type = 1;// 类型 1同意单个 2 同意全部 3 忽略单个 4 忽略全部
+	optional int32 playerId = 2;
+}
+//赠送礼品
+//code = 0x4305
+message GiveGifi{
+	optional int32 friendId = 1;
+}
+//领取赠送礼品
+//code = 0x4306
+message DrawGiveGifi{
+	optional int32 friendId = 1;
+}
+//删除好友
+//code = 0x4307
+message DeleteFriend{
+	required int32 friendId = 1;
+}
+
+//挑战好友
+// code = 0x430c
+message FriendChallenge{
+	required int32 friendId = 1;
+}
+
+//查询玩家
+//code = 0x430d
+message QueryPlayer{
+	required string name = 1;
+}
+
+
+
+//修改需求的角色
+//code = 0x430E
+message UpdateDemand{
+	required int64 id = 1;
+}
+//修改提供的角色
+//code = 0x430F
+message UpdateProvide{
+	repeated int64 ids = 1;
+}
+
+//获得助战侠客
+//code = 0x4310
+message GainAssistantRole{
+	required int32 friendId = 1;
+	required int32 roleId = 2;
+}
+
+//提供助战的侠客
+// code = 0x4311
+message ProvideFriendAssistant{
+	repeated int32 friendIds = 1;//提供给你人
+}
+
+//玩家助战list
+// code = 0x4312
+message GainFriendAssistantInfoList{
+}
+
+//领取助战奖励
+// code = 0x4313
+message DrawAssistantAward{
+	required int32 friendId = 1;
+}

@@ -1,0 +1,38 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SYabiao";
+
+//查询押镖（暂时未使用）
+// code = 0x3000
+message QueryYabiao
+{
+
+}
+
+//刷新镖车
+// code = 0x3001
+message RefreshYabiao
+{
+
+}
+
+//押镖
+// code = 0x3002
+message Yabiao
+{
+
+}
+
+//领取押镖奖励
+// code = 0x3003
+message GetYabiaoReward
+{
+
+}
+
+//清除押镖等待时间
+//code = 0x3004
+message RequestClearYabiaoCD
+{
+
+}

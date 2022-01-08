@@ -1,0 +1,123 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CRoleTrain";
+
+//返回所有角色穴位
+// code = 0x1500
+message UpdateAllRoleTrainInfo             
+{	
+	repeated UpdateRoleTrainInfo trainlist = 1;
+	required int64 lastTime = 2;				//最后一次突破时间
+	required int32 totalRate = 3;				//突破成功概率
+	required int32 waitRemain = 4;				//概率提升，倒计时剩余时间
+}
+
+//刷单个角色穴位列表
+//code = 0x1501
+message UpdateRoleTrainInfo
+{	
+	required int64 instanceId = 1;				//角色id
+	repeated AcupointInfo acupointList = 2;		//穴位列表
+}
+
+//升级角色穴位_操作结果
+//code = 0x1507
+message AcupointLevelUpResult
+{	
+	required int64 instanceId = 1;
+	required AcupointInfo acupointInfo = 2;
+}
+
+message AcupointInfo
+{
+	required int32  position = 1;		//穴位位置
+	required int32  level = 2;			//穴位等级
+	required int32 breachLevel = 3;		//突破等级
+}
+
+//角色传承结果
+//code = 0x1503
+message ExpTransferResultMsg             
+{	
+	required int64 targetRoleID = 1;		//被传承角色实例id
+	required int32 targetRoleExp = 2;		//被传承角色经验
+	required int32 targetRoleLev = 3;		//被传承角色等级
+	required int64 transferRoleID = 4;		//传承角色实例id
+}
+
+//角色升星
+//code = 0x1504
+message RoleStarUpResult             
+{	
+	required int64 userid = 1;			//角色实例id
+	required int32 starlevel = 2;		//星级
+	required int32 starExp = 3;			//星级经验
+}
+
+//角色突破
+//code = 0x1505
+message RoleBreakthroughResult             
+{	
+	required int64 userid = 1;		//角色实例id
+	required int32 quality = 2;		//品质
+}
+
+//角色传功  (先返回LevelInfo）
+//code = 0x1508
+message RoleTransferResult
+{	
+	required int64 userid = 1;			//角色实例id
+	required int32 level = 2;			//星级
+	required int32 curExp = 3;			//星级经验
+}
+
+//角色修炼结果.只有在修炼成功时才会返回，收到此消息表示修炼必然成功。收到此消息后角色属性需要在客户端计算变更，服务器不另行通知
+//code = 0x1509
+message RolePracticeResult
+{
+	required int64 userid = 1;			//角色实例id
+	required int32 starLevel = 2;		//角色星级，修炼完成后的新星级，实际上总是+1
+}
+
+//code = 0x1520
+//升级技能
+message SpellLevelUpNotify
+{
+	required int64 userid = 1;			//升级技能的角色实例ID
+	required int32 oldLevel = 2;			//旧的技能ID，对应技能当前等级的唯一ID。为t_s_spell_level表格主键
+	required int32 newLevel = 3;			//新的技能ID，对应技能当前等级的唯一ID。为t_s_spell_level表格主键
+	required int32 skillId = 4;
+}
+//角色归隐
+//code = 0x1510
+message RoleHermitResult
+{
+	required bool result = 1; // 是否成功
+}
+//角色重生
+//code = 0x1511
+message RoleRebirthResult
+{
+	required int64 userid = 1;			//角色实例id
+}
+
+//角色经脉突破
+//code = 0x150A
+message AcupointBreachResult
+{
+	required int64 instanceId = 1;			//角色实例ID
+	required bool success = 2;				//是否成功
+	required AcupointInfo acupointInfo = 3;	//突破的穴位最新信息
+	required int64 lastTime = 4;			//最后一次突破时间
+	required int32 totalRate = 5;			//突破成功概率
+	required int32 waitRemain = 6;			//概率提升，倒计时剩余时间
+}
+
+//额外购买经脉突破概率结果
+//code = 0x150B
+message AcupointBreachExtraRateBuyResult
+{
+	required int32 baseRate = 1;			//基础概率
+	required int32 extraRate = 2;			//额外购买的概率
+	required int32 payCount = 3;			//额外购买的次数
+}

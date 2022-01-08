@@ -1,0 +1,42 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SCrossChampionsMsg";
+
+//资格赛信息
+//code = 0x4514
+message QueryQualificationInfos{
+}
+
+//争霸赛信息
+// code = 0x4515
+message QueryCrossChampionsInfos{
+
+}
+
+//积分赛排名信息
+// code = 0x4516
+message QueryScoreRankInfos{
+}
+
+//跨服对战信息
+// code = 0x4517
+message QueryCrossChampionsWarInfos{
+}
+//押注
+//code = 0x4518
+message CrossChampionsBet{
+	required int32 roundId = 1;
+	required int32 index = 2;
+	required int32 coin = 3;
+	required int32 betPlayerId = 4;
+}
+//获得上一届冠军
+//code = 0x4520
+message GainPreviousCrossInfo{
+
+}
+//申请加入跨服战
+//code = 0x4523
+message ApplyCrossChampions{
+
+}

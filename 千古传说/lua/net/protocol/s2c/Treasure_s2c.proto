@@ -1,0 +1,76 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+import "s2c/UnitInfo_s2c.proto";
+import "s2c/Reward_s2c.proto";
+
+option java_outer_classname = "S2CTreasureMsg";
+
+//code = 0x2200
+//挑战宝藏挖掘点结果
+message ChallengeMiningPointResult {
+	required bool win = 1; // 是否挑战胜利
+}
+
+//宝藏挖掘点信息
+message MiningPointInfo {
+	required int32 index = 1; ///位置 1……n
+	required bool empty = 2;	//是否位置上没有角色，如果有则发送角色信息，否则角色信息不用发送
+	required MiningPointProduct product = 3; //宝藏产出的宝物
+	optional OtherPlayerBaseInfo role = 4; //该位置上的角色基础信息
+	optional int32 reaminTime = 5;			//剩余挖掘剩余时间，当挖掘点里有人时才有值
+}
+
+//宝藏挖掘点产出
+message MiningPointProduct{
+	required int32 resType = 1;	//资源类型
+	required int32 resId = 2;	//资源ID
+	required int32 number = 3;	//数量
+}
+
+//code = 0x2201
+//宝藏挖掘点列表
+message MiningPointList {
+	required int32 type = 1; //宝藏类型。1：连城宝藏；2：闯王宝藏；3：大清龙脉
+	repeated MiningPointInfo rolelist = 2; //宝藏挖掘点信息
+}
+
+//code = 0x2203
+//玩家个人的宝藏信息
+message MyTreasureInfo {
+	required string treasureExpression = 1; //玩家已经拥有的宝藏表达式.挖掘出来的宝藏列表
+	required bool hasMiningPoint = 2; //是否占领了一个挖掘点
+	optional int32 remainTime = 3; //挖掘宝藏剩余时间。仅在玩家占有一个挖掘点时才具有值
+	optional int32 type = 4; //所持有的宝藏挖掘点所在的宝藏类型，1：连城宝藏；2：闯王宝藏；3：大清龙脉。仅在玩家占有一个挖掘点时才具有值
+	optional int32 index = 5; //所占有的宝藏挖掘点的位置索引，1……n取值范围。仅在玩家占有一个挖掘点时才具有值
+}
+
+// code = 0x2204
+//更新某个宝藏挖掘点持有的玩家信息，在挖掘点持有者变更时通知客户端（目前不适用，不用实现）
+message UpdateMiningPointOwner{
+	repeated MiningPointInfo info = 1; //更新的位置信息
+}
+
+//code = 0x2205
+//开启宝箱后，通知客户端移除宝箱,并且显示宝箱的产出，宝藏挖掘出来的宝箱必须只能产出一个资源、物品或者卡牌。此时会额外通知角色获得物品的指令
+message TreasureBoxContent
+{
+	required int32 index = 1;	//移除的宝箱索引.1……n
+	required int32 resType = 2;	//资源类型
+	required int32 resId = 3;	//资源ID
+	required int32 number = 4;	//数量
+}
+
+//code = 0x2206
+//额外的宝箱内容，客户端选择开启全部宝箱的时候，发送到客户端，用于客户端显示宝箱产出内容，此过程中会额外发送获得物品、资源更新等更新指令
+message ExtraAwayContent
+{
+	repeated TreasureBoxContent boxContent = 1;	//额外开启的宝箱的产出内容
+}
+
+//code = 0x2207
+//宝藏挖掘完成通知
+message ExcavateComplateNotifyMsg{
+	required int32 type = 1; //宝藏类型。1：连城宝藏；2：闯王宝藏；3：大清龙脉
+	required int32 index = 2;	//挖掘点位置索引.1……n
+	repeated MiningPointProduct product = 3;	//挖掘出来的宝藏信息，添加到个人宝藏列表中
+}

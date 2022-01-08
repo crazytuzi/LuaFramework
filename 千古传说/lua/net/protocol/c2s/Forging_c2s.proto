@@ -1,0 +1,10 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SForging";
+
+//code = 0x6600
+// 炼体
+message ForgingTheBodyRequest{
+	required int64 roleId = 1; 		//角色实例id
+	required int32 acupoint = 2; 	//穴位
+}

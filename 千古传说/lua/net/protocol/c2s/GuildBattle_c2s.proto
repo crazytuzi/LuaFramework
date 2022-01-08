@@ -1,0 +1,43 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SGuildBattleMsg";
+
+//申请成功
+// code = 0x5700
+message ApplyGuildBattle{
+	required int32 index =1;
+}
+//取消申请
+// code = 0x5701
+message UnapplyGuildBattle{
+
+}
+//修改精英
+// code = 0x5702
+message UpdateEliteGuildBattle{
+	required int32 index = 1;
+	required int32 playerId = 2;
+}
+//公会的成员信息
+// code = 0x5703
+message QueryGuildBattleMemberInfo{
+
+}
+
+//公会对战信息
+// code = 0x5704
+message QueryGuildBattleWarInfos{
+
+}
+
+//公会录像信息
+// code = 0x5705
+message QueryGuildBattleReplayInfos{
+	required int32 round = 1;
+	required int32 index = 2;
+}
+//查询上一次冠军
+// code = 0x5707
+message QueryGuildBattleLastWiner{
+
+}

@@ -1,0 +1,18 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CTupu";
+
+//押镖详情
+// code = 0x3100
+message TupuMsg
+{
+	optional string equipStr = 1;	//拥有过的装备ID列表
+	optional string roleStr = 2;	//拥有过的角色id列表
+	optional string bibleStr = 3;	//拥有过的天书id列表
+}
+
+
+
+
+
+

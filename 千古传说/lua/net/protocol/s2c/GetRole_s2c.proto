@@ -1,0 +1,36 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CRecruitMsg";
+
+//返回抽卡相关信息
+// code = 0x1C00
+message GetCardRoleMsg             
+{
+	repeated GetRoleStateMsg stateList = 1;
+}
+
+//抽奖元素信息
+message LuckDrawElementInfo
+{
+	required int32 resType = 1;			//资源类型
+	required int32 resId = 2;			//资源ID
+	required int32 number = 3;			//资源个数
+}
+
+//抽卡结果
+// code = 0x1C01
+message GetCardRoleResultMsg             
+{
+	repeated LuckDrawElementInfo element = 1;				//卡牌模板id
+	required GetRoleStateMsg state = 2;
+}
+
+//返回单个抽卡状态
+// code = 0x1C02
+message GetRoleStateMsg             
+{
+	required int32 cardType = 1;	// 1 最高得乙, 2 最高得甲 3 连抽十次
+	required bool  firstGet = 2;	// 是否首刷
+	required int32 freeTimes = 3;	// 可用免费次数
+	required int32 cdTime = 4;		// 剩余CD时间 单位秒
+}

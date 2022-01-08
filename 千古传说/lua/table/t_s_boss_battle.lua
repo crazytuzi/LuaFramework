@@ -1,0 +1,5 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ id = 1, boss_id = 60000, name = "邪火淬炼的祝融", day_of_week = 36, open_time = "00:00:00", end_time = "22:00:00", settlement_time = "22:10:00", max_times = 5, drop_id = 6000, formation = "0,0,0,0,60000,0,0,0,0", display = "img_info.png", effect = "effect_boss1", effect_x = 572, effect_y = 210, fightresult = "img_boss.png", result_talk = "我还没有使出全力呢"})
+mapArray:push({ id = 2, boss_id = 60001, name = "幻境的白素贞、小青", day_of_week = 17, open_time = "00:00:00", end_time = "22:00:00", settlement_time = "22:10:00", max_times = 5, drop_id = 6000, formation = "0,60001,0,0,0,0,0,60002,0", display = "img_info2.png", effect = "effect_boss_zhangsanlisi", effect_x = 572, effect_y = 210, fightresult = "img_boss2.png", result_talk = "姐妹联心，齐力断金"})
+mapArray:push({ id = 3, boss_id = 60003, name = "洪流的共工", day_of_week = 74, open_time = "00:00:00", end_time = "22:00:00", settlement_time = "22:10:00", max_times = 5, drop_id = 6000, formation = "0,0,0,0,60003,0,0,0,0", display = "img_info3.png", effect = "effect_boss_aobai", effect_x = 572, effect_y = 210, fightresult = "img_boss3.png", result_talk = "以守为攻，以进为退"})
+return mapArray

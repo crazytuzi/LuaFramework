@@ -1,0 +1,311 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CRankingListMsg";
+
+//战力排行榜
+// code = 0x4000
+message RankingListTopPower{
+	repeated RankInfoTopPower rankInfo = 1;			//排名
+	required int32 lastPower = 2;					//最低入榜排名战力
+	required int32 myRanking = 3;					//我的最佳排名,0表示未入榜
+	required int32 myBestValue = 4;					//我的最佳成绩，用户跟lastValue比较
+	required int32 praiseCount = 5;					//我自己拥有的赞数量
+}
+
+//战力榜单个排名信息
+message RankInfoTopPower{
+	required int32 ranking = 1;						//排名，1~N
+	required int32 playerId = 2;					//玩家ID
+	required int32 power = 3;						//战力
+	required string name = 4;						//昵称
+	required int32 level = 5;						//等级
+	required int32 vipLevel = 6;					//VIP等级
+	required int32 goodNum = 7;						//赞次数
+	repeated RankInfoFormation formation = 8;		//布阵信息
+	required int32 profession = 9;					//头像
+	required int32 headPicFrame = 10;					//头像边框
+}
+
+//布阵信息，只发送简单的信息，提供基础动画或者静态角色展示
+message RankInfoFormation{
+	required int64 instanceId = 1;					//实例ID
+	required int32 position = 2;					//阵形位置，0~8
+	required int32 templateId = 3;					//角色模版ID，对应配置表ID
+}
+
+//群豪榜
+// code = 0x4001
+message RankingListArena{
+	repeated RankInfoArena rankInfo = 1;			//排名信息
+	required int32 lastValue = 2;					//最低入榜单排名
+	required int32 myRanking = 3;					//我的最佳排名,0表示未入榜
+	required int32 myBestValue = 4;					//我的最佳成绩，用户跟lastValue比较
+	required int32 praiseCount = 5;					//我自己拥有的赞数量
+}
+
+//群豪榜单个排名信息
+message RankInfoArena{
+	required int32 ranking = 1;						//排名，1~N
+	required int32 playerId = 2;					//玩家ID
+	required int32 power = 3;						//战力
+	required string name = 4;						//昵称
+	required int32 level = 5;						//等级
+	required int32 vipLevel = 6;					//VIP等级
+	required int32 totalChallenge = 7;				//总挑战次数
+	required int32 totalWin = 8;					//总胜利次数
+	required int32 goodNum = 9;						//赞次数
+	repeated RankInfoFormation formation = 10;		//布阵信息
+	required int32 profession = 11;					//头像
+	required int32 headPicFrame = 12;					//头像边框
+}
+
+//无量榜
+// code = 0x4002
+message RankingListWuLiang{
+	repeated RankInfoWuLiang rankInfo = 1;			//排名信息
+	required int32 lastValue = 2;					//最低入榜层数
+	required int32 myRanking = 3;					//我的最佳排名,0表示未入榜
+	required int32 myBestValue = 4;					//我的最佳成绩，用户跟lastValue比较
+	required int32 praiseCount = 5;					//我自己拥有的赞数量
+}
+
+//群豪榜单个排名信息
+message RankInfoWuLiang{
+	required int32 ranking = 1;						//排名，1~N
+	required int32 playerId = 2;					//玩家ID
+	required int32 value = 3;						//层数
+	required string name = 4;						//昵称
+	required int32 level = 5;						//等级
+	required int32 vipLevel = 6;					//VIP等级
+	required int32 goodNum = 7;						//赞次数
+	required int32 power = 8;						//战力
+	repeated RankInfoFormation formation = 9;		//布阵信息
+	required int32 profession = 10;					//头像
+	required int32 headPicFrame = 11;					//头像边框
+}
+
+//侠客榜
+// code = 0x4003
+message RankingListXiaKe{
+	repeated RankInfoXiaKe rankInfo = 1;			//排名信息
+	required int32 lastValue = 2;					//最低入榜层数
+	required int32 myRanking = 3;					//我的最佳排名,0表示未入榜
+	required int32 myBestValue = 4;					//我的最佳成绩，用户跟lastValue比较
+	required int32 topRoleId = 5;					//最高战力卡牌ID，对应t_s_role表ID
+	required int64 topInstanceId = 6;				//最高战力卡牌实例ID
+	required int32 praiseCount = 7;					//我自己拥有的赞数量
+}
+
+//侠客榜单个排名信息
+message RankInfoXiaKe{
+	required int32 ranking = 1;						//排名，1~N
+	required int32 playerId = 2;					//玩家ID
+	required int64 instanceId = 3;					//角色实例ID
+	required int32 roleId = 4;						//角色模版ID，卡牌ID，对应t_s_role表格的id字段
+	required int32 value  = 5;						//战力
+	required string name = 6;						//玩家昵称
+	required int32 playerLevel = 7;					//玩家等级
+	required int32 vipLevel = 8;					//VIP等级
+	required int32 goodNum = 9;						//赞次数
+	required int32 roleLevel = 10;					//角色等级
+	required int32 martialLevel = 11;				//角色武学等级
+	required int32 starLevel = 12;					//角色星级
+	required int32 quality = 13;					//角色品质
+	required int32 profession = 14;					//头像
+	required int32 headPicFrame = 15;					//头像边框
+}
+
+//神兵榜
+// code = 0x4004
+message RankingListShenBing{
+	repeated RankInfoShenBing rankInfo = 1;			//排名信息
+	required int32 lastValue = 2;					//最低入榜层数
+	required int32 myRanking = 3;					//我的最佳排名,0表示未入榜
+	required int32 myBestValue = 4;					//我的最佳成绩，用户跟lastValue比较
+	required int64 topInstanceId = 5;				//装备实例ID
+	required int32 topGoodsId = 6;					//装备模版ID，卡牌ID，对应t_s_goods表格的id字段
+	required int32 praiseCount = 7;					//我自己拥有的赞数量
+}
+
+//神兵榜单个排名信息
+message RankInfoShenBing{
+	required int32 ranking = 1;						//排名，1~N
+	required int32 playerId = 2;					//玩家ID
+	required int64 instanceId = 3;					//装备实例ID
+	required int32 goodsId = 4;						//装备模版ID，卡牌ID，对应t_s_goods表格的id字段
+	required int32 value  = 5;						//战力
+	required string name = 6;						//玩家昵称
+	required int32 playerLevel = 7;					//玩家等级
+	required int32 vipLevel = 8;					//VIP等级
+	required int32 goodNum = 9;						//赞次数
+	required int32 intensifyLevel = 10;				//强化等级
+	required int32 starLevel = 11;					//星级等级
+	required int32 gemId = 12;						//镶嵌的宝石ID，对应t_s_goods表格ID字段
+	required string baseAttribute = 13;				//装备基础属性
+	required string extraAttribute = 14;			//装备附加属性
+	required int32 profession = 15;					//头像
+	required int32 headPicFrame = 16;					//头像边框
+}
+
+//世界BOSS排行榜
+// code = 0x4005
+message RankingListWorldBoss{
+	repeated RankInfoWorldBoss rankInfo = 1;			//排名
+	required int32 last = 2;							//最低入榜排名总伤害
+	required int32 myRanking = 3;						//我的最佳排名,0表示未入榜
+	required int32 myBestValue = 4;						//我的最佳成绩，用户跟lastValue比较
+	required int32 praiseCount = 5;						//我自己拥有的赞数量
+	required int32 betterRewardValue = 6;				//更好的奖励的总伤害，如果为0表示没有更好的了
+	required int32 rewardId = 7;						//当前奖励ID
+}
+
+//世界BOSS榜单个排名信息
+message RankInfoWorldBoss{
+	required int32 ranking = 1;						//排名，1~N
+	required int32 playerId = 2;					//玩家ID
+	required int32 power = 3;						//战力
+	required string name = 4;						//昵称
+	required int32 level = 5;						//等级
+	required int32 vipLevel = 6;					//VIP等级
+	required int32 goodNum = 7;						//赞次数
+	repeated RankInfoFormation formation = 8;		//布阵信息
+	required int32 totalDamage = 9;					//总伤害
+	required int32 replayId = 10;		//录像编号
+	required int32 profession = 11;					//头像
+	required int32 headPicFrame = 12;					//头像边框
+}
+
+//我的点赞信息
+//code = 0x4070
+message MyPraiseInfo{
+	required int32 totalCount = 1;					//总使用次数
+	required int32 todayCount = 2;					//今日使用次数
+	required int32 remaining = 3;					//今日剩余使用次数
+	required int64 lastUpdate = 4;					//最后更新时间
+	repeated int32 targetId	= 5;					//今日已经点赞过的玩家ID
+}
+
+//公会战斗力排名
+//code = 0x4081
+message RankListGuildPower{
+	repeated GuildRankInfo rankInfo = 1;//公会信息
+}
+
+//公会等级排名
+//code = 0x4080
+message RankListGuildLevel{
+	repeated GuildRankInfo rankInfo = 1;//公会信息
+}
+
+//公会增长繁荣度排名
+// code = 0x4084
+message RankListGuildIncBoom{
+	repeated GuildRankIncBoomInfo infos = 1;
+	required int32 myGuildRank = 2;
+	required int32 incBoom = 3;
+}
+
+
+message GuildRankIncBoomInfo{
+	required int32 guildId = 1;
+	required string name = 2;
+	required int32 incBoom = 3;
+}
+
+message GuildRankInfo{
+	required int32 guildId = 1;//公会编号
+	required int32 exp = 2;//经验
+	required string name = 3;//名称
+	required int32 memberCount = 4;//成员数量
+	required string presidentName = 5;//会长名称
+	required int32 power = 6;//总战斗力
+	required string declaration = 7;//宣言
+	required int32 level = 8;
+	required bool apply = 9;//是否申请过
+}
+
+//排行榜点赞成功通知
+//code = 0x4060
+message PraiseSuccess
+{
+	required int32 targetId = 1;				//目标玩家ID
+}
+
+//招募积分活动排行榜
+// code = 0x4010
+message RecruitIntegralRankList{
+	required int32 last = 1;							//最低入榜积分
+	required int32 myIntegral = 2;						//我的积分,0表示未入榜
+	required int32 myRanking = 3;						//我的排名，0表示未入榜，1~N
+	required int32 betterRewardValue = 4;				//更好的奖励的积分，如果为0表示没有更好的了
+	required int32 rewardId = 5;						//当前奖励ID
+	required int32 praiseCount = 6;						//我自己拥有的赞数量
+	repeated RecruitIntegralInfo rankInfo = 7;			//排名信息列表
+}
+
+//招募积分活动榜单个排名信息
+message RecruitIntegralInfo{
+	required int32 ranking = 1;						//排名，1~N
+	required int32 playerId = 2;					//玩家ID
+	required string name = 3;						//昵称
+	required int32 level = 4;						//等级
+	required int32 vipLevel = 5;					//VIP等级
+	required int32 integral = 6;					//积分
+	required int32 praiseCount = 7;					//被赞数量
+	required int32 power = 8;						//战力
+	repeated RankInfoFormation formation = 9;		//布阵信息
+	required int32 profession = 10;					//头像
+	required int32 headPicFrame = 11;					//头像边框
+}
+
+//招募积分活动排行榜概要榜单
+// code = 0x4011
+message RecruitIntegralOutlineRankList{
+	required int32 last = 1;							//最低入榜积分
+	required int32 myIntegral = 2;						//我的积分,0表示未入榜
+	required int32 myRanking = 3;						//我的排名，0表示未入榜，1~N
+	required int32 betterRewardValue = 4;				//更好的奖励的积分，如果为0表示没有更好的了
+	required int32 rewardId = 5;						//当前奖励ID
+	repeated RecruitIntegralOutline rankInfo = 6;			//排名信息列表
+}
+
+//招募积分活动榜单个排名信息
+message RecruitIntegralOutline{
+	required int32 rewardIndex = 1;						//奖励索引，1~N
+	required int32 minIntegral = 2;						//最小积分
+	required int32 maxIntegral = 3;						//最大积分
+}
+
+//公会通关排行
+// code = 0x4082
+message GuildZonePassInfo{
+	required int32 myRank = 1;
+	repeated GuildZonePass rankInfos = 3;
+	optional GuildZonePass firstPass = 2;
+}
+
+message GuildZonePass{
+	required int32 guildId = 1;//公会编号
+	required string name = 2;//名称
+	required string presidentName = 3;//会长名称
+	required int32 power = 4;//总战斗力
+	required int32 level = 5; //等级
+	required int64 passTime = 6;//通过时间
+}
+
+//公会通关排行
+// code = 0x4083
+message GuildCheckpointRankInfos{
+	repeated GuildCheckpointRankInfo infos =1;
+	required int32 totleHurt = 2;
+}
+
+message GuildCheckpointRankInfo{
+	required int32 playerId = 1;
+	required string name =2;
+	required int32 level = 3;
+	required int32 profession = 4;
+	required int32 hurt = 5;
+	required int32 icon = 6; 				 //头像
+	required int32 headPicFrame = 7; 				 //头像边框
+}

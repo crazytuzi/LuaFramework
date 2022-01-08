@@ -1,0 +1,57 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CActivityMsg";
+
+//活动信息
+//code = 0x2300
+message ActivityInfo
+{
+	required int32 id = 1;				//活动ID
+	required string name = 2;			//名称
+	required string title = 3;			//标题
+	required int32 type	= 4; 			//活动类型:0、未知；1、登录；2、连续登录；3、在线奖励，持续在线时长；4、VIP等级；5、团队等级；6、累计充值金额；7、单笔充值金额；8、累计消耗，针对元宝
+	required string resetCron = 5;		//重置表达式，CronExpression表达
+	required int32 status = 6;			//活动状态：0、活动强制无效，不显示该活动；；1、长期显示该活动 2、自动检测，过期则不显示
+	required bool history = 7;			//是否把历史记录也有效，默认无效。如果设置为true，那么历史记录会马上更新活动状态，例如：充值累计
+	required string icon = 8;			//活动图标
+	required string details = 9;		//活动详情，客户端支持的符文本格式表达式
+	required string reward = 10;		//奖励表达式，直接数据格式，根据不同的活动类型表达式可能不一样。如：200|1,1,100&1,2,100&1,3,100|1;400|1,3,100&1,3,100&1,3,100|3
+	optional string beginTime = 11;		//开始日期，没有期限设置为null
+	optional string endTime = 12;		//结束日期，没有期限设置为null
+	optional int32 showWeight	= 13;	//显示权重（控制前端显示顺序）
+	optional bool crossServer	= 14;	//是否是跨服
+}
+
+//运营活动状态
+//code = 0x2301
+message ActivityInfoList
+{
+	repeated ActivityInfo info = 1;		//活动信息
+}
+
+//活动进度
+//code = 0x2302
+message ActivityProgress
+{
+	required int32 id = 1;				//活动ID
+	required int32 progress = 2;		//进度
+	required string extend = 3;			//进度扩展字段，单笔充值等复杂的进度记录
+	required string got =4 ;			//已经领取的奖励表达式,与reward对应。如：1,0,1,2,0
+	required string lastUpdate = 5;		//最后更新时间
+	optional int32 resetRemaining = 6;	//下次重置剩余时间，如果活动信息中resetCron为null或者空字符串则忽略此字段
+}
+
+//活动进度列表
+//code = 0x2303
+message ActivityProgressList
+{
+	repeated ActivityProgress progress = 1;			//进度
+}
+
+//领取活动奖励结果，只有成功领取才会发送到客户端
+//code = 0x2304
+message GotActivityRewardResult
+{
+	required int32 id = 1;				//活动ID
+	required int32 index = 2;			//奖励索引，从1开始，第几个奖励
+}

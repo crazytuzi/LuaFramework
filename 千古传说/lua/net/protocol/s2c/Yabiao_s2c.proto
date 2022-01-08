@@ -1,0 +1,48 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CYabiao";
+
+//押镖详情
+// code = 0x3000
+message YabiaoMsg
+{
+	repeated YabiaoInfo info = 1;	//押镖详情
+}
+
+//押镖详情
+message YabiaoInfo{
+	required int32 id = 1;							//	镖车ID
+	required int64 startTime = 2; 					//开始时间
+	required int64 endTime = 3;						// 今日剩余押镖次数
+	required int32 status = 4;						//押镖状态：0、空闲；1、正在押镖；2、押镖完成可以领取奖励
+	required int64 leftFreeRefreshTime = 5; 		//今日剩余免费刷新次数
+	required int64 leftYabiaoTime = 6;				// 今日剩余押镖次数
+	required int32 nextRefreshCostSysee = 7;		//下次刷新花费元宝
+}
+
+//刷新镖车结果
+// code = 0x3001
+message RefreshYabiaoResult
+{
+}
+
+//押镖结果
+// code = 0x3002
+message YabiaoResult
+{
+
+}
+
+//领取结果
+// code = 0x3003
+message GetYabiaoRewardResult
+{
+	
+}
+
+//清除押镖等待时间
+//code = 0x3004
+message ClearYabiaoCDNotify
+{
+
+}

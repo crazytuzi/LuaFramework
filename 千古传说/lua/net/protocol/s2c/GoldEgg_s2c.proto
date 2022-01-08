@@ -1,0 +1,84 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CGoldEggMsg";
+
+// code = 0x4701
+//砸蛋返回信息
+message GoldEggInfo
+{
+	repeated GoldEggInfoConfig configList = 1;  //配置列表
+}
+
+// code = 0x4702
+//砸蛋结果
+message GoldEggResult
+{
+	required int32 type = 1; 				//1银蛋2金蛋
+	repeated GoldEggReward rewardList = 2;  //奖励列表
+}
+
+message GoldEggReward
+{
+	required int32 resType = 1;			//资源类型
+	required int32 resId = 2;			//资源ID
+	required int32 number = 3;			//资源个数
+}
+
+message GoldEggInfoConfig
+{	
+	required int32 type = 1;			//1银蛋2金蛋
+	required int32 resType = 2;			//消耗资源类型
+	required int32 resId = 3;			//消耗资源ID
+	required int32 number = 4;			//消耗资源个数
+	required int32 score = 5;			//积分
+	required int32 freeTime = 6;		//免费次数
+	required string reward = 7;			//随机奖励配置 类型,id,数量&类型,id,数量
+}
+
+message GoldEggRecord
+{	
+	required int32 playerId = 1;			//玩家ID
+	required string playerName = 2;			//玩家名
+	repeated GoldEggReward rewardList = 3;	//奖励资源
+	required int64 createTime = 4;		//记录时间
+}
+
+// code = 0x4703
+//砸蛋历史
+message EggRecordList
+{
+	required int32 type = 1;				//1个人历史2玩家历史
+	repeated GoldEggRecord recordList = 2;  //配置列表
+}
+
+//code = 0x4704
+//刷新排行结果
+message FreshEggRankResult
+{
+	required EggRankInfo player = 1;		//玩家自己
+	repeated EggRankInfo list = 2;			//排行
+}
+
+message EggRankInfo
+{
+	required int32 rank = 1;				//排行
+	required string name = 2;				//玩家名
+	required int32 score = 3;				//积分
+	required string serverName = 4;			//服务器名称
+}
+
+// code = 0x4705
+//砸蛋推送
+message EggRecordShowList
+{
+	required GoldEggRecord recordList = 1;  //
+}
+
+//code = 0x4706
+//刷新跨服排行结果
+message FreshEggCrossRankResult
+{
+	required EggRankInfo player = 1;		//玩家自己
+	repeated EggRankInfo list = 2;			//排行
+}
+

@@ -1,0 +1,25 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SInviteCode";
+
+
+//领取(验证)邀请码
+// code = 0x2601
+message VerifyInviteCode
+{
+	required string inviteCode = 1;	//需要验证的邀请码
+}
+
+//领取累计发送邀请码奖励
+// code = 0x2602
+message GetSendReward
+{
+	required int32  id = 1; 	//奖励配置ID，详情请见t_s_invite_code_reward_config表
+}
+
+//领取(验证)新邀请码
+// code = 0x2605
+message VerifyNewInviteCode
+{
+	required int32 inviteCode = 1;	//需要验证的邀请码
+}

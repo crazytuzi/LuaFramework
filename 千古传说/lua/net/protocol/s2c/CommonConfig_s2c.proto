@@ -1,0 +1,32 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CCommonConfigMsg";
+
+//宣传图优先级
+//code = 0x6200
+message AdvertisePriority
+{
+	repeated int32 id = 1;				//宣传图id
+}
+
+message RecruitSayInfo{
+	required string txt = 1;			//说话内容
+	required int32 delayF = 2;			//话前等待 毫秒
+	required int32 delayB = 3;			//话后等待 毫秒
+	required int32 index = 4;			//顺序
+}
+
+message RecruitRoleInfo{
+	required int32 roleId = 1;			//角色id
+	required int32 x = 2;				//角色x坐标
+	required int32 y = 3;				//角色y坐标
+	required int32 scale = 4;			//图片缩放度 百分数
+	required bool flipX = 5;			//是否翻转
+	repeated RecruitSayInfo msg = 6;//说话信息
+}
+
+//招募配置
+//code = 0x6201
+message RecruitInfo{
+	repeated RecruitRoleInfo list = 1;
+}

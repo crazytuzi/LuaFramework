@@ -1,0 +1,168 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CAdventureMsg";
+
+//奇遇
+// 打开奇遇界面
+// code = 0x5900
+message AdventureInterface {
+	repeated AdventurePlayerInfo opponent = 1;			// 刷新到的玩家
+	optional int32 eventId = 2;					// 事件ID
+	optional int64 refresheventTime = 3;				// 时间刷新时间
+	optional int64 refreshOpponentTime = 4;		// 玩家刷新倒计时
+	required int32 experience = 5;				// 阅历
+}
+
+//玩家信息结构体
+message AdventurePlayerInfo {
+	required int32 id = 1;						// ID
+	required string name = 2;					// 名字
+	required int32 level = 3;					// 等级
+	required int32 power = 4;					// 战斗力
+	required int32 icon = 5;					// 头像
+	required int32 headPicFrame = 6;			// 头像框
+	required string guildName = 7;				// 帮派名称
+	required int32 massacreValue = 8;			// 杀戮值
+	required int32 rewardMassacre = 9;			// 杀戮值奖励
+	required int32 rewardCoin = 10;				// 铜币奖励
+	required int32 rewardExperience = 11;		// 阅历奖励
+	repeated FormationInfo formation = 12;		// 阵容信息
+	repeated FormationInfo secondFormation = 13;	// 第二阵容信息
+	required int32 secondPower = 14;					// 战斗力
+}
+
+// 奇遇阵容
+// code = 0x5903
+message AdventureFormation {
+	repeated int64 formation = 1;				// 阵容一
+	repeated int64 secondFormation = 2;			// 阵容二
+}
+
+//购买商品
+// code = 0x5904
+message AdventureShopBuy {
+	required int32 result = 1;					// 0成功 1失败
+}
+
+//打开仇人历史记录
+// code = 0x5905
+message AdventureEnemy {
+	repeated AdventureEnemyInfo enemy = 1;		// 仇家记录
+}
+
+// 仇人结构体
+message AdventureEnemyInfo {
+	required int32 id = 1;						// ID
+	required string name = 2;					// 名字
+	required int32 level = 3;					// 等级
+	required int32 power = 4;					// 战斗力
+	required int32 icon = 5;					// 头像
+	required int32 headPicFrame = 6;			// 头像框
+	required int32 revengeNum = 7;				// 复仇次数
+	required int64 battleTime = 8;				// 上次战斗时间(分钟,直接显示)
+	required int32 rewardMassacre = 9;			// 杀戮值奖励
+	required int32 rewardCoin = 10;				// 铜币奖励
+	required int32 rewardExperience = 11;		// 阅历奖励
+	required string guildName = 12;				// 帮派名称
+	required int32 massacreValue = 13;			// 杀戮值
+	repeated FormationInfo formation = 14;		// 阵容信息
+	repeated FormationInfo secondFormation = 15;	// 第二阵容信息
+	required int32 secondPower = 16;					// 战斗力
+}
+
+//复仇
+// code = 0x5906
+message AdventureRevenge {
+
+}
+
+//打开杀戮界面
+// code = 0x5907
+message AdventureMassacre {
+	required int32 massacre = 1;				// 杀戮值
+	required int32 coin = 2;					// 铜币
+	required int32 experience = 3;				// 阅历
+	required int32 ranking = 4;					// 排名
+}
+
+//排行榜
+// code = 0x5908
+message AdventureMassacreRanking {
+	repeated MassacreInfo rankInfo = 1;			// 排行榜玩家信息
+	required int32 lastValue = 2;				// 最低入榜排名杀戮值
+	required int32 myRanking = 3;				// 我的最佳排名,0表示未入榜
+	required int32 myBestValue = 4;				// 我自己的杀戮值
+	repeated int32 challengeId = 5;				// 已挑战过的玩家ID
+}
+
+//玩家杀戮排行榜结构体
+message MassacreInfo {
+	required int32 playerId = 1;						// ID
+	required string name = 2;					// 名字
+	required int32 level = 3;					// 等级
+	required int32 power = 4;					// 战斗力
+	required int32 profession = 5;					// 头像
+	required int32 headPicFrame = 6;			// 头像框
+	required int32 massacreValue = 7;			// 杀戮值
+	required int32 ranking = 8;					// 排名
+	repeated FormationInfo formation = 9;		// 阵容信息
+	repeated FormationInfo secondFormation = 10;	// 第二阵容信息
+	required int32 secondPower = 11;					// 战斗力
+}
+
+//布阵信息，只发送简单的信息，提供基础动画或者静态角色展示
+message FormationInfo{
+	required int64 instanceId = 1;				//实例ID
+	required int32 position = 2;				//阵形位置，0~8
+	required int32 templateId = 3;				//角色模版ID，对应配置表ID
+	required int32 quality = 4;					//品质
+}
+
+//战斗记录
+// code = 0x5909
+message AdventureBattleLog {
+	repeated BattleLogInfo log = 1;				// 战斗记录
+}
+
+//战斗信息结构体
+message BattleLogInfo {
+	required int32 id = 1;						// ID
+	required string name = 2;					// 名字
+	required int32 level = 3;					// 等级
+	required int32 power = 4;					// 战斗力
+	required int32 icon = 5;					// 头像
+	required int32 headPicFrame = 6;			// 头像框
+	required int32 type = 7;					// 状态 0成功杀戮 1杀戮失败2防守成功3防守失败4手刃仇人5复仇失败6防守成功7被报仇8成功挑战9挑战失败10防守成功11被挑战
+	required int32 massacreValue = 8;			// 杀戮值
+	required int32 coin = 9;					// 铜币
+	required int32 experience = 10;				// 阅历
+	required int64 battleTime = 11;				// 战斗时间 (分钟,直接显示)
+	required int32 firstRecordId = 12;			// 第一场录像ID
+	required int32 secondRecordId = 13;			// 第二场录像ID
+}
+
+//点击事件图标
+// code = 0x5910
+message AdventureEvent {
+	required int32 result = 1;					// 0成功 1失败
+}
+
+//排行挑战结果推送
+// code = 0x5912
+message AdventureChallengeResult {
+	required int32 result = 1;					// 0胜利 1失败
+	required int32 playerId = 2;				// 挑战的玩家ID
+	required int32 type = 3;					// 类型 20、杀戮21、复仇22、挑战排行榜
+}
+
+//被挑战者不在排行榜内无法挑战
+// code = 0x5913
+message UnableToChallenge {
+	required int32 type = 1;					// 类型 20、杀戮21、复仇22、挑战排行榜
+}
+
+//直接刷新附近玩家(花钱去除CD时间)
+// code = 0x5914
+message ResetPlayerTime {
+	required int32 result = 1;					// 0成功 1失败
+}

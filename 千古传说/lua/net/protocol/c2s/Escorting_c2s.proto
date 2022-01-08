@@ -1,0 +1,16 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SEscortingMsg";
+
+//挑战护驾
+// code = 0x2900
+message ChallengeEscorting{
+	optional int32 employType = 1;	//佣兵阵形类型，如果不是使用佣兵为0
+}
+
+//获取护驾结束的总奖励
+// code = 0x2903
+message getEscortingReward{
+
+}
+

@@ -1,0 +1,107 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SBloody";
+
+//角色的血战战阵信息
+message C2SBloodyRoleStation{
+	required int64 roleId = 1; 		//角色ID
+	required int32 index = 2;		//战阵索引(从0开始，-1表示未上阵)
+}
+
+//code = 0x3200
+//查询血战信息
+message QueryBloodyInfo{
+	
+}
+
+//code = 0x3201 
+//角色血战上阵
+message BloodyToBattle{
+	required C2SBloodyRoleStation station = 1;  //角色的血战战阵信息
+}
+
+//code = 0x3202
+//更换位置，已上阵角色位置更换
+message BloodyChangeStation{
+	required int32 fromIndex = 1;		//原来的战阵索引
+	required int32 targetIndex = 2;		//新的战阵索引
+}
+
+//code = 0x3203
+//角色血战下阵
+message BloodyOffBattle{
+	required int64 roleId = 1; 				//角色id
+}
+
+
+//code = 0x3207
+//查询血战所有npc的简单信息列表
+message QueryAllBloodyEnemySimpleInfoList{
+					
+}
+
+//code = 0x3208
+//查询血战单个npc的详细信息
+message QueryBloodyEnemyInfo{
+	required int32 section = 1; //关卡号(从1开始)
+}
+
+//code = 0x3209
+//查询血战详情
+message QueryBloodyDetail{
+
+}
+
+//code = 0x3210
+//血战
+message challengeBloodyEnemy{
+	required int32 section = 1; //关卡号(从1开始)
+}
+
+//code = 0x3211
+//查询血战宝箱
+message queryBloodyBox{
+	required int32 section = 1; //关卡号(从1开始)
+}
+
+//code = 0x3212
+//血战宝箱随机
+message RondomBloodyBox{
+	required int32 section = 1; //关卡号(从1开始)
+}
+
+//code = 0x3213
+//血战宝箱抽奖(洗牌)
+message ShuffleBloodyBox{
+	required int32 section = 1; //关卡号(从1开始)
+	required int32 index   = 2; //奖品索引号(客户端：1-6 服务端4-24)
+	
+}
+
+
+//code = 0x3214
+//领取血战宝箱
+message GetBloodyBox{
+	required int32 section = 1; //关卡号(从1开始)
+	required int32 index = 2; //宝箱索引(从1开始)
+	required int32 getType   = 3; //1：免费领取 2：购买
+}
+	
+//code = 0x3215
+//血战鼓舞
+message BloodyInspire{
+	required int32 resType = 1; //鼓舞资源类型
+}
+
+//code = 0x3220
+//重置血战
+message ResetBloodyRequest{
+
+}
+
+//血战扫荡
+// code = 0x3230
+message BloodySweepRequest{
+
+}
+

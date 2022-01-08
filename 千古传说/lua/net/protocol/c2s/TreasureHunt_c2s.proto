@@ -1,0 +1,39 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2STreasureHuntMsg";
+
+// code = 0x6300
+//寻宝奖励配置信息
+message TreasureHuntConfig
+{
+}
+
+// code = 0x6301
+//寻宝
+message TreasureHuntResult
+{
+	required int32 count = 1; 				//寻宝次数
+}
+
+// code = 0x6302
+//请求寻宝历史信息
+message TreasureHuntHistoryList
+{
+	required int32 curCount  = 1; 			//当前数量
+	required int32 count = 2; 				//拉取数量
+	required int32 type = 3;				//1个人历史2玩家历史
+}
+
+// code = 0x6303
+//请求寻宝额外宝箱
+message TreasureHuntExtraReward
+{
+	required int32 id  = 1; 				//宝箱档次id
+}
+
+//code = 0x6304
+//请求刷新排行
+message FreshTreasureHuntRank
+{
+}
+

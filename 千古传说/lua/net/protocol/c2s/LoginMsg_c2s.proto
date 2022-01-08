@@ -1,0 +1,42 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+import "c2s/Enum.proto";
+
+option java_outer_classname="C2SLoginRequest";
+
+// code = 0x0D00
+message LoginMsg
+{
+	required string accountId = 1;		//帐号id
+	required string validateCode = 2;	//登录完成后获得的校验码
+	required int32 serverId=3;			//服务器唯一标识
+	required string token = 4; 			//设备token
+	required string deviceName = 5; 	//设备名称
+	required string osName = 6; 		//设备系统名称
+	required string osVersion = 7; 		//设备系统版本
+	required string channel = 8;		//渠道
+	required string sdk = 9; 			//第三方接入类型。如：PP、91等
+	required string deviceid=10;		//设备ID唯一标识
+	required string sdkVersion=11;		//SDK版本
+	required string MCC = 12;			//移动设备国家码
+	required string IP = 13;			//联网IP地址
+}
+
+// code = 0x0D10
+//请求重新连接
+message ReConnectRequest
+{
+	required string accountId = 1;		//帐号id
+	required string validateCode = 2;	//登录完成后获得的校验码
+	required int32 serverId=3;			//服务器唯一标识
+	required string token = 4; 			//设备token
+	required string deviceName = 5; 	//设备名称
+	required string osName = 6; 		//设备系统名称
+	required string osVersion = 7; 		//设备系统版本
+	required string channel = 8;		//渠道
+	required string sdk = 9; 			//第三方接入类型。如：PP、91等
+	required string deviceid=10;		//设备ID唯一标识
+	required string sdkVersion=11;		//SDK版本
+	required string MCC = 12;			//移动设备国家码
+	required string IP = 13;			//联网IP地址
+}

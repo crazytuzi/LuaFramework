@@ -1,0 +1,129 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CChampions";
+
+//修改阵容成功
+//code = 0x4505
+message UpdateFormationSucess{
+
+}
+//获得挑战信息
+//code = 0x4501
+message GainChampionsInfo{
+	required ChampionsInfo info = 1;
+	repeated int32 boxes = 2;//当前领取的宝箱
+	required int32 matchCount = 3;//匹配次数
+	required int64 lastMatchTime = 4;
+	required bool hosting = 5;
+}
+
+message ChampionsInfo{
+	required int32 atkWinStreak =1;//进攻连胜
+	required int32 atkMaxWinStreak =2;//进攻最大连胜
+	required int32 defWinStreak = 3;//防守连胜
+	required int32 defMaxWinSteak = 4;//防守最大连胜
+	required int32 score = 5;//积分
+	repeated int64 atkFormation = 6;//攻击阵容
+	repeated int64 defFormation = 7;//防守阵容
+	required int32 atkWinCount = 8;//进攻胜利次数
+	required int32 atkLostCount = 9;//进攻失败次数
+	required int32 defWinCount = 10;//防守胜利次数
+	required int32 defLostCount = 11;//防守失败次数
+}
+//鼓舞成功
+//code = 0x4504
+message EncouragingSucess{
+
+}
+
+//战报
+//code = 0x4506
+message Grand{
+	required GrandType type = 1;//战报类型
+	required string message = 2;//消息 用，隔开
+}
+enum GrandType{
+	YOU_BEAT =1;//你击败了谁 玩家名,连胜,积分
+	CHALLENGE_FAILURE=2;//挑战失败 玩家名
+	BEAT_YOU = 3;//击败了你 name
+	CHALLENGE_YOUR_FAILURE = 4;//挑战你失败  name,积分
+	ATT_WIN_STREAK = 5;//进攻连胜 名称,连胜数
+	DEF_WIN_STREAK = 6;//防守连胜 名称,连胜数
+}
+
+//修改挑战赛状态
+//code = 0x4507
+message UpadteChampionsStatus{
+	required int32 status =1;//状态 1没开始 2准备状态 3正在进行 4已结束
+}
+//打开宝箱成功
+//code = 0x4508
+message OpenBoxSucess{
+
+}
+//挑战赛排名
+//code = 0x4509
+message ChampionsRank{
+	repeated ChampionsRankInfo infos = 1;
+	required int32 myRank = 2;
+}
+
+message ChampionsRankInfo{
+	required int32 playerId = 1;
+	required string name = 2;
+	required int32 score =3;
+}
+//没有参加
+//code = 0x4510
+message NotJoin{
+
+}
+
+
+//获取八强赛对战信息
+//code = 0x4511
+message GainChampionsWarInfoResponse{
+	repeated ChampionsWarInfo infos = 1;
+}
+
+message ChampionsWarInfo{
+	required int32 round = 1;//轮次
+	required int32 index = 2;//索引
+	required int32 atkPlayerId = 3;//攻击玩家编号
+	optional int32 defPlayerId = 4;//防守玩家编号
+	required int32 winPlayerId = 5;//胜利的玩家
+	required int32 replayId = 6;// 录像编号
+	required string atkPlayerName = 7;//攻击玩家名
+	optional string defPlayerName = 8;//防守玩家名
+	optional int32 betPlayerId = 9;//押注的玩家编号
+	optional int32 coin = 10;//押注金额
+	required int32 atkProfession = 11;//攻击玩家职业
+	optional int32 defProfession = 12;//防守玩家职业
+	required int32 atkPower = 13;//攻击玩家战斗力
+	optional int32 defPower = 14;//防守玩家战斗力
+	repeated int64 atkFormation = 15;
+	repeated int64 defFormation = 16;
+	required int32 atkIcon = 17;				//攻击玩家头像
+	optional int32 defIcon = 18;				//防守玩家头像
+	required int32 atkHeadPicFrame = 19; 				 //攻击玩家头像边框
+	optional int32 defHeadPicFrame = 20; 				 //防守玩家头像边框
+
+}
+
+
+//押注
+//code = 0x4512
+message ChampionsBetSucess{
+
+}
+
+//最后一次冠军
+// code = 0x4513
+message LastChampion{
+	repeated int32 id = 1;
+	required string name = 2;
+}
+//修改托管成功
+// code = 0x4522
+message UpdateHostingSucess{
+}

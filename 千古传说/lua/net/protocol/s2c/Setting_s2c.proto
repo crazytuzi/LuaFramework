@@ -1,0 +1,24 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CSettingMsg";
+
+//系统设置
+// code = 0x1E00
+message SettingConfig{
+	required bool openMusic = 1;  	//是否打开音乐 true or flase
+   	required bool openVolume = 2; 	//是否打开音效 true or flase
+   	required bool openChat = 3;   	//是否打开聊天 true or flase
+   	optional bool vipVisible = 4;   //是否显示VIP
+}
+
+//保存设置_操作结果
+// code = 0x1E01
+message SettingSaveConfigResult{
+	required bool isSuccess = 1; //true or false
+}
+
+//bug反馈_操作结果
+// code = 0x1E02
+message SettingSendBugResult{
+	required bool isSuccess = 1; //true or false
+}

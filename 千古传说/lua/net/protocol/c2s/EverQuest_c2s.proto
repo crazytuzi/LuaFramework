@@ -1,0 +1,45 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "C2SEverquestMsg";
+
+//查询铜人阵相关信息
+// code = 0x1400
+message QueryQuestMsg             
+{	
+}
+
+//选择某个属性加成
+// code = 0x1401
+message SelectAttrAddMsg
+{	
+	required int32 attr = 1;	// 1 血量加成, 2 内功加成, 3 外功加成, 4 内防加成, 5 外防加成 6 冰火毒伤加成
+}
+
+//请求刷新加成
+// code = 0x1402
+message QueryAttrAddMsg
+{	
+}
+
+//请求闯关
+// code = 0x1403
+message QueryGoFight             
+{	
+	required int32 gotype = 1;	// 1 血闯, 2 勇闯, 3 力闯
+	optional int32 employType = 2;	//佣兵阵形类型，如果不是使用佣兵为0
+}
+
+//查询排行榜
+// code = 0x1404
+message QueryRank
+{	
+	required int32 startIndex = 1; 	//起始索引，1开始;0表示请求玩家所在哪一页
+	required int32 length = 2; 		//获取的数据条目数量	
+}
+
+//请求挑战次数
+// code = 0x1405
+message QueryChallengeTimes             
+{
+}
+

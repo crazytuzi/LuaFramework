@@ -1,0 +1,38 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CInviteCode";
+
+
+//邀请码
+// code = 0x2600
+message MyInviteCode
+{
+	required string myCode = 1; 				//自己的邀请码
+}
+
+//领取(验证)邀请码返回结果
+// code = 0x2601
+message VerifyInviteCodeResult
+{
+}
+
+//邀请码详情
+// code = 0x2603
+message MyInviteCodeInfo
+{
+	required bool invited = 1; 					//自己是否被邀请过（验证过别人的邀请码）
+	required int32 inviteCount = 2; 				//主动邀请次数
+	required string getRewardRecord = 3; 		//已领取第n此奖励（形如：1,2,3,4,5,...表示已领取发送1,2,3,4,5次奖励）
+}
+
+//邀请码详情
+// code = 0x2604
+message MyNewInviteCodeInfo
+{
+	required int32 myCode = 1;					//自己的邀请码
+	required bool invited = 2; 					//自己是否验证过别人的邀请码
+	required bool invitedAward = 3;				//是否已领受邀奖
+	required int32 inviteCount = 4; 			//邀请好友次数
+	required string getRewardRecord = 5; 		//邀请领奖记录，格式:id_达到条件次数_已领次数&id_次数...
+}
+

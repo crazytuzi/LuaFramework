@@ -1,0 +1,58 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SMartialMsg";
+
+//请求装备武学
+// code = 0x3401
+message RequestEquipMartial
+{
+	required int64 roleId = 1;			//角色id
+	required int32 martialId = 2; 		//武学id
+	required int32 position = 3; 		//武学装备位置
+	required bool autoSynthesis = 4;	//是否自动合成，只有在没有该武学，但是又拥有足够材料的情况下才为true，可以节省用户合成所需要的操作，由客户端进行智能验证填写，如果客户端不支持智能校验则填写为false
+}
+
+// 武学升级通知
+// code = 0x3403
+message RequestMartialLevelUp
+{
+	required int64 roleId = 1; 				//角色id
+}
+
+// 武学合成
+// code = 0x3404
+message RequestMartialSynthesis
+{
+	required int32 martialId = 1;			//合成产出的武学
+	required bool autoSynthesis = 2;		//是否自动合成，只有在没有该武学，但是又拥有足够材料的情况下才为true，可以节省用户合成所需要的操作，由客户端进行智能验证填写，如果客户端不支持智能校验则填写为false
+}
+
+// 附魔的材料
+message EnchantMaterial
+{
+	required int32 id = 1;					//id
+	required int32 number = 2;				//个数
+}
+
+// 武学附魔
+// code = 0x3405
+message RequestMartialEnchant
+{
+	required int64 roleId = 1; 						//角色id
+	required int32 position = 2;					//武学装备位置
+	repeated EnchantMaterial material = 3;			//附魔材料
+}
+
+// 一键武学附魔
+// code = 0x3407
+message RequestOneKeyEnchant
+{
+	required int64 roleId = 1;						//角色id
+	required int32 position = 2;					//武学装备位置
+}
+
+// 一键装备武学
+// code = 0x3410
+message RequestOneKeyEquipMartial{
+	required int64 instanceId = 1;					//角色实例ID
+}

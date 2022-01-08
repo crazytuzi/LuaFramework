@@ -1,0 +1,28 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SRankingListMsg";
+
+//查询排行榜基础信息，根据不同的排行榜类型返回不同的协议和数据，因为每个排行榜结构不一样
+// code = 0x4050
+message QueryRankingBaseInfo{
+	required int32 type = 1;					//排行榜类型
+	required int32 startIndex = 2;				//开始索引，0~N
+	required int32 length = 3;					//获取信息长度
+
+	optional int32 guildZoneType = 4;			//公会副本类型 1查看副本通关时间 2查看副本伤害
+	optional int32 guildZoneId = 5; 			//公会副本编号
+	optional int32 guildCheckpoint = 6;			//公会关卡编号
+}
+
+//排行榜点赞
+//code = 0x4060
+message RequestPraise
+{
+	required int32 targetId = 1;				//目标玩家ID
+}
+
+//查询招募积分排行榜
+// code = 0x4011
+message QueryRecruitIntegralOutlineRank{
+
+}

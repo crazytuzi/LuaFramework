@@ -1,0 +1,10 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="ProtobufClientEnum";
+
+//性别枚举
+enum Sex
+{
+	FEMALE = 0;	//女性
+	MALE = 1;	//男性
+}

@@ -1,0 +1,24 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CWorldBossMsg";
+
+//世界BOSS信息
+// code = 0x4201
+message WorldBossInfo{
+	required int32 id = 1; 				//BOSS配置ID类型
+	required int32 total = 2;			//当日伤害总量
+	required int32 best = 3;			//当日单次最高伤害
+	required int32 todayTimes = 4;		//当日已经使用的挑战次数
+	required int32 todayPayTimes=5;		//当日已经使用的付费挑战次数
+	required int32 totalTimes = 6;		//累计使用过的挑战次数
+	required int32 totalPayTimes = 7;	//累计使用过的付费挑战次数
+	required int64 lastUpdate = 8;		//最后一次更新信息的系统时间
+	required int64 lastReward = 9;		//最后一次奖励时间
+}
+
+//世界BOSS信息列表
+// code = 0x4202
+message WorldBossInfoList
+{
+	repeated WorldBossInfo info = 1;		//世界BOSS信息
+}

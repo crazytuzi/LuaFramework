@@ -1,0 +1,40 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SInvocatory";
+
+//发送
+// code = 0x5400
+message QueryInvocatory
+{
+
+}
+
+//祈愿
+// code = 0x5401
+message GetInvocatoryReward
+{
+	required int32 roleId = 1; 		//祈愿的侠客模板id
+}
+
+//领取购买
+// code = 0x5402
+message GetReward
+{
+	required int32 indexId = 1; 		//卡槽位置id
+}
+
+//获得祈愿15天的奖励
+// code = 0x5403
+message GetInvocatoryDayReward
+{
+	
+}
+
+//使用物品进行祈愿
+// code = 0x5404
+message uesInvocatoryGoods
+{
+	required int32 roleId = 1; 		//祈愿的侠客模板id
+}
+
+

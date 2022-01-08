@@ -1,0 +1,298 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CEmployMsg";
+
+//
+//code = 0x5100
+message MyEmployInfo
+{
+	repeated EmployRoleInfo roleList = 1; 	//我方雇佣信息列表
+}
+
+message EmployRoleInfo
+{
+	required int64 roleId = 1; //角色实例id
+	required int64 startTime = 2; 	//开始时间
+	required int32 coin  = 3;	//累计获得金钱
+	required int32 indexId  = 4;	//位置id
+	required int32 count = 5;	//被雇佣次数
+}
+
+//雇佣角色刷新
+//code = 0x5101
+message EmployRoleOperationResult
+{
+	required EmployRoleInfo role = 1; 	//操作的角色
+	required int32  operation = 2;		//操作符，1表示增加，2表示移除，3表示领取
+	repeated int32 coin = 3;			//获得铜币
+}
+
+//雇佣他人数据
+//code = 0x5103
+message EmployOtherInfoResult
+{
+	repeated HasEmployInfo info = 1;	//已经雇佣的角色信息
+}
+
+message HasEmployInfo
+{
+	required int32 playerId = 1;		//佣兵主人id
+	required int32 time = 2;		//已雇佣次数
+}
+
+
+//所有雇佣数据
+//code = 0x5104
+message AllEmployInfo
+{
+	repeated EmployOtherRoleInfo info = 1;	//所有雇佣信息
+}
+
+message EmployOtherRoleInfo
+{
+	required int64 instanceId = 1;		//角色实例id
+	required int32 playerId = 2;		//佣兵主人id
+	required string name = 3;			//佣兵主人名字
+	required int32 relation  = 4;		//关系 二进制 00 表示没关系 01表示好友 10表示帮派 11表示好友和帮派
+	required int32 roleId = 5;			//角色id
+	required int32 level = 6;			//等级
+	required int32 start = 7;			//星级
+	required int32 martial = 8;			//秘籍重数
+	required int32 power = 9;			//战斗力
+	required int32 quality = 10;		//品质，角色可以升品了
+	required int32 forgingQuality = 11;		//角色最高炼体品质
+}
+
+//code = 0x5114
+//角色明细信息
+message EmploySingleRoleDetails
+{
+	required int64 instanceId = 1;				//角色实例ID
+	required int32 useType = 2;					//使用系统
+	required int32 roleId = 3;    				// 卡牌的id
+	required int32 level = 4;	  				// 等级
+	required int32 martialLevel = 5;			// 武学等级
+	required int32 starlevel  = 6;	  			// 星级
+	required int32 power = 7; 					// 战力
+	required int32 hp = 8;						// 剩余HP
+	required string spell = 9;					// 技能表达式：id_level|……
+	required string attributes = 10; 			// 属性字符串
+	required string immune = 11;				// 免疫概率
+	required string effectActive = 12;			// 效果影响主动
+	required string effectPassive = 13;			// 效果影响被动
+	required int32 state = 14;					//状态：1、正常状态；2、死亡；3、释放
+	required int32 quality = 15;				//品质，角色可以升品了
+	optional string name = 16;					//名称，主角名称，只有当角色为主角角色时才有值
+	required int32 forgingQuality = 17;		//角色最高炼体品质
+}
+
+//code = 0x5110
+//雇佣队伍信息列表
+message EmployRoleCountList
+{
+	repeated EmployRoleCount count = 1;			//雇佣角色次数信息
+}
+
+//code = 0x5111
+//已雇佣队伍列表
+message EmploySingleRoleList
+{
+	repeated EmploySingleRoleDetails role = 1;		//角色
+}
+
+//code = 0x5113
+//雇佣队伍信息
+message EmployRoleCount
+{
+	required int32 playerId = 1;				//玩家ID
+	required int32 todayCount = 2;				//今日雇佣次数
+	required int32 totalCount = 3;				//历史雇佣次数
+	required int64 createTime = 4;				//第一次雇佣时间
+	required int64 lastUpdate = 5;				//最后一次雇佣时间
+	required int64 instanceId = 6;				//角色实例ID
+}
+
+//code = 0x5112
+//某个系统已经使用和正在使用的角色信息
+message EmploySingleRoleListByUseType
+{
+	required int32 useType = 1;						//使用类型，客户端定义
+	repeated EmploySingleRoleDetails role = 2;		//角色
+}
+
+//code = 0x5120
+//雇佣单个角色成功通知
+message EmploySingleRoleSuccess
+{
+	required int32 playerId = 1;				//雇佣的角色属于哪个玩家
+	required int64 instanceId = 2;				//角色实例ID
+	required int32 useType = 3;					//使用类型，客户端定义，这里可以是战斗类型
+}
+
+//code = 0x5121
+//雇佣角色失效通知
+message EmploySingleRoleRelease
+{
+	required int32 playerId = 1;				//雇佣的角色属于哪个玩家
+	required int64 instanceId = 2;				//角色实例ID
+	required int32 useType = 3;					//使用类型，客户端定义，这里可以是战斗类型
+}
+
+//佣兵队伍概要信息
+message MercenaryTeamOutlineMsg
+{
+	required int32 playerId = 1;					//发布佣兵信息的玩家ID
+	required int32 power = 2;						//战力
+	required string playerName = 3;					//佣兵主人名字
+	repeated MercenaryRoleOutline battleRole = 4;	//角色列表
+	required int32 relation  = 5;					//关系 二进制 00 表示没关系 01表示好友 10表示帮派 11表示好友和帮派
+	repeated AssistantDetails assistant = 6;		//小伙伴
+}
+
+//简单佣兵单位信息
+message MercenaryRoleOutline{
+	required int64 instanceId = 1;				//角色实例id
+	required int32 roleId = 2;					//角色id
+	required int32 level = 3;					//等级
+	required int32 starLevel = 4;				//星级
+	required int32 martialLevel = 5;			//秘籍重数
+	required int32 position = 6;				//上阵位置
+	required int32 quality = 7;					//品质，角色可以升品了
+	required int32 forgingQuality = 8;		//角色最高炼体品质
+}
+
+//code = 0x5150
+//佣兵队伍概要信息
+message MercenaryTeamOutlineListMsg
+{
+	repeated MercenaryTeamOutlineMsg outline = 1;		//概要信息
+}
+
+//上阵角色
+message MercenaryTeamRole
+{
+	required int64 instanceId = 1;				//角色实例ID
+	required int32 position = 2;				//位置，0~8
+}
+
+//派遣队伍成功通知，用于客户端取消菊花
+//code = 0x5151
+message DispatchMercenaryTeamSuccess
+{
+
+}
+
+//code = 0x5152
+//我的佣兵队伍
+message MyMercenaryTeamDetails
+{
+	repeated MercenaryTeamRole battleRole = 1;	//上阵角色信息
+	repeated MercenaryTeamRole assistant = 2;	//小伙伴信息
+	required int64 startTime = 3;				//开始时间
+	required int32 coin = 4;					//预计收入的铜币数量
+	required int32 employCount = 5;				//被雇佣次数
+}
+
+//code = 0x5153
+//领取奖励或者归队
+message MerceanryTeamOperationNotify
+{
+	required int32  operation = 1;   			//操作符，1、领取；2、归队
+	repeated int32 coin = 2;					//收入:派遣收入、雇佣收入
+}
+
+//code = 0x5160
+//雇佣佣兵队伍详细信息
+message EmployTeamSuccess
+{
+	required int32 useType = 1;						//使用类型，哪里使用，可以根据战斗类型进行定义或者阵形、系统类型进行定义
+	required int32 fromId = 2;						//队伍来自那个玩家，玩家ID
+}
+
+//code = 0x5161
+//雇佣佣兵队伍详细信息
+message EmployTeamDetails
+{
+	required int32 fromId = 1;						//雇佣自哪个玩家，玩家ID
+	required int32 useType = 2;						//使用类型，哪里使用，可以根据战斗类型进行定义或者阵形、系统类型进行定义
+	repeated EmployRoleDetails roleDetails = 3;		//上阵角色信息
+	repeated AssistantDetails assistant = 4;		//小伙伴信息
+}
+
+//角色明细信息
+message EmployRoleDetails
+{
+	required int64 instanceId = 1;				//角色实例ID
+	required int32 position = 2;				//上阵位置
+	required int32 roleId = 3;    				// 卡牌的id
+	required int32 level = 4;	  				// 等级
+	required int32 martialLevel = 5;			// 武学等级
+	required int32 starlevel  = 6;	  			// 星级
+	required int32 power = 7; 					// 战力
+	required int32 hp = 8;						// 剩余HP
+	required string spell = 9;					// 技能表达式：id_level|……
+	required string attributes = 10; 			// 属性字符串
+	required string immune = 11;				// 免疫概率
+	required string effectActive = 12;			// 效果影响主动
+	required string effectPassive = 13;			// 效果影响被动
+	required int32 quality = 14;				//品质，角色可以升品了
+}
+
+//小伙伴角色信息
+message AssistantDetails
+{
+	required int32 position = 1;				//位置
+	required int32 roleId = 2;					//卡牌类型，职业，如：段誉、乔峰
+	required int64 instanceId = 3;				//实例ID
+	required int32 quality = 4;					//品质，角色可以升品了
+}
+
+//code = 0x5162
+//修改已雇佣队伍的阵形成功通知
+message ModifyEmployTeamFormationSuccess
+{
+}
+
+//code = 0x5163
+//已雇佣队伍列表
+message EmployTeamList
+{
+	repeated EmployTeamDetails team = 1;		//队伍
+}
+
+//code = 0x5165
+//雇佣队伍信息
+message EmployTeamCount
+{
+	required int32 playerId = 1;				//玩家ID
+	required int32 todayCount = 2;				//今日雇佣次数
+	required int32 totalCount = 3;				//历史雇佣次数
+	required int64 createTime = 4;				//第一次雇佣时间
+	required int64 lastUpdate = 5;				//最后一次雇佣时间
+}
+
+//code = 0x5164
+//雇佣队伍信息列表
+message EmployTeamCountList
+{
+	repeated EmployTeamCount count = 1;			//雇佣队伍次数信息
+}
+
+//code = 0x5170
+//雇佣队伍失效通知
+message EmployTeamRelease
+{
+	required int32 playerId = 1;				//雇佣的角色属于哪个玩家
+	required int32 useType = 2;					//使用类型，客户端定义，这里可以是战斗类型
+}
+
+
+//code = 0x5130
+//更新单个角色佣兵阵形
+message UpdateEmployFormationNotify
+{
+	required int32 type = 1;					//阵形类型，9、推图阵形
+	repeated MercenaryTeamRole role = 2;		//上阵角色信息
+	repeated AssistantDetails assistant = 3;	//小伙伴信息
+	required int64 employRole = 4;				//佣兵角色实例ID，阵上如果有佣兵角色，则为该佣兵角色的实例ID，否则为0
+}

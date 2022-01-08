@@ -1,0 +1,67 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+import "s2c/UnitInfo_s2c.proto";
+import "s2c/Reward_s2c.proto";
+
+option java_outer_classname="S2CPVPMsg";
+
+//code = 0x1310
+//挑战天罡星
+message TianGangChallengeResult
+{
+	required bool win = 1; // 是否挑战胜利
+}
+
+message TianGangRankRoleInfo
+{
+	required int32  rank = 1;	///位置;
+	required OtherPlayerBaseInfo role = 2;	//角色基本信息
+}
+
+//code = 0x1311
+//天罡星排行榜信息
+message TianGangRankInfo
+{
+	required int32  level = 1;	///天罡等级;
+	repeated TianGangRankRoleInfo rolelist = 2; ///排行信息
+}
+
+//code = 0x1312
+//天罡星排行榜信息
+message GetMyTGRankResult
+{
+	required bool  hasrank = 1;	///是否有排名;
+	optional MyTGRankInfo  rank = 2;	///天罡排名信息;
+}
+
+//天罡星排行榜信息
+message MyTGRankInfo
+{
+	required int32  level = 1;	///天罡等级;
+	required int32  rank = 2;	///天罡排名;
+	required int32  reward = 3;	///可领取多少次奖励;
+	required int32  nexttime = 4;	///获取下次奖励时间;
+}
+
+//code = 0x1313
+//挑战天罡星
+message GetMyTGRewardResult
+{
+	required bool result = 1; // 是否领取成功 1、领取成功；2、你已经被人打下来了；
+	repeated RewardItem items =2; //具体奖励
+}
+
+//code = 0x1314
+//获取自己天罡星的次数
+message GetMyTGTimeResult
+{
+	required int32 times = 1; //剩余次数
+}
+
+//code = 0x1315
+//获取天罡星其他玩家的详细数据
+message GetTGEnemyDetailsResult
+{
+	required OtherPlayerDetails player = 1; //敌人的详细信息
+	required int32 starshards = 2;			//可掠夺的星辰碎片数量
+}

@@ -1,0 +1,38 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CChallengeTime";
+
+// code = 0x2101
+//返回剩余挑战次数(体力)
+message ChallengeTime
+{
+	required int32 type = 1; 								//1-推图体力；2-群豪谱体力；3-爬塔体力； 4-技能点;5-摩诃衍1；6-摩诃衍2；7-摩诃衍3
+	required int32 maxValue = 2; 							//默认每日可挑战次数
+	required int32 todayUse = 3;  							//今日已经挑战次数
+	required int32 currentValue = 4;						//今日剩余可挑战次数
+	required int32 todayBuyTime = 5;						//每日已购买次数
+	required int32 cooldownRemain = 6;						//下次恢复体力剩余时间
+	required int32 waitTimeRemain = 7;						//剩余等待时间
+	required int32 todayResetWait = 8;						//今日重置等待时间次数
+}
+
+// code = 0x2102
+//返回剩余挑战次数(体力)列表
+message ChallengeTimeList
+{
+	repeated ChallengeTime  records = 1;		 			//剩余挑战次数列表
+}
+
+// code = 0x2103
+//返回购买挑战次数(体力)结果
+message BuyTimeResult
+{
+	required int32 battleType = 1; 							//1-推图体力；2-群豪谱体力；3-爬塔体力； 4-技能点;5-摩诃衍1；6-摩诃衍2；7-摩诃衍3
+}
+
+//code = 0x2105
+//重置等待时间成功通知
+message ResetWaitTimeSuccess
+{
+	required int32 type = 1;								//1-推图体力；2-群豪谱体力；3-爬塔体力； 4-江湖宝藏体力; 5-技能点
+}

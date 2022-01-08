@@ -1,0 +1,12 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ id = 1, team_level = 5, reward_id = 4500})
+mapArray:push({ id = 2, team_level = 10, reward_id = 4501})
+mapArray:push({ id = 3, team_level = 15, reward_id = 4502})
+mapArray:push({ id = 4, team_level = 20, reward_id = 4503})
+mapArray:push({ id = 5, team_level = 25, reward_id = 4504})
+mapArray:push({ id = 6, team_level = 30, reward_id = 4505})
+mapArray:push({ id = 7, team_level = 35, reward_id = 4506})
+mapArray:push({ id = 8, team_level = 40, reward_id = 4507})
+mapArray:push({ id = 9, team_level = 45, reward_id = 4508})
+mapArray:push({ id = 10, team_level = 50, reward_id = 4509})
+return mapArray

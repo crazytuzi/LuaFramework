@@ -1,0 +1,36 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SChallengeMission";
+
+// code = 0x1201
+message ChallengeMission{
+	required int32 missionId = 1;
+	optional int32 employType = 2;	//佣兵阵形类型，如果不是使用佣兵为0
+}
+
+// code = 0x1202
+// 打开章节宝箱请求
+message OpenChapterBoxRequest{
+	required int32 chapterId = 1; //章节ID
+	required int32 difficulty = 2; //难度
+	required int32 boxId = 3; //奖励的宝箱id，对应t_s_stage_box表格中的id字段。此字段为了兼容一个关卡多个宝箱的需求
+}
+
+// code = 0x1203
+// 重置挑战次数
+message ResetChallengeCountRequest{
+	required int32 missionId = 1; //关卡Id
+}
+
+// code = 0x1204
+// 扫荡单次（具体次数参照策划案，如果免费次数用完，则扣元宝）
+message SingleSweepSection{
+	required int32 missionId = 1; //关卡Id
+}
+
+// code = 0x1205
+// 扫荡N次
+message SweepSection{
+	required int32 missionId = 1;   //关卡Id
+	required int32 time  = 2; 		//扫荡次数
+}

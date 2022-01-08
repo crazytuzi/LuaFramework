@@ -1,0 +1,96 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CClimbMsg";
+
+import "s2c/Reward_s2c.proto";
+
+//code = 0x1700
+//重置操作结果
+message ResetClimbResult
+{
+	required int32 curId = 1; //无量山当前最后一个可挑战的关卡层数
+}
+
+//code = 0x1701
+//挑战结果，成功或者失败。在返回此协议的时候会同时发送无量山相关的体力系统的更新协议到客户端，具体请查看体力系统的协议定义
+message ClimbChallengeResult
+{
+	required bool win = 1; //挑战结果，是否胜利
+	required int32 curId = 2; //无量山当前最后一个可挑战的关卡层数
+}
+
+//获取无量山主页信息，进入无量山玩法首界面时需要显示的信息都需要在此处返回。目前只有当前挑战的关卡ID即可
+// code = 0x1702
+message ClimbHomeInfo{
+    required int32 curId = 1; //当前关卡
+}
+
+
+//获取万能副本界面信息
+// code = 0x1704
+message ClimbCarbonList{
+	repeated CarbonInfo carbonList = 1;
+}
+
+//副本信息结构体
+message CarbonInfo
+{
+	required int32 index = 1; 		//副本索引
+	required int32 leftTimes = 2;	// 剩余挑战次数
+	required bool isEnable = 3;		//是否可挑战，true:可挑战 false:不可挑战;
+	required int64 coolTime = 4;	// 挑战冷却时间(毫秒)
+}
+
+// 扫荡结果
+// code = 0x1710
+message ClimbSweepResult{
+	required int32 id = 1; 							//关卡Id,无量山层数
+	repeated ClimbSweepResultItem result = 2;		//结果列表
+}
+
+message ClimbSweepResultItem
+{
+	required int32 exp = 1;					//增加团队经验
+	required int32 oldLevel = 2;  			//原先团队等级
+	required int32 currentLevel = 3;		//当前团队等级
+	required int32 coin = 4;				//获得的金币数量
+	repeated RewardItem item = 5;			//掉落列表
+}
+
+//摩诃崖扫荡结果
+// code = 0x1720
+message MHYSweepResult{
+	required int32 id = 1; 								//目标关卡ID
+	repeated MHYSweepResultItem result = 2;				//结果列表
+}
+
+message MHYSweepResultItem
+{
+	required int32 exp = 1;								//增加团队经验
+	required int32 oldLevel = 2;  						//原先团队等级
+	required int32 currentLevel = 3;					//当前团队等级
+	required int32 coin = 4;							//获得的金币数量
+	repeated RewardItem item = 5;						//掉落列表
+}
+
+message MHYPassInfoMsg{
+	required int32 id = 1;								//关卡ID
+	required int32 star = 2;							//获得的星数1~3。没有通关的不发送
+}
+
+//摩诃崖通关信息
+// code = 0x1721
+message MHYPassInfoList{
+	repeated MHYPassInfoMsg info = 1;					//摩诃崖通关信息
+}
+
+//无量山星
+//code = 0x1722
+message ClimbStarResp{
+	repeated ClimbStarMsg star =1;
+}
+message ClimbStarMsg{
+	required int32 sectionId = 1;//无量山
+	required int32 star =2;
+	required int32 passLimit = 3;
+}

@@ -1,0 +1,17 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SRecruitMsg";
+
+//查询抽卡相关信息
+// code = 0x1C00
+message QueryGetRoleMsg             
+{
+}
+
+//抽卡
+// code = 0x1C01
+message GetCardRoleMsg             
+{
+	required int32 cardType = 1;	// 1 最高得乙, 2 最高得甲, 3 连抽十次
+	required bool free = 2;			// 是否免费
+}

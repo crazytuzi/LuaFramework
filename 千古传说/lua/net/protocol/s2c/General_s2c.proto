@@ -1,0 +1,35 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CGeneralMsg";
+
+// code = 0x7F10
+message ResourceUpdateMsg
+{
+	repeated  ResourceMsg resource = 1;		//资源
+}
+
+message ResourceMsg
+{
+	required  int32 resource = 1;		//资源类型 1、铜币|2、元宝|3、真气|4、魂魄|5、铸铁|6、体力|7、经验|8、铸铁|9、星辰碎片|10、关卡体力|11、玩家等级
+	required  int64 num = 2;			//资源数量
+}
+
+// code = 0x7F11
+//事件重置，每日晚上12点发送
+message EventResetMsg
+{
+}
+
+//服务器信息
+// code = 0x7F12
+message ServerInfoMsg
+{
+	required int64 openTime =1;			//开服时间
+}
+
+// code = 0x7FFF
+//通用错误消息，在任意模块操作不能正常完成时下发通用的错误代号，在客户端进行相应的显示和逻辑跳转
+message ErrorCodeMsg {
+	required int32 errorCode = 1;  //错误代号，全局唯一。在客户端需要实现多语言支持，通过错误代号能够映射到对应的错误提示信息
+	optional int32 cmdId = 2; //出现错误的指令请求id，客户端请求服务器时的指令号
+}

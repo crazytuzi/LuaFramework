@@ -1,0 +1,61 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CInvocatory";
+
+//发送玩家祈愿状态
+// code = 0x5400
+message InvocatoryMsg
+{
+	required int32 roleId = 1;						//祈愿的侠客id
+	required int32 todayCount = 2; 					//今天祈愿次数
+	required int32 rewardDay = 3;					//领取奖励天数累计
+	required int64 rewardTime = 4;					//上次更新时间
+	repeated InvocatoryInfo info = 5; 				//上次三个卡槽的领取情况
+}
+
+
+//三个卡槽的领取情况
+message InvocatoryInfo{
+	required int32 roleId = 1;						//侠客模板id
+	required int32 roleNum = 2;						//三个卡槽的侠客数量
+	required int32 roleSycee = 3;					//三个卡槽的侠客花费
+	required int32 isGetReward = 4; 				//是否领取了祈愿奖励  0是未领取1是已经领取
+}
+
+
+//显示祈愿结果
+// code = 0x5401
+message showInvocatoryReward
+{
+	required int32 roleId = 1;						
+	required int32 todayCount = 2; 					
+	required int32 rewardDay = 3;					
+	required int64 rewardTime = 4;					
+	repeated InvocatoryInfo info = 5; 				
+}
+
+//发送获得祈愿结果
+// code = 0x5402
+message sendInvocatoryReward
+{
+	repeated InvocatoryInfo info = 1; 				//祈愿奖励
+	required int32 indexId = 2;						//位置索引		
+}
+
+//获得祈愿15天的奖励
+// code = 0x5403
+message sendInvocatoryDayReward
+{
+	required int32 success = 1;						//通知客户端领取成功 1表示成功
+}
+
+
+//返回使用祈愿石得到的祈愿结果
+// code = 0x5404
+message usedInvocatoryGoodsResult
+{
+	required int32 roleId = 1;						//祈愿的侠客id
+	required int32 rewardDay = 2;					//领取奖励天数累计
+	repeated InvocatoryInfo info = 3; 				//上次三个卡槽的情况
+}
+

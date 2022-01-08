@@ -1,0 +1,65 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CGamblingMsg";
+
+//赌石操作成功通知
+// code = 0x5800
+message BetByTypeSuccessNotify
+{
+	required int32 type = 1;			//赌石类型，1、试刀；2、切割；4、打磨；8、精工；16、雕琢
+}
+
+// 一键赌石操作成功通知
+// code = 0x5801
+message BatchBetAutoSuccessNotify
+{
+	required int32 count = 1;			//自动赌石次数。0表示服务器控制
+}
+
+// 甄选操作成功通知
+// code = 0x5802
+message PickSuccessNotify
+{
+}
+
+// 拾取操作成功通知
+// code = 0x5803
+message PickupSuccessNotify
+{
+	required int32 index = 1;			//拾取的目标索引，0表示全部拾取
+}
+
+// 一键合成操作成功通知
+// code = 0x5804
+message MergeAutoSuccessNotify
+{
+}
+
+//赌石结果条目详情，单独发送为新增条目
+// code = 0x5805
+message GamblingItemDetails
+{
+	required int32 index = 1;			//索引，1~N
+	required int32 resType = 2;			//资源类型
+	required int32 resId = 3;			//资源ID
+	required int32 resNum = 4;			//资源数量
+	required int64 createTime = 5;		//创建时间，单位/秒
+	required int64 lastUpdate = 6;		//最后更新时间,单位/秒
+}
+
+//赌石结果条目列表
+// code = 0x5806
+message GamblingItemCacheList
+{
+	repeated GamblingItemDetails item = 1;		//条目
+}
+
+//赌石状态详情
+// code = 0x5807
+message GamblingStateDetails
+{
+	required int32 enableType = 1;				//激活的赌石按钮，位运算存储：1、试刀；2、切割；4、打磨；8、精工；16、雕琢
+	required int32 betToday = 2;				//今日赌石次数
+	required int32 betTotal = 3;				//总赌石次数
+	required int64 lastUpdate = 4;				//最后赌石时间
+}

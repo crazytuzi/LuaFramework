@@ -1,0 +1,71 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "C2SMessage";
+
+// code = 0x1D06 查询战斗消息
+message QueryFightNotify
+{
+	required bool unread = 1; //是否请求未读消息。如果是则只返回未读消息，否则返回全部消息
+}
+
+// code = 0x1D07 查询社交消息
+message QuerySocialNotify
+{
+	required bool unread = 1; //是否请求未读消息。如果是则只返回未读消息，否则返回全部消息
+}
+
+// code = 0x1D08 查询系统消息
+message QuerySystemNotify
+{
+	required bool unread = 1; //是否请求未读消息。如果是则只返回未读消息，否则返回全部消息
+}
+
+// code = 0x1D09 请求播放战斗录像
+message QueryReplayFight
+{
+	required int32 reportId = 1; //战报ID
+}
+
+// code = 0x1D10 请求领取邮件物品
+message QueryGetSystemNotifyItem
+{
+	required int32 notifyid = 1; //消息ID
+}
+
+
+// code = 0x1D11 请求领取所有邮件物品
+message RequestAllEmailRewards
+{
+}
+
+// code = 0x1D12 删除邮件
+message RequestDelEmail
+{
+	optional int32 notifyid 	= 1; //消息ID, 0:为删除所有，其他为删除特定邮件
+}
+
+//上报错误报告
+// code = 0x7FFE
+message ErrorReport{
+	required string errorMessage = 1;		//错误消息
+}
+
+//请求群豪谱TOPN战报
+// code = 0x1D40
+message QueryArenaTopBattleReport
+{
+
+}
+
+//请求观看战报
+// code = 0x1D41
+message PlayArenaTopBattleReport
+{
+	required int32 reportId = 1;			//战报ID
+}
+
+//请求我的群豪谱战报
+// code = 0x1D42
+message QueryMyArenaChallengeBattleReport
+{
+}

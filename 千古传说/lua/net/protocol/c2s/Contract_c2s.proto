@@ -1,0 +1,25 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SContract";
+
+//查询契约(合同)
+// code = 0x2800
+message QueryContract
+{
+
+}
+
+//购买契约(合同)
+// code = 0x2801
+message BuyContract
+{
+	required int32 id = 1; 	//契约合同ID
+}
+
+//领取每日契约(合同)奖励
+// code = 0x2802
+message GetContractDailyReward
+{
+	required int32 id = 1;  //契约模板ID
+}
+

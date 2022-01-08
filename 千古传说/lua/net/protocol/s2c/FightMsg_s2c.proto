@@ -1,0 +1,288 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CBattleMsg";
+
+import "s2c/UnitInfo_s2c.proto";
+import "s2c/Champions_s2c.proto";
+// code = 0x0F00
+message FightBeginMsg             
+{
+	//战斗类型。1:pve推图；2:pve铜人阵；3:pvp豪杰榜；4:pvp天罡星 5:pve无量山 6:pvp大宝藏 7:pve无量山万能副本 8:pve护驾
+	required int32 fighttype = 1;  
+	required int32 angerSelf = 2;	
+	required int32 angerEnemy = 3;	
+	repeated FightRole rolelist = 4;	
+	optional int32 index 	= 5; //战斗场次
+}
+
+message FightRole
+{
+	required int32 typeid = 1;    			//角色类型：1、玩家拥有角色；2、NPC
+	required int32 roleId = 2;	 			//卡牌角色id，npc为t_s_npc_instance表格配置的ID，其他为t_s_role表格id
+	required int32 maxhp = 3;  	  			//最大满血量
+	required int32 posindex = 4;  			//位置索引 己方：0-8   敌方：9-17
+	required int32 level = 5;	  			//等级
+	repeated int32 attr = 6;	  			//属性
+	required SkillInfo spellId = 7;	  		//主动技能ID
+	repeated SkillInfo passiveskill = 8;	//被动技能ID列表
+	optional string name = 9;	  			//角色名称，只有主角才发送
+	required string immune = 10;			//免疫属性
+	required string effectActive = 11;		//效果影响主动
+	required string effectPassive = 12;		//效果影响被动
+} 
+
+//code = 0x0F02
+message FightResultMsg             
+{
+	required int32 result = 1;  			//0：失败   成功：1-3星
+	required ExpReward teamexp = 2;			//队伍经验奖励
+	repeated ExpReward explist = 3;			//经验奖励
+	repeated ItemReward itemlist = 4;		//物品奖励
+	repeated ResourceReward reslist = 5;	//资源奖励
+	optional int32 rank = 6;	  			//群豪谱排名
+	optional int32 climblev = 7;	  		//无量山层数
+	optional ChampionsInfo championsInfo = 8;//挑战赛数据
+}
+
+message ExpReward
+{
+	required int32 typeid = 1;
+	required int32 oldExp = 2;
+	required int32 oldLev = 3;  
+
+	required int32 currExp = 4;
+	required int32 currLev = 5;
+	required int32 addExp = 6;
+}
+
+message ItemReward
+{
+	required int32 type = 1;			//1物品，2卡牌,
+	required int32 itemid = 2;
+	required int32 num = 3;
+}
+
+message ResourceReward
+{
+	required int32 type = 1;			//1铜币，2元宝, 3悟性点, 4群豪谱积分
+	required int32 num = 2;
+}
+
+//铜人阵战斗结算
+//code = 0x0F03
+message TongRenFightResultMsg
+{
+	required int32 result = 1;  		//0：失败   成功：1-5星
+	required int32 killnum = 2;			//杀死数量
+	required int32 bloodnum = 3;		//获得血滴数量
+}
+
+//战斗重播数据
+//code = 0x0F04
+message FightReplayMsg
+{
+	required FightBeginMsg beginInfo = 1; 	//战斗开始数据
+	required FightDataMsg fightData = 2; 	//战斗数据
+	required int32   rank = 3; 				//群豪谱排名
+}
+
+message FightDataMsg
+{
+	required int32 fighttype = 1;			//战斗类型。1：推图；2：铜人阵；3：豪杰榜；4：天罡星
+	required bool  win = 2; 				//战斗是否在客户端判断为胜利
+	repeated FightAction actionlist = 3; 	//战斗action
+	repeated LiveRole livelist = 4; 		//战斗结束后剩余角色
+	required int32 angerSelf = 5;			//己方怒气
+	required int32 angerEnemy = 6;			//对方怒气
+	repeated RoleHurtCount hurtcountlist = 7; 		//伤害计算
+}
+
+message LiveRole
+{
+	required int32 posindex = 1;			//位置
+	required int32 currhp = 2;  			//剩余血量
+}
+
+message RoleHurtCount
+{
+	required int32 posindex = 1;			//位置
+	required int32 hurt = 2;  				//伤害计算
+}
+message StateInfo
+{
+	required int32 frompos = 1;					//状态产生自谁行为发起者还是目标
+	required int32 targetpos = 2;				//获得状态的目标
+	required int32 stateId = 3;					//触发的状态ID，触发了哪个状态。始终是frompos对应角色身上的状态列表中的状态
+	required int32 skillId = 4;					//状态时由哪个技能触发的。始终是frompos对应角色身上的技能
+	required int32 skillLevel = 5;				//状态时由哪个技能触发的。始终是frompos对应角色身上的技能
+	required int32 bufferId = 6;				//targetpos的角色获得的状态ID
+	required int32 bufferLevel = 7;				//targetpos的角色获得的状态ID
+}
+
+message FightAction
+{
+	required bool  bManualAction = 1;		//是否主动技能
+	required int32 roundIndex = 2;  		//当前回合
+	required int32 attackerpos = 3;  		//攻击者位置
+	required int32 skillid = 4;				//技能id
+	required int32 skillLevel = 5;				//技能id
+	required bool  bBackAttack = 6;			//是否反击
+	repeated TargetInfo targetlist = 7;
+	repeated StateInfo stateList = 8;		//产生的状态
+	optional int32 triggerType = 9;	//触发技能类型
+}
+
+message TargetInfo
+{
+	required int32 targetpos = 1;  			//受击者位置
+	required int32 effect = 2;				//受击效果
+	required int32 hurt = 3;				//受击伤害
+	required int32 triggerBufferID = 4;		//触发bufferID
+	required int32 triggerBufferLevel = 5;		//触发bufferID
+	required int32 passiveEffect = 6;		//被动效果类型
+	required int32 passiveEffectValue = 7;	//被动效果值
+	required int32 activeEffect = 8;		//主动效果类型
+	required int32 activeEffectValue = 9;	//主动效果值
+}
+
+
+//受击效果
+enum AttackedEffect
+{	
+	ATTACKED_EFFECT_NORMAL = 1; 	//普通受击
+	ATTACKED_EFFECT_VIOLENT = 2; 	//暴击
+	ATTACKED_EFFECT_AVOID = 3; 		//闪避
+	ATTACKED_EFFECT_ANGER = 4; 		//战场技 加减怒
+	ATTACKED_EFFECT_HP = 5; 		//战场技 加减血
+}
+
+//华丽的分割线----------------------------------------------------------------------------------
+//服务器驱动战斗开始
+// code = 0x0F20
+message BattleStartMsg
+{
+	//战斗类型。1:pve推图；2:pve铜人阵；3:pvp豪杰榜；4:pvp天罡星 5:pve无量山 6:pvp大宝藏 7:pve无量山万能副本 8:pve护驾
+	required int32 fighttype = 1;
+	required int32 angerSelf = 2;
+	required int32 angerEnemy = 3;
+	repeated FightRole rolelist = 4;
+}
+
+//服务器驱动战斗结算
+//code = 0x0F22
+message BattleResultMsg
+{
+	required bool  win = 1; 				//战斗是否在客户端判断为胜利
+	required int32 result = 2;  			//0：失败   成功：1-3星
+	required string atkName = 3;
+	required string defName = 4;
+	required int32 atkProfession = 5;
+	required int32 defProfession = 6;
+	required int32 atkHurt = 7;
+	required int32 defHurt = 8;
+	required int32 atkIcon = 9; 
+	required int32 defIcon = 10;
+	required int32 atkHeadPicFrame = 11; 				 //头像边框
+	required int32 defHeadPicFrame = 12; 				 //头像边框
+}
+
+message BattleReplayMsg{
+	required BattleStartMsg startMsg = 1;//开始信息
+	required BattleRoundsMsg roundMsg = 2;//战斗回合消息
+}
+
+
+//服务器战斗录像
+//code = 0x0F23
+message RoundsBattle{
+	repeated BattleRound rounds=1;
+	required bool  win = 2; 					//战斗是否在客户端判断为胜利
+	required int32 totle =3;
+}
+//服务器驱动战斗回合数据
+//code = 0x0F21
+message BattleRoundsMsg
+{
+	repeated BattleRound round = 1; 			//战斗回合
+	repeated BattleRoleLastHp lastHp = 2; 		//战斗结束后角色剩余血量
+	repeated int32 energy = 3;					//剩余怒气:左侧，右侧
+	required bool  win = 4; 					//战斗是否在客户端判断为胜利
+}
+
+//角色最终血量
+message BattleRoleLastHp
+{
+	required int32 position = 1;				//位置
+	required int32 currentHp = 2;  				//剩余血量
+}
+
+//回合
+message BattleRound{
+	repeated BattleAction action = 1; 			//回合内动作列表
+	repeated LostStateInfo lostState = 2;		//发起动作角色，失去状态
+	repeated StateCycleEffect stateCycle = 3;	//状态周期性影响，这里只可能是回合触发类型持续类型是回合的状态在回合结束时触发
+	required int32 roundIndex = 4;				//回合索引，从1~N
+}
+
+//战斗动作，角色行动
+message BattleAction
+{
+	repeated ActionTargetInfo target = 1;		//收到影响的目标
+	repeated SkillInfo skill = 2;				//释放的技能，如果不是释放技能，此字段为null，不需要发送
+	repeated NewStateInfo newState = 3;			//发起动作角色，获取的状态
+	repeated LostStateInfo lostState = 4;		//发起动作角色，失去状态
+	repeated StateCycleEffect stateCycle = 5;	//发起动作角色，状态周期性影响
+	required int32 type = 6;					//动作类型：1、主动释放大招；2、普通攻击；3、反击；4、触发被动技能……
+	required int32 fromPos = 7;  				//攻击者位置。0~17，左侧0~8，右侧9~17
+}
+
+message ActionTargetInfo
+{
+	required int32 position = 1;  				//受击者位置
+	required int32 effectType = 2;				//效果类型：1、普通攻击；2、暴击；3、躲避；4、治疗；5、净化；6、斗转星移；7、加状态
+	required int32 effectValue = 3;				//产生的影响值，对HP直接影响，负数为扣血，正数为加血
+	repeated TriggerEffect passiveEffect = 4;	//被动效果类型
+	repeated TriggerEffect activeEffect = 5;	//主动效果类型
+	repeated NewStateInfo newState = 6;			//新获得的状态
+	repeated LostStateInfo lostState = 7;		//发起动作角色，失去状态
+	repeated StateCycleEffect stateCycle = 8;	//发起动作角色，状态周期性影响
+	required DeepHurt deepHurt = 9;				//伤害加深，毒暴击等，如果没有加深效果不需要填写
+}
+
+//新增状态
+message NewStateInfo
+{
+	required int32 fromPos = 1;					//状态由那个角色给与，0~17
+	required bool stateTrigger = 2;				//是否为状态触发，如果true则表示triggerId为状态ID，否则为技能ID
+	required int32 triggerId = 3;				//产生状态的来源ID，可能是状态ID，或者技能ID，始终是fromPos的角色身上的技能或者状态
+	required int32 stateId = 4;					//角色获得的状态ID
+	required int32 stateLevel = 5;				//状态等级
+	required int32 result = 6;					//给与状态结果，默认不需要填写，为了适配：1、抵抗；2、免疫等显示效果定义
+}
+
+//失去状态
+message LostStateInfo{
+	required int32 position = 1;				//失去状态的角色位置。0~17
+	required int32 stateId = 2;					//失去的状态ID
+	required int32 repeatNum = 3;				//剩余层数，如果状态可以叠加则发送此字段，否则不需要发送。当层数为0时，表示状态彻底移除，否则减少层数为此字段的数值
+}
+
+//状态周期效果，根据状态定义的触发实际触发，一般在动作结束时触发，不排除有些状态在动作开始触发，需要策划明确定义，单独增加新字段进行区分。如果是回合持续类型的触发时机应该在回合结束时
+message StateCycleEffect{
+	required int32 position = 1;				//角色位置。0~17
+	required int32 stateId = 2;					//状态ID
+	required int32 effectType = 3;				//状态效果类型：1、普通；2、暴击；3、免疫……
+	required int32 effectValue = 4;				//产生的影响值，对HP直接影响，负数为扣血，正数为加血
+}
+
+//触发效果
+message TriggerEffect{
+	required int32 type = 1;					//效果类型
+	required int32 value = 2;					//效果值
+}
+
+//伤害加深，用于客户端显示伤害加深效果
+message DeepHurt{
+	required int32 type = 1;					//加深类型，实际上是中毒、等状态类型，具体看代码或者让策划进行整理
+	required int32 value = 2;					//效果值，10000表示100%好像是这样
+}

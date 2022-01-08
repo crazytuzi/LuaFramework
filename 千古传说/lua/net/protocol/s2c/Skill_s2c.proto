@@ -1,0 +1,68 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CSkill";
+
+//主角技能信息
+message ProtagonistSkillInfo
+{
+	required int32 skillId = 1; 		//技能的id
+	required int32 level = 2; 		//技能的等级
+}
+
+//上阵技能信息
+message ProtagonistSkillUseInfo
+{
+	required int32 skillId = 1; 		//技能的id
+	required int32 pos = 2; 		//技能的位置
+}
+
+// code = 0x1F01
+//获取主角技能信息
+message GetProtagonistSkillMsg
+{
+	repeated  ProtagonistSkillInfo skill_list = 1;
+	repeated  ProtagonistSkillUseInfo useSkill_list = 2;
+	required int32 skill_point = 3;			//技能点数量
+}
+
+// code = 0x1F02
+//学习技能
+message StudyProtagonistSkillResult
+{
+}
+
+// code = 0x1F03
+//刷新主角技能信息
+message RefreshProtagonistSkillInfoMsg
+{
+	repeated  ProtagonistSkillInfo skill_list = 1;
+	required int32 skill_point = 2;			//技能点数量
+}
+
+// code = 0x1F04
+//刷新主角技能点
+message RefreshProtagonistSkillPointMsg
+{
+	required int32 skill_point = 1;			//技能点数量
+}
+
+// code = 0x1F05
+//重置
+message RefreshProtagonistSkillResult
+{
+	required int32 skill_point = 1;			//重置获得技能点数量
+}
+
+// code = 0x1F06
+//上阵技能
+message UseProtagonistSkillResult
+{
+	repeated  ProtagonistSkillUseInfo useSkill_list = 1;
+}
+
+// code = 0x1F07
+//卸下技能
+message UnUseProtagonistSkillResult
+{
+	repeated  int32 posList = 1;   //卸下的位置pos
+}

@@ -1,0 +1,119 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CFriendMsg";
+
+//好友信息列表
+//code = 0x4300
+message FriendInfoList{
+	repeated Friend friends = 1;
+	repeated int32 givePlayers = 2;
+	repeated int32 drawPlayers = 3;
+	repeated int32 drawAssistantPlayers = 4;
+}
+//好友申请列表
+//code = 0x4301
+message FriendApplyList{
+	repeated FriendInfo infos = 1;
+
+}
+//推荐好友列表
+// code = 0x4302
+message RecommendFriendList{
+	repeated RecommendFriend list = 1;
+}
+//推荐好友
+//code = 0x430d
+message RecommendFriend{
+	required FriendInfo info = 1;
+	required bool apply = 2;	//是否申请过
+}
+
+//好友
+message Friend{
+	required FriendInfo info = 1;//好友信息
+	required bool give = 2;//是否有赠送礼物
+	required bool assistantGive = 3;//是否有助战礼物
+}
+
+//好友信息
+message FriendInfo{
+	required int32 playerId = 1;				//玩家编号
+	required string name = 2;				//玩家名称
+	required int32 vip = 3;				//vip等级
+	required int32 power = 4;				//战斗力
+	required int64 lastLoginTime = 5;				//最后登录时间
+	required int32 profession = 6;				//职业
+	required int32 level = 7;				//等级
+	required bool online = 8;
+	optional int32 guildId = 9;
+	optional string guildName = 10;
+	required int32	minePower = 11;			//护矿战斗力
+	required int32 icon = 12;				//头像
+	required int32 headPicFrame = 13; 				 //头像边框
+}
+
+//申请好友成功
+// code = 0x4303
+message ApplyFriendSucess{
+
+}
+
+//成功处理好友结果
+// code = 0x4304
+message SucessFriendExec{
+	repeated int32 playerIds = 1; //成功的玩家编号
+	required int32 type = 2; //类型 1 ：处理好友申请 2：赠送礼物 3：领取礼物 4：删除好友 5：新的礼物 6：有好友删除,7有新的助战礼物 ， 8 领取助战礼物成功
+}
+
+
+
+//新申请
+//code = 0x4308
+message NewApply{
+	required FriendInfo info = 1;
+}
+//新朋友
+//code = 0x4309
+message NewFriend{
+	required Friend friend = 1;
+}
+
+
+//修改需求的角色成功
+//code = 0x430E
+message UpdateDemandSucess{
+
+}
+//修改提供的角色成功
+//code = 0x430F
+message UpdateProvideSucess{
+
+}
+//获得助战侠客成功
+//code = 0x4310
+message GainAssistantRoleSucess{
+
+}
+//提供助战的侠客成功
+// code = 0x4311
+message ProvideFriendAssistantSucess{
+	repeated int32 friendIds = 1;//成功的角色
+}
+
+//玩家助战list
+// code = 0x4312
+message FriendAssistantInfoList{
+	repeated FriendAssistantInfo infos = 1;
+	required string usePlayers = 2;//使用过的玩家
+	required string assistantPlayers = 3;//助战过的玩家
+	required string roleUseCount = 4;//侠客被使用过多少次 roleId_count_name|
+	required string provideRoles = 5;
+	required int32 demandRole = 6;
+}
+
+message FriendAssistantInfo{
+	required int32 friendId = 1;
+	required string provideRoles = 2;
+	required int32 demandRole = 3;
+	required string roleUseCount = 4;
+}

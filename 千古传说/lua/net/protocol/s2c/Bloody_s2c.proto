@@ -1,0 +1,197 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CBloodyMsg";
+
+import "s2c/Reward_s2c.proto";
+
+//code = 0x3200
+//血战战阵更新指令，服务器在某些时刻主动推动，下发给客户端
+message BloodyWarMatixConf{
+	required int32 capacity = 1; //战阵的人数上限
+	repeated BloodyRoleStation stations = 2;
+}
+
+
+//角色的血战战阵信息
+message BloodyRoleStation{ 
+	required int64 roleId = 1; 		//角色ID
+	required int32 index = 2;		//战阵索引(从0开始，-1表示未上阵)
+	required int32 currHp = 3;		//剩余血量
+	required int32 maxHp = 4;		//最大血量
+}
+
+//code = 0x3205
+//更新战阵的开放位置上限信息
+message BloodyWarMatixCapacity{
+	required int32 capacity = 1; //战阵的人数上限
+}
+
+//code = 0x3206
+//血战战阵请求处理结果
+message BloodyWarMatixConfResult{
+	required int32 fromPos = 1; //起始位置。上阵则为0
+	required int32 toPos   = 2; //目标位置。下阵则为0
+	required int64 roleId  = 3; //角色roleId
+}
+
+//code = 0x3207
+//血战所有敌人的简单信息
+message BloodyEnemySimpleInfoList{
+	required int32 currSection = 1; 		//当前关卡
+	repeated BloodyEnemySimpleInfo allEnemys = 2;	 //血战npc简单信息
+}
+//血战敌人简单信息
+message BloodyEnemySimpleInfo{ 
+	required string name = 1; 				//npc名称
+	required int32 section = 2;				//第几关(从1开始)
+	required int32 star = 3;				//战斗星级
+	required int32 roleId = 4;				//代表角色的ID
+}
+
+//code = 0x3208
+//血战敌人的详细信息
+message BloodyEnemyInfoList{
+	repeated BloodyEnemyInfo enemyList = 1;	 //血战npc简单信息
+}
+
+//血战敌人详细信息
+message BloodyEnemyInfo{ 
+	required string name = 1; 				//npc名称
+	required int32 section = 2;		//第几关(从1开始)
+	required int32 anger = 3; 				//怒气
+	required int32 power = 4; 				//npc总战力
+	repeated BloodyEnemyRole roles = 5;		//	角色
+	required int32 icon = 6; 				 //头像
+	required int32 headPicFrame = 7; 				 //头像边框
+	required int32 playerId = 8;
+}
+
+//血战敌人角色信息
+message BloodyEnemyRole{ 
+	required int32 profession = 1; 		//角色职业
+	required int32 lv = 2; 				//角色等级
+	required int32 index = 3;			//战阵索引(从0开始，-1表示未上阵)
+	required int32 maxHp = 4;			//最大血量
+	required int32 currHp = 5;			//当前血量
+	required int32 quality = 6;			//角色品质
+	required int32 forgingQuality = 7;		//角色最高炼体品质
+}
+
+
+//code = 0x3209
+//血战关卡详情
+message BloodyEnemyDetail{
+	required int32 currSection = 1; 					//当前已过最大关卡
+	required int32 coinInspireCount = 2; 				//金币鼓舞次数
+	required int32 sysceeInspireCount = 3; 				//元宝鼓舞次数
+	required int32 dailyMaxInspireCount = 4; 			//元宝鼓舞次数
+	required int32 maxPass = 5;							//历史最高通关关卡数
+	required int32 lastPass = 6;						//最后一次通关数
+	required int32 sweepPass= 7;						//扫荡参考关卡数，重置的时候更新
+	required int32 todaySweep = 8;						//今日扫荡次数
+	repeated BloodyEnemySimpleInfo allEnemys = 9;		//血战npc简单信息
+	repeated BloodyBoxInfo BloodyBoxList = 10;			//宝箱列表
+	required int32 resetCount = 11;						//剩余重置次数
+}
+
+
+//血战宝箱
+message BloodyBoxInfo{ 
+	required int32 index 	= 1; 	//宝箱索引1开始  1-6
+	required int32 status 	= 2; 	//状态(0一个未领过， 1至少领过一个)
+	repeated BloodyBoxPrize BloodyBoxList = 3; //奖品列表
+	required int32 needResType 	= 4; 	//购买需要的资源类型
+	required int32 needResNum 	= 5; 	//购买需要的资源数量
+}
+
+//血战宝箱其中一个宝贝
+message BloodyBoxPrize{ 
+	required int32 index 		= 1; 	//宝箱索引
+	required bool  bIsget 		= 2; 	//是否领取
+	required int32  type 		= 3; 	//奖品类型
+	required int32  itemId 		= 4; 	//奖品id
+	required int32  number 		= 5; 	//数量
+}
+
+//code = 0x3210
+//当前关卡更新
+message BloodyCurrSectionUpdate{
+	required int32 currSection = 1; 		//已过关最大关卡号
+	repeated BloodyEnemySimpleInfo enemy = 2;		//血战npc简单信息
+}
+
+//code = 0x3211
+//血战宝箱详情
+message BloodyBox{ 
+	required int32 section = 1; //关卡号(从1开始)
+	repeated BloodyBoxItem items=2;//宝箱内容
+	required int32 status = 3; 	//状态(宝箱内的所有奖励都已领取表示处理完毕：0-未完成处理,1-已完成处理)
+}
+
+//血战宝箱条目
+message BloodyBoxItem{ 
+	required int32 rewardId = 1; 	//奖励ID
+	required int32 getType = 2; 	//获取类型(1-免费领取，2-购买)
+	required int32 status = 3; 	//状态(0-未处理,1-已处理)
+}
+
+message BloodyBoxUpdateInfo{ 
+	required int32 boxIndex = 1; 		//对应宝箱的索引
+	required BloodyBoxPrize prize = 2; 	//宝箱里面对应的一个奖励
+}
+
+//code = 0x3212
+//血战宝箱随机返回结果
+message RondomBloodyBox{
+	required BloodyBoxUpdateInfo updateInfo = 1; 	//宝箱信息
+}
+
+
+//code = 0x3213
+//血战宝箱抽奖返回结果
+message DrawBloodyBoxResult{
+		required BloodyBoxUpdateInfo updateInfo = 1; 	//获取的宝箱信息
+}
+
+//code = 0x3214
+//领取血战宝箱
+message GetBloodyBoxResult{
+	repeated BloodyBoxInfo BloodyBoxList = 1;		//宝箱列表
+	optional int32 index   = 2; 					//奖励索引(宝箱内1--3,0表示剩余(除免费)全部)
+	required int32 getType   = 3; 					//获取类型(1-免费领取，2-购买)
+}
+
+//code = 0x3215
+//鼓舞
+message BloodyInspireResult{
+	required int32 coinInspireCount = 1; 			//金币鼓舞次数
+	required int32 sysceeInspireCount = 2; 			//元宝鼓舞次数
+}
+
+//code = 0x3220
+//重置血战成功
+message BloodyResetSuccess{
+	required int32 remainResetTime = 1;				//剩余重置次数
+}
+
+//code = 0x3221
+//重置血战下发新血战信息给客户端之前通知聪明的客户端进行预处理
+message BloodyWillResetNotify{
+
+}
+
+//摩诃崖扫荡结果
+// code = 0x3230
+message BloodySweepResult{
+	repeated BloodySweepResultItem result = 1;				//结果列表
+}
+
+message BloodySweepResultItem
+{
+	required int32 sectionId = 1;						//关卡ID
+	required int32 exp = 2;								//增加团队经验
+	required int32 oldLevel = 3;  						//原先团队等级
+	required int32 currentLevel = 4;					//当前团队等级
+	required int32 coin = 5;							//获得的金币数量
+	repeated RewardItem item = 6;						//掉落列表
+}

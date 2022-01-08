@@ -1,0 +1,565 @@
+﻿local t = 
+{
+	version = 1,
+	components = 
+	{
+		
+		{
+			anchorPoint = "False",
+			anchorPointX = "0",
+			anchorPointY = "0",
+			backGroundScale9Enable = "False",
+			bgColorOpacity = "50",
+			bIsOpenClipping = "False",
+			classname = "MEPanel",
+			colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#FFFFFFFF;GraduallyChangingColorEnd:#FFFFFFFF;vectorX:0;vectorY:0",
+			DesignHeight = "640",
+			DesignType = "0",
+			DesignWidth = "960",
+			dstBlendFunc = "771",
+			height = "516",
+			ignoreSize = "False",
+			name = "Panel",
+			sizepercentx = "0",
+			sizepercenty = "0",
+			sizeType = "0",
+			srcBlendFunc = "1",
+			touchAble = "False",
+			UILayoutViewModel = 
+			{
+				
+			},
+			uipanelviewmodel = 
+			{
+				Layout="Absolute",
+				nType = "0"
+			},
+			width = "434",
+			ZOrder = "1",
+			components = 
+			{
+				
+				{
+					anchorPoint = "False",
+					anchorPointX = "0",
+					anchorPointY = "0",
+					backGroundScale9Enable = "False",
+					classname = "MEImage",
+					dstBlendFunc = "771",
+					height = "548",
+					ignoreSize = "False",
+					name = "fengexian",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					texturePath = "ui_new/operatingactivities/yy_di1.png",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						
+					},
+					width = "3",
+					ZOrder = "1",
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0",
+					anchorPointY = "1",
+					backGroundScale9Enable = "False",
+					bgColorOpacity = "50",
+					bIsOpenClipping = "False",
+					classname = "MEPanel",
+					colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#FFFFFFFF;GraduallyChangingColorEnd:#FFFFFFFF;vectorX:0;vectorY:0",
+					DesignHeight = "640",
+					DesignType = "0",
+					DesignWidth = "960",
+					dstBlendFunc = "771",
+					height = "550",
+					ignoreSize = "False",
+					name = "panel_content",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 4,
+						PositionY = 549,
+					},
+					uipanelviewmodel = 
+					{
+						Layout="Absolute",
+						nType = "0"
+					},
+					width = "566",
+					ZOrder = "1",
+					components = 
+					{
+						
+						{
+							anchorPoint = "False",
+							anchorPointX = "0.5",
+							anchorPointY = "0.5",
+							backGroundScale9Enable = "False",
+							classname = "MEImage",
+							dstBlendFunc = "771",
+							height = "29",
+							ignoreSize = "True",
+							name = "img_time",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							texturePath = "ui_new/operatingactivities/new/hdsj.png",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 70,
+								PositionY = -69,
+							},
+							width = "107",
+							ZOrder = "1",
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0.5",
+							anchorPointY = "0.5",
+							backGroundScale9Enable = "False",
+							classname = "MEImage",
+							dstBlendFunc = "771",
+							height = "28",
+							ignoreSize = "True",
+							name = "img_content",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							texturePath = "ui_new/operatingactivities/new/hdnr.png",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 70,
+								PositionY = -110,
+							},
+							width = "107",
+							ZOrder = "1",
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0.5",
+							anchorPointY = "0.5",
+							backGroundScale9Enable = "False",
+							classname = "MEImage",
+							dstBlendFunc = "771",
+							height = "28",
+							ignoreSize = "True",
+							name = "img_reward",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							texturePath = "ui_new/operatingactivities/new/hdjl.png",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 70,
+								PositionY = -209,
+							},
+							width = "107",
+							ZOrder = "1",
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0",
+							anchorPointY = "0",
+							classname = "MELabel",
+							compPath = "luacomponents.common.MEIconLabel",
+							dstBlendFunc = "771",
+							FontColor = "#FF000000",
+							fontName = "simhei",
+							fontShadow = 
+							{
+								IsShadow = false,
+								ShadowColor = "#FFFFFFFF",
+								ShadowAlpha = 255,
+								OffsetX = 0,
+								OffsetY = 0,
+							},
+							fontSize = "24",
+							fontStroke = 
+							{
+								IsStroke = false,
+								StrokeColor = "#FFE6E6E6",
+								StrokeSize = 1,
+							},
+							height = "24",
+							IconLayout = "1",
+							ignoreSize = "True",
+							name = "txt_time",
+							nGap = "0",
+							nIconAlign = "1",
+							nTextAlign = "1",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							text = "dadsadsadasddddddddddddddddddddd",
+							touchAble = "False",
+							touchScaleEnable = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 138,
+								PositionY = -81,
+							},
+							width = "384",
+							ZOrder = "1",
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0",
+							anchorPointY = "1",
+							classname = "METextArea",
+							ColorMixing = "#FF000000",
+							dstBlendFunc = "771",
+							fontName = "simhei",
+							fontShadow = 
+							{
+								IsShadow = false,
+								ShadowColor = "#FFFFFFFF",
+								ShadowAlpha = 255,
+								OffsetX = 0,
+								OffsetY = 0,
+							},
+							fontSize = "24",
+							fontStroke = 
+							{
+								IsStroke = false,
+								StrokeColor = "#FFE6E6E6",
+								StrokeSize = 1,
+							},
+							hAlignment = "0",
+							height = "100",
+							ignoreSize = "False",
+							name = "txt_content",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							text = "活动期间，在商城进行“招募十次”，将会额外获得神秘传说级侠客侠魂，额外奖励届时已邮件形式发放，请注意查收。",
+							touchAble = "False",
+							touchScaleEnable = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 138,
+								PositionY = -97,
+							},
+							vAlignment = "0",
+							width = "430",
+							ZOrder = "1",
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0.5",
+							anchorPointY = "0.5",
+							backGroundScale9Enable = "True;capInsetsX:0;capInsetsY:0;capInsetsWidth:0;capInsetsHeight:0",
+							classname = "MEImage",
+							dstBlendFunc = "771",
+							height = "30",
+							ignoreSize = "False",
+							name = "bg_jifen",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							texturePath = "ui_new/common/gk_detail2_bg.png",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 147,
+								PositionY = -29,
+							},
+							width = "280",
+							ZOrder = "1",
+							components = 
+							{
+								
+								{
+									anchorPoint = "False",
+									anchorPointX = "0",
+									anchorPointY = "0.5",
+									classname = "MELabel",
+									compPath = "luacomponents.common.MEIconLabel",
+									dstBlendFunc = "771",
+									FontColor = "#FFFFFFFF",
+									fontName = "simhei",
+									fontShadow = 
+									{
+										IsShadow = false,
+										ShadowColor = "#FFFFFFFF",
+										ShadowAlpha = 255,
+										OffsetX = 0,
+										OffsetY = 0,
+									},
+									fontSize = "26",
+									fontStroke = 
+									{
+										IsStroke = false,
+										StrokeColor = "#FFE6E6E6",
+										StrokeSize = 1,
+									},
+									height = "26",
+									IconLayout = "1",
+									ignoreSize = "True",
+									name = "txt_title",
+									nGap = "0",
+									nIconAlign = "1",
+									nTextAlign = "1",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									text = "当前积分：",
+									touchAble = "False",
+									touchScaleEnable = "False",
+									UILayoutViewModel = 
+									{
+										PositionX = -132,
+									},
+									width = "130",
+									ZOrder = "1",
+								},
+								{
+									anchorPoint = "False",
+									anchorPointX = "0",
+									anchorPointY = "0.5",
+									classname = "MELabelBMFont",
+									ColorMixing = "#00FFFFFF",
+									dstBlendFunc = "771",
+									fileNameData = "font/num_212.fnt",
+									height = "31",
+									ignoreSize = "True",
+									name = "txt_jifen",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									text = "66666666",
+									touchAble = "False",
+									UILayoutViewModel = 
+									{
+										PositionX = -12,
+									},
+									width = "122",
+									ZOrder = "1",
+								},
+							},
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0.5",
+							anchorPointY = "0.5",
+							backGroundScale9Enable = "False",
+							classname = "MEImage",
+							dstBlendFunc = "771",
+							height = "55",
+							ignoreSize = "True",
+							name = "bg_paiming",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							texturePath = "ui_new/common/gk_detail2_bg.png",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = 429,
+								PositionY = -29,
+							},
+							width = "261",
+							ZOrder = "1",
+							components = 
+							{
+								
+								{
+									anchorPoint = "False",
+									anchorPointX = "0",
+									anchorPointY = "0.5",
+									classname = "MELabel",
+									compPath = "luacomponents.common.MEIconLabel",
+									dstBlendFunc = "771",
+									FontColor = "#FFFFFFFF",
+									fontName = "simhei",
+									fontShadow = 
+									{
+										IsShadow = false,
+										ShadowColor = "#FFFFFFFF",
+										ShadowAlpha = 255,
+										OffsetX = 0,
+										OffsetY = 0,
+									},
+									fontSize = "26",
+									fontStroke = 
+									{
+										IsStroke = false,
+										StrokeColor = "#FFE6E6E6",
+										StrokeSize = 1,
+									},
+									height = "26",
+									IconLayout = "1",
+									ignoreSize = "True",
+									name = "txt_title",
+									nGap = "0",
+									nIconAlign = "1",
+									nTextAlign = "1",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									text = "当前排名：",
+									touchAble = "False",
+									touchScaleEnable = "False",
+									UILayoutViewModel = 
+									{
+										PositionX = -145,
+									},
+									width = "130",
+									ZOrder = "1",
+								},
+								{
+									anchorPoint = "False",
+									anchorPointX = "0",
+									anchorPointY = "0.5",
+									classname = "MELabelBMFont",
+									ColorMixing = "#00FFFFFF",
+									dstBlendFunc = "771",
+									fileNameData = "font/num_212.fnt",
+									height = "31",
+									ignoreSize = "True",
+									name = "txt_paiming",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									text = "300+",
+									touchAble = "False",
+									UILayoutViewModel = 
+									{
+										PositionX = -25,
+									},
+									width = "65",
+									ZOrder = "1",
+								},
+								{
+									anchorPoint = "False",
+									anchorPointX = "0",
+									anchorPointY = "0.5",
+									classname = "MELabel",
+									compPath = "luacomponents.common.MEIconLabel",
+									dstBlendFunc = "771",
+									FontColor = "#FF000000",
+									fontName = "simhei",
+									fontShadow = 
+									{
+										IsShadow = false,
+										ShadowColor = "#FFFFFFFF",
+										ShadowAlpha = 255,
+										OffsetX = 0,
+										OffsetY = 0,
+									},
+									fontSize = "24",
+									fontStroke = 
+									{
+										IsStroke = false,
+										StrokeColor = "#FFE6E6E6",
+										StrokeSize = 1,
+									},
+									height = "24",
+									IconLayout = "1",
+									ignoreSize = "True",
+									name = "txt_weirubang",
+									nGap = "0",
+									nIconAlign = "1",
+									nTextAlign = "1",
+									sizepercentx = "0",
+									sizepercenty = "0",
+									sizeType = "0",
+									srcBlendFunc = "1",
+									text = "（未入榜）",
+									touchAble = "False",
+									touchScaleEnable = "False",
+									UILayoutViewModel = 
+									{
+										PositionX = -44,
+									},
+									width = "120",
+									ZOrder = "1",
+								},
+							},
+						},
+						{
+							anchorPoint = "False",
+							anchorPointX = "0",
+							anchorPointY = "0",
+							backGroundScale9Enable = "False",
+							bgColorOpacity = "50",
+							bIsOpenClipping = "False",
+							classname = "MEPanel",
+							colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#FFFFFFFF;GraduallyChangingColorEnd:#FFFFFFFF;vectorX:0;vectorY:0",
+							DesignHeight = "640",
+							DesignType = "0",
+							DesignWidth = "960",
+							dstBlendFunc = "771",
+							height = "320",
+							ignoreSize = "False",
+							name = "panel_list",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = -2,
+								PositionY = -546,
+							},
+							uipanelviewmodel = 
+							{
+								Layout="Absolute",
+								nType = "0"
+							},
+							width = "700",
+							ZOrder = "1",
+						},
+					},
+				},
+			},
+		},
+	},
+	actions = 
+	{
+		
+	},
+	respaths = 
+	{
+		textures = 
+		{
+			"ui_new/operatingactivities/yy_di1.png",
+			"ui_new/operatingactivities/new/hdsj.png",
+			"ui_new/operatingactivities/new/hdnr.png",
+			"ui_new/operatingactivities/new/hdjl.png",
+			"ui_new/common/gk_detail2_bg.png",
+		},
+		armatures = 
+		{
+			
+		},
+		movieclips = 
+		{
+			
+		},
+	},
+}
+return t
+

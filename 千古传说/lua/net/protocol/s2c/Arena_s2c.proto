@@ -1,0 +1,87 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CHeroListMsg";
+
+//对手列表（获取、刷新列表）
+// code = 0x1300
+message ArenaPlayerListMsg{
+   repeated ArenaPlayerItem playerList = 1;	//玩家列表
+}
+
+//获取前七名列表（获取、刷新列表）
+// code = 0x1306
+message ArenaTopPlayerList{
+   repeated ArenaPlayerItem playerList = 1;	//玩家列表
+}
+
+
+//排行列表
+// code = 0x1301
+ message ArenaRandListMsg {
+	required int32 pageNumber = 1; //总页数
+	required int32 currentPage = 2; //当前页索引
+	repeated ArenaPlayerItem rankList = 3; //排行列表
+ }
+
+//发放奖励完成
+// code = 0x1303
+message ArenaRewardCompelete{
+	required bool success = 1;  //是否领取成功
+}
+
+message ArenaPlayerItem
+{
+	required int32 rank = 1;  	      		  	//排行
+	required int32 playerId = 2;              	//玩家ID
+	required string playerName = 3;  	      	//玩家昵称
+	required int32 playerLevel = 4;  	     	//玩家等级
+	required int32 generalId = 5;    		  	//显示头像（主角的ID）
+	required int32 fightPower = 6;    		  	//战力
+	required int32 challengeTotalCount = 7;  	//总挑战次数
+	required int32 challengeWinCount = 8;    	//胜利次数
+	required int32 vipLevel = 9;  	          	//VIP等级
+	required int32 prevRank = 10;				//昨日排名
+	required int32 bestRank = 11;				//最佳排名
+	required int32 totalScore = 12;				//一共获得多少群豪谱积分
+	required int32 activeChallenge = 13;		//主动挑战次数
+	required int32 activeWin=14;				//主动挑战胜利次数
+	required int32 continuityWin=15;			//当前连胜次数
+	required int32 maxContinuityWin=16;			//最大连胜次数
+	repeated int64 formation = 17;				//阵容
+}
+
+//code = 0x1304
+message ArenaChallengeResult
+{
+	required bool win = 1; //挑战是否胜利
+    required int32 myRank = 2; //当前排名
+}
+
+//获取群豪榜信息
+// code = 0x1305
+message ArenaHomeInfo{
+    required int32 myRank = 1; 					//当前排名
+	required int32 fightPower = 2;	 			//战力
+	required int32 challengeTotalCount = 3; 	//总挑战次数
+	required int32 challengeWinCount = 4; 		//胜利次数
+	required int32 bestRank = 5;				//最佳排名
+	required int32 activeChallenge = 6;			//主动挑战次数
+	required int32 activeWin=7;					//主动挑战胜利次数
+	required int32 continuityWin=8;				//当前连胜次数
+	required int32 maxContinuityWin=9;			//最大连胜次数
+}
+
+//群豪谱最佳排名更新
+// code = 0x1307
+message ArenaBestUpdate{
+	required int32 oldRank = 1; 	//旧的最佳排名
+	required int32 currentRank =2;	//当前最佳排名
+	required int32 walk = 3;		//提升的名次
+	required int32 sycee = 4;		//获得的元宝数量
+}
+
+//重置群豪谱挑战冷却时间
+// code = 0x1308
+message ResetArenaCDSuccess
+{
+}

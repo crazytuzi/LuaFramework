@@ -1,0 +1,161 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CCrossChampionsMsg";
+
+
+message CrossChampionsPlayerInfo{
+	required int32 playerId = 1;
+	required string name = 2;
+	required int32 power = 3;
+	optional string guildName = 4;
+}
+
+
+//资格赛信息
+//code = 0x4514
+message QualificationInfos{
+	repeated CrossChampionsPlayerInfo rankInfos = 1;
+	required int32 myRank = 2;
+	optional string atkFormation = 3;
+	optional string defFromation = 4;
+}
+
+message CrossChampionsRankInfo{
+	required int32 playerId = 1;
+	required string name = 2;
+	required int32 score = 3;
+	required int32 atkWin=4;
+	required int32 atkLost=5;
+	required int32 defWin=6;
+	required int32 defLost=7;
+	required int32 atkWinStreak=8;
+	required int32 defWinStreak=9;
+	required string serverName = 10;
+}
+
+//争霸赛信息
+// code = 0x4515
+message CrossChampionsInfos{
+	repeated CrossChampionsRankInfo ranks = 1;
+	optional int32 myRank = 2;
+	optional int32 score = 3;
+	optional int32 atkWin=4;
+	optional int32 atkLost=5;
+	optional int32 defWin=6;
+	optional int32 defLost=7;
+	optional int32 atkWinStreak=8;
+	optional int32 defWinStreak=9;
+	optional string atkFormation = 10;
+	optional string defFromation = 11;
+	repeated CrossChampionsReplayMsg replays = 12;
+}
+
+
+message CrossChampionsReplayMsg{
+	required string atkName=1;
+	required int32 atkRank=2;
+	required string defNam=3;
+	required int32 defRank=4;
+	required bool atkWin=5;
+	required int64 createTime=6;
+	required int32 replayId = 7;
+	required int32 atkUseIcon = 8;
+	required int32 atkFrameId = 9;
+	required int32 defUseIcon = 10;
+	required int32 defFrameId = 11;
+}
+
+//积分赛排名信息
+// code = 0x4516
+message ScoreRankInfos{
+	repeated ScoreRank ranks = 1;
+	optional string atkFormation = 2;
+	optional string defFromation = 3;
+}
+
+message ScoreRank{
+	required string name = 1;
+	required string serverName = 2;
+	required int32 power = 3;
+	required int32 playerId = 4;
+}
+
+//跨服对战信息
+// code = 0x4517
+message CrossChampionsWarInfos{
+	repeated WarInfo infos = 1;
+}
+
+message WarInfo{
+	required int32 round = 1;//轮次
+	required int32 index = 2;//索引
+	required int32 atkPlayerId = 3;//攻击玩家编号
+	optional int32 defPlayerId = 4;//防守玩家编号
+	required int32 winPlayerId = 5;//胜利的玩家
+	required int32 replayId = 6;// 录像编号
+	required string atkPlayerName = 7;//攻击玩家名
+	optional string defPlayerName = 8;//防守玩家名
+	optional int32 betPlayerId = 9;//押注的玩家编号
+	optional int32 coin = 10;//押注金额
+	required int32 atkPower = 11;//攻击玩家战斗力
+	optional int32 defPower = 12;//防守玩家战斗力
+	repeated int64 atkFormation = 13;
+	repeated int64 defFormation = 14;
+	required int32 atkIcon = 15;				//攻击玩家头像
+	optional int32 defIcon = 16;				//防守玩家头像
+	required int32 atkHeadPicFrame = 17; 				 //攻击玩家头像边框
+	optional int32 defHeadPicFrame = 18; 				 //防守玩家头像边框
+	required string atkServerName = 19;
+	optional string defServerName = 20;
+}
+
+//押注
+//code = 0x4518
+message CrossChampionsBetSucess{
+}
+
+//当前状态
+// code = 0x4519
+message CurrentState{
+	required int32 state = 1;
+}
+
+//当前状态
+// code = 0x4520
+message PreviousCrossInfoResp{
+	required int64 lastOpenTime = 1;
+	optional string name=2;
+	optional int32 power=3;
+	optional int32 useCoin=4;
+	optional int32 framId=5;
+	optional string serverName=6;
+	optional string formation=7;
+	optional int32 myRank = 8;
+	optional int32 serverUseCoin = 9;
+	optional int32 serverFramId = 10;
+	optional string serverPlayerName = 11;
+	optional string serverServerName = 12;
+	optional int32 serverRank = 13;
+	optional int32 serverPower = 14;
+}
+
+//战报
+//code = 0x4521
+message CrossGrand{
+	required CrossGrandType type = 1;//战报类型
+	required string message = 2;//消息 用，隔开
+}
+enum CrossGrandType{
+	YOU_BEAT =1;//你击败了谁 玩家名,连胜,积分
+	CHALLENGE_FAILURE=2;//挑战失败 玩家名
+	BEAT_YOU = 3;//击败了你 name
+	CHALLENGE_YOUR_FAILURE = 4;//挑战你失败  name,积分
+	ATT_WIN_STREAK = 5;//进攻连胜 名称,连胜数
+	DEF_WIN_STREAK = 6;//防守连胜 名称,连胜数
+}
+
+//申请加入跨服战
+//code = 0x4523
+message ApplyCrossChampionsSucess{
+
+}

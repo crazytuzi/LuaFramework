@@ -1,0 +1,20 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SQiyuMsg";
+
+//code = 0x2501
+//获得用餐信息
+message GetDiningRequest
+{
+}
+//code = 0x2502
+//用餐
+message DiningRequest
+{
+}
+
+//code = 0x2503
+//获得运营活动开关信息
+message FactionSwithRequest
+{
+}

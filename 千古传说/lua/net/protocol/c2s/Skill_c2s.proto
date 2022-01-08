@@ -1,0 +1,30 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "C2SSkill";
+// code = 0x1F02
+//学习技能
+message StudyProtagonistSkill
+{
+	required int32 skillId = 1; 		//技能的id
+}
+
+// code = 0x1F05
+//重置
+message RefreshProtagonistSkill
+{
+}
+
+// code = 0x1F06
+//上阵技能
+message UseProtagonistSkill
+{
+	required int32 skillId = 1; 		//技能的id
+	required int32 pos = 2; 		//技能的位置
+}
+
+// code = 0x1F07
+//下阵技能
+message UnUseProtagonistSkill
+{
+	required int32 pos = 1; 		//技能的位置
+}

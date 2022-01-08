@@ -1,0 +1,64 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CEverquestMsg";
+
+//更新铜人阵相关信息
+// code = 0x1400
+message UpdateQuestMsg             
+{	
+	required int32 level = 1;    		//当前所在关卡
+	required int32 killcount = 2;  	 	//血滴数
+	required int32 totalkillcount = 3;  //总血滴数
+}
+
+//更新称号和总属性加成
+// code = 0x1401
+message UpdateTotalAttrAddInfo
+{
+	required int32 titleid = 1;    		//称号id	
+	required int32 hp = 2;  			//血量加成	 	
+	required int32 neigong = 3;  		//内功加成
+	required int32 waigong = 4;  		//外功加成
+	required int32 neifang = 5;  		//内防加成
+	required int32 waifang = 6;  		//外防加成
+	required int32 hurt = 7;  			//冰火毒伤加成
+}
+
+//血池满后属性加成
+// code = 0x1402
+message UpdateAttrAddInfo             
+{		
+	required int32 hp = 1;  			//血量加成	 	
+	required int32 neigong = 2;  		//内功加成
+	required int32 waigong = 3;  		//外功加成
+	required int32 neifang = 4;  		//内防加成
+	required int32 waifang = 5;  		//外防加成
+	required int32 hurt = 6;  			//冰火毒伤加成
+}
+
+//返回铜人阵排行榜
+// code = 0x1404
+message EverQuestRankList             
+{	
+	repeated RankPlayerInfo rankList = 1;
+}
+
+message RankPlayerInfo             
+{		
+	required string name = 1;  			//名字	 	
+	required int32 rolenum = 2;  		//上阵人数
+	required int32 viplevel = 3;  		//vip等级
+	required int32 level = 4;  			//等级
+	required int32 questnum = 5;  		//闯关数量
+	required int32 playerid = 6;  		//id	
+}
+
+//更新挑战次数
+// code = 0x1405
+message UpdateChallengeTimes             
+{	
+	required int32 challengeTimes = 1;  //已经挑战次数
+	required int32 remainChallengeTimes = 2; //剩余挑战次数
+}
+
+

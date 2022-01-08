@@ -1,0 +1,75 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CBibleMsg";
+
+//code = 0x6001
+//装备天书
+message EquipBibleResult{
+	required int32 result = 1; 	//是否成功
+	optional int64 roleId = 2; 	//角色实例id
+	optional int64 bible = 3; 	//装备到身上的天书userid
+	optional int64 drop = 4; 	//如果有替换下来的天书则发送卸下的天书userid
+}
+
+//code = 0x6002
+//卸除天书
+message UnequipBibleResult{
+	required int32 result = 1; 	//是否成功
+	optional int64 drop = 2; 	//成功则字段有效卸除的天书
+}
+
+
+//code = 0x6004
+//镶嵌精要
+message EssentialMosaicResult{
+	required int32 result = 1; 		//是否成功
+	optional int64 roleId = 2; 		//成功则字段有效 角色实例id
+	optional int64 essential = 3; 	//成功则字段有效 镶嵌的天书id
+	optional int32 itemId = 4; 		//成功则字段有效 精要模板id
+	optional int32 pos    = 5; 		//成功则字段有效 镶嵌的位置
+}
+
+//code = 0x6005
+//卸下精要
+message EssentialUnMosaicResult{
+	required int32 result = 1; //是否成功
+	optional int64 bible = 2; 	//成功则字段有效 卸下的天书实例id
+	optional int32 pos = 3;  //卸下的天书所在位置
+}
+
+//code = 0x6006
+//天书突破
+message BibleBreachResult{
+	required int32 result = 1; //是否成功
+	optional int64 instanceId = 2;			//成功则字段有效 天书实例ID
+}
+
+//code = 0x6007
+//精要分解
+message EssentialExplodeResult{
+	required int32 result = 1; //是否成功
+	optional string itemId = 2; //成功时有效 精要模板ids 逗号隔开
+}
+
+//code = 0x6008
+//重置天书
+message BibleResetResult{
+	required int32 result = 1; //是否成功
+	optional int64 bible = 2; 	//成功时有效 天书id
+}
+
+//code = 0x6009
+//合成天书成功
+message BibleAddResult{
+	required int32 result = 1; 	//是否成功
+	required int64 instanceId = 2; //唯一id
+	required int32 id 	  = 3;    		//模板id
+}
+
+//code = 0x6010
+//天书升重
+message BibleLevelUpResult{
+	required int32 result = 1; 	//是否成功
+	required int64 instanceId = 2; //唯一id
+	required int32 level = 3;//当前重数
+}

@@ -1,0 +1,378 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+import "s2c/ItemMsg_s2c.proto";
+import "s2c/General_s2c.proto";
+import "s2c/Friend_s2c.proto";
+option java_outer_classname="S2CUnitInfoMsg";
+
+//性别枚举
+enum Sex
+{
+	FEMALE = 0;	//女性
+	MALE = 1;	//男性
+}
+
+//code = 0x0e41
+//角色基本信息
+message PlayerInfo
+{
+	required int32 playerId = 1;			//玩家id
+	required int32 profession = 2;			//职业
+	required Sex   sex = 3;					//性别
+	required string name = 4;				//昵称
+	required int32 level = 5;				//等级
+	required int64 coin = 6;				//游戏币
+	required int32 exp = 7;					//当前经验
+	required int32 inspiration = 8;			//真气(悟性点)
+	required int32 sycee = 9;				//元宝
+	required int32 vipLevel = 10;			//VIP等级
+	required int32 errantry = 11;			//侠义值
+	required int32 beginnersGuide = 12; 	//新手引导步骤，注册后为0.
+	required int32 totalRecharge = 13; 		//总充值金额
+	optional int64 serverTime = 14; 		//服务器时间戳
+	required string openlist = 15; 			//玩法开放列表
+	optional int64 registTime = 16;			//注册时间
+	optional int32 properties = 17;			//玩家属性字段，位运算进行判定：1、指导员；2、GM
+	optional int32 integral = 18;			//招募积分
+	optional int32 eggScore = 19;			//蛋花
+	optional int32 jingLu = 20;				//精露
+	optional int32 climbStar = 21;			//无量山星
+	required int32 useIcon = 22;			//正在使用的头像
+	required int32 headPicFrame = 23;			//正在使用的头像框
+	required int32 experience = 24;			//阅历
+	required int32 lowHonor = 25;			//低级荣誉令牌
+	required int32 seniorHonor = 26;			//高级荣誉令牌
+}
+
+//招募类型
+enum RecruitType{
+	ONE_IN_A_TEN = 1; //十里挑一
+	ONE_IN_A_HUNDRED = 2; //百里挑一
+	ONE_IN_A_MILLION = 3; //万里挑一
+}
+
+//招募历史
+message RecruitHistory{
+	required RecruitType type = 1;	//招募类型
+	required int32 failTimes = 2;  //招募失败累计次数,每次抽取到特定卡牌时重置为0
+	required int32 totalTimes = 3;  //百里挑一招募累计历史总次数
+}
+
+//招募记录
+message RecruitRecord{
+	repeated RecruitHistory item = 1; //
+}
+
+// code = 0x0e01
+//获取卡牌角色信息
+message GetRoleMsg
+{
+	repeated  RoleInfo rolelist = 1;
+}
+
+//技能信息
+message SkillInfo
+{
+	required int32 skillId = 1; 		//技能的id
+	required int32 level = 2; 		//技能的等级
+}
+
+message RoleInfo
+{
+	required int64 userid = 1;    			// 唯一id
+	required int32 id 	 = 2;    			// 卡牌的id
+	required int32 level  = 3;	  			// 等级
+	required int64 curexp = 4;	  			// 当前经验
+	required int32 quality = 5;				//品质
+	required int32 starlevel = 6;			//星级
+	required int32 starExp = 7;				//星级经验
+	repeated SkillInfo spellId = 8;				//技能ID，对于主角来说是已经配置的技能，对于其他角色来说是已经开放的技能
+	repeated EquipmentInfo equiplist = 9;	// 装备列表
+	repeated BibleInfo bibleInfo     = 10;      //装备的天书
+}
+
+//code =  0x0e51
+//角色经验变更
+message ExpChangedMsg{
+	required int64 userId = 1; //角色唯一ID，实例id
+	required int32 currentExp = 2; //当前经验
+}
+
+//code = 0x0e50
+//等级信息，在升级时服务器主动下发给客户端
+message LevelInfo{
+	required int64 userId = 1;	//角色唯一ID，实例id
+	required int32 templateId = 2;	//卡牌id
+	required int32 currentLevel = 3;	//当前等级
+	required int32 currentExp = 4;	//当前经验
+}
+
+//code = 0x0e60
+//获得新队友
+message ObtainPartner{
+	required RoleInfo info = 1;
+}
+
+//code = 0x0e61
+//删除队友
+message RemovePartner{
+	required int64 userId = 1; //角色唯一ID，实例id
+
+}
+
+//code = 0x0e20
+//战阵请求处理结果
+message WarMatixConfResult{
+	required int32 fromPos = 1; //起始位置。上阵则为0
+	required int32 toPos   = 2; //目标位置。下阵则为0
+	required int64 userId  = 3; //角色gameId
+}
+
+//code = 0x0e28
+//战阵更新指令，服务器在某些时刻主动推动，下发给客户端
+message WarMatixConf{
+	required int32 capacity = 1; //战阵的人数上限
+	repeated RoleConfigure configure = 2;
+}
+
+//单个角色的定义
+message RoleConfigure{
+	required int64 userId = 1;
+	required int32 index = 2;
+}
+
+//code = 0x0e27
+//更新战阵的开放位置上限信息
+message WarMatixSizeUpdate{
+	required int32 capacity = 1; //战阵的人数上限
+}
+
+//code = 0x0e70
+//其他玩家基础信息
+message OtherPlayerBaseInfo{
+	required int32 playerId = 1;	//玩家id
+	required int32 profession = 2;	//职业
+	required Sex sex = 3;			//性别
+	required string name = 4;		//昵称
+	required int32 level = 5;		//等级
+	required int32 power = 6;		//总战力
+}
+
+//code = 0x0e71
+//其他玩家详细信息
+message OtherPlayerDetails{
+	required int32 playerId = 1;	//玩家id
+	required int32 profession = 2;	//职业
+	required string name = 3;		//昵称
+	required int32 level = 4;		//等级
+	required int32 vipLevel = 5;	//vip等级
+	required int32 power = 6;		//战力
+	repeated RoleDetails warside = 7; 	//战阵信息
+	repeated LeadingRoleSpell spell = 8;	//主角战场技能
+	required int32 icon = 9;				//头像
+	required int32 headPicFrame = 10;			//正在使用的头像框
+}
+
+//code = 0x0e72
+//简单角色装备信息
+message SimpleRoleEquipment
+{
+	required int32 id 	  = 1;    // id
+	required int32 level  = 2;	  // level
+	required int32 quality = 3;		//品质
+	required int32 refineLevel = 4;	//精炼等级
+	repeated GemPos gem   = 5;			//宝石信息
+	repeated Recast recast = 6;
+
+}
+
+
+//简单角色经脉信息
+message SimpleMeridians
+{
+	required int32 index 	  	= 1;    	// 经脉位置，1~N
+	required int32 level  		= 2;	  	// 等级
+	optional int32 attribute 	= 3; 		//属性值
+}
+
+//简单角色秘籍信息
+message SimpleBook
+{
+	required int32 templateId 	  = 1;    // 秘籍模板ID
+	required int32 level  = 2;	  // 等级
+	required int32 attribute = 3; //属性值
+}
+
+//code = 0x0e73
+//角色明细信息
+message RoleDetails
+{
+	required int32 id 	 = 1;    				// 卡牌的id
+	required int32 level  = 2;	  				// 等级
+	required int64 curexp = 3;	  				// 当前经验
+	required int32 power = 4; 					//战力
+	required string attributes = 5; 			//属性字符串
+	required int32 warIndex = 6; 				//战阵位置信息
+	repeated SimpleRoleEquipment equipment = 7;	// 装备信息
+	repeated SimpleBook book = 8;				//秘籍
+	repeated SimpleMeridians meridians = 9; 	//经脉
+	required int32 starlevel  = 10;	  			// 星级
+	repeated int32 fateIds  = 11;	  	   		// 拥有缘分
+	repeated SkillInfo spellId = 12;			//技能
+	required int32 quality = 13;				//品质
+	required int32 martialLevel = 14;			//武学等级
+	repeated OtherMartialInfo martial = 15;		//已经装备武学信息
+	required string immune = 16;				//免疫概率
+	required string effectActive = 17;			//效果影响主动
+	required string effectPassive = 18;			//效果影响被动
+	repeated BibleInfo bibleInfo     = 19;      //装备的天书
+	required int32 forgingQuality = 20;		//角色最高炼体品质
+}
+
+// 武学信息
+message OtherMartialInfo
+{
+	required int32 id = 1; 				//武学id
+	required int32 position = 2;		//装备位置
+	required int32 enchantLevel = 3;	//附魔等级
+}
+
+//code = 0x0e90
+//召唤侠魂结果通知，在成功召唤侠魂后下发给客户端，进行提示
+message SummonPaladinResult
+{
+	required int64 instanceId = 1;		//新获得的侠士的实例ID
+}
+
+//主角技能信息，单个技能信息
+message LeadingRoleSpell
+{
+	required SkillInfo spellId = 1;			//法术ID
+	required bool choice = 2;			//是否选中
+	required int32 sid = 3;				//法术的种类ID，一种法术有多个等级，但是统一法术SID一致
+}
+
+//主角技能列表，包含所有主角角色已经开启的技能
+//code = 0x0e0d
+message LeadingRoleSpellList
+{
+	repeated LeadingRoleSpell spell = 1;	//法术信息
+}
+
+//角色技能开放（激活）通知，在角色升级或者品质提升时进行通知
+//code = 0x0e0e
+message RoleSpellEnableNotify
+{
+	required int64 userId = 1;			//开放技能的角色实例ID
+	repeated SkillInfo spellId = 2;			//新开放的技能ID，对于主角来说是已经配置的技能，对于其他角色来说是已经开放的技能。
+	repeated SkillInfo allSpellId = 3;		//角色所有激活状态的技能，对于主角来说是选中的所有技能（必然是激活状态）
+}
+
+//code = 0x0e0f
+//角色技能取消开放通知，此协议是为了防止角色突破出现异常导致需要回滚突破时使用，避免出现品质跟技能开放对不上
+message RoleSpellDisabledNotify
+{
+	required int64 userId = 1;			//升级技能的角色实例ID
+	repeated SkillInfo spellId = 2;			//取消开放的技能ID，等级ID
+	repeated SkillInfo allSpellId = 3;		//角色所有激活状态的技能，对于主角来说是选中的所有技能（必然是激活状态）
+}
+
+//code = 0x0e0c
+//主角角色选择技能成功消息
+message SelectSpellResult
+{
+	required SkillInfo oldSpellId = 1;		//原来的技能等级ID，选择的技能ID，如果原来没有技能则为0
+	required SkillInfo spellId = 2;			//新选择的技能等级ID，选择的技能ID
+}
+
+//code = 0x0e11
+//玩家修改名称返回结果
+message UpdatePlayerNameResult
+{
+	required string name = 1;
+}
+
+//code = 0x0e21
+//团队等级提升通知
+message TeamLevelChangeNotify
+{
+	required int32 levelUp = 1;		//提升等级
+	required int32 oldStamina = 2;	//提升等级之前的体力
+	required int32 newStamina = 3;	//当前体力
+}
+
+//code = 0x0e30
+//每日重置属性
+message PerdayResetProperties
+{
+	required int32 chatFree = 1;			//免费聊天次数
+	required int32 chapterSweepFree = 2;	//免费扫荡次数
+	required int64 lastUpdate = 3;			//最后更新时间，时间轴
+	required int32 crossFreeChat = 4;		//免费跨服聊天次数
+	required int32 vipDeclaration = 5;		//免费vip宣言次数
+}
+
+//code = 0x0e31
+//每日重置通知
+message ResetDailyNotify
+{
+	required bool all = 1;					//是否重置所有模块，如果为true则不需要判定module
+	repeated int32 module = 2;				//重置的模块ID
+}
+//code = 0x0e32
+//多倍产出通知
+message MultipleOutputListNotify
+{
+	repeated MultipleOutputNotify list = 1;				//产出通知
+}
+
+//code = 0x0e33
+//多倍产出通知
+message MultipleOutputNotify
+{
+	required int32 type = 1;				//倍数的类型  1 = 经验，2 = 道具
+	required int32 multiple = 2;			//倍数值（/100）不支持小数
+	required int64 endTime = 3;				//结束时间
+}
+
+//code = 0x0e91
+//更换头像结果通知
+message ChangeIconNotify
+{
+	required int32 result = 1;			//更换头像结果通知,0为失败,其他为返回更换的头像ID
+}
+
+//code = 0x0e92
+//拥有的头像数组
+message HaveIconNotify
+{
+	repeated int32 icon = 1;			//拥有的头像数组
+}
+
+//code = 0x0e93
+//更新新头像
+message UpdateIconNotify
+{
+	repeated int32 newIcon = 1;			//更新的新头像
+}
+
+//code = 0x0e98
+//玩家简单信息
+message PlayerSimpleInfo{
+	required FriendInfo info =1;
+}
+
+// code = 0x0e9a
+// 更新玩家信息
+message UpdateRoleDetails {
+	required int64 userid = 1;    			// 唯一id
+	repeated RoleDetails roleDetails = 2;	// 更新的侠客信息
+}
+
+//code = 0x0e34
+//第一次上线红点提示
+message FirstOnlinePrompt
+{
+	required int32 type = 1;				//类型  1=vip宣言
+	required int32 isPrompt = 2;			//是否需要红点提示
+}

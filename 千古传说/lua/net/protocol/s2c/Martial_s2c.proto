@@ -1,0 +1,78 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CMartialMsg";
+
+// 装备武学结果
+// code = 0x3401
+message EquipMartialResult
+{
+	required int64 roleId = 1;			//角色id
+	required int32 martialId = 2; 		//武学id
+	required int32 position = 3; 		//武学装备位置
+}
+
+// 武学信息
+message MartialInfo
+{
+	required int32 id = 1; 				//武学id
+	required int32 position = 2;		//装备位置
+	required int32 enchantLevel = 3;	//附魔等级
+	required int32 enchantProgress = 4; //附魔当前经验进度
+}
+
+// 单个武学信息更新
+// code = 0x3405
+message SingleMartialUpdate
+{
+	required int64 roleId = 1;				//角色id
+	required MartialInfo martial = 2;		//武学信息
+}
+
+// 武学列表
+// code = 0x3402
+message RoleMartialList
+{
+	required int64 roleId = 1;				//角色id
+	required int32 martialLevel = 2;		//角色武学等级
+	repeated MartialInfo martialInfo = 3; 	//武学列表
+}
+
+// 武学升级通知
+// code = 0x3403
+message MartialLevelUpNotify
+{
+	required int64 roleId = 1; 				//角色id
+	required int32 martialLevel = 2;		//武学等级
+}
+
+// 武学合成
+// code = 0x3404
+message MartialSynthesisResult
+{
+	required int32 martialId = 1;			//合成产出的武学
+}
+
+// 所有角色武学列表，登陆时发送给客户端
+// code = 0x3406
+message AllMartialList
+{
+	repeated RoleMartialList roleMartial = 1; 	//角色武学列表
+}
+
+// 一键武学附魔成功通知
+// code = 0x3407
+message OneKeyEnchantSuccess
+{
+	required int64 roleId = 1;			//角色id
+	required int32 position = 2; 		//武学装备位置
+	required int32 martialId = 3; 		//武学id
+	required int32 costType = 4;		//花费资源类型
+	required int32 costValue = 5;		//花费资源数量
+}
+
+// 一键装备武学
+// code = 0x3410
+message OneKeyEquipMartialResult{
+	required int64 roleId = 1;				//角色id
+	repeated MartialInfo martial = 2;		//新装备的武学
+}

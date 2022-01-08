@@ -1,0 +1,49 @@
+local smileArr = TFArray:new()
+smileArr:push({name="#jy", path="ui_new/chat/smile/face_jingya.mp",smile_type = 1 })		-- 动画表情
+smileArr:push({name="#11", buttonPath="ui_new/chat/pic/1.png", path="ui_new/chat/smallPic/1.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#12", buttonPath="ui_new/chat/pic/2.png", path="ui_new/chat/smallPic/2.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#13", buttonPath="ui_new/chat/pic/3.png", path="ui_new/chat/smallPic/3.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#14", buttonPath="ui_new/chat/pic/4.png", path="ui_new/chat/smallPic/4.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#15", buttonPath="ui_new/chat/pic/5.png", path="ui_new/chat/smallPic/5.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#16", buttonPath="ui_new/chat/pic/6.png", path="ui_new/chat/smallPic/6.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#17", buttonPath="ui_new/chat/pic/7.png", path="ui_new/chat/smallPic/7.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#18", buttonPath="ui_new/chat/pic/8.png", path="ui_new/chat/smallPic/8.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#19", buttonPath="ui_new/chat/pic/9.png", path="ui_new/chat/smallPic/9.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#20", buttonPath="ui_new/chat/pic/10.png", path="ui_new/chat/smallPic/10.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#21", buttonPath="ui_new/chat/pic/11.png", path="ui_new/chat/smallPic/11.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#22", buttonPath="ui_new/chat/pic/12.png", path="ui_new/chat/smallPic/12.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#23", buttonPath="ui_new/chat/pic/13.png", path="ui_new/chat/smallPic/13.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#24", buttonPath="ui_new/chat/pic/14.png", path="ui_new/chat/smallPic/14.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#25", buttonPath="ui_new/chat/pic/15.png", path="ui_new/chat/smallPic/15.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#26", buttonPath="ui_new/chat/pic/16.png", path="ui_new/chat/smallPic/16.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#27", buttonPath="ui_new/chat/pic/17.png", path="ui_new/chat/smallPic/17.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#28", buttonPath="ui_new/chat/pic/18.png", path="ui_new/chat/smallPic/18.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#29", buttonPath="ui_new/chat/pic/19.png", path="ui_new/chat/smallPic/19.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#30", buttonPath="ui_new/chat/pic/20.png", path="ui_new/chat/smallPic/20.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#31", buttonPath="ui_new/chat/pic/21.png", path="ui_new/chat/smallPic/21.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#32", buttonPath="ui_new/chat/pic/22.png", path="ui_new/chat/smallPic/22.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#33", buttonPath="ui_new/chat/pic/23.png", path="ui_new/chat/smallPic/23.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#34", buttonPath="ui_new/chat/pic/24.png", path="ui_new/chat/smallPic/24.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#35", buttonPath="ui_new/chat/pic/25.png", path="ui_new/chat/smallPic/25.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#36", buttonPath="ui_new/chat/pic/26.png", path="ui_new/chat/smallPic/26.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#37", buttonPath="ui_new/chat/pic/27.png", path="ui_new/chat/smallPic/27.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#38", buttonPath="ui_new/chat/pic/28.png", path="ui_new/chat/smallPic/28.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#39", buttonPath="ui_new/chat/pic/29.png", path="ui_new/chat/smallPic/29.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#40", buttonPath="ui_new/chat/pic/30.png", path="ui_new/chat/smallPic/30.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#41", buttonPath="ui_new/chat/pic/31.png", path="ui_new/chat/smallPic/31.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#42", buttonPath="ui_new/chat/pic/32.png", path="ui_new/chat/smallPic/32.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#43", buttonPath="ui_new/chat/pic/33.png", path="ui_new/chat/smallPic/33.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#44", buttonPath="ui_new/chat/pic/34.png", path="ui_new/chat/smallPic/34.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#45", buttonPath="ui_new/chat/pic/35.png", path="ui_new/chat/smallPic/35.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#46", buttonPath="ui_new/chat/pic/36.png", path="ui_new/chat/smallPic/36.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#47", buttonPath="ui_new/chat/pic/37.png", path="ui_new/chat/smallPic/37.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#48", buttonPath="ui_new/chat/pic/38.png", path="ui_new/chat/smallPic/38.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#49", buttonPath="ui_new/chat/pic/39.png", path="ui_new/chat/smallPic/39.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#50", buttonPath="ui_new/chat/pic/40.png", path="ui_new/chat/smallPic/40.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#51", buttonPath="ui_new/chat/pic/41.png", path="ui_new/chat/smallPic/41.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#52", buttonPath="ui_new/chat/pic/42.png", path="ui_new/chat/smallPic/42.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#53", buttonPath="ui_new/chat/pic/43.png", path="ui_new/chat/smallPic/43.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#54", buttonPath="ui_new/chat/pic/44.png", path="ui_new/chat/smallPic/44.png", smile_type = 2 })		-- 图片表情
+smileArr:push({name="#55", buttonPath="ui_new/chat/pic/45.png", path="ui_new/chat/smallPic/45.png", smile_type = 2 })		-- 图片表情
+
+return smileArr

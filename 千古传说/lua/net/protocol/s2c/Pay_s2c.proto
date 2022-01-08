@@ -1,0 +1,109 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CPayMsg";
+
+//订单号
+//测试阶段:返回订单号的同时，直接充值完成
+// code = 0x1a00
+message PayBillNo{
+   required int32 id = 1;     //商品ID
+   required string billNo = 2; //订单号
+   required int32 price = 3;     //价格(单位 人民币元)
+   required string goodName = 4; //商品名称
+}
+
+//充值完成）
+//顺带协议：首冲奖励发放(不需要通知弹框)、更新前端元宝数量、更新前端首充状态、更新前端VIP等级
+// code = 0x1a01
+message PayComplete{
+   required int32 id = 1; //商品ID
+   required bool isFirstPay = 2; //是否首充。true or false
+   required bool multiple = 3;	//是否触发倍数true or false
+}
+
+//充值信息变更通知(无效)
+message RechargeResult{
+	required bool success = 1; //是否充值成功
+	required int32 rechargeId = 2; //充值的商品id
+	required bool isFirstPay = 3; //是否首充。true or false
+	optional RechargeChanged changed = 4; //充值信息变更结构体，仅当充值成功时接收
+}
+
+//充值信息更新通知
+// code = 0x1a03
+message RechargeInfo{
+	required int32 totalRecharge = 1; //总充值
+	required int32 vipLevel = 2; //当前vip等级
+}
+
+//充值变更结构体
+// code = 0x1a02
+message RechargeChanged{
+	required RechargeInfo prev = 1; //之前充值信息
+	required RechargeInfo current = 2; //当前充值信息
+	required int32 sycee = 3; //元宝变更数量
+}
+
+//获取是否首冲记录
+// code = 0x1a04
+message PayRecordList{
+	repeated PayRecordItem recordList = 1;				//购买记录
+}
+
+message PayRecordItem
+{
+	required  int32 id = 1;				//商品id
+	required  int32 buyTimes = 2;		//商品购买次数，未购买则为0
+}
+
+
+//获取vip奖励领取记录
+// code = 0x1a05
+message VipRewardList{
+	repeated VipRewardItem rewardList = 1;				//领取奖励记录
+}
+
+message VipRewardItem
+{
+	required  int32 id = 1;				//vipid
+	required  bool isHaveGot = 2;		//是否已领取
+}
+
+//领取vip奖励——结果反馈
+// code = 0x1a06
+message GetVipRewardResult{
+}
+
+//首充奖励领取状态
+//code = 0x1a11
+message FirstRechargeState
+{
+	required bool enable = 1;			//是否可以领取首充，
+}
+
+//首充奖励领取成功通知，领取首充奖励时发送
+//code = 0x1a10
+message GetFirstRechargeSuccess
+{
+
+}
+
+message DoubleRechargeInfo
+{
+	required int32 index = 1;    //充值的index
+	required int32 multiple = 2; //倍数
+}
+
+//充值奖励倍数
+//code = 0x1a12
+message DoubleRechargeInfoList
+{
+	repeated DoubleRechargeInfo list = 1;
+}
+
+//code = 0x1A20
+//更新贵宾信息
+message VIPInfomation{
+	required string QQ = 1;				//QQ号码
+	required string telphone=2;			//手机号
+}

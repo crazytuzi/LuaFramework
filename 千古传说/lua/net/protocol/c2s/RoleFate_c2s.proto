@@ -1,0 +1,13 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SRoleFate";
+
+//code = 0x5601
+//使用角色缘分道具(配缘)
+message RequestMatchFate
+{
+	required int64 instanceId = 1;		//角色实例ID
+	required int32 roleFateId = 2;		//角色缘分id
+	required int32 goodsId = 3;			//道具id
+	required int32 goodsNum = 4;		//道具使用个数
+}

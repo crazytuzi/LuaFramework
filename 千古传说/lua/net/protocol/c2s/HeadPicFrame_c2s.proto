@@ -1,0 +1,19 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SHeadPicFrame";
+
+//code = 0x0E94
+//请求头像边框
+message HeadPicFrameRequest{
+}
+
+//code = 0x0E95
+//打开头像边框界面
+message HeadPicFrameOpen{
+}
+
+//code = 0x0E96
+//设置新头像边框
+message HeadPicFrameSet{
+	required int32 id = 1;
+}

@@ -1,0 +1,106 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SMine";
+
+//查询挖矿信息
+// code = 0x5000
+message QueryMine
+{
+
+}
+
+//刷新矿
+// code = 0x5001
+message RefreshMine
+{
+	required int32 id = 1;			//1，刷新矿1,2，刷新矿2
+}
+
+//挖矿
+// code = 0x5002
+message Mine
+{
+	required int32 id = 1;			//1，挖矿1,2，挖矿2
+	required int32 friendId = 2;	//护矿玩家id
+}
+
+//领取挖矿奖励
+// code = 0x5003
+message GetMineReward
+{
+	required int32 id = 1;//1，领取矿1的奖励,2，领取矿2的奖励
+}
+//解锁矿2
+// code = 0x5004
+message UnlockMine
+{
+
+}
+//领取佣金
+// code = 0x5005
+message GetBrokerage
+{
+
+}
+// code = 0x5006
+//请求护卫记录
+message GuardRecordList
+{
+	required int32 curCount  = 1; 			//当前数量
+}
+// code = 0x5007
+//刷新正在挖矿者信息（前行）
+message FreshMineList
+{
+
+}
+//护矿
+// code = 0x5008
+message GuardMine
+{
+	required int32 friendId = 1; 			//护矿好友id
+	required int32 id = 2;					//1，矿1,2，矿2
+}
+//上锁
+//code = 0x5009
+message LockPlayerMine{
+	required int32 minePlayerId = 1;			//被劫矿的玩家
+	required int32 id = 2;						//1，矿1,2，矿2	
+}
+//解锁
+//code = 0x500A
+message UnlockPlayerMine{
+	required int32 minePlayerId = 1;			//被劫矿的玩家
+	required int32 id = 2;						//1，矿1,2，矿2
+}
+
+//打劫
+// code = 0x500C
+message ChallengeMine{
+	required int32 playerId =1;//打劫的玩家
+	required int32 type = 2;//打劫的矿洞
+	required int32 challengeIndex = 3;//打劫的所有 1挖矿的人 2 护矿的人
+}
+
+//获得录像
+// code = 0x500D
+message GainRelpys{
+
+}
+//获得战报
+//code = 0x500E
+message GainMineBattleReport{
+	required int32 id =1;
+}
+//重置
+// code = 0x500F
+message ResetChallengeMine{
+	required int32 type = 1;//矿洞
+	required int32 minePlayerId = 2;	//被重置的玩家id
+}
+
+//请求本周已被护矿的玩家id
+// code = 0x5010
+message GuardMinePlayer{
+
+}

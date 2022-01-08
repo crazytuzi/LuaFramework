@@ -1,0 +1,69 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SAdventureMsg";
+
+//奇遇
+// 打开奇遇界面
+// code = 0x5900
+message AdventureInterface {
+}
+
+//挑战奇遇副本
+// code = 0x5901
+message AdventureChallenge {
+	required int32 id = 1;						// 副本的ID
+}
+
+//购买商品
+// code = 0x5904
+message AdventureShopBuy {
+	required int32 type = 1;					// 类型 1、珍本 2、善本 3、全本 4、抄本 5、残本
+	required int32 goodsId = 2;					// 购买货物的ID
+	required int32 buyNum = 3;					// 购买的数量
+}
+
+//打开仇人历史记录
+// code = 0x5905
+message AdventureEnemy {
+}
+
+//打开杀戮界面
+// code = 0x5907
+message AdventureMassacre {
+
+}
+
+//排行榜
+// code = 0x5908
+message AdventureMassacreRanking {
+}
+
+//战斗记录
+// code = 0x5909
+message AdventureBattleLog {
+}
+
+//随机事件
+// code = 0x5910
+message AdventureEvent {
+	required int32 eventId = 1;					// 事件ID
+}
+
+//挑战玩家
+// code = 0x5911
+message AdventurePlayerBattle {
+	required int32 type = 1;					// 类型 20、杀戮21、复仇22、挑战排行榜
+	required int32 playerId = 2;				// 玩家ID
+}
+
+//直接刷新附近玩家(花钱去除CD时间)
+// code = 0x5914
+message ResetPlayerTime {
+
+}
+
+//开始奇遇第二场战斗
+// code = 0x5915
+message StartSecondBattle {
+
+}

@@ -1,0 +1,20 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CServerSwitchMsg";
+
+//服务器开关信息
+// code = 0x3601
+message ServerSwitchInfo
+{
+	required int32 switchType = 1;		//switchType
+	required bool open = 2;				//开启状态，true：开启，false：关闭
+	optional int64 beginTime =3;			//开始时间
+	optional int64 endTime = 4;			//结束时间
+}
+
+//服务器开关
+// code = 0x3600
+message ServerSwitchInfoResult
+{
+	repeated ServerSwitchInfo switchList = 1;			//服务器开关列表
+}

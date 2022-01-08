@@ -1,0 +1,98 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CTreasureHuntMsg";
+
+// code = 0x6300
+//寻宝配置信息
+message TreasureHuntConfigMsg
+{
+	required string consumeSycee = 1;			//消耗元宝数量
+	required int32 isFirstFree = 2;			//寻宝一次是否是每天第X次免费  1 1次免费次数  0 没有免费次数
+	required string consumeGoods = 3;			//消耗道具id
+	required string boxCount = 4;				//额外宝箱达到次数
+	required int32 count = 5;					//寻宝次数
+	required int32 boxIndex = 6;				//开启到哪个宝箱
+	required int32 round = 7;					//当前宝箱轮次
+	required int64 actTime = 8;					//剩余时间
+	repeated TreasureHuntInfoConfig configList = 9;   //奖励配置列表
+	repeated TreasureHuntBoxConfig boxRewardList = 10;	//额外宝箱奖励
+}
+
+message TreasureHuntInfoConfig
+{	
+	required int32 id = 1;				//奖励id
+	required int32 resType = 2;			//奖励资源类型
+	required int32 resId = 3;			//奖励资源ID
+	required int32 number = 4;			//奖励资源个数
+	required int32 quality = 5;			//品质 0普通  1精品 2极品 3稀有  
+}
+
+message TreasureHuntBoxConfig
+{	
+	required int32 count = 1;				//对应寻宝次数
+ 	repeated TreasureHuntReward boxReward = 2;  //奖励
+}
+
+// code = 0x6301
+//寻宝结果
+message TreasureHuntResult
+{	
+	required int32 index = 1;
+	repeated TreasureHuntReward rewardList = 2;  //奖励列表
+}
+
+message TreasureHuntReward
+{
+	required int32 resType = 1;			//资源类型
+	required int32 resId = 2;			//资源ID
+	required int32 number = 3;			//资源个数
+}
+
+// code = 0x6302
+//寻宝历史
+message TreasureHuntHistoryList
+{
+	required int32 type = 1;						//1个人历史2玩家历史
+	repeated TreasureHuntHistory HistoryList = 2;   //历史列表
+}
+
+message TreasureHuntHistory
+{	
+	required int32 playerId = 1;			//玩家ID
+	required string playerName = 2;			//玩家名
+	repeated TreasureHuntReward rewardList = 3;	//奖励资源
+	required int64 createTime = 4;			//记录时间
+}
+
+// code = 0x6303
+//寻宝额外宝箱奖励
+message TreasureHuntExtraReward
+{
+	required int32 success = 1;				//1yes 2no
+	required int32 boxIndex = 2;			//开启到哪个宝箱
+	required int32 round = 3;				//当前宝箱轮次
+}
+
+//code = 0x6304
+//刷新排行结果
+message FreshTreasureHuntRankResult
+{
+	required TreasureHuntRankInfo own = 1;			//玩家自己
+	repeated TreasureHuntRankInfo list = 2;			//排行
+}
+
+message TreasureHuntRankInfo
+{
+	required int32 rank = 1;				//排行
+	required string name = 2;				//玩家名
+	required int32 score = 3;				//积分
+	required string serverName = 4;			//服务器名称
+}
+
+//code = 0x6305
+//刷新跨服排行结果
+message FreshTreasureHuntCrossRankResult
+{
+	required TreasureHuntRankInfo own = 1;			//玩家自己
+	repeated TreasureHuntRankInfo list = 2;			//排行
+}

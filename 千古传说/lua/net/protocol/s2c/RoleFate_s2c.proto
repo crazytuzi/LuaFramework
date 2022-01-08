@@ -1,0 +1,27 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CRoleFate";
+
+//code = 0x5600
+//使用角色缘分道具列表
+message RoleFateListResult
+{
+	repeated RoleFateInfo list = 1;			//类型：0表示全部
+}
+
+//code = 0x5601
+//使用角色缘分道具(配缘)
+message MatchFateResult
+{
+
+}
+
+//code = 0x5602
+//单条缘分
+message RoleFateInfo
+{
+	required int64 instanceId = 1;		//角色实例ID
+	required int32 roleFateId = 2;		//角色缘分id
+	required int64 endTime = 3;			//使用结束时间
+	required bool forever = 4;			//是否永久有效
+}

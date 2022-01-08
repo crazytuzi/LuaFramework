@@ -1,0 +1,450 @@
+--[[
+******图鉴层*******
+
+]]
+
+local IllustrationRoleLayer = class("IllustrationRoleLayer", BaseLayer)
+
+function IllustrationRoleLayer:ctor()
+    self.super.ctor(self)
+    self:init("lua.uiconfig_mango_new.handbook.HandbookRoleLayer")
+  
+    self:removeUnuseTexEnabled(true);
+
+    -- self:initRoleListData(0)
+    -- self:drawRoleList()
+end
+
+function IllustrationRoleLayer:initUI(ui)
+    self.super.initUI(self,ui)
+
+    self.layer_list			= TFDirector:getChildByPath(ui, 'panel_list')
+    self.btn_all       		= TFDirector:getChildByPath(ui, 'btn_all')
+    self.btn_attack       	= TFDirector:getChildByPath(ui, 'btn_attack')
+    self.btn_defense       	= TFDirector:getChildByPath(ui, 'btn_defense')
+    self.btn_control       	= TFDirector:getChildByPath(ui, 'btn_control')
+    self.btn_doctor       	= TFDirector:getChildByPath(ui, 'btn_doctor')
+
+    self.btn_all.index 		= 1
+    self.btn_attack.index 	= 2
+    self.btn_defense.index 	= 3
+    self.btn_control.index 	= 5
+    self.btn_doctor.index 	= 4
+
+    self.btn_all.logic 		= self
+    self.btn_attack.logic 	= self
+    self.btn_defense.logic 	= self
+    self.btn_control.logic 	= self
+    self.btn_doctor.logic 	= self
+
+    -- 对应按钮的索引
+    self.btnCurIndex 			= 0
+
+    self.BtnSetting = {}
+    self.BtnSetting[1] = {}
+    self.BtnSetting[1].btn 		= self.btn_all
+    self.BtnSetting[1].normal 	= "ui_new/handbook/tj_quanbuda.png"
+    self.BtnSetting[1].select 	= "ui_new/handbook/tj_quanbuda1.png"
+
+    self.BtnSetting[2] = {}
+    self.BtnSetting[2].btn 		= self.btn_attack
+    self.BtnSetting[2].normal 	= "ui_new/handbook/tj_gongji.png"
+    self.BtnSetting[2].select 	= "ui_new/handbook/tj_gongji1.png"
+
+    self.BtnSetting[3] = {}
+    self.BtnSetting[3].btn 		= self.btn_defense
+    self.BtnSetting[3].normal 	= "ui_new/handbook/tj_fangyu.png"
+    self.BtnSetting[3].select 	= "ui_new/handbook/tj_fangyu1.png"
+
+    self.BtnSetting[5] = {}
+    self.BtnSetting[5].btn 		= self.btn_control
+    self.BtnSetting[5].normal 	= "ui_new/handbook/tj_kpngzhi.png"
+    self.BtnSetting[5].select 	= "ui_new/handbook/tj_kongzhi1.png"
+
+    self.BtnSetting[4] = {}
+    self.BtnSetting[4].btn 		= self.btn_doctor
+    self.BtnSetting[4].normal 	= "ui_new/handbook/tj_zhiliao.png"
+    self.BtnSetting[4].select 	= "ui_new/handbook/tj_zhiliao1.png"
+
+    self.QualityRes = {}
+    self.QualityRes[5] = "ui_new/handbook/xiake_5.png"
+    self.QualityRes[4] = "ui_new/handbook/xiake_4.png"
+    self.QualityRes[3] = "ui_new/handbook/xiake_3.png"
+    self.QualityRes[2] = "ui_new/handbook/xiake_2.png"
+    self.QualityRes[1] = "ui_new/handbook/xiake_1.png"
+
+    self.cellSize = {}
+    self.cellSize.width 	= 140--136
+    self.cellSize.height 	= 170--162
+
+    self:drawDefault(1)
+end
+
+function IllustrationRoleLayer:removeUI()
+    self.super.removeUI(self)
+end
+
+function IllustrationRoleLayer:registerEvents()
+    self.super.registerEvents(self)
+
+    self.btn_all:addMEListener(TFWIDGET_CLICK, audioClickfun(self.BtnClickHandle))
+    self.btn_attack:addMEListener(TFWIDGET_CLICK, audioClickfun(self.BtnClickHandle))
+    self.btn_defense:addMEListener(TFWIDGET_CLICK, audioClickfun(self.BtnClickHandle))
+    self.btn_control:addMEListener(TFWIDGET_CLICK, audioClickfun(self.BtnClickHandle))
+    self.btn_doctor:addMEListener(TFWIDGET_CLICK, audioClickfun(self.BtnClickHandle))
+    --
+    TFDirector:addMEGlobalListener(IllustrationManager.IllustrationUpdate, function() 
+        self:FilterRoleListData(0)
+        self:drawRoleList() 
+        print("更新")
+    end)
+end
+
+function IllustrationRoleLayer:removeEvents()
+    print("IllustrationRoleLayer:removeEvents")
+    self.super.removeEvents(self)
+    --按钮事件
+    TFDirector:removeMEGlobalListener(IllustrationManager.IllustrationUpdate)
+end
+--按照id排序
+local function sortlist( v1,v2 )
+    if v1.show_weight > v2.show_weight then
+        return true
+    elseif v1.show_weight == v2.show_weight then
+        if v1.id < v2.id then
+            return true
+        end
+    end
+    return false
+end
+-- index 对应职业 0为全部
+function IllustrationRoleLayer:FilterRoleListData(kind)
+	self.qualityRoleList = {}
+
+	self.qualityRoleList = IllustrationManager:FilterRoleList(kind)
+	self.qualityNumList  = IllustrationManager:CountNumInList(self.qualityRoleList)
+
+	self.QualityNum 	  = #self.qualityNumList
+	self.TableCellNum	  = 2 * self.QualityNum
+
+    for i=1,(QualityHeroType.Max - 1) do
+        if self.qualityRoleList[i] then
+            table.sort(self.qualityRoleList[i],sortlist)
+        end
+    end
+
+
+    self.cellList = {}
+    local index     = 1
+    local cellNum = 0
+    for i=1,self.QualityNum do
+        local quality      = self.qualityNumList[i].quality
+        local num          = self.qualityNumList[i].number
+        local rowTotal     = math.ceil(num/5)
+        -- title
+        self.cellList[index] = {}
+        self.cellList[index].quality        = quality
+        self.cellList[index].qualityindex   = i
+        self.cellList[index].num            = num
+        self.cellList[index].index          = 0
+        index = index + 1
+        
+        local rowTotal = math.ceil(num/5)
+        for n=1,rowTotal do
+            -- local info = self.qualityRoleList[quality][n]
+            -- local id            = info.id
+
+            self.cellList[index] = {}
+            self.cellList[index].quality        = quality
+            self.cellList[index].qualityindex   = i
+            self.cellList[index].num            = 0
+            self.cellList[index].index          = n
+            index = index + 1
+        end
+
+    end
+
+    self.TableCellNum = #self.cellList
+
+    print("self.TableCellNum = ", self.TableCellNum)
+    -- print("self.cellList = ", self.cellList)
+
+	-- print("num1 = ", #self.qualityRoleList[1])
+	-- print("num2 = ", #self.qualityRoleList[2])
+	-- print("num3 = ", #self.qualityRoleList[3])
+	-- print("num4 = ", #self.qualityRoleList[4])
+end
+
+
+function IllustrationRoleLayer:drawCellTitle(cell, QualityIndex, curNum, totalNum)
+	local title_node = cell:getChildByTag(100)
+
+    if title_node == nil then
+        title_node = createUIByLuaNew("lua.uiconfig_mango_new.handbook.HandbookCell")
+        title_node:setPosition(ccp(0,0))
+        cell:addChild(title_node)
+        title_node:setTag(100)
+    end
+    title_node:setVisible(true)
+
+    local quality 	   	= self.qualityNumList[QualityIndex].quality
+    local img_quality   = TFDirector:getChildByPath(title_node, 'img_quality')
+    local bar_jindu   	= TFDirector:getChildByPath(title_node, 'bar_jindu')
+    local txt_jindu 	= TFDirector:getChildByPath(title_node, 'txt_jindu')
+
+    txt_jindu:setText(string.format("%d/%d", curNum,totalNum))
+    bar_jindu:setPercent(curNum * 100/totalNum) 
+    img_quality:setTexture(self.QualityRes[quality])
+end
+
+function IllustrationRoleLayer:drawRole(node, quality, index)
+	if node == nil or self.qualityRoleList == nil then
+		return
+	end
+	--空间
+	local img_pinzhiditu= TFDirector:getChildByPath(node, 'img_pinzhiditu')
+    local img_touxiang  = TFDirector:getChildByPath(node, 'img_touxiang')
+    local txt_name 		= TFDirector:getChildByPath(node, 'txt_name')
+    local btn_head      = TFDirector:getChildByPath(node, 'btn_pingzhianniu')
+	local img_cover     = TFDirector:getChildByPath(node, 'img_cover')
+	local info 			= self.qualityRoleList[quality][index]
+	local id 			= info.id
+	local bHave 		= info.isOwn
+	
+	local role      	= RoleData:objectByID(id)
+    local headIcon  	= role:getIconPath()
+    local qualityIcon 	= GetColorIconByQuality(quality)
+    img_pinzhiditu:setTexture(qualityIcon)    
+    img_touxiang:setTexture(headIcon)
+    txt_name:setText(role.name)
+
+    -- if bHave == false then
+    -- 	img_touxiang:setShaderProgram("GrayShader", true)
+    -- else
+    --     img_touxiang:setShaderProgram("HighLight", true)
+    -- end
+    
+    img_cover:setVisible(not bHave)
+
+    btn_head.quality = quality
+    btn_head.index   = index
+    btn_head.logic   = self
+    btn_head:addMEListener(TFWIDGET_CLICK, audioClickfun(self.touchRoleNode))
+ --    roadImg:setShaderProgram("GrayShader", true)
+	-- :setShaderProgram("HighLight", true)
+ -- 	mountain_node:setShaderProgramDefault(true);
+	-- 
+end
+
+function IllustrationRoleLayer:drawCellDetail(cell, quality, index, num)
+	-- 绘制背景
+	local rowTotal = math.ceil(num/5)
+	local height = self.cellSize.height*rowTotal
+	local width  = self.cellSize.width*5
+
+    local row = index
+    for col=1,5 do
+        count = (row-1)*5 + col
+        local x = (col - 1) * self.cellSize.width -- + gapx
+        local y = 0 --height - row * self.cellSize.height
+        if count <= num then
+            local node = cell:getChildByTag(100 + col)
+
+            if node == nil then
+                node = createUIByLuaNew("lua.uiconfig_mango_new.handbook.HandbookRoleCell")
+                cell:addChild(node)
+                node:setTag(100 + col)
+            end
+            node:setVisible(true)
+
+            node:setPosition(ccp(x,y))
+            self:drawRole(node, quality, count)
+        end
+    end
+
+
+end
+
+function IllustrationRoleLayer:drawCellWithIndex(cell, cellIndex)
+	-- 对cellindex区域
+    local cellInfo = self.cellList[cellIndex]
+
+    -- print("IllustrationRoleLayer:drawCellWithIndex = ", cellIndex)
+    if cellInfo == nil then
+        -- print("IllustrationRoleLayer:drawCellWithIndex return")
+        return
+    end
+
+    -- print(cellInfo)
+    
+    local quality      = self.cellList[cellIndex].quality
+    local index        = self.cellList[cellIndex].index 
+    local QualityIndex = self.cellList[cellIndex].qualityindex 
+	local num 		   = self.qualityNumList[QualityIndex].number
+
+    for i=1,6 do
+        local title_node = cell:getChildByTag(100 + i - 1)
+
+        if title_node then
+            title_node:setVisible(false)
+        end
+    end
+
+	-- 绘制标题
+	if index == 0 then
+		local curNum   = self.qualityNumList[QualityIndex].curNum
+		self:drawCellTitle(cell, QualityIndex, curNum, num)
+        -- print("draw title")
+	-- 绘制角色
+	else
+        -- print("draw drawCellDetail")
+		self:drawCellDetail(cell, quality, index, num)
+	end
+end
+
+function IllustrationRoleLayer:drawRoleList()
+    if self.tableView ~= nil then
+    	self.tableView:reloadData()
+        self.tableView:setScrollToBegin(false)
+        return
+    end
+
+    local  tableView =  TFTableView:create()
+    tableView:setTableViewSize(self.layer_list:getContentSize())
+    tableView:setDirection(TFTableView.TFSCROLLVERTICAL)
+    tableView:setVerticalFillOrder(TFTableView.TFTabViewFILLTOPDOWN)
+    tableView:setPosition(ccp(0,0))
+    -- tableView:setPosition(self.layer_list:getPosition())
+    self.tableView = tableView
+    self.tableView.logic = self
+
+
+
+    tableView:addMEListener(TFTABLEVIEW_SIZEFORINDEX, IllustrationRoleLayer.cellSizeForTable)
+    tableView:addMEListener(TFTABLEVIEW_SIZEATINDEX, IllustrationRoleLayer.tableCellAtIndex)
+    tableView:addMEListener(TFTABLEVIEW_NUMOFCELLSINTABLEVIEW, IllustrationRoleLayer.numberOfCellsInTableView)
+    tableView:reloadData()
+
+    -- self:addChild(self.tableView,1)
+    self.layer_list:addChild(self.tableView,1)
+end
+
+function IllustrationRoleLayer.numberOfCellsInTableView(table)
+	local self = table.logic
+    return self.TableCellNum
+end
+
+function IllustrationRoleLayer.cellSizeForTable(table,idx)
+	local self = table.logic
+
+    -- local index = math.mod(idx, 2)
+    local index        = self.cellList[idx+1].index 
+    -- local quality        = self.cellList[idx+1].quality 
+    -- print("index = , idx = , quality = ",index,idx,quality)
+	-- 绘制标题
+	if index == 0 then
+		return 50,self.cellSize.width*5
+	-- 绘制角色
+	else
+		-- local QualityIndex = math.floor(idx/2) + 1
+		-- local quality 	   = self.qualityNumList[QualityIndex].quality
+		-- local num 		   = self.qualityNumList[QualityIndex].number
+		-- local row 		   = math.ceil(num/5)
+		return self.cellSize.height*1,self.cellSize.width*5
+	end
+end
+
+function IllustrationRoleLayer.tableCellAtIndex(table, idx)
+    local cell = table:dequeueCell()
+    local self = table.logic
+
+    if nil == cell then
+        table.cells = table.cells or {}
+        cell = TFTableViewCell:create()
+        table.cells[cell] = true
+    end
+
+    -- cell:removeAllChildrenWithCleanup(true)
+    self:drawCellWithIndex(cell, idx+1)
+    return cell
+end
+
+function IllustrationRoleLayer:drawDefault(index)
+	if self.btnCurIndex == index then
+		return
+	end
+
+	-- 绘制上面的按钮
+	if self.btnLastIndex ~= nil then
+		local btnInfo = self.BtnSetting[self.btnLastIndex]
+		btnInfo.btn:setTextureNormal(btnInfo.normal)
+        btnInfo.btn:setZOrder(1)
+	end
+
+	self.btnLastIndex = index
+	self.btnCurIndex  = index
+
+	local curBtnInfo = self.BtnSetting[self.btnCurIndex]
+	curBtnInfo.btn:setTextureNormal(curBtnInfo.select)
+    curBtnInfo.btn:setZOrder(3)
+
+	-- self:FilterRoleListData(self.btnCurIndex-1)
+	-- self:drawRoleList()
+	
+end
+
+function IllustrationRoleLayer.BtnClickHandle(sender)
+	local self 	= sender.logic
+	local index = sender.index
+
+	if self.btnCurIndex == index then
+		return
+	end
+
+	self:drawDefault(index)
+    self:FilterRoleListData(index-1)
+    self:drawRoleList()
+end
+
+function IllustrationRoleLayer.touchRoleNode(sender)
+    local self      = sender.logic
+    local index     = sender.index
+    local quality   = sender.quality
+
+    local info          = self.qualityRoleList[quality][index]
+    local id            = info.id
+
+    -- local layer  = require("lua.logic.illustration.IllustrationRoleDetailLayer"):new(id)
+    -- AlertManager:addLayer(layer, AlertManager.BLOCK_AND_GRAY)
+    -- AlertManager:show()
+
+    -- if 1 then
+    --     return
+    -- end
+
+    local CardRole      = require('lua.gamedata.base.CardRole')
+    local cardRole = CardRole:new(id)
+    cardRole:setLevel(1)
+    cardRole.attribute = {}
+    local baseAttr = cardRole.totalAttribute.attribute
+    
+    local attribute = baseAttr
+
+    for i=1,(EnumAttributeType.Max-1) do
+        cardRole.totalAttribute[i] = attribute[i] or 0
+    end
+
+    local roleList = TFArray:new()
+    roleList:clear()
+    roleList:push(cardRole)
+
+
+   local layer = AlertManager:addLayerToQueueAndCacheByFile("lua.logic.role_new.RoleInfoLayer",AlertManager.BLOCK_AND_GRAY,AlertManager.TWEEN_1)
+   local selectIndex = roleList:indexOf(cardRole)
+   layer:loadOtherData(selectIndex, roleList)
+   layer.bShowTuPu = true
+   AlertManager:show()
+end
+
+
+return IllustrationRoleLayer

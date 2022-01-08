@@ -1,0 +1,41 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CHeadPicFrame";
+
+//code = 0x0E94
+//返回头像边框
+message HeadPicFrameResult{
+	repeated HeadPicFrameUnlockedInfo unlockedlist = 1;
+	repeated HeadPicFrameLockedInfo lockedList = 2;
+}
+
+//code = 0x0E97
+//头像框刷新
+message HeadPicFrameRefreshResult{
+	repeated HeadPicFrameUnlockedInfo unlockedlist = 1;
+	repeated HeadPicFrameLockedInfo lockedList = 2;
+}
+
+message HeadPicFrameUnlockedInfo{
+
+	required int32 id = 1;
+	required int64 expireTime = 2;
+	required bool firstGet = 3;
+}
+
+message HeadPicFrameLockedInfo{
+
+	required int32 id = 1;
+	required int32 currentNum = 2;
+}
+
+//code = 0x0E95
+//打开头像边框界面成功
+message HeadPicFrameOpenResult{
+}
+
+//code = 0x0E96
+//设置新头像边框
+message HeadPicFrameSetResult{
+	required int32 code = 1;
+}

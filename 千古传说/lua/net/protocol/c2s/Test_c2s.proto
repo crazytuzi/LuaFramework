@@ -1,0 +1,27 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2STestMsg";
+
+// code = 0xEE00
+message TestChallengeSection{
+	required int32 sectionId = 1;
+}
+
+enum TPAType{
+	Obtain = 0;
+	Lost = 1;
+	Equip = 2;
+	Unequip = 3;
+}
+
+// code = 0xEE01
+message TestPackage{
+	required TPAType type = 1;
+	required int32 goodsId = 2;
+	required int32 number = 3;
+}
+
+// code = 0xEE02
+message TestGetPartner{
+	required int32 templateId = 1;
+}

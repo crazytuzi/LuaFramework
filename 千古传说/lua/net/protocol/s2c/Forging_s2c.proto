@@ -1,0 +1,21 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CForging";
+
+//code = 0x6600
+// 炼体
+message XiaKeForging {
+	repeated ForgingTheBody xiake = 1; //所有侠客炼体
+}
+
+// 单个侠客炼体信息
+message ForgingTheBody{
+	required int64 roleId = 1; 		//角色实例id
+	repeated ForgingData data = 2; 	//炼体信息
+}
+
+// 单个炼体穴位信息
+message ForgingData {
+	required int32 acupoint = 1; 	//穴位
+	required int32 level = 2; 		//等级
+}

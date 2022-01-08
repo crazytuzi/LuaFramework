@@ -1,0 +1,154 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SEmployMsg";
+
+//
+//code = 0x5100
+message RequestMyEmployInfo
+{
+}
+
+//雇佣角色操作
+//code = 0x5101
+message EmployRoleOperation
+{
+	required int64 roleId = 1; //角色实例id
+	required int32  operation = 2;//操作符，1表示增加，2表示移除，3表示领取
+	required int32 indexId = 3; //位置id
+}
+
+//雇佣他人数据
+//code = 0x5103
+message EmployOtherInfo
+{
+}
+
+//所有雇佣数据
+//code = 0x5104
+message RequestAllEmployInfo
+{
+}
+
+//code = 0x5110
+//查询已经雇佣的角色次数信息
+message QueryEmployRoleCount
+{
+
+}
+
+//code = 0x5111
+//查询已雇佣角色列表
+message QueryEmployRoleList
+{
+
+}
+
+//code = 0x5112
+//查询已雇佣角色列表
+message QueryEmployRoleByUse
+{
+	required int32 useType = 1;					//使用类型，客户端定义
+}
+
+//code = 0x5120
+//雇佣单个角色
+message EmploySingleRoleRequest
+{
+	required int32 playerId = 1;				//雇佣的角色属于哪个玩家
+	required int64 instanceId = 2;				//角色实例ID
+	required int32 useType = 3;					//使用类型，客户端定义，这里可以是战斗类型
+}
+
+//code = 0x5150
+//获得佣兵队伍概要信息列表
+message RequestMercenaryTeamListOutline
+{
+	required int32 startIndex = 1;				//起始索引
+	required int32 length = 2;					//单次请求数据条目的数量
+}
+
+//上阵角色
+message MercenaryRoleInfo
+{
+	required int64 instanceId = 1;				//角色实例ID
+	required int32 position = 2;				//位置，0~8
+}
+
+// code = 0x5151
+//派遣佣兵队伍
+message DispatchMercenaryTeam
+{
+	repeated MercenaryRoleInfo battleRole = 1;		//上阵角色
+	repeated MercenaryRoleInfo assistant = 2;	//上阵小伙伴
+}
+
+//code = 0x5152
+//查询我的佣兵队伍信息
+message QueryMyMercenaryTeam
+{
+}
+
+//code = 0x5153
+//领取奖励或者归队
+message MerceanryTeamOperation
+{
+	required int32  operation = 1;   			//操作符，1、领取；2、归队
+}
+
+//code = 0x5160
+//雇佣佣兵队伍
+message EmployTeamRequest
+{
+	required int32 playerId = 1;				//目标玩家ID
+	required int32 useType = 2;					//使用类型
+}
+
+//code = 0x5161
+//查询雇佣队伍信息
+message EmployTeamDetailsQuery
+{
+	required int32 playerId = 1;				//目标玩家ID
+	required int32 useType = 2;					//使用类型
+}
+
+//code = 0x5162
+//修改已雇佣队伍的阵形
+message ModifyEmployTeamFormation
+{
+	required int32 playerId = 1;				//目标玩家ID
+	required int32 useType = 2;					//使用类型
+	repeated MercenaryRoleInfo formation = 3;	//阵形
+}
+
+//code = 0x5163
+//查询已雇佣队伍列表
+message QueryEmployTeamList
+{
+
+}
+
+//code = 0x5164
+//查询已经雇佣的队伍次数信息
+message QueryEmployTeamCount
+{
+
+}
+
+//code = 0x5130
+//更新单个角色佣兵阵形，如果策划允许随时调整佣兵阵形，这个协议才有意义
+message UpdateEmployFormation
+{
+	required int32 type = 1;					//阵形类型，9、推图阵形
+	repeated MercenaryRoleInfo role = 2;		//上阵角色信息
+	repeated MercenaryRoleInfo assistant = 3;	//小伙伴信息
+}
+
+//code = 0x5131
+//使用佣兵阵形进行战斗，兼容修改阵形后，马上开始战斗，一步完成
+message ChallengeByEmploy
+{
+	required UpdateEmployFormation formation = 1;	//战斗使用的阵形
+	required int32 battleType = 2;					//战斗类型
+	optional string params = 3;						//额外参数，每种战斗挑战时的附加参数不一致
+}
+

@@ -1,0 +1,9 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CChangeProfession";
+import "s2c/UnitInfo_s2c.proto";
+//转职结果
+//code = 0x5500
+message ChangeProfessionResult{
+	required RoleInfo info = 1;
+}

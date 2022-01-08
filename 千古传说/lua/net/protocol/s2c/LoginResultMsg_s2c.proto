@@ -1,0 +1,54 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CLoginMsg";
+
+// code = 0x0d00
+//登录游戏结果
+message LoginResult
+{
+	required int32 statusCode = 1; //状态码
+	optional bool empty = 2; //是否没有任何已经创建好的角色，在没有任何角色需要客户端跳转到创建角色流程
+}
+
+//code = 0x0d01
+//创建角色结果
+message CreatePlayerResult
+{
+	required int32 statusCode = 1; //状态码
+}
+
+//code = 0x0dff
+//重复登录通知
+message RelogonNotifyMsg{
+
+}
+
+//code = 0x0e42
+//下发所有信息后通知客户端进入游戏
+message EnterGame
+{
+	required string resVersion = 1; //需要匹配的资源版本号
+}
+
+//code = 0x0d11
+//重新连接服务器消息推送结束
+message ReConnectComplete
+{
+	required string resVersion = 1; //需要匹配的资源版本号
+}
+
+//code = 0x0d20
+//在开始登录逻辑前下发给客户端，表示开始登录
+message BeforeEnterGame
+{
+	required int64 serverStartup = 1;	//服务器启动时间轴
+	required int64 lastLogon = 2;		//最后一次走登录流程的时间轴
+}
+
+//code = 0x0d21
+//在开始重连接逻辑前下发给客户端，表示开始重连接
+message BeforeReconnect
+{
+	required int64 serverStartup = 1;	//服务器启动时间轴
+	required int64 lastLogon = 2;		//最后一次走登录流程的时间轴
+}

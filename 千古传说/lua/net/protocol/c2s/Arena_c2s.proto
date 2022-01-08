@@ -1,0 +1,47 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SHeroListMsg";
+
+//获取对手列表（获取、刷新列表）
+// code = 0x1300
+message ArenaGetPlayerList{
+}
+
+//获取前七名列表（获取、刷新列表）
+// code = 0x1306
+message ArenaGetTopPlayerList{
+}
+
+//获取排行列表
+// code = 0x1301
+message ArenaGetRandList{
+	required int32 startIndex = 1; //起始索引，1开始;0表示请求玩家所在哪一页
+	required int32 length = 2; //获取的数据条目数量
+}
+
+//获取奖励信息
+// code = 0x1302
+message ArenaGetRewardInfo{
+}
+
+//领取奖励
+// code = 0x1303
+message ArenaReceiveReward{
+}
+
+//挑战对手
+// code = 0x1304
+message ArenaChallengePlayer{
+   	required int32 playerId = 1;
+}
+
+//获取群豪榜信息
+// code = 0x1305
+message ArenaGetHomeInfo{
+}
+
+//重置群豪谱挑战冷却时间
+// code = 0x1308
+message RequestResetArenaCD
+{
+}

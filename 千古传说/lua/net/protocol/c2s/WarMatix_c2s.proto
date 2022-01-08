@@ -1,0 +1,41 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SWarMatix";
+
+// code = 0x0e20
+//战斗矩阵定义指令，客户端更改布阵时发送到服务器.如果有确认按钮，批量一次性更新
+message WarMatixConf{
+	repeated RoleConfigure configure = 1;
+}
+
+//单个角色的定义
+message RoleConfigure{
+	required int64 userId = 1;
+	required int32 index = 2;
+}
+
+//code = 0x0e21
+//角色上阵
+message ToBattle{
+	required RoleConfigure battle = 1;
+}
+
+//code = 0x0e22
+//更换位置，已上阵角色位置更换
+message ChangeIndex{
+	required int32 from = 1;
+	required int32 target = 2;
+}
+
+//code = 0x0e23
+//角色下阵
+//回调：WarMatixConfResult
+message OutBattle{
+	required int64 userId = 1;
+}
+
+//code = 0x0e24
+//一键布阵
+//回调：WarMatixConf
+message AutoWarMatix{
+}

@@ -1,0 +1,11 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ id = 1, quality = 1, sub_count = 2, sub_type = 1, tppe_value = 0, describe_title = "宝石孔：+1"})
+mapArray:push({ id = 2, quality = 2, sub_count = 3, sub_type = 3, tppe_value = 500, describe_title = "附加属性提升：5%"})
+mapArray:push({ id = 3, quality = 3, sub_count = 3, sub_type = 3, tppe_value = 1000, describe_title = "附加属性提升：10%"})
+mapArray:push({ id = 4, quality = 4, sub_count = 5, sub_type = 2, tppe_value = 0, describe_title = "属性条数：+1"})
+mapArray:push({ id = 5, quality = 3, sub_count = 2, sub_type = 3, tppe_value = 800, describe_title = "附加属性提升：8%"})
+mapArray:push({ id = 6, quality = 4, sub_count = 1, sub_type = 3, tppe_value = 1200, describe_title = "附加属性提升：12%"})
+mapArray:push({ id = 7, quality = 4, sub_count = 2, sub_type = 3, tppe_value = 1500, describe_title = "附加属性提升：15%"})
+mapArray:push({ id = 8, quality = 4, sub_count = 3, sub_type = 3, tppe_value = 1800, describe_title = "附加属性提升：18%"})
+mapArray:push({ id = 9, quality = 4, sub_count = 4, sub_type = 3, tppe_value = 2000, describe_title = "附加属性提升：20%"})
+return mapArray

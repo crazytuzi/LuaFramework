@@ -1,0 +1,53 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SNorthCaveMsg";
+
+//重置无量山北窟
+// code = 0x4900
+message RequestResetNorthCave{
+}
+
+//挑战关卡
+// code = 0x4901
+message ChallengeNorthCave{
+   	required int32 sectionId = 1;				//目标关卡ID，1~N
+   	required int32 choice = 2;					//挑战关卡选项
+   	optional int32 employType = 3;	//佣兵阵形类型，如果不是使用佣兵为0
+}
+
+//获取北窟信息
+// code = 0x4902
+message GetNorthCaveDetails{
+}
+
+//北窟扫荡
+// code = 0x4910
+message NorthCaveSweepRequest{
+	required int32 length = 1; 					//层数,0表示扫荡到最高的3星通关层数
+}
+
+// 选择属性
+// code = 0x4920
+message RequestChoiceCaveAttribute{
+ 	required int32 targetId = 1;				//选中的属性ID
+ 	optional int32 index  = 2;					//层数，1~N，最后一个属性可以传0
+}
+
+// 请求刷新挑战选项
+// code = 0x4923
+message RequestChangeCaveOption{
+ 	required int32 sectionId = 1;				//选中的关卡ID
+}
+
+// 获取通关宝箱奖励
+// code = 0x4925
+message RequestGetCaveChestReward{
+	optional int32 index  = 1;					//层数，1~N，最后一个属性可以传0
+}
+
+//一键扫荡
+//code = 0x4930
+message OneKeySweepRequest
+{
+
+}

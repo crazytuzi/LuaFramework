@@ -1,0 +1,9 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SChangeProfession";
+
+//转职
+//code = 0x5500
+message RequestChangeProfession{
+	required int32 roleId = 1;		//角色id
+}

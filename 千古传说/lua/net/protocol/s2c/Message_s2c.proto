@@ -1,0 +1,350 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CMessage";
+
+import "s2c/FightMsg_s2c.proto";
+
+// code = 0x1D00 获得甲级卡牌
+message GetCardNotify
+{
+	required string playerName = 1; 	//玩家名字
+	required int32  cardId = 2; 		//获得卡牌id
+}
+
+// code = 0x1D01 获得甲级装备
+message GetEquipNotify
+{
+	required string playerName = 1; 	//玩家名字
+	required int32  equipId = 2; 		//获得装备id
+	required int32 number = 3;			//数量
+	required int32 operationType = 4;	//通过什么渠道获得
+}
+
+// code = 0x1D02 获得甲级秘籍
+message GetBookNotify
+{
+	required string playerName = 1; 	//玩家名字
+	required int32  bookId = 2; 		//获得秘籍id
+}
+
+// code = 0x1D03 获得10级以上宝石
+message GemLevelUpNotify
+{
+	required string playerName = 1; 	//玩家名字
+	required int32  gemId = 2; 			//获得宝石id
+	required int32  level = 3; 			//获得宝石等级
+}
+
+// code = 0x1D04 群豪谱第一名变化
+message FirstChangeNotify
+{
+	required string winerName = 1; 		//赢者名字
+	required string loserName = 2; 		//输者名字
+	required bool 	neili = 3; 			//是否内力比拼
+	required int32 	rank = 4; 			//胜利的人的最新排名
+}
+
+// code = 0x1D05 返回消息数量
+message ReturnNotifyNum
+{
+	optional int32 fightNotifyNum = 1; 	//战斗
+	optional int32 socialNotifyNum = 2; //社交
+	optional int32 systemNotifyNum = 3; //系统
+}
+
+// code = 0x1D06 返回战斗消息
+message ReturnFightNotify
+{
+	repeated FightNotifyInfo list = 1;
+}
+
+message FightNotifyInfo
+{
+	required int32 	reportId = 1; 		//战报ID
+	required int32 	fightType = 2; 		//战斗类型
+	required bool  	win = 3; 			//是否胜利
+	required int64 	time = 4; 			//时间
+	required string playerName = 5; 	//对手名字
+	required int32 	playerLev = 6; 		//对手等级
+	required int32 	playerPower = 7; 	//对手战力
+	optional int32 	myRankPos = 8; 		//群豪谱被击败后自己排名
+	optional int32 	reward = 9; 		//天罡星被击败后奖励
+}
+
+// code = 0x1D07 返回社交消息
+message ReturnSocialNotify
+{
+	repeated GangNotifyInfo ganglist = 1;//帮派消息
+}
+
+message GangNotifyInfo
+{
+	required int64 	time = 1; 			//时间
+	required string playerName = 2; 	//对方名字
+	required int32 	playerLev = 3; 		//对方等级
+	required int32  gangName = 4; 		//帮派名字
+	required int32  gangId = 5; 		//帮派id
+	required bool   apply = 6; 		    //true 申请加入 false帮主邀请加入
+}
+
+// code = 0x1D08 返回系统消息
+message ReturnSystemNotify
+{
+	repeated SystemNotifyInfo notifyList = 1;
+}
+
+message SystemNotifyInfo
+{
+	required int32 id = 1;							//消息ID
+	required int32 type = 2; 						//消息类型。
+	required bool  canGet = 3;						//是否可领取
+	required int64 time = 4; 						//创建时间
+	required string textTitle = 5;					//标题
+	required string textTitleSub = 6;				//副标题
+	required string textContect = 7;				//内容
+	required int32 status = 8;						//状态:0、未读；1、已读；2、已领取；3、删除
+	repeated NotifyItemReward itemlist = 9;			//物品奖励
+	repeated NotifyResourceReward reslist = 10;		//资源奖励
+}
+
+message NotifyItemReward
+{
+	required int32 type = 1;			//1物品，2卡牌,
+	required int32 itemid = 2;
+	required int32 num = 3;
+}
+
+message NotifyResourceReward
+{
+	required int32 type = 1;			//1铜币，2元宝
+	required int32 num = 2;
+}
+
+//单个邮件状态变更
+// code = 0x1D20
+message MailStateChanged{
+	required int32 id = 1;					//邮件ID
+	required int32 status = 2;				//状态：0、未读；1、已读；2、已领取；3、删除
+}
+
+//多个邮件状态变更
+// code = 0x1D21
+message MailStateChangedList{
+	repeated MailStateChanged mail = 1;		//邮件变更信息
+}
+
+//新邮件列表
+// code = 0x1D22
+message NewMailList{
+	repeated SystemNotifyInfo mail = 1;		//邮件列表
+}
+
+//删除邮件成功，避免进度条卡死
+// code = 0x1D23
+message DeleteMailSuccess{
+
+}
+
+//领取邮件成功，避免进度条卡死
+// code = 0x1D24
+message GetMailRewardSuccess{
+
+}
+
+// code = 0x1D09 系统消息主动推出
+message SystemNoticeMessage
+{
+	required string content = 1; 			//系统推送内容
+}
+
+message ArenaBalanceInfo
+{
+	required int32 playerId = 1;			//玩家ID
+	required int32 displayId = 2;			//显示的职业类型ID，可能为主角职业ID或者战力最高的职业ID
+	required string name=3;					//昵称
+	required int32 level=4;					//等级
+	required int32 vipLevel=5;				//vip等级
+}
+
+// code = 0x1D0A
+//群豪谱结算通知
+message ArenaBalanceNotify
+{
+	repeated ArenaBalanceInfo rankingInfo = 1; 		//名次信息
+}
+
+// code = 0x1D0B
+//群豪谱结算预告
+message ArenaBalanceTrailerNotify
+{
+	repeated ArenaBalanceInfo rankingInfo = 1; 		//名次信息
+}
+
+message WorldBossBalanceInfo
+{
+	required int32 playerId = 1;			//玩家ID
+	required int32 displayId = 2;			//显示的职业类型ID，可能为主角职业ID或者战力最高的职业ID
+	required string name=3;					//昵称
+	required int32 level=4;					//等级
+	required int32 vipLevel=5;				//vip等级
+	required int32 totalDamage=6;			//总伤害
+}
+
+// code = 0x1D0C
+//群豪谱结算通知
+message WorldBossBalanceNotify
+{
+	repeated WorldBossBalanceInfo rankingInfo = 1; 		//名次信息
+}
+
+// code = 0x1D0D
+// 群豪谱前5名变更
+message ArenaTop5ChangedNotifyMsg
+{
+	required string oldName = 1;			//变更前原来的角色名
+	required string newName = 2;			//变更后的角色名
+	required int32 ranking = 3;				//变更的排名
+}
+
+// code = 0x1D0E
+//无量山通关
+message ClimbPassedNotifyMsg
+{
+	required string name = 1;				//通关角色名
+	required int32 gameLevel =2;			//通关关卡，层数，1~n
+}
+
+//code = 0x1D0F
+//英雄榜第一名上线
+message HeroRankTop1OnlineNotifyMsg
+{
+	required int32 playerId = 1;			//英雄榜第一名ID
+	required string name = 2;				//英雄榜第一名名称
+}
+
+//code = 0x1D30
+//群豪榜第一名上线
+message ArenaRankTop1OnlineNotifyMsg
+{
+	required int32 playerId = 1;			//英雄榜第一名ID
+	required string name = 2;				//英雄榜第一名名称
+}
+
+// code = 0x1D40 返回战斗消息
+message ArenaTopBattleReportList
+{
+	repeated ArenaTopBattleReportInfo report = 1;
+}
+
+//群豪谱TOP N战报信息
+message ArenaTopBattleReportInfo
+{
+	required int32 	reportId = 1; 						//战报ID
+	required int32 	fightType = 2; 						//战斗类型
+	required bool  	win = 3; 							//是否胜利
+	required int64 	time = 4; 							//时间
+	required int32 	ranking = 5; 						//被挑战者排名
+	required int32 fromRank = 6;						//挑战者排名
+	required int32 	power = 7; 							//挑战者战力
+	required int32 targetPower = 8;						//被挑战者战力，0表示未知，以前老数据没有记录这个字段
+	required ArenaTopBattleReportRole fromRole = 9;		//发起挑战角色信息
+	required ArenaTopBattleReportRole targetRole = 10;	//目标角色信息
+}
+
+//战报的角色信息结构体
+message ArenaTopBattleReportRole{
+	required int32 playerId = 1;			//玩家ID
+	required string name = 2; 				//名字
+	required int32 profession = 3;			//主角职业
+	required int32 	level = 4; 				//等级
+	required int32 vipLevel = 5;			//VIP等级
+	required int32 power = 6;				//战力
+}
+
+// code = 0x1D42 返回战斗消息
+message MyChallenageArenaBattleReportList
+{
+	repeated ArenaTopBattleReportInfo report = 1;
+}
+
+//播放战报
+// code = 0x1D41
+message PlayReplayArenaTopSuccess
+{
+	required FightBeginMsg beginInfo = 1; 	//战斗开始数据
+	required FightDataMsg fightData = 2; 	//战斗数据
+	required int32 rank = 3; 				//群豪谱排名
+}
+
+//禁言玩家消息通知
+// code = 0x1D31
+message GagPlayerMsg{
+	required int32 playerId = 1;			//被禁言玩家ID
+	required string name = 2;				//玩家名称
+	required int64 time = 3;				//禁言时长，单位/秒
+}
+
+//砸蛋
+// code = 0x1D32 
+message EggFrenzyNoticeMessage
+{
+	required string playerName = 1; 	//玩家名字
+	required int32 type = 2;			//资源id
+	required int32 id = 3;
+	required int32 num = 4;
+	required int32 eggType = 5;
+}
+
+//通知消息
+// code = 0x1D33
+message NotifyMsg{
+	required int32 type = 1;
+	required string context = 2;
+}
+
+//获得宝石
+// code = 0x1D50
+message ObtainGemNotify
+{
+	required string playerName = 1; 			//玩家名字
+	required int32  templateId = 2; 			//获得宝石id
+	required int32  number = 3; 				//数量
+	required int32 operationType = 4;			//通过什么渠道获得
+}
+
+// code = 0x1D60
+//可重复系统消息主动推出
+message RepeatSystemMessage
+{
+	required int32 messageId = 1;		//消息id
+	required string content = 2;		//系统推送内容
+	required int32 intervalTime = 3;	//间隔时间
+	optional int64 beginTime = 4;		//开始时间
+	optional int64 endTime = 5;		//结束时间
+	optional int32 repeatTime = 6;		//重复次数
+	required int32 priority = 7;		//权重
+}
+
+// code = 0x1D61
+//可重复系统消息列表主动推出
+message RepeatSystemMessageList
+{
+	repeated RepeatSystemMessage message = 1;
+}
+
+// code = 0x1D63
+//可重复系统消息删除
+message DelRepeatSystemMessage
+{
+	required int32 messageId = 1;		//消息id
+}
+
+
+//code = 0x1D70
+//满足某个条件上线发送全服通知
+message OnlineToServerNotifyMsg
+{
+	required int32 playerId = 1;			//玩家ID
+	required string name = 2;				//玩家名称
+	required int32 type = 3;				//类型
+}

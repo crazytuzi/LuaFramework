@@ -1,0 +1,172 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CMission";
+
+//code = 0x2001 返回成就列表
+message TaskListMsg             
+{		
+	repeated TaskInfo tasklist = 1;	
+}
+
+message TaskInfo
+{
+	required int32 taskid = 1;    //成就id
+	required int32 state = 2;  	  //状态 0：未完成 1:已完成但未领取奖励  2:已完成并领取过奖励
+	required int32 currstep = 3;  //当前进度
+	required int32 totalstep = 4; //总进度
+} 
+
+//code = 0x2002 领取奖励成功
+message GetTaskRewardResult
+{
+	repeated int32 taskid = 1;    //已领取成就列表
+}
+
+//code = 0x2003 通知成就完成
+message NotifyTaskFinish             
+{		
+	required int32 taskid = 1;    //成就id	
+}
+
+//code = 0x2004 新任务(领奖后发送)
+message NotifyNewTask          
+{		
+	repeated TaskInfo tasklist = 1;	
+}
+
+//code = 0x2005 通知成就进度变化
+message NotifyTaskStep             
+{		
+	required int32 taskid = 1;    //成就id	
+	required int32 currstep = 2;  //当前进度
+}
+
+//code = 0x2051 返回成就列表
+message SevenDaysGoalTaskListMsg
+{
+	repeated TaskInfo tasklist = 1;					//目标任务列表
+	required int32 days = 2;						//开服天数
+}
+
+//code = 0x2052 领取奖励成功
+message GetSevenDaysGoalTaskRewardResult
+{
+	repeated int32 taskid = 1;    //已领取成就列表
+}
+
+//code = 0x2053 通知成就完成
+message NotifySevenDaysGoalTaskFinish
+{
+	required int32 taskid = 1;    //成就id
+}
+
+//code = 0x2054 新任务(领奖后发送)
+message NotifyNewSevenDaysGoalTask
+{
+	repeated TaskInfo tasklist = 1;
+}
+
+//code = 0x2055 通知成就进度变化
+message NotifySevenDaysGoalTaskStep
+{
+	required int32 taskid = 1;    //成就id
+	required int32 currstep = 2;  //当前进度
+}
+
+message ShopItemAlreadyBuyInfo
+{
+	required int32 id = 1;				//ID
+	required int32 number = 2;			//已经被购买了多少个
+}
+
+// 查询折扣商品信息
+// code = 0x2060
+message ShopItemAlreadyBuyInfoList
+{
+	repeated ShopItemAlreadyBuyInfo info = 1;		//信息列表
+}
+
+//code = 0x5300 返回成就列表
+message RecallTaskListMsg
+{
+	repeated TaskInfo tasklist = 1;					//目标任务列表
+	required int32 days = 2;						//开服天数
+}
+
+//code = 0x5301 领取奖励成功
+message GetRecallTaskRewardResult
+{
+	repeated int32 taskid = 1;    //已领取成就列表
+}
+
+//code = 0x5302 通知成就完成
+message NotifyRecallTaskFinish
+{
+	required int32 taskid = 1;    //成就id
+}
+
+//code = 0x5303 新任务(领奖后发送)
+message NotifyNewRecallTask
+{
+	repeated TaskInfo tasklist = 1;
+}
+
+//code = 0x5304 通知成就进度变化
+message NotifyRecallTaskStep
+{
+	required int32 taskid = 1;    //成就id
+	required int32 currstep = 2;  //当前进度
+}
+
+//code = 0x5320
+//召回玩家成功通知
+message RecallSuccessNotify
+{
+	required int32 playerId = 1;			//被召回的目标玩家ID
+}
+
+//单个邀请信息
+message RecallInviteStruct
+{
+	required int32 playerId = 1;			//玩家Id，发起邀请的玩家ID
+	required int32 recalledId = 2;			//被召回的目标玩家ID
+	required int64 luanchTime = 3;			//发起召回的系统时间，单位毫秒
+	required string inviteCode = 4;			//邀请码，由服务器生成
+}
+
+//code = 0x5321
+//发送玩家被邀请列表，在玩家被邀请并且回归后如果有则发送给客户端，一般是服务器主动下发
+message MyBeRecalledInviteList
+{
+	repeated RecallInviteStruct invaite = 1;			//邀请信息
+}
+
+//code = 0x5322
+//发送玩家邀请列表，玩家上线时发送给客户端，用于客户端在查看玩家好友列表和帮派列表等可以召回玩家的敌方，显示状态
+message MyActiveRecallInviteList
+{
+	repeated RecallInviteStruct invaite = 1;			//邀请信息
+	repeated int32 playerIds = 2;//回归过的好友
+}
+
+//code = 0x5323
+//提交邀请码成功
+message ApplyInviteCodeSuccess
+{
+
+}
+
+//code = 0x5324
+//领取礼包
+message ApplyReturnGiftSucess
+{
+}
+
+//code = 0x5350
+//玩家回归信息，填写了邀请码之后信息才会变更
+message RecallReturnInfo
+{
+	required int64 backTime = 1;			//回归时间，单位/秒
+	required int32 rewardGot = 2;			//回归奖励领取标记字段，位运算标记
+	required int32 fromPlayerId = 3;		//使用了那个玩家的召回邀请
+}

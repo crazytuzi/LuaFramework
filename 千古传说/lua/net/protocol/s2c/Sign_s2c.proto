@@ -1,0 +1,18 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CSign";
+import "s2c/Reward_s2c.proto";
+// code = 0x2701 获得签到信息
+message GetSign
+{
+	required int32 	monthDay = 1; 			//当天是本月第几天
+	required bool isSign = 2; 		//是否已签到
+	required int32 	month = 3; 			//当前月数
+	required int32 	monthDaySum = 4; 			//当前月数总共天数
+}
+
+// code = 0x2702 签到
+message SignResult
+{
+	repeated RewardItem itemlist = 1;		//掉落列表
+}

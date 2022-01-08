@@ -1,0 +1,109 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CNorthCaveMsg";
+
+import "s2c/Reward_s2c.proto";
+
+//code = 0x4900
+//重置操作结果
+message ResetNorthCaveResult
+{
+}
+
+//code = 0x4901
+//挑战结果
+message ChallengeNorthCaveResult
+{
+	required int32 score = 1; 							//挑战结果，几个星
+	required int32 nextId = 2; 							//下一关ID
+	required int32 tokens = 3;							//剩余无量山钻数量，代币
+}
+
+//获取北窟关卡信息
+// code = 0x4902
+message NorthCaveDetails{
+    required int32 currentId = 1; 						//当前关卡
+    repeated NorthCaveGameLevelStruct gameLevel = 2;	//关卡
+    repeated NorthCaveAttributeInfo attribute = 3;		//属性
+    required int32 maxPassCount = 4;					//最大通关数
+    required int32 maxSweepCount = 5;					//最大可扫荡关卡数量
+    required int32 tokens = 6;							//剩余无量山钻数量，代币
+    required int32 remainResetCount = 7;				//剩余重置次数
+    required int32 chestGotMark = 8;					//箱子领取记录，位运算存储
+    required bool hasNotPass = 9;						//是否有未通关关卡
+}
+
+//北窟关卡信息
+message NorthCaveGameLevelStruct{
+	required int32 sectionId = 1;						//关卡ID
+	required int32 formationId = 2;						//npc阵形Id,对应t_s_north_cave_npc表格ID
+	repeated int32 options = 3;							//通关选项
+	required int32 choice = 4;							//通关选项选中状态，根据位运算来进行存储
+	required int32 score = 5;							//通关分数，星数
+}
+
+//下发新的关卡信息
+// code = 0x4903
+message NorthCaveGameLevelListMsg{
+	repeated NorthCaveGameLevelStruct gameLevel = 1;	//关卡
+}
+
+// 扫荡结果
+// code = 0x4910
+message NorthCaveSweepResult{
+	repeated NorthCaveSweepResultItem result = 1;		//结果列表
+	required int32 nextId = 2;							//下一关ID
+	required int32 tokens = 3;							//无量山钻数量
+}
+
+message NorthCaveSweepResultItem
+{
+	required int32 exp = 1;								//增加团队经验
+	required int32 oldLevel = 2;  						//原先团队等级
+	required int32 currentLevel = 3;					//当前团队等级
+	required int32 coin = 4;							//获得的金币数量
+	repeated RewardItem item = 5;						//掉落列表
+	required int32 id = 6; 								//关卡Id
+}
+
+//属性选择添加
+// code = 0x4922
+message NorthCaveAttributeInfo
+{
+	required int32 index = 1;							//索引，1~N
+	repeated int32 option = 2;							//选项，属性ID，对应t_s_north_cave_extra_attr
+	required int32 choice = 3;							//选中的属性ID，如果没有则为0
+	required bool skip = 4;								//是否跳过选择
+}
+
+//属性选择列表
+// code = 0x4921
+message NorthCaveAttributeList{
+	repeated NorthCaveAttributeInfo attribute = 1;		//属性
+}
+
+//属性选择成功通知
+// code = 0x4920
+message NorthCaveAttributeChoiceSuccess{
+	required NorthCaveAttributeInfo info = 1;			//刚刚选择的属性。
+}
+
+//选项刷新成功通知
+// code = 0x4923
+message NorthCaveChangeOptionSuccess{
+	required int32 sectionId = 1;						//关卡ID
+	repeated int32 options = 2;							//通关选项
+}
+
+//箱子领取记录更新
+// code = 0x4925
+message NorthCaveChestGotMarkUpdate{
+	required int32 chestGotMark = 1;					//箱子领取记录，位运算存储
+}
+
+//一键扫荡成功通知
+//code = 0x4930
+message NorthCaveOneKeySweepSuccess
+{
+	required int32 sweepCount = 1;						//扫荡的层数
+}

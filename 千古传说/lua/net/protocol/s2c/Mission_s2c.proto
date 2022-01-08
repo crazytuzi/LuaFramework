@@ -1,0 +1,80 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CSectionRecordsMsg";
+
+import "s2c/Reward_s2c.proto";
+
+// code = 0x1200
+message MissionListMsg            
+{
+	repeated MissionItem missionlist = 1;	//任务关卡    
+	repeated int32 openBoxIdList = 2;   	//所有章节中所有宝箱的状态
+	required int32 useQuickPassTimes = 3;   //已使用免费扫荡次数
+	required int32 useResetTimes = 4;       //使用重置次数
+}
+
+message MissionItem
+{
+	required int32 missionId = 1;  	      	//关卡ID
+	required int32 challengeCount = 2;    	//今日挑战次数
+	required StarLevel starLevel = 3;  	  	//最大得星
+	required int32 resetCount = 4;			//重置次数
+}
+
+//得星
+enum StarLevel
+{
+	KStarLevel0 = 0; 		//0星(未通过)
+	KStarLevel1 = 1; 		//1星
+	KStarLevel2 = 2; 	    //2星
+	KStarLevel3 = 3; 		//3星
+	KStarLevel4 = 4; 		//4星
+	KStarLevel5 = 5; 		//5星
+}
+
+message BoxState
+{
+	required int32 mapId = 1;                   //章节ID
+	required int32 difficulty = 2;  	        //难度
+	required int32 boxId = 3;					//已经开启的宝箱ID，为了日后兼容同一个难度同一个章节中有多个宝箱
+}
+
+// code = 0x1201
+message UpdateMissionMsg
+{
+	required int32 missionId = 1;  	      	//关卡ID
+	required int32 challengeCount = 2;    	//今日挑战次数
+	required StarLevel starLevel = 3;  	  	//最大得星
+	required int32 resetCount = 4;			//重置次数
+}
+
+// code = 0x1202
+//章节宝箱开启协议，在宝箱开启成功之后发送给客户端
+message ChapterBoxOpen{
+	required int32 boxId = 1; //开启的宝箱ID
+}
+
+// code = 0x1203
+// 重置挑战次数_成功
+message ResetChallengeCountResult{
+	required int32 missionId = 1; //把关卡Id返回，关卡Id
+}
+
+// code = 0x1204
+// 扫荡结果
+message QuickPassResult{
+	required int32 missionId = 1; //关卡Id
+	required int32 useQuickPassTimes = 2;    //已使用免费扫荡次数
+	required int32 useResetTimes = 3;       //使用重置次数
+	required int32 challengeCount = 4;      //今日挑战次数
+	repeated QuickPassResultItem itemlist = 5;		//结果列表
+}
+
+message QuickPassResultItem
+{
+	repeated RewardItem itemlist = 1;		//掉落列表
+	required int32 addExp = 2;				//增加团队经验
+	required int32 oldLev = 3;  			//原先团队等级
+	required int32 currLev = 4;				//当前团队等级
+	required int32 addCoin = 5;				//增加金币
+}

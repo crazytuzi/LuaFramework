@@ -1,0 +1,29 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CPublicMsg";
+
+//服务器下发所有当前的功能状态，在玩家上线动作完成之前发送个客户端
+// code = 0x7f20
+message AllFunctionState
+{
+	repeated FunctionState stateList = 1;
+}
+
+//功能状态
+message FunctionState
+{
+	required int32 functionId = 1; 	//功能ID，客户端定义，服务器只做存储，无任何逻辑需求
+	required bool newMark = 2; 		//状态标记，true：新状态，false：无
+}
+
+//禁言玩家结果，成功时通知客户端操作完成
+//code = 0x7f30
+message GagPlayerResult
+{
+}
+
+//举报玩家结果，成功时通知客户端操作完成
+//code = 0x7f31
+message ReportPlayerResult
+{
+}

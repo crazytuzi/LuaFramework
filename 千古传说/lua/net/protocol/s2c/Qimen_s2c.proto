@@ -1,0 +1,24 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CQimen";
+
+//查询奇门信息
+// code = 0x5200
+message QueryQimenMsgResult
+{
+	required int32 id = 1;				//奇门编号
+	required int32 breachLevel = 2;		//突破等级
+}
+
+//奇门注入
+//code = 0x5201
+message QimenInjectMsgResult
+{
+
+}
+//奇门突破
+//code = 0x5202
+message QimenBreachMsgResult
+{
+
+}

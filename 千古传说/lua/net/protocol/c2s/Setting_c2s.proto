@@ -1,0 +1,24 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SSettingMsg";
+
+//系统设置
+// code = 0x1E00
+message SettingGetConfig{
+
+}
+
+//保存设置
+// code = 0x1E01
+message SettingSaveConfig{
+   required bool isOpenMusic = 1;  //是否打开音乐 true or flase
+   required bool isOpenVolume = 2; //是否打开音效 true or flase
+   required bool isOpenChat = 3;   //是否打开聊天 true or flase
+   optional bool vipVisible = 4;   //是否显示VIP
+}
+
+//bug反馈
+// code = 0x1E02
+message SettingSendBug{
+   required string content = 1;  //bug内容
+}

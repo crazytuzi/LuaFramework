@@ -1,0 +1,91 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CGuildBattleMsg";
+//申请成功
+// code = 0x5700
+message ApplySucess{
+	required bool sucess = 1;
+}
+//取消申请
+// code = 0x5701
+message UnapplySucess{
+
+}
+//修改精英
+// code = 0x5702
+message UpdateEliteSucess{
+	required bool sucess = 1;
+}
+//公会的成员信息
+// code = 0x5703
+message GuildBattleMemberInfo{
+	repeated GuildBattleTeamInfo infos = 1;
+}
+
+message GuildBattleTeamInfo{
+	required int32 eliteId = 1;//精英编号
+	repeated GuildBattlePlayerInfo battleInfo = 2;
+	required int32 id=3;
+}
+
+message GuildBattlePlayerInfo{
+	required int32 playerId = 1;
+	required int32 power = 2;
+	required string name =3;
+	required int32 profession = 4;
+	required int32 headPicFrame = 5;//头像框
+}
+
+//公会对战信息
+// code = 0x5704
+message GuildBattleWarInfos{
+	repeated GuildBattleWarInfo infos = 1;
+}
+message GuildBattleWarInfo{
+	required int32 round = 1;
+	required int32 index = 2;
+	required int32 atkGuildId = 3;
+	required string atkGuildName = 4;
+	required string atkBannerId = 5;
+	required int32 winGuildId=6;
+	optional int32 defGuildId = 7;
+	optional string defGuildName = 8;
+	optional string defBannerId = 9;
+
+}
+
+//公会录像信息
+// code = 0x5705
+message GuildBattleReplayInfos{
+	repeated GuildBattleTeamInfo atkGuildTeamInfos = 1;
+	repeated GuildBattleReplayInfo replays = 2;
+}
+
+message GuildBattleReplayInfo{
+	required int32 roundId = 1;
+	required int32 index = 2;
+	required int32 scene = 3;
+	required int32 team = 4;
+	required int32 atkPlayerId = 5;
+	required int32 defPlayerId = 6;
+	required int32 winPlayerId = 7;
+	required int32 replayId = 8;
+}
+//当前状态
+// code = 0x5706
+message GuildBattleState{
+	required int32 state = 1;
+}
+//查询上一次冠军
+// code = 0x5707
+message GuildBattleLastWinerInfo{
+	required int32 maxGuildLevel = 1;
+	required int32 guildSize = 2;
+	required int64 openTime = 3;
+	required int32 guildId = 4;
+	required string guildName = 5;
+	required string bannerId =6;
+	repeated int32 professions=7;
+	required int32 myRank = 8;
+	required string names=9;
+}

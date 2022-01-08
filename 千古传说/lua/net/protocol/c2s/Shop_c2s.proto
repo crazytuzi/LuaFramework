@@ -1,0 +1,83 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="C2SShopMsg";
+
+//code = 0x1900
+//商城购买订单，请求购买商品
+message PurchaseOrderForFixedStore
+{
+	required int32 commodityId = 1; 		//购买商品的id
+	required int32 num = 2; 				//购买商品的个数
+}
+
+//code = 0x1901
+//获取固定商店的商品信息
+message GetFixedStore
+{
+}
+
+//code = 0x1902
+//获取随机商店商品，此请求返回特定某个随机商店的信息
+message GetRandomStore
+{
+	required int32 type = 1; 		//随机商店类型，为了兼容多种随机商店
+}
+
+//code = 0x1903
+//刷新随机商店商品，此请求服务器会刷新特定类型随机商店，并且返回特定某个随机商店的信息
+message RefreshRandomStore
+{
+	required int32 type = 1; 		//随机商店类型，为了兼容多种随机商店
+}
+
+//code = 0x1904
+//获取所有随机商店商品，此请求返回所有随机商店的信息
+message GetAllRandomStore
+{
+}
+
+//code = 0x1905
+//商城购买订单，请求购买商品
+message PurchaseOrderForRandomStore
+{
+	required int32 type = 1;				//商店类型
+	required int32 commodityId = 2; 		//购买商品的id
+	required int32 num = 3; 				//购买商品的个数
+}
+
+//code = 0x1906
+//商城购买订单，请求购买商品
+message PurchaseOrderForHeroStore
+{
+	required int32 commodityId = 1; 		//购买商品的id
+	required int32 num = 2; 				//购买商品的个数
+}
+
+
+//code = 0x1910
+//商城许愿
+message RandomMallWish
+{
+	required int32 commodityId = 1; 		//许愿商品的id
+}
+
+//code = 0x1911
+//商城购买订单，请求购买商品
+message PurchaseOrderForMysteryStore
+{
+	required int32 commodityId = 1; 		//购买商品的id
+}
+
+
+//code = 0x1920
+//购买铜币
+message RequestBuyCoin
+{
+}
+
+//code = 0x1930
+//多次购买铜币
+message RequestCountBuyCoin
+{
+	required int32 count = 1; 				//购买次数
+}

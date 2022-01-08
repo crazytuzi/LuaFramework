@@ -1,0 +1,10 @@
+local mapArray = MEMapArray:new()
+mapArray:push({ id = 1, reward_id = 4400})
+mapArray:push({ id = 2, reward_id = 4401})
+mapArray:push({ id = 3, reward_id = 4402})
+mapArray:push({ id = 4, reward_id = 4403})
+mapArray:push({ id = 5, reward_id = 4404})
+mapArray:push({ id = 6, reward_id = 4405})
+mapArray:push({ id = 7, reward_id = 4406})
+mapArray:push({ id = 8, reward_id = 4407})
+return mapArray

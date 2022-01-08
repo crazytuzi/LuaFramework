@@ -1,0 +1,15 @@
+me.shader = {
+	PositionTextureColor              	= "ShaderPositionTextureColor",
+	PositionTextureColorAlphaTest     	= "ShaderPositionTextureColorAlphaTest",
+	PositionColor                     	= "ShaderPositionColor",
+	PositionTexture                   	= "ShaderPositionTexture",
+	PositionTexture_uColor            	= "ShaderPositionTexture_uColor",
+	PositionTextureA8Color            	= "ShaderPositionTextureA8Color",
+	Position_uColor                   	= "ShaderPosition_uColor",
+	PositionLengthTexureColor         	= "ShaderPositionLengthTextureColor",
+	ControlSwitch                     	= "Shader_ControlSwitch",
+	Gray								= "GrayShader",
+	HighLight							= "HighLight",
+	OutLine								= "OutLine",
+	Mix_uColor							= "Mix_uColor",
+}

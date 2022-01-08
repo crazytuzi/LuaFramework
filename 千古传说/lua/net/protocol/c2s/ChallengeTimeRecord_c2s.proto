@@ -1,0 +1,40 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "C2SBattlePower";
+
+//该协议文件名称和字段名称有些不直观，各位观众请海涵（体力系统更为合适，等有时间，做好重新整理一下 责任人：郭昌林 )
+// code = 0x2101
+//查询剩余挑战次数(体力)
+message QueryLeftChallengeTimes
+{
+	required int32 battleType = 1; 	//1-推图体力；2-群豪谱体力；3-爬塔体力； 4-江湖宝藏体力; 5-技能点
+}
+
+// code = 0x2102
+//下次恢复挑战次数(体力)时间
+message QueryNextRecoverTime
+{
+	required int32 battleType = 1; 	//1-推图体力；2-群豪谱体力；3-爬塔体力； 4-江湖宝藏体力; 5-技能点
+}
+
+// code = 0x2103
+//购买挑战次数(体力)
+message BuyChallengeTimes
+{
+	required int32 battleType = 1; 	//1-推图体力；2-群豪谱体力；3-爬塔体力； 4-江湖宝藏体力; 5-技能点
+	required int32 times = 2;		//购买次数
+}
+
+// code = 0x2104
+//重置挑战次数(体力)
+message ResetChallengeTimes
+{
+	required int32 battleType = 1; 	//1-推图体力；2-群豪谱体力；3-爬塔体力； 4-江湖宝藏体力; 5-技能点
+}
+
+//code = 0x2105
+//请求重置等待时间
+message RequestResetWaitTime
+{
+	required int32 type = 1;		//1-推图体力；2-群豪谱体力；3-爬塔体力； 4-江湖宝藏体力; 5-技能点
+}

@@ -1,0 +1,350 @@
+﻿local t = 
+{
+	version = 1,
+	components = 
+	{
+		
+		{
+			anchorPoint = "False",
+			anchorPointX = "0",
+			anchorPointY = "0",
+			backGroundScale9Enable = "False",
+			bgColorOpacity = "50",
+			bIsOpenClipping = "False",
+			classname = "MEPanel",
+			colorType = "0;SingleColor:#FFE6E6E6;GraduallyChangingColorStart:#00000000;GraduallyChangingColorEnd:#00000000;vectorX:0;vectorY:0",
+			DesignHeight = "640",
+			DesignType = "0",
+			DesignWidth = "960",
+			dstBlendFunc = "771",
+			height = "340",
+			ignoreSize = "False",
+			name = "Panel",
+			sizepercentx = "0",
+			sizepercenty = "0",
+			sizeType = "0",
+			srcBlendFunc = "1",
+			touchAble = "False",
+			UILayoutViewModel = 
+			{
+				
+			},
+			uipanelviewmodel = 
+			{
+				Layout="Absolute",
+				nType = "0"
+			},
+			width = "210",
+			ZOrder = "1",
+			components = 
+			{
+				
+				{
+					anchorPoint = "False",
+					anchorPointX = "0.5",
+					anchorPointY = "0.5",
+					backGroundScale9Enable = "False",
+					classname = "MEButton",
+					ClickHighLightEnabled = "True",
+					dstBlendFunc = "771",
+					flipX = "False",
+					flipY = "False",
+					height = "140",
+					ignoreSize = "True",
+					name = "bg",
+					normal = "ui_new/pay/VIP_chongzhidi.png",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					touchAble = "True",
+					UILayoutViewModel = 
+					{
+						PositionX = 126,
+						PositionY = 74,
+					},
+					UItype = "Button",
+					width = "263",
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0.5",
+					anchorPointY = "0.5",
+					backGroundScale9Enable = "False",
+					classname = "MEImage",
+					dstBlendFunc = "771",
+					height = "100",
+					ignoreSize = "True",
+					name = "img_icon",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					texturePath = "ui_new/pay/VIP_yb.png",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 58,
+						PositionY = 73,
+					},
+					width = "110",
+					ZOrder = "1",
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0.5",
+					anchorPointY = "0.5",
+					classname = "MELabel",
+					compPath = "luacomponents.common.MEIconLabel",
+					dstBlendFunc = "771",
+					FontColor = "#FF000000",
+					fontName = "simhei",
+					fontShadow = 
+					{
+						IsShadow = false,
+						ShadowColor = "#FFFFFFFF",
+						ShadowAlpha = 255,
+						OffsetX = 0,
+						OffsetY = 0,
+					},
+					fontSize = "24",
+					fontStroke = 
+					{
+						IsStroke = false,
+						StrokeColor = "#FFE6E6E6",
+						StrokeSize = 1,
+					},
+					height = "24",
+					IconLayout = "1",
+					ignoreSize = "True",
+					name = "txt_sycee",
+					nGap = "0",
+					nIconAlign = "1",
+					nTextAlign = "1",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					text = "20",
+					touchAble = "False",
+					touchScaleEnable = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 186,
+						PositionY = 99,
+					},
+					width = "24",
+					ZOrder = "1",
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0.5",
+					anchorPointY = "0.5",
+					classname = "MELabel",
+					ColorMixing = "#FF000000",
+					compPath = "luacomponents.common.MEIconLabel",
+					dstBlendFunc = "771",
+					FontColor = "#FFFFFFFF",
+					fontName = "simhei",
+					fontShadow = 
+					{
+						IsShadow = false,
+						ShadowColor = "#FFFFFFFF",
+						ShadowAlpha = 255,
+						OffsetX = 0,
+						OffsetY = 0,
+					},
+					fontSize = "30",
+					fontStroke = 
+					{
+						IsStroke = false,
+						StrokeColor = "#FFE6E6E6",
+						StrokeSize = 1,
+					},
+					height = "30",
+					IconLayout = "1",
+					ignoreSize = "True",
+					name = "txt_price",
+					nGap = "0",
+					nIconAlign = "1",
+					nTextAlign = "1",
+					scaleX = "0.8",
+					scaleY = "0.8",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					text = "9000",
+					touchAble = "False",
+					touchScaleEnable = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 186,
+						PositionY = 50,
+					},
+					width = "60",
+					ZOrder = "1",
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0.5",
+					anchorPointY = "0.5",
+					backGroundScale9Enable = "False",
+					classname = "MEImage",
+					dstBlendFunc = "771",
+					height = "33",
+					ignoreSize = "True",
+					name = "img_rmb",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					texturePath = "ui_new/pay/VIP_rmb.png",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 130,
+						PositionY = 50,
+					},
+					width = "26",
+					ZOrder = "1",
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0.5",
+					anchorPointY = "0.5",
+					backGroundScale9Enable = "False",
+					classname = "MEImage",
+					dstBlendFunc = "771",
+					height = "46",
+					ignoreSize = "True",
+					name = "Img_yuanbao",
+					scaleX = "0.8",
+					scaleY = "0.8",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					texturePath = "ui_new/common/icon_sycee.png",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 132,
+						PositionY = 97,
+					},
+					width = "45",
+					ZOrder = "1",
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0.5",
+					anchorPointY = "0.5",
+					backGroundScale9Enable = "False",
+					classname = "MEImage",
+					dstBlendFunc = "771",
+					height = "54",
+					ignoreSize = "True",
+					name = "img_fisrtPay",
+					scaleX = "0.8",
+					scaleY = "0.8",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					texturePath = "ui_new/pay/vip60.png",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 56,
+						PositionY = 122,
+					},
+					width = "147",
+					ZOrder = "1",
+					components = 
+					{
+						
+						{
+							anchorPoint = "False",
+							anchorPointX = "0.5",
+							anchorPointY = "0.5",
+							classname = "MELabelBMFont",
+							dstBlendFunc = "771",
+							fileNameData = "font/num_217.fnt",
+							height = "27",
+							ignoreSize = "True",
+							name = "txt_num",
+							rotation = "-19.5",
+							scaleX = "0.9",
+							scaleY = "0.9",
+							sizepercentx = "0",
+							sizepercenty = "0",
+							sizeType = "0",
+							srcBlendFunc = "1",
+							text = "50000",
+							touchAble = "False",
+							UILayoutViewModel = 
+							{
+								PositionX = -16,
+								PositionY = 9,
+							},
+							width = "77",
+							ZOrder = "1",
+						},
+					},
+				},
+				{
+					anchorPoint = "False",
+					anchorPointX = "0.5",
+					anchorPointY = "0.5",
+					backGroundScale9Enable = "False",
+					classname = "MEImage",
+					dstBlendFunc = "771",
+					height = "32",
+					ignoreSize = "True",
+					name = "Img_shouci",
+					scaleX = "0.8",
+					scaleY = "0.8",
+					sizepercentx = "0",
+					sizepercenty = "0",
+					sizeType = "0",
+					srcBlendFunc = "1",
+					texturePath = "ui_new/pay/vip300.png",
+					touchAble = "False",
+					UILayoutViewModel = 
+					{
+						PositionX = 14,
+						PositionY = 140,
+					},
+					width = "58",
+					ZOrder = "1",
+				},
+			},
+		},
+	},
+	actions = 
+	{
+		
+	},
+	respaths = 
+	{
+		textures = 
+		{
+			"ui_new/pay/VIP_chongzhidi.png",
+			"ui_new/pay/VIP_yb.png",
+			"ui_new/pay/VIP_rmb.png",
+			"ui_new/common/icon_sycee.png",
+			"ui_new/pay/vip60.png",
+			"ui_new/pay/vip300.png",
+		},
+		armatures = 
+		{
+			
+		},
+		movieclips = 
+		{
+			
+		},
+	},
+}
+return t
+

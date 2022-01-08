@@ -1,0 +1,325 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname = "S2CHoldGoodsMsg";
+
+// code = 0x1000
+message GetBagMsg             
+{
+	repeated  EquipmentInfo equipmentlist = 1;		//装备列表
+	repeated  ItemInfo      ItemInfo      = 2;		//道具列表
+	repeated  BibleInfo bibleInfo     = 3;      //天书
+}
+
+//单个更新的需求
+message BibleInfo
+{
+	required int64 instanceId = 1; //唯一id
+	required int32 id 	  = 2;    		//模板id
+	required int64 roleId = 3;//装备的角色id,0表示当前未装备
+	required int32 level  = 4;//重级
+	required int32 breachLevel  = 5;//突破
+	repeated EssentialPos essential = 6;//已装备精要列表
+}
+
+message EssentialPos
+{
+	required int32 pos 	  = 1;    // pos
+	required int32 id 	  = 2;    		//精要模板id
+}
+
+message EquipmentAttribute
+{
+	required string base_attr = 1; 	//基本属性
+	required string extra_attr = 2;	//附加属性
+}
+
+message EquipmentGemStatusChanged
+{
+	required int64 userid = 1;
+	required int32 holeNum 	  = 2;  // 宝石孔数
+}
+
+message EquipmentGemChanged
+{
+	required int64 userid = 1;
+	required GemPos gem   = 2;		//宝石信息
+}
+
+message EquipmentLevelChanged
+{
+	required int64 userid = 1;
+	required int32 levelUp = 2; 	//提升的等级
+	required EquipmentAttribute attr = 3;
+}
+
+//code = 0x100D
+//装备信息
+message EquipmentInfo
+{
+	required int64 userid = 1;    		//userid  唯一id
+	required int32 id 	  = 2;    		//id
+	required int32 level  = 3;	  		//level
+	required int32 quality  = 4;		//品质
+	required string base_attr = 5; 		//基本属性
+	required string extra_attr = 6;		//附加属性
+	required int32 grow   = 7;			//成长值
+	required int32 holeNum 	  = 8;  	//宝石孔数
+	repeated GemPos gem   = 9;			//宝石信息
+	required int32 star   = 10;			//星级
+	required int32 starFailFix = 11; 	//升星失败率修正值
+	optional int32 refineLevel = 12;	//精炼等级
+	repeated Recast recast = 13;
+}
+
+message Recast{
+	required int32 quality=1;
+	required int32 ratio=2;
+	required int32 index = 3;
+}
+
+message GemPos
+{
+	required int32 pos 	  = 1;    // pos
+	required int32 id 	  = 2;    // id
+}
+
+message ItemInfo
+{
+	required int64 id 	 = 1;    // id
+	required int32 num	 = 2;    // num
+}
+
+enum ChangedType{
+	CREATE = 0;
+	CHANGED = 1;
+	DELETE = 2;
+}
+
+// code = 0x1040
+message MultipleUpdate{
+	repeated  ChangedStruct changedList = 1;		//变更列表
+}
+
+// code = 0x1041
+message ChangedStruct{
+	required ChangedType type = 1;
+	optional EquipmentInfo equipment = 2;
+	optional ItemInfo item = 3;
+}
+
+// code = 0x1042
+message EquipOperation{
+	required int64 roleId = 1;
+	required int64 equipment = 2; //装备到身上的装备userid
+	optional int64 drop = 3;	//如果有替换下来的装备则发送卸下的装备userid
+}
+
+// code = 0x1043
+message UnequipOperation{
+	required int64 roleId = 1;
+	required int64 equipment = 2; //卸除的装备userid
+}
+
+
+//code = 0x1011
+message RequestEquipResult{
+	required int32 statusCode = 1; //状态码，0表示操作成功，在操作成功的情况下会收到0x1042指令
+}
+
+//code = 0x1012
+message RequestUnequipResult{
+	required int32 statusCode = 1; //状态码，0表示操作成功，在操作成功的情况下会收到0x1043指令
+}
+
+// code = 0x1013
+message EquipmentBuildResult{
+	required int64 userId = 1; //产出装备的实例id
+}
+
+// code = 0x1014
+//强化装备
+message EquipmentIntensifyResult{
+	required int32 result = 1; //是否成功
+	optional EquipmentLevelChanged levelChanged = 2;	//强化提升的等级
+}
+
+
+//code = 0x1015
+//装备出售
+message EquipmentSellResult{
+	required int32 result = 1; //是否成功
+	repeated int64 userid = 2; //被出售物品实例ID
+}
+
+//code = 0x1016
+//装备分解
+message EquipmentExplodeResult{
+	required int32 result = 1; //是否成功
+	optional int64 userid = 2; //
+}
+
+//code = 0x1017
+//道具出售
+message ItemSellResult{
+	required int32 result = 1; //是否成功
+}
+
+//code = 0x1019
+//装备精炼
+message EquipmentRefiningResult{
+	required int64 equipment = 1; //装备userid
+	required string extra_attr = 2;	//附加属性
+}
+
+//code = 0x1023
+//装备洗炼
+message EquipPracticeResult{
+	required int64 equipment = 1; //装备userid
+	required string extra_attr = 2;	//附加属性
+}
+
+message EquipmentStarSuccess
+{
+	required int64 equipment = 1; //装备userid
+	required int32 star   = 2;		//星级
+	required int32 grow   = 3;		//成长值
+}
+
+message EquipmentStarFail
+{
+	required int64 equipment = 1; //装备userid
+	required int32 fail = 2; //失败补偿值
+}
+
+//code = 0x1020
+//装备升星
+message EquipmentStarUpResult{
+	optional EquipmentStarSuccess 	success = 1;//成功结果
+	optional EquipmentStarFail 		fail = 2;//失败结果
+}
+
+
+//code = 0x1021
+//装备升星失败补偿值
+message GetEquipmentStarUpFailResult{
+	required int32 fail = 1; //失败补偿值
+}
+
+
+
+//code = 0x1050
+//宝石合成
+message GemBulidResult{
+	required int32 result = 1; //是否成功
+	optional bool success = 2; //是否合成成功，当且仅当result为0时发送
+}
+
+//code = 0x1051
+//宝石镶嵌
+message GemMosaicResult{
+	required int32 result = 1; //是否成功
+	optional EquipmentGemChanged gemchanged = 2;
+}
+
+//code = 0x1052
+//宝石拆卸
+message GemUnMosaicResult{
+	required int32 result = 1; //是否成功
+	optional int64 userid = 2; //
+	optional int32 pos 	  = 3; //
+}
+
+//code = 0x1053
+//宝石孔花钱解锁
+message UnlockEquipmentHoleResult{
+	required int32 result = 1; //是否成功
+	optional EquipmentGemStatusChanged gemStatus = 2;
+}
+
+//装备模版更改消息结构，在装备升级时使用
+message EquipmentTemplateChanged
+{
+	required int64 userid = 1;
+	required int32 oldTemplateId = 2;
+	required int32 newTemplateId = 3;
+	required EquipmentAttribute attr = 4;
+}
+
+//code = 0x1054
+//装备升级
+message EquipLevelUpResult{
+	required int32 result = 1;//状态码，0表示成功，其他表示失败，且分别表示各自错误码
+	optional bool success = 2; //是否升级成功，升级操作正确完成也有可能失败。
+	optional EquipmentTemplateChanged changed = 3; //装备模版变更消息体，仅当升级成功时有此值
+}
+
+//code = 0x1055
+//所有角色持有装备宝石孔更变
+message AllEquipmentGemSoltNumberChanged{
+	required int32 max = 1; //默认开放的宝石孔个数
+}
+
+//code = 0x1060
+//合成装备成功后通知客户端，新获得的装备实例
+message MergeEquipmentResult
+{
+	required int32 templateId = 1;		//模版ID，物品ID
+}
+
+//code = 0x1061
+//道具道具批量使用结果
+message ItembatchUsedResult{
+	required int32 itemId = 1; //道具ID
+	required int32 num = 2; //道具数量
+}
+
+//code = 0x0e24
+//一键布阵_结果
+message AutoWarMatixResult{
+}
+
+//code = 0x1080
+//装备精炼等级突破结果，最有在突破成功后发送给客户端
+message RefineBreachResult{
+	required int64 instanceId = 1;			//装备实例ID
+	required int32 refineLevel = 2;			//装备精炼等级
+}
+
+//code = 0x1065
+//一键合成完成通知协议
+message OneKeyMergeGoodsDone{
+	repeated OneKeyMergeGoodsItem item = 1;		//合成的结果元素
+}
+
+message OneKeyMergeGoodsItem{
+	required int32 fragmentId = 1;			//碎片ID
+	required int32 mergeId = 2;				//合成ID
+	required int32 number = 3;				//合成个数
+}
+
+//code = 0x1081
+//装备精炼
+message OneKeyEquipRefiningResult{
+	required int64 equipment = 1; 			//装备userid
+	required string lastExtra = 2;			//附加属性
+}
+
+//code = 0x1090
+//装备传承成功
+message EquipmentTranslateSuccess{
+	required int64 srcId = 1;				//源装备实例ID
+	required int64 targetId = 2;			//目标装备实例ID
+}
+
+//宝石变更结构体
+message GemChangeStruct{
+	required int32 id = 1;					//宝石ID
+	required int32 changeNum = 2;			//变更数量
+}
+
+//code = 0x1056
+//一键合成宝石
+message AutoMergeGemSuccess{
+	required int32 maxLevel = 1;			//最高自动合成到什么等级
+	repeated GemChangeStruct change = 2;	//宝石变更列表,只添加新增宝石
+}

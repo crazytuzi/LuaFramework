@@ -1,0 +1,191 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+import "s2c/UnitInfo_s2c.proto";
+import "s2c/Message_s2c.proto";
+option java_outer_classname="S2CMine";
+
+//挖矿详情
+// code = 0x5000
+message MineMsg
+{
+	required int32 leftFreeRefreshTime = 1; 		//今日剩余免费刷新次数
+	required int32 hireTime = 2;					// 今日已被雇佣次数
+	required int32 brokerageTotal = 3;				//累计佣金
+	repeated MineInfo info = 4;						//矿详情
+}
+
+//矿详情
+message MineInfo{
+	required int32 type = 1;						//矿类型 0-未解锁；1-石矿；2-铜矿；3-金矿；4-玉矿
+	required int32 status = 2;						//挖矿状态：0未开采、1开采中、2待收获
+	required int32 robStatus = 3;					//打劫状态：0未被打劫、1被打劫成功
+	required int64 startTime = 4; 					//挖矿开始时间
+	required int64 endTime = 5;						//挖矿结束时间
+	repeated int64 formation = 6;					//挖矿阵型
+	optional OtherPlayerDetails guardInfo = 7;		//护矿玩家信息
+	required int32 power = 8;						//挖矿阵型战力
+	required int32 playerId = 9;					//玩家编号
+	required string name = 10;						//玩家名称
+	required int32 profession = 11;					//职业
+	optional RobPlayerInfo robInfo = 12;			//劫矿者信息
+	required int32	id = 13;						//矿洞编号
+	optional string robResource = 14;				//劫得资源
+	optional string rewardResource = 15;			//奖励资源
+	required int32 icon = 16;						//头像
+	required int32 headPicFrame = 17; 				 //头像边框
+}
+//劫矿者信息
+message RobPlayerInfo{
+	required int32 playerId = 1;					//玩家编号
+	required string name = 2;						//玩家名称
+	required int32 profession = 3;					//职业
+	required int32 power = 4;						//战力
+	required int64 battleId = 5;					//战斗id
+	required int32 icon = 6;						//头像
+	required int32 headPicFrame = 7; 				 //头像边框
+}
+
+//刷新挖矿结果
+// code = 0x5001
+message RefreshMineResult
+{
+}
+
+//挖矿结果
+// code = 0x5002
+message MineResult
+{
+
+}
+
+//领取结果
+// code = 0x5003
+message GetMineRewardResult
+{
+	
+}
+//解锁矿2
+// code = 0x5004
+message UnlockMineResult
+{
+
+}
+//领取佣金
+// code = 0x5005
+message GetBrokerageResult
+{
+
+}
+
+
+message GuardRecord
+{	
+	required int32 playerId = 1;					//玩家ID
+	required string employerPlayerName = 2;			//雇佣者玩家名
+	required string robPlayerName = 3;				//打劫者玩家名
+	required int32 brokerrage = 4;					//雇佣佣金
+	required int32 extraBrokerrage = 5;				//额外佣金
+	required int64 recordTime = 6;					//记录时间
+}
+
+// code = 0x5006
+//护卫历史
+message GuardRecordListResult
+{
+	repeated GuardRecord recordList = 1;  //配置列表
+}
+
+
+// code = 0x5007
+//刷新正在挖矿者信息（前行）
+message FreshMineListResult
+{
+	repeated MineInfo info = 1;				//正在挖矿者信息
+}
+//护矿结果
+// code = 0x5008
+message GuardMineResult{
+
+}
+
+//解锁
+//code = 0x500A
+message UnlockPlayerMineResult{
+	
+}
+//上锁
+//code = 0x5009
+message MineFormationInfo{
+	repeated MyParatInfo myInfos =1;
+	repeated OtherPlayerInfo infos = 2;
+}
+
+message OtherPlayerInfo{
+	required OtherPlayerDetails details =1;
+	repeated MineParatInfo paratInfo = 2;
+}
+
+message MyParatInfo{
+	required int64 instanceId =1;
+	required int32 currHp = 2;
+}
+
+message MineParatInfo{
+	required int32 maxHp = 1;
+	required int32 currHp = 2;
+	required int32 index = 3;
+}
+
+//录像
+//code = 0x500D
+message MineReplayResults{
+	repeated MineReplayResult results = 1;
+}
+
+message MineReplayResult{
+	required int64 time =1;
+	repeated ReplayPlayerInfo infos = 2; //玩家信息 0 挑战者 1 挖矿者 2护矿者
+	required bool sucess = 3;
+	required int32 challengePlayerCount = 4;
+	required int32 challengeGuardCount = 5;
+	required int32 id = 6;
+	optional string robResource = 7;
+}
+message ReplayPlayerInfo{
+	required int32 playerId = 1;				//玩家编号
+	required string name = 2;					//玩家名称
+	required int32 profession = 3;				//职业
+	required int32 icon = 4;					//头像
+	required int32 headPicFrame = 5; 				 //头像边框
+}
+//战报信息
+// code = 0x500E
+message MineBattleReportList{
+	repeated ArenaTopBattleReportInfo report = 1;
+}
+
+//重置
+// code = 0x500F
+message ResetChallengeMineResult{
+	
+}
+
+//请求本周已被护矿的玩家id
+// code = 0x5010
+message GuardMinePlayerResult{
+	repeated int32 guardPlayerIds = 1;					//本周已被选择护矿的玩家id
+}
+//采矿提醒消息
+message MineRemind{
+	required int32 status = 1;							//状态 -1 未解锁0未开采 1开采中2待收获
+	required int64 endTime = 2;							//采矿结束时间
+}
+//采矿提醒消息
+//code = 0x5011
+message MineRemindMsg{
+	repeated MineRemind remind = 1;
+}
+//打劫成功消息
+//code = 0x5012
+message RobMineSuccessMsg{
+	
+}

@@ -1,0 +1,34 @@
+package com.playmore.game.mhqx.cmd.protobuf;
+
+option java_outer_classname="S2CAssistant";
+
+//助战信息
+//code = 0x4601
+message AssistantInfo{
+	required int32 openPos =1;
+	repeated AssistantRoleInfo roleInfos = 2;
+	repeated int32 agreeLevels=3;
+	required int32 friendRoleId = 4;
+	required int64 friendProvideTime = 5;
+}
+message AssistantRoleInfo{
+	required int32 type = 1;
+	repeated int64 roles = 2;
+}
+
+//开启助战格子成功
+//code = 0x4602
+message OpenAssistantGridSucess{
+
+}
+
+//修改助战角色成功
+//code = 0x4603
+message UpdateAssistantRoleSucess{
+
+}
+
+//修改助战角色
+//code = 0x4604
+message LevelUpAgreeSucess{
+}
