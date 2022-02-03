@@ -1,0 +1,1 @@
+LookEvent = LookEvent or {}

@@ -1,0 +1,1 @@
+CrossgroundEvent = CrossgroundEvent or {}

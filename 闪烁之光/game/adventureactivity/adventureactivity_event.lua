@@ -1,0 +1,1 @@
+AdventureActivityEvent = AdventureActivityEvent or {}
