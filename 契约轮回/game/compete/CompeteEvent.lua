@@ -1,0 +1,21 @@
+CompeteEvent = {
+    OpenCompeteNoticePanel = "CompeteEvent.OpenCompeteNoticePanel",
+    OpenCompetePanel = "CompeteEvent.OpenCompetePanel",
+    CompetePanelInfo = "CompeteEvent.CompetePanelInfo",
+    CompeteEnroll = "CompeteEvent.CompeteEnroll",
+    CompetePrepareInfo = "CompeteEvent.CompetePrepareInfo",
+    CompeteBattleInfo ="CompeteEvent.CompeteBattleInfo",
+    CompeteBuffInfo = "CompeteEvent.CompeteBuffInfo",
+    CompeteStatInfo = "CompeteEvent.CompeteStatInfo",
+    CompeteMatchInfo = "CompeteEvent.CompeteMatchInfo",
+    CompeteGuessInfo = "CompeteEvent.CompeteGuessInfo",
+    CompeteGuessItemClick = "CompeteEvent.CompeteGuessItemClick",
+    CompeteHistoryInfo = "CompeteEvent.CompeteHistoryInfo",
+    CompeteRankBtnClick = "CompeteEvent.CompeteRankBtnClick",
+    CompeteRankItemClick = "CompeteEvent.CompeteRankItemClick",
+    CompeteShowMacthIcon = "CompeteEvent.CompeteShowMacthIcon",
+    CheckRedPoint = "CompeteEvent.CheckRedPoint",
+    CompeteRankInfo = "CompeteEvent.CompeteRankInfo",
+    CompeteVersusInfo = "CompeteEvent.CompeteVersusInfo",
+    CompeteFightInfo = "CompeteEvent.CompeteFightInfo"
+}

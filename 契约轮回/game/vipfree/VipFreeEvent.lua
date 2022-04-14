@@ -1,0 +1,4 @@
+VipFreeEvent = {
+
+	OpenVipFreePanel = "VipFreeEvent.OpenVipFreePanel",
+}

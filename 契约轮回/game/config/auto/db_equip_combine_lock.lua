@@ -1,0 +1,32 @@
+-- Automatically generated, do not edit
+Config = Config or {}
+Config.db_equip_combine_lock = {
+ [1]  = {sex=1, lv_low=1, lv_up=159, lock_subs=10104, lock_order=4},
+ [2]  = {sex=1, lv_low=160, lv_up=219, lock_subs=10105, lock_order=5},
+ [3]  = {sex=1, lv_low=220, lv_up=239, lock_subs=10106, lock_order=6},
+ [4]  = {sex=1, lv_low=240, lv_up=259, lock_subs=10107, lock_order=7},
+ [5]  = {sex=1, lv_low=260, lv_up=299, lock_subs=10108, lock_order=8},
+ [6]  = {sex=1, lv_low=300, lv_up=399, lock_subs=10109, lock_order=9},
+ [7]  = {sex=1, lv_low=400, lv_up=429, lock_subs=10110, lock_order=10},
+ [8]  = {sex=1, lv_low=430, lv_up=529, lock_subs=10111, lock_order=11},
+ [9]  = {sex=1, lv_low=530, lv_up=579, lock_subs=10112, lock_order=12},
+ [10]  = {sex=1, lv_low=580, lv_up=629, lock_subs=10113, lock_order=13},
+ [11]  = {sex=1, lv_low=630, lv_up=649, lock_subs=10114, lock_order=14},
+ [12]  = {sex=1, lv_low=650, lv_up=739, lock_subs=10115, lock_order=15},
+ [13]  = {sex=1, lv_low=740, lv_up=799, lock_subs=10116, lock_order=16},
+ [14]  = {sex=1, lv_low=800, lv_up=999, lock_subs=10116, lock_order=16},
+ [15]  = {sex=2, lv_low=1, lv_up=159, lock_subs=10204, lock_order=4},
+ [16]  = {sex=2, lv_low=160, lv_up=219, lock_subs=10205, lock_order=5},
+ [17]  = {sex=2, lv_low=220, lv_up=239, lock_subs=10206, lock_order=6},
+ [18]  = {sex=2, lv_low=240, lv_up=259, lock_subs=10207, lock_order=7},
+ [19]  = {sex=2, lv_low=260, lv_up=299, lock_subs=10208, lock_order=8},
+ [20]  = {sex=2, lv_low=300, lv_up=399, lock_subs=10209, lock_order=9},
+ [21]  = {sex=2, lv_low=400, lv_up=429, lock_subs=10210, lock_order=10},
+ [22]  = {sex=2, lv_low=430, lv_up=529, lock_subs=10211, lock_order=11},
+ [23]  = {sex=2, lv_low=530, lv_up=579, lock_subs=10212, lock_order=12},
+ [24]  = {sex=2, lv_low=580, lv_up=629, lock_subs=10213, lock_order=13},
+ [25]  = {sex=2, lv_low=630, lv_up=649, lock_subs=10214, lock_order=14},
+ [26]  = {sex=2, lv_low=650, lv_up=739, lock_subs=10215, lock_order=15},
+ [27]  = {sex=2, lv_low=740, lv_up=799, lock_subs=10216, lock_order=16},
+ [28]  = {sex=2, lv_low=800, lv_up=999, lock_subs=10216, lock_order=16}
+}

@@ -1,0 +1,23 @@
+ChatEvent = ChatEvent or {
+	OpenChatPanel       = "ChatEvent.OpenChatPanel",
+	CloseChatPanel      = "ChatEvent.CloseChatPanel",
+	ReceiveMessage 		= "ChatEvent.ReceiveMessage",			--收到信息
+	AddMsgItem          = "ChatEvent.AddMsgItem",               --增加一条信息
+	CreateItemEnd       = "ChatEvent.CreateItemEnd",            --创建item项完成
+	CreateItemEndInMain = "ChatEvent.CreateItemEndInMain",
+	OpenEmojiView       = "ChatEvent.OpenEmojiView",
+	ClickEmoji          = "ChatEvent.ClickEmoji",               --点击了表情
+	ClickGoods          = "ChatEvent.ClickGoods",
+	ClickCommonLG       = "ChatEvent.ClickCommonLG",
+	ClickMapPosition    = "ChatEvent.ClickMapPosition",
+	ChatGoodsInfo       = "ChatEvent.ChatGoodsInfo",
+	AutoSendTextMsg		= "ChatEvent.AutoSendTextMsg",			--自动发送纯文本聊天消息
+	EmojiScrollChange   = "ChatEvent.EmojiScrollChange",        --聊天表情滚动
+	ExpandMainChatView  = "ChatEvent.ExpandMainChatView",       --展开主界面聊天
+	FoldMainChatView    = "ChatEvent.FoldMainChatView",         --收起主界面聊天
+	OpenMarqueePanel    = "ChatEvent.OpenMarqueePanel",         --跑马灯
+	CheckHaveUnRead     = "ChatEvent.CheckHaveUnRead",          --检查频道是否有未读信息
+	StopVoiceAnimation  = "ChatEvent.StopVoiceAnimation",       --停止播放动画
+	UpdateChatFrame		= "ChatEvent.UpdateChatFrame",			--更新聊天框资源
+	AutoUnionSendTextMsg = "ChatEvent.AutoUnionSendTextMsg"
+}

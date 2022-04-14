@@ -1,0 +1,5 @@
+require('game.vipfree.VipFreePanel')
+require('game.vipfree.VipFreeRewardItem')
+require('game.vipfree.VipFreeEvent')
+require('game.vipfree.VipFreeModel')
+require('game.vipfree.VipFreeVipRewardItem')

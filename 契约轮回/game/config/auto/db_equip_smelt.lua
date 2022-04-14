@@ -1,0 +1,23 @@
+-- Automatically generated, do not edit
+Config = Config or {}
+Config.db_equip_smelt = {}
+require('game/config/auto/db_equip_smelt_1')
+require('game/config/auto/db_equip_smelt_2')
+require('game/config/auto/db_equip_smelt_3')
+require('game/config/auto/db_equip_smelt_4')
+require('game/config/auto/db_equip_smelt_5')
+require('game/config/auto/db_equip_smelt_6')
+require('game/config/auto/db_equip_smelt_7')
+require('game/config/auto/db_equip_smelt_8')
+require('game/config/auto/db_equip_smelt_9')
+require('game/config/auto/db_equip_smelt_10')
+require('game/config/auto/db_equip_smelt_11')
+require('game/config/auto/db_equip_smelt_12')
+require('game/config/auto/db_equip_smelt_13')
+require('game/config/auto/db_equip_smelt_14')
+require('game/config/auto/db_equip_smelt_15')
+require('game/config/auto/db_equip_smelt_16')
+require('game/config/auto/db_equip_smelt_17')
+require('game/config/auto/db_equip_smelt_18')
+require('game/config/auto/db_equip_smelt_19')
+require('game/config/auto/db_equip_smelt_20')

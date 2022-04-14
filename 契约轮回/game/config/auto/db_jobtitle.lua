@@ -1,0 +1,31 @@
+-- Automatically generated, do not edit
+Config = Config or {}
+Config.db_jobtitle = {
+ [1]  = {id=1, name=[[Vagrant]], color=[[#4876ff]], need_power=100000, cost=[[{11120,0}]], attr=[[{4,350},{2,10395}]], next_id=2},
+ [2]  = {id=2, name=[[Apprentice]], color=[[#4876ff]], need_power=200000, cost=[[{11120,0}]], attr=[[{4,539},{2,16170}]], next_id=3},
+ [3]  = {id=3, name=[[Warrior]], color=[[#4876ff]], need_power=300000, cost=[[{11120,1}]], attr=[[{4,854},{2,25620}]], next_id=4},
+ [4]  = {id=4, name=[[Explorer]], color=[[#4876ff]], need_power=600000, cost=[[{11120,2}]], attr=[[{4,1295},{2,38745}]], next_id=5},
+ [5]  = {id=5, name=[[Ranger]], color=[[#00CD01]], need_power=1100000, cost=[[{11120,15}]], attr=[[{4,1855},{2,55545}]], next_id=6},
+ [6]  = {id=6, name=[[Knight]], color=[[#00CD02]], need_power=1900000, cost=[[{11120,30}]], attr=[[{4,3620},{2,108600}]], next_id=7},
+ [7]  = {id=7, name=[[Elite]], color=[[#00CD03]], need_power=2900000, cost=[[{11120,77}]], attr=[[{4,4770},{2,143100}]], next_id=8},
+ [8]  = {id=8, name=[[Lord]], color=[[#00CD04]], need_power=4100000, cost=[[{11120,149}]], attr=[[{4,6200},{2,186000}]], next_id=9},
+ [9]  = {id=9, name=[[Viscount]], color=[[#ff00ff]], need_power=4800000, cost=[[{11120,192}]], attr=[[{4,7710},{2,231380}]], next_id=10},
+ [10]  = {id=10, name=[[Earl]], color=[[#ff01ff]], need_power=5800000, cost=[[{11120,278}]], attr=[[{4,9300},{2,279000}]], next_id=11},
+ [11]  = {id=11, name=[[Marquess]], color=[[#ff02ff]], need_power=7600000, cost=[[{11121,11}]], attr=[[{4,11000},{2,330000}]], next_id=12},
+ [12]  = {id=12, name=[[Duke]], color=[[#ff03ff]], need_power=9800000, cost=[[{11121,19}]], attr=[[{4,12700},{2,381000}]], next_id=13},
+ [13]  = {id=13, name=[[Royal]], color=[[#c529ff]], need_power=12800000, cost=[[{11121,31}]], attr=[[{4,14600},{2,438000}]], next_id=14},
+ [14]  = {id=14, name=[[King]], color=[[#c530ff]], need_power=14900000, cost=[[{11121,38}]], attr=[[{4,16500},{2,495000}]], next_id=15},
+ [15]  = {id=15, name=[[Oracle]], color=[[#c531ff]], need_power=16600000, cost=[[{11121,47}]], attr=[[{4,20900},{2,627000}]], next_id=16},
+ [16]  = {id=16, name=[[Disciple]], color=[[#c532ff]], need_power=28300000, cost=[[{11121,102}]], attr=[[{4,26400},{2,792000}]], next_id=17},
+ [17]  = {id=17, name=[[Magic Oracle]], color=[[#ff4500]], need_power=51800000, cost=[[{11121,150}]], attr=[[{4,33200},{2,996000}]], next_id=18},
+ [18]  = {id=18, name=[[Psychic]], color=[[#ff4501]], need_power=80900000, cost=[[{11121,210}]], attr=[[{4,45100},{2,1353000}]], next_id=19},
+ [19]  = {id=19, name=[[Demon Seal]], color=[[#ff4502]], need_power=110000000, cost=[[{11122,10}]], attr=[[{4,56900},{2,1707000}]], next_id=20},
+ [20]  = {id=20, name=[[Demon Tame]], color=[[#ff4503]], need_power=142000000, cost=[[{11122,21}]], attr=[[{4,68700},{2,2061000}]], next_id=21},
+ [21]  = {id=21, name=[[Dragon Word]], color=[[#ff4504]], need_power=176700000, cost=[[{11122,33}]], attr=[[{4,80600},{2,2418000}]], next_id=22},
+ [22]  = {id=22, name=[[Dragon Soul]], color=[[#ff4505]], need_power=219800000, cost=[[{11122,45}]], attr=[[{4,92400},{2,2772000}]], next_id=23},
+ [23]  = {id=23, name=[[Dragon God]], color=[[#ff4506]], need_power=308000000, cost=[[{11122,59}]], attr=[[{4,116200},{2,3486000}]], next_id=24},
+ [24]  = {id=24, name=[[Holy Envoy]], color=[[#ff4507]], need_power=406000000, cost=[[{11122,82}]], attr=[[{4,141800},{2,4254000}]], next_id=25},
+ [25]  = {id=25, name=[[Holy Spirit]], color=[[#ff4508]], need_power=532000000, cost=[[{11122,120}]], attr=[[{4,172300},{2,5169000}]], next_id=26},
+ [26]  = {id=26, name=[[Holy Oracle]], color=[[#ff4509]], need_power=672000000, cost=[[{11122,210}]], attr=[[{4,225400},{2,6762000}]], next_id=27},
+ [27]  = {id=27, name=[[Holy God]], color=[[#ff4510]], need_power=840000000, cost=[[{11122,350}]], attr=[[{4,300900},{2,9027000}]], next_id=0}
+}

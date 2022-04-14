@@ -1,0 +1,12 @@
+require('game.faction.factionSerWar.FactionSerWarModel');
+require('game.faction.factionSerWar.FactionSerWarEvent');
+require('game.faction.factionSerWar.FactionSerWarPanel')
+require('game.faction.factionSerWar.FactionSerWarAppPanel')
+require('game.faction.factionSerWar.FactionSerWarMainPanel')
+require('game.faction.factionSerWar.FactionSerWarVsPanel')
+require('game.faction.factionSerWar.FactionSerWarAppItem')
+require('game.faction.factionSerWar.FactionSerWarRewardPanel')
+require('game.faction.factionSerWar.FactionSerWarRewardRankItem')
+require('game.faction.factionSerWar.FactionSerWarVsItem')
+require('game.faction.factionSerWar.FactionSerWardEndPanel')
+require('game.faction.factionSerWar.FactionSerWarHelpPanel')

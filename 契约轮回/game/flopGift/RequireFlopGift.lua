@@ -1,0 +1,7 @@
+require('game.flopGift.FlopGiftEvent')
+require('game.flopGift.FlopGiftModel')
+require('game.flopGift.FlopGiftPanel')
+require('game.flopGift.FlopGiftCardItem')
+require('game.flopGift.FlopGiftRoundRewardItem')
+require('game.flopGift.FlopGiftRoundRewardIconItem')
+require('game.flopGift.FlopGiftTipPanel')

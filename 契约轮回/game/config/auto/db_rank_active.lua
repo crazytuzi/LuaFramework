@@ -1,0 +1,33 @@
+-- Automatically generated, do not edit
+Config = Config or {}
+Config.db_rank_active = {
+ [1]  = {id=110501, btnname=[[Go Now]], sort=1, des=[[Paid challenge with limited attempts. You can earn abundant EXP here.]], name=[[Daily Prayer]], panel=[[{{500,1,5}}]], recommend=4},
+ [2]  = {id=110501, btnname=[[Go Now]], sort=2, des=[[You can get EXP potion and other leveling items as well as Ancient Cores here.]], name=[[Ancient Lightcore]], panel=[[{{875,1}}]], recommend=5},
+ [3]  = {id=110501, btnname=[[Go Now]], sort=3, des=[[You get better rewards when the quality is higher, also you can get abundant EXP.]], name=[[Polar Breakthrough]], panel=[[{{400,1}}]], recommend=4},
+ [4]  = {id=110501, btnname=[[Go Now]], sort=4, des=[[The fastest way to]], name=[[Temple of Trial]], panel=[[{{150,1,1,2}}]], recommend=5},
+ [5]  = {id=110502, btnname=[[Go Now]], sort=1, des=[[Loot: Mount Tier-up Cards, Blessed Mount Scrolls and Ancient Lightcores]], name=[[Legacy Off-hand]], panel=[[{{875,2}}]], recommend=5},
+ [6]  = {id=110502, btnname=[[Go Now]], sort=2, des=[[A super-value investment pack, as well as a daily must-buy]], name=[[Limited Mount Purchase]], panel=[[{{830,2}}]], recommend=5},
+ [7]  = {id=110502, btnname=[[Go Now]], sort=3, des=[[A time-limited recharge event for everyone and for new servers only!]], name=[[New Server：Total Recharge]], panel=[[{{830,3}}]], recommend=4},
+ [8]  = {id=110503, btnname=[[Go Now]], sort=1, des=[[Get Off-hand Advance Card, Bless Scrolls and Orange EXP Soulcards here!]], name=[[EXP Soul Card]], panel=[[{{876,2}}]], recommend=5},
+ [9]  = {id=110503, btnname=[[Go Now]], sort=2, des=[[A super-value investment pack, as well as a daily must-buy]], name=[[Limited Off-hand Purchase]], panel=[[{{830,2}}]], recommend=5},
+ [10]  = {id=110503, btnname=[[Go Now]], sort=3, des=[[A time-limited recharge event for everyone and for new servers only!]], name=[[New Server：Total Recharge]], panel=[[{{830,3}}]], recommend=4},
+ [11]  = {id=110504, btnname=[[Go Now]], sort=1, des=[[Loot Soulcard Essences and Orange EXP Soulcards here!]], name=[[Travelling Griffin]], panel=[[{{876,1}}]], recommend=5},
+ [12]  = {id=110504, btnname=[[Go Now]], sort=2, des=[[A super-value investment pack, as well as a daily must-buy]], name=[[Limited Soul Card Purchase]], panel=[[{{830,2}}]], recommend=5},
+ [13]  = {id=110504, btnname=[[Go Now]], sort=3, des=[[Personal challenge that grants Soulcards after clearing.]], name=[[Tower of Judgment]], panel=[[{{150,1,1,1}}]], recommend=3},
+ [14]  = {id=110504, btnname=[[Go Now]], sort=4, des=[[Quick way to get Soulcards, don't miss it!]], name=[[Soul Card Hunt]], panel=[[{{230,1}}]], recommend=4},
+ [15]  = {id=110505, btnname=[[Go Now]], sort=1, des=[[Loot Soulcard Essences and Red Soulcards here!]], name=[[Selected Soulcard]], panel=[[{{875,5}}]], recommend=5},
+ [16]  = {id=110505, btnname=[[Go Now]], sort=2, des=[[A time-limited super-value recharge event for everyone!]], name=[[Daily Recharge]], panel=[[{{820,1}}]], recommend=4},
+ [17]  = {id=110505, btnname=[[Go Now]], sort=3, des=[[A time-limited recharge event for everyone and for new servers only!]], name=[[New Server：Total Recharge]], panel=[[{{830,3}}]], recommend=3},
+ [18]  = {id=110505, btnname=[[Go Now]], sort=4, des=[[A time-limited super-value recharge event for everyone!]], name=[[Daily Recharge]], panel=[[{{830,4}}]], recommend=5},
+ [19]  = {id=110506, btnname=[[Go Now]], sort=1, des=[[Loot Attribute Pills and Guild Light here!]], name=[[Legion Light]], panel=[[{{876,3}}]], recommend=5},
+ [20]  = {id=110506, btnname=[[Go Now]], sort=2, des=[[A super-value investment pack, as well as a daily must-buy]], name=[[CP Flash Sale]], panel=[[{{830,2}}]], recommend=5},
+ [21]  = {id=110506, btnname=[[Go Now]], sort=3, des=[[Quick way to get Soulcards, don't miss it!]], name=[[Soul Card Hunt]], panel=[[{{230,1}}]], recommend=3},
+ [22]  = {id=130101, btnname=[[Go Now]], sort=1, des=[[A super-value investment pack, as well as a daily must-buy]], name=[[Limited Pet Purchase]], panel=[[{{880,4}}]], recommend=5},
+ [23]  = {id=130101, btnname=[[Go Now]], sort=2, des=[[A time-limited super-value recharge event for everyone!]], name=[[First Pet Recharge]], panel=[[{{880,2}}]], recommend=4},
+ [24]  = {id=130101, btnname=[[Go Now]], sort=3, des=[[Defeat the Pet Lord to win enormous boost items!]], name=[[Monster Castle]], panel=[[{{160,1,3,1}}]], recommend=3},
+ [25]  = {id=130101, btnname=[[Go Now]], sort=4, des=[[Battle with your Pets!]], name=[[Pet]], panel=[[{{860,1}}]], recommend=2},
+ [26]  = {id=150101, btnname=[[Go Now]], sort=1, des=[[A super-value investment pack, as well as a must-buy for top-tier players]], name=[[Avatar Flash Sales]], panel=[[{{900,4}}]], recommend=5},
+ [27]  = {id=150101, btnname=[[Go Now]], sort=2, des=[[Loot Avatar cultivation materials and shards here!]], name=[[Ancient Ruins]], panel=[[{{160,1,1,3}}]], recommend=3},
+ [28]  = {id=150101, btnname=[[Go Now]], sort=3, des=[[Don't miss the rare Avatars!]], name=[[Point Exchange]], panel=[[{{900,5}}]], recommend=5},
+ [29]  = {id=150101, btnname=[[Go Now]], sort=4, des=[[Clear more stages to win more rewards including Avatar Shards!]], name=[[Divine Tower]], panel=[[{{900,6}}]], recommend=4}
+}

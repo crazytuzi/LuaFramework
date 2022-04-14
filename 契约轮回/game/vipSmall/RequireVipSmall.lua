@@ -1,0 +1,7 @@
+require('game.vipSmall.VipSmallEvent')
+require('game.vipSmall.VipSmallModel')
+require('game.vipSmall.VipSmallPanel')
+require('game.vipSmall.VipSmallMainPanel')
+require('game.vipSmall.VipSmallWelfarePanel')
+require('game.vipSmall.VipSmallPrivilegeItem')
+require('game.vipSmall.VipSmallWelfareItem')

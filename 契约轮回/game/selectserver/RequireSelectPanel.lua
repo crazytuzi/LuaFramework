@@ -1,0 +1,5 @@
+require "game.selectserver.SelectServerPanel"
+require "game.selectserver.SelectServerEvent"
+require "game.selectserver.SelectServerModel"
+require "game.selectserver.SelectServerLeftItem"
+require "game.selectserver.SelectServerRightItem"

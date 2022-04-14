@@ -1,0 +1,8 @@
+require('game.setting.SettingPanel')
+require('game.setting.SettingModel')
+require('game.setting.SettingView')
+require('game.setting.AutoPlayView')
+require('game.setting.SettingEvent')
+require('game.setting.AutoPlaySkillItem')
+require('game.setting.AutoPlayRewardPanel')
+require('game.setting.AutoTipPanel')

@@ -1,0 +1,13 @@
+
+require('game.guildhouse.GuildHouseEvent')
+require('game.guildhouse.GuildHouseModel')
+require('game.guildhouse.GuildQuestionPanel')
+require('game.guildhouse.GuildAnswerItem')
+require('game.guildhouse.AnswerChatItem')
+require('game.guildhouse.AnswerSelfChatItem')
+require('game.guildhouse.QuestionRankItem')
+require('game.guildhouse.QuestionRankItem2')
+require('game.guildhouse.GuildHouseLeftPanel')
+require('game.guildhouse.GuildQuestionRewadPanel')
+require('game.guildhouse.GuildQuestionResultPanel')
+require('game.guildhouse.GuildHouseEnterPanel')

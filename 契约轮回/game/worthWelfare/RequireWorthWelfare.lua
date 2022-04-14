@@ -1,0 +1,8 @@
+require('game.worthWelfare.WorthWelfareEvent')
+require('game.worthWelfare.WorthWelfareModel')
+require('game.worthWelfare.WorthWelfarePanel')
+require('game.worthWelfare.WorthWelfareGiftPanel')
+require('game.worthWelfare.WorthWelfareInvestmentPanel')
+require('game.worthWelfare.WorthWelfareGiftItem')
+require('game.worthWelfare.WorthWelfareInvestmentItem')
+require('game.worthWelfare.WorthWelfareTipPanel')

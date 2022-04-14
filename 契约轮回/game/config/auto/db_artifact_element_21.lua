@@ -1,0 +1,21 @@
+-- Automatically generated, do not edit
+Config.db_artifact_element ["4@5@481"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=481, cost=[[{{90010041,137}}]], attrs=[[{{4,24681},{6,9872},{7,4936}}]]}
+Config.db_artifact_element ["4@5@482"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=482, cost=[[{{90010041,138}}]], attrs=[[{{4,24733},{6,9893},{7,4947}}]]}
+Config.db_artifact_element ["4@5@483"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=483, cost=[[{{90010041,139}}]], attrs=[[{{4,24785},{6,9914},{7,4957}}]]}
+Config.db_artifact_element ["4@5@484"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=484, cost=[[{{90010041,140}}]], attrs=[[{{4,24838},{6,9935},{7,4968}}]]}
+Config.db_artifact_element ["4@5@485"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=485, cost=[[{{90010041,140}}]], attrs=[[{{4,24890},{6,9956},{7,4978}}]]}
+Config.db_artifact_element ["4@5@486"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=486, cost=[[{{90010041,141}}]], attrs=[[{{4,24943},{6,9977},{7,4989}}]]}
+Config.db_artifact_element ["4@5@487"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=487, cost=[[{{90010041,142}}]], attrs=[[{{4,24995},{6,9998},{7,4999}}]]}
+Config.db_artifact_element ["4@5@488"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=488, cost=[[{{90010041,142}}]], attrs=[[{{4,25047},{6,10019},{7,5009}}]]}
+Config.db_artifact_element ["4@5@489"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=489, cost=[[{{90010041,143}}]], attrs=[[{{4,25100},{6,10040},{7,5020}}]]}
+Config.db_artifact_element ["4@5@490"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=490, cost=[[{}]], attrs=[[{{4,25195},{6,10078},{7,5039}}]]}
+Config.db_artifact_element ["4@5@491"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=491, cost=[[{{90010041,144}}]], attrs=[[{{4,25248},{6,10099},{7,5050}}]]}
+Config.db_artifact_element ["4@5@492"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=492, cost=[[{{90010041,145}}]], attrs=[[{{4,25300},{6,10120},{7,5060}}]]}
+Config.db_artifact_element ["4@5@493"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=493, cost=[[{{90010041,146}}]], attrs=[[{{4,25353},{6,10141},{7,5071}}]]}
+Config.db_artifact_element ["4@5@494"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=494, cost=[[{{90010041,146}}]], attrs=[[{{4,25405},{6,10162},{7,5081}}]]}
+Config.db_artifact_element ["4@5@495"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=495, cost=[[{{90010041,147}}]], attrs=[[{{4,25458},{6,10183},{7,5092}}]]}
+Config.db_artifact_element ["4@5@496"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=496, cost=[[{{90010041,148}}]], attrs=[[{{4,25511},{6,10204},{7,5102}}]]}
+Config.db_artifact_element ["4@5@497"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=497, cost=[[{{90010041,149}}]], attrs=[[{{4,25563},{6,10225},{7,5113}}]]}
+Config.db_artifact_element ["4@5@498"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=498, cost=[[{{90010041,149}}]], attrs=[[{{4,25616},{6,10246},{7,5123}}]]}
+Config.db_artifact_element ["4@5@499"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=499, cost=[[{{90010041,150}}]], attrs=[[{{4,25669},{6,10267},{7,5134}}]]}
+Config.db_artifact_element ["4@5@500"]  = {type=4, eid=5, name=[[Cyan Xuan]], level=500, cost=[[{}]], attrs=[[{{4,25764},{6,10306},{7,5153}}]]}

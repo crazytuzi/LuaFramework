@@ -1,0 +1,35 @@
+local FileNameList = {
+  -- "$MainRole.+",
+  -- "MainBagView",
+  -- "UITabWindow",
+  
+  -- "ColorUtil" ,
+  -- "EquipTwoAttrItemSettor",
+  -- "EquipAttrItemSettor",
+  -- "MailItemSettor",
+  -- "EquipDetailView",
+  -- "BaseGoodsTipView",
+  -- "BaseEquipDetailView",
+  -- "FactionLogItemSettor",
+  -- "FactionWelfarePanel",
+  -- "FactionEnterSetPanel",
+  -- "FactionCareerApplyView",
+  -- "FactionCareerApplyItemSettor",
+  -- "BaseFactionInfoCareerItemSettor",
+  -- "FactionAppointmentItemSettor",
+  -- "ConfigLanguage",
+  -- "CnLanguage",
+  -- "FactionAppointmentItemSettor",
+  -- "FactionAppointmentPanel",
+  -- "TitlePanel",
+  -- "FactionModel",
+  -- "FactionListItemSettor2",
+  -- "FactionOperateView",
+  -- "FactionMemberView",
+  -- "FactionMemberItem",
+  -- "SceneEffect",
+  "SidebarConfig",
+}
+--需要热更整个模块的话就使用$前缀.+ 如: "$Pokemon.+"
+return FileNameList
+
