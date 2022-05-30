@@ -1,0 +1,1 @@
+SmasheggConst = SmasheggConst or {}
