@@ -1,0 +1,2 @@
+HuaShanCtrl = {}
+return HuaShanCtrl
