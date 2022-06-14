@@ -1,0 +1,222 @@
+dataConfig.configs.MainBaseConfig ={
+	[1] = {
+		['id'] = 1,
+		['lumberCost'] = 700,
+		['timeCost'] = 10,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 2,
+		['hammerRequire'] = 10,
+		['home'] = {0, 0, 0, 0, 0, 0},
+		['maxFood'] = 24000
+	},
+	[2] = {
+		['id'] = 2,
+		['lumberCost'] = 1034,
+		['timeCost'] = 1800,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 10,
+		['hammerRequire'] = 10,
+		['home'] = {0, 0, 0, 0, 0, 0},
+		['maxFood'] = 30000
+	},
+	[3] = {
+		['id'] = 3,
+		['lumberCost'] = 1723,
+		['timeCost'] = 15300,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 15,
+		['hammerRequire'] = 10,
+		['home'] = {1, 1, 0, 0, 0, 0},
+		['maxFood'] = 36000
+	},
+	[4] = {
+		['id'] = 4,
+		['lumberCost'] = 8523,
+		['timeCost'] = 23005,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 20,
+		['hammerRequire'] = 10,
+		['home'] = {2, 2, 2, 0, 0, 0},
+		['maxFood'] = 42000
+	},
+	[5] = {
+		['id'] = 5,
+		['lumberCost'] = 19122,
+		['timeCost'] = 68274,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 25,
+		['hammerRequire'] = 10,
+		['home'] = {3, 3, 3, 3, 0, 0},
+		['maxFood'] = 48000
+	},
+	[6] = {
+		['id'] = 6,
+		['lumberCost'] = 39669,
+		['timeCost'] = 82080,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 30,
+		['hammerRequire'] = 10,
+		['home'] = {4, 4, 4, 4, 4, 0},
+		['maxFood'] = 54000
+	},
+	[7] = {
+		['id'] = 7,
+		['lumberCost'] = 43950,
+		['timeCost'] = 86400,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 35,
+		['hammerRequire'] = 10,
+		['home'] = {5, 5, 5, 5, 5, 5},
+		['maxFood'] = 60000
+	},
+	[8] = {
+		['id'] = 8,
+		['lumberCost'] = 48345,
+		['timeCost'] = 90720,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 38,
+		['hammerRequire'] = 10,
+		['home'] = {6, 6, 6, 6, 6, 6},
+		['maxFood'] = 66000
+	},
+	[9] = {
+		['id'] = 9,
+		['lumberCost'] = 63391,
+		['timeCost'] = 92880,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 40,
+		['hammerRequire'] = 10,
+		['home'] = {7, 7, 7, 7, 7, 7},
+		['maxFood'] = 72000
+	},
+	[10] = {
+		['id'] = 10,
+		['lumberCost'] = 95087,
+		['timeCost'] = 95040,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 43,
+		['hammerRequire'] = 10,
+		['home'] = {8, 8, 8, 8, 8, 8},
+		['maxFood'] = 78000
+	},
+	[11] = {
+		['id'] = 11,
+		['lumberCost'] = 108858,
+		['timeCost'] = 97200,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 45,
+		['hammerRequire'] = 10,
+		['home'] = {9, 9, 9, 9, 9, 9},
+		['maxFood'] = 84000
+	},
+	[12] = {
+		['id'] = 12,
+		['lumberCost'] = 163287,
+		['timeCost'] = 99360,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 48,
+		['hammerRequire'] = 10,
+		['home'] = {10, 10, 10, 10, 10, 10},
+		['maxFood'] = 90000
+	},
+	[13] = {
+		['id'] = 13,
+		['lumberCost'] = 187126,
+		['timeCost'] = 129600,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 50,
+		['hammerRequire'] = 10,
+		['home'] = {11, 11, 11, 11, 11, 11},
+		['maxFood'] = 96000
+	},
+	[14] = {
+		['id'] = 14,
+		['lumberCost'] = 280688,
+		['timeCost'] = 172800,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 53,
+		['hammerRequire'] = 10,
+		['home'] = {12, 12, 12, 12, 12, 12},
+		['maxFood'] = 102000
+	},
+	[15] = {
+		['id'] = 15,
+		['lumberCost'] = 351061,
+		['timeCost'] = 194400,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 55,
+		['hammerRequire'] = 10,
+		['home'] = {13, 13, 13, 13, 13, 13},
+		['maxFood'] = 108000
+	},
+	[16] = {
+		['id'] = 16,
+		['lumberCost'] = 386167,
+		['timeCost'] = 216000,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 57,
+		['hammerRequire'] = 10,
+		['home'] = {14, 14, 14, 14, 14, 14},
+		['maxFood'] = 114000
+	},
+	[17] = {
+		['id'] = 17,
+		['lumberCost'] = 432975,
+		['timeCost'] = 302400,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 59,
+		['hammerRequire'] = 10,
+		['home'] = {15, 15, 15, 15, 15, 15},
+		['maxFood'] = 120000
+	},
+	[18] = {
+		['id'] = 18,
+		['lumberCost'] = 649463,
+		['timeCost'] = 432000,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 60,
+		['hammerRequire'] = 10,
+		['home'] = {16, 16, 16, 16, 16, 16},
+		['maxFood'] = 126000
+	},
+	[19] = {
+		['id'] = 19,
+		['lumberCost'] = 974194,
+		['timeCost'] = 648000,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 60,
+		['hammerRequire'] = 10,
+		['home'] = {17, 17, 17, 17, 17, 17},
+		['maxFood'] = 132000
+	},
+	[20] = {
+		['id'] = 20,
+		['lumberCost'] = 0,
+		['timeCost'] = 0,
+		['hammer'] = 0,
+		['levelLimit'] = 0,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 10,
+		['home'] = {18, 18, 18, 18, 18, 18},
+		['maxFood'] = 138000
+	}
+}

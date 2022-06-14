@@ -1,0 +1,222 @@
+dataConfig.configs.lumberMillConfig ={
+	[1] = {
+		['id'] = 1,
+		['lumberCost'] = 230,
+		['timeCost'] = 300,
+		['hammer'] = 100,
+		['levelLimit'] = 2,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 360,
+		['diamondToLumber'] = 4320
+	},
+	[2] = {
+		['id'] = 2,
+		['lumberCost'] = 345,
+		['timeCost'] = 900,
+		['hammer'] = 200,
+		['levelLimit'] = 3,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 450,
+		['diamondToLumber'] = 5400
+	},
+	[3] = {
+		['id'] = 3,
+		['lumberCost'] = 575,
+		['timeCost'] = 9180,
+		['hammer'] = 300,
+		['levelLimit'] = 4,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 540,
+		['diamondToLumber'] = 6480
+	},
+	[4] = {
+		['id'] = 4,
+		['lumberCost'] = 2840,
+		['timeCost'] = 13803,
+		['hammer'] = 400,
+		['levelLimit'] = 5,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 630,
+		['diamondToLumber'] = 7560
+	},
+	[5] = {
+		['id'] = 5,
+		['lumberCost'] = 6374,
+		['timeCost'] = 40964,
+		['hammer'] = 500,
+		['levelLimit'] = 6,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 720,
+		['diamondToLumber'] = 8640
+	},
+	[6] = {
+		['id'] = 6,
+		['lumberCost'] = 13223,
+		['timeCost'] = 49248,
+		['hammer'] = 600,
+		['levelLimit'] = 7,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 810,
+		['diamondToLumber'] = 9720
+	},
+	[7] = {
+		['id'] = 7,
+		['lumberCost'] = 14650,
+		['timeCost'] = 51840,
+		['hammer'] = 700,
+		['levelLimit'] = 8,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 900,
+		['diamondToLumber'] = 10800
+	},
+	[8] = {
+		['id'] = 8,
+		['lumberCost'] = 16115,
+		['timeCost'] = 54432,
+		['hammer'] = 800,
+		['levelLimit'] = 9,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 990,
+		['diamondToLumber'] = 11880
+	},
+	[9] = {
+		['id'] = 9,
+		['lumberCost'] = 21130,
+		['timeCost'] = 55728,
+		['hammer'] = 900,
+		['levelLimit'] = 10,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1080,
+		['diamondToLumber'] = 12960
+	},
+	[10] = {
+		['id'] = 10,
+		['lumberCost'] = 31696,
+		['timeCost'] = 57024,
+		['hammer'] = 1000,
+		['levelLimit'] = 11,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1170,
+		['diamondToLumber'] = 14040
+	},
+	[11] = {
+		['id'] = 11,
+		['lumberCost'] = 36286,
+		['timeCost'] = 58320,
+		['hammer'] = 1100,
+		['levelLimit'] = 12,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1260,
+		['diamondToLumber'] = 15120
+	},
+	[12] = {
+		['id'] = 12,
+		['lumberCost'] = 54429,
+		['timeCost'] = 59616,
+		['hammer'] = 1200,
+		['levelLimit'] = 13,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1350,
+		['diamondToLumber'] = 16200
+	},
+	[13] = {
+		['id'] = 13,
+		['lumberCost'] = 62375,
+		['timeCost'] = 77760,
+		['hammer'] = 1300,
+		['levelLimit'] = 14,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1440,
+		['diamondToLumber'] = 17280
+	},
+	[14] = {
+		['id'] = 14,
+		['lumberCost'] = 93563,
+		['timeCost'] = 103680,
+		['hammer'] = 1400,
+		['levelLimit'] = 15,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1530,
+		['diamondToLumber'] = 18360
+	},
+	[15] = {
+		['id'] = 15,
+		['lumberCost'] = 117020,
+		['timeCost'] = 116640,
+		['hammer'] = 1500,
+		['levelLimit'] = 16,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1620,
+		['diamondToLumber'] = 19440
+	},
+	[16] = {
+		['id'] = 16,
+		['lumberCost'] = 128722,
+		['timeCost'] = 129600,
+		['hammer'] = 1600,
+		['levelLimit'] = 17,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1710,
+		['diamondToLumber'] = 20520
+	},
+	[17] = {
+		['id'] = 17,
+		['lumberCost'] = 144325,
+		['timeCost'] = 181440,
+		['hammer'] = 1700,
+		['levelLimit'] = 18,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1800,
+		['diamondToLumber'] = 21600
+	},
+	[18] = {
+		['id'] = 18,
+		['lumberCost'] = 216488,
+		['timeCost'] = 259200,
+		['hammer'] = 1800,
+		['levelLimit'] = 19,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1890,
+		['diamondToLumber'] = 22680
+	},
+	[19] = {
+		['id'] = 19,
+		['lumberCost'] = 324731,
+		['timeCost'] = 388800,
+		['hammer'] = 1900,
+		['levelLimit'] = 20,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 1980,
+		['diamondToLumber'] = 23760
+	},
+	[20] = {
+		['id'] = 20,
+		['lumberCost'] = 0,
+		['timeCost'] = 0,
+		['hammer'] = 2000,
+		['levelLimit'] = 21,
+		['heroLevel'] = 0,
+		['hammerRequire'] = 0,
+		['criticalBase'] = 2070,
+		['diamondToLumber'] = 24840
+	}
+}

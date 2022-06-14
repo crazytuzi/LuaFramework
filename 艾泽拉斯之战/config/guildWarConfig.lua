@@ -1,0 +1,58 @@
+dataConfig.configs.guildWarConfig ={
+	[1] = {
+		['name'] = '安其拉',
+		['sceneID'] = 6,
+		['gwScore'] = {8, 4, 320},
+		['rewardType'] = {0, 0, 0, 0},
+		['rewardID'] = {572, 563, 567, 574},
+		['rewardCount'] = {4, 2, 4, 2},
+	},
+	[2] = {
+		['name'] = '风暴神像',
+		['sceneID'] = 9,
+		['gwScore'] = {10, 5, 500},
+		['rewardType'] = {0, 0, 0, 0},
+		['rewardID'] = {572, 563, 567, 530},
+		['rewardCount'] = {6, 4, 4, 2},
+	},
+	[3] = {
+		['name'] = '破天者号',
+		['sceneID'] = 14,
+		['gwScore'] = {8, 4, 320},
+		['rewardType'] = {0, 0, 0, 0},
+		['rewardID'] = {572, 563, 567, 574},
+		['rewardCount'] = {4, 2, 4, 2},
+	},
+	[4] = {
+		['name'] = '达拉然废墟',
+		['sceneID'] = 15,
+		['gwScore'] = {6, 3, 200},
+		['rewardType'] = {0, 0, 0, 0},
+		['rewardID'] = {572, 563, 567, 529},
+		['rewardCount'] = {2, 2, 2, 10},
+	},
+	[5] = {
+		['name'] = '魔枢之巅',
+		['sceneID'] = 8,
+		['gwScore'] = {6, 3, 200},
+		['rewardType'] = {0, 0, 0, 0},
+		['rewardID'] = {572, 563, 567, 529},
+		['rewardCount'] = {2, 2, 2, 10},
+	},
+	[6] = {
+		['name'] = '毁灭之锤',
+		['sceneID'] = 7,
+		['gwScore'] = {6, 3, 200},
+		['rewardType'] = {0, 0, 0, 0},
+		['rewardID'] = {572, 563, 567, 529},
+		['rewardCount'] = {2, 2, 2, 10},
+	},
+	[7] = {
+		['name'] = '泰坦遗迹',
+		['sceneID'] = 4,
+		['gwScore'] = {6, 3, 200},
+		['rewardType'] = {0, 0, 0, 0},
+		['rewardID'] = {572, 563, 567, 529},
+		['rewardCount'] = {2, 2, 2, 10},
+	}
+}

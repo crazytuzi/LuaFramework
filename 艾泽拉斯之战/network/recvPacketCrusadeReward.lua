@@ -1,0 +1,12 @@
+-- Ô¶Õ÷½±Àø
+
+function packetHandlerCrusadeReward()
+	local tempArrayCount = 0;
+	local rewardRatio = nil;
+
+-- Ô¶Õ÷½±ÀøÏµÊý
+	rewardRatio = networkengine:parseFloat();
+
+	CrusadeRewardHandler( rewardRatio );
+end
+

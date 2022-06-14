@@ -1,0 +1,3 @@
+function GuildDeleteHandler( guildID )
+
+end
