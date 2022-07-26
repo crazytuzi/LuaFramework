@@ -1,0 +1,17 @@
+DictUnionLootStealTimes={}
+DictUnionLootStealTimes["1"]={id=1,unionLevel=1,stealTimes=5,description=""}
+DictUnionLootStealTimes["2"]={id=2,unionLevel=2,stealTimes=5,description=""}
+DictUnionLootStealTimes["3"]={id=3,unionLevel=3,stealTimes=5,description=""}
+DictUnionLootStealTimes["4"]={id=4,unionLevel=4,stealTimes=5,description=""}
+DictUnionLootStealTimes["5"]={id=5,unionLevel=5,stealTimes=5,description=""}
+DictUnionLootStealTimes["6"]={id=6,unionLevel=6,stealTimes=5,description=""}
+DictUnionLootStealTimes["7"]={id=7,unionLevel=7,stealTimes=6,description=""}
+DictUnionLootStealTimes["8"]={id=8,unionLevel=8,stealTimes=6,description=""}
+DictUnionLootStealTimes["9"]={id=9,unionLevel=9,stealTimes=7,description=""}
+DictUnionLootStealTimes["10"]={id=10,unionLevel=10,stealTimes=7,description=""}
+DictUnionLootStealTimes["11"]={id=11,unionLevel=11,stealTimes=8,description=""}
+DictUnionLootStealTimes["12"]={id=12,unionLevel=12,stealTimes=8,description=""}
+DictUnionLootStealTimes["13"]={id=13,unionLevel=13,stealTimes=9,description=""}
+DictUnionLootStealTimes["14"]={id=14,unionLevel=14,stealTimes=9,description=""}
+DictUnionLootStealTimes["15"]={id=15,unionLevel=15,stealTimes=10,description=""}
+DictUnionLootStealTimes["16"]={id=16,unionLevel=16,stealTimes=10,description=""}

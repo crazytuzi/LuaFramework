@@ -1,0 +1,13 @@
+DictPagodaFormation={}
+DictPagodaFormation["1"]={id=1,name="奔流",reward="3_4_100;2_77_1",pagodaStorey1=1,pagodaStorey2=2,pagodaStorey3=3,pagodaStorey4=4,pagodaStorey5=5,pagodaStorey6=500,description=""}
+DictPagodaFormation["2"]={id=2,name="雷霆",reward="3_4_200;2_74_1",pagodaStorey1=6,pagodaStorey2=7,pagodaStorey3=8,pagodaStorey4=9,pagodaStorey5=10,pagodaStorey6=501,description=""}
+DictPagodaFormation["3"]={id=3,name="惑志",reward="3_4_300;2_77_2",pagodaStorey1=11,pagodaStorey2=12,pagodaStorey3=13,pagodaStorey4=14,pagodaStorey5=15,pagodaStorey6=502,description=""}
+DictPagodaFormation["4"]={id=4,name="迷心",reward="3_4_400;2_74_2",pagodaStorey1=16,pagodaStorey2=17,pagodaStorey3=18,pagodaStorey4=19,pagodaStorey5=20,pagodaStorey6=503,description=""}
+DictPagodaFormation["5"]={id=5,name="妄语",reward="3_4_500;2_77_2",pagodaStorey1=21,pagodaStorey2=22,pagodaStorey3=23,pagodaStorey4=24,pagodaStorey5=25,pagodaStorey6=504,description=""}
+DictPagodaFormation["6"]={id=6,name="逍遥",reward="3_4_600;2_74_2",pagodaStorey1=26,pagodaStorey2=27,pagodaStorey3=28,pagodaStorey4=29,pagodaStorey5=30,pagodaStorey6=505,description=""}
+DictPagodaFormation["7"]={id=7,name="虚枉",reward="3_4_700;2_76_1",pagodaStorey1=31,pagodaStorey2=32,pagodaStorey3=33,pagodaStorey4=34,pagodaStorey5=35,pagodaStorey6=506,description=""}
+DictPagodaFormation["8"]={id=8,name="箴言",reward="3_4_800;2_73_1",pagodaStorey1=36,pagodaStorey2=37,pagodaStorey3=38,pagodaStorey4=39,pagodaStorey5=40,pagodaStorey6=507,description=""}
+DictPagodaFormation["9"]={id=9,name="侃离",reward="3_4_900;2_76_1",pagodaStorey1=41,pagodaStorey2=42,pagodaStorey3=43,pagodaStorey4=44,pagodaStorey5=45,pagodaStorey6=508,description=""}
+DictPagodaFormation["10"]={id=10,name="盘龙",reward="3_4_1000;2_73_1",pagodaStorey1=46,pagodaStorey2=47,pagodaStorey3=48,pagodaStorey4=49,pagodaStorey5=50,pagodaStorey6=509,description=""}
+DictPagodaFormation["11"]={id=11,name="金刚",reward="3_4_1100;2_76_1",pagodaStorey1=51,pagodaStorey2=52,pagodaStorey3=53,pagodaStorey4=54,pagodaStorey5=55,pagodaStorey6=510,description=""}
+DictPagodaFormation["12"]={id=12,name="摄月",reward="3_4_1200;2_73_1",pagodaStorey1=56,pagodaStorey2=57,pagodaStorey3=58,pagodaStorey4=59,pagodaStorey5=60,pagodaStorey6=511,description=""}

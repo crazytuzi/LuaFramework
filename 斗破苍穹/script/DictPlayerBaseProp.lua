@@ -1,0 +1,13 @@
+DictPlayerBaseProp={}
+DictPlayerBaseProp["1"]={id=1,name="元宝",smallUiId=1169,bigUiId=0,sname="gold",description="土豪必备，华丽丽的人生需要金灿灿的元宝来衬托！"}
+DictPlayerBaseProp["2"]={id=2,name="银币",smallUiId=1165,bigUiId=0,sname="copper",description="斗气大陆专属流通货币，银币在手，天下我有！"}
+DictPlayerBaseProp["3"]={id=3,name="经验",smallUiId=15003,bigUiId=0,sname="exp",description=""}
+DictPlayerBaseProp["4"]={id=4,name="火能石",smallUiId=1015,bigUiId=0,sname="culture",description="兑换装备必须道具。"}
+DictPlayerBaseProp["5"]={id=5,name="威望",smallUiId=1161,bigUiId=1162,sname="prestige",description="通过竞技场获得，用来在竞技场兑换东西"}
+DictPlayerBaseProp["6"]={id=6,name="等级",smallUiId=0,bigUiId=0,sname="level",description=""}
+DictPlayerBaseProp["7"]={id=7,name="联盟贡献",smallUiId=15066,bigUiId=0,sname="offer",description="可以在联盟商店中兑换道具"}
+DictPlayerBaseProp["8"]={id=8,name="屠魔积分",smallUiId=16053,bigUiId=0,sname="boIntegral",description="世界boss获得"}
+DictPlayerBaseProp["9"]={id=9,name="出千",smallUiId=16100,bigUiId=0,sname="chuqian",description="千王之王，想要几点来几点，您就是赌神"}
+DictPlayerBaseProp["10"]={id=10,name="双倍",smallUiId=16101,bigUiId=0,sname="shbei",description="洪福齐天，下一次获奖时的帮派资源，个人帮贡双倍奖励"}
+DictPlayerBaseProp["11"]={id=11,name="聚木成金",smallUiId=16102,bigUiId=0,sname="jucj",description="聚木为金，下一次获奖时的所有木材奖励变为金条奖励，数量不变"}
+DictPlayerBaseProp["12"]={id=12,name="点石成金",smallUiId=16103,bigUiId=0,sname="dscj",description="点石为金，下一次获奖时的所有石料奖励变为金条奖励，数量不变"}

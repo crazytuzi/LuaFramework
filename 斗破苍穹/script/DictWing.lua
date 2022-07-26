@@ -1,0 +1,12 @@
+DictWing={}
+DictWing["1"]={id=1,name="奔雷神羽",sname="lei",actionName="",description="雷属性翅膀"}
+DictWing["2"]={id=2,name="逐风神羽",sname="feng",actionName="",description="风属性翅膀"}
+DictWing["3"]={id=3,name="圣光神羽",sname="guang",actionName="",description="光属性翅膀"}
+DictWing["4"]={id=4,name="暗黑神羽",sname="an",actionName="",description="暗属性翅膀"}
+DictWing["5"]={id=5,name="神圣之羽",sname="shen",actionName="sheng",description="神圣属性翅膀"}
+DictWing["6"]={id=6,name="赤焱神羽",sname="chi",actionName="huo",description="神焱属性翅膀"}
+DictWing["7"]={id=7,name="魔仙幻羽",sname="mo",actionName="ertongjie",description="魔仙属性翅膀"}
+DictWing["8"]={id=8,name="轮回神羽",sname="heibai",actionName="emotianshi",description="黑白属性翅膀"}
+DictWing["9"]={id=9,name="斗破苍翼",sname="zhounian",actionName="zhounianqin",description="全属性翅膀"}
+DictWing["10"]={id=10,name="暗夜魔翼",sname="wansheng",actionName="wanshengjie",description="全属性翅膀"}
+DictWing["11"]={id=11,name="凤翅天翔",sname="feichi",actionName="chunjie",description="全属性翅膀"}

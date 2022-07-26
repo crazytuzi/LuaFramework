@@ -1,0 +1,11 @@
+DictFightType={}
+DictFightType["1"]={id=1,name="物攻",sname="wuAttack",description=""}
+DictFightType["2"]={id=2,name="法攻",sname="faAttack",description=""}
+DictFightType["3"]={id=3,name="物防",sname="wuDefense",description=""}
+DictFightType["4"]={id=4,name="法防",sname="faDefense",description=""}
+DictFightType["5"]={id=5,name="生命",sname="blood",description=""}
+DictFightType["6"]={id=6,name="高闪",sname="dodge",description=""}
+DictFightType["7"]={id=7,name="高暴",sname="crit",description=""}
+DictFightType["8"]={id=8,name="高命",sname="hit",description=""}
+DictFightType["9"]={id=9,name="高抗",sname="flex",description=""}
+DictFightType["10"]={id=10,name="物法双修",sname="wfBoth",description=""}

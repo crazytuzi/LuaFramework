@@ -1,0 +1,9 @@
+DictActivityFund={}
+DictActivityFund["1"]={id=1,level=10,goldNum=200,description="10级可领200元宝"}
+DictActivityFund["2"]={id=2,level=20,goldNum=400,description="20级可领400元宝"}
+DictActivityFund["3"]={id=3,level=25,goldNum=500,description="25级可领500元宝"}
+DictActivityFund["4"]={id=4,level=30,goldNum=600,description="30级可领600元宝"}
+DictActivityFund["5"]={id=5,level=35,goldNum=700,description="35级可领700元宝"}
+DictActivityFund["6"]={id=6,level=40,goldNum=900,description="40级可领900元宝"}
+DictActivityFund["7"]={id=7,level=45,goldNum=1200,description="45级可领1200元宝"}
+DictActivityFund["8"]={id=8,level=50,goldNum=1498,description="50级可领1498元宝"}

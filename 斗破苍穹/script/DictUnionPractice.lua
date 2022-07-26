@@ -1,0 +1,9 @@
+DictUnionPractice={}
+DictUnionPractice["1"]={id=1,name="强体",smallUiId=17100,practiceValueActivity=0,propEffect="5_1",levelAdd=0.5,rank=1,sname="qiangti",description="全队生命上限%s"}
+DictUnionPractice["2"]={id=2,name="雨润",smallUiId=17101,practiceValueActivity=800,propEffect="5_13",levelAdd=1,rank=5,sname="yurun",description="全队减少灼烧BUFF伤害%s"}
+DictUnionPractice["3"]={id=3,name="辟毒",smallUiId=17102,practiceValueActivity=800,propEffect="5_14",levelAdd=1,rank=6,sname="bidu",description="全队减少毒素BUFF伤害%s"}
+DictUnionPractice["4"]={id=4,name="神佑",smallUiId=17103,practiceValueActivity=200,propEffect="5_22",levelAdd=0.2,rank=3,sname="shenyou",description="全队免疫法术伤害几率加成%s"}
+DictUnionPractice["5"]={id=5,name="金刚",smallUiId=17104,practiceValueActivity=200,propEffect="5_21",levelAdd=0.2,rank=2,sname="jingang",description="全队免疫物理伤害几率加成%s"}
+DictUnionPractice["6"]={id=6,name="神装",smallUiId=17105,practiceValueActivity=800,propEffect="20_1",levelAdd=0.5,rank=7,sname="shenzhuang",description="分解装备获得火能石加成%s"}
+DictUnionPractice["7"]={id=7,name="凝魂",smallUiId=17106,practiceValueActivity=800,propEffect="20_2",levelAdd=0.5,rank=8,sname="ninghun",description="分解卡牌得到魂源加成%s"}
+DictUnionPractice["8"]={id=8,name="聚财",smallUiId=17107,practiceValueActivity=200,propEffect="20_3",levelAdd=0.5,rank=4,sname="jucai",description="资源矿获得银币数量加成%s"}

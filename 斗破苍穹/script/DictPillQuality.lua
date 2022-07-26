@@ -1,0 +1,11 @@
+DictPillQuality={}
+DictPillQuality["1"]={id=1,name="一品丹药",sname="one",description=""}
+DictPillQuality["2"]={id=2,name="二品丹药",sname="two",description=""}
+DictPillQuality["3"]={id=3,name="三品丹药",sname="three",description=""}
+DictPillQuality["4"]={id=4,name="四品丹药",sname="four",description=""}
+DictPillQuality["5"]={id=5,name="五品丹药",sname="five",description=""}
+DictPillQuality["6"]={id=6,name="六品丹药",sname="six",description=""}
+DictPillQuality["7"]={id=7,name="七品丹药",sname="seven",description=""}
+DictPillQuality["8"]={id=8,name="八品丹药",sname="eight",description=""}
+DictPillQuality["9"]={id=9,name="九品丹药",sname="nine",description=""}
+DictPillQuality["10"]={id=10,name="十品丹药",sname="ten",description=""}

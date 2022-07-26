@@ -1,0 +1,13 @@
+DictYFireChip={}
+DictYFireChip["1"]={id=1,name="万兽灵焱火种",description="异火万兽灵焱火种，收集80个即可在异火神坛激活万兽灵焱",smallUiId=10143,bigUiId=10144}
+DictYFireChip["2"]={id=2,name="青莲地心火火种",description="异火青莲地心火火种，收集80个即可在异火神坛激活青莲地心火",smallUiId=10141,bigUiId=10142}
+DictYFireChip["3"]={id=3,name="海心焰火种",description="异火海心焰火种，收集80个即可在异火神坛激活海心焰",smallUiId=10139,bigUiId=10140}
+DictYFireChip["4"]={id=4,name="陨落心炎火种",description="异火陨落心炎火种，收集80个即可在异火神坛激活陨落心炎",smallUiId=10137,bigUiId=10138}
+DictYFireChip["5"]={id=5,name="骨灵冷火火种",description="异火骨灵冷火火种，收集80个即可在异火神坛激活骨灵冷火",smallUiId=10135,bigUiId=10136}
+DictYFireChip["6"]={id=6,name="三千焱炎火火种",description="异火三千焱炎火火种，收集80个即可在异火神坛激活三千焱炎火",smallUiId=10133,bigUiId=10134}
+DictYFireChip["7"]={id=7,name="九幽金祖火火种",description="异火九幽金祖火火种，收集80个即可在异火神坛激活九幽金祖火",smallUiId=10131,bigUiId=10132}
+DictYFireChip["8"]={id=8,name="生灵之焱火种",description="异火生灵之焱火种，收集80个即可在异火神坛激活生灵之焱",smallUiId=10129,bigUiId=10130}
+DictYFireChip["9"]={id=9,name="金帝焚天炎火种",description="异火金帝焚天炎火种，收集80个即可在异火神坛激活金帝焚天炎",smallUiId=10127,bigUiId=10128}
+DictYFireChip["10"]={id=10,name="净莲妖火火种",description="异火净莲妖火火种，收集80个即可在异火神坛激活净莲妖火",smallUiId=10125,bigUiId=10126}
+DictYFireChip["11"]={id=11,name="虚无吞炎火种",description="异火虚无吞炎火种，收集80个即可在异火神坛激活虚无吞炎",smallUiId=10123,bigUiId=10124}
+DictYFireChip["12"]={id=12,name="帝炎火种",description="异火帝炎火种，收集80个即可在异火神坛激活帝焱",smallUiId=10121,bigUiId=10122}

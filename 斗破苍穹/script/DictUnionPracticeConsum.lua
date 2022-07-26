@@ -1,0 +1,9 @@
+DictUnionPracticeConsum={}
+DictUnionPracticeConsum["1"]={id=1,type=1,practiceValueStart=0,practiceValueEnd=150,consumUnionValue=100,consumUnionFund=2,description=""}
+DictUnionPracticeConsum["2"]={id=2,type=1,practiceValueStart=151,practiceValueEnd=500,consumUnionValue=160,consumUnionFund=2,description=""}
+DictUnionPracticeConsum["3"]={id=3,type=1,practiceValueStart=501,practiceValueEnd=1000,consumUnionValue=240,consumUnionFund=2,description=""}
+DictUnionPracticeConsum["4"]={id=4,type=1,practiceValueStart=1001,practiceValueEnd=3000,consumUnionValue=300,consumUnionFund=2,description=""}
+DictUnionPracticeConsum["5"]={id=5,type=1,practiceValueStart=3001,practiceValueEnd=6000,consumUnionValue=360,consumUnionFund=2,description=""}
+DictUnionPracticeConsum["6"]={id=6,type=1,practiceValueStart=6001,practiceValueEnd=10000,consumUnionValue=400,consumUnionFund=2,description=""}
+DictUnionPracticeConsum["7"]={id=7,type=1,practiceValueStart=10001,practiceValueEnd=150000,consumUnionValue=600,consumUnionFund=2,description=""}
+DictUnionPracticeConsum["8"]={id=8,type=2,practiceValueStart=0,practiceValueEnd=1000000000,consumUnionValue=5,consumUnionFund=2,description=""}

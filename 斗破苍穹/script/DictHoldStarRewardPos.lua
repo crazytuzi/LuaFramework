@@ -1,0 +1,11 @@
+DictHoldStarRewardPos={}
+DictHoldStarRewardPos["1"]={id=1,starNum=15,description=""}
+DictHoldStarRewardPos["2"]={id=2,starNum=30,description=""}
+DictHoldStarRewardPos["3"]={id=3,starNum=40,description=""}
+DictHoldStarRewardPos["4"]={id=4,starNum=50,description=""}
+DictHoldStarRewardPos["5"]={id=5,starNum=65,description=""}
+DictHoldStarRewardPos["6"]={id=6,starNum=80,description=""}
+DictHoldStarRewardPos["7"]={id=7,starNum=90,description=""}
+DictHoldStarRewardPos["8"]={id=8,starNum=100,description=""}
+DictHoldStarRewardPos["9"]={id=9,starNum=115,description=""}
+DictHoldStarRewardPos["10"]={id=10,starNum=130,description=""}

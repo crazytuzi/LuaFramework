@@ -1,0 +1,13 @@
+DictYFire={}
+DictYFire["1"]={id=1,name="万兽灵焱",rank=22,smallUiId=10143,bigUiId=10144,exuberantDesc="所有技能无视目标减伤效果",rageDesc="所有技能无视目标减伤效果，并必定命中，无视对方躲闪几率",hpMax=4000,cureVar=120,cost=1,chipId=0,chipMax=80}
+DictYFire["2"]={id=2,name="青莲地心火",rank=19,smallUiId=10141,bigUiId=10142,exuberantDesc="释放技能时，如果英雄没有受伤，增加英雄50%基础攻击力",rageDesc="释放技能时，如果英雄没有受伤，增加英雄150%基础攻击力",hpMax=6000,cureVar=120,cost=1,chipId=0,chipMax=80}
+DictYFire["3"]={id=3,name="海心焰",rank=15,smallUiId=10139,bigUiId=10140,exuberantDesc="每次治疗目标将目标血量直接加满",rageDesc="每次治疗目标将目标血量直接加满，并提高目标20%物防法防，最多提高至100%",hpMax=6000,cureVar=120,cost=1,chipId=0,chipMax=80}
+DictYFire["4"]={id=4,name="陨落心炎",rank=14,smallUiId=10137,bigUiId=10138,exuberantDesc="英雄回合开始时，如果被控制，则有30%概率自动恢复100%生命值",rageDesc="英雄回合开始时，如果被控制，则自动恢复100%生命值",hpMax=6000,cureVar=120,cost=1,chipId=0,chipMax=80}
+DictYFire["5"]={id=5,name="骨灵冷火",rank=11,smallUiId=10135,bigUiId=10136,exuberantDesc="所有技能的冷却时间最多1回合",rageDesc="取消所有技能的冷却回合",hpMax=8000,cureVar=120,cost=2,chipId=0,chipMax=80}
+DictYFire["6"]={id=6,name="三千焱炎火",rank=9,smallUiId=10133,bigUiId=10134,exuberantDesc="一场战斗中，免疫前1次受到的所有直接法术伤害",rageDesc="一场战斗中，免疫前4次受到的所有直接法术伤害",hpMax=8000,cureVar=120,cost=2,chipId=0,chipMax=80}
+DictYFire["7"]={id=7,name="九幽金祖火",rank=7,smallUiId=10131,bigUiId=10132,exuberantDesc="一场战斗中，免疫前1次受到的所有直接物理伤害",rageDesc="一场战斗中，免疫前4次受到的所有直接物理伤害",hpMax=8000,cureVar=120,cost=2,chipId=0,chipMax=80}
+DictYFire["8"]={id=8,name="生灵之焱",rank=5,smallUiId=10129,bigUiId=10130,exuberantDesc="到英雄行动时，如果英雄被封印，击晕或者冰冻，30%概率自动摆脱全部控制状态",rageDesc="到英雄行动时，如果英雄被封印，击晕或者冰冻，自动摆脱全部控制状态",hpMax=8000,cureVar=120,cost=2,chipId=0,chipMax=80}
+DictYFire["9"]={id=9,name="金帝焚天炎",rank=4,smallUiId=10127,bigUiId=10128,exuberantDesc="在自身的行动回合有30%几率释放入场技",rageDesc="在自身的行动回合必定释放入场技",hpMax=12000,cureVar=120,cost=3,chipId=0,chipMax=80}
+DictYFire["10"]={id=10,name="净莲妖火",rank=3,smallUiId=10125,bigUiId=10126,exuberantDesc="有30%概率英雄自身回合开始时，行动两次",rageDesc="英雄自身回合开始时，行动两次",hpMax=12000,cureVar=120,cost=3,chipId=0,chipMax=80}
+DictYFire["11"]={id=11,name="虚无吞炎",rank=2,smallUiId=10123,bigUiId=10124,exuberantDesc="在自身的行动回合有30%几率释放离场技",rageDesc="在自身的行动回合必定释放离场技",hpMax=12000,cureVar=120,cost=3,chipId=0,chipMax=80}
+DictYFire["12"]={id=12,name="帝炎",rank=1,smallUiId=10121,bigUiId=10122,exuberantDesc="帝炎无需补充火灵，永远处于狂暴状态",rageDesc="万火朝宗，对方所有英雄一切异火只能处于旺盛状态",hpMax=50000,cureVar=120,cost=0,chipId=0,chipMax=80}

@@ -1,0 +1,11 @@
+DictTitle={}
+DictTitle["1"]={id=1,name="斗者",sname="douZhe",linden=0,description=""}
+DictTitle["2"]={id=2,name="斗师",sname="douShi",linden=5,description=""}
+DictTitle["3"]={id=3,name="大斗师",sname="daDouShi",linden=10,description=""}
+DictTitle["4"]={id=4,name="斗灵",sname="douLing",linden=15,description=""}
+DictTitle["5"]={id=5,name="斗王",sname="douWang",linden=20,description="0"}
+DictTitle["6"]={id=6,name="斗皇",sname="douHuang",linden=25,description="10"}
+DictTitle["7"]={id=7,name="斗宗",sname="douZong",linden=30,description="15"}
+DictTitle["8"]={id=8,name="斗尊",sname="douZun",linden=35,description="20"}
+DictTitle["9"]={id=9,name="斗圣",sname="douSheng",linden=40,description="25"}
+DictTitle["10"]={id=10,name="斗帝",sname="douDi",linden=45,description="30"}

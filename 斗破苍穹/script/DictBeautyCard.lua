@@ -1,0 +1,10 @@
+DictBeautyCard={}
+DictBeautyCard["1"]={id=1,cardId=136,unblock=1,conditions="14_1_1",description="眉目如画，倾国倾城",sound="Beauty_5"}
+DictBeautyCard["2"]={id=2,cardId=51,unblock=2,conditions="14_2_1",description="千娇百媚，天生尤物",sound="Beauty_7"}
+DictBeautyCard["3"]={id=3,cardId=89,unblock=45,conditions="14_45_1",description="出尘脱俗，天人之姿",sound="Beauty_6"}
+DictBeautyCard["4"]={id=4,cardId=90,unblock=105,conditions="14_105_1",description="明眸皓齿，我见犹怜",sound="Beauty_4"}
+DictBeautyCard["5"]={id=5,cardId=144,unblock=125,conditions="14_125_1",description="绝代佳人，国色天姿",sound="Beauty_2"}
+DictBeautyCard["6"]={id=6,cardId=95,unblock=148,conditions="14_148_1",description="嫣然一笑，顾盼生姿",sound="Beauty_3"}
+DictBeautyCard["7"]={id=7,cardId=91,unblock=165,conditions="14_165_1",description="兰心慧质，风姿绰约",sound="Beauty_8"}
+DictBeautyCard["8"]={id=8,cardId=28,unblock=204,conditions="14_204_1",description="冰肌玉骨，似水柔情",sound="Beauty_1"}
+DictBeautyCard["9"]={id=9,cardId=139,unblock=215,conditions="14_215_1",description="聪明伶俐，娇小玲珑",sound="Beauty_9"}

@@ -1,0 +1,16 @@
+DictActivityOpenServiceBag={}
+DictActivityOpenServiceBag["1"]={id=1,things="2_71_5;2_212_5;16_1_20|3_1_150;2_9_50;2_82_5",description=""}
+DictActivityOpenServiceBag["2"]={id=2,things="3_1_300;2_212_5;16_1_20|3_1_200;2_12_2000;2_82_5",description=""}
+DictActivityOpenServiceBag["3"]={id=3,things="3_1_400;2_212_5;16_1_20|3_1_250;6_13_1;2_82_5",description=""}
+DictActivityOpenServiceBag["4"]={id=4,things="2_87_20;2_212_5;16_1_20|3_1_300;2_1002_1;2_1005_1",description=""}
+DictActivityOpenServiceBag["5"]={id=5,things="2_13_20;2_212_5|3_1_350;16_1_80",description=""}
+DictActivityOpenServiceBag["6"]={id=6,things="3_1_150;2_212_5|3_1_400;2_89_3;2_88_3",description=""}
+DictActivityOpenServiceBag["7"]={id=7,things="3_1_800;2_212_10;7_56_1|3_1_500;7_135_1",description=""}
+DictActivityOpenServiceBag["8"]={id=8,things="6_8_1;2_304_10|6_8_1;2_304_10",description=""}
+DictActivityOpenServiceBag["9"]={id=9,things="6_47_1;2_304_10|6_47_1;2_304_10",description=""}
+DictActivityOpenServiceBag["10"]={id=10,things="6_86_1;2_304_10|6_86_1;2_304_10",description=""}
+DictActivityOpenServiceBag["11"]={id=11,things="6_67_1;2_304_10|6_67_1;2_304_10",description=""}
+DictActivityOpenServiceBag["12"]={id=12,things="2_18_1;2_304_10|2_18_1;2_304_10",description=""}
+DictActivityOpenServiceBag["13"]={id=13,things="2_18_1;2_304_10|2_18_1;2_304_10",description=""}
+DictActivityOpenServiceBag["14"]={id=14,things="2_18_1;2_304_10|2_18_1;2_304_10",description=""}
+DictActivityOpenServiceBag["15"]={id=15,things="18_5_1;3_1_1000|18_5_1;3_1_1000",description=""}

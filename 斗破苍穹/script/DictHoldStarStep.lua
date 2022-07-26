@@ -1,0 +1,13 @@
+DictHoldStarStep={}
+DictHoldStarStep["1"]={id=1,holdStarGradeId=1,step=1,rewardStarNum=20,hitPer=0.57,description=""}
+DictHoldStarStep["2"]={id=2,holdStarGradeId=1,step=2,rewardStarNum=30,hitPer=0.44,description=""}
+DictHoldStarStep["3"]={id=3,holdStarGradeId=1,step=3,rewardStarNum=35,hitPer=0.33,description=""}
+DictHoldStarStep["4"]={id=4,holdStarGradeId=1,step=4,rewardStarNum=40,hitPer=0.28,description=""}
+DictHoldStarStep["5"]={id=5,holdStarGradeId=2,step=1,rewardStarNum=20,hitPer=0.57,description=""}
+DictHoldStarStep["6"]={id=6,holdStarGradeId=2,step=2,rewardStarNum=30,hitPer=0.44,description=""}
+DictHoldStarStep["7"]={id=7,holdStarGradeId=2,step=3,rewardStarNum=35,hitPer=0.33,description=""}
+DictHoldStarStep["8"]={id=8,holdStarGradeId=2,step=4,rewardStarNum=40,hitPer=0.28,description=""}
+DictHoldStarStep["9"]={id=9,holdStarGradeId=3,step=1,rewardStarNum=20,hitPer=0.57,description=""}
+DictHoldStarStep["10"]={id=10,holdStarGradeId=3,step=2,rewardStarNum=30,hitPer=0.44,description=""}
+DictHoldStarStep["11"]={id=11,holdStarGradeId=3,step=3,rewardStarNum=35,hitPer=0.33,description=""}
+DictHoldStarStep["12"]={id=12,holdStarGradeId=3,step=4,rewardStarNum=40,hitPer=0.28,description=""}

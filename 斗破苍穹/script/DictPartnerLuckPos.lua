@@ -1,0 +1,16 @@
+DictPartnerLuckPos={}
+DictPartnerLuckPos["1"]={id=1,type=1,value=26,isAuto=1,description=""}
+DictPartnerLuckPos["2"]={id=2,type=1,value=33,isAuto=1,description=""}
+DictPartnerLuckPos["3"]={id=3,type=1,value=40,isAuto=1,description=""}
+DictPartnerLuckPos["4"]={id=4,type=1,value=50,isAuto=1,description=""}
+DictPartnerLuckPos["5"]={id=5,type=1,value=60,isAuto=1,description=""}
+DictPartnerLuckPos["6"]={id=6,type=1,value=70,isAuto=1,description=""}
+DictPartnerLuckPos["7"]={id=7,type=1,value=80,isAuto=1,description=""}
+DictPartnerLuckPos["8"]={id=8,type=2,value=1000,isAuto=1,description=""}
+DictPartnerLuckPos["9"]={id=9,type=2,value=7000,isAuto=1,description=""}
+DictPartnerLuckPos["10"]={id=10,type=3,value=1,isAuto=0,description=""}
+DictPartnerLuckPos["11"]={id=11,type=3,value=3,isAuto=0,description=""}
+DictPartnerLuckPos["12"]={id=12,type=3,value=9,isAuto=0,description=""}
+DictPartnerLuckPos["13"]={id=13,type=3,value=9,isAuto=0,description=""}
+DictPartnerLuckPos["14"]={id=14,type=3,value=9,isAuto=0,description=""}
+DictPartnerLuckPos["15"]={id=15,type=3,value=9,isAuto=0,description=""}

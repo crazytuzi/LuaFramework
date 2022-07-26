@@ -1,0 +1,17 @@
+DictHoleConsume={}
+DictHoleConsume["1"]={id=1,qualityId=1,times=0,num=1,description=""}
+DictHoleConsume["2"]={id=2,qualityId=1,times=1,num=2,description=""}
+DictHoleConsume["3"]={id=3,qualityId=1,times=2,num=3,description=""}
+DictHoleConsume["4"]={id=4,qualityId=1,times=3,num=4,description=""}
+DictHoleConsume["5"]={id=5,qualityId=2,times=0,num=1,description=""}
+DictHoleConsume["6"]={id=6,qualityId=2,times=1,num=2,description=""}
+DictHoleConsume["7"]={id=7,qualityId=2,times=2,num=3,description=""}
+DictHoleConsume["9"]={id=9,qualityId=2,times=3,num=4,description=""}
+DictHoleConsume["10"]={id=10,qualityId=3,times=0,num=1,description=""}
+DictHoleConsume["11"]={id=11,qualityId=3,times=1,num=2,description=""}
+DictHoleConsume["12"]={id=12,qualityId=3,times=2,num=3,description=""}
+DictHoleConsume["13"]={id=13,qualityId=3,times=3,num=4,description=""}
+DictHoleConsume["14"]={id=14,qualityId=4,times=0,num=1,description=""}
+DictHoleConsume["15"]={id=15,qualityId=4,times=1,num=2,description=""}
+DictHoleConsume["16"]={id=16,qualityId=4,times=2,num=3,description=""}
+DictHoleConsume["17"]={id=17,qualityId=4,times=3,num=4,description=""}

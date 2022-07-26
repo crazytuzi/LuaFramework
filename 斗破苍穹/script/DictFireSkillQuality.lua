@@ -1,0 +1,13 @@
+DictFireSkillQuality={}
+DictFireSkillQuality["1"]={id=1,name="黄阶低级",sname="hD",description=""}
+DictFireSkillQuality["2"]={id=2,name="黄阶中级",sname="hZh",description=""}
+DictFireSkillQuality["3"]={id=3,name="黄阶高级",sname="hG",description=""}
+DictFireSkillQuality["4"]={id=4,name="玄阶低级",sname="xD",description=""}
+DictFireSkillQuality["5"]={id=5,name="玄阶中级",sname="xZh",description=""}
+DictFireSkillQuality["6"]={id=6,name="玄阶高级",sname="xG",description=""}
+DictFireSkillQuality["7"]={id=7,name="地阶低级",sname="dD",description=""}
+DictFireSkillQuality["8"]={id=8,name="地阶中级",sname="dZh",description=""}
+DictFireSkillQuality["9"]={id=9,name="地阶高级",sname="dG",description=""}
+DictFireSkillQuality["10"]={id=10,name="天阶低级",sname="tD",description=""}
+DictFireSkillQuality["11"]={id=11,name="天阶中级",sname="tZh",description=""}
+DictFireSkillQuality["12"]={id=12,name="天阶高级",sname="tG",description=""}

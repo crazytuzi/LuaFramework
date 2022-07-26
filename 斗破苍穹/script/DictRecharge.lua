@@ -1,0 +1,10 @@
+DictRecharge={}
+DictRecharge["1"]={id=1,rmb=30,firstAmt=0,firstAmtDes="立即获得300元宝，连续30天每天可领取100元宝",noFirstAmt=100,noFirstAmtDes="立即获得300元宝，连续30天每天可领取100元宝",uiId=15108,description=""}
+DictRecharge["2"]={id=2,rmb=10,firstAmt=100,firstAmtDes="送100元宝",noFirstAmt=0,noFirstAmtDes="立即获得100元宝",uiId=1169,description=""}
+DictRecharge["3"]={id=3,rmb=30,firstAmt=300,firstAmtDes="送300元宝",noFirstAmt=0,noFirstAmtDes="立即获得300元宝",uiId=15037,description=""}
+DictRecharge["4"]={id=4,rmb=50,firstAmt=500,firstAmtDes="送500元宝",noFirstAmt=0,noFirstAmtDes="立即获得500元宝",uiId=15038,description=""}
+DictRecharge["5"]={id=5,rmb=100,firstAmt=1000,firstAmtDes="送1000元宝",noFirstAmt=0,noFirstAmtDes="立即获得1000元宝",uiId=15039,description=""}
+DictRecharge["6"]={id=6,rmb=300,firstAmt=3000,firstAmtDes="送3000元宝",noFirstAmt=0,noFirstAmtDes="立即获得3000元宝",uiId=15039,description=""}
+DictRecharge["7"]={id=7,rmb=500,firstAmt=5000,firstAmtDes="送5000元宝",noFirstAmt=0,noFirstAmtDes="立即获得5000元宝",uiId=15040,description=""}
+DictRecharge["8"]={id=8,rmb=1000,firstAmt=10000,firstAmtDes="送10000元宝",noFirstAmt=0,noFirstAmtDes="立即获得10000元宝",uiId=15040,description=""}
+DictRecharge["9"]={id=9,rmb=50,firstAmt=0,firstAmtDes="立即获得500元宝，连续30天每天可领取260元宝",noFirstAmt=260,noFirstAmtDes="立即获得500元宝，连续30天每天可领取260元宝",uiId=15059,description=""}

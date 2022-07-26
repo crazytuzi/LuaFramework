@@ -1,0 +1,11 @@
+DictChallengeBuyPrice={}
+DictChallengeBuyPrice["1"]={id=1,price=10}
+DictChallengeBuyPrice["2"]={id=2,price=20}
+DictChallengeBuyPrice["3"]={id=3,price=40}
+DictChallengeBuyPrice["4"]={id=4,price=60}
+DictChallengeBuyPrice["5"]={id=5,price=80}
+DictChallengeBuyPrice["6"]={id=6,price=100}
+DictChallengeBuyPrice["7"]={id=7,price=120}
+DictChallengeBuyPrice["8"]={id=8,price=150}
+DictChallengeBuyPrice["9"]={id=9,price=200}
+DictChallengeBuyPrice["10"]={id=10,price=200}

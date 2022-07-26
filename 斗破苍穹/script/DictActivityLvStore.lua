@@ -1,0 +1,14 @@
+DictActivityLvStore={}
+DictActivityLvStore["1"]={id=1,level=10,things="6_31_1;6_64_1;6_91_1;6_81_1",sellGold=50,limitNum=1,description=""}
+DictActivityLvStore["2"]={id=2,level=15,things="6_26_1;6_60_1;6_90_1;6_77_1",sellGold=100,limitNum=1,description=""}
+DictActivityLvStore["3"]={id=3,level=20,things="6_19_1;2_1002_1;2_1005_1",sellGold=200,limitNum=1,description=""}
+DictActivityLvStore["4"]={id=4,level=25,things="2_2_500;3_2_80000",sellGold=200,limitNum=1,description=""}
+DictActivityLvStore["5"]={id=5,level=30,things="2_87_200;3_2_100000",sellGold=200,limitNum=1,description=""}
+DictActivityLvStore["6"]={id=6,level=35,things="6_8_1;3_2_150000",sellGold=250,limitNum=1,description=""}
+DictActivityLvStore["7"]={id=7,level=40,things="6_13_1;3_2_150000",sellGold=250,limitNum=1,description=""}
+DictActivityLvStore["8"]={id=8,level=45,things="10_66_1;3_2_200000",sellGold=250,limitNum=1,description=""}
+DictActivityLvStore["9"]={id=9,level=50,things="2_12_6000;3_2_200000",sellGold=250,limitNum=1,description=""}
+DictActivityLvStore["10"]={id=10,level=55,things="7_112_1;3_2_250000",sellGold=250,limitNum=1,description=""}
+DictActivityLvStore["11"]={id=11,level=60,things="2_83_800;3_2_250000",sellGold=300,limitNum=1,description=""}
+DictActivityLvStore["12"]={id=12,level=65,things="2_87_800;3_2_250000",sellGold=300,limitNum=1,description=""}
+DictActivityLvStore["13"]={id=13,level=70,things="2_2_2000;3_2_300000",sellGold=300,limitNum=1,description=""}

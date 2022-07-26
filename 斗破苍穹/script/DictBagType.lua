@@ -1,0 +1,10 @@
+DictBagType={}
+DictBagType["1"]={id=1,name="道具",bagUpLimit=50,sname="item",description=""}
+DictBagType["2"]={id=2,name="魔核",bagUpLimit=50,sname="core",description=""}
+DictBagType["3"]={id=3,name="装备碎片",bagUpLimit=50,sname="equipChip",description=""}
+DictBagType["4"]={id=4,name="装备",bagUpLimit=100,sname="equip",description=""}
+DictBagType["5"]={id=5,name="卡牌",bagUpLimit=150,sname="card",description=""}
+DictBagType["6"]={id=6,name="功法",bagUpLimit=30,sname="kungFu",description=""}
+DictBagType["7"]={id=7,name="手动技能",bagUpLimit=30,sname="manualSkill",description=""}
+DictBagType["8"]={id=8,name="法宝",bagUpLimit=30,sname="magic",description=""}
+DictBagType["9"]={id=9,name="翅膀",bagUpLimit=30,sname="wing",description=""}
